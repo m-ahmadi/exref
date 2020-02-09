@@ -1,8 +1,6 @@
 #1 (won't work with submodules)
-move .git\config ..\
-rmdir .git /s /q
+rmdir .git /s /q	(move .git\config .git\info\attributes or whatever out before)
 git init
-move /y ..\config .git\
 git add .
 git commit -m "init"
 git remote add origin <url>
