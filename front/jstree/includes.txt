@@ -1,5 +1,0 @@
-jstree = extracted from zip
-
-jstree/dist/themes/default/style.min.css
-jquery-1.12.1.js
-jstree/dist/jstree.min.js

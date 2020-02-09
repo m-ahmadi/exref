@@ -1,8 +1,6 @@
 // add predefined types for groups of nodes, which make it possible to easily control nesting rules and icon for each group.
-$('#container').jstree({
-	core: {
-		data: data
-	},
+$('#el').jstree({
+	core: { data: data },
 	// define types here:
 	types: {
 		'#': {
@@ -60,7 +58,7 @@ var data = [
 	'another root node',
 ];
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-$('#container').jstree({
+$('#el').jstree({
 	core: {
 		animation: 0,
 		check_callback: true,
@@ -93,4 +91,3 @@ $('#container').jstree({
 	}
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// ref

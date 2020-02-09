@@ -1,7 +1,7 @@
-$('#container').jstree({
+$('#el').jstree({
   json_data: { data },
   themes: {
-    theme: "apple",
+    theme: 'apple',
   },
 	/* types: {
 		default: {

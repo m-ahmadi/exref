@@ -1,10 +1,10 @@
 $.jstree.defaults.core.themes.variant = 'large';
 
-$('#jstree').jstree({
+$('#el').jstree({
   core : {
 		multiple: false,
     animation: 0,
-		check_callback: false,
+		check_callback: false, // if false then can't rename_node()
     themes: {
       variant: 'large',
 			icons: false,

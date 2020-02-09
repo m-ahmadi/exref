@@ -1,27 +1,12 @@
-// basic:
-$('#container').on('changed.jstree', function (e, data) {
-	console.log(data.selected);
-});
-$('button').on('click', function () {
-	$('#container').jstree(true).select_node('child_node_1');
-	$('#container').jstree('select_node', 'child_node_1');
-	$.jstree.reference('#container').select_node('child_node_1');
-});
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-$('#container').on('event.namespace', function (e, data) {
+$('#el').on('event.namespace', function (e, data) {
 	data//Object {node: Object, selected: Array[1], event: n.Event, instance: a.j…
-});
+})
 
-$('#container').jstree(true).select_node('mn1');
-  
-$('#container').jstree('select_node', 'mn2');
-  
-$.jstree.reference('#container').select_node('mn3');
+$('#el').on('changed.jstree', function (e, data) {
+	console.log(data.selected);
+})
 
-$('#container').jstree('get_node', '345_anchor');
-$('#container').jstree('get_node', '344');
-
-$('#container')
+$('#el')
   // listen for event
   .on('changed.jstree', function (e, data) {
     var i, j, r = [];
@@ -32,26 +17,8 @@ $('#container')
   })
   // create the instance
   .jstree();
-
-
-//	open closed parent before select a node
-$('#findChild').click(function(){
-    $.jstree._reference(myTree).open_node('#Node_001',function(){;},false);
-});
-$('#findGrandChild').click(function(){
-    var closedParents = $('#Node_003').parents('li.jstree-closed');,
-		i;
-    for (i=closedParents.length-1; i>=0; i=+1) {
-        pleaseOpen( $(closedParents[i]) );
-    }
-});
-function pleaseOpen(thisNode){
-    if(typeof thisNode=='undefined') return;
-    if(thisNode.hasClass('jstree-leaf') || thisNode.hasClass('jstree-open') ) return;
-    $.jstree._reference(myTree).open_node(thisNode,function(){;},true);
-}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// reference
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// ref
 'init.jstree'
 'loading.jstree'
 'loaded.jstree'
@@ -95,4 +62,4 @@ function pleaseOpen(thisNode){
 'paste.jstree'
 'clear_buffer.jstree'
 'set_theme.jstree'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

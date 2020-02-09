@@ -1,9 +1,13 @@
-// simple:
-$('#container_div').jstree();
+/* includes:
+themes/default/style.css
+jquery-1.12.1.js
+jstree.min.js */
+
+$('#el').jstree();
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // tree with inline json data
-// <div id="container"></div>
-$('#container').jstree({
+// <div id="el"></div>
+$('#el').jstree({
 	core : {
 		data : [
 			'Simple root node',
@@ -26,7 +30,7 @@ $('#container').jstree({
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // create a jstree instance
-var treeInstance = $.jstree.create('#element', {
+var treeInstance = $.jstree.create('#el', {
 	plugins: [
 		//'grid'
 		'checkbox'
@@ -56,9 +60,9 @@ var treeInstance = $.jstree.create('#element', {
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // tree with json data from ajax
-// <div id="container"></div>
+// <div id="el"></div>
 
-$('#container').jstree({
+$('#el').jstree({
 	core : {
 		data : {
 			url			:  'blah.json',
@@ -75,7 +79,7 @@ $('#container').jstree({
 	}
 });
 // another example:
-$('#container').jstree({
+$('#el').jstree({
 	'core': {
 		'data': {
 			url: function (node) {
@@ -98,7 +102,7 @@ $('#container').jstree({
 });
 
 // modify ajax response before tree creation:
-$('#container').jstree({
+$('#el').jstree({
 	core : {
 		data : {
 			url: 'blah.json',
@@ -117,7 +121,7 @@ $('#container').jstree({
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // tree with html elements
 /*
-<div id="container">
+<div id="el">
 	<ul>
 		<li>Root node 1
 			<ul>
@@ -129,8 +133,8 @@ $('#container').jstree({
 	</ul>
 </div>
 */
-$('#container').jstree();
-$('#container').on('changed.jstree', function (e, data) {
+$('#el').jstree();
+$('#el').on('changed.jstree', function (e, data) {
 	console.log(data.selected);
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
