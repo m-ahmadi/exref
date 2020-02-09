@@ -1,0 +1,4 @@
+remove files that you added
+
+git rm --cached <file>		remove a specific file
+git rm --cached -r .		remove all files

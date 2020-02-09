@@ -1,0 +1,12 @@
+create the first page of the wiki on github
+then, clone the wiki locally
+git clone https://github.com/user/repo.wiki.git
+copy *.md  to repo.wiki/
+copy *.png to repo.wiki/images/
+cd repo.wiki
+git add .
+git commit -m "added the rest"
+git push -u origin master
+
+done
+(images must be committed to the wiki repo)

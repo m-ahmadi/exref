@@ -1,0 +1,3 @@
+doskey clear=cls
+doskey ls=dir $*
+doskey npp=notepad++.exe $*

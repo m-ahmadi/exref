@@ -1,0 +1,5 @@
+sysdm.cpl
+under "Startup and Recovery" section
+Settings
+under "System fauilure" section
+uncheck "Automatically restart"

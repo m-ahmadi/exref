@@ -1,0 +1,24 @@
+﻿mysql --help
+mysql --user=root --password=123456
+mysql -u root -p p < path.sql
+mysql -u root -p --default-character-set=utf8
+mysql -h localhost -u root
+mysql -h localhost
+
+mysql -u root -p -E
+mysql -u root -p —-vertical
+
+mysql> .... \G;
+
+
+mysqladmin --help
+mysqladmin -u root -p password "new password"
+mysqladmin -u root -p password
+mysqladmin -u root -p status
+mysqladmin -u root -p shutdown
+mysqladmin variables
+mysqladmin variables > filename.txt
+
+mysqld --verbose --help
+mysqld --console
+mysqld --console --explicit_defaults_for_timestamp=on

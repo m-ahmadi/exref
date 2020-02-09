@@ -1,0 +1,59 @@
+====================================================================================
+BitTorrent
+
+switch to port 80 or 8080
+	Preferences
+	Connection tab
+	Port used for incoming connections
+	set to 80 or 8080
+
+disable UPnP and NAT-PMP port mapping
+	Preferences
+	Connection tab
+	uncheck "Enable UPnP port mapping"
+	uncheck "Enable NAT-PMP port mapping"
+
+use encryption to cloak peer-to-peer traffic
+	Preferences
+	BitTorrent tab
+	Protocol Encryption
+	Outgoing
+	Select "Enabled"
+====================================================================================
+Deluge
+	Edit
+	Preferences
+	Network tab
+	check "Use Random Ports"
+	restart Deluge
+
+plugins: Scheduler
+====================================================================================
+Vuze
+
+use encryption to cloak peer-to-peer traffic
+	Tools
+	Options
+	Mode tab
+	User Proficiency
+	Select "Advanced"
+
+	Tools
+	Options
+	Connection tab
+	Transport Encryption tab
+	check "Require encrypted transport"
+	Minimum encryption level
+	select "RC4"
+
+plugins: Speed Scheduler, Progress Bar
+====================================================================================
+BitComet
+
+use encryption to cloak peer-to-peer traffic
+	Options menu
+	choose Preferences
+	Advanced
+	Connection
+	select Protocol encryption
+====================================================================================

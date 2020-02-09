@@ -1,0 +1,19 @@
+via ui:
+
+open file.ext
+View->Syntax->Open all with current extension as
+choose a language
+done
+--------------------------------------------------------------
+via code: (eg: associate .jsx with javascript)
+
+open a .js file first
+Preferences-> Settings - Syntax Specific
+
+(opened file: JavaScript.sublime-settings)
+
+{
+	"extensions": [ "jsx" ]
+}
+
+done

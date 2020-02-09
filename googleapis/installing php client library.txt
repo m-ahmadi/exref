@@ -1,0 +1,1 @@
+git clone -b v1-master https://github.com/google/google-api-php-client.git

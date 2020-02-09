@@ -1,0 +1,11 @@
+ng new <app_name>
+ng new --style=scss --routing
+
+ng serve
+ng serve --open
+
+ng generate component <name>
+ng generate component <name> --spec false
+
+ng generate service <name>
+ng generate directive <name>

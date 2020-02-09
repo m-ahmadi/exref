@@ -1,0 +1,11 @@
+git remote			see the set of repositories (remotes) that you track
+git remote remove origin	remove origin variable
+git remote add origin <URL>	add origin variable
+git remote show
+
+git remote get-url origin
+git remote set-url origin <url>
+
+git remote -v			shows fetch & push urls and verifies the remote
+git remote show
+git remote show origin		inspect a remote

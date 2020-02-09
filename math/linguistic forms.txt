@@ -1,0 +1,19 @@
+1. object a has property P.
+
+2. every object of type T has property P.
+
+3. there is an object of tpye T having property P.
+
+4. if statement A, then statement B.
+
+all other statements are sub-statements of these forms using combinators: and, all, not
+
+---------------------------------------------------------------------------------------------------
+key language terms involved:
+  and
+  or
+  not
+  implies
+  equivalent
+  for all
+  there exists

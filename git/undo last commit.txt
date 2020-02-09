@@ -1,0 +1,7 @@
+git commit -m "Something terribly misguided"			step 1
+git reset HEAD~							step 2
+<< edit files as necessary >>					step 3
+git add .							step 4
+							choose one:
+git commit -c ORIG_HEAD						step 5: edit last message (editor: "Something terribly misguided")
+git commit -m "new message"					step 5: create new message

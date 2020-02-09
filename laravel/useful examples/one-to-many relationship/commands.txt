@@ -1,0 +1,17 @@
+php artisan make:seeder CommentsTableSeeder
+Laravel-app/database/seeds/CommentsTableSeeder.php
+php artisan tinker:
+
+App\User::get()->toArray()
+
+App\User::all()->toArray()
+App\Comment::all()->toArray()
+
+-------------------------------------------------------------------------
+
+App\User::find(1)->comments
+App\Comment::find(1)->user
+foreach (App\User::find(1)->comments as $comment) {echo $comment->text ."\n";}
+	salam man mohammad hastam
+	man mamad ahmadiam
+	are baw man mamad ahmadiam

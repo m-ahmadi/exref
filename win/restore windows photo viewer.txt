@@ -1,0 +1,11 @@
+set key=HKCR\APPLICATIONS\photoviewer.dll\shell
+
+reg add %key%\open
+reg add %key%\open /v MultiVerb /d @photoviewer.dll,-3043
+reg add %key%\open\command /ve /d "%SystemRoot%\System32\rundll32.exe \"%ProgramFiles%\Windows Photo Viewer\PhotoViewer.dll\", ImageView_Fullscreen %1"
+reg add %key%\open\DropTarget
+reg add %key%\open\DropTarget /v CLSID /d {FFE2A43C-56B9-4bf5-9A79-CC6D4285608A}
+
+
+undo
+reg delete %key%\open /f

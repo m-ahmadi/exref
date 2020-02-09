@@ -1,0 +1,4 @@
+webpack src/main.js dist/bundle.js
+
+
+webpack --config example.config.js

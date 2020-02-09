@@ -1,0 +1,7 @@
+gunzip file.gz --keep
+
+-k   --keep	Keep (don't delete) input files during compression or decompression.
+
+-------------------------------------
+
+zcat file.gz > file

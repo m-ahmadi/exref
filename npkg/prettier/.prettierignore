@@ -1,0 +1,5 @@
+package.json
+some/dir
+src/*/test/foo/**/input.*
+src/*/test/bar/**/exec.*
+src/*/test/baz/**/output.*

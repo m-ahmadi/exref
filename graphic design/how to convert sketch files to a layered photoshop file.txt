@@ -1,0 +1,5 @@
+Export the Sketch file as a PDF.
+
+Open the PDF file in Illustrator.
+
+From Illustrator export the document as a PSD.

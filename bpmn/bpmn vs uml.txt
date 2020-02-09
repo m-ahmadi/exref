@@ -1,0 +1,10 @@
+uml
+	object-oriented approach to modeling of applications
+	focus on software design
+
+bpmn
+	process-oriented approach to modelling of systems
+	focus on business processes
+
+
+the two are not competing notations but are different views on systems

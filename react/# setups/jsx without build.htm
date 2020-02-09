@@ -1,0 +1,19 @@
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+<script type="text/babel">
+	const App = () => (
+		<div>
+			<h1>Simple JSX setup</h1>
+			<h2>can't use <strong><pre style={{display: 'inline', color: 'purple'}}>React.Fragment</pre></strong> for some reason.</h2>
+		</div>
+	);
+	
+	ReactDOM.render(
+		<App />,
+		document.getElementById('root')
+	);
+</script>

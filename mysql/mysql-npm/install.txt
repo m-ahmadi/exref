@@ -1,0 +1,4 @@
+npm install mysql				failed
+npm install mysql --save
+
+npm install mysqljs/mysql			installs latest version from github

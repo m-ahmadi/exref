@@ -1,0 +1,26 @@
+-----------------------------------------------------------------------
+			extjs 6.0.1
+sencha -sdk /path/to/sdk generate app MyApp /path/to/myapp
+
+sencha -sdk /path/to/extjs/framework generate app MyApp MyApp
+
+sencha -sdk #path# generate app MyApp MyApp
+
+cd MyApp
+
+sencha app watch
+
+
+
+ext-premium-6.0.1-trial.zip
+	ext-premium-6.0.1
+		ext-6.0.1.zip
+			#ext-premium-6.0.1#
+
+		ext-addons-6.0.1-trial.zip
+		sencha-jetbrains-plugin-6.0.2.zip
+-----------------------------------------------------------------------
+			ext.js 5.1.0
+sencha -sdk /path/to/framework generate app MyApp my-app
+cd my-app
+sencha app watch

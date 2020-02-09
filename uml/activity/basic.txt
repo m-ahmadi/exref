@@ -1,0 +1,9 @@
+nodes on an activity diagram are called actions, not activities.
+strictly, an activity refers to a sequence of actions, so the diagram shows an activity that's made up of actions.
+
+the principal difference between them and flowchart notation is that they support parallel behavior
+
+black circle		initial node
+black bar		fork/join (a fork has one incoming flow and several outgoing concurrent flows)
+action			rounded rectangle
+decision/merge		diamond

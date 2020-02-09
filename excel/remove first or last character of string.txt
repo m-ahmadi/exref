@@ -1,0 +1,12 @@
+first character:
+
+=RIGHT( A2, LEN(A2)-1 )
+
+=REPLACE(A2, 1, 1, "")
+
+=MID( A2, 2, LEN(A2)-1 )
+
+-------------------------------------
+last character:
+
+=LEFT( A2, LEN(A2)-1 )

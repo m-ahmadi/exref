@@ -1,0 +1,57 @@
+-----------------------------------------------------------------------------------------------
+					Transactions
+
+Clients use HTTP to transact with web servers and their resources.
+
+An HTTP transaction consists of
+	a request  command (sent from client to      server)
+	a response result  (sent from server back to client)
+
+This communication happens with formatted blocks of data called HTTP messages.
+
+request
+	GET /specials/saw-blade.gif HTTP/1.0
+	Host: www.joes-hardware.com
+
+response
+	HTTP/1.0 200 OK www.joes-hardware.com
+	Content-type: image/gif
+	Content-length: 8572
+
+-----------------------------------------------------------------------------------------------
+					Methods
+
+HTTP supports several different request commands, called HTTP methods.
+Every HTTP request message has a method.
+
+The method tells the server what action to perform.
+(fetch a web page, run a gateway program, delete a file, etc.)
+
+five common HTTP methods
+	GET 		Send named resource from the server to the client
+	POST 		Send client data into a server gateway application
+	PUT 		Store data from client into a named server resource
+	DELETE 		Delete the named resource from a server
+	HEAD 		Send just the HTTP headers from the response for the named resource
+-----------------------------------------------------------------------------------------------
+					Status Codes
+
+Every HTTP response message comes back with a status code.
+Status Code  is a three-digit numeric code
+Status Code  tells the client if the request succeeded, or if other actions are required
+
+A few common status codes
+	200	OK. Document returned correctly.
+	302	Redirect. Go someplace else to get the resource.
+	404	Not Found. Can’t find this resource.
+
+HTTP also sends an explanatory textual “reason phrase” with each numeric status code 
+The textual phrase is included only for descriptive purposes;
+the numeric code is used for all processing.
+
+These are treated identically by HTTP software:
+	200 OK
+	200 Document attached
+	200 Success
+	200 All’s cool, dude
+-----------------------------------------------------------------------------------------------

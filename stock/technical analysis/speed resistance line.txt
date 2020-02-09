@@ -1,0 +1,42 @@
+speed resistance lines (or speedlines) technique combines the trendline with percentage retracements.
+it was developed by edson gould and it's an adaptation of the idea of dividing the trend into thirds.
+
+difference from the percentage retracement
+it measures the rate of ascent or descent of a trend (its speed).
+
+construction
+bullish speedline
+	find the highest point in the current uptrend.
+	from that high point, a vertical line is drawn downward to where the trend began.
+	that vertical line is then divided into thirds.
+	a trendline is drawn from start of the trend through the 2 points marked on the vertical line (one-third and two-thirds points).
+bearish speedline
+	reverse process of bullish.
+	measure the vertical distance from the low point in the downtrend to the start of the trend.
+	draw 2 lines from the start of the trend through the one-third and two-thirds points on the vertical line.
+
+a new set of lines must be drawn each time a new high/low is set in an uptrend/downtrend.
+
+trendlines drawn from start of the trend to the one-third and two-thirds points may move through some of the price action,
+this is one case where trendlines are not drawn under lows or over highs, but actually through the price action.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+implications
+
+uptrend
+downside corrections stop at the higher speedline (2/3).
+if not stopped at 2/3, prices drop to the lower speedline (1/3).
+if the 1/3 line is broken, prices continue all the way to the start of the prior trend.
+
+downtrend
+the breaking of the lower line (2/3) indicates a rally to the higher line (1/3).
+if 1/3 line is broken, a rally to the top of the prior trend would be indicated.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+role reversal
+
+speedlines reverse roles once they are broken. (same as all trendlines)
+
+during the correction of an uptrend:
+	if the 2/3 line is broken and prices fall to the 1/3 line and rally from there, that 2/3 line becomes a resistance barrier.
+	when the upper line (2/3) is broken, it signals that the old highs will be challenged.
+
+the same principle holds true in downtrends.

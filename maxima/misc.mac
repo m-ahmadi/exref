@@ -1,0 +1,1 @@
+draw_file(terminal=png,file_name=[location])  // outputs whatever plot you have open into a png file.

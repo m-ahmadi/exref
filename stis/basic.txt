@@ -1,0 +1,7 @@
+mean   = normal average (numbers.sum / numbers.count)
+
+median = middle value in the list of ascending-sorted numbers (mean of two middle values if list is even)
+
+mode   = most occurred value in a list of numbers (no repeated numbers = no mode)
+
+range  = difference between largest and smallest values in a list of numbers

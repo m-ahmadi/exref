@@ -1,0 +1,9 @@
+set		show all variables
+set p		show variables begining with p
+set x=2		set variable (per shell session)
+set x=		delete variable
+
+set /p x=		ask user for input
+set /p x=name ?		... with prompt string
+set /p x="name ? "	...
+set /a x=2+4		evaluate right side of equal sign (add two numbers)

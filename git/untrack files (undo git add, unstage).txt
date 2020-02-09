@@ -1,0 +1,2 @@
+git reset .
+git rm -r --cached .

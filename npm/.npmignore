@@ -1,0 +1,23 @@
+# same pattern rules as .gitignore
+# if there's no .npmignore, but there's a .gitignore file, then npm ignores everything matched by the .gitignore
+
+# ignored by default:
+.*.swp
+._*
+.DS_Store
+.git
+.hg
+.npmrc
+.lock-wscript
+.svn
+.wafpickle-*
+config.gypi
+CVS
+npm-debug.log
+
+
+# impossible to ignore (pointless to add):
+package.json
+README (and its variants)
+CHANGELOG (and its variants)
+LICENSE / LICENCE

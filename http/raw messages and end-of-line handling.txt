@@ -1,0 +1,38 @@
+so when browsers send request you don't see the raw request
+when:
+
+http://www.site.com/test.htm
+
+browser changes it to
+	GET /test.htm HTTP/1.1
+	Host: www.site.com
+
+and when response returns you don't see all of it either
+	HTTP/1.1 200 OK
+	Date: Wed, 27 Apr 2016 16:25:19 GMT
+	Server: Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.19
+	X-Powered-By: PHP/5.6.19
+	Content-Length: 5
+	Content-Type: text/html; charset=UTF-8
+
+	fudge
+
+you only see the body of response message in browsers
+----------------------------------------------------------------------------
+				end of line
+
+new line characters play an important part in request and response
+
+end of line in linux	\n
+end of line in windows	\r\n
+
+so depending on which os you're on,
+it gets added to the request and response messages
+
+windows
+	GET /test.htm HTTP/1.1\r\n
+	Host: www.site.com\r\n\r\n
+linux
+	GET /test.htm HTTP/1.1\n
+	Host: www.site.com\n\n
+----------------------------------------------------------------------------

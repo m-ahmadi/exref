@@ -1,0 +1,13 @@
+sysdm.cpl
+Advanced -> Performance -> Advanced -> Change
+
+---------------------------------------------------------------------------------
+move pagefile.sys to another drive
+
+1. uncheck "Automatically manage paging file size for all drives"
+2. click on drive C:
+3. select "No paging file"
+4. click on drive D: (or whatever)
+5. select "System managed size"
+
+done

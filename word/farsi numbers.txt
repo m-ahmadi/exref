@@ -1,0 +1,2 @@
+File -> Options -> Advanced -> Show document content
+Numeral = Context

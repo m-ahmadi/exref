@@ -1,0 +1,12 @@
+in httpd.conf
+	`SRVROOT`	should point to the root folder of your apache installtion.
+	`DocumentRoot`	should point to the htdocs folder. (folder to be served)
+
+
+example:
+
+Define SRVROOT "/Apache"
+
+ServerRoot "${SRVROOT}"
+
+DocumentRoot "${SRVROOT}/htdocs"

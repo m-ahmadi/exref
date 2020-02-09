@@ -1,0 +1,8 @@
+printf "" > file.txt			no trailing newline
+echo -n > file.txt			no trailing newline
+printf salam > file.txt			write text to file
+
+
+cat > myfile.txt
+Hello World!
+CTRL-D to save and exit

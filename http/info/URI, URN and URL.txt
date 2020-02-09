@@ -1,0 +1,62 @@
+URI
+
+Each web server resource has a name,
+so clients can point out what resources they are interested in.
+
+The server resource name is called
+	uniform resource identifier, URI
+
+URIs come in two flavors (types of resource identifiers)
+	URL
+	URN
+
+----------------------------------------------------------------------------------------
+URL
+
+The uniform resource locator (URL) is the most common form of resource identifier.
+
+URLs describe the specific location of a resource on a particular server.
+
+They tell you exactly how to fetch a resource from a precise, fixed location.
+
+
+protocol          server                   resource
+
+http://    www.joes-hardware.com    /specials/saw-blade.gif
+
+
+Most URLs follow a standardized format of three main parts:
+
+	• The first part of the URL is called the scheme,
+	and it describes the protocol used to access the resource.
+	This is usually the HTTP protocol (http://).
+
+	• The second part gives the server Internet address (www.joes-hardware.com).
+	
+	• The rest names a resource on the web server (/specials/saw-blade.gif ).
+	Today, almost every URI is a URL.
+
+----------------------------------------------------------------------------------------
+URN
+
+
+The second flavor of URI is the uniform resource name, or URN.
+
+A URN serves as a unique name for a particular piece of content,
+independent of where the resource currently resides.
+
+These location-independent URNs allow resources to move from place to place.
+
+URNs also allow resources to be accessed by multiple
+network access protocols while maintaining the same name.
+
+For example 
+the following URN might be used to name “RFC 2141” document
+regardless of where it resides (it may even be copied in several places):
+	urn:ietf:rfc:2141
+
+URNs are still experimental and not yet widely adopted.
+
+To work effectively, URNs need a supporting infrastructure to resolve resource locations;
+the lack of such an infrastructure has also slowed their adoption.
+But URNs do hold some exciting promise for the future.

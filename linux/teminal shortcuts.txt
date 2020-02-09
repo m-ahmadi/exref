@@ -1,0 +1,8 @@
+ctrl+L		clear
+ctrl+r		search command history
+ctrl+g		escape search
+
+alt+a		home
+alt+e		end
+alt+f		next word
+alt+b		prev word

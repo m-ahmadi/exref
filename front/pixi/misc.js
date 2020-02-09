@@ -1,0 +1,1 @@
+sprite.anchor = new PIXI.Point(0.5, 0.5);

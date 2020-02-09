@@ -1,0 +1,8 @@
+connect business needs to the user's needs
+
+business goals
+	+ user goals
+	+ user interface
+	+ technology
+	-----------------
+	= user experience

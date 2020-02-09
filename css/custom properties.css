@@ -1,0 +1,22 @@
+:root {
+	--somekeyword: left;
+	--somecolor: #0000ff;
+	--somecomplexvalue: 3px 6px rgb(20, 32, 54);
+	
+	--first-color: #488cff;
+	--second-color: #ffff8c;
+}
+
+#container {
+	--first-color: #48ff32;
+}
+
+#firstParagraph {
+	background-color: var(--first-color);
+	color: var(--second-color);
+}
+
+#secondParagraph {
+	background-color: var(--second-color);
+	color: var(--first-color);
+}

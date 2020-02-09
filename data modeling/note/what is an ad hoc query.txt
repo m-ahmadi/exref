@@ -1,0 +1,12 @@
+Ad hoc is latin for "for this purpose".
+You might call it an "on the fly" query, or a "just so" query.
+It's the kind of SQL query you just loosely type out where you need it,
+
+var newSqlQuery = "SELECT * FROM table WHERE id = ${myId};";
+
+which is an entirely different query each time that line of code is executed,
+depending on the value of myId.
+
+The opposite of an ad hoc query is a predefined query such as a Stored Procedure,
+where you have created a single query for the entire generalized purpose of selecting from that table (say),
+and pass the ID as a variable.

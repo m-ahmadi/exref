@@ -1,0 +1,7 @@
+npm install @babel/core @babel/cli @babel/preset-env --save-dev
+
+
+old:
+npm install babel-cli -g
+npm install babel-preset-es2015 --save-dev
+npm install babel-preset-env --save-dev

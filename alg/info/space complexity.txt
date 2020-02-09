@@ -1,0 +1,3 @@
+space complexity of an algorithm is the amount of memory space required to solve a problem.
+
+space complexity is often expressed asymptotically in big O notation. (similar to time complexity)

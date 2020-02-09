@@ -1,0 +1,6 @@
+this simply does not work and you would get an "MISMATCHED ANONYMOUS DEFINE() MODULES" error,
+
+as many 3rd party codes use define calls for various reasons and it would mess-up requirejs.
+
+so an all-in-one file that contains library and application code does not work with requirejs,
+and you will need at least two files.

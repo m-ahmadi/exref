@@ -1,0 +1,21 @@
+{
+	"auto_match_enabled": false,
+	"color_scheme": "Packages/Color Scheme - Default/Celeste.sublime-color-scheme",
+	"draw_indent_guides": true,
+	"draw_white_space": "none",
+	"enable_tab_scrolling": false,
+	"font_face": "consolas",
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"tab_size": 2,
+	"theme": "Default.sublime-theme"
+}

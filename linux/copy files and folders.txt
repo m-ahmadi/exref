@@ -1,0 +1,6 @@
+cp ./src.txt ../dest/
+
+cp -R source destination/
+
+
+-v verbose	shows files being copied one by one

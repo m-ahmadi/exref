@@ -1,0 +1,5 @@
+/* hide icons of root nodes */
+.jstree.jstree-default > ul.jstree-container-ul > li.jstree-node > a.jstree-anchor > i.jstree-themeicon { display: none; }
+
+/* hide icons of non-root nodes */
+.jstree.jstree-default > ul.jstree-container-ul > * li.jstree-node > a.jstree-anchor > i.jstree-themeicon { display: none; }

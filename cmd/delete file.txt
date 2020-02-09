@@ -1,0 +1,16 @@
+del filename.txt		delete filename.txt (cannot delete read-only files)
+del filename.txt /F		force delete read-only files
+
+del *.txt			all .txt files
+del abc*.txt			all .txt  files starting with abc
+del a_folder			deletes all files within the dir (not the dir itself)
+
+del log.txt /S			all files named log.txt in current dir and all its sub-dirs
+del *.txt /S			all .txt files (in dir & sub-dirs)
+-----------------------------------------------------------------------------------------------------------
+del flags
+
+/S		Delete specified files from all subdirectories.
+/F		Force deleting of read-only files.
+/P		Prompts for confirmation before deleting each file.
+/Q		Quiet mode, do not ask if ok to delete on global wildcard

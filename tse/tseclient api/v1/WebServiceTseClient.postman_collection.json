@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "1bb83f1a-c777-411e-88e3-d7d11c819430",
+		"name": "WebServiceTseClient",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LastPossibleDeven",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip,deflate",
+						"disabled": true
+					},
+					{
+						"key": "SOAPAction",
+						"value": "\"http://tsetmc.com/LastPossibleDeven\"",
+						"disabled": true
+					},
+					{
+						"key": "Content-Length",
+						"value": "223",
+						"disabled": true
+					},
+					{
+						"key": "Host",
+						"value": "service.tsetmc.com",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <LastPossibleDeven xmlns=\"http://tsetmc.com/\" />\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://service.tsetmc.com/WebService/TseClient.asmx",
+					"protocol": "http",
+					"host": [
+						"service",
+						"tsetmc",
+						"com"
+					],
+					"path": [
+						"WebService",
+						"TseClient.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InstrumentAndShare",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip,deflate",
+						"disabled": true
+					},
+					{
+						"key": "SOAPAction",
+						"value": "\"http://tsetmc.com/InstrumentAndShare\"",
+						"disabled": true
+					},
+					{
+						"key": "Content-Length",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "Host",
+						"value": "service.tsetmc.com",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <InstrumentAndShare xmlns=\"http://tsetmc.com/\">\r\n      <DEven>20010321</DEven>\r\n      <LastID>0</LastID>\r\n    </InstrumentAndShare>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://service.tsetmc.com/WebService/TseClient.asmx",
+					"protocol": "http",
+					"host": [
+						"service",
+						"tsetmc",
+						"com"
+					],
+					"path": [
+						"WebService",
+						"TseClient.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DecompressAndGetInsturmentClosingPrice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip,deflate",
+						"disabled": true
+					},
+					{
+						"key": "SOAPAction",
+						"value": "\"http://tsetmc.com/DecompressAndGetInsturmentClosingPrice\"",
+						"disabled": true
+					},
+					{
+						"key": "Content-Length",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "Host",
+						"value": "service.tsetmc.com",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <DecompressAndGetInsturmentClosingPrice xmlns=\"http://tsetmc.com/\">\r\n      <insCodes>FQAAAB+LCAAAAAAABADtvQdgHEmWJSYvbcp7f0r1StfgdKEIgGATJNiQQBDswYjN5pLsHWlHIymrKoHKZVZlXWYWQMztnbz33nvvvffee++997o7nU4n99//P1xmZAFs9s5K2smeIYCqyB8/fnwfPyL2dz69v7N3f2//YH/v4cPde/ujndHO/wMcYkCAFQAAAA==</insCodes>\r\n    </DecompressAndGetInsturmentClosingPrice>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://service.tsetmc.com/WebService/TseClient.asmx",
+					"protocol": "http",
+					"host": [
+						"service",
+						"tsetmc",
+						"com"
+					],
+					"path": [
+						"WebService",
+						"TseClient.asmx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Instrument",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml;charset=UTF-8"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip,deflate",
+						"disabled": true
+					},
+					{
+						"key": "SOAPAction",
+						"value": "\"http://tsetmc.com/Instrument\"",
+						"disabled": true
+					},
+					{
+						"key": "Content-Length",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "Host",
+						"value": "service.tsetmc.com",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n  <soap:Body>\r\n    <Instrument xmlns=\"http://tsetmc.com/\">\r\n      <DEven>20010321</DEven>\r\n    </Instrument>\r\n  </soap:Body>\r\n</soap:Envelope>"
+				},
+				"url": {
+					"raw": "http://service.tsetmc.com/WebService/TseClient.asmx",
+					"protocol": "http",
+					"host": [
+						"service",
+						"tsetmc",
+						"com"
+					],
+					"path": [
+						"WebService",
+						"TseClient.asmx"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

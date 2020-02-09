@@ -1,0 +1,2 @@
+vim <path/your_file>
+cat <path/your_file>

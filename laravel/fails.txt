@@ -1,0 +1,57 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			composer download (curl-7.35.0-win32-fix2)
+
+curl -sS https://getcomposer.org/installer | php
+E:\xampp\php\comsoer.phar
+php composer.phar
+
+curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
+create new folder bin
+E:\xampp\php\bin\comsoer
+php bin\composer
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			installing composer globally (failed)
+create "composer.bat":   (hold, faild)
+write 1 of these:
+		echo @php "%~dp0composer.phar" %*>composer.bat
+	or
+		@ECHO OFF
+		php "%~dp0composer.phar" %*
+
+path= C:\Users\NYC\AppData\Roaming\Composer\vendor\bin
+move	coposer.phar  &  composer.bat  to:
+C:\Users\NYC\AppData\Roaming\Composer\vendor\bin
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			installing laravel with composer (failed)
+set http_proxy=   http://your_proxy:your_port 			(http  with    authentication)
+set http_proxy=   http://username:password@your_proxy:your_port	(http  without authentication)
+set https_proxy= https://your_proxy:your_port			(https with    authentication)
+set https_proxy= https://username:password@your_proxy:your_port (https without authentication)
+
+path= C:\Users\NYC\AppData\Roaming\Composer\vendor\bin
+
+proxy4free.com  us-proxy.org  proxylist.hidemyass.com  ultraproxies.com
+
+set https_proxy= https://xteamweb.com:xteam@75.55.165.86:8088
+set http_proxy=http://1proxy.space
+
+php bin\composer global require "laravel/installer=~1.1"
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				apache proxy server (failed)
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule proxy_ftp_module modules/mod_proxy_ftp.so
+
+Reverse Proxy:
+	ProxyPass /foo http://foo.example.com/bar
+	ProxyPassReverse /foo http://foo.example.com/bar
+
+Forward Proxy:
+	ProxyRequests On
+	ProxyVia On
+	<Proxy *>
+	  Order deny,allow
+	  Deny from all
+	  Allow from internal.example.com
+	</Proxy>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,0 +1,32 @@
+set key="HKLM\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers"
+or HKCU
+
+reg add %key% /v "C:\path\to\app.exe" /d "~ WIN7RTM RUNASADMIN"
+reg add %key% /v %windir%\regjump.exe /d "~ RUNASADMIN"
+reg delete %key% /v %windir%\regjump.exe /f
+
+note:
+specify multiple ones by space separating
+don't know what ~ is for (cuz it also works without it)
+
+WIN95		Windows 95
+WIN98		Windows 98 / Windows Me
+WINXPSP2	Windows XP (Service Pack 2)
+WINXPSP3	Windows XP (Service Pack 3)
+VISTARTM	Windows Vista
+VISTASP1	Windows Vista (Service Pack 1)
+VISTASP2	Windows Vista (Service Pack 2)
+WIN7RTM		Windows 7
+WIN8RTM		Windows 8
+256COLOR	Reduced color mode: 8-bit (256) color
+16BITCOLOR	Reduced color mode: 16-bit (65536) color
+640X480		Run 640 x 480 screen resolution
+DISABLEDXMAXIMIZEDWINDOWEDMODE		Disable fullscreen optimizations
+RUNASADMIN	Run this program as an administrator
+
+Change high DPI settings
+PERPROCESSSYSTEMDPIFORCEOFF
+PERPROCESSSYSTEMDPIFORCEON
+HIGHDPIAWARE
+DPIUNAWARE
+GDIDPISCALING DPIUNAWARE

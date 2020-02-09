@@ -1,0 +1,38 @@
+GPT or MBR?
+
+choose GPT if your pc can run UEFI boot method
+
+GPT
+  UEFI boot mode
+  Win 10
+  Win 8.1
+  Win 8
+MBR
+  Legacy BIOS mode
+  Win 7 & lower
+
+if previous install is MBR, next install will have MBR option only. (after complete format of c drive)
+to change to GPT the whole HDD have to formatted and reconfigured. (causes loss of all data)
+-----------------------------------------------------------------------------------------------------------------
+Check currently installed windows boot mode
+
+method 1
+diskmgmt.msc
+hover mouse over drive c
+if it says "EFI System Partition", you have GPT disk
+if it says nothing, you have MBR
+
+method 2
+open hwinfo
+UEFI Boot: Not Present
+
+method 3
+msinfo32.exe
+BIOS Mode (might not be there)
+-----------------------------------------------------------------------------------------------------------------
+FAT32 or NTTFS
+
+depends on size of .iso
+< 4 GB   FAT32
+> 4 GB   NTFS
+-----------------------------------------------------------------------------------------------------------------

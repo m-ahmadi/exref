@@ -1,0 +1,13 @@
+mklink /d C:\src E:\dest	create dir symlink
+mklink src.txt E:\dest.txt	create file symlink
+
+rmdir /s /q C:\src		delete file symlink
+del src.txt			delete dir symlink
+
+---------------------------------------------------------------------
+another way of adding to path:
+create symlink to binaries in a dir that's already in path
+
+cd bin
+mklink %windir%\mybin.exe mybin.exe
+---------------------------------------------------------------------

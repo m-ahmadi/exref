@@ -1,0 +1,5 @@
+a unit of pronunciation having one vowel sound.
+
+
+water		2
+inferno		3

@@ -1,0 +1,35 @@
+Media Types
+Because the Internet hosts many thousands of different data types,
+HTTP carefully tags each object being transported through the Web with a
+data format label called a MIME type. (Multipurpose Internet Mail Extensions)
+
+Web servers attach a MIME type to all HTTP object data.
+
+When a web browser gets an object back from a server,
+it looks at the associated MIME type to see if it knows how to handle the object.
+
+Most browsers can handle hundreds of popular object types:
+	displaying image files
+	parsing and formatting HTML files
+	playing audio files through the computer’s speakers
+	launching external plug-in software to handle special formats
+
+MIME type
+	Content-type: image/jpeg
+	Content-length: 12984
+
+
+A MIME type is a textual label,
+represented as a primary object type and a specific subtype, separated by a slash.
+
+For example:
+	text/html				An HTML-formatted text document
+	text/plain				A plain ASCII text document
+	image/jpeg				A JPEG version of an image
+	image/gif				A GIF-format image
+	video/quicktime				An Apple QuickTime movie
+	application/vnd.ms-powerpoint		A Microsoft PowerPoint presentation
+
+There are hundreds of popular MIME types, and many more experimental or limiteduse types.
+
+A very thorough MIME type list is provided in Appendix D.

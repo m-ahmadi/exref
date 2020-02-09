@@ -1,0 +1,14 @@
+
+In Laravel 5:
+
+create folder in		/app/
+				/app/Helper
+copy "PersianDate.php" to	/app/Helper/PersianDate.php
+in 				PersianDate.php
+first line			namespace App\Helper;
+
+in controller			use App\Classes\Common
+in controller			$persd = new PersianDate;
+
+
+

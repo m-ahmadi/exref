@@ -1,0 +1,29 @@
+
+
+cl 
+	/c
+	/Tp w.c
+	/D WIN32
+	/D NDEBUG
+	/D _WINDOWS
+	/MT
+	/W3
+	/EHsc
+	/Ox
+	/Os
+	/O2
+	/Fdw.pdb
+
+link w.obj user32.lib 
+	/nologo 
+	/subsystem:windows 
+	/machine:x86 
+	/debug
+	/opt:ref
+	/opt:icf
+
+
+
+
+
+cl /Tp w.c /D WIN32 /D NDEBUG /D _WINDOWS /MT /W3 /EHsc /Ox /Os /O2 /Fdw.pdb /link user32.lib /nologo  /subsystem:windows  /machine:x86 /incremental:no  /opt:ref  /opt:icf

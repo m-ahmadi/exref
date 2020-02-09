@@ -1,0 +1,11 @@
+gem install bundler
+
+bundle init				Generate a simple Gemfile, placed in the current directory
+bundle add <gem_name>			Add the named gem to the Gemfile and run bundle install
+bundle remove <gem_name>		Removes gems from the Gemfile
+
+bundle install				Install the gems specified by the Gemfile or Gemfile.lock
+bundle update				Update dependencies to their latest versions
+bundle package				Package the .gem files required by your application into the vendor/cache directory
+bundle exec				Execute a script in the current bundle
+bundle config				Specify and read configuration options for Bundler

@@ -1,0 +1,43 @@
+/css	Contains all UIkit CSS files and minified versions.
+/fonts	Contains fonts used in UIkit.
+/js	Contains all UIkit JavaScript files and minified versions.
+
+
+
+
+
+
+
+/css
+    <!-- UIkit with the basic style -->
+    uikit.css
+    uikit.min.css
+
+    <!-- UIkit with Gradient style -->
+    uikit.gradient.css
+    uikit.gradient.min.css
+
+    <!-- UIkit with Almost flat style -->
+    uikit.almost-flat.css
+    uikit.almost-flat.min.css
+
+    <!-- Advanced components -->
+    /components
+
+/fonts
+    <!-- FontAwesome webfont -->
+    fontawesome-webfont.ttf
+    fontawesome-webfont.woff
+    fontawesome-webfont.woff2
+    FontAwesome.otf
+
+/js
+    <!-- JavaScript and minified version -->
+    uikit.js
+    uikit.min.js
+
+    <!-- Advanced components -->
+    /components
+
+    <!-- Core components -->
+    /core

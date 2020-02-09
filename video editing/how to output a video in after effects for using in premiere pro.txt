@@ -1,0 +1,9 @@
+Go to "Composition" menu.
+Click "Add to render queue".
+Click on "Lossless" (in "Render Queue" window) to bring up the:
+	"Output Module Settings"
+	Channels: RGB + Alpha
+	Color: Straight (Unmatted)
+Click OK
+Change "Output To:" to the path you want to save the video
+Click Render

@@ -1,0 +1,30 @@
+php artisan migrate:rollback
+php artisan migrate
+php artisan tinker
+
+App\Song::create([''=>'', ''=>'', ''=> new DateTime, ''=> new DateTime]);
+
+or
+
+$song = new App\Song;
+$song->title = 'As Long As You Love Me';
+$song->slug = 'as-long-as-you-love-me';
+$song->save();
+
+$song = new App\Song;
+$song->title = 'Fall';
+$song->slug = 'fall';
+$song->save();
+
+$song = new App\Song;
+$song->title = 'Boyfriend';
+$song->slug = 'boyfriend';
+$song->save();
+
+$song->toArray();
+
+App\Song::all()->toArray();
+App\Song::all()->toJson();
+
+
+

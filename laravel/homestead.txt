@@ -1,0 +1,42 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				installing laravel homestead
+vagrant_1.7.4 (159 MB)
+VirtualBox-5.0.8-103449-Win (111 MB)
+
+vagrant box add laravel/homestead
+966MB download (if interrupted: go nyc\.vagrant.d\tmp\, delete the file there)
+
+go E:\
+git clone https://github.com/laravel/homestead.git Homestead
+	Cloning into 'Homestead'...
+	remote: Counting objects: 1276, done.
+	remote: Compressing objects: 100% (14/14), done.
+	remote: Total 1276 (delta 5), reused 0 (delta 0), pack-reused 1262R
+	cts:  99% (1264/1276), 80.01 KiB | 151.00 KiB/s
+	Receiving objects: 100% (1276/1276), 197.98 KiB | 151.00 KiB/s, done.
+	Resolving deltas: 100% (755/755), done.
+	Checking connectivity... done.
+will make E:\Homestead
+go E:\Homestead
+bash init.sh
+	Homestead initialized!
+
+use Git Bash	ssh-keygen -t rsa -C "you@homestead"
+Enter 123456
+Enter 123456
+c/Users/NYC/.ssh/id_rsa
+c/Users/NYC/.ssh/id_rsa.pub
+
+open E:\Homestead\src\stubs\Homestead.yaml
+Homestead.yaml:		authorize: C:\users\nyc\.ssh\id_rsa.pub
+Homestead.yaml:		authorize: C:\users\nyc\.ssh\id_rsa.pub
+Homestead.yaml:		folders:
+    - map: C:\users\nyc\Code
+create Code folder in C:\users\nyc\
+edit hosts file		127.0.0.1 homestead.app
+
+go E:\Homestead
+vagrant up
+
+vagrant destroy --force
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

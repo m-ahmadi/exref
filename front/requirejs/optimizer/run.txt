@@ -1,0 +1,10 @@
+node r.js -o path/to/buildconfig.js
+
+node r.js -o buildconfig.js
+
+node r.js -o buildconfig.js optimize=none
+
+node r.js -o baseUrl=. paths.jquery=some/other/jquery name=main out=main-built.js
+
+
+<script data-main="js/main-built" src="js/lib/require.min.js"></script>

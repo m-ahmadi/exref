@@ -1,0 +1,2 @@
+taskkill /im notepad.exe /f
+taskkill /pid 12345 /f

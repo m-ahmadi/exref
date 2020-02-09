@@ -1,0 +1,5 @@
+Array form
+
+=INDEX(A2:B3,2,2)
+
+Reference form

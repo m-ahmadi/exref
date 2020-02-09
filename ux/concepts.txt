@@ -1,0 +1,9 @@
+user-centered design
+
+sketch		simple
+wireframe	showing structure, low detail
+mockup		high detail
+prototype	demo, clickable/navable
+
+persona
+task flow

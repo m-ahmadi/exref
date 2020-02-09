@@ -1,0 +1,3 @@
+tasklist				list all processes
+tasklist /fi "IMAGENAME eq cmd*"	filter by program name
+tasklist /fi "WINDOWTITLE eq html" /nh	filter by window title and don't show headers

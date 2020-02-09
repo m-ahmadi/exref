@@ -1,0 +1,1 @@
+uses Fibonacci ratios to predict support and resistance levels.

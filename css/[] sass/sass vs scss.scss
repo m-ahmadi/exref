@@ -1,0 +1,52 @@
+/*
+	sass, also known as the indented syntax
+	scss, a css-like syntax
+*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/* sass
+initially, sass was part of another preprocessor called haml, designed and written by ruby developers.
+because of that, sass stylesheets were using a ruby-like syntax with no braces, no semi-colons and a strict indentation,
+like this: */
+// Variable
+!primary-color= hotpink
+
+// Mixin
+=border-radius(!radius)
+	-webkit-border-radius= !radius
+	-moz-border-radius= !radius
+	border-radius= !radius
+
+.my-element
+	color= !primary-color
+	width= 100%
+	overflow= hidden
+
+.my-other-element
+	+border-radius(5px)
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/* scss
+that's how sass looked like until version 3.0 arrived in may 2010, introducing a whole new syntax called scss for sassy css.
+sass maintainers have also worked to make both syntaxes closer to each other by these changes from sass to scss:
+variable   sign from ! to $
+assignment sign from = to :
+*/
+
+// variable
+$primary-color: hotpink;
+
+// mixin
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+.my-element {
+	color: $primary-color;
+	width: 100%;
+	overflow: hidden;
+}
+
+.my-other-element {
+	@include border-radius(5px);
+}

@@ -1,0 +1,12 @@
+code file.txt
+code .
+code --install-extension <extension_name>
+code --list-extensions
+
+--------------------------------------------------------------------------------
+export extension list
+code --list-extensions | xargs -L 1 echo code --install-extension
+
+powershell
+code --list-extensions | % { "code --install-extension $_" }
+--------------------------------------------------------------------------------

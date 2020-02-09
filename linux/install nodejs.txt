@@ -1,0 +1,20 @@
+curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
+
+yum install -y nodejs
+
+
+-----------------------------------------
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+______________________________________________________________
+on linux mint
+
+wget https://deb.nodesource.com/setup_12.x
+open setup_12.x with a text editor
+add this line to end of "Linux Mint" definitions:
+	check_alt "Linux Mint" "tina" "Ubuntu" "bionic"
+chmod 755 setup_12.x
+sudo ./setup_12.x
+sudo apt-get install -y nodejs
+______________________________________________________________

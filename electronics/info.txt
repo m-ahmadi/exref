@@ -1,0 +1,43 @@
+solder (sim lahim)
+	Flux Core
+		Tin/Lead
+			60/40
+			63/37
+		Lead-free
+	0.2
+	0.3
+	0.4
+	0.5
+	0.6
+	0.7
+	0.8
+	0.9
+
+
+flux, roghan-lahim, majik
+
+	rosin hamoon kolifone violin
+	resin is made of rosin
+	
+	Rosin (Traditional "roghan lahim")
+		leaves an ugly, sticky residue
+		cleaning with isopropyl alchohol & trichloroethane
+		 don't leave it on
+			it's slightly corrosive
+			can be conductive
+	Resin (Water-based) 
+		less ugly, not sticky
+		leaves a white film behind
+			can cause problems with long term reliability
+			some people just leave it on
+			removal takes a moderate amount of water
+
+	Resin (no-clean)
+		resin flux that burns or boils off
+		leaving almost no residue
+
+desolder (ghalkesh)
+	pompi
+		dasti
+		barghi
+	wick (simi)

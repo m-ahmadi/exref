@@ -1,0 +1,9 @@
+powercfg /h off			deletes hiberfil.sys file and disables hibernate feature
+powercfg /h on /size 40		turns hibernate back on (size is percentage of total memory)
+
+powercfg /l			list all plans (schemes)
+powercfg /export file.pow GUID	export plan (get guid from /L)
+powercfg /import file.pow	import plan
+powercfg /s GUID		activate plan
+
+note: hiberfil.sys is used for optimize battery life on laptops. (uncheck "Hide protected operating system files" to see it)

@@ -1,0 +1,16 @@
+%APPDATA%\Sublime Text 3\Packages\User
+
+create file:
+myColors.sublime-color-scheme
+
+open a .js file first, then go to:
+
+Preferences-> Settings - Syntax Specific
+
+(opened file: JavaScript.sublime-settings)
+
+{
+	"color_scheme": "myColors.sublime-color-scheme",
+}
+
+edit json and done

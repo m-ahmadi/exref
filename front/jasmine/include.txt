@@ -1,0 +1,12 @@
+download jasmine standalone
+put all jasmine stuff in:
+project_folder/jasmine/
+(don't split its files into css js images folders)
+
+
+/jasmine_favicon.png
+/jasmine/lib/jasmine-2.0.0/jasmine.css
+
+/jasmine/lib/jasmine-2.0.0/jasmine.js
+/jasmine/lib/jasmine-2.0.0/jasmine-html.js
+/jasmine/lib/jasmine-2.0.0/boot.js

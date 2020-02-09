@@ -1,0 +1,2 @@
+This is an issue with some TrueType fonts that can't be embedded. Try and get newer or different versions.
+Or outline the text in Illustrator.

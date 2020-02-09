@@ -1,0 +1,2 @@
+regjump HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+File -> Export

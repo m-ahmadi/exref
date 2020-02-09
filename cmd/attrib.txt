@@ -1,0 +1,21 @@
+attrib file.txt +r			set read-only
+attrib file.txt -r			unset read-only
+
+attrib file.txt +h			set hidden
+attrib file.txt -h			unset hidden
+
+attrub file.txt -r -h
+
+------------------------------------------------------------------------------------------------
++   Sets an attribute.
+-   Clears an attribute.
+
+R   Read-only file attribute.
+A   Archive file attribute.
+S   System file attribute.
+H   Hidden file attribute.
+I   Not content indexed file attribute.
+
+/S  Processes matching files in the current folder and all subfolders.
+/D  Processes folders as well.
+/L  Work on the attributes of the Symbolic Link versus the target of the Symbolic Link

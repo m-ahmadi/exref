@@ -1,0 +1,27 @@
+C:\Windows\System32\Shell32.dll
+C:\Windows\System32\imageres.dll
+C:\Windows\System32\DDORes.dll
+C:\Windows\Explorer.exe
+
+C:\Windows\System32\AccessibilityCpl.dll
+C:\Windows\System32\GameUx.dll
+C:\Windows\System32\mmRes.dll
+
+C:\Windows\System32\NetCenter.dll
+C:\Windows\System32\networkexplorer.dll
+C:\Windows\System32\netshell.dll
+
+C:\Windows\System32\PniDui.dll
+C:\Windows\System32\SensorsCpl.dll
+C:\Windows\System32\SetupApi.dll
+C:\Windows\System32\wmploc.dll
+C:\Windows\System32\wpdshext.dll
+
+
+------------------------------------------------
+old style
+
+C:\Windows\System32\PifMgr.dll
+C:\Windows\System32\MorIcons.dll
+C:\Windows\System32\mmcndmgr.dll
+C:\Windows\System32\compstui.dll

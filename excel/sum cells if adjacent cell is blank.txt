@@ -1,0 +1,3 @@
+=SUM( IF(ISBLANK(B2:B7),A2:A7,0) )
+
+Ctrl + Shift + Enter

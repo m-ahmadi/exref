@@ -1,0 +1,19 @@
+assoc				list all
+assoc .bat			which program is associated with .bat files
+assoc .bat=something		change the program associated with .bat files
+
+ftype foo=code "%1" %*
+assoc .js=foo
+
+
+if type not defined already:
+
+reg add HKCR\.my\ /t REG_SZ /d MyFile /f
+reg add HKLM\SOFTWARE\Classes\MyFile\DefaultIcon\ /t REG_SZ /d My.exe,0 /f
+ftype MyFile=C:\My.exe "%1" %*
+assoc .my=MyFile
+-------------------------------------------------------------------------------
+some related reg keys:
+regjump HKCR\.css\							ftype location (eg: css)
+regjump HKLM\SOFTWARE\Classes\CSSFile\DefaultIcon\			icon of an assoc (eg: css)
+regjump HKCR\Applications\vscode\shell\open\command\			app commands (eg: vscode)

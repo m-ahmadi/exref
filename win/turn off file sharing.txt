@@ -1,0 +1,11 @@
+Control Panel
+Network and Internet
+Network and Sharing Center
+Advanced Sharing Center
+
+Turn off network discovery
+Turn off file sharing and printer sharing
+Turn off public folder sharing
+Turn off password protected sharing
+
+current profile and Public

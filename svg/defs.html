@@ -1,0 +1,30 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<style>svg{width:200; height:200;}</style>
+
+<h1><pre>&lt;defs&gt;&lt;/&gt;</pre></h1>
+
+<p>elements inside &lt;defs&gt; are not rendered until referenced by &lt;use&gt;</p>
+<svg>
+	<defs>
+		<circle id=c r=50 />
+	</defs>
+</svg>
+
+<svg>
+	<use xlink:href=#c />
+</svg>
+
+<p>g, symbol and any shape (rect,line,...) can go inside defs</p>
+<svg>
+	<defs>
+		<circle id=circ r=50 />
+		<rect id=rect width=50 height=50 />
+		<g id=g>
+			<line x1=5 x2=150 stroke=black />
+		</g>
+		<symbol id=symb></symbol>
+	</defs>
+	<use xlink:href=#circ />
+	<use xlink:href=#rect x=60 />
+	<use xlink:href=#g y=80 />
+</svg>

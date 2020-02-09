@@ -1,0 +1,32 @@
+powershell
+Invoke-WebRequest -Uri "https://github.com/Requarks/wiki/releases/download/2.0.12/wiki-js-windows.tar.gz" -OutFile "wiki-js.tar.gz"
+New-Item -Path "C:\" -Name "wiki" -ItemType "directory"
+tar xzf wiki-js.tar.gz -C "C:\wiki"
+cd C:\wiki
+Rename-Item -Path config.sample.yml -NewName config.yml
+notepad .\config.yml
+node server
+
+failed to install from instructions on the docs (windows 7 not supported)
+------------------------------------------------------------------------------------------------
+how to install
+
+download the following:
+https://github.com/Requarks/wiki-v1/releases/download/v1.0.117/wiki-js.tar.gz
+https://github.com/Requarks/wiki-v1/releases/download/v1.0.117/node_modules.tar.gz
+
+mkdir dir_name
+cd dir_name
+extract wiki-js.tar.gz
+extract node_modules.tar.gz
+rename config.sample.yml to config.yml
+node wiki configure
+------------------------------------------------------------------------------------------------
+usage
+
+copy .md files to dir_name/repo
+
+mongod --dbpath=../data
+cd dir_name
+npm run start
+npm run stop

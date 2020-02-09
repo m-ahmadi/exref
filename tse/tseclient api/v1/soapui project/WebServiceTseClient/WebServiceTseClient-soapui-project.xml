@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="26bd6439-2f27-44fa-a893-1e2d2757cf63" activeEnvironment="Default" name="WebServiceTseClient" resourceRoot="${projectDir}" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c98fdc73-2b86-4f5f-9ad6-ff4b95f33152" wsaVersion="NONE" name="WebServiceTseClientSoap" type="wsdl" bindingName="{http://tsetmc.com/}WebServiceTseClientSoap" soapVersion="1_1" anonymous="optional" definition="wsdl.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/J:/■%20Tutorial/%5B%5D%20Web%20Development/▀%20myExamples_myReferences/tsetmc%20api/WebServiceTseClient/wsdl.xml"><con:part><con:url>file:/J:/■%20Tutorial/%5B%5D%20Web%20Development/▀%20myExamples_myReferences/tsetmc%20api/WebServiceTseClient/wsdl.xml</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tsetmc.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tsetmc.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tsetmc.com/">
+      <s:element name="LastPossibleDeven">
+        <s:complexType/>
+      </s:element>
+      <s:element name="LastPossibleDevenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastPossibleDevenResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Instrument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DEven" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstrumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstrumentResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecompressAndGetInsturmentClosingPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insCodes" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecompressAndGetInsturmentClosingPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecompressAndGetInsturmentClosingPriceResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogErrorResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstrumentAndShare">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DEven" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="LastID" type="s:long"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstrumentAndShareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstrumentAndShareResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastPossibleDevenSoapIn">
+    <wsdl:part name="parameters" element="tns:LastPossibleDeven"/>
+  </wsdl:message>
+  <wsdl:message name="LastPossibleDevenSoapOut">
+    <wsdl:part name="parameters" element="tns:LastPossibleDevenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="InstrumentSoapIn">
+    <wsdl:part name="parameters" element="tns:Instrument"/>
+  </wsdl:message>
+  <wsdl:message name="InstrumentSoapOut">
+    <wsdl:part name="parameters" element="tns:InstrumentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DecompressAndGetInsturmentClosingPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:DecompressAndGetInsturmentClosingPrice"/>
+  </wsdl:message>
+  <wsdl:message name="DecompressAndGetInsturmentClosingPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:DecompressAndGetInsturmentClosingPriceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="LogErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LogError"/>
+  </wsdl:message>
+  <wsdl:message name="LogErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LogErrorResponse"/>
+  </wsdl:message>
+  <wsdl:message name="InstrumentAndShareSoapIn">
+    <wsdl:part name="parameters" element="tns:InstrumentAndShare"/>
+  </wsdl:message>
+  <wsdl:message name="InstrumentAndShareSoapOut">
+    <wsdl:part name="parameters" element="tns:InstrumentAndShareResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="WebServiceTseClientSoap">
+    <wsdl:operation name="LastPossibleDeven">
+      <wsdl:input message="tns:LastPossibleDevenSoapIn"/>
+      <wsdl:output message="tns:LastPossibleDevenSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Instrument">
+      <wsdl:input message="tns:InstrumentSoapIn"/>
+      <wsdl:output message="tns:InstrumentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+      <wsdl:input message="tns:DecompressAndGetInsturmentClosingPriceSoapIn"/>
+      <wsdl:output message="tns:DecompressAndGetInsturmentClosingPriceSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <wsdl:input message="tns:LogErrorSoapIn"/>
+      <wsdl:output message="tns:LogErrorSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="InstrumentAndShare">
+      <wsdl:input message="tns:InstrumentAndShareSoapIn"/>
+      <wsdl:output message="tns:InstrumentAndShareSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceTseClientSoap" type="tns:WebServiceTseClientSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="LastPossibleDeven">
+      <soap:operation soapAction="http://tsetmc.com/LastPossibleDeven" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Instrument">
+      <soap:operation soapAction="http://tsetmc.com/Instrument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+      <soap:operation soapAction="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <soap:operation soapAction="http://tsetmc.com/LogError" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InstrumentAndShare">
+      <soap:operation soapAction="http://tsetmc.com/InstrumentAndShare" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceTseClientSoap12" type="tns:WebServiceTseClientSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="LastPossibleDeven">
+      <soap12:operation soapAction="http://tsetmc.com/LastPossibleDeven" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Instrument">
+      <soap12:operation soapAction="http://tsetmc.com/Instrument" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+      <soap12:operation soapAction="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <soap12:operation soapAction="http://tsetmc.com/LogError" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InstrumentAndShare">
+      <soap12:operation soapAction="http://tsetmc.com/InstrumentAndShare" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceTseClient">
+    <wsdl:port name="WebServiceTseClientSoap" binding="tns:WebServiceTseClientSoap">
+      <soap:address location="http://service.tsetmc.com/WebService/TseClient.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="WebServiceTseClientSoap12" binding="tns:WebServiceTseClientSoap12">
+      <soap12:address location="http://service.tsetmc.com/WebService/TseClient.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint></con:endpoints><con:operation id="a8da3a07-745f-426a-a1e9-5e9b03f75d23" isOneWay="false" action="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice" name="DecompressAndGetInsturmentClosingPrice" bindingOperationName="DecompressAndGetInsturmentClosingPrice" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d28fc6b6-e462-4e0a-a4e6-e7be8e97cca5" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tset="http://tsetmc.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tset:DecompressAndGetInsturmentClosingPrice>\r
+         <!--Optional:-->\r
+         <tset:insCodes>FAAAAB+LCAAAAAAABADtvQdgHEmWJSYvbcp7f0r1StfgdKEIgGATJNiQQBDswYjN5pLsHWlHIymrKoHKZVZlXWYWQMztnbz33nvvvffee++997o7nU4n99//P1xmZAFs9s5K2smeIYCqyB8/fnwfPyIe7u3uPnhwf+/ew3v078Pd0c5o5/8BPRBTGBQAAAA=</tset:insCodes>\r
+      </tset:DecompressAndGetInsturmentClosingPrice>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="30f80045-dd2f-4d62-851f-a1d8dcb9736c" isOneWay="false" action="http://tsetmc.com/Instrument" name="Instrument" bindingOperationName="Instrument" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8ee0cf95-82f6-4c66-9467-9568baaa4472" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tset="http://tsetmc.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tset:Instrument>\r
+         <tset:DEven>20190731</tset:DEven>\r
+      </tset:Instrument>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/Instrument"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="966827a9-ce1d-481a-ab61-0fb9e6632a23" isOneWay="false" action="http://tsetmc.com/InstrumentAndShare" name="InstrumentAndShare" bindingOperationName="InstrumentAndShare" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c9f83b42-104e-4882-85c8-a9751d1dfe33" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tset="http://tsetmc.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tset:InstrumentAndShare>\r
+         <tset:DEven>20190803</tset:DEven>\r
+         <tset:LastID>1469</tset:LastID>\r
+      </tset:InstrumentAndShare>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/InstrumentAndShare"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="bb1ba23c-d386-4dd8-a19f-1f7187c47db8" isOneWay="false" action="http://tsetmc.com/LastPossibleDeven" name="LastPossibleDeven" bindingOperationName="LastPossibleDeven" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f20c4118-7013-45d4-932b-043adac6719b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tset="http://tsetmc.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tset:LastPossibleDeven/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/LastPossibleDeven"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6c950e07-3ac2-4cf9-b4ee-d10ffb9b2479" isOneWay="false" action="http://tsetmc.com/LogError" name="LogError" bindingOperationName="LogError" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="126752b4-526b-42da-bedc-0a10414a9f26" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tset="http://tsetmc.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tset:LogError>\r
+         <!--Optional:-->\r
+         <tset:errorMessage>?</tset:errorMessage>\r
+      </tset:LogError>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/LogError"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="b9bf617c-5391-4d9f-961f-636f0c789016" wsaVersion="NONE" name="WebServiceTseClientSoap12" type="wsdl" bindingName="{http://tsetmc.com/}WebServiceTseClientSoap12" soapVersion="1_2" anonymous="optional" definition="wsdl.xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\J:\■%20Tutorial\%5B%5D%20Web%20Development\▀%20myExamples_myReferences\tsetmc%20api\WebServiceTseClient\wsdl.xml"><con:part><con:url>file:\J:\■%20Tutorial\%5B%5D%20Web%20Development\▀%20myExamples_myReferences\tsetmc%20api\WebServiceTseClient\wsdl.xml</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tsetmc.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tsetmc.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tsetmc.com/">
+      <s:element name="LastPossibleDeven">
+        <s:complexType/>
+      </s:element>
+      <s:element name="LastPossibleDevenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LastPossibleDevenResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Instrument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DEven" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstrumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstrumentResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecompressAndGetInsturmentClosingPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insCodes" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecompressAndGetInsturmentClosingPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecompressAndGetInsturmentClosingPriceResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogError">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogErrorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogErrorResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstrumentAndShare">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DEven" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="LastID" type="s:long"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstrumentAndShareResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstrumentAndShareResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LastPossibleDevenSoapIn">
+    <wsdl:part name="parameters" element="tns:LastPossibleDeven"/>
+  </wsdl:message>
+  <wsdl:message name="LastPossibleDevenSoapOut">
+    <wsdl:part name="parameters" element="tns:LastPossibleDevenResponse"/>
+  </wsdl:message>
+  <wsdl:message name="InstrumentSoapIn">
+    <wsdl:part name="parameters" element="tns:Instrument"/>
+  </wsdl:message>
+  <wsdl:message name="InstrumentSoapOut">
+    <wsdl:part name="parameters" element="tns:InstrumentResponse"/>
+  </wsdl:message>
+  <wsdl:message name="DecompressAndGetInsturmentClosingPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:DecompressAndGetInsturmentClosingPrice"/>
+  </wsdl:message>
+  <wsdl:message name="DecompressAndGetInsturmentClosingPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:DecompressAndGetInsturmentClosingPriceResponse"/>
+  </wsdl:message>
+  <wsdl:message name="LogErrorSoapIn">
+    <wsdl:part name="parameters" element="tns:LogError"/>
+  </wsdl:message>
+  <wsdl:message name="LogErrorSoapOut">
+    <wsdl:part name="parameters" element="tns:LogErrorResponse"/>
+  </wsdl:message>
+  <wsdl:message name="InstrumentAndShareSoapIn">
+    <wsdl:part name="parameters" element="tns:InstrumentAndShare"/>
+  </wsdl:message>
+  <wsdl:message name="InstrumentAndShareSoapOut">
+    <wsdl:part name="parameters" element="tns:InstrumentAndShareResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="WebServiceTseClientSoap">
+    <wsdl:operation name="LastPossibleDeven">
+      <wsdl:input message="tns:LastPossibleDevenSoapIn"/>
+      <wsdl:output message="tns:LastPossibleDevenSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Instrument">
+      <wsdl:input message="tns:InstrumentSoapIn"/>
+      <wsdl:output message="tns:InstrumentSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+      <wsdl:input message="tns:DecompressAndGetInsturmentClosingPriceSoapIn"/>
+      <wsdl:output message="tns:DecompressAndGetInsturmentClosingPriceSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <wsdl:input message="tns:LogErrorSoapIn"/>
+      <wsdl:output message="tns:LogErrorSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="InstrumentAndShare">
+      <wsdl:input message="tns:InstrumentAndShareSoapIn"/>
+      <wsdl:output message="tns:InstrumentAndShareSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceTseClientSoap" type="tns:WebServiceTseClientSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="LastPossibleDeven">
+      <soap:operation soapAction="http://tsetmc.com/LastPossibleDeven" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Instrument">
+      <soap:operation soapAction="http://tsetmc.com/Instrument" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+      <soap:operation soapAction="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <soap:operation soapAction="http://tsetmc.com/LogError" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InstrumentAndShare">
+      <soap:operation soapAction="http://tsetmc.com/InstrumentAndShare" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceTseClientSoap12" type="tns:WebServiceTseClientSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="LastPossibleDeven">
+      <soap12:operation soapAction="http://tsetmc.com/LastPossibleDeven" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Instrument">
+      <soap12:operation soapAction="http://tsetmc.com/Instrument" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+      <soap12:operation soapAction="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogError">
+      <soap12:operation soapAction="http://tsetmc.com/LogError" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InstrumentAndShare">
+      <soap12:operation soapAction="http://tsetmc.com/InstrumentAndShare" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceTseClient">
+    <wsdl:port name="WebServiceTseClientSoap" binding="tns:WebServiceTseClientSoap">
+      <soap:address location="http://service.tsetmc.com/WebService/TseClient.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="WebServiceTseClientSoap12" binding="tns:WebServiceTseClientSoap12">
+      <soap12:address location="http://service.tsetmc.com/WebService/TseClient.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint></con:endpoints><con:operation id="cc017f15-1ac0-415f-aaf0-ec2e800b18f0" isOneWay="false" action="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice" name="DecompressAndGetInsturmentClosingPrice" bindingOperationName="DecompressAndGetInsturmentClosingPrice" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4aaf3ee2-eb7b-4582-b07b-2b647a8b6a9c" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tset="http://tsetmc.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tset:DecompressAndGetInsturmentClosingPrice>\r
+         <!--Optional:-->\r
+         <tset:insCodes>?</tset:insCodes>\r
+      </tset:DecompressAndGetInsturmentClosingPrice>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/WebServiceTseClientSoap/DecompressAndGetInsturmentClosingPriceRequest"/></con:call></con:operation><con:operation id="09156dc9-029a-40e4-bdb6-45af58fe4bf1" isOneWay="false" action="http://tsetmc.com/Instrument" name="Instrument" bindingOperationName="Instrument" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e8371001-686e-4716-9fc0-6a043d60fd2f" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tset="http://tsetmc.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tset:Instrument>\r
+         <tset:DEven>?</tset:DEven>\r
+      </tset:Instrument>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/WebServiceTseClientSoap/InstrumentRequest"/></con:call></con:operation><con:operation id="f15270ab-b751-4e9d-8481-8b36be9d2711" isOneWay="false" action="http://tsetmc.com/InstrumentAndShare" name="InstrumentAndShare" bindingOperationName="InstrumentAndShare" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cfb0a318-eca7-4dc2-bc56-c455f4bf264a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tset="http://tsetmc.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tset:InstrumentAndShare>\r
+         <tset:DEven>?</tset:DEven>\r
+         <tset:LastID>?</tset:LastID>\r
+      </tset:InstrumentAndShare>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/WebServiceTseClientSoap/InstrumentAndShareRequest"/></con:call></con:operation><con:operation id="c033911d-ae4a-4e66-92fb-0da2976aac9d" isOneWay="false" action="http://tsetmc.com/LastPossibleDeven" name="LastPossibleDeven" bindingOperationName="LastPossibleDeven" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8f957cfa-9236-4b6e-8bee-1bc1877d9629" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tset="http://tsetmc.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tset:LastPossibleDeven/>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/WebServiceTseClientSoap/LastPossibleDevenRequest"/></con:call></con:operation><con:operation id="04150d31-b042-4fce-865a-6ca0d191c62e" isOneWay="false" action="http://tsetmc.com/LogError" name="LogError" bindingOperationName="LogError" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ca95985b-ba36-4bb0-ad20-7322eb1482ee" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tset="http://tsetmc.com/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tset:LogError>\r
+         <!--Optional:-->\r
+         <tset:errorMessage>?</tset:errorMessage>\r
+      </tset:LogError>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tsetmc.com/WebServiceTseClientSoap/LogErrorRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:RestService" id="e24f0c65-3b36-4694-bdaf-8416d09cb36a" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://service.tsetmc.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://service.tsetmc.com</con:endpoint></con:endpoints><con:resource name="" path="" id="fc684065-3c5a-4f04-b0d0-9dc6d824866e"><con:settings/><con:parameters><con:parameter><con:name>Accept-Encoding</con:name><con:value/><con:style>PLAIN</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Content-Type</con:name><con:value/><con:style>PLAIN</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>SOAPAction</con:name><con:value/><con:style>PLAIN</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Content-Length</con:name><con:value/><con:style>PLAIN</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Host</con:name><con:value/><con:style>PLAIN</con:style><con:default/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>Connection</con:name><con:value/><con:style>PLAIN</con:style><con:default/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="1" id="374315c8-87a7-416f-92b3-b37c2457bc6b" method="POST"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>text/html; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/soap+xml; charset=utf-8</con:mediaType><con:status>500</con:status><con:params/><con:element xmlns:soap="http://www.w3.org/2003/05/soap-envelope">soap:Envelope</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>text/xml</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>text/xml; charset=utf-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/x-www-form-urlencoded</con:mediaType><con:params/><con:element xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">soapenv:Envelope</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>text/html</con:mediaType><con:status>302</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="test-without-wsdl" id="7c72aa52-ea16-4399-9aa8-9afc1048c706" mediaType="text/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://service.tsetmc.com/WebService/TseClient.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tset="http://tsetmc.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tset:LastPossibleDeven/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:originalUri>http://service.tsetmc.com/Loader.aspx</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="SOAPAction" value="&quot;http://tsetmc.com/LastPossibleDeven&quot;"/>
+  <con:entry key="Connection" value="Keep-Alive"/>
+  <con:entry key="Host" value="service.tsetmc.com"/>
+  <con:entry key="Accept-Encoding" value="gzip,deflate"/>
+  <con:entry key="Content-Length" value="223"/>
+  <con:entry key="Content-Type" value="text/xml;charset=UTF-8"/>
+</con:parameters><con:parameterOrder><con:entry>Accept-Encoding</con:entry><con:entry>Content-Type</con:entry><con:entry>SOAPAction</con:entry><con:entry>Content-Length</con:entry><con:entry>Host</con:entry><con:entry>Connection</con:entry></con:parameterOrder></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

@@ -1,0 +1,56 @@
+ul {
+  width:900px;
+  margin:0;
+  padding:0;
+  float:right;
+  background:#EFEFEF;
+}
+li {
+  background:#7A00A3;
+  border:1px solid black;
+  padding:0 10px 5px 10px;
+  margin:5px;
+  float:right;
+  list-style:none;
+}
+li a {
+  color:#E6E600;
+  text-decoration:none;
+  font-size:19px;
+  font-family:tahoma;
+}
+li a:hover {
+  color:#FFFF00;
+}
+
+
+
+
+
+#search_options {
+  background:#FF6666;
+  border:1px solid black;
+  margin:5px;
+  float:right;
+  border-radius:3px;
+}
+
+.search_options_motherboard {
+  background:	#F0FFC2;
+  padding:2px 8px 2px 8px;
+  margin:5px;
+  float:right;
+  border-radius:5px;
+}
+.search_options_motherboard .lbl {
+  float:right;
+  font-size:15px;
+  font-weight:bold;
+}
+
+
+
+body {
+  width:95%;
+  background:#dedede;
+}

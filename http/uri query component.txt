@@ -1,0 +1,15 @@
+everything after the first ? is called query component
+
+though the terms "query string" and "query parameter" are widly used, they are not in RFC-3986 URI standard.
+the terms "url param" or "path param" refer to rest api urls. (not sure)
+
+http://site.com/foo?bar
+http://site.com/foo/foo/foo?bar/bar/bar
+http://site.com/?bar
+http://site.com/?@bar._=???/1:
+http://site.com/?bar1=a&bar2=b
+
+allowed characters in query component
+a-z A-Z
+0-9
+/ ? : @ ! $ & ' ( ) * + , ; = - . _ ~

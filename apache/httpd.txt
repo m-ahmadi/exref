@@ -1,0 +1,54 @@
+httpd					start server
+httpd -k install			install   service with default name: Apache2.4
+httpd -k start				start     service with default name: Apache2.4
+httpd -k stop				stop the  service with default name: Apache2.4
+httpd -k uninstall			uninstall service with default name: Apache2.4
+
+httpd -k install -n "Apache"		install service with a different name
+httpd -k start -n "Apache"		start the service name Apache
+httpd -k stop -n "Apache"		stop the service named: Apache
+httpd -k uninstall -n "Apache"		uninstall the service named: Apache
+
+httpd -M				show all loaded modules
+-----------------------------------------------------------------------------------------------------------------------------
+install as service
+
+httpd -k install
+httpd -k install -n "MyServiceName" -f "c:\files\my.conf" -d "c:/some/where"
+
+`Startup type:` is set to `Automatic` by default. (change through services.msc)
+
+note: install service with non-default name to avoid conflict with xampp
+-----------------------------------------------------------------------------------------------------------------------------
+flags
+
+-k start			start Apache service
+-k restart			graceful restart the running Apache service
+-k stop | shutdown		shutdown Apache service
+
+-k install			install an Apache service
+-k uninstall			uninstall an Apache service
+-k config			change startup Options of an Apache service
+-n name				set service name and use its ServerConfigFile and ServerRoot
+-d directory			specify an alternate initial ServerRoot
+-f file				specify an alternate ServerConfigFile
+
+-t				run syntax check for config files
+-D name				define a name for use in <IfDefine name> directives
+-T				start without DocumentRoot(s) check
+-w				hold open the console window on error
+-X				debug mode (only one worker, do not detach)
+
+-V				show compile settings
+-L				list available configuration directives
+-l				list compiled in modules
+-e level			show startup errors of level (see LogLevel)
+-E file				log startup errors to file
+
+-t -D DUMP_VHOSTS		show parsed vhost settings
+-t -D DUMP_RUN_CFG		show parsed run settings
+-t -D DUMP_MODULES		show all loaded modules
+-t -D DUMP_INCLUDES		show all included configuration files
+-M				synonym for:  -t -D DUMP_MODULES
+-S				synonym for:  -t -D DUMP_VHOSTS -D DUMP_RUN_CFG
+-----------------------------------------------------------------------------------------------------------------------------

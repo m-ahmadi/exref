@@ -1,0 +1,48 @@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@							
+/*													Dealing with Sass Files:
+	materialize-src  =  ~
+	~\sass
+	~\sass\components
+	~\sass\materialize.scss
+	
+	remember to import these three first, (since all other components use them)
+*/
+@import "components/variables";
+@import "components/typography";
+@import "components/global";
+
+
+/*	I tried this and it worked (v0.97.7 and rtl-v0.97.5):
+	@import "components/color";
+	@import "components/variables";
+	@import "components/typography";
+	@import "components/global";
+	@import "components/buttons";
+	@import "components/waves";
+	@import "components/modal";
+*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/*													Dealing with JavaScript Files:
+	You have to include .js files for some components:
+	
+	materialize-src\js
+	
+	The following files come before anything else, and in this order: (based on studying the "materialize.js" file)
+	
+	initial.js
+	jquery.easing.1.3.js
+	animation.js
+	velocity.min.js
+	jquery.hammer.js
+	global.js
+	
+	Although this is definetly the order of which these files are composed of, in the final script (materialize.js),
+	it seems that this order is not very critical:
+	
+	So for using only waves and modals, I included (without those other files):
+		velocity.min.js
+		waves.js
+		leanModal.js
+		
+	and it worked!, So there's more to learn about it.
+*/

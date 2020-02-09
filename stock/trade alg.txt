@@ -1,0 +1,8 @@
+detect capital type
+detect capital "comfort-annoyance-saddness-trauma" timeline
+
+detect opportunity for entering trade
+detect return estimates (based on an index of qualifiers)
+detect amount of trust in return percentage (based on econ moddels & variables to politics timeline and realworld observations)
+
+determine amount of capital to enter

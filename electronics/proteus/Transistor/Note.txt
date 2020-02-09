@@ -1,0 +1,7 @@
+N-Channel MOSFET
+	Drain  to  Source
+	
+P-Channel MOSFET
+	Default: Source  to  Drain
+
+if backward: a leakage between S & D when gate is closed (as if it's not compeletly closed)

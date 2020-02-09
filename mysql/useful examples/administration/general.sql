@@ -1,0 +1,10 @@
+SELECT * FROM mysql.user;
+SHOW GRANTS FOR CURRENT_USER();
+SET PASSWORD FOR 'user'@'host' = PASSWORD('rootpass');
+UPDATE mysql.user SET Password = PASSWORD('rootpass') WHERE User='root';
+UPDATE mysql.user SET Password = PASSWORD('anonpass') WHERE User='';
+FLUSH PRIVILEGES;
+DROP USER ''@'localhost';
+GRANT ALL PRIVILEGES ON p.* TO 'PC-Fantasy'@'localhost' IDENTIFIED BY 'php1020315106016php';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON *.* TO 'homestead'@'localhost' IDENTIFIED BY 'secret';

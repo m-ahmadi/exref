@@ -1,0 +1,8 @@
+echo salam >  test.txt			write to file (overwrite)
+echo salam >> test.txt			write to file (append)
+call > file.txt				empty file with no trailing newline
+
+type file1.txt >> file2.txt		append one file to another
+copy file1.txt + file2.txt /b		append one file to another
+
+type con > x.txt			write to file by typing in the console. (end with ctrl+z)

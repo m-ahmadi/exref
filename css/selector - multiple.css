@@ -1,0 +1,33 @@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+one rule for multiple classes */
+.foo, .bar {
+	color: red;
+}
+/* same as:  */
+.foo { color: red }
+.bar { color: red }
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+multiple class/id/tag selectors */
+.foo.bar           { color: red; }  /* both classes */
+#bar.foo           { color: red; }  /* both class & id */
+.bar#foo.boz.red   { color: red; }  /* all classes & id */
+p#bar              { color: blue; } /* both tag & id */
+p.bar              { color: blue; } /* both tag & class */
+p#bar.foo.der      { color: blue; } /* tag & id & all classes */
+
+/* ie6 bug:
+ie6 will only read the last class selector, regardless of what other classes you list:
+(.bar in this case) */
+* { color: black; }
+.foo.bar { color: red; }
+/* output on supported browsers:
+<div class="foo bar">abc</div>  <!-- selected    , red text   -->
+<div class="foo">abc</div>      <!-- not selected, black text -->
+<div class="bar">abc</div>      <!-- not selected, black text -->
+
+output on IE6:
+<div class="foo">abc</div>      <!-- not selected, black text --> (element doesn't have class bar)
+<div class="foo bar">abc</div>  <!-- selected    , red text   --> (element has class bar, regardless of any other classes listed)
+<div class="bar">abc</div>      <!-- selected    , red text   --> 
+*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

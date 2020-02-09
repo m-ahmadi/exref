@@ -1,0 +1,128 @@
+escaping
+
+\ escapes: \ ` * _ { } [ ] ( ) # + - . ! |
+` escapes: `
+=================================================================
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+
+Heading 1
+=========
+
+Heading 2
+---------
+=================================================================
+link
+
+A [link](http://example.com).
+
+An image: ![Alt](img.jpg)
+
+A sized image: ![Alt](img.jpg =60x50)
+=================================================================
+table
+
+Item     | Value
+-------- | -----
+Computer | $1600
+Phone    | $12
+Pipe     | $1
+
+
+| Column 1 | Column 2      |
+|:--------:| -------------:|
+| centered | right-aligned |
+=================================================================
+code
+
+Some `inline code`.
+
+```
+var foo = 'bar'; // code block
+```
+
+```javascript
+var foo = 'bar'; // highlighted code block
+```
+
+
+```css
+
+```
+=================================================================
+styling
+
+*Emphasize* _emphasize_
+
+**Strong** __strong__
+
+==Marked text.==
+
+~~Mistaken text.~~
+
+> Quoted text.
+
+H~2~O is a liquid.
+
+2^10^ is 1024.
+=================================================================
+list
+
+- Item
+  * Item
+    + Item
+
+1. Item 1
+2. Item 2
+3. Item 3
+
+- [ ] Incomplete item
+- [x] Complete item
+=================================================================
+page fragment link
+
+<a name="abcd"></a>
+
+[link text](#abcd)
+=================================================================
+
+footnote
+
+Some text with a footnote.[^1]
+
+[^1]: The footnote.
+=================================================================
+definition list
+
+Markdown
+:  Text-to-HTML conversion tool
+
+Authors
+:  John
+:  Luke
+=================================================================
+abbreviation
+
+Markdown converts text to HTML.
+
+*[HTML]: HyperText Markup Language
+=================================================================
+math
+
+The Gamma function satisfying $\Gamma(n) = (n-1)!\quad\forall
+n\in\mathbb N$ is via the Euler integral
+
+$$
+\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
+$$
+=================================================================

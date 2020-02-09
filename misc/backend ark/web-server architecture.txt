@@ -1,0 +1,14 @@
+Apache 		process-based, thread-based or event-based as determined by the MPM used
+nginx 		event-based web server
+node.js		event-based
+
+Nginx and Lighttpd are probably the two best-known asynchronous servers and
+Apache is undoubtedly the best known originally process-based server
+
+The main advantage of the asynchronous approach is scalability.
+In a process-based server, each simultaneous connection requires a thread which incurs significant overhead.
+An asynchronous server, on the other hand, is event-driven and handles requests in a single (or at least, very few) threads.
+
+While a process-based server can often perform on par with an asynchronous server under light loads,
+under heavier loads they usually consume far more RAM which significantly degrades performance.
+Also, they degrade much faster on less powerful hardware or in a resource-restricted environment such as a VPS.

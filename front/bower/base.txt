@@ -1,0 +1,7 @@
+npm install bower -g
+
+bower init
+
+bower install jquery --save
+
+bower info <package>

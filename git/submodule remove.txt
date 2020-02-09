@@ -1,0 +1,25 @@
+when you add a submodule these places are changed:
+submodule_folder
+.gitmodules
+.git/config
+.git/modules/
+
+--------------------------------------------------------------------
+one approach (in order, worked like a charm)
+
+git submodule deinit -f path_to_submodule
+rm -rf .git/modules/path_to_submodule
+git rm -f path_to_submodule
+
+
+--------------------------------------------------------------------
+for older git
+other approach (in order):
+
+delete the relevant section from the `.gitmodules` file
+git add .gitmodules
+delete the relevant section from `.git/config`
+git rm --cached path_to_submodule
+rm -rf .git/modules/path_to_submodule
+git commit -m "Removed submodule <name>"
+rm -rf path_to_submodule

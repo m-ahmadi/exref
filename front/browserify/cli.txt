@@ -1,0 +1,45 @@
+browserify main.js -o bundle.js					basic usage
+browserify main.js > bundle.js					using redirect sign
+browserify -e main.js -o bundle.js				using arguments
+browserify -e main.js > bundle.js				using argument and redirect sign
+browserify -e main.js -o module.js -s export_name		umd bundle (in browser: export_name)
+browserify --help advanced					show advanced help
+------------------------------------------------------------------------------------------------------------
+quick options:
+
+-e         --entry                    		an entry point of your app
+-o         --outfile                  		write the browserify bundle to this file. if unspecified, browserify prints to stdout.
+-s NAME    --standalone				generates umd bundle for the supplied export name. (sets the name given as a window global)
+-p MODULE  --plugin=MODULE            		register MODULE as a plugin
+-t         --transform                		use a transform module on top-level files.
+-g MODULE  --global-transform=MODULE  		use a transform module on all files after any ordinary transforms have run.
+--list						print each file in the dependency graph. Useful for makefiles.
+------------------------------------------------------------------------------------------------------------
+full options:
+
+usage: browserify [entry files] {OPTIONS}
+
+standard options:
+-o, --outfile		write the browserify bundle to this file. if unspecified, browserify prints to stdout.
+-r, --require		a module name or file to bundle.require(). Optionally use a colon separator to set the target.
+-e, --entry		an entry point of your app.
+-i, --ignore		replace a file with an empty stub. files can be globs.
+-u, --exclude		omit a file from the output bundle. files can be globs.
+-x, --external		reference a file from another bundle. files can be globs.
+-t, --transform		use a transform module on top-level files.
+-c, --command		use a transform command on top-level files.
+-s, --standalone	generate a umd bundle for the supplied export name.
+			this bundle works with other module systems and sets the name given as a window global if no module system is found.
+-d, --debug		enable source maps that allow you to debug your files separately.
+-h, --help		show this message.
+
+advanced options:
+	browserify --help advanced
+------------------------------------------------------------------------------------------------------------
+passing arguments to transforms and plugins
+
+for -t, -g, and -p,
+you may use subarg syntax to pass options to the transforms or plugin function as the second parameter.
+
+browserify -p [ <arg> ]
+------------------------------------------------------------------------------------------------------------

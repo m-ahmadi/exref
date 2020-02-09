@@ -1,0 +1,3 @@
+procmon
+Show Registry Activity
+filter by "Operation" or else

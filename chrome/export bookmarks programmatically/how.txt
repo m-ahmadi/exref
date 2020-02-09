@@ -1,0 +1,31 @@
+chrome bookmarks are stored in an extensionless file with json format:
+
+%localappdata%\Google\Chrome\User Data\Default\Bookmarks
+
+and there's a Bookmark.bak as well which is a backup file.
+
+---------------------------------------------------------------------------------------------------------------
+method 1
+using a powershell script that takes the Bookmark file from chrome,
+and converts its content from json to html and writes a new .html file.
+
+requires powershell 3 or higher
+powershell -ExecutionPolicy Bypass -File .\file.ps1
+pwsh -File ./convert.ps1	(powershell 6)
+
+drawback
+the file created by convert.ps1 is not exactly equal to the file exported by chrome
+diffs:
+  some tags are different
+  chrome outputs ICON attr with data uris (ICON="data:image/png;base64,...) while this script does not
+
+but it works. (imported and tested, could icons be affected on a new chrome install?)
+---------------------------------------------------------------------------------------------------------------
+method 2
+
+just copy and paste the Bookmark file in its path on another computer.
+(not sure how to import from it)
+
+drawback
+you can only move your bookmarks to another chrome, not firefox etc.
+---------------------------------------------------------------------------------------------------------------

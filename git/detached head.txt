@@ -1,0 +1,5 @@
+HEAD detached from 0b54fb3f3
+
+happens often in submodules, fix:
+
+git checkout master

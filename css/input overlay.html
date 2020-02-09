@@ -1,0 +1,35 @@
+<style>
+div {
+	position: relative;
+	width: 100px;
+}
+input, span { position: absolute; }
+input {
+	width: 100%;
+	padding-right: 15px;
+}
+span {
+	width: 10px;
+	right: 5px;
+	cursor: default;
+	user-select: none;
+}
+</style>
+
+<div>
+	<input type="text" />
+	<span>✖</span>
+</div>
+
+<script>
+var input = document.querySelector('input');
+var span = document.querySelector('span');
+var toggle = () => span.style.display = input.value ? 'initial' : 'none';
+toggle();
+input.onchange = toggle;
+input.oninput = toggle;
+span.onclick = () => {
+	input.value = '';
+	toggle();
+};
+</script>

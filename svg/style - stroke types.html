@@ -1,0 +1,36 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<style>svg{width:300; height:80;}</style>
+
+<p>stroke</p>
+<svg>
+  <g fill=none>
+    <path stroke=red d="M5,20 l215,0" />
+    <path stroke=black d="M5,40 l215,0" />
+    <path stroke=blue d="M5,60 l215,0" />
+  </g>
+</svg>
+<svg>
+  <g fill=none stroke=black>
+    <path stroke-width=2 d="M5,20 l215,0" />
+    <path stroke-width=4 d="M5,40 l215,0" />
+    <path stroke-width=6 d="M5,60 l215,0" />
+  </g>
+</svg>
+
+<p>stroke-linecap</p>
+<svg>
+  <g fill=none stroke=black stroke-width=12>
+    <path stroke-linecap=butt d="M5,20 l215,0" />
+    <path stroke-linecap=round d="M5,40 l215,0" />
+    <path stroke-linecap=square d="M5,60 l215,0" />
+  </g>
+</svg>
+
+<p>stroke-dasharray</p>
+<svg>
+  <g fill=none stroke=black stroke-width=4>
+    <path stroke-dasharray=5,5 d="M5,20 l215,0" />
+    <path stroke-dasharray=10,10 d="M5,40 l215,0" />
+    <path stroke-dasharray=20,10,5,5,5,10 d="M5,60 l215,0" />
+  </g>
+</svg>

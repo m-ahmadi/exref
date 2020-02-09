@@ -1,0 +1,27 @@
+powershell "start cmd -Verb runAs"			run cmd as admin
+powershell -File ./script.ps1				execute file
+powershell -Command "& 'E:\script.ps1' arg1 arg2"	...
+powershell -ExecutionPolicy Bypass -File .\file.ps1	... bypass policy
+powershell -NoExit -Command "pushd $Env:home"		open and cd
+
+
+-NonInteractive		Does not present an interactive prompt to the user.
+-NoProfile		Does not load the Windows PowerShell profile.
+-NoLogo			Hides the copyright banner at startup.
+-----------------------------------------------------------------------------------------
+another way of changing global execution policy
+
+set key=HKCR\Microsoft.PowerShellScript.1\Shell\open\command
+reg add %key% /ve /d "\"%pws%\" -ExecutionPolicy Unrestricted -file \"%1\"" /f
+
+undo
+reg add %key% /ve /d "\"C:\Windows\System32\notepad.exe\" \"%1\"" /f
+-----------------------------------------------------------------------------------------
+powershell 6 in win7
+
+download windows management framework 4
+install windows update
+restart pc
+install powershell 6.2.1
+done (cli: pwsh)
+-----------------------------------------------------------------------------------------

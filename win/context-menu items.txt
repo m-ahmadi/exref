@@ -1,0 +1,1 @@
+HKCR\*\shellex\ContextMenuHandlers

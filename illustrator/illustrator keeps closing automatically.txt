@@ -1,0 +1,2 @@
+delete this folder:
+%appdata%\Adobe\Adobe Illustrator 23 Settings\

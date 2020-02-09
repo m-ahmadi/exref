@@ -1,0 +1,16 @@
+git branch			show the branch you're on
+git status			show the branch you're on
+git branch --all		all the branches (including remote ones)
+
+git branch dev			create new branch
+git checkout dev		switch to another branch
+git checkout -b dev		equal to prev 2 lines (create & switch)
+git checkout --orphan tmp	create new orphan branch (wth is orphan?)
+git branch -d dev		delete branch (alias: -D)
+git pull origin dev		pull from branch
+git push -u origin dev		push new branch to remote
+
+git push origin --delete <branch_name>			delete a remote branch using
+git branch -d <branch_name>				delete the local branch use
+
+git branch --set-upstream-to=origin/master master	set upstream

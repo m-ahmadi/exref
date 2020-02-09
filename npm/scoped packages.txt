@@ -1,0 +1,19 @@
+you can scope packages to your npm account by putting @ + your npm username in front of the name:
+
+npm init --scope=@my-username
+
+{
+  "name": "util"
+}
+
+becomes
+
+{
+  "name": "@m-ahmadi/util"
+}
+
+
+npm publish --access=public
+
+
+npm install @m-ahmadi/util

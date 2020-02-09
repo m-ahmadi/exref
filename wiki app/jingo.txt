@@ -1,0 +1,13 @@
+npm install jingo -g
+
+create a git repo
+copy .md files into the repo
+cd repo_dir
+
+jingo -s > config.yaml
+open config.yaml
+	application->repository: 'absolute path of git repo' 
+	application->remote:     'origin'
+	server->localOnly:        true
+jingo -c config.yaml
+browse: localhost:6067

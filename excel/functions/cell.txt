@@ -1,0 +1,26 @@
+=CELL( type, [range] )
+=CELL("col", A1)
+
+type
+The type of information that you'd like to retrieve for the cell. type can be one of the following values:
+
+Value	Explanation
+"address"	Address of the cell. If the cell refers to a range, it is the first cell in the range.
+"col"	Column number of the cell.
+"color"	Returns 1 if the color is a negative value; Otherwise it returns 0.
+"contents"	Contents of the upper-left cell.
+"filename"	Filename of the file that contains reference.
+"format"	Number format of the cell. See example formats below.
+"parentheses"	Returns 1 if the cell is formatted with parentheses; Otherwise, it returns 0.
+"prefix"	Label prefix for the cell.
+* Returns a single quote (') if the cell is left-aligned.
+* Returns a double quote (") if the cell is right-aligned.
+* Returns a caret (^) if the cell is center-aligned.
+* Returns a back slash (\) if the cell is fill-aligned.
+* Returns an empty text value for all others.
+"protect"	Returns 1 if the cell is locked. Returns 0 if the cell is not locked.
+"row"	Row number of the cell.
+"type"	Returns "b" if the cell is empty.
+Returns "l" if the cell contains a text constant.
+Returns "v" for all others.
+"width"	Column width of the cell, rounded to the nearest integer.

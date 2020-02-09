@@ -1,0 +1,7 @@
+Timing diagrams are another form of interaction diagram, where the focus is on timing constraints:
+either for a single object or, more usefully, for a bunch of objects.
+
+showing state changes by moving from one horizontal line to another, or with cross
+
+horizontal line		better for few states
+cross (area)		better for many states

@@ -1,0 +1,24 @@
+a ratio is a relationship between two numbers indicating how many times the first number contains the second.
+
+1
+-
+2
+
+1:2
+
+1 to 2
+1 per 2
+
+for each 1 (thing), there is 2 (something)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+rate
+
+a rate is the ratio between two related quantities in different units.
+rate is a type of ratio that involves a period of time.
+
+unit a      unit b (time)
+meters  per second
+dollars per hour
+meals   per day
+games   per year

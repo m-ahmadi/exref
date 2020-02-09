@@ -1,0 +1,5 @@
+npm install node-inspector -g
+node-debug app.js
+node-debug app.js save-live-edit
+
+node-inspector is not maintained anymore...

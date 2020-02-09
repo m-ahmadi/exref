@@ -1,0 +1,6 @@
+we are using extjs 5.1.0
+at this time the last version of extjs is 6.0.1
+but the app that we're working is on 5.1.0
+so:
+the default being assumed for these files is 5.1.0
+unless it's specifically noted that something belongs to extjs 6.0.1

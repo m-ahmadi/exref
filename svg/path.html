@@ -1,0 +1,45 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+
+<h1><pre>&lt;path d="CMD x,y x y ..." pathLength= transform= /&gt;</pre></h1>
+<h3><pre>
+command syntax:
+  CMD x,y (absolute)
+  cmd dx,dy (relative to prev)
+  CMD x,y|x y|x-y
+
+M x,y              moveto
+L x,y              lineto
+H x                horizontal lineto
+V y                vertical lineto
+C x1,y1,x2,y2,x,y  curveto
+S x,2,y2,x,y       smooth curveto
+Q x1,y1,x,y        quadratic bezier curveto
+T x,y              smooth quadratic Bézier curveto
+Z                  closepath
+A rx,ry,angle,largeArc,sweep,x,y  elliptical arcto
+</pre></h1>
+
+<svg width=400 height=210>
+	<text dx=2 dy=15>absolute vs relative</text>
+  <path d="M150,0 L75,200 L225,200 Z" fill=rgba(0,0,255,0.5) />
+	<path d="M250,0 l-75,200 l150,0 Z" fill=rgba(255,0,0,0.5) />
+</svg>
+
+<svg width=450 height=400>
+  <path d="M100,350 l150,-300"       stroke=red stroke-width=3 fill=none />
+  <path d="M250,50 l150,300"         stroke=red stroke-width=3 fill=none />
+  <path d="M175,200 l150,0"          stroke=green stroke-width=3 fill=none />
+  <path d="M100,350 q150,-300,300,0" stroke=blue stroke-width=5 fill=none />
+  
+  <g stroke=black stroke-width=3 fill=black>
+    <circle id=pointA cx=100 cy=350 r=3 />
+    <circle id=pointB cx=250 cy=50 r=3 />
+    <circle id=pointC cx=400 cy=350 r=3 />
+  </g>
+	
+  <g font-size=30 fill=black stroke=none text-anchor=middle>
+    <text x=100 y=350 dx=-30>A</text>
+    <text x=250 y=50 dy=-10>B</text>
+    <text x=400 y=350 dx=30>C</text>
+  </g>
+</svg>

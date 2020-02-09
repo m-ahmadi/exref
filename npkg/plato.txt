@@ -1,0 +1,12 @@
+plato src -r -d report 				hyphenless arg is input
+
+
+plato src -r -d report -l .jshintrc -t "My Awesome App" -x .json routes/*.js
+------------------------------------------------------------------------------------------------
+flags
+
+-d, --dir : String *required*			The output directory
+-r, --recurse					Recursively search directories
+-x, --exclude : String				File exclusion regex
+-l, --jshint : String				Specify a jshintrc file for JSHint linting
+-t, --title : String				Title of the report

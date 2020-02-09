@@ -1,0 +1,12 @@
+{
+	users: [{
+		firstName:'mohammad',
+		lastName:'ahmadi',
+		age: 27
+	
+	}, {
+		firstName: 'mohammadreza',
+		lastName: 'layeghi',
+		age: 7
+	}]
+}

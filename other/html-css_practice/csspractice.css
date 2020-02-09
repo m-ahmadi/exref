@@ -1,0 +1,99 @@
+header {
+  background:yellow;
+  width:1005px;
+  height:70px;
+  font-family: tahoma;
+}
+.sec {
+  float:left;
+}
+nav {
+  background:black;
+  float:right;
+  margin:5px 5px 0 5px;
+  border-radius:1px;
+}
+nav ul {
+  margin:0;
+  padding:0;
+}
+nav li {
+  float:right;
+  border:1px solid black;
+  list-style:none;
+  padding:5px 20px 5px 20px;
+  margin:10px;
+  border-radius:1px;
+}
+nav li:hover {
+  background:#FF3399;
+}
+nav li a {
+  text-decoration:none;
+  color:white;
+  font-size:20px;
+}
+
+
+aside {
+  background:red;
+  height:400px;
+  float:right;
+}
+aside h5 {
+  margin:5px 15px 0 0;
+  padding:0 0 0 0;
+  text-align:right;
+}
+aside ul {
+  margin:0;
+}
+aside li {
+  background:yellow;
+  border:1px solid black;
+  border-radius:2px;
+  padding:2px 50px 2px 50px;
+  margin:5px 10px 5px 10px;
+  list-style:none;
+}
+aside li a {
+  color:black;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+
+article {
+  width:350px;
+  background:#F2F2F2;
+  margin:5px 5px 0 0;
+  padding:10px;
+  float:right;
+  border:1px solid #dedede;
+  border-radius:2px;
+  box-shadow:0 0 1px grey;
+}
+article img {
+  width:180px;
+  height:110px;
+  margin:3px 10px 10px 5px;
+  float:left;
+  border:1px solid #dedede;
+  border-radius:2px;
+  box-shadow:0 0 1px grey;
+}
+article p {
+  text-align:right;
+  font-family: tahoma;
+}
+article h4 {
+  text-align:right;
+  font-family: tahoma;
+}
+
+
+body {
+  margin:0;
+  padding:0;
+  width:1005px;
+}

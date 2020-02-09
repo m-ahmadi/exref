@@ -1,0 +1,1 @@
+git status		show the working tree status

@@ -1,0 +1,1 @@
+node r.js -o baseUrl=. name=path/to/almond include=main out=main-built.js wrap=true

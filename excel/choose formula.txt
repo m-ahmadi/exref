@@ -1,0 +1,4 @@
+             1    2     3    4
+=CHOOSE(3,"Wide",115,"world",8)
+
+3 = world

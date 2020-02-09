@@ -1,0 +1,54 @@
+[DEVICE]
+Name=P16F877A
+Clock=10000000
+[MEMORY_MODEL]
+Value=0
+[BUILD_TYPE]
+Value=0
+[ACTIVE_TAB]
+Value=MyProject.c
+[USE_EEPROM]
+Value=0
+[USE_HEAP]
+Value=0
+[HEAP_SIZE]
+Value=2000
+[EEPROM_DEFINITION]
+Value=
+[FILES]
+Count=1
+File0=MyProject.c
+[BINARIES]
+Count=0
+[IMAGES]
+Count=0
+ActiveImageIndex=-1
+[OPENED_FILES]
+Count=1
+File0=MyProject.c
+[EEPROM]
+Count=0
+[ACTIVE_COMMENTS_FILES]
+Count=0
+[OTHER_FILES]
+Count=0
+[SEARCH_PATH]
+Count=3
+Path0=D:\Program Files\mikroC PRO for PIC\defs\
+Path1=D:\Program Files\mikroC PRO for PIC\Uses\P16\
+Path2=C:\Users\NYC\PIC ADC\
+[HEADER_PATH]
+Count=0
+[HEADERS]
+Count=0
+[PLDS]
+Count=0
+[Useses]
+Count=1
+File0=ADC
+[EXPANDED NODES]
+Node1=Sources
+Node2=Image Files
+Node3=Active Comments Files
+Node4=Output Files
+Count=4

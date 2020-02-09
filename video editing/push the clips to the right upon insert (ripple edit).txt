@@ -1,0 +1,3 @@
+To do a Ripple Edit: (where everything to the right of the insert point moves)
+
+	hold down the Ctrl key, when you click+drag

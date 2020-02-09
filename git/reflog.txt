@@ -1,0 +1,1 @@
+git reflog show		 reflogs are when branch tip is updated (in local repo)

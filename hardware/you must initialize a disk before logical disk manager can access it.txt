@@ -1,0 +1,10 @@
+happens when
+	you install a brand new hard disk
+	hard disks go bad
+
+MBR or GPT?
+choose GPT
+
+Most PCs use the GUID Partition Table (GPT) disk type for hard drives and SSDs.
+GPT is more robust and allows for volumes bigger than 2 TB.
+The older Master Boot Record (MBR) disk type is used by 32-bit PCs, older PCs, and removable drives such as memory cards.

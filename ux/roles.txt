@@ -1,0 +1,53 @@
+user researcher
+	UX researchers define who our users are by examining their behaviors, activities, obligations, needs, and environment.
+	They utilize these observations along with analytical data to identify user struggles inside and outside of the product and provide potential solutions to the team.
+	Researchers reinforce the concept that user experience encompasses the holistic environment in which the user exists, not just the product.
+
+	Focus: Who is our user and what is their environment? 
+	Toolkit: Contextual observation, user interviews, analytical statistics (Pendo), user surveys, process life cycle, user journey mapping, opportunity workshop, personas
+
+information architect
+	UX architects examine the content that needs to be delivered to users.
+	They organize information and establish content hierarchy based on the user’s conceptual model, and how the information influences the user’s thought process and behaviors.
+
+	Focus: How do users search and find content? 
+	Toolkit: Grouping information clusters, card sorting, content hierarchy, sitemaps
+
+interaction designer
+	Interaction designers map how users can easily move through a product to achieve their goals.
+	They define clear pathways and establish consistent behaviors to help point users in the direction of success.
+	They introduce animations as feedback indicators as the user travels down a product’s pathways.
+
+	Focus: How do users move through a product or application? 
+	Toolkit: Workflows, wireframes, whiteboard sessions, task flow diagrams, development lingo, animations
+
+visual designer
+	Visual designers build upon the initial design theories established by an interaction designer and apply typographical hierarchy, color, material patterns, and iconography.
+	They establish how the smaller components or microinteractions fit together to formulate the overall visual appeal of a product.
+
+	Focus: What is visually appealing to our users? 
+	Toolkit: overall layout, typography, patterns, iconography, microInteractions, color palettes
+
+prototyper
+	Prototypers may be disguised as UXers, engineers, or data scientists.
+	They create a variety of interactive workflows with coded or non-coded prototypes to provide a proof of concept.
+	They help the team understand if an interactive pattern effectively solves a problem or needs to be modified.
+
+	Focus: How do we capture design ideas, bring them to life, and test their interactivity? 
+	Toolkit: clickable workflows, interactive animations, HTML/CSS/JavaScript
+
+usability expert
+	Usability experts investigate whether a product’s pathways make sense to users.
+	They identify where users get lost or confused via testing and provide feedback to the team to make necessary adjustments.
+	Their findings help influence product revisions and future ideation.
+
+	Focus: Is our product easy to use? Will customers use our product? 
+	Toolkit: test plans, proof of concept, testing debriefs, guerrilla testing, A/B testing
+
+content strategist 
+	Content strategists analyze the user’s language and understand how to speak to users in their own terms.
+	They decide which content will be created, when it will be published, and how it will be exposed to the user.
+	Content strategists set the product’s voice and determine the tone that will be used when addressing users in various situations.
+	
+	Focus: What language do our users speak? How can we talk to our users effectively? 
+	Toolkit: content modeling, product voice, tone decisions, content guidelines

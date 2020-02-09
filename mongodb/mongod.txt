@@ -1,0 +1,48 @@
+mongod --dbpath ./data				start server
+mongod --dbpath=./data				alternative syntax
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+flags
+
+--dbpath arg					directory for datafiles. default: \data\db\
+--directoryPerDB				each database stored in a separate directory
+--repair					run repair on all dbs
+--repairpath arg				root directory for repair files. defaults to dbpath
+
+--port arg					specify port number. 27017 by default
+--logpath arg					log file to send write to instead of stdout. has to be a file, not directory
+-v, --verbose					be more verbose (more v more verbosity: -vvvvv)
+--quiet						quieter output
+
+--install					install windows service
+--remove					remove windows service
+--reinstall					reinstall windows service (equivalent to --remove followed by --install)
+--serviceName arg				windows service name
+--serviceDisplayName arg			windows service display name
+--serviceDescription arg			windows service description
+--serviceUser arg				account for service execution
+--servicePassword arg				password used to authenticate serviceUser
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+install as service
+
+mongod --install --dbpath ./data --logpath E:\logs.txt		install service
+mongod --remove							uninstall service with default name
+mongod --remove --serviceName "service name"			uninstall service with custom name
+net start MongoDB						start service
+net stop MongoDB						stop service
+
+--dbpath and --logpath
+	both required. (service won't start if omitted)
+	both must be an absolute file path.
+a logfile is created each time the service starts.
+installed service is set to `Automatic` by default. (starts on windows startup, change through services.msc)
+
+
+mongod --install --dbpath E:\db --logpath "C:\Program Files\MongoDB Server 4.2\log\mongod.log" --serviceName mongo
+net start mongo
+mongo is running on: localhost:27017
+----------------------------------------------------------------------------------------------------------------------------------------------

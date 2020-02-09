@@ -1,0 +1,6 @@
+Insertion sort analysis
+
+Worst-Case: input reverse sorted
+        n
+T(n) =  Σ  θ(j) =  θ(n²)
+       j=2

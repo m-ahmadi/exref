@@ -1,0 +1,16 @@
+[
+	{ "keys": ["alt+`"], "command": "toggle_side_bar" },
+	{ "keys": ["ctrl+/"], "command": "toggle_comment", "args": { "block": false } },
+	{ "keys": ["ctrl+q"], "command": "toggle_comment", "args": { "block": true } },
+	{ "keys": ["alt+1"], "command": "fold_by_level", "args": {"level": 1} },
+	{ "keys": ["alt+2"], "command": "fold_by_level", "args": {"level": 2} },
+	{ "keys": ["alt+3"], "command": "fold_by_level", "args": {"level": 3} },
+	{ "keys": ["alt+4"], "command": "fold_by_level", "args": {"level": 4} },
+	{ "keys": ["alt+5"], "command": "fold_by_level", "args": {"level": 5} },
+	{ "keys": ["alt+6"], "command": "fold_by_level", "args": {"level": 6} },
+	{ "keys": ["alt+7"], "command": "fold_by_level", "args": {"level": 7} },
+	{ "keys": ["alt+8"], "command": "fold_by_level", "args": {"level": 8} },
+	{ "keys": ["alt+9"], "command": "fold_by_level", "args": {"level": 9} },
+	{ "keys": ["alt+shift+1"], "command": "unfold_all" },
+	{ "keys": ["ctrl+d"], "command": "duplicate_line" }
+]

@@ -1,0 +1,22 @@
+/t3.js
+/t3.min.js
+----------------------------------------------------------------------------------------
+t3js/dist/:
+t3.js             -  Latest unminified version of T3. Supports IE9+
+t3.min.js         -  Minified version of t3.js
+t3-jquery.js      -  Latest unminified version of T3 - Supports IE8+ with jQuery
+t3-jquery.min.js  -  Minified version of t3-jquery.js
+----------------------------------------------------------------------------------------
+npm i t3js --save
+
+./node_modules/t3js/dist/t3.js  ||  t3.min.js
+
+----------------------------------------------------------------------------------------
+//cdn.rawgit.com/box/t3js/v2.7.0/dist/t3.js  ||  t3.min.js
+----------------------------------------------------------------------------------------
+latest published release
+
+//cdn.rawgit.com/box/t3js/master/dist/t3.js  ||  t3.min.js
+
+Linking directly to the master branch means getting updates without notice
+----------------------------------------------------------------------------------------

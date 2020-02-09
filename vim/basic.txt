@@ -1,0 +1,44 @@
+i		enter insert mode
+escape		enter normal mode
+
+:q		quit (alias :quit)
+:q!		quit without save (alais :quit!)
+:wq		write and quit
+:wq! 		write and quit even if file has only read permission (if file does not have write permission: force write)
+:x 		write and quit (similar to :wq, but won't write if there are no changes)
+:qa		quit all (short for :quitall)
+
+:set list	show hidden characters
+:set nolist	...back to normal
+
+:w		write to file
+:set numer	turn on line numbering
+:set ft=css	set file type to css
+
+dd		delete line
+2dd		delte 2 lines
+yy		copy line
+2yy		copy 2 lines
+p		paste
+u		undo last action
+ctrl+r		redo
+
+/keyword	search keyword
+enter		... go to first match
+n		... next match
+N		... prev match
+
+:/s/old/new/	replace only first
+:/s/old/new/g	replace all
+:/s/old/new/gc	... with confirm
+
+*		search next occurrence of current word
+#		search previous occurrence of current word
+
+h		right
+l		left
+j		down
+k		up
+w		moves to the start of next word
+e		moves to the end of next word
+b		moves to beginning of previous word

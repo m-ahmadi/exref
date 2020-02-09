@@ -1,0 +1,9 @@
+browserify main.ts -p [ tsify --noImplicitAny ] > bundle.js		official
+
+browserify main.ts -p [ tsify ] > bundle.js				reads tsconfig.json
+
+browserify -p tsify main.ts > bundle.js
+
+
+wathcify:
+watchify main.ts -o bundle.js -p tsify -v

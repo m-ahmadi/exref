@@ -1,0 +1,7 @@
+Step 1: Open Audacity.
+Step 2: Drag In The Song.
+Step 3: Split The Stereo Track.
+Step 4: Select The Bottom Track.
+Step 5: Invert The Bottom Track.
+Step 6: Set Both Tracks To Mono.
+Step 7: Export It.

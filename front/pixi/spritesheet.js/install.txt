@@ -1,0 +1,2 @@
+install imagemagick from: www.imagemagick.org
+npm install spritesheet-js -g

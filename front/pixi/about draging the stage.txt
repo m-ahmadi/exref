@@ -1,0 +1,4 @@
+create one spirte as a background
+create other sprites
+or
+create other sprite as children of that background

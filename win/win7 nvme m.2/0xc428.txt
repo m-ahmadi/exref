@@ -1,0 +1,94 @@
+error
+
+File:	\Windows\system32\winload.exe
+Status:	0xc0000428
+Info:	The digital signature for this file couldn't be ferified.
+_____________________________________________________________________________________________
+fix 1 (fail)
+
+bootrec /rebuildbcd
+
+if "Total identified Windows installation: 0" then:
+	bcdedit /export c:\bcdbackup
+	attrib c:\boot\bcd -h -r -s
+	ren c:\boot\bcd bcd.old
+	bootrec /rebuildbcd
+	(fail)
+
+bootrec /rebuildbcd
+bootrec /fixmbr
+bootrec /fixboot
+
+if "Access is denied." then:
+
+bcdboot C:\Windows /s D:\
+	C:\Windows   windows installation folder
+	D:\          active boot partition (usb drive)
+_____________________________________________________________________________________________
+fix 2 (fail)
+
+diskpart
+list vol
+look for
+	"System Rese"
+	smallest size (100-350MB)
+	if using UEFI based computer then the "System Reserved" is in Fat32 format
+and
+	OS volume
+	largest volume in size (GB)
+
+sel vol <num> (sysres vol num)
+assign letter=Z
+exit
+
+bcdboot C:\windows /s Z: /f ALL
+	c is OS volume letter
+	z is System Reserved volume
+restart
+
+if failed, repeat prev steps but with:
+	bcdboot C:\windows /s Z: /f UEFI
+
+_____________________________________________________________________________________________
+=============
+= other fixes
+=============
+
+disable driver signature enforcementd
+bcdedit /set testsigning off
+fail: "The system cannot find the file specified"
+------------------------------------------------------------------------
+bcdedit /set nointegritychecks on
+fail: "The system cannot find the file specified"
+------------------------------------------------------------------------
+config boot on another pc (haven't tried)
+diskpart
+list disk
+select disk <#>
+list partition
+select partition <#>
+active
+exit
+bcdboot C:\Windows /s S:
+
+copies BCD files from C:\Windows to a system partition on a secondary hard drive that will be booted on another computer.
+letter S: system partition of the secondary drive
+------------------------------------------------------------------------
+(haven't tried)
+
+diskpart
+sel disk 0
+list vol
+
+sel vol 1
+assign letter=H
+exit
+
+cd /d <drive letter>:\EFI\Microsoft\Boot\
+bootrec /FixBoot
+	bootrec /rebuildbcd
+ren BCD BCD.old
+bcdboot c:\Windows /l en-us /s <boot letter>: All
+------------------------------------------------------------------------
+bootsect/nt60 sys
+sfc /scannow

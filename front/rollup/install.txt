@@ -1,0 +1,2 @@
+npm install rollup --save-dev
+npm install rollup -g

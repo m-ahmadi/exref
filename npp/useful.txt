@@ -1,0 +1,29 @@
+a trick
+User Defined Language Dialogue -> Styler Dialogue
+right click on Foreground or Background color rectangle, and it will become hatched.
+this allows it to use "Default Style" colors in "Global Styles" for this section.
+
+exclude folders in find in files
+make folders hidden (check "Apply changes to this folder, subfolders and files")
+or specify only what to search using windows wildcards
+*.sql ; *.asp ; *.html ; *.as ; *.mxml
+
+issue: notepad++ window won't get focus when file is opened
+happens when run as admin. unchck "Run as administrator"
+
+replace LF with CRLF
+Replace Dialogue -> Search Mode: Extended (\n, \r, \t, \0, \x...)
+Find what: \n
+Replace with: \r\n
+Replace All
+
+error: "there are still some pending actions to complete installing or removing some plugins"
+delete this file:
+%APPDATA%\Notepad++\plugins\Config\PluginManagerGpup.xml
+
+disable spell check
+Plugins -> DSpellCheck -> uncheck "Spell Check Document Automatically"
+
+enable autocomplete for marvinlabs-scss
+pushd D:\Program Files\Notepad++\plugins\APIs\
+copy /b css.xml SCSS-Light.xml

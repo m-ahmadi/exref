@@ -1,0 +1,21 @@
+body ::-webkit-input-placeholder {
+	/* WebKit browsers */
+	font-family: $font-stack;
+}
+
+body :-moz-placeholder {
+	/* Mozilla Firefox 4 to 18 */
+	font-family: $font-stack;
+	opacity: 1;
+}
+
+body ::-moz-placeholder {
+	/* Mozilla Firefox 19+ */
+	font-family: $font-stack;
+	opacity: 1;
+}
+
+body :-ms-input-placeholder {
+	/* Internet Explorer 10+ */
+	font-family: $font-stack;
+}

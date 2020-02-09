@@ -1,0 +1,3 @@
+vi === vim
+
+vi bar.txt		create file

@@ -1,0 +1,7 @@
+http://service.tsetmc.com/WebService/TseClient.asmx			soap
+
+http://service.tsetmc.com/tsev2/data/TseClient2.aspx			v2 (http get)
+
+http://service.tsetmc.com/WebService/TsePublicV2.asmx			paid api
+
+http://cdn.tsetmc.com/Site.aspx?ParTree=11141111			paid api help (very useful info)

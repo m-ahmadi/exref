@@ -1,0 +1,17 @@
+You should use sequence diagrams when you want to look at the behavior of several objects within a single use case.
+
+Sequence diagrams are good at showing collaborations among the objects; they
+are not so good at precise definition of the behavior.
+
+If you want to look at the behavior of a single object across many use cases, use a state diagram.
+
+If you want to look at behavior across many use cases or many threads, consider an activity diagram.
+
+If you want to explore multiple alternative interactions quickly, you may be better off with CRC
+cards, as that avoids a lot of drawing and erasing.
+
+It's often handy to have a CRC card session to explore design alternatives and then
+use sequence diagrams to capture any interactions that you want to refer to later
+
+Other useful forms of interaction diagrams are communication diagrams, for showing connections;
+and timing diagrams, for showing timing constraints.

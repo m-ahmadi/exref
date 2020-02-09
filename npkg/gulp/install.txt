@@ -1,0 +1,17 @@
+npm i gulp-cli -g
+
+npm i gulp            -D
+npm i gulp-concat     -D
+npm i gulp-sass       -D
+npm i gulp-livereload -D
+npm i gulp-shell      -D
+---------------------------------------------------------------
+local only
+
+npm i gulp
+npm i gulp-livereload
+...
+
+no need for gulp-cli as it's required by gulp itself
+---------------------------------------------------------------
+

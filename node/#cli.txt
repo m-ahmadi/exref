@@ -1,0 +1,36 @@
+node .					run index.js in cwd
+node app.js				run script
+node -e "console.log(2+3)"		run js string (predefined REPL modules can be used without requiring: http,fs,path,...)
+node -e "fs.mkdirSync('x')"		...
+node -p "2+3"				run js string and print result
+node -p "console.log(path.sep)"		...
+node . -r fs -r path			preload module(s)
+--------------------------------------------------------------------------------------------------------------------------------------
+debugging
+
+node --inspect-brk index.js			break on the first statement, node v7+
+node --inspect index.js				doesn't seem to be doing anything
+
+about:inspect
+or
+chrome://inspect
+Open dedicated DevTools for Node
+
+
+node --inspect --debug-brk index.js		deprecated use `node --inspect-brk`
+node debug --inspect				deprecated
+node debug app.js				deprecated
+	cont  c		continue
+	next  n		step
+	step  s		step in 
+	out   o		step out
+--------------------------------------------------------------------------------------------------------------------------------------
+flags
+
+-v, --version			print Node.js version
+-e, --eval script		evaluate script
+-p, --print			evaluate script and print result
+-c, --check			syntax check script without executing
+-i, --interactive		always enter the REPL even if stdin does not appear to be a terminal
+-r, --require			module to preload (option can be repeated)
+--------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,10 @@
+npx temporarily installs a package and runs its binary
+(not sure how or when it removes the templorarily installed package, or where it sits on filesystem)
+
+npx create-react-app my-app
+
+kinda sam as:
+
+npm i create-react-app
+create-react-app my-app
+npm r create-react-app (not really, but you know)

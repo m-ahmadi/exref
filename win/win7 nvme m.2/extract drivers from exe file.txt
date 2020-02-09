@@ -1,0 +1,3 @@
+wix\dark.exe D:\Samsung_NVM_Express_Driver_2.1.exe -x C:\SamsungExt
+cd c:\SamsungExt\AttachedContainer
+msiexec /qb /i Samsung960ProInstaller64.msi

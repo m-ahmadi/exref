@@ -1,0 +1,25 @@
+
+How many simultaneous users do you expect to have?
+	This is the root metric you need to figure out how much horizontal scaling you may need in your db world.
+	
+How much do the users actually do in your website in each session?
+	If your site is an online game, users will be in the site and actively interacting with it more than other
+	types of sites like web-stores, where users typically pop in, do a search, hopefully buy something, and leave.
+	
+How much data does a user visit at a time?
+How much per-user data does a user generate at a time?
+How much of this data is loaded to apps from the db when a user visits again?
+
+
+A well-provisioned db engine on a dedicated db server should be able to handle
+the db part of a few hundred user actions per second under most web-style workloads,
+which typically translates into many hundreds of thousands of users as the vast majority of
+users aren't actively clicking the mouse at the same time, even in a site like facebook or amazon.
+
+That said, you shouldn't try to be worrying about scaling too early in your design process.
+If you're trying to do a web startup of some kind, you should be focusing on your user experience first,
+with a bit of an eye to a scalable design, but don't worry about "one billion users" right off the bat.
+
+Get your first 10,000, and then a million; at that point, you can worry about a
+scaled-out design and you would likely be able to get enough investment to get
+the people and the hardware (or cloud designs) to implement a scalable backend architecture.

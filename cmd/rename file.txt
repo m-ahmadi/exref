@@ -1,0 +1,2 @@
+rename old.txt new.txt		renames old.txt to new.txt
+alias: ren

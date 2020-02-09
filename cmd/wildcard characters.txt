@@ -1,0 +1,42 @@
+*	zero or more characters.
+?	exactly one character.
+<	zero or more characters until encountering and matching the final period in the name. (DOS_STAR)
+>	any single character, or zero if to the left of a period or the end of the string- or contiguous to other > that are in said position. (DOS_QM)
+"	a period or zero characters at the end of the string. (DOS_DOT)
+
+
+
+examples:
+
+dir c?mp
+
+dir *.mp3
+
+dir *data
+
+dir he??.*
+
+rename *.txt *.jpg
+
+del comp*.txt
+
+-----------------------------------------------------------------------------------------
+find and replace (word, excel, etc)
+
+comp*r		basic: computer compiler "computer your"
+
+d?ll		basic: dall dell dill doll dull
+
+d[eo]ll		any characters in the brackets: dell doll
+
+d[o-u]ll	range of characters: doll dull but not dell
+
+d[!e]ll		not match
+
+se{2}d		nth number of the character preceding the curly: seed but not sed
+
+<(comp)		any word beginning with what's in parens
+
+(er)>		any word ending with what's in parens
+
+-----------------------------------------------------------------------------------------

@@ -1,0 +1,5 @@
+The multiplicity of a property is an indication of how many objects may fill the property.
+most common multiplicities:
+	1 (An order must have exactly one customer.)
+	0..1 (A corporate customer may or may not have a single sales rep.)
+	* (A customer need not place an Order and there is no upper limit to the number of Orders a Customer may place—zero or more orders.)

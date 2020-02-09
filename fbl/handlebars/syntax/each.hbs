@@ -1,0 +1,59 @@
+{{#each comments}}
+	<h1>{{username}}</h1>
+	<h1>{{likes}}</h1>
+{{/each}}
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<ul class="people_list">
+  {{#each people}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+
+<!--
+	when used with this context: 
+	{
+		people: [
+			"Yehuda Katz",
+			"Alan Johnson",
+			"Charles Jolley"
+		]
+	}
+	will result in:
+-->
+<ul class="people_list">
+  <li>Yehuda Katz</li>
+  <li>Alan Johnson</li>
+  <li>Charles Jolley</li>
+</ul>
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!-- this
+	You can use the this expression in any context to reference the current context.
+	You can optionally provide an {{else}} section which will display only when the list is empty.
+-->
+{{#each paragraphs}}
+  <p>{{this}}</p>
+{{else}}
+  <p class="empty">No content</p>
+{{/each}}
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!-- 
+	When looping through items in each, you can optionally reference the current loop index via {{@index}}
+-->
+{{#each array}}
+  {{@index}}: {{this}}
+{{/each}}
+
+
+<!-- Additionally for object iteration, {{@key}} references the current key name: -->
+{{#each object}}
+  {{@key}}: {{this}}
+{{/each}}
+
+<!--
+	The first and last steps of iteration are noted via the @first and @last variables when iterating over an array.
+	When iterating over an object only the @first is available.
+	Nested each blocks may access the iteration variables via depth based paths.
+	To access the parent index, for example, {{@../index}} can be used.
+-->

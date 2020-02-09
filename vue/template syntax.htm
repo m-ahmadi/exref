@@ -1,0 +1,42 @@
+basic
+<span>Message: {{ msg }}</span>
+<span v-once>This will never change: {{ msg }}</span>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+raw html
+<p>Using mustaches: {{ rawHtml }}</p>
+<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+attribute
+<div v-bind:id="dynamicId"></div>
+<button v-bind:disabled="isButtonDisabled">Button</button>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+js expression
+{{ number + 1 }}
+{{ ok ? 'YES' : 'NO' }}
+{{ message.split('').reverse().join('') }}
+{{ var a = 1 }} <!-- error (expression, not statement) -->
+{{ if (ok) { return message } }} <!-- error -->
+<div v-bind:id="'list-' + id"></div>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+directive
+<p v-if="seen">Now you see me</p>
+<!-- directive argument: v-directive:argument -->
+<a v-bind:href="url"></a>
+<a v-on:click="doSomething"></a>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+dynamic argument
+js expression in a directive argument, with some constraints about expression and its value
+<a v-bind:[attributeName]="url"></a>
+<a v-on:[eventName]="doSomething"></a>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+modifier
+<form v-on:submit.prevent="onSubmit"></form>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+shorthands
+<a v-bind:href="url"> </a>        <!-- full syntax -->
+<a :href="url"> </a>              <!-- shorthand -->
+<a :[key]="url"> </a>             <!-- shorthand with dynamic argument (2.6.0+) -->
+<a v-on:click="doSomething"> </a> <!-- full syntax -->
+<a @click="doSomething"> </a>     <!-- shorthand -->
+<a @[event]="doSomething"> </a>   <!-- shorthand with dynamic argument (2.6.0+) -->
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,0 +1,20 @@
+.flex-container {
+	display: flex;
+	flex-direction:  row|column|row-reverse|column-reverse;
+	flex-wrap:       nowrap|wrap|wrap-reverse;
+	justify-content: flex-start|flex-end|center|space-between|space-around;
+	align-items:     stretch|center|flex-start|flex-end|baseline;
+	align-content:   stretch|center|flex-start|flex-end|space-between|space-around;
+	
+	flex-flow: flex-direction flex-wrap; /* shorthand */
+}
+
+.flex-container .flex-item {
+	order: number;
+	flex-grow: number;
+	flex-shrink: number;
+	flex-basis: number|auto;
+	align-self: auto|stretch|center|flex-start|flex-end|baseline;
+	
+	flex: flex-grow flex-shrink flex-basis|auto; /* shorthand */
+}

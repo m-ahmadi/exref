@@ -1,0 +1,29 @@
+command > filename			redirect command output to a file
+command >> filename			append to a file
+command > nul				suppress command output (nul is a pseudofile)
+command < filename			pass contents of file as stdin to command
+
+commandA | commandB			pipe the output from commandA into commandB (send a stdout as stdin to b)
+commandA & commandB			run commandA, and            then run commandB (b runs after   a)
+commandA && commandB			run commandA, if it succeeds then run commandB (b runs only if a succeeds) (&& works in win and linux)
+commandA || commandB			run commandA, if it fails    then run commandB (b runs only if a failes)
+commandA && commandB || commandC	if commandA succeeds run commandB, if it fails commandC
+
+command 1>> filename			redirect stdout (file will contain success results only)
+command 2>> filename			redirect stderr (file will contain error   results only)
+command > filename 2>&1			combine stdout and stderr into same file
+
+note
+> and >> redirect stdout by default
+stdio files/streams are reference with numbers: 0 stdin, 1 stdout, 2 stderr
+------------------------------------------------------------------------------------------------------
+some examples
+
+dir /b | sort								pipe
+dir /b | node -p "console.log('SEE\n',fs.readFileSync(0,'utf8'))"	another pipe
+echo hello > nul							supress
+node -p "2+2" 1>> out.txt						stdout only
+node -p "x+2" 2>> err.txt						stderr only 
+node -p "x+2" > out.txt 2>&1						stdout and stderr combined
+node -p "console.log(fs.readFileSync(0,'utf8'))" < file.txt		file as stdin
+------------------------------------------------------------------------------------------------------

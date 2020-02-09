@@ -1,0 +1,49 @@
+<!--
+	Handlebars allows for template reuse through partials.
+	Partials are normal Handlebars templates that may be called directly by other templates.
+-->
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--
+	Basic Partials
+	In order to use a partial, it must be registered via Handlebars.registerPartial.
+	Handlebars.registerPartial('myPartial', '{{name}}')
+	This call will register the myPartial partial.
+	Partials may be precompiled and the precompiled template passed into the second parameter.
+	Calling the partial is done through the partial call syntax:
+-->
+{{> myPartial }}
+<!--
+	Will render the partial named myPartial.
+	When the partial executes, it will be run under the current execution context.
+-->
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--
+	Dynamic Partials
+	It's possible to dynamically select the partial to be executed by using sub expression syntax.
+-->
+{{> (whichPartial) }}
+<!--
+	Will evaluate whichPartial and then render the partial whose name is returned by this function.
+	Subexpressions do not resolve variables so whichPartial must be a function.
+	If a simple variable has the partial name, it's possible to resolve it via the lookup helper.
+-->
+{{> (lookup . 'myVariable') }}
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--
+	Partial Contexts
+	It's possible to execute partials on a custom context by passing in the context to the partial call.
+-->
+{{> myPartial myOtherContext }}
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<!--
+	Partial Parameters
+	Custom data can be passed to partials through hash parameters.
+-->
+{{> myPartial parameter=value }}
+<!--
+	Will set parameter to value when the partial runs.
+	This is particularly useful for exposing data from parent contexts to the partial:
+-->
+{{> myPartial name=../name }}
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->

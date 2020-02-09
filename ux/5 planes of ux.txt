@@ -1,0 +1,15 @@
+1. strategy
+	site objectives
+	user needs
+2. scope
+	functional specs
+	content requirements
+3. structure
+	information architecture
+	interaction design
+4. skeleton
+	information design
+	interface design
+	navigation design
+5. surface
+	visual design

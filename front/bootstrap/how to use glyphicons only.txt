@@ -1,0 +1,30 @@
+			1st way:
+
+cut-and-paste it from the compiled bootstrap css file
+manually change the path to fonts in @font-face
+
+-----------------------------------------------------------------------
+			2nd way:
+
+get bootstrap-sass
+
+@import		~/assets/stylesheets/bootstrap/_variables.scss
+@import		~/assets/stylesheets/bootstrap/_glyphicons.scss
+or
+@import		~/assets/stylesheets/_bootstrap.scss
+and then edit it, so it only contains:
+	@import "variables";
+	
+@import "glyphicons";
+
+
+note:
+default path of the fonts is:
+	'../fonts/bootstrap/'
+
+either put the fonts in the default path or change the default path
+
+to change the default path:
+	go to _variables.scss
+	change the $icon-font-path variable (line 83)
+-----------------------------------------------------------------------

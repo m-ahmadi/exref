@@ -1,0 +1,19 @@
+diskpart			enter diskpart utility
+list disk			show all disks
+sel disk 0			select a disk
+list partition			show partitions of selected disk
+list vol			show all volumes of selected disk
+clean				unallocates selected disk
+convert gpt			convert selected disk to gpt
+convert mbr			convert selected disk to gpt
+
+sel part 1			select partition
+detail part			show detail about selected partition
+active				mark selected partition as active
+
+sel vol 0			select a volume
+assign letter=X			assign a letter to selected volume
+format fs=ntfs quick		format selected volume
+format letter=X fs=FAT32	format volume x
+format X: /FS:FAT32		format volume x with fat32 file system
+clean				unallocates selected volume

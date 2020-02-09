@@ -1,0 +1,5 @@
+mkdir foo		create dir
+mkdr foo,bar,baz	... multiple dirs
+mkdir a/b/c/d		... nested dirs
+
+alias: md

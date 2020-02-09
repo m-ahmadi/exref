@@ -1,0 +1,2 @@
+lock object		ctrl 2
+unlock object		ctrl alt 2

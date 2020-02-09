@@ -1,0 +1,50 @@
+curl example.com					get
+curl http://example.com					...
+curl http://example.com -X GET				...
+curl example.com/file.zip -o file.zip			download file
+curl http://example.com -X POST				post
+curl http://example.com -d "a=b&c=d"			sending data with the request
+curl http://user:password@example.com/users/1		performing basic authentication
+
+curl http://user:password@example.com/users/1 -X PUT -d "screen_name=batman"
+____________________________________________________________________________________________________________________________________________________________
+json, get
+
+curl http://hostname/resource -X GET -H "Accept: application/json" -H "Content-Type: application/json" -i
+____________________________________________________________________________________________________________________________________________________________
+xml, get
+
+curl http://hostname/resource -X GET -H "Accept: application/xml" -H "Content-Type: application/xml"
+____________________________________________________________________________________________________________________________________________________________
+file upload, post
+
+curl http://hostname/resource --form "fileupload=@filename.txt"
+____________________________________________________________________________________________________________________________________________________________
+posting data, post
+
+curl http://hostname/resource -d "param1=value1&param2=value2"
+____________________________________________________________________________________________________________________________________________________________
+rest, post
+
+curl http://hostname/resource -X POST -d @filename
+____________________________________________________________________________________________________________________________________________________________
+logging into a site (auth)
+
+curl http://localhost/Login -d "username=admin&password=admin&submit=Login" --dump-header headers
+curl http://localhost/ -L -b cookies.txt
+____________________________________________________________________________________________________________________________________________________________
+Usage: curl [options...] <url>
+
+flags
+
+-d, --data <data>			HTTP POST data
+    --data-binary <data>		HTTP POST binary data
+-H, --header <header/@file>		Pass custom header(s) to server
+-X, --request <command>			Specify request command to use
+    --url <url>				URL to work with (same as last hyphenless arg)
+-o, --output <file>			Write to file instead of stdout
+
+-b, --cookie <data|filename>		Send cookies from string/file
+-i, --include				Include protocol response headers in the output
+-D, --dump-header <filename>		Write the received headers to <filename>
+-L, --location				Follow redirects

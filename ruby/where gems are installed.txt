@@ -1,0 +1,9 @@
+gem env						show info about your gem environment
+gem environment					gem env alias
+gem env <entry_name>				show one entry out of environment
+gem env gemdir
+gem env gempath
+
+gem which <package_name>			get a location of the library file
+gem list					show list of local gems installed
+gem help commands				show list of gem commands

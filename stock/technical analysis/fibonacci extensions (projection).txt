@@ -1,0 +1,4 @@
+fibonacci extensions are used to determine profit targets. (eg: after a correction)
+extension levels:
+	possible areas where price may reverse.
+	based on fibonacci ratios.

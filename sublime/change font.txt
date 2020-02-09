@@ -1,0 +1,3 @@
+Preferences -> Settings - User
+"font_face": "consolas",
+"font_size": 13.0,

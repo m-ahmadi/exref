@@ -1,0 +1,10 @@
+building blocks of UML:
+	notation
+	meta-model
+
+UML 2 describes 13 official diagram types
+
+martin recomands to start UML with class & sequence diagram (he thinks that these are the most common)
+
+
+

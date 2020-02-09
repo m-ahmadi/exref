@@ -1,0 +1,10 @@
+fabien-d.github.io/alertify.js/
+
+/alertify.core.css
+
+one of these two themes
+
+	/alertify.default.css
+	/alertify.bootstrap.css
+
+/alertify.js

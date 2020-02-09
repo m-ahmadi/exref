@@ -1,0 +1,5 @@
+about next.js
+each page is a component
+when you first visit the app, you get a server rendered version,
+and from then on, you get a client rendered version
+------------------------------------------------------------------------------------------------------------

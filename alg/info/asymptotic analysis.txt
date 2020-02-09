@@ -1,0 +1,10 @@
+What's an algorithm w-c time?
+    Depends on Computer
+    Relative speed  (compare 2 algorithms on same machine)
+    Absolute speed  (is 1 algorithm better no matter what machine is run on)
+
+BIG IDEA:  Asymptotic Analysis
+
+	1.  Ignore machine dependent constants
+
+	2.  Look at the growth of runing time instead of actual running time

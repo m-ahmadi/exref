@@ -1,0 +1,5 @@
+purpose of interaction diagram is to:
+	capture the dynamic behaviour of a system
+	describe the message flow in the system
+	describe the structural organization of the objects
+	describe the interaction among objects

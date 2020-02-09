@@ -1,0 +1,2 @@
+some packages you install golably
+some packages you install locally (current dir of app)

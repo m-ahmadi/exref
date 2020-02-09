@@ -1,0 +1,11 @@
+---
+layout: post
+title: Blogging Like a Hacker
+---
+
+any file that contains a front matter is processed and transformed by Jekyll.
+each processed file has access to variables via the liquid templating language.
+
+what is a front matter:
+	valid yaml set between triple-dashed lines, first thing in the file.
+

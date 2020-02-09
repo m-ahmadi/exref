@@ -1,0 +1,41 @@
+set target="D:\Program Files\Notepad++"
+pushd %r%\npp
+copy /b stylers\#* %target%\stylers.xml
+copy userDefinedLangs %target%\userDefinedLangs\
+cd autoCompletion
+copy /b javascript.xml myJSX.xml
+-------------------------------------------------------------------------------
+Settings -> Preferences
+  Language        -> Tab size -> default: 2 normal: 8
+  Highlighting    -> Use Find dialog settings
+  Auto-Completion -> html/xml close tag
+  MISC.           -> Update silently (enable), Document Switcher (disable)
+-------------------------------------------------------------------------------
+Settings -> Style Configurator
+  Global Styles -> Global override
+          Font size: 11
+          Enable global font
+          Enable global font size
+  JavaScript ->
+          KEYWORD -> User-defined keywords
+          User ext: json mjs jsx
+  CSS  -> TAG -> Font name: none
+  HTML -> User ext: handlebars hbs phbs vue
+
+remove <Language name="json"> tag from %appdata%\notepad++\langs.xml
+-------------------------------------------------------------------------------
+Plugins -> Plugins Admin
+
+Compare
+Customize Toolbar
+Indent By Fold
+JSLint
+JSON Viewer
+JSTool
+Light Explorer
+NewFileBrowser
+Quick Color Picker +
+TextFX Characters
+Tidy2
+XML Tools
+-------------------------------------------------------------------------------

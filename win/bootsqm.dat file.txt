@@ -1,0 +1,2 @@
+it's created after chkdsk tool completes.
+it's ok to delete it.

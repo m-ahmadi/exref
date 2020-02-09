@@ -1,0 +1,87 @@
+gaps are areas on the chart where no trading has taken place.
+upside   gaps are signs of market strength.
+downside gaps are signs of market weakness. (falling below a gap in an uptrend has very bearish implications.)
+gaps on weekly and monthly charts are more significant than daily charts.
+gaps are more common on daily charts than weekly and monthly charts.
+
+in uptrend
+prices open above the highest price of the previous day,
+leaving a gap or open space that is not filled during the day.
+
+in downtrend
+the day's highest price is below the previous day's low.
+
+3 general types of gaps:
+	breakaway
+	runaway (or measuring)
+	exhaustion
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+myths
+"gaps are always filled."
+not true, some should be filled and others should not.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+the breakaway gap
+
+occurs at the completion of an important price pattern.
+signals the beginning of a significant market move.
+usually occur on heavy volume.
+after a market has completed a major basing pattern, the breaking of resistance often occurs on a breakaway gap.
+
+breeding grounds (where they appear a lot)
+major breakouts from topping or basing areas.
+the breaking of a major trendline, signaling a reversal of trend.
+
+filling
+breakaway gaps are usually not filled.
+prices may return to upper end of the gap (in a bullish breakout), and may even close a portion of it, but some portion of it is often left unfilled.
+the heavier the volume after this type of gap appears, the less likely it is to be filled.
+
+measuring implications
+upside gaps act as support areas on subsequent market corrections.
+it's important that prices not fall below gaps during an uptrend.
+a close below an upward gap is a sign of weakness.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+the runaway or measuring gap
+
+after a move has been underway for awhile, somewhere around middle of the move, prices will leap forward to form the runaway gap (or a series of gaps).
+
+it's a sign that the market is moving effortlessly on moderate volume.
+
+in uptrend
+it's a sign of market strength.
+a close below the runaway gap is a negative sign. (same as breakaway)
+
+in downtrend
+it's  a sign of weakness.
+
+runaway gaps:
+	act as support under the market on subsequent corrections
+	are often not filled
+
+measuring implications
+it's called a measuring gap because it occurs at about the halfway point in a trend.
+estimate the extent of the remaining move by by measuring the distance trend already traveled from original breakout and doubling that amount.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+the exhaustion gap
+
+it appears near the end of a market move.
+it's expected to appear after the other two types of gaps (breakaway and runaway) have been identified and all objectives of the trend is achieved.
+
+uptrend example
+near the end of an uptrend, prices leap forward in a last gasp,
+that upward leap quickly fades and prices turn lower within a couple of days or a week.
+when prices close under that last gap, it's a dead giveaway that the exhaustion gap made its appearance.
+this is a classic example where falling below a gap in an uptrend has very bearish implications.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+the island reversal
+
+this pattern is based on price gaps.
+an upward exhaustion gap followed by a downward breakaway gap completes the pattern.
+
+reading
+when it's formed, it indicates a trend reversal of some magnitude.
+significance of the reversal depends on where prices are in the general trend structure.
+
+why the name
+after the upward exhaustion gap has formed, prices will trade in a narrow range for a couple of days/weeks before gapping to the downside,
+which leaves a few days of price action looking like an "island" surrounded by space or water.

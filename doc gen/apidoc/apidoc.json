@@ -1,0 +1,58 @@
+// basic
+{
+  "name": "example",
+  "version": "0.1.0",
+  "description": "apiDoc basic example",
+  "title": "Custom apiDoc browser title",
+  "url" : "https://api.github.com/v1"
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// reference
+{
+	"name":        "Github APIs",               // name of your project. #
+	"version":     "0.0.1",                     // version of your project. #
+	"description": "a description",             // introduction of your project. #
+	"title":       "Github APIs",               // browser title text.
+	"url":         "https://api.github.com/v1", // prefix for api path (endpoints), e.g. https://api.github.com/v1
+	"sampleUrl":   "http://api.com",            // if set, a form to test an api method will be visible. (send a request)
+	
+	"order": [                                  // a list of api-names/group-names for ordering the output. not defined names are automatically displayed last.
+		"Error",
+		"Define",
+		"PostTitleAndError",
+		"PostError"
+	],
+	
+	// header or footer for every page
+	// title:     navigation text. (visible in nav)
+	// filename:  a markdown file. (visible in page)
+	"header": {                         
+    "title": "My own header title",   
+    "filename": "header.md"           
+  },
+  "footer": {
+    "title": "My own footer title",
+    "filename": "footer.md"
+  }
+	
+	// default template
+	"template": {
+		"forceLanguage":  "en",  // disable browser language auto-detection and set a specific locale. (de, en, fr)
+		"withCompare":	   true, // enable comparison with older api versions.      boolean. default: true.
+		"withGenerator":   true, // output the generator information at the footer. boolean. default: true
+		"jQueryAjaxSetup": {}    // set default values for ajax requests.
+	}
+	
+	// #: if not found in apidoc.json, parser looks in package.json for it as well.
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// config in package.json
+{
+  "name": "example",
+  "version": "0.1.0",
+  "description": "apiDoc basic example",
+  "apidoc": {
+    "title": "Custom apiDoc browser title",
+    "url" : "https://api.github.com/v1"
+  }
+}

@@ -1,0 +1,9 @@
+vim script
+
+:se ff=unix
+:wq
+
+
+------------------------------------------------------------
+
+cat your_script.js | tr -d '\r' > fixed_script.js

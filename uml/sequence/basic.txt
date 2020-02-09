@@ -1,0 +1,11 @@
+participants/objects 	(box)
+messages 		(arrow)
+message label 		(text)
+lifeline 		(dashed line)
+activation bar 		(bar)
+found message 		(init)
+interaction frame	(rectangle)
+
+create & delete participants
+	create		arrow to box with/without message
+	delete		arrow to big-x: explicit, big-x to lifeline: implicit (self delete)

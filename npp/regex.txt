@@ -1,0 +1,16 @@
+﻿.	any
+\d	digit
+\w	word _
+\s	whitespace, tab \n \r\n
+
+*	0 or more
++	1 or more
+
+^	line start
+$	line end
+\<	start of word (word boundary)
+\>	end of word
+
+( )	grouping. back reference with: \1 \2 ...
+[ ]	char set. range: [a-z]
+\	escape

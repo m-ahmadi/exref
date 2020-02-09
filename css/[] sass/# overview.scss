@@ -1,0 +1,175 @@
+// hyphen and underscore are the same in sass (foo-bar === foo_bar)
+// variable & values 
+$num: 100|0.8|16px|6e-2|5.2e3|5px/2s;
+$str: 'ab'|"cd";
+$color: #f2ece4|#b37399aa|red|rgb rgba hsl hsla();
+$list: 1, 2, 3 | 1 2 3;
+$map: ('a': 1, 'b': 2) | ('a' 1, 'b' 2);
+$foo: 'abc' !default; // assign only if not already assigned
+$other: true|false|null;
+
+// placement
+@use @import @mixin @function      // top-level only
+@each @for @while @if @else #{} $v // everywhere
+.some-$v-thing-#{$v}-selector {
+	$var: $var;
+	#{$v}: #{$v};
+	@extend @include // only within style rules
+}
+
+// module
+@use 'style';           // namespace same as filename (style)
+@use 'src/list';        // ... (list)
+@use "src/corner" as c; // different namespace
+@use "src/corner" as *; // without namespace
+
+// print in console
+@debug 'hello';    // normal
+@warn 'a warning'; // ...
+@error 'an error'; // stops compilation and prints stack trace
+
+// interpolation (removes string quotes, possible almost everywhere)
+@foo #{}
+#{} {
+	#{}: #{}
+}
+
+// parent selector (& === parent)
+.parent {
+	& .child {} // .parent .child {}
+	&.child {}  // .parent.child {}
+	&:hover {}  // .parent:hover {}
+	&-right {}  // .parent-right {}
+	> span {}   // .parent > span {}
+	+ span {}   // .parent + span {}
+	~ span {}   // .parent ~ span {}
+	body & {}   // body .parent {}
+	&#{&} {}    // .parent.parent {}
+}
+
+// @at-root
+.grand-parent {
+	.parent {
+		@at-root .child {}
+	}
+}
+.child {}
+
+// @extend
+%message-shared {} // placeholder class (won't print if not extended)
+.foo { // @extend only within style rules
+	@extend %message-shared;
+	@extend .success, .error;
+	@extend
+		.success,
+		.warning,
+		.error;
+	@extend .bar !optional; // no error if .bar is not defined
+}
+.alert {
+	@extend .message.info; // error. fix: @extend .message, .info
+	@extend .main .info;   // error. fix: @extend .info
+}
+.error {}
+@media screen and (max-width: 600px) {
+	.error-red {
+		@extend .error; // error: ".error" was extended in @media, but used outside it.
+	}
+}
+
+// @mixin
+@mixin foo|foo($a, $b: 0, $c...) {
+	color: red;
+	background: $a;
+	@content|@content($v)
+	[dir=rtl] & {} // & refers to style rule that @include was called in
+}
+.bar { // @include only within style rules
+	@include foo;
+	@include foo($a);
+	@include foo { /*content*/ };
+	@include foo($a) {};
+}
+
+// @function
+@function myfn($a, $b: 2, $rest...) {
+	@return $a * 2;
+}
+.foo {
+	width: myfn(5);
+}
+
+// @for @each @while (print on each iteration)
+@for $i from 1 to 3 {}      // excluding the final number (from 1 to 2)
+@for $i from 1 through 3 {  // including the final number (from 1 to 3)
+	.item-#{$i} {
+		width: 2em * $i;
+	} // prints .item-1 {} ... .item-3 {}
+}
+@each $i in $list {
+	.item-#{$i} {
+		background: url('/images/#{$i}.png');
+	}
+}
+@each $animal in puma, sea-slug, egret, salamander {} // literal list
+
+$v: 0;
+@while $v < 4 {
+	$v: $v + 1;
+	.foo { color: red; }
+} // prints 4 classes
+
+// @if @else
+if(cond, true, false)
+p {
+	@if 1 + 1 == 2 { border: 1px solid;  }
+	@if 5 < 3      { border: 2px dotted; }
+	@if null       { border: 3px double; }
+}
+$type: monster;
+p {
+	@if $type == ocean {
+		color: blue;
+	} @else if $type == matador {
+		color: red;
+	} @else {
+		color: black;
+	}
+}
+@if $var1 == value1 and $var2 == value2 {} // and must be lowercase
+@if ($var1 == value1 and not ($var2 == value2)) or ($var3 == value3) {}
+@if $j % 2 == 0 {
+	// even
+} @else if $j % 2 != 0 {
+	// od
+}
+
+// nesting
+nav {
+	ul {
+		list-style: none;
+		li {
+			padding: 0;
+		}
+	}
+	.alert, .warning {
+		ul, p {
+			padding: 0;
+			margin: 0;
+		}
+	}
+	
+	ul > {
+		li {}
+	}
+	
+	ul {
+		+ li {}
+	}
+	
+	ul {
+		~ {
+			li {}
+		}
+	}
+}

@@ -1,0 +1,2 @@
+ADVANCED -> Advanced Wireless -> WPS Settings
+uncheck "Enabled"

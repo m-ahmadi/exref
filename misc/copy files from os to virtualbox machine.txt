@@ -1,0 +1,8 @@
+in virtualbox
+Devices -> "Insert Guest Additions CD image..."
+install "VBoxWindowsAdditions" from cd drive of virtual machine
+reboot machine
+Machine -> Settings -> Shared Folders
+Add folder
+check Auto-mount and Permanent
+done

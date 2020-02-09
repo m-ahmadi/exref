@@ -1,0 +1,42 @@
+package.json
+
+------------------------------------------------------------
+{
+  "bin": {
+    "myapp": "./cli.js"
+  }
+
+}
+------------------------------------------------------------
+{
+  "name": "myapp",
+  "version": "1.2.5",
+  "bin": "./path/to/file.js"
+}
+------------------------------------------------------------
+{
+  "name": "myapp",
+  "version": "1.2.5",
+  "bin": {
+    "myapp" : "./path/to/file.js"
+  }
+}
+------------------------------------------------------------
+
+make sure file(s) referenced in bin starts with:
+
+	#!/usr/bin/env node
+
+npm install . -g
+
+
+----------------------------------------------------------------------------------------------------------------
+notes:
+
+you have to install the package first, in order for the node to produce and place the binary executable.
+either
+  publish the package and install it from npm (npm install <package_name>)
+  install package from directory (npm install .)
+
+
+if you package is installed globaly then "bin": "./file.js" will look in the cwd that command is called.

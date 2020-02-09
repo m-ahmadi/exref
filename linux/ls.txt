@@ -1,0 +1,8 @@
+ls -a				show hidden
+ls -l				show perms
+ls -d				show dirs
+ls -l --block-size=M		show file size in MB
+ls -l				long format
+
+ls abc*				show everything that starts with abc (wildcard search)
+ls abc* -d			show all dirs that match the pattern

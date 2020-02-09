@@ -1,0 +1,12 @@
+Visual C++ 2008 Express
+New Project (Win32 Empty)
+Add New Item (C++ Source File)
+Configuration = Release
+Build Solution (F7)
+
+
+Command Line:
+
+	VCExpress file.sln /build "Release" /project "folder"
+	
+	VCExpress file.sln file.vcproj file.cpp /build "Release"

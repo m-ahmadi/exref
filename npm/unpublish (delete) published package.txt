@@ -1,0 +1,4 @@
+npm unpublish <@scope>/]<pkg>[@<version>
+
+npm unpublish ma-pubsub --force
+npm unpublish util-ma --force

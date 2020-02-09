@@ -1,0 +1,61 @@
+{
+	"workbench.iconTheme": "vscode-icons",
+	"workbench.colorTheme": "Visual Studio Light",
+	"editor.fontSize": 15,
+	"editor.autoClosingBrackets": "never",
+	"editor.autoClosingQuotes": "never",
+	
+	// tab size and spaces
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	
+	// intellisense
+	// "editor.quickSuggestions": false,           // when typing
+	// "editor.suggestOnTriggerCharacters": false, // when on .
+	// "editor.hover.enabled": false,              // popups
+	
+	"editor.renderWhitespace": "none",       // show whitespace & tab (all|none)
+	"workbench.startupEditor": "none",       // don't show welcome screen
+	// "window.openFilesInNewWindow": "off",    // open files in new window (not sure what it does)
+	// "workbench.editor.enablePreview": false, // open files on single click (if true: 1-click=preview, 2-click=open)
+	
+	"workbench.colorCustomizations": {
+		// "editor.background": "#fbfbfb",                   // background color
+		// "editor.wordHighlightBackground": "#75D975",      // change word highlight color ("#d2c8ff" for matching html tag highlight color, but not the right solution)
+		// "editor.selectionHighlightBackground": "#C0C0C0", // fixing selected text color highlight issue
+		"editorBracketMatch.background": "#fff",
+		"editorBracketMatch.border": "#ff0000"
+	},
+	
+	// treat hbs as html
+	"files.associations": {
+		"*.hbs": "html"
+	},
+	
+	// "git.enabled": false // disable git
+	
+	// git bash as integrated terminal (Features > Terminal > Integrated > Automation Shell: Windows)
+	"terminal.integrated.shell.windows": "D:\\Program Files\\cmder\\vendor\\git-for-windows\\bin\\bash.exe",
+	
+	// change typescript version used by vscode
+	// "typescript.tsdk": "C:/Users/NYC/AppData/Roaming/npm/node_modules/typescript/lib",
+	
+	// extension: highlight-matching-tag 
+	"highlight-matching-tag.noDefaultEmptyElements": true,
+	"highlight-matching-tag.highlightSelfClosing": true,
+	"highlight-matching-tag.styles": {
+		"opening": {
+			"name": {"highlight": "#BF8DFF"},
+			"left": {"highlight": "#BF8DFF"},
+			"right": {"highlight": "#BF8DFF"},
+		},
+		"closing": {
+			"name": {"highlight": "#BF8DFF"},
+			"left": {"highlight": "#BF8DFF"},
+			"right": {"highlight": "#BF8DFF"},
+		}
+	},
+	"vsicons.dontShowNewVersionMessage": true,
+	"diffEditor.ignoreTrimWhitespace": true, // ignore whitespace char diffs
+}

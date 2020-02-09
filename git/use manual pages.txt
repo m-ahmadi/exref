@@ -1,0 +1,10 @@
+git help <command>
+git <command> --help
+
+git remote --help
+git help add
+git help config
+git help clone
+git help remote
+git help rm
+git help reset

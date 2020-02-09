@@ -1,0 +1,1 @@
+g++ filename.cpp -o tocreatefile.exe

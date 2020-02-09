@@ -1,0 +1,23 @@
+#1 (won't work with submodules)
+move .git\config ..\
+rmdir .git /s /q
+git init
+move /y ..\config .git\
+git add .
+git commit -m "init"
+git remote add origin <url>
+git push -u --force origin master
+
+#2 (works with submodules)
+git checkout --orphan tmp_branch # create branch
+git add .
+git commit -m "init"
+git branch -d master             # delete master
+git branch -m master             # rename current branch to master
+git push -f origin master
+
+#3 (me, first commit stays)
+git reset <first_commit_hash>
+git add .
+git commit -m "new"
+git push -f

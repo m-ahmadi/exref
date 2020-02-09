@@ -1,0 +1,13 @@
+java -jar closure.jar --help
+
+java -jar closure.jar --js_output_file=out.js in1.js in2.js in3.js
+
+java -jar closure.jar --js_output_file=out.js 'src/**.js'
+
+java -jar closure.jar --js_output_file=out.js 'src/**.js' '!**_test.js'
+
+java -jar closure.jar --js in.js --js_output_file=out.js --externs extern1.js --externs extern2.js
+
+
+--compilation_level=SIMPLE	WHITESPACE_ONLY, SIMPLE, ADVANCED (default: SIMPLE)
+

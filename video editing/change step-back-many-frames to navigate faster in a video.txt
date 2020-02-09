@@ -1,0 +1,5 @@
+Preferences
+
+Playback tab
+
+Step forward/back many    5    frames

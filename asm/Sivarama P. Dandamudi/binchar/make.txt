@@ -1,0 +1,6 @@
+
+nasm –f obj binchar.asm
+
+link binchar.obj io.obj
+
+(microsoft linker)

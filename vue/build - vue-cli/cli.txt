@@ -1,0 +1,10 @@
+npm install -g @vue/cli
+
+vue create hello_world					create new project
+vue create .						inside current directory
+vue ui							gui project setup
+
+
+cd proj_dir
+npm run serve						serves the app on a local url
+npm run build						builds the ./dist folder

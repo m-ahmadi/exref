@@ -1,0 +1,45 @@
+package name can't be the same as a dependency
+
+If the name of your project (in package.json) is the same as the name of a package,
+then you can't install that dependency in your project:
+ 
+Refusing to install package with name "webpack" under a package also called "webpack".
+Did you name your project the same as the dependency you're installing?
+------------------------------------------------------------------------------------------------------------
+published package and line ending issue
+
+When you publish a package, it matters wheather you're on windows or unix-based,
+because the files sitting in the filesystem will be published.
+
+But when you install from github, this issue goes away because,
+git changes line endings base on platform.
+
+So when you publish to npm registry,
+it's important that you be on a unix-based machine.
+
+published form unix works in windows, but
+published from windows won't work in unix.
+------------------------------------------------------------------------------------------------------------
+npm not recognizing any command
+
+your node install is whacked
+uninstall node
+install it again
+------------------------------------------------------------------------------------------------------------
+locally installed package binary issue
+
+bin commands of a locally installed package are not in path.
+they are in:
+./node_modules/.bin/
+
+npm scripts (npm run something) do not have this problem as
+anytime you use something from scripts in package.json
+your package binaries (in node_modules/.bin) act as if they are in your path.
+globally installed packages do not have this issue
+
+solutions:
+1. PATH=%PATH%;./node_modules/.bin
+2. use npm scripts: "scripts": { "myCommand": "babel src -d lib" }
+3. install the package globally
+------------------------------------------------------------------------------------------------------------
+what is node-gyp

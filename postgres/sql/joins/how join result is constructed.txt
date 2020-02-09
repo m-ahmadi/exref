@@ -1,0 +1,90 @@
+when you join two tables together by a common column name, the result can contain duplicate cell values in some columns,
+and here's why:
+
+basically when you join two tables, you have two sets of columns that are related,
+meaning that you might as well put these two tables together and make one table out of them,
+so if you do that (create one table out of two), then you realize that a row in table_1 might have multiple rows associated wih it in table_2
+
+let's see an example, we have two tables here:
+	1. user table
+	2. comment table
+
+user table:
++---------+--------------+-----------+--------------+-------------------------------+
+| user_id | username     | firstname | lastname     | email                         |
++---------+--------------+-----------+--------------+-------------------------------+
+| 1       | pin0k_io     | Mohammad  | Ahmadi       | mohammad.ahmadi1989@yahoo.com |
++---------+--------------+-----------+--------------+-------------------------------+
+| 2       | mhgo         | Mohammad  | Haghighat    | mhg@gmail.com                 |
++---------+--------------+-----------+--------------+-------------------------------+
+| 3       | killer       | Farhad    | Khayambashi  | farhadkhayam@yahoo.com        |
++---------+--------------+-----------+--------------+-------------------------------+
+| 4       | scorpionking | Saman     | Khoshgahamat | s.khoshghamat@gmail.com       |
++---------+--------------+-----------+--------------+-------------------------------+
+
+comment table:
++------------+--------------------------+-------+----------+---------+
+| comment_id | text                     | likes | dislikes | user_id |
++------------+--------------------------+-------+----------+---------+
+| 1          | That's good!             | 27    | 5        | 1       |
++------------+--------------------------+-------+----------+---------+
+| 2          | Very interesting.        | 12    | 3        | 1       |
++------------+--------------------------+-------+----------+---------+
+| 3          | I'm impressed!           | 7     | 2        | 1       |
++------------+--------------------------+-------+----------+---------+
+| 4          | I'm not sure about this. | 5     | 4        | 2       |
++------------+--------------------------+-------+----------+---------+
+| 5          | Agree to disagree.       | 9     | 6        | 2       |
++------------+--------------------------+-------+----------+---------+
+
+as you can see this is a typical one-to-many relationship with the comment table being the many side,
+and the foreign key user_id existing in the comment table, so:
+one user can have many comments, but one comment can have one user.
+
+now let's say we wanted to create one table out of these two tables,
+or in other words, we wanted to merge the column names of these two tables.
+
+let's say wa wanted to merge the user table at end of the comment table, (so comment table is first and then user table)
+as you can imagine, if we were to do this, there's going to be at least one problem facing us.
+now instead of telling you what the problem will be, let's go ahead and try to do the merge: (this way you can feel the problem instead of seeing it)
+
+here's the comment table columns:
++------------+--------------------------+-------+----------+---------+
+| comment_id | text                     | likes | dislikes | user_id |
++------------+--------------------------+-------+----------+---------+
+
+and here's the user table columns:
++---------+----------+-----------+-------------+-------------------------------+
+| user_id | username | firstname | lastname    | email                         |
++---------+----------+-----------+-------------+-------------------------------+
+
+so the merged version will be:
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+| comment_id | text                     | likes | dislikes | user_id | username     | firstname | lastname     | email                         |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+
+now let's insert the rows,
+first we copy from the comment table, since it's the first table,
+then we try to fill in the rest of the new table from user table:
++----------------------------------------------------------+---------+-------------------------------------------------------------------------+
+|                       comment table                      | shared  |                           user table                                    |
++----------------------------------------------------------+---------+-------------------------------------------------------------------------+
+| comment_id | text                     | likes | dislikes | user_id | username     | firstname | lastname     | email                         |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+| 1          | That's good!             | 27    | 5        | 1       | pin0k_io     | Mohammad  | Ahmadi       | mohammad.ahmadi1989@yahoo.com |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+| 2          | Very interesting.        | 12    | 3        | 1       | pin0k_io     | Mohammad  | Ahmadi       | mohammad.ahmadi1989@yahoo.com |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+| 3          | I'm impressed!           | 7     | 2        | 1       | pin0k_io     | Mohammad  | Ahmadi       | mohammad.ahmadi1989@yahoo.com |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+| 4          | I'm not sure about this. | 5     | 4        | 2       | mhgo         | Mohammad  | Haghighat    | mhg@gmail.com                 |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+| 5          | Agree to disagree.       | 9     | 6        | 2       | mhgo         | Mohammad  | Haghighat    | mhg@gmail.com                 |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+| null       | null                     | null  | null     | 3       | killer       | Farhad    | Khayambashi  | farhadkhayam@yahoo.com        |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+| null       | null                     | null  | null     | 4       | scorpionking | Saman     | Khoshgahamat | s.khoshghamat@gmail.com       |
++------------+--------------------------+-------+----------+---------+--------------+-----------+--------------+-------------------------------+
+
+as you can see on the 6th and 7th row, we had to put in null as a value for the columns of the comment table,
+since the last two users didn't have any comments.

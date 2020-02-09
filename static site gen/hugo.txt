@@ -1,0 +1,22 @@
+download windows binary from https://github.com/gohugoio/hugo/releases
+
+hugo new site quickstart
+cd quickstart
+git init
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+echo 'theme = "ananke"' >> config.toml
+hugo new posts/my-first-post.md
+hugo server -D
+
+---------------------------------------------------------------------------------------------
+site configuration
+
+config.toml:
+baseURL = "https://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "ananke"
+---------------------------------------------------------------------------------------------
+build static pages
+
+hugo				did not work as expected

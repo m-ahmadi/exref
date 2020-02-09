@@ -1,0 +1,39 @@
+<div>
+	<router-outlet></router-outlet>              <!-- placeholder for the activated component -->
+</div>
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<a href="/users" >users</a>                   <!-- page refresh -->
+
+<a routerLink="/users" >users</a>             <!-- no page refresh -->
+<a routerLink="['/', 'users']" >users</a>
+<a routerLink="['/users']" >users</a>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+<!-- relative path:
+	with a relative path it always appends the path you specifiy in the routerLink to the end of your current path,
+	and the current path depend on which component you are currently on.
+
+	seen from the currently loaded component perspective
+-->
+<a routerLink="users" >users</a>			<!-- outside: site.com/users -->
+											<!-- inside:  site.com/users/users -->
+
+<a routerLink="./users" >users</a>			<!-- outside: site.com/users -->
+											<!-- inside:  site.com/users/users -->
+
+<a routerLink="../users" >users</a>
+											<!-- outside: site.com/users -->
+											<!-- inside:  site.com/users -->
+
+<!-- absolute path: -->
+<a routerLink="/users" >users</a>
+<!--
+	activated from outside the component:		localhost4200:/users
+	activated from inside  the component		localhost4200:/users
+-->
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<a routerLink="/"       routerLinkActive="css-class"  [routerLinkActiveOptions]="{exact: true}">home</a>
+<a routerLink="/user"   routerLinkActive="css-class">user</a>
+<a routerLink="profile" routerLinkActive="css-class">profile</a>

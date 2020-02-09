@@ -1,0 +1,7 @@
+rtlcss input.css
+
+rtlcss input.css output.rtl.css
+
+rtlcss --config <path>
+
+sass style.scss | rtlcss --stdin out.css

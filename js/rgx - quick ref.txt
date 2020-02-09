@@ -1,0 +1,42 @@
+.        any character (except line endings: \n \r)
+\d       digit character
+\D       not a digit character
+\w       word character (including underscore)
+\W       not a word character
+\s       white space character
+\S       not a white space character
+|        or
+^        beginning of line
+$        end of line
+\b       word boundary
+\B       non-word boundary
+[]       character set. hyphen for range: [abcd] same as [a-d]
+[^]      negate of character set
+\        escape
+
+\t       horizontal tab
+\r       carriage return
+\n       linefeed
+\v       vertical tab
+\f       form-feed
+[\b]     backspace
+\0       NUL character
+
+quantifiers
+*        0 or more
++        1 or more
+?        0 or 1
+{n}      exactly n
+{n,}     n or more
+{n,m}    at least n and at most m
+
+x(?=y)   x only if x is followed by y
+x(?!y)   x only if x is not followed by y
+
+(x)      capturing group. back reference using \n or $1,$9
+(?:x)    non-capturing group
+
+flags
+g        global match
+i        ignore case
+m        multiline

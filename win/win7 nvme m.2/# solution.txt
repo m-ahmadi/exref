@@ -1,0 +1,13 @@
+add drivers to win7.iso
+create MBR usb with rufus from the iso
+rufus settings:
+	Partition scheme:	"MBR"
+	Target system: 		"BIOS (or UEFI-CSM)"
+	File system: 		"NTFS"
+	(rufus detects automatically and sets to NTFS if .iso is larger than 4GB)
+restart
+initial boot from non-UEFI usb drive
+subsequent boots from nvme drive
+done
+
+note: creating GPT usb causes 0xc428 error that I was unable to fix.

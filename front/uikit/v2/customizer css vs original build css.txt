@@ -1,0 +1,16 @@
+If you get your css through customizer, even if you don't change anything,
+It's not the same as using the original css files that come with the download:
+	/uikit.css
+	/uikit.almost-flat.css
+	/uikit.gradient.css
+	/etc
+
+for example:
+	form radio and checkbox don't have any style in original build,
+	and you have to include "form-advanced.css" component,
+	but using customizer css, it's already included.
+
+another example:
+	progress is not included in the original css files,
+	and you have to include /components/progress.css,
+	but it's already inlcuded in customizer css.

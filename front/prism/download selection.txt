@@ -1,0 +1,77 @@
+languages
+
+Markup + HTML + XML + SVG + MathML
+CSS
+C-like
+JavaScript
+Apache Configuration
+Bash + Shell
+CSS Extras
+EJS
+Git
+GraphQL
+Haml
+Handlebars
+HTTP
+HTTP Public-Key-Pins
+HTTP Strict-Transport-Security
+Icon
+Java
+JavaDoc
+JavaDoc-like
+Java stack trace
+JQ
+JSDoc
+JS Extras
+JSON
+JSONP
+JSON5
+Less
+Makefile
+Markdown
+Markup templating
+N4JS
+NASM
+nginx
+PHP
+PHPDoc
+PHP Extras
+PowerShell
+Processing
+Pug
+Python
+R
+React JSX
+React TSX
+Regex
+reST (reStructuredText)
+Ruby
+Sass (Sass)
+Sass (Scss)
+Shell session
+SQL
+Stylus
+Textile
+TOML
+Template Toolkit 2
+Twig
+TypeScript
+Velocity
+vim
+WebAssembly
+Wiki markup
+YAML
+---------------------------------------------------------------------------
+plugins
+
+
+Line Numbers
+Autolinker
+Previewers
+Keep Markup
+Command Line
+Unescaped Markup
+Normalize Whitespace
+Data-URI Highlight
+Toolbar
+Copy to Clipboard Button (needs clipboard.js)

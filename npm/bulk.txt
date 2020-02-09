@@ -1,0 +1,3 @@
+node .
+npm link
+npm remove

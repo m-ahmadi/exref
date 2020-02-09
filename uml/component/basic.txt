@@ -1,0 +1,31 @@
+It's used to model the physical elements of a system, such as:
+executables, libraries, files, documents, etc, which reside in a node.
+
+It can also be described as a static implementation view of a system,
+which represents the organization of the components at a particular moment.
+
+A single component diagram cannot represent the entire system,
+but a collection of diagrams is used to represent the whole.
+
+purpose summary:
+	visualize the components of a system
+	construct executables by using forward and reverse engineering
+	describe the organization and relationships of the components
+
+Before drawing a component diagram, the following artifacts are to be identified clearly:
+	files used in the system
+	libraries and other artifacts relevant to the application
+	relationships among the artifacts
+
+After identifying the artifacts, the following points need to be kept in mind:
+	use a meaningful name to identify the component for which the diagram is to be drawn
+	prepare a mental layout before producing, using the tools
+	use notes for clarifying important points
+
+
+Component diagrams are very important from implementation perspective.
+Component diagrams can be used to model the:
+	components of a system
+	database schema
+	executables of an application
+	system's source code

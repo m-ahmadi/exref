@@ -1,0 +1,3 @@
+git show			describes the HEAD commit by default
+git show -1 --oneline		show commit and diff
+git show @~1

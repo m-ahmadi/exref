@@ -1,0 +1,85 @@
+html {
+	box-sizing: border-box;
+}
+*, *::before, *::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif; /* fallback-fonts */
+	
+	/* control anti-aliasing when fonts are rendered (non-standard) */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+element {
+	text-align: left|right|center|justify; /* align inner content of a block element (works only for block elements) */
+	box-shadow: none|h-offset v-offset blur spread color |inset;
+	box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, .5), 0px 0px 2px 1px #242424;
+	
+	user-select: none; /* disable text selection */
+}
+
+/* responsive image */
+img {
+	width: 100%;     /* 100% causes image to scale up and down */
+	height: auto;
+	max-width: 100%; /* prevent image from scaling larger than its original size */
+}
+
+
+/* combine a background image and gradients */
+body {
+	background: #6cab26;
+	background-image: url(IMAGE_URL); /* fallback */
+	background-image: url(IMAGE_URL), linear-gradient(to bottom, #6cab26, #6ceb86);
+}
+
+/* text in paragraph goes outside of p element width
+this happens when: 
+text inside <p> element is a single HUGE word with no break
+<p>abcabcabcabcabcabcabcabcabcabcabcabcabca</p>
+*/
+p {
+	word-break: break-word;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+/* hide arrow buttons in number input (non-standard) */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* remove default input highlighting */
+input {
+	border: none;
+	outline: none;
+}
+
+/* remove border of table cells */
+table {
+	border-spacing: 0;
+}
+
+/* multiline text in table cell (same as using<pre></pre>) */
+td {
+	white-space: pre
+}
+
+/* same font-size regardless of font-family ("verdana" has the aspect value 0.58) */
+html {
+	font-size-adjust: 100%;
+}
+
+@viewport { width: device-width; } /* same as: <meta name="viewport" content="width=device-width"> */
+@charset "UTF-8";                  /* if file contains non-ascii chars. not needed in modern browsers? */
+@import url("stylesheetB.css"); /*
+prevents concurrent loading of files, one must finish so next one could start
+situations where @import could be helpful
+	using @media to apply different styles to different devices
+	using a tool like grunt-concat-css to concatenate css files and remove @import statements.
+*/

@@ -1,0 +1,7 @@
+npm install watchify
+
+watchify <all_options_as_with_browserify, expcept -o is mandatory>
+
+watchify main.js -o bundle.js				basic usage
+watchify main.js > bundle.js				error (You MUST specify an outfile with -o)
+watchify main.js -o bundle.js -v			show messages (no msg is outputed by default)

@@ -1,0 +1,14 @@
+php >= v5.4.
+
+in		website/public_html
+up a folder	website/
+create folder	website/project
+
+copy	laravel-app/		to	website/project
+
+copy	laravel-app/public	to	website/project
+
+
+in	laravel-app/public/index.php:
+change		require __DIR__.'/../project/bootstrap/autoload.php';
+change		$app = require_once __DIR__.'/../project/bootstrap/app.php';

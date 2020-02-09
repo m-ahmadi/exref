@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" type="text/css" href="style.css" /> type not rly necessary
+<link rel="manifest" href="site.webmanifest" />
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+favicon
+
+desktop browsers only (use one)
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="shortcut icon" href="favicon.ico" /> less common
+
+desktop & mobile browsers (use all 3)
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" type="image/png" href="favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="apple-touch-icon-180x180.png" sizes="180x180" />
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+preloading
+resources are downloaded & cached in advance.
+resources aren't executed, they're just cached for later use
+
+<link rel="preload" type="text/css"        href="style.css " as="style" />
+<link rel="preload" type="text/javascript" href="main.js"    as="script" />
+<link rel="preload" type="font/otf"        href="font.otf"   as="font" />
+<link rel="preload" type="font/ttf"        href="font.ttf"   as="font" />
+<link rel="preload" type="font/woff"       href="font.woff"  as="font" />
+<link rel="preload" type="font/woff2"      href="font.woff2" as="font" />
+<link rel="preload" type="video/mp4"       href="vid.mp4"    as="video" />
+
+<link rel="prefetch" />                                 download resources that will be used in the next navigation/page load
+<link rel="dns-prefetch"  href="https://example.com" /> perform DNS resolution for a domain in advance
+<link rel="preconnect"    href="https://example.com" /> like 'dns-prefetch' but also does TCP handshake and TLS negotiations
+<link rel="prerender"     href="https://example.com"/>  renders a specified webpage in background (instant load if user navigates to it)
+<link rel="modulepreload" href="main.mjs" />            like 'preload' but for js es6 modules (more on script.htm)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

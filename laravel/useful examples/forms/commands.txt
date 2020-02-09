@@ -1,0 +1,24 @@
+cd laravel-app
+
+composer require illuminate/html
+
+	Using version ^5.0 for illuminate/html                 
+	./composer.json has been updated                       
+	> php artisan clear-compiled                           
+	Loading composer repositories with package information 
+	Updating dependencies (including require-dev)          
+	  - Installing illuminate/html (v5.0.0)                
+	    Downloading: 100%                                  
+                                                       
+	Writing lock file                                      
+	Generating autoload files                              
+	> php artisan optimize                                 
+	Generating optimized class loader                      
+
+
+
+downloads to "laravel-app/vendor/illuminate/html"
+
+config/app.php
+	providers	'Illuminate\Html\HtmlServiceProvider',
+	aliases		'Form'      => 'Illuminate\Html\FormFacade',

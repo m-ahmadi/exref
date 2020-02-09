@@ -1,0 +1,25 @@
+nginx				starts the webserver (cd to ngxinx dir first, cuz conf paths are relative)
+nginx -s stop			fast shutdown
+nginx -s quit			graceful shutdown
+nginx -s reload			reloading the configuration file
+nginx -s reopen			reopening the log files
+
+---------------------------------------------------------------------------------------------------------------------
+install as service
+
+not yet supported in windows
+
+---------------------------------------------------------------------------------------------------------------------
+flags
+
+-s signal		send signal to a master process: stop, quit, reopen, reload
+-p prefix		set prefix path (default: NONE)
+-c filename		set configuration file (default: conf/nginx.conf)
+-g directives		set global directives out of configuration file
+
+-t			test configuration and exit
+-T			test configuration, dump it and exit
+-q			suppress non-error messages during configuration testing
+
+-v			show version and exit
+-V			show version and configure options then exit

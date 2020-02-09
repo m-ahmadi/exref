@@ -1,0 +1,11 @@
+download and install a Ruby+Devkit version from rubyinstaller.org/downloads
+ridk install
+
+---------------------------------------
+for me these steps were required:
+curl -sSL https://get.rvm.io | bash
+path = %path%;%USERPROFILE%\.rvm\bin
+gem install bundler
+---------------------------------------
+
+gem install bundler jekyll

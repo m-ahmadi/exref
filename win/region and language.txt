@@ -1,0 +1,10 @@
+Location
+	Iran
+
+Keyboards and Languages
+	Change keyboards
+		Add
+			Persian
+Administrative
+	Change system locale
+		Persian

@@ -1,0 +1,2 @@
+Preferences > General
+	Scale Strokes & Effects

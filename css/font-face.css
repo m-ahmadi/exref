@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'myFont';
+	src: url('../fonts/filename.eot');                                    /* IE9 Compat Modes */
+	src: url('../fonts/filename.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('../fonts/filename.woff2')        format('woff2'),             /* Super  Modern Browsers */
+		 url('../fonts/filename.woff')         format('woff'),              /* Pretty Modern Browsers */
+		 url('../fonts/filename.ttf')          format('truetype'),          /* Safari, Android, iOS */
+		 url('../fonts/filename.svg#myFont')   format('svg');               /* Legacy iOS */
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*
+	eot       IE 4+
+	svg       Chrome  3+		Opera     9+    Safari 3.2+
+	ttf/otf   Chrome  4+		Opera   3.5+    Safari 3.1+   Firefox   10+
+	woff      Chrome  5+    Opera  11.1+    Safari 5.1+   Firefox  3.6+		IE9+
+	woff2     Chrome 36+		Opera    26+
+_____________________________________________________________________________
+|           |   IE    |    Chrome   |   Firefox   |  Opera    |  Safari     |
+|___________|_________|_____________|_____________|___________|_____________|
+|  TTF/OTF  |  9.0*   |    4.0      |    3.5      |  3.1      |  10.0       |
+|___________|_________|_____________|_____________|___________|_____________|
+|  WOFF	    |  9.0	  |    5.0	    |    3.6      |  5.1      |  11.1       |
+|___________|_________|_____________|_____________|___________|_____________|
+|  WOFF2    |   NA    |   36.0      |    35.0*    |  NA       |  26.0       |
+|___________|_________|_____________|_____________|___________|_____________|
+|  SVG	    |   NA    |   4.0	      |     NA      |  3.2      |  9.0        |
+|___________|_________|_____________|_____________|___________|_____________|
+|  EOT	    |  6.0    |   NA        |     NA      |  NA       |  NA         |
+|___________|_________|_____________|_____________|___________|_____________|
+
+*IE: The font format only works when set to be "installable".
+*Firefox: Not supported by default, but can be enabled (need to set a flag to "true" to use WOFF2).
+*/
+
+
+/*	what is ?#iefix
+	IE8 and the older have a bug in their parsers for the src attribute.
+	So if you include more than 1 font format in the SRC, IE fails to load it and reports a 404 error.
+	The question mark solves that problem as
+	it fools IE into thinking the rest of the string (other src) is a query string,
+	and therefore loading just the EOT file...
+	Other browsers will follow the specification and load just their required font type.
+*/

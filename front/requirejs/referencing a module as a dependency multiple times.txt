@@ -1,0 +1,7 @@
+This is what I think based on my knowledge so far:
+
+It doesn't matter,
+the first time requirejs sees that module, it checks to see if it's loaded,
+if it's not loaded, then it loades the module,
+after the first time, if you reference a module that's already loaded,
+it just gives access to the module and will not try to load it again.

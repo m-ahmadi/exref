@@ -1,0 +1,12 @@
+@mixin gradient($colors) { // diagonal
+	$first: nth( nth($colors, 1), 1 );
+	$last: nth( nth( $colors, length($colors) ), 1 );
+	
+	background: $first;
+	background: -moz-linear-gradient(-45deg, $colors);
+	background: -webkit-linear-gradient(-45deg,  $colors);
+	background: linear-gradient(135deg, $colors);
+	filter: unquote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$first}', endColorstr='#{$last}', GradientType=1 )");
+}
+
+@include gradient(((#ffffff 0%), #fcfcfc 41%, #fcfcfc 65%, (#ffffff 100%)));

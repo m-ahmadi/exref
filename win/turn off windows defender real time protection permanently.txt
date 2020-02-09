@@ -1,0 +1,14 @@
+set key="HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection"
+reg add %key% /v DisableRealtimeMonitoring /t REG_DWORD /d 1
+
+enable again:
+reg delete %key%
+------------------------------------------------------------------------------------------------------------
+through gpedit.msc
+Computer Configuration
+	Administrative Templates
+		Windows Components
+			Windows Defender Antivirus
+				Real-time Protection
+					Turn off real-time protection: Enabled
+------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,27 @@
+git remote set-url origin https://user:password@github.com/username/repo.git
+
+------------------------------------------------------
+ssh
+
+ssh://user@host.xz/path/to/repo.git/
+ssh://user@host.xz:port/path/to/repo.git/
+user@host.xz:path/to/repo.git
+------------------------------------------------------
+git
+
+git://host.xz/path/to/repo.git/
+git://host.xz/~user/path/to/repo.git/
+------------------------------------------------------
+https
+
+http://host.xz/path/to/repo.git/
+https://host.xz/path/to/repo.git/
+------------------------------------------------------
+local
+
+/path/to/repo.git/
+path/to/repo.git/
+~/path/to/repo.git
+file:///path/to/repo.git/
+file://~/path/to/repo.git/
+------------------------------------------------------

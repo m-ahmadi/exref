@@ -1,0 +1,2 @@
+
+gcc SysMets1.c -o SysMets1 -lGdi32

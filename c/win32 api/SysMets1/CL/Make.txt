@@ -1,0 +1,2 @@
+
+cl /Tp w.c Gdi32.lib user32.lib

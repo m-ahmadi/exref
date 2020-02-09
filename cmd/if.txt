@@ -1,0 +1,6 @@
+if errorlevel 0 echo ok
+if not errorlevel 0 echo error
+
+if exist file.txt (del filename) else (echo Does not exist.)
+
+where npm && if errorlevel 1 (echo not found) else echo found

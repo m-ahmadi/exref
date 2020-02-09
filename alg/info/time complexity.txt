@@ -1,0 +1,3 @@
+time complexity is:
+	the amount of time it takes to run an algorithm.
+	estimated by counting the number of elementary operations performed by the algorithm.

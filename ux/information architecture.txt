@@ -1,0 +1,5 @@
+navigation
+breadcrumbs
+sidebar menus
+footer menus
+headers and sections in content blocks

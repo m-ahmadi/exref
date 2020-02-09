@@ -1,0 +1,89 @@
+---------------------------------------------------------------------------------------------------------------------
+							CGI
+
+Each Web server runs HTTP server software, which responds to requests from Web browsers.
+Generally, the HTTP server has a directory (folder),
+which is designated as a document collection — files that can be sent to Web browsers connected to this server
+
+For example
+if the Web server has the domain name example.com,
+and its document collection is stored at /usr/local/apache/htdocs in the local file system,
+then the Web server will respond to a request for http://example.com/index.html by
+sending to the browser the (pre-written) file /usr/local/apache/htdocs/index.html.
+
+CGI extends this system by allowing the owner of the Web server to designate a directory within the
+document collection as containing executable scripts (or binary files) instead of pre-written pages;
+this is known as a CGI directory.
+
+For example
+/usr/local/apache/htdocs/cgi-bin could be designated as a CGI directory on the Web server.
+If a Web browser requests a URL that points to a file within the CGI directory
+(e.g., http://example.com/cgi-bin/printenv.pl), then,
+instead of simply sending that file
+(/usr/local/apache/htdocs/cgi-bin/printenv.pl) to the Web browser,
+the HTTP server runs the specified script and passes the output of the script to the Web browser.
+That is, anything that the script sends to standard output is passed to the Web client instead of
+being shown on-screen in a terminal window.
+
+
+
+CGI allows Web browser to send information to script via:
+	URL
+	HTTP POST request
+
+Via URL (stored before script is called)
+	PATH_INFO
+		site.com/t.php/something_blue		PATH_INFO = "/something_blue" (environment variable)
+	HTTP GET request
+		site.com/t.php?param=value&ano=a	QUERY_STRING = "param=value&ano=a"
+							$_GET     in php
+							res.query in node
+via HTTP POST request
+	parameters are passed to the script's standard input.
+	script can then read these environment variables or data from standard input
+
+
+---------------------------------------------------------------------------------------------------------------------
+						Problems with CGI
+
+Calling a command generally means the invocation of a newly created process on the server.
+Starting the process can consume much more time and memory than the actual work of generating the output,
+especially when the program still needs to be interpreted or compiled.
+If the command is called often, the resulting workload can quickly overwhelm the server.
+
+The overhead involved in interpretation may be reduced by using compiled CGI programs,
+such as those in C/C++, rather than using Perl or other interpreted languages.
+The overhead involved in process creation can be reduced by techniques such as
+	FastCGI which "prefork" interpreter processes
+	running the application code entirely within the web server, using extension modules such as mod_php
+
+
+
+Several approaches can be adopted for remedying this:
+
+	The popular Web servers developed their own extension mechanisms that allows third-party software to
+	run inside the web server itself, such as Apache modules, NSAPI plugins and ISAPI plugins.
+
+	Simple Common Gateway Interface or SCGI
+
+	FastCGI allows a single, long-running process to handle more than one user request while
+	keeping close to the CGI programming model, retaining the simplicity while
+	eliminating the overhead of creating a new process for each request.
+	Unlike converting an application to a web server plug-in,
+	FastCGI applications remain independent of the web server.
+
+
+	Replacement of the architecture for dynamic websites can also be used.
+	This is the approach taken by Java EE, which runs Java code in a Java servlet container in order
+	to serve dynamic content and optionally static content.
+	This approach replaces the overhead of generating and destroying processes with
+	the much lower overhead of generating and destroying threads,
+	and also exposes the programmer to the library that comes with Java Platform,
+	Standard Edition on which the version of Java EE in use is based.
+
+The optimal configuration for any Web application depends on
+	application-specific details
+	amount of traffic
+	complexity of the transaction
+
+these tradeoffs need to be analyzed to determine the best implementation for a given task and time budget

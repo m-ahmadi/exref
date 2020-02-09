@@ -1,0 +1,20 @@
+in javascript:
+	dashed-name   becomes     camelCase.
+	dashless name becomes all lowercase.
+
+<div data-user-name></div>
+<div data-userName></div>
+
+<script>
+	// native
+	el_1.dataset.userName;
+	el_2.dataset.username;
+	
+	// jquery
+	el_1.data().userName;
+	el_2.data().username;
+	
+	$('[data-user-name]') // picks el_1
+	$('[data-userName]')  // picks el_2
+	$('[data-username]')  // picks el_2
+</script>

@@ -1,0 +1,10 @@
+~/css/materialize.css
+
+~/js/materialize.js
+
+
+fonts are in:
+	~/fonts
+
+if u want to have another name for the fonts folder:
+	change the url paths in the css file

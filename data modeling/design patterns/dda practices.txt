@@ -1,0 +1,9 @@
+upping the max_connections
+tuning the sql
+properly closing the connections as soon as you are finished with them
+
+having proper indexes on the db tables:
+	any WHERE clause should be indexed
+	make sure indexes that exist are valid
+	an index on the wrong column can easily bring a db down to its knees
+	bring back the minimum of rows that you need, when searching on a table

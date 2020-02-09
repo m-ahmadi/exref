@@ -1,0 +1,14 @@
+npm version <newversion> | major | minor | patch
+
+npm version patch	1.0.0 => 1.0.1
+npm version minor	1.0.0 => 1.1.0
+npm version major	1.0.0 => 2.0.0
+
+------------------------------------------------------------------------------------------------------
+before using this command:
+	working tree must be clean (commit all changes)
+
+this command does 3 things:
+	increments package.json version
+	creates a new commit in the repo (with the new version number as commit message)
+	creates a tag (annotated) for the commit

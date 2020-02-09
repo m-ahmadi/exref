@@ -1,0 +1,2 @@
+ctrl+p
+ctrl+shift+p

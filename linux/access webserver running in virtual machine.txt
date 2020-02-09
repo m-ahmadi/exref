@@ -1,0 +1,3 @@
+virtualbox network adapter bridged
+
+ifconfig

@@ -1,0 +1,17 @@
+download windows binary
+unzip somewhere
+edit apache/conf/httpd.conf
+	SRVROOT "c:/apache"
+	DocumentRoot "d:/xampp/htdocs"
+	<Directory "d:/xampp/htdocs">...
+add apache/bin to path
+done.
+------------------------------------------------------------------------------------------
+in vs16 build
+to not get any error when running the server, you have to set ServerName in httpd.conf
+ServerName localhost:80
+------------------------------------------------------------------------------------------
+note:
+vc14 means it needs visual c++ redistributable 2014
+vc15 same ... 2015
+vs16 same ... 2016

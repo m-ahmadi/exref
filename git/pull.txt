@@ -1,0 +1,5 @@
+git pull			combination of fetch and merge
+git pull origin master		pull from specific branch
+
+git fetch			download from another repository
+git merge			join two or more development histories together

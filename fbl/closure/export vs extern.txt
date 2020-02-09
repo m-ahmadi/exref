@@ -1,0 +1,6 @@
+extern		symbols that your code uses from other codes, so don't rename them.
+		function $() {}
+		function Highcharts() {}
+export
+	symbols you want to export for other codes that uses your code, so reference them on window.
+	window['displayNoteTitle'] = displayNoteTitle;

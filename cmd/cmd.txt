@@ -1,0 +1,58 @@
+﻿cmd /k cd /d E:\dir		keep and change dir
+cmd /k pushd E:\dir		same as above
+cmd.exe /s /k pushd "%V"	??
+------------------------------------------------------------------------------------------------------------
+run as admin
+
+solution 1:
+win -> Command Prompt -> Properties
+	Advanced -> Run as administrator
+	Target: %comspec% /k pushd %home%
+	Shortcut key: E
+
+solution 2:
+win+r -> cmd -> ctrl + shift + enter
+
+solution 3:
+echo powershell "start cmd -v runAs" > %windir%\cmda.cmd
+
+solution 4:
+reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers" /v %windir%\System32\cmd.exe /d "~ RUNASADMIN"
+
+solution 5: symlink to orig (bad cuz: .lnk "Start in" path is not passed through)
+cd %windir%\system32
+takeown /f cmd.exe
+icacls cmd.exe /grant NYC:f
+rename cmd.exe cmd-orig.exe
+mklink cmd.exe cmd-orig.exe
+cmd-orig.exe -> Properties -> Compatibility -> Run this program as administrator
+icacls cmd-orig.exe /remove:g NYC
+icacls cmd-orig.exe /setowner "NT SERVICE\TrustedInstaller"
+to fix "The system cannot find message text..."
+  cd en-US
+  copy cmd.exe.mui cmd-orig.exe.mui
+done
+------------------------------------------------------------------------------------------------------------
+change default start dir of cmd (bad cuz: ruins start path of all cmd .lnk shortcuts)
+
+reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /d "cd /d C:\Users\NYC"
+reg delete "HKCU\Software\Microsoft\Command Processor" /v Autorun /f
+
+note:
+if cmd.lnk "Run as administrator" then "Start in" won't work. (opens in system32)
+if "open cmd here" has problems, add /d to value of HKCR\Directory\shell\cmd\command (not tested)
+/d makes cmd to ignore AutoRun reg variables in HKLM & HKCU \Software\Microsoft\Command Processor\Autorun
+or
+compmgmt.msc -> Local users and Groups -> Users -> NYC -> Profile -> Home folder, Local path: -> Apply
+------------------------------------------------------------------------------------------------------------
+some flags
+/c	close secondary session after execution (also called child process)
+/k	keep secondary session, do not close session after execution.
+/d	AUTOEXEC.BAT not executed. MS-DOS 6+
+/f	fail by default (no more "Abort, Retry, Fail?" messages) MS-DOS 6+, OS/2 Warp 4 DOS box
+/p	Permanent in memory. also called parent or primary process; COMMAND.COM cannot be removed from memory using EXIT
+/y	debug switch, step through batch files one step at a time. MS-DOS 6+
+/z	display the errorlevel of every (external) command executed. MS-DOS 7.* (Windows 95/98)
+/e:nnn	environment size in bytes. minimum value for n is 160 bytes, maximum is 32768, values outside this range are ignored.
+/msg	message files in memory. valid with /P only; to be used when booting from removable disk
+------------------------------------------------------------------------------------------------------------

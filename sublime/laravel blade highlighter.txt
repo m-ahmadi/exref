@@ -1,0 +1,4 @@
+ctrl+shift+p
+Package Control: Install Package
+Laravel Blade Highlighter
+Enter

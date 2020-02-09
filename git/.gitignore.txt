@@ -1,0 +1,25 @@
+git.txt
+rename git.txt .gitignore
+
+in .gitignore file:
+
+*.js			all .js files everywhere
+/*.js			all .js files in root/ folder
+abc/*.js		all .js files in root/abc/ folder
+
+abc/*			everything in root/abc/ folder
+abc/*/			all folders in root/abc/ folder (but not files)
+
+abc/			all abc folder everywhere (root/abc, root/a/abc, etc)
+**/abc/			same as above
+
+**/			all directories everywhere
+
+*.vpp~[0-9]		filenames ending in different numbers
+*~			filenames ending in ~
+
+
+ignore everything except some
+abc/*			ignore everything in abc folder
+!abc/x.js		don't ignore x.js
+!abc/*/			don't ignore sub dirs

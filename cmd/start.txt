@@ -1,0 +1,5 @@
+start			start new console
+start /d D:\		...in this path
+start /i		...with original env of cmd.exe (not env of this)
+start D:\		open explorer in this path
+start explorer D:\	same as above

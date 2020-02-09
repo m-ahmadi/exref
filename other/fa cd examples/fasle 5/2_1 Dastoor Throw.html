@@ -1,0 +1,35 @@
+<html>
+<head>
+<script language="javascript" type="text/javascript">
+</script>
+</head>
+
+<body>
+<script language="javascript" type="text/javascript">
+var x=prompt("Enter a number between 0 and 10:","")
+try   {
+	if (x>10)  {
+	    throw"err1"
+	}
+    else if (x<0)  {
+        throw"err2"
+	}
+	else if (isNaN(x)) {
+	    throw"err3"	     
+	}
+}
+catch(er) {
+	if (er=="err1") {
+	    alert("The value is too high")
+	}
+	if (er=="err2")  {
+		alert("The value is too low")
+	}
+	if (er=="er3") {
+		alert("The value is not a number")
+	}
+}
+	
+</script>
+</body>
+</html>

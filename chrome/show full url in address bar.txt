@@ -1,0 +1,11 @@
+install "Suspicious Site Reporter" extension
+
+---------------------------------------------------------
+depcricated
+
+chrome:flags
+Omnibox UI Hide Steady-State URL Scheme
+Omnibox UI Hide Steady-State URL Trivial Subdomains
+Omnibox UI Hide Steady-State URL Path, Query, and Ref
+set all to "Disabled"
+---------------------------------------------------------

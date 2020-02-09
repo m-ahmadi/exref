@@ -1,0 +1,10 @@
+SHOW DATABASES;
+SHOW WARNINGS;
+SHOW ENGINES;
+SHOW CREATE DATABASE db_name;
+SHOW CREATE TABLE tbl_name;
+SHOW VARIABLES LIKE 'datadir';
+USE db_name;
+SHOW COLUMNS FROM tbl_name;
+DESCRIBE tbl_name | DESC tbl_name
+SOURCE filename.sql

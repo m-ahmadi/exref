@@ -1,0 +1,12 @@
+%variable:StrToFind=NewStr%
+
+set str=abcd
+
+echo %str:b=x%		axcd
+
+echo %str:*c=x%		xd
+
+echo %str:c=%		remove char (replace with nothing)
+echo %str:*c=%		remove pattern
+echo %str:c*=x%		not valid
+echo %str: =%		remove all spaces

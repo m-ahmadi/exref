@@ -1,0 +1,22 @@
+npm install apidoc -g
+
+apidoc -i src/					input=./src  output=./doc
+apidoc -o apidoc/				input=./     output=./apidoc
+apidoc						input=./     output=./doc (causes warnings and more. don't use it)
+apidoc -t mytemplate/
+apidoc -f ".*\\.js$" -f ".*\\.ts$"		parse only .js and .ts files
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+flags
+
+-i, --input <input>					Input/source dirname. default: ./
+-o, --output <output>					Output dirname. default: ./doc/
+-c, --config <config>					Path to directory containing config file (apidoc.json). (default: "./")
+-t, --template <template> 				Use template for output files. default: %appdata%\npm\node_modules\apidoc\template\
+-p, --private						Include private APIs in output.
+
+-e, --exclude-filters <exclude-filters>			RegEx-Filter to select files/dirs that should not be parsed (many -e can be used). default: []
+-f, --file-filters <file-filters>			RegEx-Filter to select files that should be parsed (multiple -f can be used).
+							(default: cs, dart, erl, go, java, js, php, py, rb, ts)
+
+						

@@ -1,0 +1,57 @@
+{
+	"name": "myJavaScript",
+	"variables": {
+		"purple": "rgb(128, 0, 255)",
+		"string": "rgb(163, 21, 21)",
+		"black": "rgb(0, 0, 0)",
+		"line_highlight": "rgb(232, 232, 255)",
+		"selection": "rgb(192, 192, 192)",
+		"highlight": "rgba(155, 255, 155, 0.9)"
+	},
+	"globals": {
+		"background": "rgb(248, 248, 248)",
+		"foreground": "black",
+//		"invisibles": "white",
+		"caret": "black",
+		"block_caret": "black",
+		"line_highlight": "var(line_highlight)",
+		"selection": "#C0C0C0",
+		// "inactive_selection": "green",
+		"selection_border": "#C0C0C0",
+		"selection_border_width": "2",
+		"selection_corner_style": "square",
+		"highlight": "var(highlight)",
+		"find_highlight": "var(highlight)",
+		// "find_highlight_foreground": "var(highlight)",
+		"brackets_options": "foreground bold", // underline
+		"brackets_foreground": "red",
+		"bracket_contents_options": "foreground bold", // underline
+		"bracket_contents_foreground": "red",
+		"tags_options": "underline foreground",
+		"tags_foreground": "rgb(100, 64, 255)",
+		"stack_guide": "rgb(115, 115, 115)",
+		"accent": "red",
+		"line_diff_width": "3",
+		"line_diff_added": "green",
+		"line_diff_modified": "#ff8000",
+		"line_diff_deleted": "red",
+	},
+	"rules": [
+		// keyword
+		{ "scope": "keyword", "foreground": "blue" },
+		{ "scope": "storage", "foreground": "blue" },
+		{ "scope": "constant.language", "foreground": "blue" },
+		// text
+		{ "scope": "keyword.operator", "foreground": "black" },
+		{ "scope": "entity", "foreground": "black" },
+		// string
+		{ "scope": "string", "foreground": "var(string)" },
+		// regex
+		{ "scope": "string.regexp", "foreground": "var(purple)" },
+		// number
+		{ "scope": "constant.numeric", "foreground": "red" },
+		// comment
+		{ "scope": "comment", "foreground": "green" },
+		{ "scope": "comment.block.documentation", "foreground": "green", "font_style": "bold" }
+	]
+}

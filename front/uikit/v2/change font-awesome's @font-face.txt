@@ -1,0 +1,6 @@
+there's a @font-face for importing font-awesome icon-font in:
+	uikit.css (3675 in v2.27.1)
+
+make sure it's url paths are correct
+
+I replaced the entire thing with my own @font-face version

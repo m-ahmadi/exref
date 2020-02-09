@@ -1,0 +1,8 @@
+1. download windows 10 ADK online installer
+2. install "Assessment and Deployment Kit" 95 MB
+done
+
+path:
+C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\x86\DISM
+
+note: DO NOT get windows 7 ADK (has dism v6.1)

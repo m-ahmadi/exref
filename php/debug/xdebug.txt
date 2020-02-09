@@ -1,0 +1,42 @@
+it comes auto-istalled with xampp
+if not
+php.ini
+zend_extension = E:\xampp\php\ext\php_xdebug-2.4.0-5.6-vc11-x86_64
+----------------------------------------------------------------------------------------------
+					enabling
+[xdebug]
+zend_extension = "e:/xampp/php/ext/php_xdebug.dll"
+xdebug.remote_enable = On
+xdebug.remote_host = 127.0.0.1
+xdebug.remote_port = 9000
+xdebug.idekey = xdebug
+
+
+xdebug.profiler_output_dir = "c:/xdebug"
+xdebug.profiler_output_name = "cachegrind.out.%p"
+xdebug.profiler_enable = 0
+xdebug.profiler_append = 0
+xdebug.extended_info = 1
+xdebug.remote_handler = dbgp
+xdebug.remote_mode = req
+xdebug.remote_log = "c:/xdebug_remot.log"
+xdebug.show_exception_trace = 0
+xdebug.show_local_vars = 9
+xdebug.show_mem_delta = 0
+xdebug.trace_format = 0
+----------------------------------------------------------------------------------------------
+					usage
+install DBGp plugin in notepad++
+DBGp->config
+	Remote Server IP	127.0.0.1
+	IDE KEY			same as in php.ini
+	Remote Path		e:\xampp\htdocs
+	Local Path		e:\xampp\htdocs
+
+send a get variable named "XDEBUG_SESSION_START" to the script you want to debug
+
+?XDEBUG_SESSION_START=session_name
+----------------------------------------------------------------------------------------------
+					phpstorm
+button	"Start Listening for PHP Debug Connections"
+button	"Break at first line"

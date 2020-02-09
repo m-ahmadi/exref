@@ -1,0 +1,23 @@
+takeown /f file.txt				give ownership to nyc (same as: properties > security > advanced > owner: change)
+takeown /f file.txt /a				give ownership to admin
+takeown *.txt /r /d				in all subdirs as well
+
+icacls file.txt /setowner NYC			same as line 1, but won't force
+icacls file.txt /setowner "Administrators"	same as line 2, ...
+icacls file.txt /setowner "Users"
+icacls file.txt /setowner "NT SERVICE\TrustedInstaller"
+icacls file.txt /setowner "NT AUTHORITY\SYSTEM"
+
+icacls file.txt /grant NYC:f			grant a right to nyc (possible values: lusrmgr.msc)
+icacls file.txt /grant:r NYC:f			replace all granted rights with new one
+icacls file.txt /deny NYC:w			deny a right
+icacls mydir /t /grant NYC:f			on all subdirs as well
+icacls mydir /t /c /q /grant NYC:f		continue on errors, suppress success messages.
+icacls file.txt /grant Administrators:rw	grant "Administrators" group
+icacls file.txt /grant Users:rx			grant "Users" group
+icacls file.txt /remove NYC			remove all rights
+icacls file.txt /remove:g NYC			remove all granted rights
+icacls file.txt /remove:d NYC			remove all denied rights
+icacls *.exe /findsid NYC			list all .exe files owned by nyc
+
+cacls file.txt /g nyc:f				grant full permission (deprecated, use icacls)

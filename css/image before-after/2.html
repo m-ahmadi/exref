@@ -1,0 +1,100 @@
+<style>
+/* ================
+// Before and After
+// ============= */
+.before-and-after {
+  position: relative;
+  overflow: hidden;
+  width: 75%;
+  cursor: ew-resize;
+}
+.before-and-after img {
+  display: block;
+  max-width: 100%;
+}
+
+.subject-before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 100%;
+}
+
+.subject-scraper {
+  overflow: hidden;
+  -webkit-transform: translate(50%, 0);
+          transform: translate(50%, 0);
+}
+.subject-scraper:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  height: 100%;
+  width: .25em;
+  content: '';
+  background: #fff;
+}
+
+.subject-after {
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}
+
+/* ================
+// Structure
+// ============= */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
+
+
+<div class="before-and-after">
+	<img class="subject-before" src="pikmin.jpg"/>
+  <div class="subject-scraper">
+		<img class="subject-after" src="pikmin.jpg"/>
+	</div>
+</div>
+
+<script>
+var subject = document.querySelector('.before-and-after');
+var scraper = document.querySelector('.subject-scraper');
+var after = document.querySelector('.subject-after');
+
+var distance = (window.innerWidth - subject.clientWidth) / 2;
+window.onresize = recalculateDistance;
+
+var px = 0;
+var touches = [];
+
+subject.addEventListener('mousemove', dragScraper, false);
+subject.addEventListener('touchmove', dragScraper, false);
+
+function recalculateDistance() {
+	distance = (window.innerWidth - subject.clientWidth) / 2;
+}
+
+function dragScraper(event) {
+  px = event.clientX - distance;
+  if (px === null) {
+    touches = event.touches;
+    px = touches[0].clientX - distance;
+  }
+  if(px < 0) {
+    px = 0;
+  }
+  scraper.style.transform = 'translate(' + px + 'px, 0)';
+  after.style.transform = 'translate(-' + px + 'px, 0)';
+}
+</script>

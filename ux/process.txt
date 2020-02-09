@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+1. identifying requirements
+2. use cases based on requirements
+3. task flows
+4. wireframing (low fidelity)
+5. mocking-up (high fidelity)
+6. prototype
+7. feedback from stake holders
+8. once stake holders are somewhat ok with this best-guess approach
+9. usability study from ux researchers (optional)
+
+-------------------------------------------------------------------------------
+1. define the brand
+2. define the user
+3. define the goals
+-------------------------------------------------------------------------------

@@ -1,0 +1,3 @@
+cd /dir && ls			execute each command only if the previous one succeeded using && operator (if one fails, others won't be executed) 
+cd /dir ; ls			execute all commands regardless of whether the previous ones failed or not
+

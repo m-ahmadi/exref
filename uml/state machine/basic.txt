@@ -1,0 +1,4 @@
+states
+transition
+transition's label:
+	trigger-signature [guard]/activity

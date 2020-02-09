@@ -1,0 +1,3 @@
+Preferences > Type
+	
+	Show Indic Options

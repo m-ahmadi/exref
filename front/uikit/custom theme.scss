@@ -1,0 +1,47 @@
+/* note
+scss files in src folder are generated from less files
+run `sass thisfile.scss:out.css` and done
+for rtl run `rtlcss out.css out-rtl.css`
+*/
+
+// basic build
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+@import "uikit/src/scss/uikit-theme.scss";
+ //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// light modifications
+
+// using core theme
+$global-link-color: purple;                        // variables here (variables defined first will overwrite everything that comes after them duo to the use of !default)
+@import "uikit/src/scss/variables.scss";
+@import "uikit/src/scss/mixins.scss";
+@mixin hook-card() { background: red; }            // mixins here (unlike variables, mixins defined last, will overwrite the previous ones)
+@import "uikit/src/scss/uikit.scss";               // entry: here importing components/_import happens which imports all the scss files in the components folder,
+                                                   // so, if there's a mixin in a components/card.scss it will overwrite everything 
+// using shipped theme
+$global-link-color: yellow;                        // variables
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+@mixin hook-card() { background: green; }          // customizing hook mixins
+@import "uikit/src/scss/uikit-theme.scss";         // entry
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// heavy modifications
+
+// using core theme
+@import "site-theme/accordion.scss";
+@import "site-theme/alert.scss";
+@import "uikit/src/scss/variables.scss";
+@import "uikit/src/scss/mixins.scss";
+@import "site-theme/accordion-mixins.scss";
+@import "site-theme/alert-mixins.scss";
+@import "uikit/src/scss/uikit.scss";
+
+// using shipped theme
+@import "site-theme/accordion.scss";
+@import "site-theme/alert.scss";
+@import "uikit/src/scss/variables-theme.scss";
+@import "uikit/src/scss/mixins-theme.scss";
+@import "site-theme/accordion-mixins.scss";
+@import "site-theme/alert-mixins.scss";
+@import "uikit/src/scss/uikit-theme.scss";
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

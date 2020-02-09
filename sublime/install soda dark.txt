@@ -1,0 +1,3 @@
+ctrl+shift+p
+Package Control: Install Package
+Theme - Soda

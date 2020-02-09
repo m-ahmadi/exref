@@ -1,0 +1,4 @@
+git push -u origin master		for the first push, you need to set up correct upstream (git branch --set-upstream-to)
+git push origin master			normal push
+git push origin <branch_name>		push branch
+git push -f				force push

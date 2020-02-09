@@ -1,0 +1,14 @@
+product backlog (wish list, made up of user stories, feature list)
+
+release backlog
+
+developer
+
+tester
+
+executive
+
+customer
+
+
+ux design should be always working ahead (weeks, months) of any sprint cycle

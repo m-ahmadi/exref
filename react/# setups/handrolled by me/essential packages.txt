@@ -1,0 +1,19 @@
+npm install --save-dev
+
+@babel/core
+@babel/cli
+@babel/preset-env
+@babel/preset-react
+
+webpack
+webpack-cli
+webpack-dev-server
+style-loader
+css-loader
+babel-loader
+
+
+npm install --save
+react
+react-dom
+react-hot-loader

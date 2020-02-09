@@ -1,0 +1,5 @@
+git reset HEAD~				let's say you do this by mistake
+
+git reset HEAD@{1}			this will undo the above git reset command
+
+git reflog				for more information aboout previous commits

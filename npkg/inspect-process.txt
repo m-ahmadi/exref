@@ -1,0 +1,26 @@
+fuk dis use node --inspect-brk it's awesome!
+
+-----------------------------------------------------------------------------------
+npm install inspect-process -g
+
+inspect index.js
+
+-----------------------------------------------------------------------------------
+chromedriver issue fix:
+
+cd someFolder
+git clone https://github.com/jaridmargolin/inspect-process.git
+cd inspect-procces
+rmdir /S /Q .git
+package.json
+remove chromedriver from list of dependencies
+cd ../
+npm install ./inspect-process -g
+cd %APPDATA%\npm\node_modules\
+cd inspect-process
+npm install chromedriver --chromedriver_cdnurl=http://cdn.npm.taobao.org/dist/chromedriver
+-----------------------------------------------------------------------------------
+
+
+Not necessary anymore:
+	make sure path are correct in: %APPDATA%\npm\inspect & inspect.cmd

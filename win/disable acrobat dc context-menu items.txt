@@ -1,0 +1,9 @@
+cd "C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat Elements"
+
+delete:
+
+ContextMenu.dll
+ContextMenu64.dll
+ContextMenuShim64.dll
+
+done.

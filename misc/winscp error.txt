@@ -1,0 +1,5 @@
+Options -> Preferences -> Transfer
+Edit Default
+Uncheck "Preserve timestamps"
+
+(You can do the same for all your transfer profiles.)

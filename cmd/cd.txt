@@ -1,0 +1,7 @@
+cd				show current directory
+E: && cd xampp\htdocs		change to another drive
+cd /d E:\xampp\htdocs		same as above
+alias: chdir
+
+pushd D:\xampp			change cwd (can change drive)
+popd				move back a path

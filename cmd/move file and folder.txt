@@ -1,0 +1,9 @@
+move a.txt dest		move file
+move a.txt E:\		can move file to another drive
+move /y a.txt E:\	force overwrite without prompt
+move src dest		move dir (can be used for rename)
+move src foo\dest	... foo dir must exist
+move src E:\dest	cannot move to another dirve
+
+
+robocopy source destination /move

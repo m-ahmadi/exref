@@ -1,0 +1,12 @@
+set user=HKCU\Environment
+set sys="HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+
+setx foo "path/to/somewhere"		set under "User variables" (HKEY_CURRENT_USER)
+reg add %user% /v foo /d e:\bar		... through registry
+reg delete %user% /f /v foo		delete variable
+
+setx foo "path/to/somewhere" /m		set under "System variables" (HKEY_LOCAL_MACHINE)
+reg add %sys% /v foo /d e:\bar		... through registry
+reg delete %sys% /f /v foo		delete variable
+
+note: setx can't delete the variable

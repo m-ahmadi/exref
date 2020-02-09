@@ -1,0 +1,2 @@
+ridk version					rubyinstaller and msys2 versions
+ridk install					install msys2

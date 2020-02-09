@@ -1,0 +1,31 @@
+select * from book;
+
+select * from actor;
+
+show databases;
+
+select * from bookauthor;
+
+select * from author;
+
+select * from publisher;
+
+select * from book;
+
+SELECT       type,price,title,         name,address,city,       royaltyshare,isbn
+
+FROM book 
+  JOIN publisher USING (pub_id)
+  JOIN bookauthor USING (isbn);
+
+select * from book;
+
+select * from p;
+
+select * from p;
+
+select * from p;
+
+select * from book;
+
+select * from book

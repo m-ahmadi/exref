@@ -1,0 +1,16 @@
+npm install -g grunt-cli			Grunt-CLI is installed globally (won't install grunt task runner)
+npm install grunt				Grunt has to be installed locally in each project folder
+
+
+plugins: (should be installed locally in project folder)
+npm install grunt-contrib-concat --save-dev
+npm install grunt-contrib-watch --save-dev
+npm install grunt-contrib-jshint --save-dev
+npm install jshint-stylish --save-dev
+npm install grunt-contrib-sass --save-dev
+
+npm install grunt-contrib-requirejs --save-dev
+npm install grunt-browserify --save-dev
+
+npm install load-grunt-tasks --save-dev
+npm install grunt-shell --save-dev

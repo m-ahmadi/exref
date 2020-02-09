@@ -1,0 +1,1 @@
+"D:\path\to\ConEmu\folder\ConEmu64.exe" /Dir "E:\start\path"

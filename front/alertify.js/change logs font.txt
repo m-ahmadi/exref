@@ -1,0 +1,10 @@
+in theme files ie:
+	"alertify.default.css"
+or
+	"alertify.bootstrap.css"
+
+change:
+
+.alertify-log {
+	font-family: tahoma;
+}

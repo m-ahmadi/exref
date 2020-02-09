@@ -1,0 +1,41 @@
+mklink /d C:\r "J:\...\exref"
+mklink /d C:\h D:\xampp\htdocs
+-------------------------------------------------------------------------------
+env vars
+
+r=J:\...\exref
+home=%userprofile%
+desk=%userprofile%\desktop
+pws=%systemoot%\system32\WindowsPowerShell\v1.0\powershell.exe
+-------------------------------------------------------------------------------
+ctrl+alt shortcuts
+
+1 exref
+2 htdocs
+3 J:\dev
+4 paint
+e cmd        admin, target: %comspec% /k pushd %home%
+r powershell admin, target: %pws% -NoExit -Command "pushd $Env:home"
+-------------------------------------------------------------------------------
+alarm sound
+
+C:\Windows\media\Alarm03.wav
+convert to .mp3
+copy /b Alarm03.mp3 "%appdata%\Simnet\Simple Sticky Notes\Sounds"
+
+2nd fav from "Simple Sticky Notes":
+Amazing Tone
+Bells
+-------------------------------------------------------------------------------
+colors
+	text		bg
+cmder	---		39  40  34
+prev	200 200 140	35  35  25
+nasm	100 200   0	30  30   0
+mingw	255 255 220 	70   0  70
+masm	255 255 200	35  45  70
+pws	180 192 100	25  30  40
+-------------------------------------------------------------------------------
+misc
+
+powershell window: font=16 height=30 (laptop: w100 h25)

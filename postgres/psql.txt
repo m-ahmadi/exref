@@ -1,0 +1,3 @@
+psql is the PostgreSQL interactive terminal.
+
+psql --help

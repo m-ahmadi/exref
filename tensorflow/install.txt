@@ -1,0 +1,5 @@
+npm install @tensorflow/tfjs-node				native c++ bindings
+
+npm install @tensorflow/tfjs-node-gpu				higher performance if your system has a nvidia gpu with cuda support.
+
+npm install @tensorflow/tfjs					pure JavaScript version. slowest option performance wise.

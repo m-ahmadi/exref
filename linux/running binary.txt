@@ -1,0 +1,9 @@
+use relative path to execute binary file?
+
+./binary_file_name
+
+change permissions
+
+chmod +x binary_file_name
+# then execute it
+./binary_file_name

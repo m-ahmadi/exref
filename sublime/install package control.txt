@@ -1,0 +1,6 @@
+Preferences > Browse Packages
+up a folder and then "Installed Packages"
+"C:\Users\NYC\AppData\Roaming\Sublime Text 2\Installed Packages"
+Download https://packagecontrol.io/Package%20Control.sublime-package
+copy to "Installed Packages" floder
+Restart Sublime

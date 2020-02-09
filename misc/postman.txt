@@ -1,0 +1,4 @@
+post requests
+	must set all the headers in `Headers` tab.
+	then paste body of the request in the `Body` tab.
+	there's no tab to paste a raw http request. (headers + blank line + body)

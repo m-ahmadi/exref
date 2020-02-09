@@ -1,0 +1,13 @@
+﻿θ Theta notaion
+	Theta notaion is a pretty easy notaion to master, because all you do is:
+		Drop low-order terms from the formula, and
+		Ignore leading constants
+
+Ex:	3n³ + 90n² - 5n + 6046
+	n³ is a bigger term than n², so we drop n2 and n
+	and we ignore the leading constants so:
+	3n³ + 90n² - 5n + 6046  =  θ(n³)
+	
+	As n approaches infinity, a theta n-squared algorithm always beats a theta n-cubed algorithm.
+	As n→∞, a θ(n²) alg always beats a (θ³) alg.
+	pic 101

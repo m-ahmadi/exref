@@ -1,0 +1,3 @@
+Edit -> Preferences -> Advanced
+	Hardware Acceleration
+	Use software-only mode

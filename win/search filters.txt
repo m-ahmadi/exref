@@ -1,0 +1,2 @@
+ext:.jpg
+datemodified:last week

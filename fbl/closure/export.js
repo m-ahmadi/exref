@@ -1,0 +1,13 @@
+window["moment"] = moment;
+window["u"] = u;
+window["newPubSub"] = newPubSub;
+window["Cookie"] = Cookie;
+window["jQuery"] = jQuery;
+window["$"] = $;
+window["Highcharts"] = Highcharts;
+window["Highstock"] = Highstock;
+window["define"] = define;
+window["ol"] = ol;
+window["Switchery"] = Switchery;
+window["UIkit"] = UIkit;
+window["Handlebars"] = Handlebars;

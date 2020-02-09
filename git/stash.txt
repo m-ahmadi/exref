@@ -1,0 +1,9 @@
+git stash			saves changes (after this status is clean)
+git stash push			same as above
+git stash pop			restoring
+git stash show			show changes
+
+git stash list			see saved entries
+git stash apply			pull first entry and reapply change to working dir
+git stash dorp			delete last entry
+git stash drop stash@{0}	delete specific entry

@@ -1,0 +1,34 @@
+f1					command pallete
+ctrl+shift+p				...
+select text > f1 >"Join Lines"		format multiline code to single line
+
+%appdata%\Code\User\
+	settings.json
+	keybindings.json
+-------------------------------------------------------------------------------
+custom theme:
+
+<install_dir>\resources\app\extensions\theme-defaults\themes
+light_defaults.json
+light_plus.json
+light_vs.json
+	regex: 8000ff
+(grammer files: <install_dir>\*.tmLanguage.json)
+-------------------------------------------------------------------------------
+extensions
+code --list-extensions | xargs -L 1 echo code --install-extension
+
+vincaslt.highlight-matching-tag
+vscode-icons-team.vscode-icons
+MikeBovenlander.formate
+aeschli.vscode-css-formatter
+fcrespo82.markdown-table-formatter
+mechatroner.rainbow-csv
+
+ms-vscode.powershell
+ionutvmi.reg
+
+Keno.uikit-3-snippets
+octref.vetur
+Leopotam.csharpfixformat
+-------------------------------------------------------------------------------

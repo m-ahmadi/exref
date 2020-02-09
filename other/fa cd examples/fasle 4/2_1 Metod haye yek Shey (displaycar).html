@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<script language="javascript" type="text/javascript">
+function displaycar() {
+	var result= "I like " + this.name +" "+ this.model + " with " + this.color + " color"
+	document.write(result)
+	}
+	
+function car(name,model,color){
+this.name=name
+this.model=model
+this.color=color
+this.displaycar=displaycar
+}
+</script>
+</head>
+
+<body>
+<script language="javascript" type="text/javascript">
+var mycar = new car("corvette","z06","red")
+mycar.displaycar()
+</script>
+</body>
+</html>

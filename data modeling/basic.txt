@@ -1,0 +1,5 @@
+3 different types of data models, while progressing from requirements to the actual database:
+
+	conceptual
+	logical
+	physical

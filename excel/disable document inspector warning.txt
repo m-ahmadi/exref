@@ -1,0 +1,11 @@
+"Be careful! Parts of your document may include personal information that can't be removed by the Document Inspector."
+
+Solution 1:
+
+File -> Options -> Trust Center -> Trust Center Settings... -> Privacy Options
+uncheck "Remove personal information from file properties on save" -> OK
+
+--------------------------------------------------------------------------------------------------
+Solution 2:
+
+File -> Info -> "Allow this information to be saved in your file"

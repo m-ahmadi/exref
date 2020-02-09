@@ -1,0 +1,108 @@
+<style>
+.combo {
+  width: 300px;
+  position: relative;
+}
+.combo *, .combo *::before, .combo *::after {
+  box-sizing: border-box;
+}
+.combo .focus {
+  background: #0080ff;
+}
+.combo .hide {
+  display: none;
+}
+.combo input {
+  width: 100%;
+}
+.combo table {
+  position: absolute;
+  width: 100%;
+  border: 1px solid grey;
+  border-top: none;
+  border-spacing: 0;
+}
+.combo table td {
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-color: grey;
+}
+.combo table tr:last-child td {
+  border-bottom: 0;
+}
+</style>
+
+<div class="combo">
+	<input type="text" />
+	<table>
+		<tbody>
+			<tr><td>item 1</td></tr>
+			<tr><td>item 2</td></tr>
+			<tr><td>item 3</td></tr>
+		</tbody>
+	</table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script>
+$(function () {
+	const cFocus = 'focus';
+	const cHide = 'hide';
+	const input = $('.combo > input');
+	const table = $('.combo > table');
+	const trs = $('.combo > table > tbody > tr');
+	let i = -1;
+	
+	// focus on mouse move and select item on mousedown
+	table
+	.on('mouseenter', 'td', function () {
+		i	 = $(this).closest('tr').index();
+		$('td', trs).removeClass(cFocus);
+		$(this).addClass(cFocus);
+	})
+	.on('mouseleave', 'td', function () {
+		$(this).removeClass(cFocus);
+	})
+	.on('mousedown', 'td', function ({which}) {
+		input.val( $(this).html() );
+		close();
+	});
+	
+	// nav with up/down arrow, select with enter
+	$('.combo').on('keydown', function (e) {
+		const key = e.which;
+		if (key !== 38 && key !== 40 && key !== 13) return;
+		if (key === 13) {
+			input.val( $('td.focus', trs).html() );
+			close();
+			return;
+		}
+		const inc = key === 38 ? -1 : key === 40 ? 1 : 0; // 38=up 40=down
+		i += inc;
+		i = i > trs.length-1 ? 0 : i < 0 ? trs.length-1 : i;
+		$('td', trs).removeClass(cFocus);
+		$(trs[i].children[0]).addClass(cFocus);
+	});
+	
+	// open & close on focus & blur
+	input
+		.on('blur', close)
+		.on('focus', open)
+		.on('input change', function () {
+			if (this.value === '') open();
+		});
+	
+	function reset() {
+		i = -1;
+		$('td', trs).removeClass(cFocus);
+	}
+	function open() {
+		reset();
+		if ( table.hasClass(cHide) ) table.removeClass(cHide);
+	}
+	function close() {
+		reset();
+		if ( !table.hasClass(cHide) ) table.addClass(cHide);
+	}
+});
+</script>

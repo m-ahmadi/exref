@@ -1,0 +1,12 @@
+three things to try:
+
+1. check "Keep broken files" checkbox in winrar "Extract files..." dialogue.
+
+2. run check disk on the drive containing the rar files:
+	chkdsk d: /f
+	restart pc
+
+3. try these softwares:
+	Remo Repair RAR
+	Advanced RAR Repair
+	DataNumen RAR Repair

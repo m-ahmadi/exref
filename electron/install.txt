@@ -1,0 +1,3 @@
+mkdir proj & cd proj
+npm init -f
+npm install --save-dev electron

@@ -1,0 +1,41 @@
+after a particular market move, prices retrace a portion of the previous trend before resuming the move in the original direction,
+these countertrend moves tend to fall into certain predictable percentage parameters.
+
+percentage retracements apply to any degree of trend: major, secondary, near term.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+50% retracement
+the best known application of the retracement phenomenon is the 50% retracement.
+in a market that is trending higher, often the subsequent reaction retraces about half of the prior move, before upward momentum is regained.
+it's a very well known market tendency and happens quite frequently.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+minimum & maximum retracements
+
+the price trend is divided into thirds.
+
+33% retracement (one-third/minimum)
+in a correction of a strong trend, the market usually retraces at least a third of the previous move.
+
+66% retracement (two-thirds/maximum)
+it's an especially critical area.
+if the prior trend is to be maintained, the correction must stop at the two-thirds point.
+a relatively low risk buying area in an uptrend or selling area in a downtrend.
+if prices move beyond the two-thirds point:
+	the odds favor a trend reversal rather than a retracement.
+	the move usually then retraces the entire 100% of the prior trend.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+usage
+a 33-50% price zone can be used as a general frame of reference for buying opportunities.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+in combination with other theories
+3 percentage retracement parameters (50%, 33%, 66%) are taken right from the original dow theory.
+elliott wave theory and fibonacci approach use percentage retracements of 38% and 62%.
+
+combining both approaches (percentage & fibonacci)
+minimum retracement zone:    33-38%
+maximum retracement zone:    62-66%
+we could round off these numbers and have a 40-60% retracement zone.
+
+w. d. gann broke down the trend structure into eighths.
+V8, 2/8, 3/8, 4/8, 5/8, 6/8, 7/8, 8/8.
+he attached special importance to the 3/8 (38%), 4/8 (50%), and 5/8 (62%) retracement numbers.
+he also felt it was important to divide the trend into thirds, 1/3 (33%) and 2/3 (66%).

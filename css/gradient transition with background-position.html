@@ -1,0 +1,29 @@
+<style>
+#DemoGradient{  
+	background: rgb(203,96,179);
+	background: -moz-linear-gradient(top,  rgba(203,96,179,1) 0%, rgba(193,70,161,1) 50%, rgba(168,0,119,1) 51%, rgba(219,54,164,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(203,96,179,1)), color-stop(50%,rgba(193,70,161,1)), color-stop(51%,rgba(168,0,119,1)), color-stop(100%,rgba(219,54,164,1)));
+	background: -webkit-linear-gradient(top,  rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%);
+	background: -o-linear-gradient(top,  rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%);
+	background: linear-gradient(to bottom,  rgba(203,96,179,1) 0%,rgba(193,70,161,1) 50%,rgba(168,0,119,1) 51%,rgba(219,54,164,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cb60b3', endColorstr='#db36a4',GradientType=0 );
+
+	-webkit-transition: background 1s ease-out;  
+	-moz-transition: background 1s ease-out;  
+	-o-transition: background 1s ease-out;  
+	transition: background 1s ease-out;  
+
+	background-size:1px 200px;  
+	border-radius: 10px;  
+	border: 1px solid #839DB0;  
+	cursor:pointer;  
+	width: 150px;  
+	height: 100px;  
+}  
+#DemoGradient:hover{  
+	background-position:100px;  
+}  
+</style>
+
+<div id="DemoGradient"></div>  

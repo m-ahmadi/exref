@@ -1,0 +1,14 @@
+2 ways to make http requests:
+
+`Endpoint Explorer`
+	let's you paste a raw http request. (headers + blank line + body)
+
+`Request Editor`
+	must create a service (rest/soap) before you can use it.
+	you can't paste raw http requests in it.
+	you must set headers manually then paste in the body. (in case of post)
+
+------------------------------------------------------------------------------------------------
+creating web services:
+	soap service which generates requests from a wsdl.xml file.
+	rest service with get, post, etc requests.

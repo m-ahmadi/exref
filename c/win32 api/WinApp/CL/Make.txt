@@ -1,0 +1,23 @@
+cl WinApp.cpp user32.lib
+
+
+
+cl /MD /MT /Os WinApp.cpp user32.lib /link /out:test.exe /release /subsystem:windows
+
+
+
+
+cl 
+	/c
+	WinApp.cpp
+	/Ox
+	/Os
+	/O2
+
+link w.obj user32.lib 
+	/nologo 
+	/subsystem:windows 
+	/machine:x86 
+	/opt:ref
+	/opt:icf
+	/incremental:no

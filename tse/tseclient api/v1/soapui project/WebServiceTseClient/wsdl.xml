@@ -1,0 +1,239 @@
+<wsdl:definitions
+	xmlns:s="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+	xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+	xmlns:tns="http://tsetmc.com/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+	xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	targetNamespace="http://tsetmc.com/">
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://tsetmc.com/">
+			<s:element name="LastPossibleDeven">
+				<s:complexType/>
+			</s:element>
+			<s:element name="LastPossibleDevenResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="LastPossibleDevenResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="Instrument">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="DEven" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="InstrumentResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="InstrumentResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DecompressAndGetInsturmentClosingPrice">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="insCodes" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DecompressAndGetInsturmentClosingPriceResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="DecompressAndGetInsturmentClosingPriceResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="LogError">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="LogErrorResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="LogErrorResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="InstrumentAndShare">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="DEven" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="LastID" type="s:long"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="InstrumentAndShareResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="InstrumentAndShareResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="LastPossibleDevenSoapIn">
+		<wsdl:part name="parameters" element="tns:LastPossibleDeven"/>
+	</wsdl:message>
+	<wsdl:message name="LastPossibleDevenSoapOut">
+		<wsdl:part name="parameters" element="tns:LastPossibleDevenResponse"/>
+	</wsdl:message>
+	<wsdl:message name="InstrumentSoapIn">
+		<wsdl:part name="parameters" element="tns:Instrument"/>
+	</wsdl:message>
+	<wsdl:message name="InstrumentSoapOut">
+		<wsdl:part name="parameters" element="tns:InstrumentResponse"/>
+	</wsdl:message>
+	<wsdl:message name="DecompressAndGetInsturmentClosingPriceSoapIn">
+		<wsdl:part name="parameters" element="tns:DecompressAndGetInsturmentClosingPrice"/>
+	</wsdl:message>
+	<wsdl:message name="DecompressAndGetInsturmentClosingPriceSoapOut">
+		<wsdl:part name="parameters" element="tns:DecompressAndGetInsturmentClosingPriceResponse"/>
+	</wsdl:message>
+	<wsdl:message name="LogErrorSoapIn">
+		<wsdl:part name="parameters" element="tns:LogError"/>
+	</wsdl:message>
+	<wsdl:message name="LogErrorSoapOut">
+		<wsdl:part name="parameters" element="tns:LogErrorResponse"/>
+	</wsdl:message>
+	<wsdl:message name="InstrumentAndShareSoapIn">
+		<wsdl:part name="parameters" element="tns:InstrumentAndShare"/>
+	</wsdl:message>
+	<wsdl:message name="InstrumentAndShareSoapOut">
+		<wsdl:part name="parameters" element="tns:InstrumentAndShareResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="WebServiceTseClientSoap">
+		<wsdl:operation name="LastPossibleDeven">
+			<wsdl:input message="tns:LastPossibleDevenSoapIn"/>
+			<wsdl:output message="tns:LastPossibleDevenSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="Instrument">
+			<wsdl:input message="tns:InstrumentSoapIn"/>
+			<wsdl:output message="tns:InstrumentSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+			<wsdl:input message="tns:DecompressAndGetInsturmentClosingPriceSoapIn"/>
+			<wsdl:output message="tns:DecompressAndGetInsturmentClosingPriceSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="LogError">
+			<wsdl:input message="tns:LogErrorSoapIn"/>
+			<wsdl:output message="tns:LogErrorSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="InstrumentAndShare">
+			<wsdl:input message="tns:InstrumentAndShareSoapIn"/>
+			<wsdl:output message="tns:InstrumentAndShareSoapOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="WebServiceTseClientSoap" type="tns:WebServiceTseClientSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="LastPossibleDeven">
+			<soap:operation soapAction="http://tsetmc.com/LastPossibleDeven" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Instrument">
+			<soap:operation soapAction="http://tsetmc.com/Instrument" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+			<soap:operation soapAction="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LogError">
+			<soap:operation soapAction="http://tsetmc.com/LogError" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InstrumentAndShare">
+			<soap:operation soapAction="http://tsetmc.com/InstrumentAndShare" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="WebServiceTseClientSoap12" type="tns:WebServiceTseClientSoap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="LastPossibleDeven">
+			<soap12:operation soapAction="http://tsetmc.com/LastPossibleDeven" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="Instrument">
+			<soap12:operation soapAction="http://tsetmc.com/Instrument" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DecompressAndGetInsturmentClosingPrice">
+			<soap12:operation soapAction="http://tsetmc.com/DecompressAndGetInsturmentClosingPrice" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LogError">
+			<soap12:operation soapAction="http://tsetmc.com/LogError" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="InstrumentAndShare">
+			<soap12:operation soapAction="http://tsetmc.com/InstrumentAndShare" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="WebServiceTseClient">
+		<wsdl:port name="WebServiceTseClientSoap" binding="tns:WebServiceTseClientSoap">
+			<soap:address location="http://service.tsetmc.com/WebService/TseClient.asmx"/>
+		</wsdl:port>
+		<wsdl:port name="WebServiceTseClientSoap12" binding="tns:WebServiceTseClientSoap12">
+			<soap12:address location="http://service.tsetmc.com/WebService/TseClient.asmx"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

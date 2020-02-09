@@ -1,0 +1,2 @@
+get the driver version using HWiNFO or CPU-Z
+and google that version

@@ -1,0 +1,10 @@
+bootstrap
+	<span class="glyphicon glyphicon-user"></span>
+	<span class="glyphicon glyphicon-refresh"></span>
+fontawesome
+	<i class="fa fa-refresh"></i>
+	<i class="fa fa-th-list"></i>
+	<i class="fa fa-file"></i>
+foundicon
+	<span class="foundicon-page"></span>
+	

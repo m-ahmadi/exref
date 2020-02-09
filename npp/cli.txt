@@ -1,0 +1,48 @@
+npp file.js -n4				scroll to line
+npp file.js -x50 -y100			move window to coordinates
+npp -qftest.css -qSpeed3 -lcss		open file and ghost-type
+
+-l	specify syntax highlighting
+-n	scroll to line
+-c	scroll to column
+-p	scroll to position
+-r	open files recursively (ignored if filePath contains no wildcard)
+-ro	read only
+-L	apply locale
+
+ghost typing
+-qn	ghost-type an easter egg by name
+-qt	...given text
+-qf	...given file
+-qSpeed	speed: 1, 2, 3
+
+-multiInst	lunch another instance
+-noPlugin	don't load any plugin
+-nosession	don't load prev session
+-openSession	open a session (filePath must be a session file)
+-notabbar	without tab bar
+-loadingTime	alert loading time after lunch
+-alwaysOnTop	make it always on top
+-quickPrint	print file and quit
+-systemtray	lunch in system tray
+-openFoldersAsWorkspace
+		open dir path(s) as workspace
+-------------------------------------------------------------------------------
+command setup
+
+echo @"D:\Program Files\Notepad++\notepad++.exe" %* > %windir%\npp.cmd
+
+other ways:
+
+1. add install dir to path
+notepad++ <filename>
+start notepad++
+start notepad++ <filename>
+
+2. cmder alias
+alias npp=start notepad++ $*
+npp file.txt
+
+3. cmd alias (session-based)
+doskey npp=notepad++.exe $*
+-------------------------------------------------------------------------------

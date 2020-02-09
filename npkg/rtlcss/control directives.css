@@ -1,0 +1,13 @@
+.foo {
+	/*rtl:ignore*/
+	direction: ltr;
+	/*rtl:ignore*/
+	text-align: left;
+}
+
+.foo {
+	/*rtl:begin:ignore*/
+	direction: ltr;
+	text-align: left;
+	/*rtl:end:ignore*/
+}

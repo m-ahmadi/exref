@@ -1,0 +1,17 @@
+in my portable version:
+
+in	Illustrator\Data\AppData\Adobe Illustrator 18 Settings\en_US\x86\
+
+edit	Adobe Illustrator Prefs
+
+	-----------------------------------
+
+	/DontShowWarningAgain {
+		/showClipboardWarning 0
+	}
+	-----------------------------------
+
+	/aiFileFormat {
+		/PDFCompatibility 0
+	}
+	-----------------------------------

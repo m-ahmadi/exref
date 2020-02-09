@@ -1,0 +1,6 @@
+create-react-app proj --use-npm
+
+cd proj
+npm run start				compile and serve
+npm run build				build production
+npm run eject				ejects every configuration that was hidden right into your folder structure

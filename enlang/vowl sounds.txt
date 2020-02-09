@@ -1,0 +1,24 @@
+english has 15 vowel sounds represented by the letters a, e, i, o, u, y, w gh.
+
+3 categories of vowel sounds:
+
+long (vowels that sound like the letter name):
+	a	cake
+	e	keep
+	i	bike
+	o	home
+	u	cute
+	
+short (the most common sound for a single vowel spelling):
+	a	cat
+	e	bed
+	i	sit
+	o	top
+	u	sun
+
+other (the remaining vowel sounds):
+	u	put
+	oo	soon
+	aw	dog
+	oi	join
+	ow	down

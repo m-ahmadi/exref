@@ -1,0 +1,11 @@
+<div [htmlprop-or-componentprop]="classProp"></div>			<!-- property binding, set html/component prop to class prop -->
+
+<div (click)="classMethod($event)"></div>					<!-- event, bind a class method to an event -->
+
+<div [(ngModel)]="classProp"></div>							<!-- 2 way binding, between class prop and html/component prop -->
+
+<div *ngFor="let item of classProp"></div>					<!-- loop through a class property, output this div for each iteration -->
+
+<div *ngIf="classProp"></div>								<!-- output div if class propery exist -->
+
+<div>{{ classProp }}</div>									<!-- interpolation -->

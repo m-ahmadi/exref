@@ -1,0 +1,57 @@
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+body .banner-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+body .banner {
+  position: absolute;
+  overflow: hidden;
+}
+body .banner.dev {
+  transform: skew(-30deg);
+  margin-left: -500px;
+  width: calc(50vw + 500px);
+}
+body .banner.dev .banner-content {
+  transform: skew(30deg);
+  margin-left: 500px;
+}
+body .banner .banner-content {
+  height: 400px;
+}
+body .banner img {
+  width: 100vw;
+}
+</style>
+
+<div class="banner-wrapper" id="banner-wrapper">
+  <div class="banner design">
+    <div class="banner-content">
+      <img src="pexels-1.jpg">
+    </div>
+  </div>
+  <div class="banner dev">
+    <div class="banner-content">
+      <img src="pexels-2.jpg">
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	let banner = document.getElementById('banner-wrapper');
+	let devLayer = banner.querySelector('.dev');
+	let delta = 0;
+	
+	banner.addEventListener('mousemove', function (e) {
+		delta = (e.clientX - window.innerWidth / 2) * 0.5;
+		devLayer.style.width = e.clientX + 500 + delta + 'px';
+	});
+})
+</script>

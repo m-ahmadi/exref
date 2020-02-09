@@ -1,0 +1,137 @@
+{
+	"info": {
+		"_postman_id": "a548983f-e1d7-4f10-86c6-bc57b217bfe4",
+		"name": "WebServiceTseClient.v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LastPossibleDeven",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://service.tsetmc.com/tsev2/data/TseClient2.aspx?t=LastPossibleDeven",
+					"protocol": "http",
+					"host": [
+						"service",
+						"tsetmc",
+						"com"
+					],
+					"path": [
+						"tsev2",
+						"data",
+						"TseClient2.aspx"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "LastPossibleDeven"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InstrumentAndShare",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://service.tsetmc.com/tsev2/data/TseClient2.aspx?t=InstrumentAndShare&a=20010321&a2=0",
+					"protocol": "http",
+					"host": [
+						"service",
+						"tsetmc",
+						"com"
+					],
+					"path": [
+						"tsev2",
+						"data",
+						"TseClient2.aspx"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "InstrumentAndShare"
+						},
+						{
+							"key": "a",
+							"value": "20010321"
+						},
+						{
+							"key": "a2",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ClosingPrices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://service.tsetmc.com/tsev2/data/TseClient2.aspx?t=ClosingPrices&a=9211775239375291,0,0",
+					"protocol": "http",
+					"host": [
+						"service",
+						"tsetmc",
+						"com"
+					],
+					"path": [
+						"tsev2",
+						"data",
+						"TseClient2.aspx"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "ClosingPrices"
+						},
+						{
+							"key": "a",
+							"value": "9211775239375291,0,0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Instrument",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://service.tsetmc.com/tsev2/data/TseClient2.aspx?t=Instrument&a=20010321",
+					"protocol": "http",
+					"host": [
+						"service",
+						"tsetmc",
+						"com"
+					],
+					"path": [
+						"tsev2",
+						"data",
+						"TseClient2.aspx"
+					],
+					"query": [
+						{
+							"key": "t",
+							"value": "Instrument"
+						},
+						{
+							"key": "a",
+							"value": "20010321"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

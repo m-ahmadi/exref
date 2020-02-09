@@ -1,0 +1,26 @@
+We can create a build system in RequireJS that bundles up everything into a single file,
+but the final file (you know app.js bundle.js etc),
+is going to be in a format that needs RequireJS itself, what's that mean?
+basically it's going to be a series of define() functions.
+So I think the only way to, do what you do with browserify,
+is to write a build script that takes those define functions,
+and handles their names, depenencies, etc.
+
+So the motivation for me to look into RequireJS, was,
+the build system of jQuery,
+which I glanced at and saw RequireJS in its package.json devdeps, and AMD define() functions,
+So I thought maybe it's possible to build all of those define() functions,
+into a final bundle.js, but then I realized that jQuery has a custom build script,
+that takes those define() functions and handles them.
+
+taken from: jquery-master/build/tasks/build.js
+Special concat/build task to handle various jQuery build requirements
+
+Concats AMD modules, removes their definitions, and includes/excludes specified modules.
+
+
+
+Update:
+There's another option called almond,
+which comes and takes those define() functions, and loads them into a single file.
+I have not tested almond yet.

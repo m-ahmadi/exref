@@ -1,0 +1,62 @@
+Settings -> General -> Size & Pos -> Console buffer height -> Long console output 32766 (max)
+Settings -> General -> Appearance -> Scrollbar -> Show (check)
+Settings-> Features -> Colors     -> Fade when inactive (uncheck)
+Settings-> Features -> Transparency
+	Activate window transparency (uncheck)
+	Use seperate transparency value for inactive window (uncheck)
+---------------------------------------------------------------------------------
+context menu
+
+cd <cmder_installation_dir>
+Cmder.exe /register all
+Cmder.exe /unregister all
+---------------------------------------------------------------------------------
+Settings-> Startup-> Tasks -> {cmd}
+	cmd /k "%ConEmuDir%\..\init.bat" -new_console:d:"E:\"
+	
+What each means:
+	cmd /k "%ConEmuDir%\..\init.bat"
+	%USERPROFILE%				C:\Users\NYC\DESKTOP
+	-new_console:d:"D:\"			D:\
+	-new_console:d:"D:\app"			D:\app
+	-new_console:d:"E:\"			E:\
+
+---------------------------------------------------------------------------------
+different starting location for each shortcut
+
+Shortcut properties:
+Target: "path\to\Cmder.exe" /START <path>
+
+	"D:\Program Files\cmder\Cmder.exe" /START "J:\"
+
+---------------------------------------------------------------------------------
+different starting task for each shortcut
+
+Shortcut properties:
+Target: "path\to\Cmder.exe" /TASK <taskname>
+
+	"D:\Program Files\cmder\Cmder.exe" /TASK "mytask"
+
+---------------------------------------------------------------------------------
+opening multiple tabs in a task
+
+1. create task:
+Cmder/Settings/Tasks/+/taskname/taskparameters/taskcommands/Save Settings
+
+2. task parameters:
+/icon "%CMDER_ROOT%\icons\cmder.ico" /dir "path/to/starting/dir/for/each/tab"
+
+3. task commands: (each line creates one tab)
+
+with background console (ctrl+c will return to console):
+cmd /k "%ConEmuDir%\..\init.bat" &&  command1
+cmd /k "%ConEmuDir%\..\init.bat" &&  command2
+
+without background console (ctrl+c will close tab):
+command1
+command2
+
+(mark active tab with > at start of line):
+command1
+>command2
+---------------------------------------------------------------------------------

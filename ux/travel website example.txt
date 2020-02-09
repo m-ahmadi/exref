@@ -1,0 +1,45 @@
+mike cohn notes for a travel website
+
+As a user, I want to reserve a hotel room.
+
+As a user, I want to cancel a reservation.
+
+As a vacation traveler, I want to see photos of the hotels.
+	embeding the type of user in the story, so it can provide some context
+	maybe a business traveler, doesn't care to see photos of hotels beforehand
+
+As a frequent flyer, I want to rebook a past trip.
+	could begs the question that, why would someone rebook a past trip?, since obviously the date of the trip will not be the same.
+	sometimes a story doesn't make sense until we add a <so that> clause:
+So that I save time booking trips I take often.
+	It's like going to a coffee shop and say give me the usual.
+	Of course the date has to be different!
+------------------------------------------------------------------------------------------------------------------
+Where are the details in these stories?
+
+
+write details as conditions of satisfaction (maybe in the back of the card)
+	essentially high-level test cases/acceptance test
+	conditions of satisfaction is a better phrase to tell product owners
+
+or in smaller sub-stories
+
+
+conditions of satisfaction and sub-stories, are 2 different techniques, and the result form of them is different:
+	conditions of satisfaction, on the back of card
+	sub-stories, end up with more stories
+but they both solve the same problem
+------------------------------------------------------------------------------------------------------------------
+product backlog
+
+small detailed things on the top of the backlog
+	they come in the next sprint/iteration
+	they have to be small enough, we can do them in the next couple of weeks
+
+the bottom stories are
+	stuff we might not do for 6 months or a year
+	big and vague
+
+example of a bottom story, for a travel website, that does not support cruise ships
+	As a traveler, I want to book a cabin on a cruise ship
+------------------------------------------------------------------------------------------------------------------

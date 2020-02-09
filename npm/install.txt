@@ -1,0 +1,42 @@
+npm install <pkg> | <folder> | <http_url> | <git_url> | <tarball>
+alias: i, add
+-P, --save-prod		add to dependencies. default unless -D or -O
+-D, --save-dev		add to devDependencies.
+-O, --save-optional	add to optionalDependencies.
+     --no-save		don't add to dependencies.
+
+npm i <pkg>				install locally and add to package.json (installs from filesystem if <pkg> matches a module dir)
+npm i <pkg> -g				install globally
+npm i <pkg> -D				add to devDependencies
+npm i					install from "package.json" in current dir
+npm i <pkg> --loglevel silent		modify loglevel
+
+npm i -g --prefix ./mydir		install to a custom location. installs in: ./mydir/node_modules/
+
+npm i --only=production | prod		install only the dependencies
+npm i --only=dev			install only the devDependencies
+------------------------------------------------------------------------------------------------------------
+install from filesystem (npm 2+)
+
+npm i ./path/to/dir			install from local path (must contain package)
+npm i .					... current dir
+npm i /dir -S				save (normalized to relative path. eg: "dir": "file:../foo/bar")
+
+valid local paths:
+/foo/bar
+./foo/bar
+../foo/bar
+~/foo/bar
+------------------------------------------------------------------------------------------------------------
+install from git url
+
+npm i git+https://github.com/user/repo.git		correct
+npm i git+https://git@github.com/user/repo.git		correct
+npm i git+ssh://git@github.com/user/repo.git		correct
+npm i https://github.com/user/repo.git			wrong
+npm i git+ssh://....repo.git#branch			from a specific branch
+npm i user/repo						npm 1.1.65+
+
+note:
+the repository must be an npm module (contain a package.json with name & version key)
+------------------------------------------------------------------------------------------------------------

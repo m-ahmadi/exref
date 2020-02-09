@@ -1,0 +1,75 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<style>svg{width:200; height:200;}</style>
+
+<h1><pre>&lt;use xlink:href= x= y= width= height= /&gt;</pre></h1>
+
+<p>use elements from inside or outside defs</p>
+<svg>
+	<defs>
+		<circle id=c0 r=50 />
+	</defs>
+	<use xlink:href=#c0 x=100 y=50 />
+	<text x=10 y=150>inside defs</text>
+</svg>
+
+<svg>
+	<circle id=c1 r=50 />
+	<use xlink:href=#c1 x=100 y=50 />
+	<text x=10 y=150>outside defs</text>
+</svg>
+
+<p>x,y of use is added to x,y of element</p>
+<svg>
+	<defs>
+		<circle id=c2 r=50 />
+	</defs>
+	<use xlink:href=#c2 />
+	<text x=10 y=150>circle cx= cy=</text>
+	<text x=10 y=170>use x= y=</text>
+</svg>
+
+<svg>
+	<defs>
+		<circle id=c3 r=50 />
+	</defs>
+	<use xlink:href=#c3 x=50 y=50 />
+	<text x=10 y=150>circle cx= cy=</text>
+	<text x=10 y=170>use x=50 y=50</text>
+</svg>
+
+<svg>
+	<defs>
+		<circle id=c4 r=50 cx=50 cy=50 />
+	</defs>
+	<use xlink:href=#c4 />
+	<text x=10 y=150>circle cx=50 cy=50</text>
+	<text x=10 y=170>use x= y=</text>
+</svg>
+
+<svg>
+	<defs>
+		<circle id=c5 r=50 cx=50 cy=50 />
+	</defs>
+	<use xlink:href=#c5 x=50 y=50 />
+	<text x=10 y=170>circle cx=50 cy=50</text>
+	<text x=10 y=190>use x=50 y=50</text>
+</svg>
+
+<p>style on `use` possible only if original element has none</p>
+<svg>
+	<circle id=c6 r=20 />
+	<use xlink:href=#c6 x=30 y=50 fill=red />
+	<use xlink:href=#c6 x=80 y=50 fill=green />
+	<use xlink:href=#c6 x=130 y=50 fill=blue />
+	<text x=10 y=150>circle fill=</text>
+	<text x=10 y=170>use(3x) fill=red green blue</text>
+</svg>
+
+<svg>
+	<circle id=c7 r=20 fill=blue />
+	<use xlink:href=#c7 x=30 y=50 fill=red />
+	<use xlink:href=#c7 x=80 y=50 fill=green />
+	<use xlink:href=#c7 x=130 y=50 fill=blue />
+	<text x=10 y=150>circle fill=blue</text>
+	<text x=10 y=170>use(3x) fill=red green blue</text>
+</svg>

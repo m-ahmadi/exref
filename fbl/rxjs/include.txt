@@ -1,0 +1,7 @@
+rxjs.umd.js
+rxjs.umd.min.js
+rxjs.umd.min.js.map
+
+https://unpkg.com/@reactivex/rxjs@latest/dist/global/rxjs.umd.js
+https://unpkg.com/@reactivex/rxjs@latest/dist/global/rxjs.umd.min.js
+https://unpkg.com/@reactivex/rxjs@latest/dist/global/rxjs.umd.min.js.map

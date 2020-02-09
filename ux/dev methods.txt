@@ -1,0 +1,23 @@
+Waterfall
+	no overlap whatsoever between phases
+	1. Business Requirements
+	2. Design (UX Process)
+	3. Development (Implementation, Coding)
+	4. Testing
+		- Unit Testing
+		- Integrationg Testing
+		- System Testing
+	5. Maintenance
+Agile
+	Scrum
+	Feature Driven Development (FDD)
+	Extreme Programing (XP)
+	Dynamic System Development Method (DSDM)
+	
+Rapid Application Development (RAD)
+Joint Application Development (JAD)
+Lean Software Development (LSD)
+Rational Unified Process (RUP)
+DevOps
+Spiral
+Prototype

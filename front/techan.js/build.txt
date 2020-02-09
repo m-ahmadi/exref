@@ -1,0 +1,4 @@
+git clone --recursive https://github.com/andredumas/techan.js.git
+cd techan.js
+npm install
+npm start

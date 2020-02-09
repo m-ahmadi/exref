@@ -1,0 +1,4 @@
+.med files are created with the "Math Editor" software
+
+download from:
+https://github.com/kashifimran/math-editor/releases

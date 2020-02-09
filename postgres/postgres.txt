@@ -1,0 +1,3 @@
+postgres is the PostgreSQL server.
+
+postgres --help

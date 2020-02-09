@@ -1,0 +1,9 @@
+64 bytes file:
+echo "This is just a sample line appended to create a big file.. " > dummy.txt
+
+for /L %i in (1,1,14) do type dummy.txt >> dummy.txt		1 mb
+for /L %i in (1,1,21) do type dummy.txt >> dummy.txt		128 mb
+for /L %i in (1,1,23) do type dummy.txt >> dummy.txt		512 mb
+for /L %i in (1,1,24) do type dummy.txt >> dummy.txt		1 gb
+
+fsutil file createnew dummy.txt 52428800			50 mb (length in bytes). creates sparse file ie: without data

@@ -1,0 +1,25 @@
+___________________________________________________________________________________
+
+Worst-Case Analysis (usually)
+
+	T(n) = max time on any input of size n
+___________________________________________________________________________________
+
+Average    Analysis    (sometimes)
+
+	T(n) = expected time of all inputs of size n
+	
+	expected time:
+		It's the time of every input times the probability that'll be that
+
+	How do i know what the probability of every input is?
+		I don't, I have to make an assumption.
+		What's that assumption called?
+		Assumption of statistical of distribution
+		
+___________________________________________________________________________________
+
+Best-Case  Analysis  (bogus)
+	Cheat
+	A slow algorithm that works fast on some input
+___________________________________________________________________________________

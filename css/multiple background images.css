@@ -1,0 +1,30 @@
+header {
+	background-color: #0e4c81;
+	background-image:
+		url('../images/211.png'),
+		url('../images/132.png'),
+		url('../images/phone.png'),
+		url('../images/paypal.png'),
+		url('../images/master.png'),
+		url('../images/visa.png'),
+		url('../images/amazon.png'),
+		url('../images/asfalt-dark.png');
+	background-repeat:
+		no-repeat,
+		no-repeat,
+		no-repeat,
+		no-repeat,
+		no-repeat,
+		no-repeat,
+		no-repeat,
+		repeat;
+	background-position:
+		69em 3em,
+		51em 3em,
+		2% 0%,
+		23em 5.8em,
+		53em 1.8em,
+		45em 6em,
+		13em 0.6em,
+		0% 0%;
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body {
+	color: #212121;
+    direction: ltr;
+    font: 400 13px/20px 'Roboto','Helvetica Neue',Helvetica,sans-serif;
+    line-height: 20px;
+	background-color: #f5f5f5;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.nice-table tr:nth-of-type(2n) td {
+    background-color: #fff;
+    border-right-color: #e0e0e0;
+}
+.nice-table td {
+    background-color: #e6e6e6;
+    border-color: #e0e0e0;
+}
+.nice-table td {
+    border: 1px solid #e0e0e0;
+    padding: 4px 12px;
+}
+td,th {
+    padding: 5px;
+    text-align: left;
+}
+td {
+    vertical-align: top;
+}
+p, ul {
+    margin: 4px 0 12px;
+}
+code {
+	font-family: 'courier new',monospace;
+    font-size: 1em;
+    color: #060;
+}
+</style>
+</head>
+<body>
+<table class="nice-table">
+  <tbody>
+    <tr>
+      <th>Search operator</th>
+      <th>When to use it</th>
+    </tr>
+    <tr>
+      <td>
+<p><code>is:public</code></p>
+<p><code>is:private</code></p>
+<p><code>is:unlisted</code></p>
+<p><code>is:draft</code></p>
+</td>
+      <td>Search for videos that are public, private, unlisted, or uploaded as draft but not yet published.
+
+<p>You can use this in combination with other search terms. <strong>Example:</strong> <code>is:private title:big</code> shows videos that are private and have the word "big" in the title.</p>
+</td>
+    </tr>
+    <tr>
+      <td><code>tag:</code>[tag name]</td>
+      <td>Search for videos with a tag that you've applied. <p><strong>Example:</strong> <code>tag:games</code> shows a list of all the videos with the tag "games."</p>
+</td>
+    </tr>
+    <tr>
+      <td><code>##"</code>[tag name]<code>"</code></td>
+      <td>Search for videos with a tag that you've applied. Type the name of your tag in quotes after <code>##</code> to search for that tag. <p><strong>Example:</strong> <code>##"Game Reviews"</code> shows a list of all the videos with the tag "Game Reviews."</p>
+</td>
+    </tr>
+    <tr>
+      <td>
+<p><code>length&gt;</code>[time]</p>
+<p><code>length&gt;=</code>[time]</p>
+<p><code>length=</code>[time]</p>
+<p><code>length&lt;=</code>[time]</p>
+<p><code>length&lt;</code>[time]</p>
+</td>
+      <td>Search for videos according to their length in seconds. <strong>Example:</strong> <code>length&gt;60</code> shows a list of video longer than 60 seconds. <p>You can use these in combination. <strong>Example:</strong> <code>length&gt;60 length&lt;100</code> shows any video longer than 60 seconds but shorter than 100 seconds.</p>
+</td>
+    </tr>
+    <tr>
+      <td>
+<p><code>before:</code>[date]</p>
+<p><code>after:</code>[date]</p>
+</td>
+      <td>Search for videos based on when you uploaded them. <p><strong>Example:</strong> <code>after:2012-03-01</code> shows videos uploaded after March 1, 2012.</p>
+</td>
+    </tr>
+    <tr>
+      <td><code>title:</code>[word in title]</td>
+      <td>Search for videos with specific words in the title. <p><strong>Example:</strong> <code>title:food</code> shows videos that have the word "food" in the title.</p>
+</td>
+    </tr>
+    <tr>
+      <td><code>description:</code>[word in description]</td>
+      <td>Search for videos with specific words in the description. <p><strong>Example:</strong> <code>description:food</code> shows videos that have the word "food" in the description.</p>
+</td>
+    </tr>
+    <tr>
+      <td><code>-</code></td>
+      <td>To <em>exclude</em> something from your search, use a hyphen before it. You can use this in combination with other search terms. <p><strong>Example:</strong> <code>title:big -is:private</code> shows videos that have the word "big" in the title and aren't private.</p>
+</td>
+    </tr>
+    <tr>
+      <td><code>OR</code></td>
+      <td>To search for videos matching one term or another term, separate them by <code>OR</code> (in all caps). <p><strong>Example:</strong> <code>title:big OR title:food</code> shows videos that have either "big" or "food" in the title.</p>
+</td>
+    </tr>
+    <tr>
+      <td><code>(</code>[search terms]<code>)</code></td>
+      <td>To search for a group of words, put them in parentheses. <p><strong>Example:</strong> <code>title:(big food)</code> shows videos with "big" and "food" in their title.</p>
+</td>
+    </tr>
+    <tr>
+      <td><code>is:paid</code></td>
+      <td>Search for videos that require a paid subscription to view. This feature not available in all countries.</td>
+    </tr>
+
+    <tr>
+      <td><code>id:{</code>[video ID]<code>}</code></td>
+      <td>To search for videos that match specific video IDs, type <code>id:</code> and list the video IDs with brackets around them. <strong>Example:</strong> <code>id:{video ID A, video ID B, video ID C}</code>  shows videos A, B, and C.
+
+<p><strong>Note:</strong> If any of your video IDs start with a hyphen, put quotes around that video ID (<code>"-videoid"</code>) to make sure it's identified as a video ID (and not an advanced search operator that excludes it from the search).</p>
+</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

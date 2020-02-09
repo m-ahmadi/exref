@@ -1,0 +1,4 @@
+div > * p { color: red; } /* or: */
+div * p { color: red; }
+
+/* both select all p inside div but not direct childs */

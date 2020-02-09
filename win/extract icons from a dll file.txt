@@ -1,0 +1,1 @@
+use 7zip to unzip the .dll file and look for the folder .rsrc/ICON/

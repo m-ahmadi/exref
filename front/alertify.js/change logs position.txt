@@ -1,0 +1,9 @@
+in core file ie:
+	"alertify.core.css"
+
+change:
+
+.alertify-logs {
+	top: 10px;
+	right: 10px;
+}

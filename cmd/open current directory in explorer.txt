@@ -1,0 +1,7 @@
+explorer .                                  open current directory in explorer
+start .                                     open current directory in explorer
+
+path must be in windows form:
+
+path/to/dir	fails
+path\to\dir	works

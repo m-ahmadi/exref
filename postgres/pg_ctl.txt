@@ -1,0 +1,8 @@
+pg_ctl start -D "E:\dbp"				start server
+pg_ctl stop -D "E:\dbp" 				stop  server
+pg_ctl restart -D "E:\dbp" 				restart server
+pg_ctl register -N postgres -D "E:\dbp" -S auto		install as service
+pg_ctl unregister -N postgres				uninstall service
+
+pg_ctl --help
+default data dir: "C:\Program Files\PostgreSQL\11\data"

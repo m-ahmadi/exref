@@ -1,0 +1,3 @@
+git revert <commit_hash>		revert an existing commit (opens editor)
+git revert --abort			cancel the revert operation
+git revert --continue			fix conflicts

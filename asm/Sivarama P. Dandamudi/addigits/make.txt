@@ -1,0 +1,6 @@
+
+nasm –f obj addigits.asm
+
+link addigits.obj io.obj
+
+(microsoft linker)

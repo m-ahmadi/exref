@@ -1,0 +1,26 @@
+$heights: 640 768 800 1024 1200 1440;
+$unit: px;
+@for $i from 1 through length($heights) {
+  @media screen and (min-height: #{nth($heights, $i) + $unit}) {
+    #{$p}: #{$v};
+  }
+}
+
+@function height_media_queries($unit, $a...) {
+  @for $j from 1 through length($a) {
+    $item: nth($a, $j);
+    $prop: nth($item, 1);
+    $value: nth($item, 2);
+    #{$prop}: #{$value + $unit};
+  }
+}
+
+@mixin each_in_mixin($p, $v) { // @include each_in_mixin(padding-bottom, 137px);
+	$heights: 640 768 800 1024 1200 1440;
+	$unit: px;
+	@each $i in $heights {
+		@media screen and ( min-height: #{$i}#{$unit} ) {
+			#{$p}: #{$v};
+		}
+	}
+}

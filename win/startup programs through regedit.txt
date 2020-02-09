@@ -1,0 +1,21 @@
+for "Current User"
+
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+New
+String Value:
+"file.exe"
+------------------------------------------------------------------------------------------
+for "All Users"
+
+for 32-bit and 64-bit Windows 7:
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+(if added by Group Policy)
+	HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
+
+(if added by Group Policy)
+	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
+
+for 64-bit Windows 7 only:
+	HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
+------------------------------------------------------------------------------------------

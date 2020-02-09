@@ -1,0 +1,2 @@
+you can find "ab.exe" in apache zip folder when you download apache windows binaries from its website
+ab -c 40 -n 1000 http://22.22.22.4/

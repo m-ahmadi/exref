@@ -1,0 +1,53 @@
+core
+	who the customer is?
+	what their challenges are?
+	how can you solve them?
+
+
+main segments
+	demographic
+	story
+	challenges
+	needs
+
+example:
+-----------------------------
+	picture
+	name
+
+	detail
+
+	goal
+
+-----------------------------
+	sketch
+	name
+
+	demographic info
+	behaviors
+	
+	pain points
+	needs
+
+	solutions
+-----------------------------
+	name
+	sketch
+
+	demographic info
+	behaviors
+
+	pain points
+	needs
+
+	solutions
+-----------------------------
+
+pitfalls
+	using photos of celebrities
+		free the team of preconceived notions
+	narrowly defining the backstory (too much details)
+		personas should expand a role, not limit it
+	too many assumptions
+		should not be based of what you think
+		should be rooted in what you heard from actual people

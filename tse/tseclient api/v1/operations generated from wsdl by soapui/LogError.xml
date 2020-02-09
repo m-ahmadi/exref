@@ -1,0 +1,21 @@
+<!-- SOAP 1.1 --------------------------------------------------------------------------------------------------------------------------------------------------------------->
+POST http://service.tsetmc.com/WebService/TseClient.asmx HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Type: text/xml;charset=UTF-8
+SOAPAction: "http://tsetmc.com/LogError"
+Content-Length: 315
+Host: service.tsetmc.com
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.1.1 (java 1.5)
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tset="http://tsetmc.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tset:LogError>
+         <!--Optional:-->
+         <tset:errorMessage>?</tset:errorMessage>
+      </tset:LogError>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+<!-- SOAP 1.2 --------------------------------------------------------------------------------------------------------------------------------------------------------------->

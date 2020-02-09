@@ -1,0 +1,16 @@
+npm install documentation -g
+
+documentation build index.js -f md				generate markdown docs for index.js and files it references
+documentation build src/** -f html -o docs			generate html docs for all files in src
+documentation build index.js -f md --shallow			ignore any files it requires or imports
+
+documentation serve app.js					build and serve HTML docs for app.js
+
+documentation lint util.js					validate JSDoc syntax in util.js
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+serve [input..]				generate, update, and display HTML documentation
+build [input..]				build documentation
+lint [input..]				check for common style and uniformity mistakes
+readme [input..]			inject documentation into your README.md

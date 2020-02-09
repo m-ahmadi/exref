@@ -1,0 +1,8 @@
+download latest bios .zip file
+extract to usb
+restart
+go to bios
+Tool -> Instant Flash
+select
+update
+done

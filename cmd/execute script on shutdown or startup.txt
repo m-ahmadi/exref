@@ -1,0 +1,19 @@
+gpedit.msc
+	Computer Configuration
+		Windows Settings
+			Scripts (Startup/Shutdown)
+	User Configuration
+		Windows Settings
+			Scripts (Logon/Logoff)
+
+for Logon:
+regjump HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+or HKCU
+
+%windir%\System32\GroupPolicy\Machine\Scripts\
+	Startup\
+	Shutdown\
+
+%windir%\System32\GroupPolicy\User\Scripts\
+	Logoff\
+	Logon\

@@ -1,0 +1,3 @@
+test with other 0x428 fixes
+test with boot.wim index 1 only
+test with updated evo 970 plus firmware

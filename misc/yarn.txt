@@ -1,0 +1,19 @@
+yarn init			interactive
+yarn init -y			all yes (npm init -f)
+yarn add pkg			install and save to dependencies
+yarn add pkg@0.9.12		specific version
+yarn add pkg --dev		save to devDependencies
+yarn add pkg --peer		peerDependencies
+yarn add pkg --optional		optionalDependencies
+yarn remove pkg			remove and change package.json
+yarn upgrade pkg		upgrade package to its latest
+yarn upgrade pkg@2.0.0		specific version
+yarn				install all
+yarn install			install all
+
+
+-------------------------------------------------------------------------------
+yarn self-update		not available yet
+npm install yarn -g		didn't work
+
+note: download and reinstall the windows installer for now.

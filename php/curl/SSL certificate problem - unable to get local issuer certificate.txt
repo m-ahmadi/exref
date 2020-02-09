@@ -1,0 +1,9 @@
+1) Download cacert.pem file from here: http://curl.haxx.se/docs/caextract.html
+
+2) Save the file in your PHP installation folder. (eg: If using xampp – save it in c:\Installation_Dir\xampp\php\cacert.pem).
+
+3) Open your php.ini file and add this line:
+
+4) curl.cainfo=”C:\Installation_Dir\xampp\php\cacert.pem”
+
+5) Restart your Apache server and that should fix it (Simply stop and start the services as needed).

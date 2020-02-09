@@ -1,0 +1,2 @@
+npm link		create global symlink to this package (think: npm i . -g)
+npm link <pkg>		create local  symlink to <pkg> (think: npm i foo but instead of downloading, it links to globally installed foo)

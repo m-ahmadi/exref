@@ -1,0 +1,6 @@
+npm install express-generator -g
+
+
+express myapp			create the app skeleton in "myapp" folder in current dir
+cd myapp
+npm install			install dependencies (from package.json)

@@ -1,0 +1,1 @@
+At the moment, Nvidia adds a Ti to indicate that the card has better performance than the non Ti model.

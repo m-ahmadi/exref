@@ -1,0 +1,38 @@
+user stories are short descriptions of functionality told from the user’s perspective.
+a user story is essentially a high-level definition of what the software should be capable of doing.
+typically, any feedback or request that comes from the business or end-user can be written as a user story.
+user stories are a requirement technique, they're not the requirement itself, they are a pointer to a requirement
+user storeis represent the users/customers of the product
+user stories are made up of personas
+user stories are written to replace requirements
+------------------------------------------------------------------------------------------------------------------------
+basic template
+
+As a <who>, I want <what> so that <why>.
+As a <role>, I can <feature> so that <reason>.
+As a <role>, I want <feature> because <reason>
+As a <role>, I can <feature>
+
+the <so that> clause can be optional if it satisties the story point better
+------------------------------------------------------------------------------------------------------------------------
+
+focus on
+	who
+	what
+	why
+avoid
+	how
+
+
+focus on telling the story
+don't make the story too long
+------------------------------------------------------------------------------------------------------------------------
+we want our stories to start off as fiction from the user's point of view,
+and it represent what the user's world will look once the story is completed.
+
+
+a story can be equal to 1 or 2 days of dev work (maybe)
+
+
+------------------------------------------------------------------------------------------------------------------------
+

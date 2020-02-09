@@ -1,0 +1,16 @@
+uikit.css
+uikit.js
+uikit-icons.js
+------------------------------------------------------------------------------------------------------------
+info
+
+uikit.css		uikit's css
+uikit-core.css		uikit's core styles, without the default theme
+uikit.rtl.css		uikit's css in a right-to-left version
+
+uikit.js		uikit's javascript
+uikit-icons.js		icon library
+
+uikit-core.js		stripped down javascript. core functionality without additional components
+/components		additional components (eg: lightbox), only needed when including uikit-core.js
+------------------------------------------------------------------------------------------------------------

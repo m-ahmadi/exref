@@ -1,0 +1,70 @@
+/* absolute */
+cm	  /* centimeters */
+mm	  /* millimeters */
+in	  /* inches (1in = 96px = 2.54cm) */
+px    /* pixels (1px = 1/96th of 1in) */
+pt	  /* points (1pt = 1/72 of 1in) */
+pc	  /* picas (1pc = 12 pt) */
+
+/* relative */
+em	  /* relative to the font-size of the element (2em means 2 times the size of the current font) */
+ex	  /* relative to the x-height of the current font (rarely used) */
+ch	  /* relative to width of the "0" (zero) */
+rem	  /* relative to font-size of the root element */
+vw	  /* relative to 1% of the width of the viewport */
+vh	  /* relative to 1% of the height of the viewport */
+vmin	/* relative to 1% of viewport's smaller dimension */
+vmax	/* relative to 1% of viewport's larger dimension */
+%	    /* relative to the parent element */
+
+/* note:
+px is relative to the viewing device so 1px means:
+	low-dpi device:   one device pixel (dot) of the display
+	high-res screen:  multiple device pixels in printers and 
+
+viewport: browser window size. (eg: if viewport is 50cm wide, 1vw = 0.5cm)
+
+about em and rem
+font-size specifies the size of the font on an element
+width of the capital "M" is considered the size of the font
+(so when you're setting font-size, it's like you're setting the width of the capital letter "M")
+1em means default font-size (1 capital "M")
+value of em is computed based on font-size value
+font-size value is an inherited value
+(so by default, an element font-size value is, its parent font-size value)
+every page has a base/root font-size (start of inheritance, on body tag)
+root font-size of a page is determined by users pre-defined preferences within the browser
+16px is the standard font-size in most browsers, but it can vary whether the font uses serifs or is a fixed width font
+read more about difference between serif and sans-serif fonts here: w3schools.com/css/css_font.asp
+rem unit means root em (page's root font-size), so it always stays the same, and it's ie9+
+
+px vs em vs rem
+pixels are ignorant, don't use them.
+use rem for sizes and spacing.
+use em for media queries.
+
+default unit
+though most browsers use px as default unit. (eg: padding-top: 20 is same as 20px),
+there is no default unit in the standard and units are required for non-zero values.
+*/
+
+html {
+	font-size: 16px;
+}
+h1 {
+	font-size: 2em;		/* 32px */
+}
+
+p {
+	font-size: 1em;		/* 16px */
+}
+
+.changed {
+	font-size: .75em;	/* 12px */
+}
+.changed p {
+	font-size: 2em;		/* 24px */
+}
+.changed p .test {
+	font-size: 1.25rem;	/* 20px */
+}

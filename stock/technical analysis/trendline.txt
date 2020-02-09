@@ -1,0 +1,228 @@
+an up   trendline is a straight line drawn upward   to the right along successive reaction lows.
+a  down trendline is a straight line drawn downward to the right along successive rally    peaks.
+
+a reaction is:
+	a short-term downward movement of price after a period of upward movement.
+	usually mild & slight decrease rather than large change.
+	similar to a correction but lacks the same intensity/longevity.
+
+two   points are needed to draw a          trendline.
+a 3rd point  is  needed to make it a valid trendline.
+
+a trend in motion will tend to remain in motion.
+once a trend assumes a certain slope or rate of speed, it will usually maintain the same slope.
+
+trendlines can:
+	determine the end of corrective phases.
+	tell us when the trend is changing.
+
+
+corrective dips in uptrends will often touch or come very close to the up trendline. (cuz traders buy dips in uptrends)
+the trendline provides a support boundary under the market that can be used as a buying area.
+a down trendline can be used as a resistance area for selling purposes.
+as long as the trendline is not violated, it can be used to determine buying and selling areas.
+
+violation of the trendline signals a trend change.
+breaking of the trendline is one of the best early warnings of a trend change. (very often)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+drawing a trendline
+
+there must be evidence of a trend.
+it always takes 2 points to draw any straight line.
+for up trendline, there must be at least 2 reaction lows with second low higher than the first.
+                        6
+                       /
+              4       / 
+             /\      /  
+      2     /  \    /   
+     /\    /    \  /    
+    /  \  /      \/     
+\  /    \/        5
+ \/      3
+  1
+be reasonably sure that a reaction low has been formed before identifying one.
+
+formation of a reaction low
+
+a reaction low is formed after prices begin to move higher from point 3.
+
+confident levels of uptrend existence (before drawing a trendline):
+	level 1:  a 50% retracement of wave 2-3
+	level 2:  prices approach the top of wave 2
+	level 3:  penetration of the peak at point 2
+
+once 2 ascending lows have been identified, a straight line (tentative trendline) is drawn connecting the lows (points 1 and 3).
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+tentative vs valid
+
+validity of a trendline is confirmed when a trendline is touched a third time and prices move higher again.
+point 5 confirms the validity of the trendline.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+significance of a trendline
+
+a trendline becomes more significant when:
+	it has been intact for longer times
+	it has been tested for more   times 
+
+the more significant the trendline:
+	the more confidence it inspires
+	the more important is its penetration
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+inclusion of price action
+
+the correct drawing of a trendline should include the entire day's trading range, not only closing (and opening) prices.
+including only opening/closing prices is not the more standard procedure but sometimes done.
+closing price is the most important price of the day, but represents a small sample of day's activity,
+including the day's price range takes into account all of the activity and is the more common usage.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+small trendline penetrations
+
+when prices violate a trendline on an intraday basis, but then close in the direction of the original trend,
+it creates doubt as to whether or not the trendline has been broken.
+
+is original trendline still valid or a new line should be drawn?
+	keep the original trendline, but draw a new dotted line until it can be better determined which is the truer line.
+	ignore the minor breach, if subsequent market action proves that the original line is still valid.
+
+remember there is no hard and fast rule to follow in such situations.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+valid breaking of trendlines
+
+a close beyond the trendline is more significant than just an intraday penetration.
+sometimes even a closing penetration is not enough.
+determine what type of filter is best suited to the degree of trend being followed,
+always make allowances for differences in individuals markets. (trader makes these decisions)
+time and price filters are an attempt to isolate valid penetrations and eliminate bad signals (aka whipsaws):
+
+price filters:
+require trendlines to be broken by predetermined price increment or percentage amount.
+too small filter:  do not reduces the impact of whipsaws.
+too big   filter:  misses much of the initial move. (before a valid signal is given)
+
+3% penetration:
+	requires trendline to be broken on a closing basis by at least 3%.
+	(prices have to close 3% below the price level where the line was broken.)
+	used mainly for the breaking of longer term trendlines.
+	not very appropriate for shorter term trading.
+	does not apply to some financial markets. (e.g. interest rate markets)
+	
+1% penetration:
+	requires trendline to be broken on a closing basis by at least 1%.
+	it serves better for short term trendlines.
+	sometimes it can be based on intraday basis for shorter term trendlines.
+
+full point penetration
+	require trendlines to be broken by a full dollar (etc) from price level where the line was broken.
+	it ignores fractional moves.
+
+time filters:
+2 day rule
+	prices must close beyond the trendline for 2 successive days. (days in a row)
+	a one day violation would not count.
+
+friday close
+	require a friday close beyond a major breakout point to ensure a weekly signal.
+
+The 1-3% rule and 2 day rule are also applied to the breaking of important support and resistance levels.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+reversal of roles
+
+trendlines become the opposite once violated. (same as support/resistance)
+(old trendlines act as support/resistance lines again in the future, but in opposite roles.)
+
+in other words:
+an up   trendline (a support line)    will usually become a resistance line once it's decisively broken.
+a  down trendline (a resistance line) will usually become a support    line once it's decisively broken.
+
+project all trendlines as far out to the right as possible even after they've been broken.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+measuring implications
+
+when a trendline is broken, prices are expected to move to where they were when the trendline began.
+it doesn't always happen, but it's an expectation.
+similar to head and shoulders, where distance from "head" to "neckline" is projected beyond that line once it's broken.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+fan principle
+
+fan principle is another use of a trendline.
+
+after a trendline is violated and another move in the direction of the trend has been tried and failed:
+a second line is drawn based on the new low/high point,
+if after another failed attempt at going back in the direction of the trend, prices breech the 2nd line as well,
+a 3rd line is drawn based on the new point,
+the breaking of the 3rd line is:
+	an indication that prices are headed further away from the 3rd line and they may never come back near that level for a while/ever.
+	a valid trend reversal signal
+
+an example:
+an up trendline is broken,
+prices decline a bit, but then rally back (2nd line drawn) to the bottom of the broken trendline,
+but they fail to penetrate that line and they decline again, this time below the 2nd line.
+they decline a bit, then rally back (3rd line drawn) to the bottom of the 2nd line.
+but they fail to penetrate that line and they decline again, this time below the 3rd line. (wich triggers the signal)
+
+previously broken trendlines become support/resistance levels in subsequent declines/rallies.
+in other words, if after breaking of 1st/2nd/3rd lines, prices move toward back to the 1st line,
+they face support/resistance at the 3rd and 2nd line levels. (and also at the 1st line if they try to breach it)
+
+the term "fan principle" derives from appearance of the lines that gradually flatten out, resembling a fan.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+importance of the number three
+
+the number three plays a very important role throughout the entire field of technical analysis.
+
+3 lines used in fan principle.
+3 major phases in major bull/bear markets. (dow theory & elliott wave theory)
+3 important peaks in triple top and head and shoulders. (reversal patterns)
+3 kinds of gaps:                               breakaway,   runaway,   exhaustion.
+3 different classifications of trend:          major,       secondary, minor.
+3 trend directions:                            up,          down,      sideways.
+3 types of triangles in continuation patterns: symmetrical, ascending, descending.
+3 principle sources of information:            price,       volume,    open interest.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+relative steepness of the trendline
+
+the relative steepness of the trendline is also important.
+most important up trendlines tend to approximate an average slope of 45 degree.
+a 45 degree line on the chart from a prominent high/low or previous tops/bottoms can be used as a major trendline.
+45 degree line reflects a situation where prices are advancing/declining at such a rate that price and time are in perfect balance.
+
+too steep trendline:
+	indicates prices are advancing too rapidly and the current steep ascent will not be sustained. (rate of ascent is not sustainable)
+	breaking of a steep trendline may be a reaction back to a more sustainable slope closer to the 45 degree line.
+
+too flat  trendline:
+	indicate the uptrend is too weak and not to be trusted.
+
+45 degree line was one of the techniques favored by W. D. Gann.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+how to adjust trendlines
+
+sometimes trendlines have to be adjusted to fit a slowing or an accelerating trend.
+a trendline that is too far away from the price action is of little use in tracking the trend.
+different trendlines are used to define the different degrees of trend.
+
+if a steep trendline is broken, a slower trendline might have to be drawn.
+if an original trendline is too flat, it may have to be redrawn at a steeper angle.
+a moving average is the same as a curvilinear trendline.
+resort to moving averages when steeper trendlines become necessary.
+
+in an accelerating trend:
+	several trendlines may have to be drawn at increasingly steeper angles.
+	a moving average is more useful than a series of steeper and steeper trendlines.
+
+just as there are several different degrees of trend in effect at any one time, so is there a need for different trendlines to measure those various trends.
+a major up trendline connects low points of the major uptrend.
+a shorter and more sensitive line might be used for secondary swings.
+an even shorter line can measure the short term movements.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+internal trendlines
+
+they are variations of the trendline that don't rely on extreme highs or lows.
+instead, internal trendlines are drawn through the price action and connect as many internal peaks or troughs as possible.
+some find them useful.
+
+problem
+drawing of internal trendlines is very subjective.
+whereas the rules for drawing of traditional trendlines along extreme highs and lows are more exact.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------

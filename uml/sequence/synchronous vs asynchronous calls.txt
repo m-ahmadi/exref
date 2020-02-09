@@ -1,0 +1,3 @@
+In UML 2,
+filled arrowheads show a synchronous message, while
+stick arrowheads show an asynchronous message.

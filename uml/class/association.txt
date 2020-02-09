@@ -1,0 +1,2 @@
+An association is a solid line between two classes, directed from the source class to the target class.
+The name of the property goes at the target end of the association, together with its multiplicity.

@@ -1,0 +1,2 @@
+Tools -> Options -> Text Editor -> All Languages
+Under "Display" Check "Line numbers"

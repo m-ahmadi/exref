@@ -1,0 +1,19 @@
+reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\app.exe" /ve /d path\to\app.exe
+win+r -> app
+done
+
+issue: if app.exe must "Run as administrator"
+(HKLM for system, HKCU for user)
+-----------------------------------------------------------------------------------------
+run shortcut with different name than the .exe
+
+inside\app.exe
+outside\app.cmd
+  @start %~dp0\path\to\inside\app.exe %*	(%~dp0 means dir where .cmd is in)
+inside\myapp.lnk
+  target: path\to\outside\app.cmd
+win+r -> myapp
+done
+
+note: `inside` is a dir that's added to path, `outside` is not.
+-----------------------------------------------------------------------------------------

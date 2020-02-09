@@ -1,0 +1,83 @@
+building without sencha cmd:
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+We can't just copy these files to the "index.htm" folder.
+It's not going to work.
+We have to reference them inside the SDK.
+
+
+5.1.0:
+	/ext/packages/ext-theme-aria	/build/resources/ext-theme-aria    -all.css
+	/ext/packages/ext-theme-classic	/build/resources/ext-theme-classic -all.css
+	/ext/packages/ext-theme-crisp	/build/resources/ext-theme-crisp   -all.css
+	/ext/packages/ext-theme-gray	/build/resources/ext-theme-gray    -all.css
+	/ext/packages/ext-theme-neptune	/build/resources/ext-theme-neptune -all.css
+
+	/ext/build/ext-all	.js
+	/ext/build/ext-all-debug	.js
+
+	/ext/packages/ext-theme-aria	/build/ext-theme-aria	.js
+	/ext/packages/ext-theme-classic	/build/ext-theme-classic.js
+	/ext/packages/ext-theme-crisp	/build/ext-theme-crisp	.js
+	/ext/packages/ext-theme-gray	/build/ext-theme-gray	.js
+	/ext/packages/ext-theme-neptune	/build/ext-theme-neptune.js
+
+
+6.0.1:
+	/ext/build/classic/theme-classic/resources/theme-classic -all.css
+	/ext/build/classic/theme-crisp	/resources/theme-crisp   -all.css
+	/ext/build/classic/theme-gray	/resources/theme-gray    -all.css
+	/ext/build/classic/theme-neptune/resources/theme-neptune -all.css
+	/ext/build/classic/theme-triton	/resources/theme-triton  -all.css		
+
+	/ext/build/ext-all	.js
+	/ext/build/ext-all-debug.js
+
+	/ext/build/classic/theme-classic/theme-classic	.js
+	/ext/build/classic/theme-crisp	/theme-crisp	.js
+	/ext/build/classic/theme-gray	/theme-gray	.js
+	/ext/build/classic/theme-neptune/theme-neptune	.js
+	/ext/build/classic/theme-triton	/theme-triton	.js
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+build an application without Sencha Cmd
+
+include
+	the Framework
+	theme CSS
+	your chosen theme’s JS override
+in your index.html file’s head.
+
+Ext JS 6 themes location:
+	classic "{ExtJS-6-SDK}/classic/"
+		theme-base (_used by the framework and should not be configured directly_)
+		theme-neutral (_used when creating custom themes and should not be configured directly_)
+		theme-classic
+		theme-gray
+		theme-neptune
+		theme-neptune-touch (_optimized for tablets_)
+		theme-crisp
+		theme-crisp-touch (_optimized for tablets_)
+		theme-triton
+	modern “{ExtJS-6-SDK}/modern/”
+		theme-base (_used by the framework and should not be configured directly_)
+		theme-blackberry
+		theme-cupertino
+		theme-cupertino-classic
+		theme-mountainview
+		theme-neptune
+		theme-windows
+
+Ext JS 5 themes location:
+	"{ExtJS-5-SDK}/packages/"
+		ext-theme-base (_used by the framework and should not be configured directly_)
+		ext-theme-neutral (_used when creating custom themes and should not be configured directly_)
+		ext-theme-classic
+		ext-theme-gray
+		ext-theme-neptune
+		ext-theme-neptune-touch (_optimized for tablets_)
+		ext-theme-crisp
+		ext-theme-crisp-touch (_optimized for tablets_)

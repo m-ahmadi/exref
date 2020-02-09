@@ -1,0 +1,14 @@
+<div uk-sticky="offset: 50;"></div>
+<div data-uk-sticky="offset: 50;"></div>
+
+<div uk-sticky="offset: 50; top: 100;"></div>         key value
+<div uk-sticky='{"offset": 50, "top": 100}'></div>    valid json
+<div uk-sticky offset="50" top="100"></div>           single attributes
+<div uk-sticky data-offset="50" data-top="100"></div> single attributes prefixed with data-
+<span uk-icon="home"></span>                          set primary option without a key (if it has one)
+
+precedence:
+1. component attr
+2. single attr
+3. javascript
+<div uk-sticky="offset: 50;" offset="100"></div>      the offset will be 50

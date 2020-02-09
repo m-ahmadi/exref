@@ -1,0 +1,26 @@
+// will be depcricated and replaced with @use
+
+@import 'style.scss';
+@import 'style'; // looks for _style.scss or style.scss (_*.scss files are considered sass templates)
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// using @import on .css files
+
+// if .css is specified, then it compiles to a css @import statement
+@import "file.css"; // becomes:
+@import url("file.css");
+
+// if .css is not specified, then it includes the contents of file:
+@import "file"; // becomes content of the .css file
+
+// note: css imports sit before any compiled output (ends up reverse):
+@import 'file.scss';
+@import '2nd.css';
+// becomes:
+@import url('2nd.css');
+// compiled content of file.scss
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// variables in import
+// you cannot have variables in an @import statement.
+$DIR: "./lib";
+@warn $DIR + "/someLib";	 // ".lib/someLib"
+@import "#{$DIR}/someLib"; // error

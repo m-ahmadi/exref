@@ -1,0 +1,2 @@
+expand /?			windows expand
+sh -c "expand --help"		linux expand (assuming cmder/conemu/git-bash/etc is installed)

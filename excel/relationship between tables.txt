@@ -1,0 +1,19 @@
+create tables from data (preferably each table on its own sheet)
+	Insert > Table > Select data for table > Check "My tables has headers" > OK
+
+(preferably specify a name for the tables)
+	Select sheet of table > Design > Table Name:
+
+after creating tables, for each table go to its sheet and:
+	Power Pivot > Add to Data Model
+
+create relationships after adding all tables in the Data Model:
+	Power Pivot > Manage > Home > Design > Manage Relationships > Create
+
+create a PivotTable
+	Power Pivot > Home > PivotTable > PivotTable
+
+
+Manage your report on the newly created PivotTable
+
+done

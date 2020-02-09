@@ -1,0 +1,43 @@
+.foo {
+	padding: top right bottom left;
+	padding: top right-left bottom;
+	padding: tob-bottom right-left;
+	
+	border-width: medium|thin|thick|length=trbl|tb lr|t rl b|t r b l;
+	border-style: none|hidden|dotted|dashed|solid|double|groove|ridge|inset|outset;
+	border-color: color|transparent;
+	border:	width *style color; /* shorthand */
+	
+	
+	transition-delay: 0s|ms;
+	transition-duration: 0s|ms;
+	transition-property: all|none|<property>;
+	transition-timing-function: ease|linear...|steps(int,start|end)|cubic-bezier(n,n,n,n);
+	transition: property duration timing-function delay; /* shorthand */
+
+	transform:
+		rotate(angle)
+		rotate3d(x,y,z,angle)
+		rotateX(angle)
+		rotateY(angle)
+		rotateZ(angle)
+		
+		translate(x,y)
+		translate3d(x,y,z)
+		translateX(x)
+		translateY(y)
+		translateZ(z)
+		
+		scale(x,y)
+		scale3d(x,y,z)
+		scaleX(x)
+		scaleY(y)
+		scaleZ(z)
+		
+		skew(x-angle,y-angle)
+		skewX(angle)
+		skewY(angle)
+		matrix(n,n,n,n,n,n)
+		matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)
+		perspective(n);
+}

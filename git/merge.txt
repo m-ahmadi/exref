@@ -1,0 +1,3 @@
+git merge origin/master		merge the remote branch with local branch
+
+git merge --abort		abort current conflict resolution process (can only be run after the merge has resulted in conflicts)

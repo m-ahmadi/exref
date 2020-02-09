@@ -1,0 +1,5 @@
+git clone -b patch-1 --single-branch git@github.com:m-ahmadi/repo.git
+
+git reset HEAD~
+git checkout .    or    git commit -m "new message"
+git push -f

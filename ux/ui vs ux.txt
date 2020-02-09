@@ -1,0 +1,9 @@
+UI			UX
+
+what users do		how users feel
+
+sketch app		sticky notes
+
+visuals			research
+
+prototyping		wireframing

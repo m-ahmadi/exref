@@ -1,0 +1,42 @@
+reversal day aka: top reversal day, bottom reversal day, buying/selling climax, key reversal day.
+this formation by itself is not of major importance, but in context of other technical information, it can be significant.
+it's somewhat a reversal pattern.
+
+definition
+a reversal day takes place either at a top/bottom.
+the setting of a new high in an uptrend, followed by a lower close on the same day.
+prices set a new high for a given upmove at some point during the day (usually at/near opening) then weaken and close lower than the previous day's closing.
+
+
+usage
+a reversal day is the signal for a possible near term trend reversal.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+significance
+the wider the range for the day
+the heavier the volume
+(the more significant the signal is)
+
+outside day
+it's formed when both the high and low on reversal day exceed the range of previous day.
+not a requirement for a reversal day.
+if one is present, it carries more significance for the reversal day.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bottom reversal day
+a bottom reversal day is a new low during the day followed by a higher close.
+
+aka: selling climax.
+it's a dramatic turnaround at the bottom of a down move.
+it happens where all discouraged longs are forced out of the market on heavy volume,
+subsequent absence of selling pressure creates a vacuum over the market, which prices quickly rally to fill.
+it may not mark the final bottom of a falling market, but it signals that a significant low has been seen.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+weekly and monthly reversals
+appear on weekly and monthly bar charts and signals important turning points.
+each bar on the weekly chart represents the entire week's range and friday's close.
+
+upside weekly reversal
+market trades lower during the week, makes a new low for the move, but on friday closes above the previous friday's close.
+
+significance
+weekly  reversals are more significant than daily reversals.
+monthly reversals are even more important.

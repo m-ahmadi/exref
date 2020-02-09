@@ -1,0 +1,2 @@
+Guards are a conditional expression placed in square brackets and
+indicate that the message is sent only if the guard is true.

@@ -1,0 +1,13 @@
+Activity              | Procedural and parallel behavior 
+Class                 | Class features and relationships
+Communication         | Interactions between objects, emphasis on links
+Component             | Structure and connections of components
+Composite Structure   | runtime decomposition of a class
+Deployment            | deployment of artifacts to nodes
+Interaction Overview  | Mix of sequence and activity diagram
+Object                | Example configuration of instances
+Package               | Compile-time hierarchic structure
+Sequence              | Interactions between objects, emphasis on sequence
+State Machine         | How events change an object over its life
+Timing                | Interactions between objects, emphasis on timing
+Use case              | How users interact with a system

@@ -1,0 +1,12 @@
+1. # Visual C++ Express 2008                              (from msvs8e.iso)
+
+MSDN:
+	(8.15.2007):
+		MSDN Library for Visual Studio 2008 [DE]  (from msvs8e.iso)
+
+	(6.5.2009):
+		Win32 and Com Developement          [DE]  (from wsdk7.iso)
+
+	(9.7.2012):
+		Microsoft Help Viewer                     (from wsdk7.1.iso)
+		Win32 and COM Developement          [B]   (from Online 424 MB)

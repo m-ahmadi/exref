@@ -1,0 +1,3 @@
+npm <command> -h or --help	quick help
+npm -l or --long		full help
+npm help <term>			html doc

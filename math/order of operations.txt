@@ -1,0 +1,4 @@
+1. paren and bracket
+2. exponent
+3. multiplication and division (from left to right)
+4. addition and substraction (from left to right)

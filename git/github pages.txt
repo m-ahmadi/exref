@@ -1,0 +1,14 @@
+create github pages:
+
+create new repo: username.github.io
+git clone https://github.com/username/username.github.io
+cd username.github.io
+echo "Hello World" > index.html
+git add --all
+git commit -m "Initial commit"
+git push -u origin master
+
+now:
+
+http://username.github.io		serves:  "github.com/username.github.io" files
+https://username.github.io/repo		serves:  "github.com/repo" /docs folder (repo->settings->gh pages must be enabled)

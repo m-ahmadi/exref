@@ -1,0 +1,1 @@
+composer require facebook/php-sdk-v4

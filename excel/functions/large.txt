@@ -1,0 +1,2 @@
+=LARGE(A2:B6,3)            3rd largest number in the range
+=LARGE(A2:B6,7)            7th largest number in the numbers above

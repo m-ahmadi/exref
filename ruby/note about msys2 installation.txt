@@ -1,0 +1,6 @@
+installing the windows binary from msys2.org and ridk install are not the same thing.
+
+ridk install command downloads the .exe from msys2.org and opens up its wizard if you have not installed it.
+
+installing the .exe file from msys2.org before running ridk install, reduces the time of the ridk installation.
+

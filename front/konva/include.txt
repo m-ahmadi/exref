@@ -1,0 +1,3 @@
+/konva.min.js
+or
+/konva.js

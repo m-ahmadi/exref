@@ -1,0 +1,3 @@
+change path variable per shell session (gone after closing cmd.exe)
+
+path = %path%;./my/new/path

@@ -1,0 +1,6 @@
+There is no direct method.
+The sending application is not captured along with the traffic.
+
+While most applications do have a "signature" to their traffic, (e.g. by port use or specific data in each packet, and Wireshark uses this to perform dissection of the respective traffic.)
+it's likely that the traffic for the applications you have listed will be encrypted and
+it's very difficult to determine what application sent any specific encrypted packet.

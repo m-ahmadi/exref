@@ -1,0 +1,14 @@
+jekyll new				create new site with default theme
+jekyll new --blank			create new blank site (`bundle exec jekyll serve` wont work on these)
+jekyll build				build site and output to ./_site
+jekyll serve				serve locally and watch on changes
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------
+jekyll --help
+
+-s, --source [DIR]			Source directory (defaults to ./)
+-d, --destination [DIR]			Destination directory (defaults to ./_site)
+build, b              			Build your site
+serve, server, s			Serve your site locally

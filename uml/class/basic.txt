@@ -1,0 +1,9 @@
+A class diagram describes the types of objects in the system and the various kinds of static
+relationships that exist among them. Class diagrams also show the properties and operations of a
+class and the constraints that apply to the way objects are connected. The UML uses the term
+feature as a general term that covers properties and operations of a class.
+
+The biggest danger with class diagrams is that you can focus exclusively on structure and ignore
+behavior. Therefore, when drawing class diagrams to understand software, always do them in
+conjunction with some form of behavioral technique. If you're going well, you'll find yourself
+swapping between the techniques frequently.

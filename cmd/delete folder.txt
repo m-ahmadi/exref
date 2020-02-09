@@ -1,0 +1,3 @@
+rd /S your_directory		deletes everthing
+rd /S /Q your_directory		don't ask for confirmation
+alias: rmdir

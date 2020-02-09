@@ -1,0 +1,17 @@
+architecture
+
+when you clone a repository, you get a local copy of everything (history, commits, ...)
+your local copy is completly separate from the remote one, unless you connect the two (push, pull)
+git does its work inside .git folder.
+staged means you commit something, it's like stand-by for final change.
+the staging area and git index are the same thing.
+the lifecycle of the status of your files:
+	untracked
+	unmodified
+	modified
+	staged
+------------------------------------------------------------------------------------------------------------
+repo naming convention
+
+there's not really a standard, but lowercase-names-seprated-with-hyphens is the prefered one.
+------------------------------------------------------------------------------------------------------------

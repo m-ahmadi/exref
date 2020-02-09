@@ -1,0 +1,4 @@
+all the techniques work well in certain situations, but not so well in others,
+always choose the most appropriate one for a given situation.
+
+switch from one tool to another that might work better in a given situation.

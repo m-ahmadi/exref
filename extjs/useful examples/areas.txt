@@ -1,0 +1,17 @@
+Universal applications are made up of three important areas:
+
+Shared		(most suitable for stores, models, and controllers).
+/app
+
+Classic		(views and logic specific to the classic aspect of your application)
+/classic/src
+
+Modern		(views and logic specific to the modern aspect of your application)
+/modern/src
+
+
+
+
+Components
+	Container (Component)
+		Layouts

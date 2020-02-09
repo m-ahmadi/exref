@@ -1,0 +1,27 @@
+IO.mac :
+	.STACK
+	.DATA
+	.UDATA
+	.CODE
+	.STARTUP
+	.EXIT
+	nwln
+	PutCh
+	PutStr
+	GetStr
+	GetCh
+	PutInt
+	GetInt
+	PutLInt
+	GetLInt
+
+IO.obj :
+	proc_nwln
+	proc_PutCh
+	proc_PutStr
+	proc_GetStr
+	proc_GetCh
+	proc_PutInt
+	proc_GetInt
+	proc_PutLInt
+	proc_GetLInt

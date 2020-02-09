@@ -1,0 +1,18 @@
+Objectives of a good user interface desing, or in general cognitive-systems
+
+	natural interactons with humans
+		understand intent
+		language
+		gestures
+		interconnections
+		model of the world that we are operating in
+		examples of interaction systems: classroom, operating room.
+
+	state of mind is an important element of the interaction
+
+	complementin human cognition
+--------------------------------------------------------------------------------------------------
+
+from studying dialogue we know that you can't infact carry on a dialogue with someone unless
+	you have a model of their mental state
+	you can can figure out their intentions

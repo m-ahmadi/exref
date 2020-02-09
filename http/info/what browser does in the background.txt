@@ -1,0 +1,15 @@
+The browser extracts server’s hostname from the URL
+
+The browser contacts DNS server
+
+The browser converts server’s hostname into server’s IP address
+
+The browser extracts the port number (if any) from the URL
+
+The browser establishes a TCP connection with the web server
+
+The browser sends an HTTP request message to the server
+
+The server sends an HTTP response back to the browser
+
+The connection is closed, and the browser displays the document

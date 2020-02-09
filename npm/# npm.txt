@@ -1,0 +1,32 @@
+npm init				creates package.json in current dir
+npm init [-f, --force, -y, --yes]	use defaults and don't prompt for any options
+npm search <keyword>			search packages (alias: find/s)
+npm bugs|issues <pkg>			open github issues page of a package
+
+npm v <pkg> version			show latest version of a package (alias: view/show/info)
+npm v npm version			show latest version of npm itself
+
+npm ls					list locally installed packages (alias: list)
+npm ls --depth=0			don't show any dependencies
+npm ls --depth=0 -g			list globally installed packages
+npm ls --depth=0 -g --long 		provides the module descriptions and github links (--l, --long)
+
+npm update <pkg> --save-dev		update already installed package
+
+npm login				login  to   registry (adds user if not recognized username)
+npm logout				logout from registry
+npm publish				publish package
+
+npm outdated				check if any (or specific) installed packages are outdated
+npm owner ls <pkg>			get info of the owner of a package
+npm root				local  packages installation dir
+npm root -g				global packages installation dir
+npm bin					local binary dir
+npm bin -g				global binary dir
+npm star <pkg>				star a package
+npm unstar <pkg>			unstar a package
+npm whoami				username config
+
+npm cache verify			clean cache (npm v5+)
+npm cache clean				deprecated
+npm cache clear				deprecated

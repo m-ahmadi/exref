@@ -1,0 +1,7 @@
+npm install http-server@0.9.0 -g           last version in which index.html is served by default
+npm install http-server                    in versions after 0.9.0 you have to include the index.html in the url
+
+http-server                                serving ./public if the folder exists, and ./ otherwise
+http-server -a localhost -p 8000           serving at localhost:8000
+http-server -c-1                           no caching
+http-server -o                             open browser after start

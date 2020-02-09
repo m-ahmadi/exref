@@ -1,0 +1,17 @@
+object
+denoted by double curly braces {{ }}
+
+{{ page.title }}
+----------------------------------------------
+tag
+logic and control flow
+denoted by curly braces and percent signs {% %}
+
+{% if page.show_sidebar %}
+  <div class="sidebar">
+    sidebar content
+  </div>
+{% endif %}
+----------------------------------------------
+filter
+{{ "hi" | capitalize }}

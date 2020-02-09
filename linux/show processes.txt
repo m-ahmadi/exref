@@ -1,0 +1,13 @@
+top
+
+htop	(sudo apt-get install htop)
+
+ps -A
+
+ps -A | less	(q to exit)
+
+ps -A | grep firefox
+
+pstree
+
+kill PID

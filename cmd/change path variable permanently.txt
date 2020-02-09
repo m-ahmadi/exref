@@ -1,0 +1,26 @@
+bad idea! don't use this method. why:
+there are other path variables set in an opened cmd.exe,
+other paths that are not meant to be in system variables and
+by using this method, you are saving them on the system permanently.
+---------------------------------------------------------------------------------
+notes:
+
+new PATH is not visible in your current cmd.exe.
+
+setx will truncate the stored string to 1024 bytes.
+
+use this method if your path variable is less than 1024 bytes.
+---------------------------------------------------------------------------------
+change user path variable: (User variables for NYC)
+
+setx path "%PATH%;D:\my\new\path with spaces"
+
+---------------------------------------------------------------------------------
+changes system path variable: (System variables)
+
+setx /M PATH "%PATH%;D:\my\new\path with spaces"
+
+
+/M will change the PATH in HKEY_LOCAL_MACHINE instead of HKEY_CURRENT_USER.
+(in other words: a system variable, instead of a user variable.)
+---------------------------------------------------------------------------------

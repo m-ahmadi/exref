@@ -1,0 +1,8 @@
+reverse proxy
+	hold
+
+subdomains
+	Virtual hosts (t1.site.com) can be "IP-based"
+	map each subdomain to the different servers
+
+subfolders

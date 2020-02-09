@@ -1,0 +1,25 @@
+<!--
+One way of using client-side handlebars templates is to include them in script tags.
+The raw template will be available in the DOM,
+but not made visible and not processed as HTML,
+then it can be compiled into a template by your client JS,
+and then rendered to HTML with a specific set of data.
+-->
+
+<script id="entry-template" type="text/x-handlebars-template">
+	<div class="entry">
+		<h1> {{title}} </h1>
+		<div class="body">
+			{{body}}
+		</div>
+	</div>
+</script>
+
+<script src="jquery.js"></script>
+<script src="handlebars.js"></script>
+<script>
+	var source   = $("#entry-template").html();
+	var template = Handlebars.compile(source);
+	var context = {title: "My New Post", body: "This is my first post!"};
+	var html    = template(context);
+</script>

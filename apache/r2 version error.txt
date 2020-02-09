@@ -1,0 +1,4 @@
+r2 version gave this error when starting:
+
+Syntax error on line 34 /apache/conf/extra/httpd-ahssl.conf
+SSLProtocol: Illegal protocol 'TLSv1.3'

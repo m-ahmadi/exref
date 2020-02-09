@@ -1,0 +1,1 @@
+A{1...n}	array of 1 to n

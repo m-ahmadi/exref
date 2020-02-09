@@ -1,0 +1,15 @@
+[attribute]        /* all elements that have this attribute */
+[attribute=value]  /* all elements that have this attribute, and the attribute value equals something */
+
+[attribute=value]  /* exactly equals to   value */
+[attribute|=value] /* starts  with        value or value followed by a hyphen */
+[attribute^=value] /* starts  with        value */
+[attribute$=value] /* ends    with        value */
+[attribute~=value] /* contains the word   value (value + single space before and after) */
+[attribute*=value] /* contains the substr value (just the letters of value in a row no matter where) */
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+input[type="radio"] {}
+input[type="checkbox"][disabled] {}
+input[type="checkbox"]:disabled {} /* ie9+ */
+input[type="radio"] {}
+input[type="checkbox"] {}

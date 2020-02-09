@@ -1,0 +1,23 @@
+ie10+ and no safari:
+<input type="text" list="browsers" />
+<datalist id="browsers">
+	<option value="Internet Explorer"></option>
+	<option value="Firefox"></option>
+	<option value="Chrome"></option>
+	<option value="Opera"></option>
+	<option value="Safari"></option>
+</datalist>
+
+
+manually replicating:
+<input type="text" name="other" />
+<select name="example">
+	<option value="A">A</option>
+	<option value="B">A</option>
+	<option value="-">Other</option>
+</select>
+<script>
+	document.querySelector('select[name=example]').addEventListener('change', function () {
+		document.querySelector('input[name=other]').value = this.value;
+	});
+</script>

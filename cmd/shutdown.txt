@@ -1,0 +1,17 @@
+shutdown /r		delayed restart (30 seconds)
+shutdown /s		delayed shutdown (30 seconds)
+shutdown /r /t 0 /f	force restart now
+shutdown /s /t 0 /f	force shutdown now
+shutdown /s /f /t 2700	timeout shutdown (after 2700 seconds)
+shutdown /a		abort shutdown
+
+task scheduler
+	shutdown
+	%ComSpec%
+	/c shutdown /s /f
+
+
+%comspec% /c taskkill /im "deluge.exe" & shutdown /s /f
+
+%comspec% /c shutdown /s /f /t 2700
+%comspec% /c shutdown /a

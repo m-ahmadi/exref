@@ -1,0 +1,9 @@
+A common issue with sequence diagrams is how to show looping and conditional behavior.
+The first thing to point out is that this isn't what sequence diagrams are good at.
+If you want to show control structures, you are better off with an activity diagram.
+Treat sequence diagrams as a visualization of how objects interact rather than as a way of modeling control logic.
+
+UML 1 used iteration markers and guards. An iteration marker is a * added to the message name.
+You can add some text in square brackets to indicate the basis of the iteration.
+While these notations have been dropped from sequence diagrams in UML 2,
+they are still legal on communication diagrams.

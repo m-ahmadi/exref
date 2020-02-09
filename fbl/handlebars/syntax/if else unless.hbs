@@ -1,0 +1,49 @@
+<!--
+	The if helper can only test for properties to be true or false – not arbitrary expressions. (err: {{if prop === "asad"}} {{/if}} )
+	
+	You can use the if helper to conditionally render a block.
+	If its argument returns false, undefined, null, "", 0, or [], Handlebars will not render the block.
+-->
+<div class="entry">
+  {{#if author}}
+    <h1>{{firstName}} {{lastName}}</h1>
+  {{/if}}
+</div>
+<!-- when used with an empty ({}) context, author will be undefined, resulting in: -->
+<div class="entry">
+</div>
+
+
+<div class="entry">
+  {{#if author}}
+    <h1>{{firstName}} {{lastName}}</h1>
+  {{else}}
+    <h1>Unknown Author</h1>
+  {{/if}}
+</div>
+
+<div class="entry">
+  {{#unless license}}
+  <h3 class="warning">WARNING: This entry does not have a license!</h3>
+  {{/unless}}
+</div>
+
+<!-- else if (Handlebars supports {{else if}} blocks as of 3.0.0) -->
+{{#if author}}
+
+{{else if license}}
+
+{{else}}
+
+{{/if}}
+
+<!-- another aproach for if else (Prior to Handlebars v3.0.0) -->
+{{#if author}}
+ 
+{{else}}
+	{{#if license}}
+ 
+	{{else}}
+
+	{{/if}}
+{{/if}}

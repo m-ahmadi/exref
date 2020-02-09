@@ -1,0 +1,18 @@
+cd %userprofile%/.vscode/extensions/<extension_folder_name>
+
+open package.json
+
+"snippets": [
+	{
+		"language": "html",
+		"path": "./snippets/snippets.json"
+	}
+]
+
+
+add another language:
+
+{
+	"language": "hbs",
+	"path": "./snippets/snippets.json"
+}

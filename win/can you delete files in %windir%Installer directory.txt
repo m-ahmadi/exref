@@ -1,0 +1,9 @@
+It should not be deleted.
+
+It's the Windows Installer Cache and is used to store important files for applications installed using the Windows Installer technology.
+
+The installer cache is used to maintain (remove/update) the applications and patches installed on the machine.
+
+The installer files are a record of file versions and registry dependencies involved in a particular application or application update installation.
+
+The availability of this record in the cache helps to uninstall and update applications properly.

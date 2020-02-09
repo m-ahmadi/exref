@@ -1,0 +1,5 @@
+npm uninstall <pkg>			removes from node_modules but not  package.json
+npm uninstall <pkg> --save		removes from node_modules and      package.json
+npm uninstall <pkg> -g			removes globally installed package
+
+alias: un, unlink, remove, rm, r

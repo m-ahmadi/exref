@@ -1,0 +1,8 @@
+www.googleapis.com/oauth2/v3/token?
+
+code		= 4%2FHfvW0msk5QBMpRQNucRrcdvFQNkNIkl9ZpSRdcc_IMM&
+redirect_uri	= http://localhost:1250/
+client_id	= 407408718192.apps.googleusercontent.com&
+client_secret	= ************&
+scope		= &
+grant_type	= authorization_code

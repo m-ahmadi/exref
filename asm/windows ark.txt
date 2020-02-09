@@ -1,0 +1,13 @@
+windows ark related
+	hal.dll
+	ntdll.dll
+	ntoskrnl.exe
+	win32k.sys
+
+win32 api
+	advapi32.dll
+	gdi32.dll
+	kernel32.dll
+	msvcrt.dll
+	user32.dll
+	ws2_32.dll

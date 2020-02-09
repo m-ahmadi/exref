@@ -1,0 +1,11 @@
+The optimizer will only combine modules that are:
+	specified in arrays of string literals
+	and
+	passed to top-level require and define calls.
+
+So if you want to seperate:
+	modules that will get bundled together (static), and
+	modules that are separate at all times (dynamic):
+
+define static modules in top-level define calls, and
+define dynamic modules in child-level require calls.

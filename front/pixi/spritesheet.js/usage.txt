@@ -1,0 +1,3 @@
+spritesheet-js assets/*.png
+
+spritesheet-js -f json assets/*.png

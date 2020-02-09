@@ -1,0 +1,42 @@
+npm install -g webpack@beta			worked
+npm install webpack --save-dev			worked
+npm install webpack@beta --save-dev		worked
+npm install webpack@<version> --save-dev
+
+-----------------------------------------------------------------------
+npm install grunt-webpack --save-dev
+npm install grunt-webpack@beta --save-dev
+npm install webpack-dev-server --save-dev
+
+
+note:
+webpack@1.x, required by grunt-webpack@1.0.18
+grunt-webpack@beta uses webpack@2.x
+-----------------------------------------------------------------------
+issue:
+	If we install webpack locally,
+	webpack command won't be available automatically,
+	and we have to reference it like so:
+	./node_modules/.bin/webpack. (which sucks!)
+
+solution1:
+	use npm scripts (eg: npm build), instead of webpack command
+	package.json:
+	"scripts": {
+		"build": "webpack in.js out.js"
+	}
+
+solution2:
+	add "proj_dir_path/node_modules/.bin" to your PATH variable:
+	temporary in current opened console:
+	
+		PATH=%PATH%;./node_modules/.bin
+	
+	permanently in environment variables:
+	
+		path_to_project_folder/node_modules/.bin
+
+solution3:
+	install webpack globally
+
+-----------------------------------------------------------------------

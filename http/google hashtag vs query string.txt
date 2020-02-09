@@ -1,0 +1,5 @@
+google.com/#q=stackoverflow
+google.com/search?q=stackoverflow
+
+hash (#)                  does not require reloading the page
+Adding a query string (?) forces the page to reload in all browsers

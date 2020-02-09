@@ -1,0 +1,2 @@
+vue.js				development version
+vue.min.js			production version

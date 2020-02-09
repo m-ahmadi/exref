@@ -1,0 +1,11 @@
+GET /posts/1 HTTP/1.1
+Host: jsonplaceholder.typicode.com
+
+------------------------------------------------------------------------------------
+GET /posts/2 HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
+Host: jsonplaceholder.typicode.com
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+Expect: 100-continue

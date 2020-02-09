@@ -1,0 +1,6 @@
+you need an API key or OAuth 2.0 client ID
+
+to access apis
+
+
+scope - https://www.googleapis.com/auth/userinfo.profile

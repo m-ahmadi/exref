@@ -1,0 +1,3 @@
+alias gs=git status			set alias
+alias g=git $*				pass all arguments from alias to actual command
+alias /d gs				delete alias

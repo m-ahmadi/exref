@@ -1,0 +1,3 @@
+npm install pixi.js
+npm install pixi.js --save
+npm install pixi.js --save-dev

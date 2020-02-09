@@ -1,0 +1,12 @@
+Class diagrams from a software perspective. These show the classes in the software and how
+they interrelate.
+
+Sequence diagrams for common scenarios. A valuable approach is to pick the most important
+and interesting scenarios from the use cases and use CRC cards or sequence diagrams to
+figure out what happens in the software.
+
+Package diagrams to show the large-scale organization of the software.
+
+State diagrams for classes with complex life histories.
+
+Deployment diagrams to show the physical layout of the software.

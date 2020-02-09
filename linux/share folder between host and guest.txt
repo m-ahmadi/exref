@@ -1,0 +1,5 @@
+net use x:\vboxsvr\share
+mount -t vboxsf share mount_point
+
+mkdir ~/share
+sudo mount -t vboxsf share ~/share

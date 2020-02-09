@@ -1,0 +1,15 @@
+green     0      128    0
+purple    128    0      255
+string    163    21     21
+blue      0      0      255
+red       255    0      0
+
+line highlight   232 232 255
+selection        192 192 192
+match highlight  155 255 155
+
+
+added keywords:
+as NaN Infinity string number from
+
+tmp: 241 243 247

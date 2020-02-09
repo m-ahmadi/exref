@@ -1,0 +1,18 @@
+markets usually retrace previous moves by certain predictable percentages, best known ones being 33%, 50%, and 67%.
+fibonacci sequence refines those numbers a bit further.
+
+most commonly used numbers for retracement:
+	61.8% (usually rounded off to 62%)
+	38%
+	50%
+
+in a strong trend, a minimum retracement is usually around 38%.
+in a weak   trend, a maximum retracement is usually around 62%.
+
+fibonacci ratios approach .618 only after the first four numbers, the first three ratios are:
+	1/1 (100%)
+	1/2 (50%)
+	2/3 (66%)
+the famous     50% retracement is actually a fibonacci ratio.
+the two-thirds 66% retracement is also     a fibonacci ratio.
+a complete retracement (100%) of a previous bull/bear market also should mark an important support/resistance area.

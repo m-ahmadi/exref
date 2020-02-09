@@ -1,0 +1,9 @@
+HTTP					Application layer
+
+TCP 					Transport layer
+
+IP 					Network layer
+
+Network-specific link interface 	Data link layer
+
+Physical network hardware 		Physical layer

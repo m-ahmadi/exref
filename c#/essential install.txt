@@ -1,0 +1,6 @@
+download and install ".NET SDK (64-bit)"
+
+150 MB download
+needs 2GB of hard
+
+https://download.visualstudio.microsoft.com/download/pr/fd368d43-d681-46b1-9e77-2d812f2f14ae/5bd60381d60f36aa4529934c7a83c0cf/dotnet-sdk-2.2.401-win-gs-x64.exe

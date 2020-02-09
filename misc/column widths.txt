@@ -1,0 +1,30 @@
+	laptop half	laptop full	desktop half
+win7			168		107
+win10	75		160		109
+
+n vs npp desktop half win10
+notepad++:	109 (.txt: 111)
+notepad:	117
+
+replace all:
+//@@@
+@@@
+---
+___
+===
+/*@@@
+-------------------------------------------------------------------------------
+just in case (I probably won't)
+
+*.txt   filter=tabspace8
+*.js    filter=tabspace
+*.scss  filter=tabspace
+*.html  filter=tabspace
+
+[filter "tabspace8"]
+	smudge = unexpand --tabs=8 --first-only
+	clean = sh -c "expand --tabs=8 --initial"
+[filter "tabspace"]
+	smudge = unexpand --tabs=2 --first-only
+	clean = sh -c "expand --tabs=2 --initial"
+-------------------------------------------------------------------------------

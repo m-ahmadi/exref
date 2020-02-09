@@ -1,0 +1,4 @@
+General rule for natural lookin motion:
+
+	set the shutter speed at double the frame rate:
+	25 fps = 50 shutter speed

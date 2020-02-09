@@ -1,0 +1,3 @@
+netstat -a -b
+
+run resmon.exe

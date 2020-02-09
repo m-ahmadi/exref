@@ -1,0 +1,17 @@
+TseClient.exe fast				update without gui
+
+---------------------------------------------------------------------------------------------------
+multi instance tseclient
+
+duplicate the source folder
+
+problem:
+2 output folder is possible, but they share ticker list and columns settings.
+
+only solution:
+
+before changing ticker list or columns settings of one instance,
+cut "%APPDATA%\TseClien 2.0" folder to a temp folder.
+
+change one instance ticker list and columns, after finishing revert back.
+

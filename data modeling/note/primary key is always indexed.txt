@@ -1,0 +1,3 @@
+The primary key is always indexed.
+This is the same for MyISAM and InnoDB,
+and is generally true for all storage engines that at all supports indices.

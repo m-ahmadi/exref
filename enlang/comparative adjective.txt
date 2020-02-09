@@ -1,0 +1,24 @@
+comparative adjectives are used to compare differences between the two objects they modify.
+
+they are used in sentences where two nouns are compared.
+
+(larger, smaller, faster, higher).
+---------------------------------------------------------------------------------------------------
+
+how to construct:
+
+one-syllable word:
+	add "er" to the word
+	tall - taller
+
+two-syllable word ending with a "y":
+	drop the "y" and add "ier"
+	pretty - prettier
+
+two-syllable word not ending in "y":
+	preceded by the word "more"
+	purple - more purple
+
+three or more syllables:
+	preceded by the word "more"
+	beautiful - more beautiful

@@ -1,0 +1,60 @@
+support    is a previous low
+resistance is a previous high
+
+for an uptrend to continue:
+	each support    level must be higher than the one before it.
+	each resistance level must be higher than the one before it.
+
+if corrective dip in uptrend comes down to previous low:
+	early warning of uptrend ending or changing to sideways trend
+
+if previous support level is violated:
+	stronger warning of trend reversal from up to down
+
+each time a previous resistance peak is being tested, the uptrend is in an especially critical phase.
+
+first warning that the existing trend is changing (usually):
+	failing to exceed   a previous resistance (peak) in an uptrend
+	ability to fall off a previous support    (low)  in a  downtrend
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+reversal of roles
+
+when a support/resistance level is penetrated by a significant amount, they reverse roles.
+the more trading that takes place in a support area, the more significant it becomes.
+the amount of trading in a given support/resistance area can be determined in 3 ways:
+
+the amount of time spent there
+	the longer the period of time that prices trade in a support/resistance area, the more significant that area becomes.
+	
+volume
+	a support level formed on heavy volume is more important than a one formed on low volume.
+	charts of intraday trading activity are useful in identifying price levels where most trading took place.
+
+how recently the trading took place
+	the more recent the activity, the more powerful it becomes
+
+the distance prices travel away from a support/resistance area in future
+	the more distance prices travel away from a support/resistance area, the more significant that area becomes.
+	(particularly true when support and resistance levels are penetrated and reverse roles)
+
+the more significant a previous support area is, the more potent resistance area it becomes later.
+all factors that created support previously, now function to put a ceiling over prices on subsequent rallies or bounces.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+degree of penetration
+
+a support level, penetrated by a significant margin, becomes a resistance level and vice versa.
+support and resistance levels reverse roles only after a significant penetration.
+
+determining whether a penetration is significant:
+	a 3% penetration criteria for major        support/resistance levels (particularly)
+	a 1% penetration criteria for shorter term support/resistance areas
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+round numbers
+
+numbers such as 10, 20, 25, 50, 75, 100 (and multiples of 1000) are important round numbers.
+round numbers tend to stop advances or declines.
+round numbers often act as psychological support/resistance levels.
+
+because others are trying to buy/cell the market at round numbers, the market may never get there, so as a general rule:
+	avoid placing trading orders right at obvious round numbers.
+	avoid placing protective stops     at obvious round numbers.

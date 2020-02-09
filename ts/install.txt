@@ -1,0 +1,2 @@
+npm install typescript --save-dev		prefered
+npm install -g typescript

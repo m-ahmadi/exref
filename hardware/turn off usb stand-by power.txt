@@ -1,0 +1,14 @@
+Bios -> Advanced -> Chipset Configuration
+Deep Sleep: S5 Enabled
+
+options
+  Disabled
+  S4-S5 Enabled
+  S5 Enabled
+
+info
+  S1: Standby mode
+  S3: Suspend to RAM
+  S4: Hibernation mode
+  S5: Power off
+

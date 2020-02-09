@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+<script type="text/javascript">
+	var ws = new WebSocket('ws://localhost:9090/websocket_server.php');// ws://echo.websocket.org/echo
+	console.log(ws);
+	
+	ws.onopen = function(e) {
+		console.log("Connection open...");
+		
+		ws.send("Hello WebSocket!");
+	};
+	
+	ws.onmessage = function(e) {
+		if(typeof e.data === "string"){
+			console.log("String message received\n", e.data);
+		} else {
+			console.log("Other message received\n", e.data);
+		}
+	};
+	
+	ws.onerror = function(e) {
+		console.log("WebSocket Error: " , e);
+	};
+	
+	
+	ws.onclose = function(e) {
+		console.log("Connection closed", e);
+	};
+	
+	
+	
+	
+	//        code       reason
+	//ws.close(1000, "Closing normally");
+</script>
+</body>
+</html>

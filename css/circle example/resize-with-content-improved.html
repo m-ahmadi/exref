@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>improved resize with content</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+	
+<style>
+div {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #555;
+	color: yellow;
+	min-width: 1em;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+div:before {
+	content:'';
+	float: left;
+	width: auto;
+	padding-bottom: 100%;
+}
+</style>
+	
+<body>
+	<div>Circles</div>
+	<div>that</div>
+	<div>expand</div>
+	<div>with</div>
+	<div>content</div>
+	<br>
+	<div contenteditable>Try it out now! TYPE HERE...</div>
+</body>
+</html>

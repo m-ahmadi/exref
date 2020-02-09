@@ -1,0 +1,5 @@
+git diff						show diffs between last commit and current state
+
+git fetch						won't change the working copy
+git diff master origin/master
+git diff master origin/master --name-only		show file names only

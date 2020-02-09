@@ -1,0 +1,8 @@
+business requirements
+ux
+	user profiles
+	personas
+	user stories
+	feature requirements
+	task flows
+	user test

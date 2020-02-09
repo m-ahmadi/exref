@@ -1,0 +1,2 @@
+primary keys are unique (two rows cannot be the same)
+primary keys are always indexed

@@ -1,0 +1,12 @@
+not tested
+
+
+git checkout -
+
+git checkout master
+
+git reset --hard HEAD
+
+------------------------------------------
+git reflog
+git reset --hard <sha from reflog>

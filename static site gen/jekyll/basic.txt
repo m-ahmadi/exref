@@ -1,0 +1,4 @@
+jekyll new jekyll-site
+cd jekyll-site
+bundle install					not in doc, but i had to
+bundle exec jekyll serve

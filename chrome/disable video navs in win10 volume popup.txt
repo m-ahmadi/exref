@@ -1,0 +1,6 @@
+chrome:flags
+Hardware Media Key Handling:	Disabled
+or
+chrome:flags/#hardware-media-key-handling
+
+note: it also disables the keyboard media keys

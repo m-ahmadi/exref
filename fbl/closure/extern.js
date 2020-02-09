@@ -1,0 +1,12 @@
+function u() {}
+function newPubSub() {}
+function Cookie() {}
+function $() {}
+function jQuery() {}
+function Highcharts() {}
+function Highstock() {}
+function define() {}
+function ol() {}
+function Switchery() {}
+function UIkit() {}
+function Handlebars() {}

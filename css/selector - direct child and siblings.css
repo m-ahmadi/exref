@@ -1,0 +1,58 @@
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>	direct child */
+
+div > p { color: red; }
+/* all p elements which are DIRECT children of a div */
+
+div#container > p { color: red; } /* all p tags that sit directly under div#container
+<div id="container">
+	<p>selected</p>
+	<div>
+		<p>not selected</p>
+	</div>
+	<p>selected</p>
+	<p>selected</p>
+</div>
+*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
++	adjacent sibling */
+
+div + p { color: red; } /*
+all p elements that come immediately after div
+select div, now move to the p after it (not inside)
+
+<div>
+	<p>not selected</p>
+	<div>
+		<p>not selected</p>
+		<div></div>
+		<p>selected</p>
+		<p>not selected</p>
+	</div>
+	<p>selected</p>
+	<p>not selected</p>
+</div>
+<p>selected</p>
+*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+~	general sibling */
+
+div ~ p { color: red; } /*
+all p elements after a div
+
+<div>
+	<p>not selected</p>
+	<div>
+		<p>not selected</p>
+		<div></div>
+		<p>selected</p>
+		<p>selected</p>
+	</div>
+	<p>selected</p>
+	<p>selected</p>
+</div>
+<p>selected</p>
+<p>selected</p>
+<p>selected</p>
+*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,0 +1,17 @@
+global config: %userprofile%\.npmrc file
+local  config: ~/.npmrc file
+global .npmrc is created upon npm login
+
+npm config ls -l					show all implicit settings
+npm config set package-lock true			turn off package-lock
+
+npm config set init.license "MIT"			change npm init defaults
+npm config set init.version "0.0.1"			...
+npm config set init.author.name "Mohammad Ahmadi"	...
+npm config set init.author.email "me@site.com"		...
+npm config set init.author.url "site.com"		...
+
+npm config set loglevel="http"				change default logslevel
+npm config set loglevel="warn"				...
+
+npm config set ignore-scripts true			disable running postinstall/preinstall/etc scripts

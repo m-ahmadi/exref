@@ -1,0 +1,11 @@
+ncpa.cpl -> Wi-Fi -> Properties
+	uncheck "Internet Protocol Version 6 (TCP/IPv6)"
+
+devmgmt.msc -> Network adapters -> D-link DWA-123.... -> Properties -> Power Management
+	uncheck "Allow the computer to turn off this device..."
+
+control powercfg.cpl,,1 -> Wireless Adapter Settings -> Power Saving Mode
+	Maximum Performance
+
+this had effect:
+	netsh winsock reset		(after restart and maybe after a couple of times)

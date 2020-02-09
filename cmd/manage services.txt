@@ -1,0 +1,6 @@
+net start ServiceName
+net stop ServiceName
+
+sc stop ServiceName
+sc delete ServiceName
+sc delete "Service Name with spaces"

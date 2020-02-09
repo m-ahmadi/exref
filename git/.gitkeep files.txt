@@ -1,0 +1,9 @@
+git automaticaly removes empty folders when pushing.
+to keep an empty folder in git repository, convention is to add an empty (hidden) file to that directory.
+
+not a feature of git.
+
+because git can't track empty directories,
+people created the convention of putting files called .gitkeep in empty directories they want to track.
+
+the file could be called anything, git assigns no special significance to this name.

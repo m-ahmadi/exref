@@ -1,0 +1,5 @@
+when primary key of a table is a combination of two columns
+
+none of these two columns are unique by themselves
+
+but combined they became unique

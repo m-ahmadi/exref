@@ -1,0 +1,27 @@
+@mixin keyframes($v) {
+	@-webkit-keyframes #{$v} {
+		@content
+	}
+	@-moz-keyframes #{$v} {
+		@content
+	}
+	@-o-keyframes #{$v} {
+		@content
+	}
+	@-ms-keyframes #{$v} {
+		@content
+	}
+	@keyframes #{$v} {
+		@content
+	}
+}
+
+@include keyframes(square) {
+	0% {
+		@include transform( translateY(0) );
+	}
+	100% {
+		//@include transform( translateY(-700px) rotate(600deg) );
+		@include transform( translateY(-900px) rotate(600deg) );
+	}
+};

@@ -1,0 +1,22 @@
+show databases			show all available databases
+show dbs			show database names (won't show empty databases)
+show collections		show collections in current database
+show users			show users in current database
+use <db_name>			set current database (creates and set if doesn't exist, but not stored anywhere until inserting something into it)
+db				show current db
+
+db.foo.find()			list objects in collection foo
+db.foo.find( { a : 1 } )	list objects in foo where a == 1
+
+show users			show list of users for current database.
+show roles			show list of all roles, both user-defined and built-in, for the current database.
+show profile			show most recent system.profile entries with time >= 1ms
+load()				execute a JavaScript file.
+it				result of the last line evaluated; use to further iterate
+DBQuery.shellBatchSize = x	set default number of items to display on shell
+exit				quit the mongo shell
+
+help				show help
+db.help()			help on db methods
+db.mycoll.help()		help on collection methods
+help misc			misc things to know

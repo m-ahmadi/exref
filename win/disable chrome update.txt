@@ -1,0 +1,19 @@
+gpedit.msc
+User Configuration
+	Administrative Templates
+
+Right click on Administrative Templates, select add/remove templates from menu bar
+add GoogleUpdate.adm file and close
+
+You should find a new entry under 
+	Local Computer Policy
+	Computer Configuration
+	Administrative Templates
+	Classic Administrative Templates
+	Google
+	Google Update
+	Applications
+	Google Chrome
+
+Update Policy Override
+disabled

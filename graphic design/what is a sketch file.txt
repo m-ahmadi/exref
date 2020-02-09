@@ -1,0 +1,3 @@
+A .sketch file is:
+
+A file that you would open, in the Sketch Application in Mac.

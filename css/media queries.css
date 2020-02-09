@@ -1,0 +1,25 @@
+/* basic: */
+@media screen and (max-width: 1024px) {
+	body {
+		/* width: 1007px; */
+	}
+}
+@media screen and (min-width: 480px) {
+	body {
+		background-color: lightgreen;
+	}
+}
+
+/* or: */
+@media screen and (max-width: 995px) , screen and (max-height: 700px) {
+	body {
+		background-color: lightgreen;
+	}
+}
+
+/*	
+	Resolutions:
+	
+	Heights:
+	600 640 720 768 800 864 900 960 1024 1050 1080 1200 1440;
+*/

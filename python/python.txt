@@ -1,0 +1,1 @@
+type(i) 			determine the variable type

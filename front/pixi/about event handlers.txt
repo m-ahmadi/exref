@@ -1,0 +1,2 @@
+You can't use anonymous or variable-stored functions
+only function declarations.

@@ -1,0 +1,17 @@
+<audio src="horse.ogg" controls></audio> not Good
+use an mp3 file to play the audio file in safari and ie.
+for cross-browser:
+	use <source> elements inside the <audio> element.
+	<source> elements can link to different audio files.
+	the browser will use the first recognized format.
+
+better:
+<audio>
+	<source src="media/success.mp3" type="audio/ogg">
+	<source src="media/success.mp3" type="audio/mpeg">
+</audio>
+
+<audio controls>
+	<source src="media/success.mp3" type="audio/ogg">
+	<source src="media/success.mp3" type="audio/mpeg">
+</audio>

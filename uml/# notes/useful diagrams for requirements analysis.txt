@@ -1,0 +1,11 @@
+Use cases, which describe how people interact with the system.
+
+A class diagram drawn from the conceptual perspective, which can be a good way of building
+up a rigorous vocabulary of the domain.
+
+An activity diagram, which can show the work flow of the organization, showing how software
+and human activities interact. An activity diagram can show the context for use cases and
+also the details of how a complicated use case works.
+
+A state diagram, which can be useful if a concept has an interesting life cycle, with various
+states and events that change that state.

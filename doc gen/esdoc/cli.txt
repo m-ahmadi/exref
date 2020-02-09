@@ -1,0 +1,3 @@
+npm install esdoc esdoc-standard-plugin
+
+esdoc							creates the docs

@@ -1,0 +1,10 @@
+secpol.msc
+Local Policies
+	Audit Policy
+		Audit process tracking: Success ("Failed" means those that failed to start)
+
+then
+
+eventvwr.msc
+Windows Logs
+	Security

@@ -1,0 +1,20 @@
+Two ways:
+
+--------------------------------------------------------------------------------------------------------------
+declare them at the begining of each file:
+
+declare var u: any, newPubSub: any;
+
+--------------------------------------------------------------------------------------------------------------
+declare them in an app-level .d.ts file
+
+global.d.ts:
+
+declare var newPubSub: any;
+declare var u: any;
+declare var UIkit: any;
+declare var noUiSlider: any;
+declare var vis: any;
+
+(depending on your tsconfig you might need to address it in typeRoots)
+--------------------------------------------------------------------------------------------------------------

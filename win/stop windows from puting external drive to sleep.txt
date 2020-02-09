@@ -1,0 +1,21 @@
+Control Panel
+Power Options
+Change Plan Settings
+Change advanced power settings
+	Hard Disk
+		Turn off Hard Disk after         disabled
+	USB Settings
+		USB selective suspend settings   disabled
+
+
+-----------------------------------------------------------------------------------
+
+Control Panel
+Device Manager
+Universal Serial Bus controllers (expend this)
+You should see a list of Generic USB Hub
+
+Right click on each one of them and select
+	Properties
+	Power Management
+and uncheck the "Allow the computer to turn off this device to save power"

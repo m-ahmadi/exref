@@ -1,0 +1,7 @@
+text
+all bytes represent characters from a character-set. (ascii/unicode)
+
+
+binary
+contains bytes that could/couldn't be character representative.
+if a file contains non-character bytes, you could consider that file a binary.

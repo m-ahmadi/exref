@@ -1,0 +1,18 @@
+Listen 0.0.0.0:80
+
+ServerName www.icode.com
+
+ErrorLog "logs/error.log"
+
+LoadModule authz_host_module modules/mod_authz_host.so
+LoadModule dir_module modules/mod_dir.so
+
+DirectoryIndex index.html index.php
+
+DocumentRoot "E:/root"
+
+<Directory "E:/root">
+	AllowOverride None
+	Order allow,deny
+	Allow from all
+</Directory>

@@ -1,0 +1,15 @@
+shape: rectangle
+
+consist of some region of a sequence diagram that is divided into one or more fragments
+each frame has an operator and each fragment may have a guard
+
+common frame operators:
+
+alt (if else)	Alternative multiple fragments; only the one whose condition is true will execute.
+opt (if)	Optional; the fragment executes only if the supplied condition is true. Equivalent to an alt with only one trace.
+par		Parallel; each fragment is run in parallel.
+loop		Loop; the fragment may execute multiple times, and the guard indicates the basis of iteration.
+region		Critical region; the fragment can have only one thread executing it at once.
+neg		Negative; the fragment shows an invalid interaction.
+ref		Reference; refers to an interaction defined on another diagram. The frame is drawn to cover the lifelines involved in the interaction. You can define parameters and a return value.
+sd		Sequence diagram; used to surround an entire sequence diagram, if you wish.

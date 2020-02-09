@@ -1,0 +1,5 @@
+A1		relative, col and row changes
+
+$A$1		absolute, col locked, row locked
+$A1		absolute, col locked, row changes
+A$1		absolute, col changes, row locked

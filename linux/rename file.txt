@@ -1,0 +1,6 @@
+mv filename1.ext filename2.ext			filename1.ext old name, filename2.ext the new name
+
+---------------------------------------------------------------
+
+rename (option) 's/oldname/newname' file1.ext file24.ext
+rename 's\.jpeg/\.jpg/' *

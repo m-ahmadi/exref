@@ -1,0 +1,12 @@
+regedit
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\ScheduledDiagnostics\
+Edit -> New -> DWORD (32-bit) Value
+name it: IsBrokenShortcutsTSEnabled
+open it
+Value data: 0
+OK
+
+
+task scheduler
+Task Scheduler Library -> Microsoft -> Windows -> Diagnosis
+disable the task: "Scheduled"

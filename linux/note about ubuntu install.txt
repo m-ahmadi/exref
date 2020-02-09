@@ -1,0 +1,10 @@
+USB must be FAT (FAT16)
+
+enter any key...
+F6
+nomodeset
+
+
+
+
+http://askubuntu.com/questions/499733/can-i-use-ubuntu-with-this-pc-if-i-can-then-what-is-this-error

@@ -1,0 +1,56 @@
+<!--
+	Normally, Handlebars templates are evaluated against the context passed into the compiled method.
+	var source   = "<p>{{lastName}}, {{firstName}}</p>";
+	var template = Handlebars.compile(source);
+	template({firstName: "Alan", lastName: "Johnson"});
+	results in:
+-->
+<p>Johnson, Alan</p>
+
+<!-- You can shift the context for a section of a template by using the built-in with block helper. -->
+<div class="entry">
+  <h1>{{title}}</h1>
+
+  {{#with author}}
+  <h2>By {{firstName}} {{lastName}}</h2>
+  {{/with}}
+</div>
+
+<!--
+	when used with this context:
+	{
+		title: "My first post!",
+		author: {
+			firstName: "Charles",
+			lastName: "Jolley"
+		}
+	}
+	will result in:
+-->
+<div class="entry">
+  <h1>My first post!</h1>
+
+  <h2>By Charles Jolley</h2>
+</div>
+
+<!--
+	with can also be used with block parameters to define known references in the current block.
+	The example above can be converted to:
+-->
+<div class="entry">
+  <h1>{{title}}</h1>
+
+  {{#with author as |myAuthor|}}
+  <h2>By {{myAuthor.firstName}} {{myAuthor.lastName}}</h2>
+  {{/with}}
+</div>
+
+<!--
+	Which allows for complex templates to potentially provide clearer code than ../ depthed references allow for.
+	You can optionally provide an {{else}} section which will display only when the passed value is empty.
+-->
+{{#with author}}
+  <p>{{name}}</p>
+{{else}}
+  <p class="empty">No content</p>
+{{/with}}

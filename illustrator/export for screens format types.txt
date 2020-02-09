@@ -1,0 +1,24 @@
+jpg
+
+6 different types, what differ in them:
+	compression rate
+	quality
+jpg 100		awesome size reduction, but lossy 
+jpg 80		losses becoming apparent
+jpg 50		above the lowest quality
+jpg 20		lowest quality
+
+-------------------------------------------------------------
+png
+5 color types
+what differ in different types:
+	color types
+	compression ratio
+png 8:
+	palette variant
+	only 256 colors
+	gif substitute
+png 24:
+	true color variant
+	more colors. lossless
+	jpeg substitute

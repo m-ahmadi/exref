@@ -1,0 +1,3 @@
+npm install npm@latest -g	worked
+npm i npm -g			worked
+npm update -g npm		did not work

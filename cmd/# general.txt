@@ -1,0 +1,35 @@
+title windowtitle		change title of console window
+exit				exit the console
+echo %file%			show content of variable
+echo off | clip			clear clipboard
+dir /b | clip			copy to clipboard
+type file.txt | clip		copy file content to clipboard
+dir /b | sort			sort output
+dir /b | sort /r		...reverse
+echo Hello ^			continuation character. (prompts "More?" and reads user input)
+
+systeminfo			prints system information
+wmic os get caption		...
+wmic os get osarchitecture	...
+
+runas /user:administrator cmd	run cmd as admin (won't work unless account has password)
+
+chkdsk c: /f /r			run check disk for a drive (needs restart afterwards)
+sfc /scannow			scan system files
+dism /Online /Cleanup-Wim	similar to above (takes 20 min or more)
+--------------------------------------------------------------------------------
+shortcut keys
+
+win + r				run
+win + e				my computer
+win + m				minimize all windows
+win + number 1-9 (not calc)	open window or tab through
+win + t (+ enter)		tab through taskbar
+win + f				search window
+win + p				monitor modes
+win + l				log off
+win + i				settings
+ctrl + shift + esc		task manager
+ctrl + win + left/right		switch desktops
+ctrl + shift + f10		context-menu
+--------------------------------------------------------------------------------

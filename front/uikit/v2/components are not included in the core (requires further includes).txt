@@ -1,0 +1,7 @@
+components are not included in the UIkit core framework
+
+requires further including the CSS and JavaScript
+
+you can find all additional components in separate folders
+~/css
+~/js

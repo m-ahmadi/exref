@@ -1,0 +1,64 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+					useful
+composer dump-autoload
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			install composer using windows installer
+--------------------------------------------------------------------------
+					1
+php.ini:
+	extension=php_openssl.dll
+	extension=php_curl.dll
+	extension=php_sockets.dll
+	extension_dir="E:\xampp\php\ext"
+	browscap="E:\xampp\php\extras\browscap.ini"
+add:
+	curl.cainfo=c:\openssl-1.0.2d-win32\ssl\cert.pem
+	openssl.cafile=c:\openssl-1.0.2d-win32\ssl\cert.pem
+--------------------------------------------------------------------------
+					2
+<?php
+  echo '<pre>';
+  print_r( openssl_get_cert_locations() );
+  echo '</pre>';
+?>
+Array
+(
+    [default_cert_file] => c:/openssl-1.0.2d-win32/ssl/cert.pem
+    [default_cert_file_env] => SSL_CERT_FILE
+    [default_cert_dir] => c:/openssl-1.0.2d-win32/ssl/certs
+    [default_cert_dir_env] => SSL_CERT_DIR
+    [default_private_dir] => c:/openssl-1.0.2d-win32/ssl/private
+    [default_default_cert_area] => c:/openssl-1.0.2d-win32/ssl
+    [ini_cafile] => c:\openssl-1.0.2d-win32\ssl\cert.pem
+    [ini_capath] => 
+)
+--------------------------------------------------------------------------
+					3
+make folders:
+	c:\openssl-1.0.2d-win32
+	c:\openssl-1.0.2d-win32\ssl
+	c:\openssl-1.0.2d-win32\ssl\certs
+	c:\openssl-1.0.2d-win32\ssl\private
+download:
+	http://curl.haxx.se/ca/cacert.pem
+rename 	cert.pem
+move	c:\openssl-1.0.2d-win32\ssl\cert.pem
+rename	cert.crt
+move	c:\openssl-1.0.2d-win32\ssl\certs\cert.crt
+so:
+	c:\openssl-1.0.2d-win32\ssl\cert.pem
+	c:\openssl-1.0.2d-win32\ssl\certs\cert.crt
+--------------------------------------------------------------------------
+					4
+download	https://getcomposer.org/Composer-Setup.exe
+install
+go 		c:\users\nyc
+open 		composer.bat
+change to	@php "%~dp0composer.phar" %*
+add to path	"c:\users\nyc"
+download	https://getcomposer.org/composer.phar
+place		composer.phar in "c:\users\nyc"
+--------------------------------------------------------------------------
+					5
+	EN THE FUCKING JOY !!!
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

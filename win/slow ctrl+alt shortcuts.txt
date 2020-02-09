@@ -1,0 +1,11 @@
+win+i -> Privacy -> Background apps -> Settings: off
+(taskmgr -> Settings -> end process)
+
+disable cortana (didn't do much)
+gpedit.msc -> Computer Configuration -> Administrative Templates -> Windows Components -> Search -> Allow Cortana: Disabled
+
+suspects:
+win+i -> Privacy -> "Let Windows track app launches to improve Start and search results": off		(run commands are not cached anymore)
+win+i -> Update & Security -> Windows Security -> Virus & threat protection -> Manage Settings ->
+	Real-time protection: Off
+	Controlled folder access: Off

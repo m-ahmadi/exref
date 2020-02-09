@@ -1,0 +1,9 @@
+control /name Microsoft.NetworkAndSharingCenter /page Advanced
+	-> All Networks -> Turn off password protected sharing
+
+gpedit.msc -> Computer Configuration -> Administrative Templates -> Network -> Lanman Workstation
+	Enable insecure guest logons: Enabled
+
+folder -> Properties -> Sharing -> Share -> select "Everyone" -> Add -> Share
+
+done

@@ -1,0 +1,2 @@
+win+i -> System -> Multitasking
+	"When I snap a windows, show what I can snap next to it": Off

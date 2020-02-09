@@ -1,0 +1,10 @@
+regjump HKCU\Environment	open regedit on specified key
+
+regjump one-liner install
+powershell -C "mkdir tmp;cd tmp;Invoke-WebRequest https://download.sysinternals.com/files/RegJump.zip -O x.zip;Expand-Archive x.zip -D .;mi regjump.exe -D $Env:windir;cd ../;ri tmp -R;"
+
+(curl and 7z)
+mkdir tmp && cd tmp && curl download.sysinternals.com/files/RegJump.zip -o x.zip && 7z x x.zip && move regjump.exe %windir% && cd ../ && rmdir tmp /s /q
+
+to enable thru win+r:
+reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers" /v %windir%\regjump.exe /d "~ RUNASADMIN"

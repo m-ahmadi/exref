@@ -1,0 +1,13 @@
+git submodule add https://github.com/user/repo.git
+
+git submodule add https://github.com/user/repo.git differentDirNAme
+
+git submodule add -b master https://github.com/user/repo.git
+
+git clone <repo_url> --recursive
+
+git submodule init
+git submodule update
+git submodule update --init
+git submodule update --init --recursive						all submodules
+git fetch --recurse-submodules --jobs=4						multi thread

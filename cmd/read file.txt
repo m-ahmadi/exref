@@ -1,0 +1,4 @@
+type file.txt				reads a file and outputs it to the screen
+more file.txt				...display one screen at a time
+
+FOR /F %i IN (file.txt) DO @echo %i	reads a file line by line (stops reading the line if finds whitespace character in the line)

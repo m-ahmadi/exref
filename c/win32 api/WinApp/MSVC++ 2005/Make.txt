@@ -1,0 +1,10 @@
+Visual Studio 6
+Visual C++
+New Project (Win32 Empty)
+Add New Item (C++ Source File)
+Set to Release
+Build
+
+Command Line:
+	msdev v6.dsp /MAKE "v6 – Win32 Release"
+	msdev v6.dsp /MAKE "v6 – Win32 Release" /REBUILD

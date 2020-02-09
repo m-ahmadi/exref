@@ -1,0 +1,5 @@
+either:
+
+delete the .git folder by hand or
+
+rm -rf .git

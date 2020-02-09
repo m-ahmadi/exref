@@ -1,0 +1,9 @@
+best to do it from github
+
+from command line: (these releases don't have fancy formatting)
+
+git tag -a v1.0.0 -m "New Version"		current commit
+or
+git tag -a v1.0.0 <commit_hash>			prev commit
+
+git push origin master --tags

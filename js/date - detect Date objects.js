@@ -1,0 +1,1 @@
+if (someting instanceof Date) console.log("it's a date")

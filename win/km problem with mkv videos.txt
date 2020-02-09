@@ -1,0 +1,28 @@
+
+Option 1:
+	1. Preferences (F2)
+	2. Video Processing
+	3. Renderer tab
+	4. At point "Renderer:"
+	5. click on dropdown menu
+	6. select Enhanced Video Renderer(C/A)
+
+Option 2:
+	1. Preferences (F2)
+	2. Filter Control
+	3. Splitter
+	4. Gerneral tab
+	5. At point "Matroska:"
+	6. click on dropdown menu
+	7. select Gabest MKV Splitter
+
+Close preferences and player, Open the player again and Play the file
+	
+
+------------------------------------------------------------------------------------------------
+
+What worked for me:
+	Option 2
+	step 7
+	select System Default (instead of Gabest MKV Splitter)
+	

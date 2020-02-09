@@ -1,0 +1,57 @@
+<style>
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #111;
+}
+
+.image {
+  --width: 794px;
+  --height: 446px;
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  overflow: hidden;
+}
+.image__img {
+  position: absolute;
+  height: 100%;
+  background: url("photo.jpg");
+  background-size: var(--width) var(--height);
+}
+.image__img:first-child {
+  left: 0;
+  width: 100%;
+  background-position: center left;
+}
+.image__img:last-child {
+  right: 0;
+  width: calc(100% - var(--x, 50%));
+  background-position: center right;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  box-shadow: inset 2px 0 0 #111, -2px 0 0 #111;
+}
+</style>
+
+<div class="image">
+	<div class="image__img"></div>
+	<div class="image__img"></div>
+</div>
+
+<script>
+document.querySelectorAll('.image').forEach(elem => {
+	let x, width;
+	elem.onmouseenter = () => {
+		const size = elem.getBoundingClientRect()
+		x = size.x
+		width = size.width
+	}
+	elem.onmousemove = e => {
+		const horizontal = ((e.clientX - x) / width) * 100
+		elem.style.setProperty('--x', horizontal + '%')
+	}
+})
+</script>

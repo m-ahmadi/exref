@@ -1,0 +1,17 @@
+temporarily:
+
+fn+f7
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+permanently:
+
+the way i disabled touchpad permanently:
+(not tried to enable it again, to see if everything is ok)
+
+1. uninstall synaptics driver. (not from add/remove softwares, from prompted dialogue when opening mouse in control panel)
+2. uninstall elantech driver. (from add/remove softwares)
+3. devmgmt.msc -> Mice and other pointing devices -> PS/2 Compatible Mouse -> Uninstall
+4. restart pc
+5. devmgmt.msc -> Mice and other pointing devices -> PS/2 Compatible Mouse -> Disable
+
+if you don't disable it (step 5), windows will install it again automatically after a restart.

@@ -1,0 +1,12 @@
+using -folder flag
+
+search query -folder:"current_dir\*"
+
+*hbil -folder:htdocs\*
+*-t -folder:htdocs\*
+-------------------------------------------------------------------------------------------
+another way
+
+Explorer window -> Organize -> Folder and search options -> Search tab
+
+uncheck "Include subfolders in search results when searching in file folders"

@@ -1,0 +1,2 @@
+ctrl + right shift		right to left
+ctrl + left shift		left to right

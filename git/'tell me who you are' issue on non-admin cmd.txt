@@ -1,0 +1,11 @@
+put git\bin before openssh in path
+
+\cmder\vendor\git-for-windows\bin
+%SYSTEMROOT%\System32\OpenSSH
+-------------------------------------------------------------------------------
+same issue on vscode
+put git\bin before vscode\bin in path
+
+\cmder\vendor\git-for-windows\bin
+\VSCode\bin
+-------------------------------------------------------------------------------

@@ -1,0 +1,20 @@
+quantitative
+	numerical
+
+2 types
+	discrete
+		count
+	contiinuous
+		measure
+------------------------------------------------------------------
+qualitative
+	descriptive
+	
+example
+------------------------------------------------------------------
+
+cat
+
+quantitative:	4 legs, 10 lbs
+qualitative:	yellow, soft fur
+

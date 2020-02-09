@@ -1,0 +1,7 @@
+https://accounts.google.com/o/oauth2/auth?
+
+access_type	= offline&
+scope		= email%20profile%20openid&
+response_type	= code&
+client_id	= 594204839102-7r5sejasdqalk1gkqpcs8fr9pr2t4pv5.apps.googleusercontent.com&
+redirect_uri	= http%3A%2F%2Flocalhost%3A1250%2Fpublic%2Findex.htm

@@ -1,0 +1,7 @@
+echo %errorlevel%
+
+node -p "2+2"
+echo %errorlevel%	(0)
+
+node -p "x+2"
+echo %errorlevel%	(1)

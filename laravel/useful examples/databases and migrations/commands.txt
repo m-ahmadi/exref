@@ -1,0 +1,53 @@
+../config/database.php
+
+'default' => env('DB_CONNECTION', 'mysql'),
+
+'mysql' => [
+	'driver'    => 'mysql',
+	'host'      => env('DB_HOST', 'localhost'),
+	'database'  => env('DB_DATABASE', 'forge'),
+	'username'  => env('DB_USERNAME', 'forge'),
+	'password'  => env('DB_PASSWORD', ''),
+	'charset'   => 'utf8',
+	'collation' => 'utf8_unicode_ci',
+	'prefix'    => '',
+	'strict'    => false,
+]
+
+../.env
+	DB_HOST=localhost
+	DB_DATABASE=homestead
+	DB_USERNAME=homestead
+	DB_PASSWORD=secret
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'homestead'@'localhost' IDENTIFIED BY 'secret';
+Create database homestead
+
+
+php artisan make:migration create_songs_table --create="songs"
+../database/migration/2015_11_07_043132_create_songs_table
+
+
+php artisan migrate   (up method fired)
+php artisan migrate:rollback (down method fired)
+php artisan tinker
+
+DB::table('songs')->insert([
+  'title'=>'Fall',
+  'created_at'=> new DateTime,
+  'updated_at'=> new DateTime
+]);
+
+DB::table('songs')->insert([
+  'title'=>'Boyfriend',
+  'created_at'=> new DateTime,
+  'updated_at'=> new DateTime
+]);
+
+DB::table('songs')->insert([
+  'title'=>'Be Alright',
+  'created_at'=> new DateTime,
+  'updated_at'=> new DateTime
+]);
+
+DB::table('songs')->get();

@@ -1,0 +1,32 @@
+Web servers host web resources.
+
+A web resource is the source of web content.
+
+The simplest kind of web resource is a static file on the web server’s filesystem.
+
+These files can contain anything:
+	text files
+	HTML files
+	Microsoft Word files
+	Adobe Acrobat files
+	JPEG image files
+	AVI movie files
+	any other format
+
+Resources don’t have to be static files.
+Resources can also be software programs that generate content on demand.
+
+These dynamic content resources can generate content based
+	on your identity
+	on what information you’ve requested
+	on the time of day
+They can
+	show you a live image from a camera
+	let you trade stocks
+	search real estate databases
+	buy gifts from online stores
+
+In summary, a resource is any kind of content source.
+	A file containing your company’s sales forecast spreadsheet is a resource.
+	A web gateway to scan your local public library’s shelves is a resource.
+	An Internet search engine is a resource.

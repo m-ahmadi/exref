@@ -1,0 +1,14 @@
+reg add HKLM\bar				add key
+reg add HKLM\foo /v Foo /d bar			add foo if doesn't exist, otherwise change its value. REG_SZ by defualt
+reg add HKLM\foo /v Bar /t REG_DWORD /d 1	DWORD value type (Bar: 1)
+reg add HKLM\for /ve /d bar			empty value name (Default: bar)
+reg delete HKCU\Environment /v foo /f		delete the key and don't prompt
+reg import file.reg				import
+reg query HKCR\.css /ve				show value of (Default)
+
+key abbreviations:
+HKCR = HKEY_CLASSES_ROOT
+HKCU = HKEY_CURRENT_USER
+HKLM = HKEY_LOCAL_MACHINE
+HKU  = HKEY_USERS
+HKCC = HKEY_CURRENT_CONFIG

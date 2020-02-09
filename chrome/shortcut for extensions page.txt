@@ -1,0 +1,3 @@
+Alt + F,L,E
+
+(or use `Extensions shortcut` extension)

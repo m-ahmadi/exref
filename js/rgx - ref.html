@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+<head>
+<style>
+html {
+ background: #fff;
+ font-size: 14px;
+}
+body {
+ color: #4d4e53;
+ background-color: #eaeff2;
+ font-family: 'Open Sans',Arial,sans-serif;
+ line-height: 1.5;
+}
+table {
+ border-collapse: collapse;
+ border: solid #e0e0dc;
+ border-width: 1px 0 0 1px;
+}
+th {
+ font-style: inherit;
+ font-weight: inherit;
+}
+table.fullwidth-table {
+ background: #fff;
+ border: 1px solid #eaeff2;
+ border: 1px solid rgba(212,221,228,.5);
+ margin-bottom: 20px;
+ width: 100%;
+}
+table.fullwidth-table th {
+ background: #eaeff2;
+ background: rgba(212,221,228,.5);
+ border: 1px solid #d4dde4;
+ padding: 5px;
+}
+table.fullwidth-table td {
+ border: 1px solid #ccc;
+ padding: 5px;
+ text-align: left;
+ vertical-align: top;
+}
+th {
+ border: solid #e0e0dc;
+ border-width: 0 1px 1px 0;
+ padding: 6px 8px;
+ text-align: left;
+}
+td, th {
+ border: solid #e0e0dc;
+ border-width: 0 1px 1px 0;
+ padding: 6px 8px;
+ text-align: left;
+}
+</style>
+</head>
+<body>
+<table class="fullwidth-table">
+ <tbody>
+  <tr id="character-classes">
+   <th colspan="2">Character Classes</th>
+  </tr>
+  <tr>
+   <th>Character</th>
+   <th>Meaning</th>
+  </tr>
+  <tr>
+   <td><code>.</code></td>
+   <td>
+    <p>(The dot, the decimal point) matches any single character <em>except</em> line terminators: <code>\n</code>, <code>\r</code>, <code>\u2028</code> or <code>\u2029</code>.</p>
+
+    <p>Inside character class, the dot loses its special meaning and matches a literal dot.</p>
+
+    <p>Note that the <code>m</code> multiline flag doesn't change the dot behavior. So to match a pattern across multiple lines, the character set <code>[^]</code> can be used (if you don't mean an old version of IE, of course), it will match any character including newlines.</p>
+
+    <p>For example, <code>/.y/</code> matches "my" and "ay", but not "yes", in "yes make my day".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\d</code></td>
+   <td>
+    <p>Matches a digit character in the basic Latin alphabet. Equivalent to <code>[0-9]</code>.</p>
+
+    <p>For example, <code>/\d/</code> or <code>/[0-9]/</code> matches "2" in "B2 is the suite number".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\D</code></td>
+   <td>
+    <p>Matches any character that is not a digit in the basic Latin alphabet. Equivalent to <code>[^0-9]</code>.</p>
+
+    <p>For example, <code>/\D/</code> or <code>/[^0-9]/</code> matches "B" in "B2 is the suite number".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\w</code></td>
+   <td>
+    <p>Matches any alphanumeric character from the basic Latin alphabet, including the underscore. Equivalent to <code>[A-Za-z0-9_]</code>.</p>
+
+    <p>For example, <code>/\w/</code> matches "a" in "apple", "5" in "$5.28", and "3" in "3D".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\W</code></td>
+   <td>
+    <p>Matches any character that is not a word character from the basic Latin alphabet. Equivalent to <code>[^A-Za-z0-9_]</code>.</p>
+
+    <p>For example, <code>/\W/</code> or <code>/[^A-Za-z0-9_]/</code> matches "%" in "50%".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\s</code></td>
+   <td>
+    <p>Matches a single white space character, including space, tab, form feed, line feed and other Unicode spaces. Equivalent to <code>[ \f\n\r\t\v&#8203;\u00a0\u1680&#8203;\u180e\u2000&#8203;-\u200a&#8203;\u2028\u2029\u202f\u205f&#8203;\u3000\ufeff]</code>.</p>
+
+    <p>For example, <code>/\s\w*/</code> matches " bar" in "foo bar".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\S</code></td>
+   <td>
+    <p>Matches a single character other than white space. Equivalent to <code>[^ \f\n\r\t\v&#8203;\u00a0\u1680&#8203;\u180e\u2000&#8203;-\u200a&#8203;\u2028\u2029\u202f\u205f&#8203;\u3000\ufeff]</code>.</p>
+
+    <p>For example, <code>/\S\w*/</code> matches "foo" in "foo bar".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\t</code></td>
+   <td>Matches a horizontal tab.</td>
+  </tr>
+  <tr>
+   <td><code>\r</code></td>
+   <td>Matches a carriage return.</td>
+  </tr>
+  <tr>
+   <td><code>\n</code></td>
+   <td>Matches a linefeed.</td>
+  </tr>
+  <tr>
+   <td><code>\v</code></td>
+   <td>Matches a vertical tab.</td>
+  </tr>
+  <tr>
+   <td><code>\f</code></td>
+   <td>Matches a form-feed.</td>
+  </tr>
+  <tr>
+   <td><code>[\b]</code></td>
+   <td>Matches a backspace. (Not to be confused with <code>\b</code>)</td>
+  </tr>
+  <tr>
+   <td><code>\0</code></td>
+   <td>Matches a NUL character. Do not follow this with another digit.</td>
+  </tr>
+  <tr>
+   <td><code>\c<em>X</em></code></td>
+   <td>
+    <p>Where <code><em>X</em></code> is a letter from A - Z. Matches a control character in a string.</p>
+
+    <p>For example, <code>/\cM/</code> matches control-M in a string.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\x<em>hh</em></code></td>
+   <td>Matches the character with the code <code><em>hh</em></code> (two hexadecimal digits).</td>
+  </tr>
+  <tr>
+   <td><code>\u<em>hhhh</em></code></td>
+   <td>Matches the character with the Unicode value <code><em>hhhh</em></code> (four hexadecimal digits).</td>
+  </tr>
+  <tr>
+   <td><code>\</code></td>
+   <td>
+    <p>For characters that are usually treated literally, indicates that the next character is special and not to be interpreted literally.</p>
+
+    <p>For example, <code>/b/</code> matches the character "b". By placing a backslash in front of "b", that is by using <code>/\b/</code>, the character becomes special to mean match a word boundary.</p>
+
+    <p><em>or</em></p>
+
+    <p>For characters that are usually treated specially, indicates that the next character is not special and should be interpreted literally.</p>
+
+    <p>For example, "*" is a special character that means 0 or more occurrences of the preceding character should be matched; for example, <code>/a*/</code> means match 0 or more "a"s. To match <code>*</code> literally, precede it with a backslash; for example, <code>/a\*/</code> matches "a*".</p>
+   </td>
+  </tr>
+ </tbody>
+ <tbody>
+  <tr id="character-sets">
+   <th colspan="2">Character Sets</th>
+  </tr>
+  <tr>
+   <th>Character</th>
+   <th>Meaning</th>
+  </tr>
+  <tr>
+   <td><code>[xyz]</code></td>
+   <td>
+    <p>A character set. Matches any one of the enclosed characters. You can specify a range of characters by using a hyphen.</p>
+
+    <p>For example, <code>[abcd]</code> is the same as <code>[a-d]</code>. They match the "b" in "brisket" and the "c" in "chop".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>[^xyz]</code></td>
+   <td>
+    <p>A negated or complemented character set. That is, it matches anything that is not enclosed in the brackets. You can specify a range of characters by using a hyphen.</p>
+
+    <p>For example, <code>[^abc]</code> is the same as <code>[^a-c]</code>. They initially match "o" in "bacon" and "h" in "chop".</p>
+   </td>
+  </tr>
+ </tbody>
+ <tbody>
+  <tr id="alternation">
+   <th colspan="2">Alternation</th>
+  </tr>
+  <tr>
+   <th>Character</th>
+   <th>Meaning</th>
+  </tr>
+  <tr>
+   <td><code><em>x</em>|<em>y</em></code></td>
+   <td>
+    <p>Matches either <code><em>x</em></code> or <code><em>y</em></code>.</p>
+
+    <p>For example, <code>/green|red/</code> matches "green" in "green apple" and "red" in "red apple".</p>
+   </td>
+  </tr>
+ </tbody>
+ <tbody>
+  <tr id="boundaries">
+   <th colspan="2">Boundaries</th>
+  </tr>
+  <tr>
+   <th>Character</th>
+   <th>Meaning</th>
+  </tr>
+  <tr>
+   <td><code>^</code></td>
+   <td>
+    <p>Matches beginning of input. If the multiline flag is set to true, also matches immediately after a line break character.</p>
+
+    <p>For example, <code>/^A/</code> does not match the "A" in "an A", but does match the first "A" in "An A".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>$</code></td>
+   <td>
+    <p>Matches end of input. If the multiline flag is set to true, also matches immediately before a line break character.</p>
+
+    <p>For example, <code>/t$/</code> does not match the "t" in "eater", but does match it in "eat".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\b</code></td>
+   <td>
+    <p>Matches a zero-width word boundary, such as between a letter and a space. (Not to be confused with <code>[\b]</code>)</p>
+
+    <p>For example, <code>/\bno/</code> matches the "no" in "at noon"; <code>/ly\b/</code> matches the "ly" in "possibly yesterday".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\B</code></td>
+   <td>
+    <p>Matches a zero-width non-word boundary, such as between two letters or between two spaces.</p>
+
+    <p>For example, <code>/\Bon/</code> matches "on" in "at noon", and <code>/ye\B/</code> matches "ye" in "possibly yesterday".</p>
+   </td>
+  </tr>
+ </tbody>
+ <tbody>
+  <tr id="grouping-back-references">
+   <th colspan="2">Grouping and back references</th>
+  </tr>
+  <tr>
+   <th>Character</th>
+   <th>Meaning</th>
+  </tr>
+  <tr>
+   <td><code>(<em>x</em>)</code></td>
+   <td>
+    <p>Matches <code><em>x</em></code> and remembers the match. These are called capturing groups.</p>
+
+    <p>For example, <code>/(foo)/</code> matches and remembers "foo" in "foo bar".&nbsp;</p>
+
+    <p>The capturing groups are numbered according to the order of left parentheses of capturing groups, starting from 1. The matched substring can be recalled from the resulting array's elements <code>[1], ..., [n]</code> or from the predefined <code>RegExp</code> object's properties <code>$1, ..., $9</code>.</p>
+
+    <p>Capturing groups have a performance penalty. If you don't need the matched substring to be recalled, prefer non-capturing parentheses (see below).</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>\<em>n</em></code></td>
+   <td>
+    <p>Where <code><em>n</em></code> is a positive integer. A back reference to the last substring matching the n parenthetical in the regular expression (counting left parentheses).</p>
+
+    <p>For example, <code>/apple(,)\sorange\1/</code> matches "apple, orange," in "apple, orange, cherry, peach". A more complete example follows this table.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code>(?:<em>x</em>)</code></td>
+   <td>Matches <code><em>x</em></code> but does not remember the match. These are called non-capturing groups. The matched substring can not be recalled from the resulting array's elements <code>[1], ..., [n]</code> or from the predefined <code>RegExp</code> object's properties <code>$1, ..., $9</code>.</td>
+  </tr>
+ </tbody>
+ <tbody>
+  <tr id="quantifiers">
+   <th colspan="2">Quantifiers</th>
+  </tr>
+  <tr>
+   <th>Character</th>
+   <th>Meaning</th>
+  </tr>
+  <tr>
+   <td><code><em>x</em>*</code></td>
+   <td>
+    <p>Matches the preceding item <em>x</em> 0 or more times.</p>
+
+    <p>For example, <code>/bo*/</code> matches "boooo" in "A ghost booooed" and "b" in "A bird warbled", but nothing in "A goat grunted".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code><em>x</em>+</code></td>
+   <td>
+    <p>Matches the preceding item <em>x</em> 1 or more times. Equivalent to <code>{1,}</code>.</p>
+
+    <p>For example, <code>/a+/</code> matches the "a" in "candy" and all the "a"'s in "caaaaaaandy".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code><em>x</em>*?</code><br>
+    <code><em>x</em>+?</code></td>
+   <td>
+    <p>Matches the preceding item <em>x</em> like <code>*</code> and <code>+</code> from above, however the match is the smallest possible match.</p>
+
+    <p>For example, <code>/".*?"/</code> matches '"foo"' in '"foo" "bar"' and does not match '"foo" "bar"' as without the <code>?</code> behind the <code>*</code>.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code><em>x</em>?</code></td>
+   <td>
+    <p>Matches the preceding item <em>x</em> 0 or 1 time.</p>
+
+    <p>For example, <code>/e?le?/</code> matches the "el" in "angel" and the "le" in "angle."</p>
+
+    <p>If used immediately after any of the quantifiers <code>*</code>, <code>+</code>, <code>?</code>, or <code>{}</code>, makes the quantifier non-greedy (matching the minimum number of times), as opposed to the default, which is greedy (matching the maximum number of times).</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code><em>x</em>{<em>n</em>}</code></td>
+   <td>
+    <p>Where <code><em>n</em></code> is a positive integer. Matches exactly <code><em>n</em></code> occurrences of the preceding item <em>x</em>.</p>
+
+    <p>For example, <code>/a{2}/</code> doesn't match the "a" in "candy", but it matches all of the "a"'s in "caandy", and the first two "a"'s in "caaandy".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code><em>x</em>{<em>n</em>,}</code></td>
+   <td>
+    <p>Where <code><em>n</em></code> is a positive integer. Matches at least <code><em>n</em></code> occurrences of the preceding item <em>x</em>.</p>
+
+    <p>For example, <code>/a{2,}/</code> doesn't match the "a" in "candy", but matches all of the a's in "caandy" and in "caaaaaaandy".</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code><em>x</em>{<em>n</em>,<em>m</em>}</code></td>
+   <td>
+    <p>Where <code><em>n</em></code> and <code><em>m</em></code> are positive integers. Matches at least <code><em>n</em></code> and at most <code><em>m</em></code> occurrences of the preceding item <em>x</em>.</p>
+
+    <p>For example, <code>/a{1,3}/</code> matches nothing in "cndy", the "a" in "candy", the two "a"'s in "caandy", and the first three "a"'s in "caaaaaaandy". Notice that when matching "caaaaaaandy", the match is "aaa", even though the original string had more "a"'s in it.</p>
+   </td>
+  </tr>
+ </tbody>
+ <tbody>
+  <tr id="assertions">
+   <th colspan="2">Assertions</th>
+  </tr>
+  <tr>
+   <th>Character</th>
+   <th>Meaning</th>
+  </tr>
+  <tr>
+   <td><code><em>x</em>(?=<em>y</em>)</code></td>
+   <td>
+    <p>Matches <code><em>x</em></code> only if <code><em>x</em></code> is followed by <code><em>y</em></code>.</p>
+
+    <p>For example, /<code>Jack(?=Sprat)/</code> matches "Jack" only if it is followed by "Sprat".<br>
+     <code>/Jack(?=Sprat|Frost)/</code> matches "Jack" only if it is followed by "Sprat" or "Frost". However, neither "Sprat" nor "Frost" is part of the match results.</p>
+   </td>
+  </tr>
+  <tr>
+   <td><code><em>x</em>(?!<em>y</em>)</code></td>
+   <td>
+    <p>Matches <code><em>x</em></code> only if <code><em>x</em></code> is not followed by <code><em>y</em></code>.</p>
+
+    <p>For example, <code>/\d+(?!\.)/</code> matches a number only if it is not followed by a decimal point.<br>
+     <code>/\d+(?!\.)/.exec('3.141')</code> matches "141" but not "3.141".</p>
+   </td>
+  </tr>
+ </tbody>
+</table>
+</body>
+</html>

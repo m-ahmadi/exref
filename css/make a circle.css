@@ -1,0 +1,68 @@
+/**************************************************************************************************
+	Set the same value for width, height and line-height (to center the text vertically).
+	Use half of that value for border radius.
+	Static size.
+*/
+div {
+	height: 60px;
+	width: 60px;
+	line-height: 60px;
+	border-radius: 30px;
+
+}
+
+/*	another example:	*/
+span {
+	display: block;
+	height: 60px;
+	width: 60px;
+	line-height: 60px;
+	border-radius: 30px;
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-size: 2em;
+}
+/**************************************************************************************************
+	Resize with content (doesn't always make a cricle, an oval most the time instead):
+*/
+div {
+	padding: 15px;
+	line-height: 100%;
+	border-radius: 50%;
+}
+
+/*	another example:	*/
+span {
+	display: inline-block;
+	padding: 15px;
+	line-height: 100%;
+
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+
+	background-color: black;
+	color: white;
+	text-align: center;
+	font-size: 2em;
+}
+/**************************************************************************************************
+	Resize with content (and always make a circle, but very modern and only IE11+)
+*/
+div {
+	display: inline-flex;		/* IE11+ */
+	align-items: center;		/* IE11+ */
+	justify-content: center;	/* IE11+ */
+	background-color: #555;
+	color: yellow;
+	min-width: 1em;
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+div:before {
+	content:'';
+	float: left;
+	width: auto;
+	padding-bottom: 100%;
+}

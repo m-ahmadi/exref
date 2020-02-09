@@ -1,0 +1,174 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<style>svg{width:200; height:100;}
+h2,h3{margin:20px 0 5px;}
+.x{marker-start:url(#start); marker-mid:url(#mid); marker-end:url(#end);}
+.r1{width:3; height:3; fill:rgba(255,0,0,0.7);}
+text{font-size:1.6px}
+text.lg{font-size:16px}</style>
+
+<h2><pre>&lt;marker
+  refX=0 refY=0
+  markerWidth=3 markerHeight=3
+  orient=auto|n
+  markerUnits=strokeWidth|userSpaceOnUse
+  viewbox=
+&gt;&lt;/marker&gt;</pre></h2>
+
+<h3><pre>note:
+&lt;marker&gt always inside &lt;defs&gt
+marker-start/mid/end are css props
+&lt;path&gt &lt;line&gt &lt;polyline&gt &lt;polygon&gt can use &lt;marker&gt
+</pre></h3>
+
+<h3>marker width and height (default: 3)</h3>
+<svg viewbox=20,45,10,10>
+	<defs>
+		<marker id=a><rect width=1 height=1 fill=red /></marker>
+	</defs>
+	<path d="M20,50 l40,0" marker-start=url(#a) fill=none stroke=black />
+	<text x=16 y=47>rect width=1 height=1</text>
+</svg>
+
+<svg viewbox=20,45,10,10>
+	<defs>
+		<marker id=a1><rect width=2 height=2 fill=red /></marker>
+	</defs>
+	<path d="M20,50 l40,0" marker-start=url(#a1) fill=none stroke=black />
+	<text x=16 y=47>rect width=2 height=2</text>
+</svg>
+
+<svg viewbox=20,45,10,10>
+	<defs>
+		<marker id=a2><rect width=3 height=3 fill=red /></marker>
+	</defs>
+	<path d="M20,50 l40,0" marker-start=url(#a2) fill=none stroke=black />
+	<text x=16 y=47>rect width=3 height=3</text>
+</svg>
+
+<svg viewbox=20,45,10,10>
+	<defs>
+		<marker id=a3><rect width=4 height=4 fill=red /></marker>
+	</defs>
+	<path d="M20,50 l40,0" marker-start=url(#a3) fill=none stroke=black />
+	<text x=16 y=47>rect width=4 height=4</text>
+</svg>
+
+<h3>refX</h3>
+<svg viewbox=20,45,10,10>
+	<defs><marker id=b><rect class=r1 /></marker></defs>
+	<path d="M20,50 l40,0" marker-start=url(#b) fill=none stroke=black />
+	<text x=16 y=47>refX=0</text>
+</svg>
+
+<svg viewbox=20,45,10,10>
+	<defs><marker id=b1 refX=4><rect class=r1 /></marker></defs>
+	<path d="M20,50 l40,0" marker-start=url(#b1) fill=none stroke=black />
+	<text x=16 y=47>refX=4</text>
+</svg>
+
+<svg viewbox=20,45,10,10>
+	<defs><marker id=b2 refX=-4><rect class=r1 /></marker></defs>
+	<path d="M20,50 l40,0" marker-start=url(#b2) fill=none stroke=black />
+	<text x=16 y=47>refX= -4</text>
+</svg>
+
+<h3>refY</h3>
+<svg viewbox=20,45,10,10>
+	<defs><marker id=b3><rect class=r1 /></marker></defs>
+	<path d="M20,50 l40,0" marker-start=url(#b3) fill=none stroke=black />
+	<text x=16 y=47>refY=0</text>
+</svg>
+
+<svg viewbox=20,45,10,10>
+	<defs><marker id=b4 refY=2><rect class=r1 /></marker></defs>
+	<path d="M20,50 l40,0" marker-start=url(#b4) fill=none stroke=black />
+	<text x=16 y=47>refY=2</text>
+</svg>
+
+<svg viewbox=20,45,10,10>
+	<defs><marker id=b5 refY=-2><rect class=r1 /></marker></defs>
+	<path d="M20,50 l40,0" marker-start=url(#b5) fill=none stroke=black />
+	<text x=16 y=47>refY= -2</text>
+</svg>
+
+<h3>markerUnits</h3>
+<svg>
+	<defs>
+		<marker id=c markerWidth=8 markerHeight=8 refX=5 refY=5 >
+			<circle r=3 cx=5 cy=5 fill=red />
+		</marker>
+	</defs>
+	<text x=20 y=20 class=lg>strokeWidth</text>
+	<path d="M20,40 l100,0 " marker-start=url(#c) fill=none stroke=black /><text x=130 y=45 class=lg>1</text>
+	<path d="M20,60 l100,0 " marker-start=url(#c) fill=none stroke=black stroke-width=2  /><text x=130 y=65 class=lg>2</text>
+	<path d="M20,80 l100,0 " marker-start=url(#c) fill=none stroke=black stroke-width=4  /><text x=130 y=85 class=lg>4</text>
+</svg>
+
+<svg>
+	<defs>
+		<marker id=c2 markerUnits=userSpaceOnUse markerWidth=8 markerHeight=8 refX=5 refY=5>
+			<circle r=3 cx=5 cy=5 fill=red />
+		</marker>
+	</defs>
+	<text x=20 y=20 class=lg>userSpaceOnUse</text>
+	<path d="M20,40 l100,0 " marker-start=url(#c2) fill=none stroke=black /><text x=130 y=45 class=lg>1</text>
+	<path d="M20,60 l100,0 " marker-start=url(#c2) fill=none stroke=black stroke-width=2  /><text x=130 y=65 class=lg>2</text>
+	<path d="M20,80 l100,0 " marker-start=url(#c2) fill=none stroke=black stroke-width=4  /><text x=130 y=85 class=lg>4</text>
+</svg>
+
+<h3>`marker-mid` only on paths with 3 points</h3>
+<svg>
+	<defs>
+		<marker id=start markerWidth=11 markerHeight=11 refX=5 refY=5>
+			<circle r=5 cx=5 cy=5 stroke=none fill=green />
+		</marker>
+		<marker id=mid markerWidth=11 markerHeight=11 refX=5 refY=5>
+			<circle r=5 cx=5 cy=5 stroke=none fill=blue />
+		</marker>
+		<marker id=end markerWidth=11 markerHeight=11 refX=5 refY=5>
+			<circle r=5 cx=5 cy=5 stroke=none fill=red />
+		</marker>
+	</defs>
+	<path d="M20,20 l80,0 l0,50 l80,0" class=x stroke=black fill=none />
+</svg>
+
+<svg>
+	<path d="M10,10 l180,80" class=x stroke=black fill=none />
+</svg>
+
+<svg>
+	<path d="M10,50 l90,0 l90,0" class=x stroke=black fill=none />
+</svg>
+
+<svg>
+	<path d="M20,20 l120,0 l-90,50" class=x fill=rgba(0,255,255,0.2) />
+</svg>
+
+<h3>arrow example</h3>
+<svg>
+	<defs>
+		<marker id=head1 markerWidth=2 markerHeight=4 refX=0.1 refY=2>
+			<path d="M0,0 V4 L2,2 Z" fill=red />
+		</marker>
+	</defs>
+	<path d="M10,50 l120,0" marker-end=url(#head1) stroke-width=10 stroke=teal />
+</svg>
+
+<svg>
+	<defs>
+		<marker id=head2 orient=45 markerWidth=2 markerHeight=4 refX=0.1 refY=2>
+			<path d="M0,0 V4 L2,2 Z" fill=red />
+		</marker>
+	</defs>
+	<path d="M10,50 l120,0" marker-end=url(#head2) stroke-width=10 stroke=teal />
+	<text x=10 y=20 class=lg>orient=25</text>
+</svg>
+
+<svg>
+	<defs>
+		<marker id=arrow markerWidth=13 markerHeight=13 refX=2 refY=6 orient=auto>
+			<path d="M2,2 L2,11 L10,6 L2,2" fill=blue />
+		</marker>
+	</defs>
+	<path d="M20,20 l120,0 l0,30" marker-end=url(#arrow) stroke=black fill=none stroke-width=4 />
+</svg>

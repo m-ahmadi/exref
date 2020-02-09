@@ -1,0 +1,5 @@
+Visual C++ 2008 Express
+New Project (Win32 Empty)
+Add New Item (C++ Source File)
+Configuration = Release
+Build Solution (F7)

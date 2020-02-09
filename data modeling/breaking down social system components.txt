@@ -1,0 +1,13 @@
+concepts/entities:
+
+Roles
+	Responsibilites
+	Job Descriptions
+	Communications with other roles
+
+Environment
+Communication Rules between A role and other roles
+Communication Rules between Roles and Environment
+Study and analysis of entities related to the environment (Entities that envrionment is effected by them and the enter-reletaions of them too)
+Study and analysis of entities related to the Roles
+Cost of storage and processing energy (eg:in milliseconds/seconds or qualitative units)

@@ -1,0 +1,12 @@
+git clone https://github.com/gilbitron/Raneto.git
+cd Raneto
+npm install
+npm run gulp
+npm run start_win
+
+---------------------------------------------------------------------
+npm install raneto -g
+
+this does not work on its own
+
+you have to clone the repo anyway

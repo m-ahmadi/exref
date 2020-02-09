@@ -1,0 +1,32 @@
+Stream Compatibility : Standard	(causes audio/video sync warning during upload)
+Stream Compatibility : iPod	(smooth upload)
+
+Qualities at the final youtube video (144, 240, 360, 480, 720, 1080) depends on:  
+Resolution of the video
+Bitrate of the video
+It depends on the combination of these two not just one of them.
+
+
+
+
+
+
+
+Video codec
+	H.264
+	Progressive scan (no interlacing)
+	High Profile
+Bitrate
+	fps:  (24 25 30)  (48 50 60)
+	1080	 8	      12
+	720	 5	      7.5
+	480	 2.5	      4
+	360	 1	      1.5
+Resolution
+	2160 : 3840 x 2160
+	1440 : 2560 x 1440
+	1080 : 1920 x 1080
+	720  : 1280 x 720
+	480  : 854  x 480
+	360  : 640  x 360
+	240  : 426  x 240

@@ -1,0 +1,27 @@
+10s + 15s;   // 25s
+1in - 10px;  // 0.8958333333in
+5px * 3px;   // 15px*px
+(12px/4px);  // 3
+1in % 9px;   // 0.0625in
+100px + 50;  // 150px
+4s * 10;     // 40s
+100px + 10s; // Error: Incompatible units px and s.
+
+// unary
++(5s + 7s);     // 12s
+-(50px + 30px); // -80px
+-(10px - 15px); // 5px
+
+// slash separated values
+15px / 30px;                 // 15px/30px
+(10px + 5px) / 30px;         // 0.5
+#{10px + 5px} / 30px;        // 15px/30px
+$result: 15px / 30px;
+$result;                     // 0.5
+@function fn() {
+	@return 15px / 30px;
+}
+fn();                        // 0.5
+(15px/30px);                 // 0.5
+(bold 15px/30px sans-serif); // bold 15px/30px sans-serif
+15px/30px + 1;               // 1.5

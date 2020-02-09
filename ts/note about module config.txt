@@ -1,0 +1,18 @@
+Cannot use imports, exports, or module augmentations when '--module' is 'none'.
+
+
+If we are compiling down to the "CommonJS" module format,
+(default value for "module" in "compilerOptions" is: target === "ES6" ? "ES6" : "CommonJS")
+tsconfig.json
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+  }
+}
+
+
+That means TypeScript compiler generates require function calls for us,
+and it is our responsibility to provide a CommonJS loader.
+
+We can use Browserify or Webpack.
+Webpack is very often used together with typescript.

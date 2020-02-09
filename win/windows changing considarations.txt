@@ -1,0 +1,31 @@
+apps installed in C:\ (plus full check)
+idm download list
+bittorrent download list
+desktop shortcuts (desktop restore layout file: .dtr)
+chrome extensions
+sleeping sch-tasks
+*broken shortcut task
+
+quick access & start shortcuts
+npm ls -g --depth 0
+%userprofile%\.gitconfig
+%userprofile%\.npmrc
+notepad++ plugins, userDefinedLang, ...
+vscode settings, keybindings, extensions
+playlists.wpl
+logitech mouse config
+
+optional
+powercfg /export %home%\mypowerplan.pow <GUID>
+export HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+then import folders.reg
+-------------------------------------------------------------------------------
+new install:
+control folders, taskbar, disable realtime protec, power options, ...
+chrome winrar idm vpn
+drivers ses lgs
+deskrestore
+vscode npp 7z curl apache node yarn
+cmder .gitconfig .npmrc git-ssh-key
+npm i -g
+-------------------------------------------------------------------------------

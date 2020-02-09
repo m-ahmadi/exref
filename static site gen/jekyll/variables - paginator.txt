@@ -1,0 +1,19 @@
+paginator.<variable_name>
+
+page			The number of the current page
+
+per_page		Number of posts per page
+
+posts			Posts available for the current page
+
+total_posts		Total number of posts
+
+total_pages		Total number of pages
+
+previous_page		The number of the previous page, or nil if no previous page exists
+
+previous_page_path	The path to the previous page, or nil if no previous page exists
+
+next_page		The number of the next page, or nil if no subsequent page exists
+
+next_page_path		The path to the next page, or nil if no subsequent page exists

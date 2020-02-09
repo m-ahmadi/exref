@@ -1,0 +1,5 @@
+Since I tried to buy graphics card, I realized that all graphics cards,
+have a limit to the resolution they support on each of their output ports.
+So a VGA card can support up to 1980x1200 on its DVI-port but,
+it cannot support any resolution higher than 1280x1200 on its VGA-port.
+This is just my guess.

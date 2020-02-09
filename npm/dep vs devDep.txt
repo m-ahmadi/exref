@@ -1,0 +1,41 @@
+if you npm install in root of a package:
+	deps and devDeps both will be installed.
+
+if you npm install a package from either npm, git-url or a folder:
+	only deps will be installed.
+
+-----------------------------------------------------------------------------------------------------------------------
+devDependencies
+
+if someone is planning on downloading and using your module in their program,
+then they probably don't want or need to download and build
+the external test or documentation framework that you use.
+
+in this case, it's best to map these additional items in devDependencies.
+
+they are installed only when doing npm link or npm install from root of a package,
+and can be managed like any other npm configuration param.
+
+
+use-case example:
+
+compiling typescript to js before publish
+
+use prepare script and make the required package a devDependency
+prepare script is run before publishing,
+so that users can consume the functionality without requiring them to compile it themselves.
+in dev mode (locally running npm install), it'll run this script as well, so that you can test it easily.
+
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js"
+  "devDependencies": {
+    "typescript": "latest"
+  },
+  "scripts": {
+    "prepare": "tsc -p ./src --outDir ./dist"
+  },
+  
+}
+-----------------------------------------------------------------------------------------------------------------------

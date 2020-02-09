@@ -1,0 +1,28 @@
+﻿npm install -g sass			install
+sass in.scss:out.css			basic
+sass in.scss > out.scss			...
+sass in.scss out.css			...
+sass in.scss				outputs to screen
+sass --stdin				read stdin as input
+sass in_dir/:out_dir			compile directory
+sass in.scss:out.css --watch		watch
+sass in.scss > out.css --update		only compile out-of-date files
+sass in.scss:out.css -s			output style: options: expanded(default)|compressed
+echo $x:red;a{color:$x} | sass --stdin	...
+
+------------------------------------------------------------------------------------
+ruby sass (deprecated)
+
+install ruby
+chcp 1252
+gem install sass
+===========================================
+Could not find a valid gem Error:
+
+gem source -a http://rubygems.org/
+gem install sass
+===========================================
+uninstall
+
+gem uninstall sass
+------------------------------------------------------------------------------------

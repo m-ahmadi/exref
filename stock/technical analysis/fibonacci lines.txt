@@ -1,0 +1,5 @@
+
+fibonacci lines are
+	drawn in the same fashion as the speed resistance lines.
+	drawn at 38% and 62% angles.
+	used in the same way as speed resistance lines.

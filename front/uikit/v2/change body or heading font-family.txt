@@ -1,0 +1,9 @@
+In order to change the font to a farsi font, you have to edit the uikit.css
+There's two font stacks in the css files:
+	"Helvetica Neue", Helvetica, Arial, sans-serif
+	Consolas, monospace, serif
+
+-------------------------------------------------------------------------------
+
+For english fonts, you can do it through the customizer,
+but you're limited to a couple of fonts.

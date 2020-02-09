@@ -1,0 +1,18 @@
+random(11)     // starts at 1 instead of 0?
+random(11) + 4 // between 5 to 15
+
+abs($num)
+ceil($num)
+compatible($num1, $num2) // => bool
+floor($num)
+max($nums...)
+min($nums...)
+percentage($num)
+random($limit: null)
+round($num)
+unit($num)
+is-unitless($num) => bool
+
+// decimal place
+round(1.1234 * 1000) / 1000; // 1.123
+round(1.1235 * 1000) / 1000; // 1.124

@@ -1,0 +1,77 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<style>svg{width:200; height:200;}</style>
+
+<h2><pre>
+&lt;set to= [all_ani_attrs] /&gt;
+&lt;animate [all_ani_attrs] /&gt;
+&lt;animateMotion keyPoints= path= rotate= [all_ani_attrs] /&gt;
+&lt;animateTransform by= from= to=
+  type=translate|scale|rotate|skewX|skewY /&gt;
+
+all animation attrs:
+timing:  begin, dur, end, min, max, restart, repeatCount, repeatDur, fill
+value:   calcMode=paced|linear|spline, values, keyTimes, keySplines, from, to, by
+other:   attributeName, additive, accumulate
+event:   onbegin, onend, onrepeat
+
+time units: h|min|s|ms</pre></h2>
+
+<svg>
+	<rect x=50 y=50 height=110 width=110 stroke=red fill=blue>
+		<animateTransform
+			attributeName=transform
+			begin=0s
+			dur=2s
+			type=rotate
+			from=0,60,60
+			to=360,60,60
+			repeatCount=indefinite
+		/>
+	</rect>
+	<text x=10 y=20>animateTransform</text>
+</svg>
+
+<svg>
+	<rect x=20 y=20 width=100 height=40
+		stroke=magenta fill=none stroke-width=4 >
+		<animateTransform
+			attributeName=transform
+			type=rotate
+			from=0,100,100 to=360,100,100
+			begin=0s dur=10s
+			repeatCount=indefinite
+		/>
+	</rect>
+	<text x=10 y=150>animateTransform</text>
+</svg>
+
+<svg>
+	<circle cx=50 cy=50 r=25 fill=cyan>
+		<set attributeName=r attributeType=XML
+			to=50
+			begin=2s
+		/>
+	</circle>
+	<text x=10 y=150>set</text>
+</svg>
+
+<svg>
+	<circle r=25 cx=30 cy=30 fill=red>
+		<animate attributeName=cx attributeType=XML
+			from=10  to=200
+			begin=0s dur=2s
+			fill=remove repeatCount=indefinite
+		/>
+	</circle>
+	<text x=10 y=150>animate</text>
+</svg>
+
+<svg>
+	<rect width=50 height=50 stroke=purple stroke-width=8 fill=yellow>
+		<animateMotion
+			path="M10,50 q60,50 70,0 q60,-50 70,0"
+			begin=0s dur=2s repeatCount=indefinite
+		/>
+	</rect>
+	<text x=10 y=150>animateMotion</text>
+</svg>

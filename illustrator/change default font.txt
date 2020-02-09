@@ -1,0 +1,23 @@
+File -> Open
+
+%appdata%\Adobe\Adobe Illustrator 23 Settings\en_US\x64\New Document Profiles
+
+open Web.ai file (or the one you want)
+
+Window -> Type -> Character Styles
+
+double-click [Normal Character Style]
+
+in "Character Style Options"
+
+Basic Character Formats
+
+Font Family
+
+Ok
+
+File -> Save As
+File name: Web.ai
+Save
+
+done.

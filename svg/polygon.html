@@ -1,0 +1,32 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<style>svg{width:400; height:300;}.s{width:200; height:150;}
+.x{fill:lime; stroke:purple; stroke-width:1}
+.y{stroke-width:5}</style>
+
+<h1><pre>&lt;polygon *points="x,y x,y ..." fill-rule= /&gt;</pre></h1>
+
+<svg>
+  <polygon points="200,10 250,190 160,210" class=x />
+</svg>
+
+<svg>
+  <polygon points="220,10 300,210 170,250 123,234" class=x />
+</svg>
+
+<svg>
+  <polygon points="100,10 40,198 190,78 10,78 160,198"
+  class="x y" fill-rule=nonzero />
+</svg>
+
+<svg>
+  <polygon points="100,10 40,198 190,78 10,78 160,198"
+  class="x y" fill-rule=evenodd />
+</svg>
+
+<svg class=s>
+	<polygon points="10,10 60,10 35,60" fill=red />
+</svg>
+
+<svg class=s>
+	<polygon points="50,5 100,5 125,30 125,80 100,105 50,105 25,80 25,30" fill=red stroke-width=3 />
+</svg>

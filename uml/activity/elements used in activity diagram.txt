@@ -1,0 +1,11 @@
+an activity is a function performed by the system.
+
+identifying the activities and,
+their association with constraints and conditions
+
+before drawing an activity diagram, we should identify the following elements:
+
+activities
+association
+conditions
+constraints

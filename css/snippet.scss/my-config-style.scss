@@ -1,0 +1,16 @@
+@import 'mixins';
+@include font-face('Yekan', 'BYekan');
+$font-stack: 'Yekan', tahoma, Arial, Helvetica, sans-serif;
+@import 'box-sizing';
+@import 'placeholder';
+body {
+	width: 960px;
+	direction: rtl;
+	font-family: $font-stack;
+	margin: 0 auto;
+}
+@import 'header-footer';
+.contents {
+	width: 100%;
+	background: #e8e8e8;
+}

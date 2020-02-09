@@ -1,0 +1,45 @@
+Communication between servers and clients happens with,
+formatted blocks of data called HTTP messages. (request & response)
+
+structure of HTTP request and response messages:
+
+HTTP messages are simple, line-oriented sequences of characters.
+
+Because they are plain text, not binary, they are easy for humans to read and write.
+
+
+request  messages		Messages sent from   clients   to   servers
+response messages		Messages sent from   servers   to   clients
+
+There are no other kinds of HTTP messages.
+
+
+HTTP messages consist of three parts:
+Start line
+	The first line of the message is the start line,
+	indicating what to do for a request or what happened for a response.
+
+Header fields
+	Zero or more header fields follow the start line.
+	Each header field consists of a name and a value,
+	separated by a colon (:) for easy parsing.
+	The headers end with a blank line.
+
+Body
+	After the blank line is an optional message body containing any kind of data.
+	Request bodies carry data to web server;
+	response bodies carry data back to client.
+	Unlike the start lines and headers, which are textual and structured,
+	the body can contain arbitrary binary data (e.g., images, videos, audio tracks,
+	software applications). Of course, the body can also contain text.
+
+
+GET /test/hi-there.txt HTTP/1.0		Start line
+Accept: text/*				Headers
+Accept-Language: en,fr
+
+HTTP/1.0 200 OK				Start line
+Content-type: text/plain		Headers
+Content-length: 19
+
+Hi! I’m a message!			Body

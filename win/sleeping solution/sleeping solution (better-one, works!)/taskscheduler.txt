@@ -1,0 +1,34 @@
+﻿copy (every 15 minutes)
+	One time
+	Start a program
+	Program/script:     %comspec%
+	Add arguments:      /c type 100.txt >> file.txt
+	Start in:           I:\sleep
+	Repeat task every:  15 minutes
+        for a duration of:  Indefinitely
+	User account:       SYSTEM
+
+delete (every 1 hour)
+	One time
+	Start a program
+	Program/script:     %comspec%
+	Add arguments:      /c call > file.txt
+	Start in:           I:\sleep
+	Repeat task every:  1 hour
+        for a duration of:  Indefinitely
+	User account:       SYSTEM
+
+init:
+copy 0 5 10
+del  1 6 11
+-------------------------------------------------------------------------------
+alt (didn't work)
+read (every 5 minutes)
+	One time
+	Start a program
+	Program/script:     %comspec%
+	Add arguments:      /c type 100.txt
+	Start in:           I:\sleep
+	Repeat task every:  5 minutes
+        for a duration of:  Indefinitely
+	User account:       SYSTEM

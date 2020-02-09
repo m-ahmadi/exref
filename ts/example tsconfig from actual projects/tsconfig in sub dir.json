@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es3",
+    "module": "amd",
+    "moduleResolution": "classic",
+    "noImplicitAny": false,
+    // "noEmitOnError": true,
+    // "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": false,
+    "baseUrl": "./",
+    "rootDir": "./",
+    "outDir": "../../dist/js/",
+    "strict": true
+  },
+  "include": [
+    "./**/*"
+  ],
+  "exclude": [
+    "**/@*.ts"
+  ]
+}

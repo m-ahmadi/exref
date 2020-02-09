@@ -1,0 +1,33 @@
+% vs %%
+
+you must double the % for some commands in .bat files.
+------------------------------------------------------------------------------------------------------------------------
+.bat vs .cmd
+% in .cmd, but %% in .bat
+
+PATH/APPEND/PROMPT/SET/ASSOC commands set ERRORLEVEL differently in .cmd and .bat files. (with extensions enabled)
+
+with these commands:
+.bat files set ERRORLEVEL only on error. (think like: once error is set, it will never be unset again in a pipeline of .bat files)
+.cmd files set ERRORLEVEL on error and success.
+
+
+example:
+
+echo %errorlevel%	1
+test.bat		contains successful commands
+echo %errorlevel%	1
+
+echo %errorlevel%	1
+test.cmd		contains successful commands
+echo %errorlevel%	0
+
+precedence
+.bat files are run before .cmd files, because in PATHEXT variable .bat is placed before .cmd
+eg:
+
+dir
+  test.bat
+  test.cmd
+test (runs test.bat)
+------------------------------------------------------------------------------------------------------------------------

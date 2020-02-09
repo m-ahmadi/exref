@@ -1,0 +1,26 @@
+write the command output to a file first, and delete the file afterward.
+
+echo salam > file.txt
+set /p VARNAME=<file.txt		if file.txt contains: hello
+del file.txt
+echo %VARNAME%				outputs: hello
+
+note:
+no space between VARNAME and =
+all the following examples won't work:
+
+set /p VARNAME = < file.txt
+set /p VARNAME =< file.txt
+set /p VARNAME = <file.txt
+set /p VARNAME =<file.txt
+------------------------------------------------------------------------------------
+with for command
+
+for /f "tokens=*" %v IN ('echo hello') do set foo=%v
+or
+for /f "tokens=* USEBACKQ" %v IN (`echo hello`) do (set foo=%v)
+or
+for /f "delims=" %v in ('echo hello') do set foo=%v
+
+echo %foo%
+------------------------------------------------------------------------------------

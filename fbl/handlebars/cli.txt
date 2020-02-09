@@ -1,0 +1,42 @@
+handlebars file.handlebars -f output.js				basic using -f flag. after output.js is executed on a page, template goes in: Handlebars.templates.file()
+handlebars file.handlebars > output.js				basic using redirect operator
+handlebars folder/ > folder/templates.js			precompile a directory
+handlebars tempsDir/ > templates.js -a -e hbs			.hbs, amd
+handlebars tempsDir/ > templates.js -e hbs -m			.hbs, minified
+handlebars mypartial.handlebars -f partials.js -p		precompile partials
+handlebars <input> -f <output> -k each -k if -k unless		optimize with only the specified helpers
+handlebars <input> -f <output> --knownOnly			optimize with all known helpers
+handlebars *.handlebars -f templates.js				using glob in input
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+options:
+-f, --output		Output File
+    --map		Source Map File. string. default: undefined
+-a, --amd		Exports amd style (require.js)
+-c, --commonjs		Exports CommonJS style, path to Handlebars module. default: null
+-h, --handlebarPath	Path to handlebar.js (only valid for amd-style). default: ""
+-k, --known		Known helpers
+-o, --knownOnly		Known helpers only
+-m, --min		Minimize output
+-n, --namespace		Template namespace. default: Handlebars.templates
+-s, --simple		Output template function only.
+
+-N, --name		Name of passed string templates (when using -i). Optional if running in a simple mode. Required when operating on multiple templates.
+-i, --string		Generates a template from the passed CLI argument. "-" is treated as a special value and causes stdin to be read for the template value.
+
+-r, --root		Template root. Base value that will be stripped from template names.
+-p, --partial		Compiling a partial template
+-d, --data		Include data when compiling
+-e, --extension		Template extension. default: handlebars
+-b, --bom		Removes the BOM (Byte Order Mark) from the beginning of the templates.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+.handlebars vs .hbs
+when precompiling an entire directory,
+handlebars cli by default recognizes .handlebars extension,
+and if you use .hbs or any other ext,
+you must tell the cli to look for another extension with:
+
+handlebars dir/ -f output.js -e hbs
+
+other than that, the extension doesn't matter, and it can be anything.
+(when precompiling a single file, the ext doesn't matter)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,155 @@
+@mixin font-face($alies, $filename) {
+	@font-face {
+		font-family: $alies;
+		src: url('../fonts/'+ $filename +'.eot');
+		src: url('../fonts/'+ $filename +'.eot?#iefix')  format('embedded-opentype'),
+			 url('../fonts/'+ $filename +'.woff2')         format('woff2'),
+			 url('../fonts/'+ $filename +'.woff')          format('woff'),
+			 url('../fonts/'+ $filename +'.ttf')           format('truetype'),
+			 url('../fonts/'+ $filename +'.svg#' + $alies) format('svg');
+		font-weight: normal;
+		font-style: normal;
+	}
+}
+@mixin gradient($colors) { // diagonal
+	$first: nth( nth($colors, 1), 1 );
+	$last: nth( nth( $colors, length($colors) ), 1 );
+	
+	background: $first;
+	background: -moz-linear-gradient(-45deg, $colors);
+	background: -webkit-linear-gradient(-45deg,  $colors);
+	background: linear-gradient(135deg, $colors);
+	filter: unquote("progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$first}', endColorstr='#{$last}', GradientType=1 )");
+}
+@mixin box-sizing($v) {
+	-webkit-box-sizing: $v;
+	-moz-box-sizing: $v;
+	-o-box-sizing: $v;
+	-ms-box-sizing: $v;
+	box-sizing: $v;
+}
+@mixin box-shadow($v) {
+	-webkit-box-shadow: $v;
+	-moz-box-shadow: $v;
+	-o-box-shadow: $v;
+	-ms-box-shadow: $v;
+	box-shadow: $v;
+}
+@mixin border-radius($v) {
+	-webkit-border-radius: $v;
+	-moz-border-radius: $v;
+	-o-border-radius: $v;
+	-ms-border-radius: $v;
+	border-radius: $v;
+}
+@mixin transition($v) {
+	-webkit-transition: $v;
+	-moz-transition: $v;
+	-o-transition: $v;
+	-ms-transition: $v;
+	transition: $v;
+}
+@mixin transition-duration($v) {
+	-webkit-transition-duration: $v;
+	-moz-transition-duration: $v;
+	-o-transition-duration: $v;
+	-ms-transition-duration: $v;
+	transition-duration: $v;
+}
+@mixin transition-timing-function($v) {
+	-webkit-transition-timing-function: $v;
+	-moz-transition-timing-function: $v;
+	-o-transition-timing-function: $v;
+	-ms-transition-timing-function: $v;
+	transition-timing-function: $v;
+}
+@mixin transform($v) {
+	-webkit-transform: $v;
+	-moz-transform: $v;
+	-o-transform: $v;
+	-ms-transform: $v;
+	transform: $v;
+}
+@mixin animation-delay($v){
+	-webkit-animation-delay: $v;
+	-moz-animation-delay: $v;
+	-o-animation-delay: $v;
+	-ms-animation-delay: $v;
+	animation-delay: $v;
+}
+@mixin animation-duration($v){
+	-webkit-animation-duration: $v;
+	-moz-animation-duration: $v;
+	-o-animation-duration: $v;
+	-ms-animation-duration: $v;
+	animation-duration: $v;
+}
+
+
+
+
+
+@mixin keyframes($v) {
+	@-webkit-keyframes #{$v} {
+		@content
+	}
+	@-moz-keyframes #{$v} {
+		@content
+	}
+	@-o-keyframes #{$v} {
+		@content
+	}
+	@-ms-keyframes #{$v} {
+		@content
+	}
+	@keyframes #{$v} {
+		@content
+	}
+}
+@mixin appearance($v) {
+	-webkit-appearance: $v;
+	-moz-appearance: $v;
+	-o-appearance: $v;
+	-ms-appearance: $v;
+	appearance: $v;
+}
+@mixin height_media_queries($unit, $a...) {
+	$heights: 600 640 720 768 800 864 900 960 1024 1050 1080 1200 1440;
+	$itm1: nth($a, 1);
+	$p1: nth($itm1, 1);
+	$p1-starting-val: nth($itm1, 2);
+	$p1-to-add: $p1-starting-val;
+	$p1-list: $p1-starting-val;
+	
+	$itm2: nth($a, 2);
+	$p2: nth($itm2, 1);
+	$p2-starting-val: nth($itm2, 2);
+	$p2-to-add: $p2-starting-val;
+	$p2-list: $p2-starting-val;
+	
+	@for $i from 1 through length($heights) {
+		$current: nth($heights, $i);
+		@if $i < length($heights) {
+			$next: nth($heights, $i + 1);
+			$result: $next - $current;
+			$p1-to-add: $p1-to-add + $result / 2;
+			$p2-to-add: $p2-to-add + $result / 2;
+			$p1-list:append( $p1-list, $p1-to-add);
+			$p2-list:append( $p2-list, $p2-to-add);
+		} @else {							// last item
+			$prev: nth($heights, $i - 1);
+			$result: $current - $prev;
+			$p1-to-add: $p1-to-add + $result / 2;
+			$p2-to-add: $p2-to-add + $result / 2;
+			$p1-list:append( $p1-list, $p1-to-add);
+			$p2-list:append( $p2-list, $p2-to-add);
+		}
+	}
+	
+	@for $i from 1 through length($heights) {
+		@media screen and ( min-height: #{nth($heights, $i) + $unit} ) {
+			#{$p1}: #{nth($p1-list, $i) + $unit};
+			#{$p2}: #{nth($p2-list, $i) + $unit};
+		}
+	}
+}
