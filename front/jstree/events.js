@@ -1,5 +1,5 @@
 $('#el').on('event.namespace', function (e, data) {
-	data//Object {node: Object, selected: Array[1], event: n.Event, instance: a.j…
+	data // {node: {}, selected: [], ...}
 })
 
 $('#el').on('changed.jstree', function (e, data) {

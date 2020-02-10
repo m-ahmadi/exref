@@ -6,6 +6,7 @@ rni a.txt -NewName b.txt           # rename file
 ri foo.txt                         # delete file
 ri 'f o'                           # delete dir
 mi a.txt -Destination E:\          # move file or dir
+mi a.txt,b.txt -D E:\              # ... multiple
 cpi C:\file.txt -Destination E:\   # copy file
 cpi C:\foo -D E:\ -Recurse         # copy dir and everything inside
 

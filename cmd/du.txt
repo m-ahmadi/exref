@@ -1,0 +1,8 @@
+du mydir		show dir size
+du .			current dir
+du /q			same as above
+du . /l 2		2 level of subdir depth
+du . /nobanner		don't show banner
+
+one-liner install
+powershell -C "mkdir tmp;cd tmp;Invoke-WebRequest https://download.sysinternals.com/files/DU.zip -O x.zip;Expand-Archive x.zip -D .;mi du.exe,du64.exe -D $Env:windir;cd ../;ri tmp -R;"

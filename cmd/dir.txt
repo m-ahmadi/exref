@@ -7,3 +7,4 @@ dir /a:d		only files with specified attributes. d: dir, h: hidden, r: readonly, 
 dir /a:-d 		only files
 dir /a:d /b		only dirs
 dir ..\ /p		pause on screen end
+dir /a /s		everything. any sys,hidden,... file in all dirs
