@@ -1,12 +1,12 @@
 /*
-	Steps:
+	steps:
 	
-	Create a renderer
-	Append renderer to document
-	Create a stage
-	Load images into texture cache
-	Add sprite to stage						stage.addChild(sprite)	
-	Tell renderer to render					renderer.render(stage)
+	create a renderer
+	append renderer to document
+	create a stage
+	load images into texture cache
+	add sprite to stage             stage.addChild(sprite)	
+	tell renderer to render         renderer.render(stage)
 	
-	You won't see the sprite or the shape until you add it to the stage.
+	you won't see the sprite or the shape until you add it to the stage.
 */

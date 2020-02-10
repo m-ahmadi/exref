@@ -5,14 +5,23 @@ var fp = require('lodash/fp')   // fp build for immutable auto-curried iteratee-
  
 // only a method category
 var array    = require('lodash/array')
-var string   = require('lodash/string')
+var str      = require('lodash/string')
 var object   = require('lodash/object')
+var func     = require('lodash/function')
 var fpObject = require('lodash/fp/object')
  
 // only a method
 var isStr = require('lodash/isString')
 var isNum = require('lodash/isNumber')
-var isArr = require('lodash/isArray')
+var isObject = require('lodash/isobject')
+var debounce = require('lodash/debounce')
 
 var at = require('lodash/at')
 var curryN = require('lodash/fp/curryN')
+
+// separate packages
+var isObject = require('lodash.isobject')
+var debounce = require('lodash.debounce')
+
+// one-liner convert (assuming -g browserify)
+// mkdir tmp && cd tmp && npm i lodash.debounce && path=%path%;.\node_modules\.bin && echo module.exports = require('lodash.debounce'); > x.js && browserify x.js -o ../lodash.debounce.js -s _debounce && del x.js && cd ../ && rmdir tmp /s /q
