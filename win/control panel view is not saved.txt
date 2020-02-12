@@ -1,0 +1,16 @@
+set key=HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer	(or HKLM)
+reg add %key% /v ForceClassicControlPanel /t REG_DWORD /d 1
+
+undo
+reg delete %key% /f
+
+ForceClassicControlPanel
+	0	force category view
+	1	force icon view
+	-	restore default view
+-------------------------------------------------------------------------------
+another way
+
+gpedit.msc -> User Configuration -> Administrative Templates -> Control Panel
+	Always open All Control Panel Items when opening Control Panel: Enabled
+-------------------------------------------------------------------------------
