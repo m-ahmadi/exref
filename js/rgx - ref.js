@@ -15,8 +15,9 @@
 'possibly dudlya'      .match(/ly\b/ig)      ['ly']                    // \b    zero-width word boundary
 'at noon ono'          .match(/\bno/ig)      ['no']                    // ...
 'possiblye yesterday'  .match(/ye\B/ig)      ['ye']                    // \B    zero-width non-word boundary
-'abc'                  .replace(/(abc)/, '$1def')     'abcdef'         // ()    capturing group back reference
-'bomb is bomb'         .replace(/(bomb)/g, 'the $1')  'the bomb is the bomb' // ...
+'abc'                .replace(/(abc)/, '$1def') 'abcdef'               // ()    capturing group back reference
+'x x'                .replace(/(x)/g, '$1y')    'xy xy'                // ...
+'x y'                .replace(/(x)y/g, 'L$&')   'Lxy Lxy'              // ... whole match backref
 
 // emulating and
 var str = 'all the leaves are brown and the sky is grey';
@@ -64,10 +65,16 @@ assertion
 x(?=y)    x only if x is followed by y
 x(?!y)    x only if x is not followed by y
 
-capturing groups and back references
-(x)       capturing group. matched substr can be recalled from result array [1],[n] or $1,$9. (numbered from left parentheses, starting from 1)
-\n        back reference to last substr that matched n-th parentheses. (n is a positive integer)
+capturing groups
+(x)       capturing group. recall matched substr from result array [1],[n] or use backrefs.
 (?:x)     non-capturing group. matched substr cann't be recalled.
+
+back references
+$n        nth paren match from left. n = 1,...,100
+$`        portion of the string that precedes the match
+$'        portion of the string that follows the match
+$&        whole match
+\n        alt notation
 
 character set
 []        character set

@@ -33,7 +33,7 @@ quantifiers
 x(?=y)   x only if x is followed by y
 x(?!y)   x only if x is not followed by y
 
-(x)      capturing group. back reference using \n or $1,$9
+(x)      capturing group. back reference using \n or $1,$100|$`|$'|$&
 (?:x)    non-capturing group
 
 flags
