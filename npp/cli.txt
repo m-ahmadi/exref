@@ -30,7 +30,7 @@ ghost typing
 -------------------------------------------------------------------------------
 command setup
 
-echo @"D:\Program Files\Notepad++\notepad++.exe" %* > %windir%\npp.cmd
+echo @"D:\Program Files\Notepad++\notepad++.exe" %* ^& exit > %windir%\npp.cmd
 
 other ways:
 
