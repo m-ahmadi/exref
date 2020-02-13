@@ -65,7 +65,7 @@ table {
 	border-spacing: 0;
 }
 
-/* multiline text in table cell (same as using<pre></pre>) */
+/* multiline text in table cell (same as using <pre></pre>) */
 td {
 	white-space: pre
 }

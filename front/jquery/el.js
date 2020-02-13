@@ -4,6 +4,7 @@ $('body').prepend('<div>')                               // prepend param to sel
 $('<div>').prependTo('body')                             // prepend selected to param (prepend div to body)
 $('p').after('<div>')                                    // insert param after selected (add div after p)
 $('<div>').insertAfter('p')                              // insert selected after param (add div after p)
+$('div').data('val')                                     // reading data-val
 $('div').data().val = 2                                  // changes data prop but not html
 $('div').attr('data-val', 2)                             // changes data prop and html
 $('input').attr('value', 'mohammad')                     // set initial input value

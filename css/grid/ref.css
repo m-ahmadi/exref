@@ -1,0 +1,44 @@
+.grid-container {
+  display: grid | inline-grid;
+	
+	grid-template-columns: none|auto|max-content|min-content|length;
+	grid-template-rows:    none|auto|max-content|min-content|length;
+	grid-template-areas:   none|itemnames;
+	
+	grid-auto-columns:     auto|max-content|min-content|length;
+	grid-auto-flow:        row|column|dense|row dense|column dense;
+	grid-auto-rows:        auto|max-content|min-content|length;
+	
+	grid-row-gap:          number;
+	grid-column-gap:       number;
+	
+	/* shorthands: */
+	grid-gap:      row-gap column-gap;
+	grid-template: none|template-rows / template-columns|template-areas;
+	grid:          template-rows template-columns template-areas auto-rows auto-columns auto-flow;
+	
+	justify-items: stretch|start|end|center;
+	align-items:   ...;
+	place-items:   align-items / justify-items;
+	
+	justify-content:;
+	align-content:;
+	place-content:;
+	
+	minmax() repeat() fit-content()
+}
+
+.grid-container > .grid-item {
+	grid-row-start:    auto|row-line;
+	grid-row-end:      auto|row-line|span n;
+	grid-column-start: auto|span n|column-line;
+	grid-column-end:   auto|span n|column-line;
+	/* shorthands: */
+	grid-row:    grid-row-start / grid-row-end;
+	grid-column: grid-column-start / grid-column-end;
+	grid-area:   grid-row-start grid-column-start grid-row-end grid-column-end;
+	
+	justify-self:;
+	align-self:;
+	place-self:;
+}
