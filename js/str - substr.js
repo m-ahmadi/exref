@@ -3,15 +3,15 @@ str.slice( begin [, end ] ) // use this
 str.substring( from [, to ] )
 str.substr( start [, length ] )
 
-var str = "123456";
-str.slice(2)        "3456"
-str.slice(2, 5)     "345"
+var str = '123456';
+str.slice(2)        '3456'
+str.slice(2, 5)     '345'
 
-str.substring(2)    "3456"
-str.substring(2, 5) "345"
+str.substring(2)    '3456'
+str.substring(2, 5) '345'
 
-str.substr(2)       "3456"
-str.substr(2, 2)    "34"
+str.substr(2)       '3456'
+str.substr(2, 2)    '34'
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // base on string pattern
 str.match(regexp)
@@ -22,9 +22,9 @@ efg,789012
 ijk,345678
 `;
 
-str.match(/abc.*$/m)[0]  "abc,123456"
-str.match(/ijk.*$/m)[0]  "ijk,345678"
-str.match(/34/g)         ["34", "34"]
+str.match(/abc.*$/m)[0]  'abc,123456'
+str.match(/ijk.*$/m)[0]  'ijk,345678'
+str.match(/34/g)         ['34', '34']
 str.match(/v/g)          null
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*

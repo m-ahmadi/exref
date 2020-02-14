@@ -97,6 +97,11 @@ Element.removeAttribute(name)
 Element.hasAttribute(name)
 Element.getAttributeNames()
 Element.closest(selectors)
+element.scrollIntoView(alignToTop|options={
+	behavior: 'auto'|'smooth',
+	block:    'start'|'center'|'end'|'nearest',
+	inline:   'nearest'|'start'|'center'|'end'
+})
 
 abstract NonDocumentTypeChildNode
 NonDocumentTypeChildNode.nextElementSibling

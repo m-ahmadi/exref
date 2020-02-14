@@ -1,5 +1,5 @@
 /*
-	Backslashes automatically get scaped, unsless you scape them with \
+	backslashes automatically get scaped, unsless you scape them with \
 */
-"\asad"	// "asad"
-"\\asad"
+'\asad'	// 'asad'
+'\\asad'

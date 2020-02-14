@@ -9,7 +9,8 @@
 €	&euro;	&#8364;
 ©	&copy;	&#169;
 ®	&reg;	&#174;
-	&nbsp;	&#160; (non-breaking space)
+	&nbsp;	&#160;	(non-breaking space)
+	&zwnj;	&#8204;	(zero-width non-joiner)
 
 letter accents (eg: O&#771;)
 &#768;

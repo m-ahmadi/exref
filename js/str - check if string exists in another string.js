@@ -1,6 +1,6 @@
-var string = "salam olaghe aziz halet chetore";
-var word1 = "chetore";
-var word2 = "/chetore/";
+var string = 'salam olaghe aziz halet chetore';
+var word1 = 'chetore';
+var word2 = '/chetore/';
 var word3 = /chetore/;
 
 // indexOf
