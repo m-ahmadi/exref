@@ -1,6 +1,6 @@
 //	Put "use strict"; at the top of the function.
 //	DO NOT put it at the begining of the entire code.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														First
 	Strict mode makes it impossible to accidentally create global variables.
 	In normal JavaScript mistyping a variable in an assignment:
@@ -10,7 +10,7 @@
 */
 "use strict";
 mistypedVaraible = 17; // Assuming a global variable mistypedVariable exists this line throws a ReferenceError due to the misspelling of variable
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Second
 	Strict mode makes assignments which would otherwise silently fail throw an exception.
 	For example, NaN is a non-writable global variable.
@@ -37,14 +37,14 @@ obj2.x = 5; // throws a TypeError
 var fixed = {};
 Object.preventExtensions(fixed);
 fixed.newProp = "ohai"; // throws a TypeError
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Third
 	Strict mode makes attempts to delete undeletable properties throw
 	(where before the attempt would simply have no effect):
 */
 "use strict";
 delete Object.prototype; // throws a TypeError
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Fourth
 	Strict mode prior to Gecko 34 requires that all properties named in an object literal be unique.
 	Normal code may duplicate property names, with the last one determining the property's value.
@@ -54,7 +54,7 @@ delete Object.prototype; // throws a TypeError
 */
 "use strict";
 var o = { p: 1, p: 2 }; // !!! syntax error
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Fifth
 	Strict mode requires that function parameter names be unique.
 	In normal code the last duplicated argument hides previous identically-named arguments.
@@ -66,7 +66,7 @@ function sum(a, a, c){ // !!! syntax error
 	"use strict";
 	return a + b + c; // wrong if this code ran
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Sixth
 	Strict mode in ECMAScript 5 forbids octal syntax.
 	Octal syntax isn't part of ECMAScript 5,
@@ -85,7 +85,7 @@ var a = 0o10; // ES6: Octal
 var sum = 015 + // !!! syntax error
           197 +
           142;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Seventh
 	Strict mode in ECMAScript 6 forbids setting properties on primitive values.
 	Without strict mode, setting properties is simply ignored (no-op),
@@ -97,7 +97,7 @@ var sum = 015 + // !!! syntax error
 	(14).sailing = "home";     // TypeError
 	"with".you = "far away";   // TypeError
 }());
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Eighth
 	In ECMAScript 5 Strict mode,
 	The context of a contextless function call is not set to the global (window) object. 

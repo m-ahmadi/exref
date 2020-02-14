@@ -9,7 +9,7 @@ map.forEach((value, key, map) => {
 	// value 3    {}  undefined
 });
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var keyString = 'a string';
 var keyObj = {};
 var keyFunc = () => {};
@@ -29,4 +29,4 @@ map.get(keyFunc);      // 'value associated with keyFunc'
 map.get('a string');   // 'value associated with 'a string''      because keyString === 'a string'
 map.get({});           // undefined, because keyObj !== {}
 map.get(function() {}) // undefined, because keyFunc !== function () {}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

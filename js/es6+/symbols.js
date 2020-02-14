@@ -2,7 +2,7 @@ Symbol('foo') === Symbol('foo'); // false
 let sym = new Symbol();          // TypeError: Symbol is not a constructor
 'a' + sym                        // TypeError: Cannot convert a Symbol value to a string
 sym.toString()                   // 'Symbol()'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // private properties of objects
 let x = Symbol('name');
 let o = {};
@@ -23,7 +23,7 @@ j // Object {Symbol(name): 'ali', Symbol(age): 42}
  Object.getOwnPropertySymbols(o) // [Symbol(name), Symbol(age)]
  
 for (let k in o ) { console.log(o[k]) } // undefined
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // global symbol registry
 Symbol.for()    // retrives key, creates if not found
 Symbol.keyFor() // retrives key

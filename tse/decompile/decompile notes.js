@@ -17,7 +17,7 @@ UCStepUpdate.GenerateFiles()
 	FileService.SelectedInstruments()
 	FileService.ClosingPrices()
 	FileService.WriteOutputFile()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // other
 // UC = User Control
 // ~ = %AppData%\TseClient 2.0
@@ -26,7 +26,7 @@ UCStepUpdate.GenerateFiles()
 
 SilentExecuter  // cli update (TseClient fast)
 GenerateFiles() // does the adjusting of prices
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 UCStepIntruments.UpdateInstruments()
 // probably executes when app first starts
 // downloads all instruments and shares and writes them to %appdata%
@@ -44,7 +44,7 @@ foreach (intrument) {
 FileService.WriteInstruments()
 // does the same for shares as well:
 FileService.WriteTseShares()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // FileService and StaticData
 FileService.SelectedInstruments() // reads from "%\TseClient 2.0\Files\SelectedInstruments.csv" and return ['', '', ''] for each line ReadLine().Split(',')[0]
 FileService.WriteSelectedInstruments() // writes to ~\Files\SelectedInstruments.csv (immediately after clicking on a ticker or selecAll etc. used in USInstruments.btnSelect_Click)
@@ -91,4 +91,4 @@ StaticData.ColumnsInfo         = FileService.ColumnsInfo();
 StaticData.Instruments         = FileService.Instruments();
 StaticData.TseShares           = FileService.TseShares();
 StaticData.SelectedInstruments = FileService.SelectedInstruments();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -22,7 +22,7 @@ const data2 = [
 ];
 network.train(data2);
 network.run({ r: 1, g: 0.4, b: 0 });  // { white: 0.81, black: 0.18 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*  
 for training with RNN, LSTM and GRUe, each training pattern (item of data array) can either be:
 	array of values
@@ -36,7 +36,7 @@ const data = [
 	{ input: "string",    output: [0] },
 	{ input: [1,2],       output: "string" },
 ];
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 for training with RNNTimeStep, LSTMTimeStep and GRUTimeStep, each training pattern can either be:
 	an array of numbers

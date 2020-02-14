@@ -12,7 +12,7 @@ notes:
 setTimeout() and setInterval() share the same pool of ids, and can technically be used interchangeably. (best not to ever do this for clarity of code)
 a timeout id is never reused by a subsequent call to setTimeout/setInterval on the same object (window/worker). (different objects use separate pools of IDs.)
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // setTimeout in loop (closure)
 // Method 1:
 var i;

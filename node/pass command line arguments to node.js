@@ -7,7 +7,7 @@ if ( args.includes("task") ) runTask( args[ args.indexOf("task")+1 ] );
 // node index.js myAr
 // node index.js name=hasan
 // node index.js task doLaundry
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	The arguments are stored in process.argv
 	
@@ -33,7 +33,7 @@ process.argv.forEach(function (val, index, array) {
 2: salam
 3: olaghe
 4: aziz'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	Node.js-specific command-line options like:
 	--inspect --inspect-brk --harmony --no-warnings and etc
@@ -52,7 +52,7 @@ console.log(process.argv);
 // node --inspect-brk index.js
 [ 'C:\\Program Files\\nodejs\\node.exe',
   'E:\\path\\to\\script\\index.js' ]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 process.execArgv
 /*
 	The process.execArgv property returns the set of Node.js-specific command-line options passed when the Node.js process was launched.
@@ -72,7 +72,7 @@ console.log(process.argv);
 // node --no-warnings --harmony index.js
 [ 'C:\\Program Files\\nodejs\\node.exe',
   'E:\\path\\to\\script\\index.js' ]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*	What does -- do?
 	"--" Indicates the end of node options. Pass the rest of the arguments to the script.
 	If no script filename or eval/print script is supplied prior to this, then the next argument will be used as a script filename.
@@ -96,7 +96,7 @@ console.log(process.execArgv);
 	but in the past as I remember, it was necessary when you wanted to pass arguments to node script,
 	especialy when running npm run commands.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // code snippet from htmlbilder project for getting the value of arguments
 let args = process.argv.slice(3);
 
