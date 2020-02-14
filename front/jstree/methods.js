@@ -1,6 +1,9 @@
 const el = $('#mytree');
 
 // signatures
+el.jstree()     // get existing instance or create new instance
+el.jstree(true) // get existing instance (won't create new instance)
+
 el.jstree('select_node', 'mn2')
 el.jstree(true).select_node('mn1')
 $.jstree.reference('#mytree'|el).select_node('mn3')

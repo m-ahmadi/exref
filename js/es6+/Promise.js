@@ -1,6 +1,6 @@
 // basic
-new Promise((resolve, reject) => { resolve(10) }).then(console.log)
-new Promise((resolve, reject) => { reject(10) }).then(console.log).catch(console.log)
+new Promise((resolve, reject) => resolve(10)).then(console.log)
+new Promise((resolve, reject) => reject(10)).then(console.log).catch(console.log)
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // verbose example
 const myPromise = new Promise(executorFunc);
