@@ -1,4 +1,4 @@
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Closure    **/
 /*
 	Sometimes called:
@@ -61,7 +61,7 @@ alert( digit_name(3) ); // 'three'
 	That's Closure!
 	One function closes over the variables of another function.
 */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Lazy function definition    **/
 var digit_name = function (n) {
 	var names = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
@@ -118,7 +118,7 @@ alert( digit_name(3) ); // three
 	but if you think you're really going to call this a gazillion times, we shouldn't be optimizing the case where
 	we're not going to call it at all.
 */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Another Closure example (fade function)    **/
 function fade(id) {
 	var dom = document.getElementById(id),
@@ -160,7 +160,7 @@ function fade(id) {
 	because "step" is able to close over the "dom" and "level" variables, it just works.
 	Everybody still with me? :D
 */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Another Closure example (later method)    **/
 my_object.later(1000, "erase", true);
 /*	The "later" method causes a method on the object to be invoked in the future.
@@ -225,7 +225,7 @@ if (typeofObject.prototype.later!== 'function') {
 	A lot of Ajax libraries carry this idea to excess,
 	but it's a really nice pattern and it works very nicely in this language.
 */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Another Closure example (partial application)    **/
 /*
 	We're starting to get a little theoretical now.
@@ -265,7 +265,7 @@ alert( inc(6) ); // 7
 	but we shouldn't have had to to that, there's still some things left to get fixed in future editions.
 	Everybody still with me? :D
 */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Another Closure example (make_promise)    **/
 /*
 	Suppose we've got a process which cannot be resolved immediately, maybe it's going to require a lot of computation,
@@ -364,7 +364,7 @@ function make_promise() {
 	and we had to wrap it in tray-catch because if any of those functions should throw,
 	we don't want that to interfere with the other functions getting a chance to run.
 */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Another Closure example (sealer/unsealer)    **/
 /*
 	Sometimes we'd like to be able to pass secret information around through the application,
@@ -418,7 +418,7 @@ t.unsealer('hello'); // returns undefined.
 	and if something goes wrong, if you pull the substitution and gave an object that was not sealed,
 	you get "undefined" back, which is how it should be.
 */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Another Closure example (memoizer)    **/
 /*
 	Here's another thing we can do:
@@ -466,4 +466,4 @@ var fibonacci = memoizer([0, 1], function (recur, n) {
 	and again this is happening because of Closure,
 	because the "recur" function closes over the "memo" array and over the "formula" that we're recurring on.
 */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -5,7 +5,7 @@ CREATE TABLE table_name (
 	col1      VARCHAR(40) NOT NULL,
 	col2      DATE
 );
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	The data types smallserial, serial and bigserial are not true types,
 	but merely a notational convenience for creating unique identifier columns (similar to the AUTO_INCREMENT property supported by some other databases)
@@ -31,6 +31,6 @@ ALTER SEQUENCE tablename_colname_seq OWNED BY tablename.colname;
 
 -- https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-SERIAL
 
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- reset auto increment counter
 ALTER SEQUENCE product_id_seq RESTART WITH 1453;

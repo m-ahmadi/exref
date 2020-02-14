@@ -1,11 +1,7 @@
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	Gruntfile structure
-*/
-module.exports = function (grunt) { // The "wrapper" function (Do grunt-related things in here)
+module.exports = function (grunt) { // The "wrapper" function (do grunt-related things in here)
 
-	/*----------------------------------------------------------------------------------------------
-		Project and task configuration
-	*/
+	/*---------------------------------------------------------------------------
+	project and task configuration */
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		concat: {
@@ -28,35 +24,32 @@ module.exports = function (grunt) { // The "wrapper" function (Do grunt-related 
 		}
 	});
 	
-	/*----------------------------------------------------------------------------------------------
-		Loading Grunt plugins and tasks (Load the plugin that provides the "uglify" task)
-	*/
+	/*---------------------------------------------------------------------------
+	loading grunt plugins and tasks (load the plugin that provides the "uglify" task) */
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	
 	
-	/*----------------------------------------------------------------------------------------------
-		Custom tasks
-	*/
+	/*---------------------------------------------------------------------------
+	custom tasks */
 	
-	// Default task(s)
+	// default task(s)
 	grunt.registerTask('default', ['uglify']); // ['uglify', 'concat']
 	
-	// A custom task:
+	// a custom task:
 	grunt.registerTask('hasan', ['concat']);
 	
-	// A very basic default task.
+	// a very basic default task.
 	grunt.registerTask('default', 'Log some stuff.', function () {
 		grunt.log.write('Logging some stuff...').ok();
 	});
 	
-	// A basic task that I defined:
+	// a basic task that I defined:
 	grunt.registerTask('olagh', function (arg1, arg2) {
 		console.log(arg1, arg2);
 	});
 	
-	// A multi task that I defined:
+	// a multi task that I defined:
 	grunt.registerMultiTask('gholamreza', 'description of this gholamreza task', function () {
 		grunt.log.writeln( this.target + ': ' + this.data );
 	});
-	//----------------------------------------------------------------------------------------------
 };

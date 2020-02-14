@@ -21,7 +21,7 @@ SELECT title, pubdate
 FROM book
 WHERE pubdate >= '06/15/2012' AND pubdate <= '06/30/2012'
 ORDER BY 2;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- BETWEEN operator can be userd as an alternative method to query ranges.
 -- caveat: if you're dealing with a large set of data, BETWEEN will generaly run slower.
 -- BETWEEN operator is always inclusive.
@@ -43,7 +43,7 @@ SELECT title, pubdate
 FROM book
 WHERE pubdate BETWEEN '06/15/2012' AND '06/30/2012'
 ORDER BY 2;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- you must use the mathematical operators instead if you don't want the range values to be inclusive:
 SELECT title, price
 FROM book
