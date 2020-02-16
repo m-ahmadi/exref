@@ -1,3 +1,7 @@
+changing order of paths seems to fix it but won't persist after restart
+don't think specific order of things matter
+(don't know what to do)
+-------------------------------------------------------------------------------
 put git\bin before openssh in path
 
 \cmder\vendor\git-for-windows\bin
