@@ -1,0 +1,5 @@
+control /name Microsoft.NetworkAndSharingCenter /page Advanced
+
+All Networks -> Choose media streaming options... -> Turn on media streaming
+
+undo: Block All -> OK
