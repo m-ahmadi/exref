@@ -1,73 +1,72 @@
 const el = $('#mytree');
 
-// signatures
-el.jstree()     // get existing instance or create new instance
-el.jstree(true) // get existing instance (won't create new instance)
+// get instance
+const inst = el.jstree()     // get existing instance or create new instance
+const inst = el.jstree(true) // get existing instance (won't create new instance)
 
+// method call signatures
 el.jstree('select_node', 'mn2')
 el.jstree(true).select_node('mn1')
 $.jstree.reference('#mytree'|el).select_node('mn3')
 
 // close and open all
-el.jstree('open_all', -1)
-el.jstree('close_all', -1)
+inst.open_all()
+inst.close_all()
 
 // destroy the tree
-el.empty();
+el.empty()
 el.jstree(true).destroy()
 el.jstree(true).destroy().empty()	// better
 el.empty().jstree(true).destroy()
 
 // disable and enable node
-el.jstree(true).disable_node('397_anchor')
-el.jstree(true).disable_node(['1', '44', '344', '397', '431'])
+inst.disable_node('397_anchor')
+inst.disable_node(['1', '44', '344', '397', '431'])
 
-el.jstree(true).enable_node('397_anchor')
-el.jstree(true).enable_node(['1', '44', '344', '397', '431'])
+inst.enable_node('397_anchor')
+inst.enable_node(['1', '44', '344', '397', '431'])
 
 // get node
-el.jstree(true).get_node('node_id', true)	 // as dom element
-el.jstree(true).get_node('node_id', false) // as object
+inst.get_node('node_id', true)	 // as dom element
+inst.get_node('node_id', false) // as object
 
 // get selected nodes
-el.jstree('get_selected')           // their texts
-el.jstree('get_selected', ['full']) // their node objects
+inst.get_selected()     // only ids
+inst.get_selected(true) // their node objects
 
 // open and close node
-el.jstree(true).open_node('345_anchor')
-el.jstree(true).close_node('345_anchor')
+inst.open_node('345_anchor')
+inst.close_node('345_anchor')
 
 // select and deselect all
-el.jstree('select_all')
-el.jstree('select_all', true)   // `changed.jstree` event won't be triggered
-el.jstree('deselect_all')
-el.jstree('deselect_all', true) // `changed.jstree` event won't be triggered
+inst.select_all()
+inst.select_all(true)   // `changed.jstree` event won't be triggered
+inst.deselect_all()
+inst.deselect_all(true) // `changed.jstree` event won't be triggered
 
 // rename node
 el.jstree('rename_node', 'node_id', 'new text') // core: {check_callback: true} must be set
 
+// get the path to a node (up to a root node)
+inst.get_path(node=''|{}, glue='', ids=false)
+inst.get_path('id')                  // []text
+inst.get_path('id', undefined, true) // []id
+inst.get_path('id', '/', true)       // path/to/root
+
 // select and deselect
-el.jstree('select_node', 'j1_4_anchor')
-el.jstree('select_node', ['j1_4_anchor', 'j1_5_anchor', 'j1_6_anchor'])
-el.jstree('select_node', 'j1_4_anchor', true)       //	`changed.jstree` event won't be triggered
-el.jstree('select_node', 'j1_4_anchor', true, true) //	parents of the selected node won't be opened
+inst.select_node( 'id'| ['id1',...'], supress_event, prevent_open )
+inst.select_node('id', true)            // `changed.jstree` event won't be triggered
+inst.select_node('id', undefined, true) // parents of the selected node won't be opened
 
-el.jstree('deselect_node', 'j1_4_anchor')
-el.jstree('deselect_node', ['j1_4_anchor', 'j1_5_anchor', 'j1_6_anchor'])
-el.jstree('deselect_node', 'j1_4_anchor', true)     // `changed.jstree` event won't be triggered
-
-el.jstree(true).select_node('mojabi-m_anchor', false, false)   // wont check node's parents
-el.jstree(true).select_node('mojabi-m_anchor', false, true)    // will check its parents
-
-el.jstree(true).deselect_node('mojabi-m_anchor', false, false) // wont check node's parents
-el.jstree(true).deselect_node('mojabi-m_anchor', false, true)  // will check its parents
+inst.deselect_node( 'id'| ['id1',...'], supress_event )
+inst.deselect_node('id', true)          // `changed.jstree` event won't be triggered
 
 // change the tree structure
-el.jstree(true).settings.core.data = new_data;
-el.jstree(true).redraw(true) // true: all nodes are redrawn
-el.jstree(true).refresh()    // v3.1 true: skip showing the loading indicator
+inst.settings.core.data = new_data;
+inst.redraw(true) // true: all nodes are redrawn
+inst.refresh()    // v3.1 true: skip showing the loading indicator
 
-//	open closed parent before select a node
+// open closed parent before select a node
 $('#findChild').on('click', function () {
 	$.jstree._reference('#el').open_node('#Node_001',function(){},false);
 });
