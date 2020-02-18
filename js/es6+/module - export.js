@@ -8,6 +8,7 @@ export default const obj = { my: 'obj' };
 export default class {}
 export default class NamedClass{}
 export default function* () {}
+export default [1, 2];
 export default 'myString';
 export default let str = 'myString';
 export default 1234;
@@ -23,6 +24,7 @@ export function namedFn() {}
 export const obj = { my: 'obj' };
 export class NamedClass {}
 export function* namedFn() {}
+export const arr = [1, 2];
 export const str = 'myString';
 export const number = 1234;
 export const myBool =  true;
