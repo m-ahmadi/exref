@@ -14,6 +14,7 @@ ctrl+alt shortcuts
 2 htdocs
 3 J:\dev
 4 paint
+5 notepad
 e cmd        admin, target: %comspec% /k pushd %home%
 r powershell admin, target: %pws% -NoExit -Command "pushd $Env:home"
 -------------------------------------------------------------------------------
