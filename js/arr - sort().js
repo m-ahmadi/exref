@@ -1,3 +1,10 @@
+arr.sort(compareFn)
+function compareFn(firstEl, secondEl) {
+	return -1 // a comes first
+	return 1  // b comes first
+	return 0  // leave a and b unchanged
+}
+
 ['x', 'y', 'a', 'b'].sort() // ['a', 'b', 'x', 'y']
 
 // sorting array of integer numbers:
