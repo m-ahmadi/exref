@@ -1,3 +1,11 @@
+procmon
+filters:
+
+Event Class	is Process
+Operation	is Process Exit
+...
+
+--------------------------------------------------------------------------------------------------------------------
 secpol.msc
 Local Policies
 	Audit Policy
@@ -8,3 +16,4 @@ then
 eventvwr.msc
 Windows Logs
 	Security
+--------------------------------------------------------------------------------------------------------------------

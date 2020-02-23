@@ -19,7 +19,7 @@ async function dirs(dir) {
 dirs('path/to/some/dir').then(console.log) // ['dir1', 'dir2', 'dir3']
 
 // sync
-function dirs() {
+function dirs(p) {
 	return fs.readdirSync(p).filter( f => fs.statSync( join(p, f) ).isDirectory() );
 }
 

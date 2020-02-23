@@ -1,3 +1,6 @@
 procmon
-Show Registry Activity
-filter by "Operation" or else
+check only "Show Registry Activity"
+
+filters:
+
+Operation is RegCreateKey|RegDeleteKey|...
