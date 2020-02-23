@@ -1,0 +1,2 @@
+https://cdnjs.cloudflare.com/ajax/libs/cash/6.0.2/cash.min.js
+https://cdn.jsdelivr.net/npm/cash-dom@6.0.2/dist/cash.min.js
