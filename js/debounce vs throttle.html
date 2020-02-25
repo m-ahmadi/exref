@@ -1,0 +1,153 @@
+<style>
+body {
+	font-family: "Roboto", "Helvetica", Arial;
+	font-weight: 200;
+	color: #777;
+}
+#moveonme {
+	width: 200px;
+	height: 600px;
+	background: #f5f5f5;
+	border: 1px solid #aaa;
+	float: left;
+	box-sizing: border-box;
+	padding: 25px;
+	text-align: center;
+	font-size: 18px;
+}
+.backtoblog {
+	width: 200px;
+	padding: 10px;
+	background: #f5f5f5;
+	border: 1px solid #aaa;
+	color: #777;
+	display: inline-block;
+	text-decoration: none;
+	transition: 0.2s all;
+	box-sizing: border-box;
+	position: relative;
+	top: -1px;
+	text-align: center;
+}
+.backtoblog:hover {
+	border: 1px solid #aaa;
+	background: transparent;
+}
+</style>
+
+<p>debounce: call fn() after the caller stops calling and after a specified period.</p>
+<p>throttle: call fn() at most once per specified period.</p>
+
+<div id="moveonme">move your mouse here</div>
+<canvas id="paintonme" height="600" width="1670" style="float:right;"></canvas>
+
+<a href="http://demo.nimius.net/debounce_throttle/" style="display:block; clear:both;">source</a>
+<script>
+var demo = new Demo();
+demo.init();
+
+function Demo() {
+	this.canvas = document.getElementById('paintonme');
+	this.context = this.canvas.getContext('2d');
+	this.movearea = document.getElementById('moveonme');
+	this.canvasTimeScale = 5 * 1000;
+	this.paintColors = ['#bbd', '#464', '#d88'];
+	this.totalLanes = this.paintColors.length;
+	this.leftMargin = 100;
+	var self = this;
+	
+	this.init = function () {
+		this.canvas.width = window.innerWidth - 250;
+		this.flush();
+		this.movearea.addEventListener('mousemove', this.regularHandler);
+		this.movearea.addEventListener('mousemove', debounce(self.debounceHandler, 100, this));
+		this.movearea.addEventListener('mousemove', throttle(self.throttleHander, 100, this));
+	}
+	
+	this.paintRect = function (lane, time) {
+		if (time > this.canvasTimeScale) {
+			this.startTime += time;
+			time = 0;
+			this.flush()
+		}
+		//            console.log(lane,time);
+		this.context.fillStyle = this.paintColors[lane];
+
+		var x = (this.canvas.width - this.leftMargin) / this.canvasTimeScale * time + this.leftMargin;
+		var y = this.canvas.height / this.totalLanes * lane;
+		var height = this.canvas.height / this.totalLanes;
+		var width = 1;
+
+		this.context.fillRect(x, y, width, height);
+	}
+
+	this.flush = function () {
+		this.context.fillStyle = '#ffffff';
+		this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+		this.context.font = '200 18px Roboto,Helvetica,Arial';
+		this.context.fillStyle = this.paintColors[0];
+		this.context.fillText('Regular', 0, 100);
+
+		this.context.fillStyle = this.paintColors[1];
+		this.context.fillText('debounce', 0, 300);
+
+		this.context.fillStyle = this.paintColors[2];
+		this.context.fillText('throttle', 0, 500);
+	}
+	
+	this.getTimeDiff = function () {
+		var time = new Date().getTime();
+		if (!this.startTime) {
+			this.startTime = time;
+		}
+		time -= this.startTime;
+		return time;
+	}
+
+	this.regularHandler = function () {
+		self.paintRect(0, self.getTimeDiff());
+	}
+	this.debounceHandler = function () {
+		self.paintRect(1, self.getTimeDiff());
+	}
+	this.throttleHander = function () {
+		self.paintRect(2, self.getTimeDiff());
+	}
+}
+
+function debounce(func, wait, scope) {
+	var timeout;
+	return function () {
+		var context = scope || this, args = arguments;
+		var later = function () {
+			timeout = null;
+			func.apply(context, args);
+		};
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+	};
+}
+function throttle(fn, threshhold, scope) {
+	threshhold || (threshhold = 250);
+	var last,
+		deferTimer;
+	return function () {
+		var context = scope || this;
+
+		var now = +new Date,
+			args = arguments;
+		if (last && now < last + threshhold) {
+			// hold on to it
+			clearTimeout(deferTimer);
+			deferTimer = setTimeout(function () {
+				last = now;
+				fn.apply(context, args);
+			}, threshhold);
+		} else {
+			last = now;
+			fn.apply(context, args);
+		}
+	};
+}
+</script>
