@@ -1,3 +1,5 @@
+A <- B, C, D // B,C,D implements A (implemented by)
+
 EventTarget <- Node
 EventTarget.addEventListener()
 EventTarget.removeEventListener()
@@ -97,13 +99,23 @@ Element.removeAttribute(name)
 Element.hasAttribute(name)
 Element.getAttributeNames()
 Element.closest(selectors)
-element.scrollIntoView(alignToTop|options={
+Element.scrollIntoView(alignToTop|options={
 	behavior: 'auto'|'smooth',
 	block:    'start'|'center'|'end'|'nearest',
 	inline:   'nearest'|'start'|'center'|'end'
 })
 
-abstract NonDocumentTypeChildNode
+mixin HTMLOrForeignElement <- HTMLElement, SVGElement, MathMLElement
+HTMLOrForeignElement.dataset
+HTMLOrForeignElement.tabIndex
+HTMLOrForeignElement.blur()
+HTMLOrForeignElement.focus(?options={preventScroll: false})
+
+HTMLElement extends Element
+HTMLElement implements HTMLOrForeignElement, DocumentAndElementEventHandlers, ElementCSSInlineStyle, GlobalEventHandlers, TouchEventHandlers
+HTMLElement.click()
+
+abstract NonDocumentTypeChildNode <- Element, CharacterData
 NonDocumentTypeChildNode.nextElementSibling
 NonDocumentTypeChildNode.previousElementSibling
 
@@ -112,8 +124,8 @@ CharacterData implements ChildNode, NonDocumentTypeChildNode
 CharacterData <- Text, Comment, CDATASection
 
 NodeList: {Node, ..., length}
-NodeList.forEach/keys/values/item()
-Array.from(NodeList).map/reduce/filter/...()
+NodeList.forEach|keys|values|item()
+Array.from(NodeList).map|reduce|filter|...()
 
 HTMLCollection: {HTMLElement, ..., length}
 
@@ -128,9 +140,11 @@ DOMTokenList.item(index)
 DocumentFragment extends Node
 DocumentFragment implements ParentNode
 var fragment = new DocumentFragment()
-fragment.append(elem)
-elem.append(fragment)
+fragment.append(elemA)
+fragment.append(elemB)
+elemC.append(fragment)
 
+// other
 function parseHTML(str) {
   var el = document.createElement('div');
   el.innerHTML = str;
