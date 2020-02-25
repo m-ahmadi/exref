@@ -1,5 +1,5 @@
-.on(events, ?selector, ?data, handler) // events: str
-.on(events, ?selector, ?data)          // events: obj
+.on(events='', ?selector, ?data, handler)
+.on(events={}, ?selector, ?data)
 // event handlers are bound only to currently selected elements.
 // they must exist on the page at the time your code makes the call to .on()
 // (parent element must exists on dom ready)

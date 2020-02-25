@@ -1,0 +1,13 @@
+https://code.jquery.com/jquery-3.4.1.js
+https://code.jquery.com/jquery-3.4.1.min.js
+
+slim (3.x only)
+https://code.jquery.com/jquery-3.4.1.slim.js
+https://code.jquery.com/jquery-3.4.1.slim.min.js
+
+
+https://code.jquery.com/
+			jquery-<ver>.js			uncompressed
+			jquery-<ver>.min.js		minified
+			jquery-<ver>.slim.js		slim
+			jquery-<ver>.slim.min.js	slim minified
