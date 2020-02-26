@@ -12,7 +12,8 @@ $('input').val('ali')                                    // get current input va
 $('.checkbox').prop('checked', false)                    // check checkboxes
 $('.checkbox').prop('checked', true)                     // uncheck checkboxes
 $('div').is(':animated')                                 // check state of element (is element animated)
-$('input').is(':focus')                                  // check state of element (is input   focused)
+$('input').is(':focus')                                  // ... is input focused
+$('div').is(':visible')                                  // ... :visible === !display:none
 $('select').find(':selected').val()                      // get dropdown selected item
 $('#foo')[0]                                             // get native dom element. same as: document.getElementById('foo')
 $('#foo').get(0)                                         // same as above only slower.
@@ -23,9 +24,10 @@ $('input[type="radio"][name="type"]:checked').val()      // which radio is check
 radios.filter(':checked').val()                          // same as above but on already matched set
 $('#textarea').val('one \n two \n three')                // insert text and line-breaks into textarea
 $('div.second').replaceWith('<h2>New heading</h2>')      // replace an element with another element
-$el.closest('selector'|$collection|el, ?ctx=HTMLElement) // select selector by traversing upward from $el toward document root
-$('li').closest('ul')                                    // ...
-$('li').closest('ul', $('.foo')[0])                      // ... search only inside context
+$el.closest('selector'|$collection|el, ?ctx=HTMLElement) // search by traversing upward from $el toward document root
+$('li').closest('ul')                                    // ... look for selector
+$('li').closest(el)                                      // ... look for el
+$('li').closest('ul', $('#foo')[0])                      // ... search only inside context
 $('.label').clone()                                      // clone element
 $('.label').clone().appendTo('body')                     // ...
 $('body').append( $('.label').clone() )                  // ...
