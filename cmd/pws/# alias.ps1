@@ -11,6 +11,7 @@ gps ps			Get-Process
 gal					Get-Alias
 gcm					Get-Command
 gm					Get-Member
+gci dir ls	Get-ChildItem
 clv					Clear-Variable
 select			Select-Object
 
@@ -28,3 +29,6 @@ start saps	Start-Process
 
 ft					Format-Table
 gcb					Get-Clipboard
+
+% foreach		ForEach-Object
+? where			Where-Object

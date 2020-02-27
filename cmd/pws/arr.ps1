@@ -18,4 +18,16 @@ $c = $a | % { $b + $_ }
 
 'file1.txt','file2.txt','file3.txt' -replace '(^.+$)','C:\temp\$1'
 
-pause
+# first/last item of array
+'1','2','3' | select -Last 1  # 3
+'1','2','3' | select -Last 2  # 2 3
+
+'1','2','3' | select -First 1 # 1
+'1','2','3' | select -First 2 # 1 2
+
+$a = '1','2','3'
+$a[-1] # 3 (last)
+$a[-2] # 2
+
+$a[0]  # 1 (first)
+$a[1]  # 2

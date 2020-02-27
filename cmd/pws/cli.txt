@@ -2,7 +2,7 @@ powershell "start cmd -Verb runAs"			run cmd as admin
 powershell -File ./script.ps1				execute file
 powershell -Command "& 'E:\script.ps1' arg1 arg2"	...
 powershell -ExecutionPolicy Bypass -File .\file.ps1	... bypass policy
-powershell -NoExit -Command "pushd $Env:home"		open and cd
+powershell -NoExit -Command "pushd $env:home"		open and cd
 
 
 -NonInteractive		Does not present an interactive prompt to the user.

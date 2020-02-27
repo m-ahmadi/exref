@@ -10,7 +10,7 @@
 # special
 ( )  # grouping
 $( ) # subexpression
-@( ) # array subexpression
+@( ) # array subexpression (creates array from whats inside)
 &    # call/background(v6)
 [ ]  # index/cast
 -f   # format
@@ -19,7 +19,10 @@ $( ) # subexpression
 .    # member access
 ,    # binary/unary
 ::   # static member
-%    # NOT an operator but an alias for ForEach-Object (gal %)
+
+# NOT an operator but an alias
+%{}  # alias for ForEach-Object (gal %)
+?{}  # alias for Where-Object (gal ?)
 
 # comparison
 -match -notmatch -replace # regex
@@ -47,29 +50,11 @@ $c = 'Get-Executionpolicy'
 & $c                     # Bypass
 1,2,3                    # 1,2,3 (array)
 @(1,2,3)                 # 1,2,3 (definitely array)
+@(dir)                   # array from dir output
 ,1                       # array with one item
 (1,2,3)[1]               # 2
 [datetime]::now          # Friday, January 3, 2020 2:18:58 AM
 1..4                     # 1,2,3,4
-
-# string concat
-'foot' + 'ball'        # football
-$name='ball'
-Write-Host 'foot'$name # football
-echo 'foot'$name       # foot
-"$($name)ball"         # football
-$x = 'ini '
-$x += 'mini '
-$x += 'miny'
-$x                     # ini mini miny
-$Env:Path += ';./node_modules/.bin'
-$Env:Path = "$($Env:Path);./node_modules/.bin"
-
-# backtick (word-wrap operator)
-"ini `n mini"   # \n
-"ini `r`n mini" # \r\n
-"ini `t mini"   # \t
-'ini `n mini'   # no effect (only with double quote)
 
 # automatic variables (read-only, don't write, though you can)
 $$ # last line's last  token
@@ -80,5 +65,5 @@ $args $null $true $false $foreach ...
 # $_
 1,2,3 | %{ write-host $_ }
 1,2,3 | %{ write-host $PSItem }
-1,2,3 | ForEach-Object { Write-Host $_ }
-1,2,3 | Where-Object { $_ -gt 1 }
+1,2,3 | %{ Write-Host $_ }
+1,2,3 | ?{ $_ -gt 1 }
