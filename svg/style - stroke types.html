@@ -1,36 +1,40 @@
 <link rel=stylesheet href=_g.css /><script src=_g.js></script>
-<style>svg{width:300; height:80;}</style>
+<style>
+svg{
+	width:300; height:100;
+	fill:none; stroke:black;
+}
+</style>
 
 <p>stroke</p>
 <svg>
-  <g fill=none>
-    <path stroke=red d="M5,20 l215,0" />
-    <path stroke=black d="M5,40 l215,0" />
-    <path stroke=blue d="M5,60 l215,0" />
-  </g>
+	<path stroke=red d="M5,20 l215,0" />
+	<path stroke=green d="M5,40 l215,0" />
+	<path stroke=blue d="M5,60 l215,0" />
 </svg>
 <svg>
-  <g fill=none stroke=black>
-    <path stroke-width=2 d="M5,20 l215,0" />
-    <path stroke-width=4 d="M5,40 l215,0" />
-    <path stroke-width=6 d="M5,60 l215,0" />
-  </g>
+	<path stroke-width=2 d="M5,20 l215,0" />
+	<path stroke-width=4 d="M5,40 l215,0" />
+	<path stroke-width=6 d="M5,60 l215,0" />
 </svg>
 
 <p>stroke-linecap</p>
-<svg>
-  <g fill=none stroke=black stroke-width=12>
-    <path stroke-linecap=butt d="M5,20 l215,0" />
-    <path stroke-linecap=round d="M5,40 l215,0" />
-    <path stroke-linecap=square d="M5,60 l215,0" />
-  </g>
+<svg stroke-width=20>
+	<path stroke-linecap=butt d="M20,20 l215,0" />
+	<path stroke-linecap=round d="M20,50 l215,0" />
+	<path stroke-linecap=square d="M20,80 l215,0" />
+</svg>
+
+<p>stroke-linejoin</p>
+<svg stroke-width=20>
+	<path stroke-linejoin=bevel d="M10,35 l60,0 l0,50" />
+	<path stroke-linejoin=miter d="M100,35 l60,0 l0,50" />
+	<path stroke-linejoin=round d="M200,35 l60,0 l0,50" />
 </svg>
 
 <p>stroke-dasharray</p>
-<svg>
-  <g fill=none stroke=black stroke-width=4>
-    <path stroke-dasharray=5,5 d="M5,20 l215,0" />
-    <path stroke-dasharray=10,10 d="M5,40 l215,0" />
-    <path stroke-dasharray=20,10,5,5,5,10 d="M5,60 l215,0" />
-  </g>
+<svg stroke-width=4>
+	<path stroke-dasharray=5,5 d="M5,20 l215,0" />
+	<path stroke-dasharray=10,10 d="M5,40 l215,0" />
+	<path stroke-dasharray=20,10,5,5,5,10 d="M5,60 l215,0" />
 </svg>
