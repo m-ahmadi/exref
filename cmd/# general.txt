@@ -32,4 +32,5 @@ win + i				settings
 ctrl + shift + esc		task manager
 ctrl + win + left/right		switch desktops
 ctrl + shift + f10		context-menu
+win + . or ;			emoji picker
 --------------------------------------------------------------------------------

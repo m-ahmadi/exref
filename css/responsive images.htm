@@ -1,0 +1,74 @@
+resolution switching (same image, different sizes/resolutions)
+	offer the browser several image files, all showing the same image but with different pixels
+
+art direction (different images)
+	offer the browser several image files, different images suitable for different space allocations
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+resolution switching 1
+
+browser process:
+1. looks at its device width
+2. determines first true media condition in `sizes`
+3. looks at the slot size given to that media query
+4. loads one of `srcset` images that matches slot size the most
+
+<img src="pic-800w.jpg" alt="My picture" />
+
+<img
+	srcset="              a set of images & their size for browser to choose: `filename imgWidth, ...`
+		pic-320w.jpg 320w,
+		pic-480w.jpg 480w,
+		pic-800w.jpg 800w
+	"
+	sizes="               a set of media conditions and a preferred image size for each one: `condition imgSlotWidth, ...`
+		(max-width: 320px) 280px,
+		(max-width: 480px) 440px,
+		800px
+	"
+	src="pic-800w.jpg" alt="My picture"
+/>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+resolution switching 2 (same size, different resolutions)
+no `size`
+
+browser process
+1. looks at its display's resolution
+2. loads one of `srcset` images that best fit
+<img
+	srcset="
+		pic-320w.jpg,
+		pic-480w.jpg 1.5x,
+		pic-640w.jpg 2x
+	"
+	src="pic-640w.jpg"
+	alt="My picture"
+/>
+note:
+standard/low res device (1 device pixel per css pixel):
+	pic-320w.jpg image will be loaded (1x is implied, no need to include)
+
+high resolution device (2 device pixels per css pixel or more):
+	pic-640w.jpg image will be loaded
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+art direction
+<picture>
+  <source media="(max-width: 799px)" srcset="pic-480w-close-portrait.jpg" />
+  <source media="(min-width: 800px)" srcset="pic-800w.jpg" />
+  <img src="pic-800w.jpg" alt="My picture" />
+</picture>
+
+
+<source> element:
+	`media` attr: a media condition that decide which image is displayed (like `srcset`: first one that returns true)
+		if viewport width: 799px or less: first <source> image will be displayed
+		if viewport width: 800px or more: second <source> image will be displayed
+
+	`srcset` attr: contain the path to the image to display
+		<source> can take a `srcset` attribute with multiple images referenced, and a sizes attribute too (like <img> in aboe example)
+		so you could offer multiple images via a <picture> element, but then also offer multiple resolutions of each one too.
+
+	you must provide an <img> element, with src and alt, right before </picture>, otherwise no images will appear.
+	this provides a default case that will apply when none of the media conditions return true
+	and a fallback for browsers that don't support the <picture> element
+	(you could actually remove the second <source> element in this example)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

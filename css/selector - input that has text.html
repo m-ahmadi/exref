@@ -1,0 +1,26 @@
+<style>
+#a input:valid {
+	background: lightgreen;
+}
+
+#a input:invalid {
+	background: lightpink;
+}
+</style>
+<div id="a">
+	<input type="text" required /><p></p>
+</div>
+
+another way:
+<style>
+#b input:not(:placeholder-shown) {
+	background: lightgreen;
+}
+
+#b input:placeholder-shown {
+	background: lightpink;
+}
+</style>
+<div id="b">
+	<input placeholder=" " />
+</div>
