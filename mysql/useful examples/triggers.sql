@@ -3,11 +3,11 @@
 	and is defined to activate for INSERT, DELETE, or UPDATE statements for that table.
 	A trigger can be set to activate either before or after each row processed by the statement.
 */
-CREATE TRIGGER trigger_name		-- the trigger name
-{BEFORE | AFTER} 				-- when the trigger activates
-{INSERT | UPDATE | DELETE}		-- what statement activates it
-ON tbl_name 					-- the associated table
-FOR EACH ROW trigger_stmt;		-- what the trigger does
+CREATE TRIGGER trigger_name -- the trigger name
+{BEFORE | AFTER}            -- when the trigger activates
+{INSERT | UPDATE | DELETE}  -- what statement activates it
+ON tbl_name                 -- the associated table
+FOR EACH ROW trigger_stmt;  -- what the trigger does
 
 
 CREATE TABLE t (percent INT, dt DATETIME);
