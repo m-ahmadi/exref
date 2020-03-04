@@ -1,8 +1,8 @@
-attrib file.txt +r			set read-only
-attrib file.txt -r			unset read-only
-
-attrib file.txt +h			set hidden
-attrib file.txt -h			unset hidden
+attrib			list all files with their attributes
+attrib file.txt +r	set read-only
+attrib file.txt -r	unset read-only
+attrib file.txt +h	set hidden
+attrib file.txt -h	unset hidden
 
 attrub file.txt -r -h
 

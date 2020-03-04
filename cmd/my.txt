@@ -3,11 +3,11 @@ mklink /d C:\h D:\xampp\htdocs
 -------------------------------------------------------------------------------
 env vars
 
-r=J:\...\exref
-h=...\...\htdocs
-home=%userprofile%
-desk=%userprofile%\desktop
-pws=%systemoot%\system32\WindowsPowerShell\v1.0\powershell.exe
+r	J:\...\exref
+h	...\...\htdocs
+home	C:\Users\NYC
+desk	C:\Users\NYC\Desktop
+pws	%systemoot%\system32\WindowsPowerShell\v1.0\powershell.exe
 -------------------------------------------------------------------------------
 ctrl+alt shortcuts
 
@@ -40,7 +40,7 @@ pws	180 192 100	25  30  40
 -------------------------------------------------------------------------------
 console window properties (cmd & powershell)
 
-font=16 width=120 height=30 top=934 left=528 (laptop: w100 h25)
+font=16 width=117 height=30 left=957 top=528 (laptop: w100 h25)
 -------------------------------------------------------------------------------
 
 

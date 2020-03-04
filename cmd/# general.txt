@@ -15,8 +15,9 @@ wmic os get osarchitecture	...
 runas /user:administrator cmd	run cmd as admin (won't work unless account has password)
 
 chkdsk c: /f /r			run check disk for a drive (needs restart afterwards)
-sfc /scannow			scan system files
-dism /Online /Cleanup-Wim	similar to above (takes 20 min or more)
+sfc /scannow			scan & repair system files
+sfc /scanfile shell32.dll	... scan one file
+dism /Online /Cleanup-Wim	similar to `sfc /scannow` (takes 20 min or more)
 --------------------------------------------------------------------------------
 shortcut keys
 

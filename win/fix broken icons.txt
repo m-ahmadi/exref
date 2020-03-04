@@ -1,0 +1,21 @@
+taskkill /im explorer.exe /f
+cd %localappdata%\Microsoft\Windows\Explorer
+del iconcache*
+explorer.exe
+--------------------------------------------------------
+sfc /scannow
+--------------------------------------------------------
+chkdsk c: /f /r
+--------------------------------------------------------
+ie4uinit -ClearIconCache
+ie4uinit -show
+--------------------------------------------------------
+Winaero Tweaker -> Tools -> Reset Icon Cache
+--------------------------------------------------------
+nircmd sysrefresh 
+nircmd sysrefresh environment 
+nircmd sysrefresh policy
+--------------------------------------------------------
+reset thumbnail cache:
+cleanmgr -> Thumbnails -> OK
+--------------------------------------------------------

@@ -1,0 +1,5 @@
+
+hh %windir%\nircmd.chm			open help
+
+install
+powershell -C "Invoke-WebRequest https://www.nirsoft.net/utils/nircmd-x64.zip -O x.zip; Expand-Archive x.zip -D $Env:windir; ri x.zip;"

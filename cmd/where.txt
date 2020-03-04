@@ -1,0 +1,1 @@
+where cmd		show location of cmd.exe
