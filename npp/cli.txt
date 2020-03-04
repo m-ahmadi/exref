@@ -30,19 +30,23 @@ ghost typing
 -------------------------------------------------------------------------------
 command setup
 
-echo @"D:\Program Files\Notepad++\notepad++.exe" %* ^& exit > %windir%\npp.cmd
+mklink %windir%\npp "D:\Program Files\Notepad++\notepad++.exe"
+
 
 other ways:
 
-1. add install dir to path
+1. add <install_dir> to path
 notepad++ <filename>
 start notepad++
 start notepad++ <filename>
 
-2. cmder alias
+2. batch shortcut
+echo @"D:\Program Files\Notepad++\notepad++.exe" %* ^& exit > %windir%\npp.cmd
+
+3. cmder alias
 alias npp=start notepad++ $*
 npp file.txt
 
-3. cmd alias (session-based)
+4. cmd alias (session-based)
 doskey npp=notepad++.exe $*
 -------------------------------------------------------------------------------

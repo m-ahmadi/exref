@@ -7,7 +7,7 @@ initVal
 	? accumulator=initVal  currentVal=arr[0]
 	: accumulator=arr[0]   currentVal=arr[1]
 
-tip: use logical && to return accumulator manually in arrows  */
+tip: use logical && to return accumulator manually in arrow oneliners  */
 
 // add all items
 var arr = [1, 2, 3, 4];
