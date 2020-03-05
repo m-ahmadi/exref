@@ -1,0 +1,43 @@
+<style>
+#a {
+	width: 200px;
+	height: 200px;
+	background: wheat;
+}
+.box {
+	background: red;
+	width: 80px;
+	height: 80px;
+	margin: 10px;
+}
+#a:hover #a1 {
+	background: cyan;
+}
+#a:hover #a2 {
+	background: magenta;
+}
+</style>
+
+<div id="a">
+	<div id="a1" class="box"></div>
+	<div id="a2" class="box"></div>
+</div>
+
+<p>another example:</p>
+<style>
+#b {
+	width: 200px;
+	height: 100px;
+	background: teal;
+}
+#b:focus-within { width: 300px; }
+#b:focus-within #b1 { background: cyan; }
+#b:focus-within #b2 { background: deeppink; }
+#b:focus-within #b3 { background: orange; }
+</style>
+
+<div id="b">
+	<input id="b1" type="text" />
+	<input id="b2" type="text" />
+	<input id="b3" type="text" />
+</div>

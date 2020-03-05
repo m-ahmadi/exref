@@ -58,7 +58,11 @@ element1 ~ element2  /* general sibling */
 :target              /* current active element */
 :valid               /* element with a valid value. eg: input:valid depends on type and required="required" attrs */
 :visited             /* visited element */
-
+/* used with @page:  */
+:first               /* first page of a printed document */
+:left                /* all left-hand pages of a printed document */
+:right               /* all right-hand pages of a printed document */
+/* experimental:     */
 :any-link            /**/
 :blank               /**/
 :current             /**/
@@ -67,7 +71,7 @@ element1 ~ element2  /* general sibling */
 :fullscreen          /**/
 :future              /**/
 :focus-visible       /**/
-:has()               /**/
+:has()               /* css4 parent selector */
 :host-context()      /**/
 :is()                /**/
 :local-link          /**/
@@ -79,16 +83,21 @@ element1 ~ element2  /* general sibling */
 :user-invalid        /**/
 :where()             /**/
 
-:first               /* used with @page: first page of a printed document */
-:left                /* used with @page: all left-hand pages of a printed document */
-:right               /* used with @page: all right-hand pages of a printed document */
-
 /* pseudo-element */
 ::after              /* insert something after content of element */
 ::before             /* insert something before content of element */
+::cue
+::cue-region
 ::first-letter       /* first letter of element's text  */
 ::first-line         /* first line   of element's text */
 ::placeholder        /* placeholder text of element */
 ::selection          /* portion of element that is selected by user */
+::slotted()          /* element placed into a slot inside an html template */
+/* experimental:     */
+::backdrop           /**/
+::grammar-error      /**/
+::marker             /**/
+::part()             /**/
+::spelling-error     /**/
 
 ::-webkit-inner-spin-button /* arrow buttons in <inpuy type=number> (non-standard) */

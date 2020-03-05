@@ -1,3 +1,5 @@
+no luck so far.
+--------------------------------------------------------
 taskkill /im explorer.exe /f
 cd %localappdata%\Microsoft\Windows\Explorer
 del iconcache*
