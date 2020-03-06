@@ -1,0 +1,76 @@
+<pre>
+:nth-child(nth)           nth child of its parent
+:nth-last-child(nth)      ↑... counting from end
+:nth-of-type(nth)         nth of its type in its parent
+:nth-last-of-type(nth)    ↑... counting from end
+
+nth = An+B|odd|even
+  A  step size (int)
+  n  0-indexed (positive int)
+  B  offset (int)
+</pre><br>
+<style>
+:root {--c:red; --s:1.4em;}
+body {display:inline-grid; grid-template-columns:auto auto; grid-gap: 15px 30px;}
+body>div {border:1px solid grey; padding:0 5px;}
+body>div>i {font-family: monospace; font-size:1.5em; font-weight:bold; font-style:normal; color:green;}
+small {font-size:0.8em; font-weight:normal;}
+p {display:inline;}
+
+#i1 		p:nth-child(2)										{color:var(--c);font-size:var(--s);}
+#i2 		p:nth-child(7)										{color:var(--c);font-size:var(--s);}
+
+#i3 		p:nth-child(2n)										{color:var(--c);font-size:var(--s);}
+#i4 		p:nth-child(3n)										{color:var(--c);font-size:var(--s);}
+#i5 		p:nth-child(5n)										{color:var(--c);font-size:var(--s);}
+#i6 		p:nth-child(7n)										{color:var(--c);font-size:var(--s);}
+
+#i7 		p:nth-child(3n+4)									{color:var(--c);font-size:var(--s);}
+#i8 		p:nth-child(3n+12)								{color:var(--c);font-size:var(--s);}
+
+#i9 		p:nth-child(2n+1)									{color:var(--c);font-size:var(--s);}
+#i10 		p:nth-child(odd)									{color:var(--c);font-size:var(--s);}
+
+#i11 		p:nth-child(2n)										{color:var(--c);font-size:var(--s);}
+#i12		p:nth-child(even)									{color:var(--c);font-size:var(--s);}
+
+#i13		p:nth-child(-n+3)									{color:var(--c);font-size:var(--s);}
+#i14		p:nth-child(-n+12)								{color:var(--c);font-size:var(--s);}
+
+#i15		p:nth-child(n+24)									{color:var(--c);font-size:var(--s);}
+#i16		p:nth-child(n+20)									{color:var(--c);font-size:var(--s);}
+
+#i17		p:nth-child(0n+1)									{color:var(--c);font-size:var(--s);}
+#i18		p:nth-child(1)										{color:var(--c);font-size:var(--s);}
+
+#i19		p:nth-child(n)										{color:var(--c);font-size:var(--s);}
+#i20		p:nth-child(n+8):nth-child(-n+15) {color:var(--c);font-size:var(--s);}
+</style>
+
+<div id="i1"><i>2</i></div>
+<div id="i2"><i>7</i></div>
+<div id="i3"><i>2n</i></div>
+<div id="i4"><i>3n</i></div>
+<div id="i5"><i>5n</i></div>
+<div id="i6"><i>7n</i></div>
+<div id="i7"><i>3n+4</i></div>
+<div id="i8"><i>3n+12</i></div>
+<div id="i9"><i>2n+1</i></div>
+<div id="i10"><i>odd <small>(same as ←)</small></i></div>
+<div id="i11"><i>2n</i></div>
+<div id="i12"><i>even <small>(same as ←)</small></i></div>
+<div id="i13"><i>-n+3</i></div>
+<div id="i14"><i>-n+12</i></div>
+<div id="i15"><i>n+24</i></div>
+<div id="i16"><i>n+20</i></div>
+<div id="i17"><i>0n+1 <small>(same specificity as :first-child)</small></i></div>
+<div id="i18"><i>1 <small>(same as ←)</small></i></div>
+<div id="i19"><i>n <small>(higher specificity than `p`)</small></i></div>
+<div id="i20"><i>(n+8):(-n+15) <small>(8 through 15)</small></i></div>
+
+<script>
+document.querySelectorAll('div').forEach(i=> {
+	var prev = i.innerHTML;
+	i.innerHTML = prev+'<div>'+ [...Array(25)].map((v,j)=> `<p>${j+1}</p>`).join('') +'<div>'
+})
+</script>

@@ -1,103 +1,103 @@
-*                    /* all elements */
-.class               /* class */
-.class1.class2       /* both classes */
-.class1 .class2      /* ancestor descendant classes */
-#id                  /* id */
-element              /* tag */
-element.class        /* tag with class */
-element, element     /* multiple selectors separated by comma */
-p , *                /* TODO: optional primary selector? */
-element element      /* ancestor descendant tags */
-element > element    /* direct child */
-element + element    /* adjacent sibling */
-element1 ~ element2  /* general sibling */
-[attribute]          /* attribute exists */
-[attribute=value]    /* attribute exactly equals */
-[attribute~=value]   /* attribute contains word */
-[attribute|=value]   /* attribute contains prefix */
-[attribute^=value]   /* attribute starts with */
-[attribute$=value]   /* attribute ends with */
-[attribute*=value]   /* attribute contains */
+*                      /* all elements */
+.class                 /* class */
+.class1.class2         /* both classes */
+.class1 .class2        /* ancestor descendant classes */
+#id                    /* id */
+element                /* tag */
+element.class          /* tag with class */
+element, element       /* multiple selectors separated by comma */
+p , *                  /* TODO: optional primary selector? */
+element element        /* ancestor descendant tags */
+element > element      /* direct child */
+element + element      /* adjacent sibling */
+element1 ~ element2    /* general sibling */
+[attribute]            /* attribute exists */
+[attribute=value]      /* attribute exactly equals */
+[attribute~=value]     /* attribute contains word */
+[attribute|=value]     /* attribute contains prefix */
+[attribute^=value]     /* attribute starts with */
+[attribute$=value]     /* attribute ends with */
+[attribute*=value]     /* attribute contains */
 
 /* pseudo-class */
-:active              /* active element */
-:checked             /* checked element */
-:default             /* default element */
-:defined             /* element that has been defined. including standard and custom elements thru CustomElementRegistry.define() */
-:disabled            /* disabled element */
-:empty               /* element that has no children (including text nodes) */
-:enabled             /* enabled element */
-:first-child         /* element that is the first child of its parent */
-:first-of-type       /* element that is the first of its type in its parent */
-:focus               /* element which has focus */
-:focus-within        /* element that has received focus or contains an element that has received focus */
-:host                /* for selecting a custom element from inside its shadow dom */
-:host()              /* for selecting a custom element from inside its shadow dom */
-:hover               /* on mouse over */
-:indeterminate       /* element that is in an indeterminate state */
-:in-range            /* element with a value within a specified range */
-:invalid             /* element with an invalid value */
-:lang(language)      /* element with a lang attribute equal to "language" (eg: "it" for italian) */
-:last-child          /* element that is the last child of its parent */
-:last-of-type        /* element that is the last of its type in its parent */
-:link                /* unvisited links */
-:not(selector)       /* element that is not the seletor */
-:nth-child(n)        /* element that is the nth child of its parent */
-:nth-last-child(n)   /* element that is the nth child of its parent, counting from last child */
-:nth-last-of-type(n) /* element that is the nth of its type in its parent, counting from last child */
-:nth-of-type(n)      /* element that is the nth of its type in its parent */
-:only-child          /* element that is the only child of its parent */
-:only-of-type        /* element that is the only of its type in its parent */
-:optional            /* element with no "required" attribute */
-:out-of-range        /* element with a value outside of specified range */
-:read-only           /* element with the "readonly" attribute specified */
-:read-write          /* element with the "readonly" attribute NOT specified */
-:required            /* element with the "required" attribute specified */
-:root                /* root element of a tree. same as `html` selector but with higher specificity */
-:scope               /* represents elements that are a reference point for selectors to match against */
-:target              /* current active element */
-:valid               /* element with a valid value. eg: input:valid depends on type and required="required" attrs */
-:visited             /* visited element */
-/* used with @page:  */
-:first               /* first page of a printed document */
-:left                /* all left-hand pages of a printed document */
-:right               /* all right-hand pages of a printed document */
-/* experimental:     */
-:any-link            /**/
-:blank               /**/
-:current             /**/
-:dir()               /**/
-:drop                /**/
-:fullscreen          /**/
-:future              /**/
-:focus-visible       /**/
-:has()               /* css4 parent selector */
-:host-context()      /**/
-:is()                /**/
-:local-link          /**/
-:nth-col()           /**/
-:nth-last-col()      /**/
-:past                /**/
-:placeholder-shown   /* <input> or <textarea> that is currently displaying placeholder text */
-:target-within       /**/
-:user-invalid        /**/
-:where()             /**/
+:active                /* active element */
+:checked               /* checked element */
+:default               /* default element */
+:defined               /* element that has been defined. including standard and custom elements thru CustomElementRegistry.define() */
+:disabled              /* disabled element */
+:empty                 /* element that has no children (including text nodes) */
+:enabled               /* enabled element */
+:first-child           /* element that is the first child of its parent */
+:first-of-type         /* element that is the first of its type in its parent */
+:focus                 /* element which has focus */
+:focus-within          /* element that has received focus or contains an element that has received focus */
+:host                  /* for selecting a custom element from inside its shadow dom */
+:host()                /* for selecting a custom element from inside its shadow dom */
+:hover                 /* on mouse over */
+:indeterminate         /* element that is in an indeterminate state */
+:in-range              /* element with a value within a specified range */
+:invalid               /* element with an invalid value */
+:lang(language)        /* element with a lang attribute equal to "language" (eg: "it" for italian) */
+:last-child            /* element that is the last child of its parent */
+:last-of-type          /* element that is the last of its type in its parent */
+:link                  /* unvisited links */
+:not(selector)         /* element that is not the seletor */
+:nth-child(nth)        /* element that is the nth child of its parent */
+:nth-last-child(nth)   /* element that is the nth child of its parent, counting from last child */
+:nth-last-of-type(nth) /* element that is the nth of its type in its parent, counting from last child */
+:nth-of-type(nth)      /* element that is the nth of its type in its parent */
+:only-child            /* element that is the only child of its parent */
+:only-of-type          /* element that is the only of its type in its parent */
+:optional              /* element with no "required" attribute */
+:out-of-range          /* element with a value outside of specified range */
+:read-only             /* element with the "readonly" attribute specified */
+:read-write            /* element with the "readonly" attribute NOT specified */
+:required              /* element with the "required" attribute specified */
+:root                  /* root element of a tree. same as `html` selector but with higher specificity */
+:scope                 /* represents elements that are a reference point for selectors to match against */
+:target                /* current active element */
+:valid                 /* element with a valid value. eg: input:valid depends on type and required="required" attrs */
+:visited               /* visited element */
+/*used with @page:     */
+:first                 /* first page of a printed document */
+:left                  /* all left-hand pages of a printed document */
+:right                 /* all right-hand pages of a printed document */
+/*experimental:        */
+:any-link              /**/
+:blank                 /**/
+:current               /**/
+:dir()                 /**/
+:drop                  /**/
+:fullscreen            /**/
+:future                /**/
+:focus-visible         /**/
+:has()                 /* css4 parent selector */
+:host-context()        /**/
+:is()                  /**/
+:local-link            /**/
+:nth-col()             /**/
+:nth-last-col()        /**/
+:past                  /**/
+:placeholder-shown     /* <input> or <textarea> that is currently displaying placeholder text */
+:target-within         /**/
+:user-invalid          /**/
+:where()               /**/
 
 /* pseudo-element */
-::after              /* insert something after content of element */
-::before             /* insert something before content of element */
-::cue
-::cue-region
-::first-letter       /* first letter of element's text  */
-::first-line         /* first line   of element's text */
-::placeholder        /* placeholder text of element */
-::selection          /* portion of element that is selected by user */
-::slotted()          /* element placed into a slot inside an html template */
-/* experimental:     */
-::backdrop           /**/
-::grammar-error      /**/
-::marker             /**/
-::part()             /**/
-::spelling-error     /**/
+::after                /* insert something after content of element */
+::before               /* insert something before content of element */
+::cue                  /**/
+::cue-region           /**/
+::first-letter         /* first letter of element's text  */
+::first-line           /* first line   of element's text */
+::placeholder          /* placeholder text of element */
+::selection            /* portion of element that is selected by user */
+::slotted()            /* element placed into a slot inside an html template */
+/*experimental:        */
+::backdrop             /**/
+::grammar-error        /**/
+::marker               /**/
+::part()               /**/
+::spelling-error       /**/
 
 ::-webkit-inner-spin-button /* arrow buttons in <inpuy type=number> (non-standard) */

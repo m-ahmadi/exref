@@ -1,0 +1,18 @@
+attr quotes
+necessary if value contains space or non-ascii chars. all valid:
+<img id=foo class=bar />
+<img id=2x class=x2 />
+<img id="foo bar" />
+
+
+valid id
+<div id="
+	unique in the document
+	can't be empty (at least 1 char)
+	can't contain space
+"></div>
+
+valid class
+<div class="
+	any character
+"></div>

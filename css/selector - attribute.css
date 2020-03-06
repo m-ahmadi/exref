@@ -7,6 +7,15 @@
 [attribute$=value] /* ends    with        value */
 [attribute~=value] /* contains the word   value (value + single space before and after) */
 [attribute*=value] /* contains the substr value (just the letters of value in a row no matter where) */
+
+/* unquoted attr vals
+any string (alphanumeric) is a valid unquoted attr value except: */
+[attr=]      /* empty string */
+[attr=-]     /* only hyphen */
+[attr=0abc]  /* start with digit */
+[attr=-0abc] /* start with a hyphen followed by a digit */
+
+[attr=--abc] /* valid */
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 input[type="radio"] {}
 input[type="checkbox"][disabled] {}
