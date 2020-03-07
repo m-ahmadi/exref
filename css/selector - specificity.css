@@ -1,0 +1,40 @@
+/*
+determined by number of selector types in the matching selector
+on equal specificity, last one is applied
+
+specificity only applies when same element is targeted by multiple rules
+directly targeted elements take precedence over rules that elements inherit from their ancestors
+*/
+
+/* specificity weights: (higher number equals more specificity) */
+1						tag				::psuedo-element
+10					.class		[attr="value"]				:psuedo-class
+1,000				#id
+10,000			<div style= />
+100,000			!important
+
+/* no effect on specificity: */
+* + > ~
+:not() /* selectors inside :not() have effect */
+
+/* combinations                   3-2-1 (id - class[]: - tag::) */
+* {}															0-0-0
+div  															0-0-1
+li>ul 														0-0-2
+body div ul li p a 								0-0-7
+.class 														0-1-0
+*.class 													0-1-0
+[type=checkbox] 									0-1-0
+:only-of-type 										0-1-0
+li.class 													0-1-1
+li[attr]													0-1-1
+li:nth-of-type(3n) ~ li						0-1-2
+form input[type=text]							0-1-2
+li.class:nth-of-type(3n)					0-2-1
+input[type]:not(.class)						0-2-1
+.class:nth-child(odd),tag[type]		0-10-0
+#id																1-0-0
+#id li.class a[href]							1-2-2
+#id #id a													2-0-1
+style=""												1-0-0-0
+!important										1-0-0-0-0

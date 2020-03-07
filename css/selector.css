@@ -3,7 +3,7 @@
 .class1.class2         /* both classes */
 .class1 .class2        /* ancestor descendant classes */
 #id                    /* id */
-element                /* tag */
+element                /* tag (aka: type selector) */
 element.class          /* tag with class */
 element, element       /* multiple selectors separated by comma */
 p , *                  /* TODO: optional primary selector? */

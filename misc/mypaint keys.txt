@@ -12,9 +12,10 @@ Decrease Saturation		Shift A
 Increase Pressure		Shift Alt S
 Decrease Pressure		Shift Alt A
 
+Change Color (fast)		V
 Change Color			Shift V
-Color Palette			Shift C
 Color History			C
+Color Palette			Shift C
 
 Change Brush			B
 
