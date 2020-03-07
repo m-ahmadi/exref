@@ -1,0 +1,23 @@
+﻿Increase Brush Size		F
+Decrease Brush Size		D
+Lighten Painting Color		Shift F
+Darken Painting Color		Shift D
+Increase Rotation		Shift Alt F
+Decrease Rotation		Shift Alt D
+
+Increase Brush Opacity 		S
+Decrease Brush Opacity		A
+Increase Saturation		Shift S
+Decrease Saturation		Shift A
+Increase Pressure		Shift Alt S
+Decrease Pressure		Shift Alt A
+
+Change Color			Shift V
+Color Palette			Shift C
+Color History			C
+
+Change Brush			B
+
+Freehand			P
+Lines and Curves		K
+Connected Line			J

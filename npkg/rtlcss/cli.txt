@@ -1,7 +1,8 @@
-rtlcss input.css
-
-rtlcss input.css output.rtl.css
-
-rtlcss --config <path>
+rtlcss input.css			output to screen
+rtlcss input.css output.rtl.css		output to file
+rtlcss --config <path>			use config file
+rtlcss --c <path>			...
+rtlcss --stdin out.css			read input from stdin
+rtlcss - out.css			...
 
 sass style.scss | rtlcss --stdin out.css
