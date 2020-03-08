@@ -3,12 +3,13 @@ console.log(...data)
 var log = console.log;
 
 log('something', 'somthing else')
-/*
-	string substitutions:
-	%o or %O	 object
-	%d or %i	 integer
-	%s         string
-	%f         floating-point
+/* string substitutions:
+%o or %O	 object
+%d or %i	 integer
+%s         string
+%f         floating-point
+
+%c         apply css to output (only some props: background border color padding ...)
 */
 log('output an object %o dude', { a: 1, b: 2 })
 log('output a number %i dude', 42)
@@ -21,7 +22,7 @@ console.warn()
 console.info()
 console.table()
 console.dir()
-console.trace()
+console.trace() // outputs stack trace
 console.clear()
 
 console.group('a')
@@ -34,6 +35,6 @@ console.group('a')
 	console.groupEnd()
 console.groupEnd()
 
-console.time();
+console.time(label='default')
 for (let i=0; i<100000; i++) {}
-console.timeEnd()
+console.timeEnd(label='default')
