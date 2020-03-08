@@ -1,0 +1,1 @@
+copy object		space while dragging

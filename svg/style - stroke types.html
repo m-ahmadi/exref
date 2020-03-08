@@ -4,6 +4,8 @@ svg{
 	width:300; height:100;
 	fill:none; stroke:black;
 }
+svg text { stroke-width: 1; font: 1em monospace; stroke:deeppink;  }
+pre { margin-bottom: 5px; }
 </style>
 
 <p>stroke</p>
@@ -32,9 +34,18 @@ svg{
 	<path stroke-linejoin=round d="M200,35 l60,0 l0,50" />
 </svg>
 
-<p>stroke-dasharray</p>
-<svg stroke-width=4>
+<pre>stroke-dasharray=length,percentage,...
+odd count list is repeated to become even (5,3,2 becomes 5,3,2,5,3,2)
+</pre>
+<svg stroke-width=4 style="width:820; height:200;">
 	<path stroke-dasharray=5,5 d="M5,20 l215,0" />
 	<path stroke-dasharray=10,10 d="M5,40 l215,0" />
 	<path stroke-dasharray=20,10,5,5,5,10 d="M5,60 l215,0" />
+	
+	<g stroke-width=10>
+		<path stroke-dasharray=10       d="M10,100 l590,0" /> <text x=610 y=103>10 (10,10)</text>
+		<path stroke-dasharray=40       d="M10,120 l590,0" /> <text x=610 y=123>40 (40,40)</text>
+		<path stroke-dasharray=40,20    d="M10,140 l590,0" /> <text x=610 y=143>40,20</text>
+		<path stroke-dasharray=40,10,20 d="M10,160 l590,0" /> <text x=610 y=163>40,10,20 (40,10,20,40,10,20)</text>
+	</g>
 </svg>
