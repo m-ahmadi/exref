@@ -1,4 +1,5 @@
 takeown /f file.txt				give ownership to nyc (same as: properties > security > advanced > owner: change)
+takeown /f mydir				... dir
 takeown /f file.txt /a				give ownership to admin
 takeown *.txt /r /d				in all subdirs as well
 
