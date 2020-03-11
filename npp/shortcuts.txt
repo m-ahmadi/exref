@@ -1,0 +1,1 @@
+Folder as Workspace		ctrl + b
