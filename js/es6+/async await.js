@@ -105,6 +105,19 @@ f().then(console.log)
 // same as:
 f().then( r => console.log(r) )
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// nested awaits
+(async () => 
+	await (await fetch('https://jsonplaceholder.typicode.com/users/1')).text()
+)().then(console.log)
+
+// same as:
+
+(async () => {
+	const res = await fetch('https://jsonplaceholder.typicode.com/users/1');
+	const text = await res.text();
+	return text;
+})().then(console.log)
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // example:
 function asyncTask(i) {
 	return new Promise(resolve => resolve(i + 5));

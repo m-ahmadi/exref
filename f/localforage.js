@@ -1,4 +1,5 @@
 // includes: localforage.js
+// cdn: https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js
 localforage.getItem('key').then(value => )           // get item (returns null if key does not exist)
 localforage.getItem('key', (err, value) => )         // get item with callback
 
