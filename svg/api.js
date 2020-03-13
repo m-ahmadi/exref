@@ -11,3 +11,11 @@ svg.append(circle)
 var path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
 path.setAttribute('d', 'M 10,120 l600,50')
 svg.append(path)
+
+// zoom & pan
+svg.setAttribute('viewBox', '100 100 200 200')
+
+// dynamically created svg
+var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+svg.setAttribute('width', '400')
+svg.setAttribute('height', '400')
