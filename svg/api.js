@@ -15,7 +15,7 @@ svg.append(path)
 // zoom & pan
 svg.setAttribute('viewBox', '100 100 200 200')
 
-// dynamically created svg
+// dynamically created svg (won't work properly if created with createElement)
 var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 svg.setAttribute('width', '400')
 svg.setAttribute('height', '400')

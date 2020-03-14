@@ -34,3 +34,6 @@ arr.reduce((a,c)=>({count: a.count+c.count})).count // 17
 
 // str[] to {str:str, ...}
 ['foo', 'bar', 'baz'].reduce((a,c)=> (a[c] = c) && a, {}) // {foo: 'foo', bar: 'bar', baz: 'baz'}
+
+// [ [key,val], ... ] to {key:val, ...}
+[ ['a',1], ['b',2], ['c',3] ].reduce((a,c) => (a[c[0]] = c[1]) && a, {}) // {a: 1, b: 2, c: 3}

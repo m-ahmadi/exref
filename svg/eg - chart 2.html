@@ -1,0 +1,44 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<head>
+	<meta charset="utf-8" />
+</head>
+<style>
+svg {
+	width:800;
+	height:400;
+	border: 2px dashed grey;
+}
+</style>
+
+<svg></svg>
+
+<script>
+const yPoints = [278,266,278,287,276,270,275,281,283,281,270,272,275,271,250,250,261,261,261,262,255,258,261,261,266,262,265,260,265,263,261,250,230,216,222,236,241,250,259,257,249,252,254,257,258,257,269,270,285,291,290,298,294,294,296,299,303,304,306,312,312,317,317,313,302,307,309,310,310,313,313,302,296,291,273,266,278,262,251,252,257,257,249,251,250,259,271,269,263,247,249,248,227,230,226,235,241,244,254,253,261,259,241,236,240,252,247,254,243,235,242,242,242,238,243,244,248,248,246,250,250,251,251,252,254,255,256,259,261,262,263,262,260,259,251,243,239,240,220,209,209,206,212,206,195,198,191,181,176,163,155,160,171,164,155,149,142,118,147,128,302,302,307,305,308,315,321,320,318,323,322,312,314,313,300,302,307,305,307,308,302,299,283,267,271,272,270,254,248,229,222,242,239,232,218,203,202,227,240,228];
+//const yPoints = [...Array(200)].map(()=> Math.floor(Math.random()*(350-50))+50);
+let step = 0;
+const points = yPoints.map((v, i) => [step+=4, v]);
+
+document.addEventListener('DOMContentLoaded', function () {
+	const svg = document.querySelector('svg');
+	svg.append( createEl('path', {d:'M 10,20 l600,50', stroke:'orange','stroke-width':3}) );
+	svg.append( new Path([[500,50],[10,400]], {stroke:'deeppink', 'stroke-width':4}) );
+	svg.append( new Path(points, {stroke:'green',fill:'none','stroke-width':2}) );
+});
+
+class Path {
+	constructor(points, attrs) {
+		const [x,y] = points[0];
+		return createEl('path', {
+			d: `M${x},${y}` + points.slice(1).map(([x,y])=>`L${x},${y}`).join(' '),
+			stroke: 'black',
+			...attrs
+		});
+	}
+}
+
+function createEl(tag, attrs) {
+	const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+	Object.keys(attrs).forEach(k => el.setAttribute(k, attrs[k]) );
+	return el;
+}
+</script>
