@@ -3,6 +3,7 @@ reg add HKLM\foo /v Foo /d bar			add foo if doesn't exist, otherwise change its 
 reg add HKLM\foo /v Bar /t REG_DWORD /d 1	DWORD value type (Bar: 1)
 reg add HKLM\for /ve /d bar			empty value name (Default: bar)
 reg delete HKCU\Environment /v foo /f		delete the key and don't prompt
+reg delete HKCU\Environment\foo /f		...
 reg import file.reg				import
 reg query HKCR\.css /ve				show value of (Default)
 

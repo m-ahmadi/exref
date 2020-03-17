@@ -1,0 +1,8 @@
+none worked
+
+sfc /scannow
+reg delete /f HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Paint
+
+clean boot (take screenshot for undoing)
+msconfig -> Services -> Hide all Microsoft services -> Disable all
+disabel all Startup programs
