@@ -15,7 +15,9 @@
 	font-weight:  normal|bold|bolder|lighter|number;
 	font-variant: normal|small-caps;
 	font-style:   normal|italic|oblique;
-	font: font-style font-variant font-weight font-size font-family|caption|icon|menu|message-box|small-caption|status-bar;
+	font: style variant weight size family|caption|icon|menu|message-box|small-caption|status-bar; /* shorthand */
+	
+	white-space: normal|nowrap|pre|pre-line|pre-wrap;
 	
 	transition-delay: 0s|ms;
 	transition-duration: 0s|ms;

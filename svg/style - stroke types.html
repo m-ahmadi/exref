@@ -4,8 +4,8 @@ svg{
 	width:300; height:100;
 	fill:none; stroke:black;
 }
-svg text { stroke-width: 1; font: 1em monospace; stroke:deeppink;  }
-pre { margin-bottom: 5px; }
+svg text { stroke-width: 1; font: 1em monospace; stroke: orange; }
+p { font: 1.2em monospace; white-space: pre; }
 </style>
 
 <p>stroke</p>
@@ -22,21 +22,21 @@ pre { margin-bottom: 5px; }
 
 <p>stroke-linecap</p>
 <svg stroke-width=20>
-	<path stroke-linecap=butt d="M20,20 l215,0" />
-	<path stroke-linecap=round d="M20,50 l215,0" />
-	<path stroke-linecap=square d="M20,80 l215,0" />
+	<path stroke-linecap=butt d="M20,20 l215,0" />   <text x=100 y=20>butt</text>
+	<path stroke-linecap=round d="M20,50 l215,0" />  <text x=100 y=50>round</text>
+	<path stroke-linecap=square d="M20,80 l215,0" /> <text x=100 y=80>square</text>
 </svg>
 
 <p>stroke-linejoin</p>
 <svg stroke-width=20>
-	<path stroke-linejoin=bevel d="M10,35 l60,0 l0,50" />
-	<path stroke-linejoin=miter d="M100,35 l60,0 l0,50" />
-	<path stroke-linejoin=round d="M200,35 l60,0 l0,50" />
+	<path stroke-linejoin=bevel d="M10,35 l60,0 l0,50" />  <text x=10 y=35>bevel</text>
+	<path stroke-linejoin=miter d="M100,35 l60,0 l0,50" /> <text x=100 y=35>miter</text>
+	<path stroke-linejoin=round d="M200,35 l60,0 l0,50" /> <text x=200 y=35>round</text>
 </svg>
 
-<pre>stroke-dasharray=length,percentage,...
+<p>stroke-dasharray=length,percentage,...
 odd count list is repeated to become even (5,3,2 becomes 5,3,2,5,3,2)
-</pre>
+</p>
 <svg stroke-width=4 style="width:820; height:200;">
 	<path stroke-dasharray=5,5 d="M5,20 l215,0" />
 	<path stroke-dasharray=10,10 d="M5,40 l215,0" />
