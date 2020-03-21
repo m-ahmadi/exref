@@ -29,13 +29,13 @@ function round(n, d=2) {
 
 // big.js
 Big.RM = 2; // round mode: ROUND_HALF_EVEN
-Big('1.245').round(2).toString()      // '1.24'
-Big('1.246').round(2).toString()      // '1.25'
-Big('1.255').round(2).toString()      // '1.25'
-Big('1.256').round(2).toString()      // '1.26'
-Big('1.145').round(2).toString()      // '1.14'
-Big('1.146').round(2).toString()      // '1.15'
-Big('1.4').round().toString()         // '1'
-Big('1.5').round().toString()         // '2'
-Big('1.21474').round(4, 2).toString() // '1.2147'
-Big('1.21475').round(4, 2).toString() // '1.2148'
++Big(1.245).round(2)      // 1.24
++Big(1.246).round(2)      // 1.25
++Big(1.255).round(2)      // 1.25
++Big(1.256).round(2)      // 1.26
++Big(1.145).round(2)      // 1.14
++Big(1.146).round(2)      // 1.15
++Big(1.4).round()         // 1
++Big(1.5).round()         // 2
++Big(1.21474).round(4, 2) // 1.2147
++Big(1.21475).round(4, 2) // 1.2148
