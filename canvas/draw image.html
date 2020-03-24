@@ -1,0 +1,16 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<p>.drawImage(image, dx, dy);
+.drawImage(image, dx, dy, dWidth, dHeight);
+.drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
+</p><br>
+
+<img src="https://via.placeholder.com/150" />
+
+<canvas></canvas>
+
+<script>
+[c1] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+var img = document.querySelector('img');
+c1.drawImage(img, 10, 10);
+</script>

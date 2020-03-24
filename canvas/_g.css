@@ -1,0 +1,14 @@
+canvas {
+	border: 2px dashed grey;
+	margin: 0 5px 15px;
+}
+
+p {
+	margin: 5px 0;
+	font: 1.1em monospace;
+	white-space: pre;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: monospace;
+	white-space: pre;
+}

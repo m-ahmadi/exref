@@ -1,0 +1,68 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<p>.beginPath       ()
+.closePath       ()
+
+.moveTo          (x, y)
+.lineTo          (x, y)
+
+.bezierCurveTo   (cp1x, cp1y, cp2x, cp2y, x, y)
+.quadraticCurveTo(cpx, cpy, x, y)
+
+.arc             (x, y, radius, startAngle, endAngle, ?anticlockwise)
+.arcTo           (x1, y1, x2, y2, radius)
+
+.ellipse         (x, y, radiusX, radiusY, rotation, startAngle, endAngle, ?anticlockwise)
+.rect            (x, y, width, height)
+</p><br>
+
+<p>lineTo()</p>
+<canvas></canvas>
+<canvas></canvas>
+<canvas></canvas>
+
+<p>bezierCurveTo()</p>
+<canvas></canvas>
+
+<p>arc()</p>
+<canvas></canvas>
+
+<p>arcTo()</p>
+<canvas></canvas>
+
+<script>
+[c1,c2,c3,c4,c5,c6] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+c1.moveTo(0, 0);
+c1.lineTo(200, 100);
+c1.stroke();
+
+c2.beginPath();
+c2.moveTo(0, 0);
+c2.lineTo(50, 100);
+c2.lineTo(150, 50);
+c2.lineTo(250, 90);
+c2.stroke();
+
+c3.beginPath();
+c3.moveTo(20, 20);
+c3.lineTo(20, 100);
+c3.lineTo(70, 100);
+c3.closePath();
+c3.stroke();
+
+c4.beginPath();
+c4.moveTo(20, 20);
+c4.bezierCurveTo(20, 100, 200, 100, 200, 20);
+c4.stroke();
+
+c5.beginPath();
+c5.arc(100, 75, 50, 0, 2*Math.PI);
+c5.stroke();
+
+c6.beginPath(); 
+c6.moveTo(20, 20);
+c6.lineTo(100, 20);
+c6.arcTo(150, 20, 150, 70, 50);
+c6.lineTo(150, 120)
+c6.stroke();
+</script>

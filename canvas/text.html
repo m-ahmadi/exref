@@ -1,0 +1,19 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<p>.fillText   (text, x, y ,?maxWidth)
+.strokeText (text, x, y ,?maxWidth)
+.measureText(text)</p><br>
+
+<canvas></canvas>
+<canvas></canvas>
+
+<script>
+[c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+
+c1.font = '30px Arial';
+c1.fillText('Hello World', 10, 50);
+
+
+c2.font = '30px Arial';
+c2.strokeText('Hello World', 10, 50);
+</script>

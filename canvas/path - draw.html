@@ -1,0 +1,28 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<p>.fill              (path|fillRule, ?fillRule)
+.stroke            (?path)
+.drawFocusIfNeeded (path|element, ?element)
+.scrollPathIntoView(?path)
+.clip              (path|fillRule, ?fillRule)
+.isPointInPath     (path|x, x, y, ?fillRule)
+.isPointInStroke   (path|x, x, y)
+</p><br>
+
+<p>clip() clip an area, then draw afterward</p>
+<canvas></canvas>
+
+<p>isPointInPath()</p>
+<canvas></canvas>
+
+<script>
+[c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+c1.rect(50, 20, 200, 120);
+c1.stroke();
+c1.clip();
+c1.fillStyle='red';
+c1.fillRect(0, 0, 150, 100);
+
+c2.rect(20, 20, 150, 100);
+if ( c2.isPointInPath(20, 50) ) c2.stroke();
+</script>

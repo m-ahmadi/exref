@@ -1,0 +1,35 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<p>.lineWidth      = 0.1
+.lineCap        = 'butt|round|square'
+.lineJoin       = 'miter|bevel|round'
+.miterLimit     = 10
+.lineDashOffset = 0.0
+.getLineDash()
+.setLineDash(segments)
+</p>
+
+<canvas></canvas>
+<canvas></canvas>
+
+<script>
+[c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+c1.beginPath();
+c1.moveTo(20, 20);
+c1.lineTo(20, 100);
+c1.lineTo(70, 100);
+c1.strokeStyle = 'red';
+c1.stroke();
+
+c2.beginPath(); 
+c2.lineWidth = 5;
+c2.strokeStyle = 'green';
+c2.moveTo(0, 75);
+c2.lineTo(250, 75);
+c2.stroke();
+c2.beginPath();
+c2.strokeStyle = 'purple';
+c2.moveTo(50, 0);
+c2.lineTo(150, 130); 
+c2.stroke();
+</script>

@@ -1,0 +1,29 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<p>.createLinearGradient(x0, y0, x1, y1)
+.createRadialGradient(x0, y0, r0, x1, y1, r1)
+.createPattern       (image, repetition='repeat|repeat-x|repeat-y|no-repeat')
+
+gradient.addColorStop(stop=0, color='')
+</p><br>
+
+<p>linear</p>
+<canvas></canvas>
+
+<p>radial</p>
+<canvas></canvas>
+
+<script>
+[c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+var grd = c1.createLinearGradient(0, 0, 200, 0);
+grd.addColorStop(0, 'red');
+grd.addColorStop(1, 'white');
+c1.fillStyle = grd;
+c1.fillRect(10, 10, 150, 80);
+
+var grd = c2.createRadialGradient(75, 50, 5, 90, 60, 100);
+grd.addColorStop(0,'red');
+grd.addColorStop(1,'white');
+c2.fillStyle = grd;
+c2.fillRect(10, 10, 150, 80);
+</script>
