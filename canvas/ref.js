@@ -91,6 +91,6 @@ CanvasRenderingContext2D
 .putImageData(imageData, dx, dy, dirtyX, dirtyY, dirtyWidth, dirtyHeight)
 
 // canvas state
+.canvas
 .save()
 .restore()
-.canvas
