@@ -1,0 +1,30 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<p>.fillStyle    = '#000' color|gradient|pattern
+.strokeStyle  = '#000' color|gradient|pattern
+</p><br>
+
+<p>fillStyle</p>
+<canvas></canvas>
+<canvas></canvas>
+
+<p>strokeStyle</p>
+<canvas></canvas>
+<canvas></canvas>
+
+<script>
+[c1,c2,c3,c4] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+c1.fillStyle = 'blue';
+c1.fillRect(10, 10, 100, 100);
+
+c2.arc(100, 75, 50, 0, 2*Math.PI);
+c2.fillStyle = 'red';
+c2.fill();
+
+c3.strokeStyle = 'red';
+c3.strokeRect(10, 10, 100, 100);
+
+c4.arc(100, 75, 50, 0, 2*Math.PI);
+c4.strokeStyle = 'blue';
+c4.stroke();
+</script>
