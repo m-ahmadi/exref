@@ -5,9 +5,14 @@
 .direction    = 'inherit|ltr|rtl'
 </p><br>
 
+<p>font</p>
 <canvas></canvas>
 
 <script>
 [c1] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
 
+c1.font = '30px Arial';
+c1.fillText('Hello World', 50, 50);
+c1.font = '20px Arial';
+c1.fillText('Hello World', 50, 100);
 </script>

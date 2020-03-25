@@ -6,30 +6,57 @@
 .lineDashOffset = 0.0
 .getLineDash()
 .setLineDash(segments)
-</p>
+</p><br>
 
+<p>lineWidth</p>
 <canvas></canvas>
+
+<p>lineCap</p>
+<canvas></canvas>
+
+<p>lineJoin</p>
 <canvas></canvas>
 
 <script>
-[c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+c = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+[c1,c2,c3] = c;
+c.forEach(i=>i.font = '12px Arial');
 
-c1.beginPath();
-c1.moveTo(20, 20);
-c1.lineTo(20, 100);
-c1.lineTo(70, 100);
-c1.strokeStyle = 'red';
-c1.stroke();
+[...Array(10)].map((v,i)=>(i+1)*20).forEach((v,i) => {
+	c1.beginPath();
+	c1.lineWidth = i+1;
+	c1.moveTo(v, 10);
+	c1.lineTo(v, 100);
+	c1.stroke();
+});
 
-c2.beginPath(); 
-c2.lineWidth = 5;
-c2.strokeStyle = 'green';
-c2.moveTo(0, 75);
-c2.lineTo(250, 75);
-c2.stroke();
-c2.beginPath();
-c2.strokeStyle = 'purple';
-c2.moveTo(50, 0);
-c2.lineTo(150, 130); 
-c2.stroke();
+c2.moveTo(20, 20);  c2.lineTo(290, 20);
+c2.moveTo(20, 120); c2.lineTo(290, 120);
+c2.strokeStyle = 'deeppink'; c2.stroke();
+c2.strokeStyle = 'black';
+c2.lineWidth = 10;
+c2.font = '12px Arial';
+['butt','square','round'].forEach((v,i) => {
+	const x = (i+1)*70;
+	c2.beginPath();
+	c2.lineCap = v;
+	c2.moveTo(x, 20);
+	c2.lineTo(x, 120);
+	c2.stroke();
+	c2.fillText(v,x-45,50);
+});
+
+c3.moveTo(20, 90);  c3.lineTo(290, 90); c3.strokeStyle = 'orange'; c3.stroke();
+c3.strokeStyle = 'black';
+c3.lineWidth = 10;
+['miter','bevel','round'].forEach((v,i) => {
+	const x = ((i+1)*100)-100;
+	c3.beginPath();
+	c3.lineJoin = v;
+	c3.moveTo(x+10,50);
+	c3.lineTo(x+40,90);
+	c3.lineTo(x+70,50);
+	c3.stroke();
+	c3.fillText(v,x+20,50);
+});
 </script>
