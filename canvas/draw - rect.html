@@ -1,0 +1,26 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<p>.fillRect  (x, y, width, height)
+.strokeRect(x, y, width, height)
+.clearRect (x, y, width, height)
+</p><br>
+
+<p>fillRect()</p>
+<canvas></canvas>
+
+<p>strokeRect()</p>
+<canvas></canvas>
+
+<p>clearRect()</p>
+<canvas></canvas>
+
+<script>
+[c1,c2,c3,c4,c5,c6] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+c1.fillRect(20, 20, 100, 100);
+c1.fillRect(150, 20, 50, 50);
+
+c2.strokeRect(20, 20, 100, 100);
+
+c3.fillRect(20, 20, 80, 80);
+c3.clearRect(40, 40, 40, 40);
+</script>

@@ -1,7 +1,7 @@
 HTMLCanvasElement extends HTMLElement
 HTMLCanvasElement.height
 HTMLCanvasElement.width
-HTMLCanvasElement.getContext()
+HTMLCanvasElement.getContext(contextType='2d|webgl|webgl2|bitmaprenderer', contextAttributes={alpha: true, desynchronized: false})
 HTMLCanvasElement.toDataURL()
 HTMLCanvasElement.toBlob()
 
@@ -69,7 +69,7 @@ CanvasRenderingContext2D
 .isPointInStroke(path|x, x, y)
 
 // transform
-.getTransform
+.getTransform()
 .rotate(angle)
 .scale(x, y)
 .translate(x, y)

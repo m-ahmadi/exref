@@ -1,8 +1,8 @@
 <link rel=stylesheet href=_g.css /><script src=_g.js></script>
 <p>.beginPath       ()
 .closePath       ()
-
 .moveTo          (x, y)
+
 .lineTo          (x, y)
 
 .bezierCurveTo   (cp1x, cp1y, cp2x, cp2y, x, y)
@@ -17,10 +17,19 @@
 
 <p>lineTo()</p>
 <canvas></canvas>
-<canvas></canvas>
+
+<p>moveTo()</p>
 <canvas></canvas>
 
-<p>bezierCurveTo()</p>
+<p>closePath()</p>
+<canvas></canvas>
+
+<p>beginPath()</p>
+<canvas></canvas>
+
+<p>rect()</p>
+<canvas></canvas>
+<canvas></canvas>
 <canvas></canvas>
 
 <p>arc()</p>
@@ -29,40 +38,66 @@
 <p>arcTo()</p>
 <canvas></canvas>
 
-<script>
-[c1,c2,c3,c4,c5,c6] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+<p>bezierCurveTo()</p>
+<canvas></canvas>
 
-c1.moveTo(0, 0);
-c1.lineTo(200, 100);
+<script>
+c = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+[c1,c2,c3,c4,c5,c6,c7,c8,c9,c10]  = c;
+c.forEach(i=>i.font = '12px Arial');
+
+c1.moveTo(0,0);
+c1.lineTo(50,100);
+c1.lineTo(150,50);
+c1.lineTo(250,90);
 c1.stroke();
 
-c2.beginPath();
-c2.moveTo(0, 0);
-c2.lineTo(50, 100);
-c2.lineTo(150, 50);
-c2.lineTo(250, 90);
+c2.moveTo(0,0);     c2.lineTo(50,80);
+c2.moveTo(150,75);  c2.lineTo(100,50);  c2.lineTo(130,80);
+c2.moveTo(300,150); c2.lineTo(260,130); c2.lineTo(290,110);
 c2.stroke();
 
-c3.beginPath();
-c3.moveTo(20, 20);
-c3.lineTo(20, 100);
-c3.lineTo(70, 100);
-c3.closePath();
+c3.moveTo(10,50);  c3.lineTo(50,120);  c3.lineTo(120,90); c3.lineTo(120,50);
+c3.moveTo(150,50); c3.lineTo(190,120); c3.lineTo(260,90); c3.lineTo(260,50); c3.closePath();
+c3.fillText('not closed', 30,40);
+c3.fillText('closed', 180,40);
 c3.stroke();
 
+c4.rect(50,50,50,50);
 c4.beginPath();
-c4.moveTo(20, 20);
-c4.bezierCurveTo(20, 100, 200, 100, 200, 20);
+c4.moveTo(100,100);
+c4.lineTo(150,150);
+c4.lineTo(200,100);
+c4.closePath();
+c4.fillText('this rect here was cleared', 50,60);
 c4.stroke();
 
-c5.beginPath();
-c5.arc(100, 75, 50, 0, 2*Math.PI);
+c5.rect(20,20,150,100);
 c5.stroke();
 
-c6.beginPath(); 
-c6.moveTo(20, 20);
-c6.lineTo(100, 20);
-c6.arcTo(150, 20, 150, 70, 50);
-c6.lineTo(150, 120)
+c6.lineWidth = 6;
+c6.strokeStyle = 'red';
+c6.rect(10,10,200,100);
 c6.stroke();
+
+c7.rect(20,20,150,100);
+c7.fillStyle = 'red';
+c7.fill();
+c7.beginPath();
+c7.rect(40,40,150,100);
+c7.fillStyle = 'blue';
+c7.fill();
+
+c8.arc(100,75,50,0,2*Math.PI);
+c8.stroke();
+
+c9.moveTo(20,20);
+c9.lineTo(100,20);
+c9.arcTo(150,20,150,70,50);
+c9.lineTo(150,120)
+c9.stroke();
+
+c10.moveTo(20,20);
+c10.bezierCurveTo(20,100,200,100,200,20);
+c10.stroke();
 </script>
