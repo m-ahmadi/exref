@@ -17,16 +17,16 @@
 [,,c3,c4] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
 
 c3.font = '25px Arial';
-c3.fillText('<canvas width=600 height=300></canvas>', 100, 30);
-c3.fillText('attr width/height changes actual pixel size', 10, 240);
+c3.fillText('<canvas width=600 height=300></canvas>', 100,30);
+c3.fillText('attr width/height changes actual pixel size', 10,240);
 c3.lineWidth = 10;
 c3.moveTo(0,0);
 c3.lineTo(300,150);
 c3.stroke();
 
 c4.font = '12px Arial';
-c4.fillText('<canvas style=width:600;height:300;></canvas>', 40, 15);
-c4.fillText('css width/height changes viewing size', 5, 120);
+c4.fillText('<canvas style=width:600;height:300;></canvas>', 40,15);
+c4.fillText('css width/height changes viewing size', 5,120);
 c4.lineWidth = 10;
 c4.moveTo(0,0);
 c4.lineTo(300,150);

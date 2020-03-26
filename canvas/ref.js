@@ -5,6 +5,18 @@ HTMLCanvasElement.getContext(contextType='2d|webgl|webgl2|bitmaprenderer', conte
 HTMLCanvasElement.toDataURL()
 HTMLCanvasElement.toBlob()
 
+new Path2D(?path|?d='')
+Path2D.addPath()
+Path2D.closePath()
+Path2D.moveTo()
+Path2D.lineTo()
+Path2D.bezierCurveTo()
+Path2D.quadraticCurveTo()
+Path2D.arc()
+Path2D.arcTo()
+Path2D.ellipse()
+Path2D.rect()
+
 CanvasRenderingContext2D
 
 // rect
@@ -94,3 +106,6 @@ CanvasRenderingContext2D
 .canvas
 .save()
 .restore()
+
+// filter
+.filter = 'filter-fn filter-fn ... |none'

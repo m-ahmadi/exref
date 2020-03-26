@@ -17,12 +17,12 @@
 <script>
 [c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
 
-c1.rect(50, 20, 200, 120);
+c1.rect(50,20,200,120);
 c1.stroke();
 c1.clip();
 c1.fillStyle='red';
-c1.fillRect(0, 0, 150, 100);
+c1.fillRect(0,0,150,100);
 
-c2.rect(20, 20, 150, 100);
-if ( c2.isPointInPath(20, 50) ) c2.stroke();
+c2.rect(20,20,150,100);
+if ( c2.isPointInPath(20,50) ) c2.stroke();
 </script>

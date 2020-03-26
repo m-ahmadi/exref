@@ -5,7 +5,7 @@
 .miterLimit     = 10
 .lineDashOffset = 0.0
 .getLineDash()
-.setLineDash(segments)
+.setLineDash(segments=[])
 </p><br>
 
 <p>lineWidth</p>
@@ -17,9 +17,14 @@
 <p>lineJoin</p>
 <canvas></canvas>
 
+<p>setLineDash()
+odd length segments are repeated to be even ([5,15,25] becomes [5,15,25, 5,15,25])
+</p>
+<canvas></canvas>
+
 <script>
 c = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
-[c1,c2,c3] = c;
+[c1,c2,c3,c4] = c;
 c.forEach(i=>i.font = '12px Arial');
 
 [...Array(10)].map((v,i)=>(i+1)*20).forEach((v,i) => {
@@ -30,8 +35,8 @@ c.forEach(i=>i.font = '12px Arial');
 	c1.stroke();
 });
 
-c2.moveTo(20, 20);  c2.lineTo(290, 20);
-c2.moveTo(20, 120); c2.lineTo(290, 120);
+c2.moveTo(20,20);  c2.lineTo(290,20);
+c2.moveTo(20,120); c2.lineTo(290,120);
 c2.strokeStyle = 'deeppink'; c2.stroke();
 c2.strokeStyle = 'black';
 c2.lineWidth = 10;
@@ -58,5 +63,26 @@ c3.lineWidth = 10;
 	c3.lineTo(x+70,50);
 	c3.stroke();
 	c3.fillText(v,x+20,50);
+});
+
+c4.canvas.width = 600;
+c4.canvas.height = 200;
+c4.lineWidth = 6;
+c4.font = '14px Arial';
+[
+	[10],
+	[40],
+	[40,20],
+	[20,5],
+	[40,10,20],
+].forEach((v,i) => {
+	const y = ((i+1)*40)-20;
+	c4.beginPath();
+	c4.setLineDash(v);
+	c4.moveTo(5, y);
+	c4.lineTo(400, y);
+	c4.stroke();
+	c4.fillStyle = 'orange';
+	c4.fillText(v.join() + (v.length % 2 ? `  (${ v.concat(v) })` : ''), 410,y+5);
 });
 </script>

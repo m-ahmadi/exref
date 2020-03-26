@@ -15,15 +15,15 @@ gradient.addColorStop(stop=0, color='')
 <script>
 [c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
 
-var grd = c1.createLinearGradient(0, 0, 200, 0);
+var grd = c1.createLinearGradient(0,0,200,0);
 grd.addColorStop(0, 'red');
 grd.addColorStop(1, 'white');
 c1.fillStyle = grd;
-c1.fillRect(10, 10, 150, 80);
+c1.fillRect(10,10,150,80);
 
-var grd = c2.createRadialGradient(75, 50, 5, 90, 60, 100);
+var grd = c2.createRadialGradient(75,50,5,90,60,100);
 grd.addColorStop(0,'red');
 grd.addColorStop(1,'white');
 c2.fillStyle = grd;
-c2.fillRect(10, 10, 150, 80);
+c2.fillRect(10,10,150,80);
 </script>
