@@ -1,0 +1,102 @@
+<style>
+#chart {
+	position: relative;
+	padding-left: 20px;
+	font-size: 0.8em;
+}
+#chart canvas {
+	border: 1px solid grey;
+	border-width: 0 0 1px 1px;
+}
+#x {
+	margin-left: 60px;
+}
+#x > span {
+	width: 60px;
+	display: inline-block;
+}
+#x > span:before {
+	content: '';
+	width: 5px;
+	height: 5px;
+	position: absolute;
+	background-color: #1dd2af;
+	border-radius: 50%;
+	bottom: 16px;
+}
+#y {
+	position: absolute;
+	top: 0;
+	left: -5px;
+	margin-top: 0px;
+}
+#y > span {
+	display: block;
+	height: 30px;
+}
+#y > span:after {
+	content: '';
+	width: 4px;
+	height: 4px;
+	position: absolute;
+	background-color: #1dd2af;
+	border-radius: 50%;
+}
+</style>
+
+<div id="chart">
+	<canvas></canvas>
+	<div id="x"></div>
+	<div id="y"></div>
+</div>
+
+<script>
+var xLabels = document.getElementById('x');
+var yLabels = document.getElementById('y');
+var c = document.querySelector('canvas').getContext('2d');
+c.canvas.width = 600;
+c.canvas.height = 300;
+var width = c.canvas.width;
+var height = c.canvas.height;
+var xPoints = [...Array( Math.floor(width/30) )].map((v,i)=>i*60);
+var yPoints = [...Array( Math.floor(height/25) )].map((v,i)=>i*30).slice(1);
+
+xPoints.filter((v,i)=>i%2===0).slice(1).forEach((v,i) => {
+	var span = document.createElement('span');
+	span.innerText = 'week'+(i+1);
+	xLabels.append(span);
+});
+
+yPoints.reverse().filter(i=>i<=height).forEach(i => {
+	var span = document.createElement('span');
+	span.innerText = i;
+	yLabels.append(span);
+});
+
+// actual graph
+c.lineWidth = 2;
+xPoints.forEach(i => {
+	c.lineTo(i, yPoints[Math.floor((Math.random()*(yPoints.length-1))+1)]);
+});
+c.stroke();
+
+c.lineWidth = 1;
+c.strokeStyle = 'rgba(29, 210, 175,0.3)';
+
+// vertical lines
+c.beginPath();
+xPoints.forEach(i => {
+	c.moveTo(i, 0);
+	c.lineTo(i, height);
+});
+c.stroke();
+
+// horizontal lines
+c.strokeStyle = 'rgba(29, 210, 175,0.2)';
+c.beginPath();
+yPoints.forEach(i => {
+	c.moveTo(0, i);
+	c.lineTo(width, i);
+});
+c.stroke();
+</script>
