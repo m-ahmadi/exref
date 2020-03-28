@@ -1,0 +1,49 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+
+<canvas></canvas>
+
+<script>
+canvas = document.querySelector('canvas');
+c = canvas.getContext('2d');
+canvasLeft = canvas.offsetLeft;
+canvasTop = canvas.offsetTop;
+dragging = false;
+
+c.lineWidth = 4;
+c.strokeStyle = 'black';
+c.fillStyle = '#00D2FF';
+
+drawRect(100,50);
+
+canvas.addEventListener('mousemove', function (e) {
+	var x = e.pageX - canvasLeft;
+	var y = e.pageY - canvasTop;
+	if (dragging) {
+		drawRect(x,y);
+	}
+});
+
+canvas.addEventListener('mousedown', () => dragging = true);
+canvas.addEventListener('mouseup', () => dragging = false);
+
+canvas.addEventListener('mouseover', function () {
+	// if () canvas.style.cursor = 'pointer';
+});
+canvas.addEventListener('mouseout', function () {
+	// canvas.style.cursor = 'initial';
+});
+
+function drawRect(x, y) {
+	c.fillStyle = 'white';
+	c.clearRect(0,0, canvas.width, canvas.height);
+	
+	c.beginPath();
+	c.lineWidth = 4;
+	c.strokeStyle = 'black';
+	c.fillStyle = '#00D2FF';
+	c.rect(x, y, 100, 50);
+	c.fill();
+	c.stroke();
+	c.closePath();
+}
+</script>

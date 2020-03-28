@@ -15,9 +15,9 @@
 'wheel'
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pointer position
-e.pageX,   e.pageY		// relative to document (html element)  unit: css pixels (normalized and can be used in all browsers?)
-e.clientX, e.clientY	// relative to viewport (window)        unit: css pixels (differs between browsers?)
-e.offsetX, e.offsetY	// relative to parent element           unit: css pixels (differs between browsers?)
+e.pageX,   e.pageY		// relative to document (html element)  unit: css pixels
+e.clientX, e.clientY	// relative to viewport (window)        unit: css pixels
+e.offsetX, e.offsetY	// relative to parent element           unit: css pixels
 e.screenX, e.screenY  // relative to screen                   unit: device pixels
 
 e.pageX === e.clientX + window.pageXOffset

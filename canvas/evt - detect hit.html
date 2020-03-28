@@ -1,0 +1,40 @@
+<link rel=stylesheet href=_g.css /><script src=_g.js></script>
+<canvas></canvas>
+
+<script>
+var canvas = document.querySelector('canvas');
+var canvasLeft = canvas.offsetLeft;
+var canvasTop = canvas.offsetTop;
+var ctx = canvas.getContext('2d');
+
+canvas.addEventListener('click', function (e) {
+	var x = e.pageX - canvasLeft;
+	var y = e.pageY - canvasTop;
+
+	// collision detection between clicked offset and element.
+	els.forEach(el => {
+		if (
+			y > el.y &&
+			y < el.y + el.height &&
+			x > el.x &&
+			x < el.x + el.width
+		) {
+			ctx.fillStyle = el.color;
+			ctx.clearRect(130,60,100,50);
+			ctx.fillText(`clicked on ${el.color}`, 150,75);
+		}
+	});
+
+}, false);
+
+var els = [
+	{color: 'red',    x: 0,  y: 0,  width: 40, height: 20 },
+	{color: 'green',  x: 50, y: 50, width: 80, height: 20 },
+	{color: 'orange', x: 80, y: 80, width: 50, height: 30 },
+];
+
+els.forEach(({color, x, y, width, height}) => {
+	ctx.fillStyle = color;
+	ctx.fillRect(x, y, width, height);
+});
+</script>
