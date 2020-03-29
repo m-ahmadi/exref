@@ -1,0 +1,34 @@
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	background: red;
+	position: absolute;
+	cursor: grab;
+}
+</style>
+<div style="margin-bottom:10px;"></div>
+<div id="box" ></div>
+
+<script>
+el = document.querySelector('#box');
+
+el.addEventListener('mousedown', function (e) {
+	this.dragging = true;
+	this.clickOffsetX = e.offsetX; //e.clientX - this.offsetLeft;
+	this.clickOffsetY = e.offsetY; //e.clientY - this.offsetTop;
+	this.style.cursor = 'grabbing';
+});
+
+el.addEventListener('mouseup', function () {
+	this.dragging = false;
+	this.style.cursor = 'grab';
+});
+
+el.addEventListener('mousemove', function (e) {
+	if (this.dragging) {
+		this.style.left = (e.pageX - this.parentElement.offsetLeft) - this.clickOffsetX;
+		this.style.top = (e.pageY - this.parentElement.offsetTop) - this.clickOffsetY;
+	}
+});
+</script>

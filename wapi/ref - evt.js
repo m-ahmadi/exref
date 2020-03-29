@@ -34,8 +34,8 @@ MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN
 MouseEvent.altKey
 MouseEvent.button
 MouseEvent.buttons
-MouseEvent.clientX
-MouseEvent.clientY
+MouseEvent.clientX | X MouseEvent.x
+MouseEvent.clientY | X MouseEvent.y
 MouseEvent.ctrlKey
 MouseEvent.metaKey
 MouseEvent.movementX
@@ -52,8 +52,6 @@ MouseEvent.shiftKey
 MouseEvent.which !
 MouseEvent.MouseEvent.mozInputSource !
 MouseEvent.webkitForce !
-X MouseEvent.x
-X MouseEvent.y
 MouseEvent.getModifierState()
 'click' 'dblclick' 'mousedown' 'mouseenter' 'mouseleave' 'mousemove' 'mouseover' 'mouseout' 'mouseup' 'contextmenu' 'auxclick' 
 
