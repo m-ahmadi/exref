@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 const { join } = require('path');
 
 // async
@@ -16,7 +16,6 @@ async function files(dir) {
 	}
 	return result;
 }
-
 files('node_modules/fs-extra').then(console.log) // ['file1', 'file2', 'file3']
 
 
@@ -24,5 +23,4 @@ files('node_modules/fs-extra').then(console.log) // ['file1', 'file2', 'file3']
 function files(p) {
 	return fs.readdirSync(p).filter( f => fs.statSync(join(p, f)).isFile() )
 }
-
 files('path/to/some/file') // ['file1', 'file2', 'file3']

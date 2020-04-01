@@ -15,9 +15,12 @@
 'possibly dudlya'      .match(/ly\b/ig)      ['ly']                    // \b    zero-width word boundary
 'at noon ono'          .match(/\bno/ig)      ['no']                    // ...
 'possiblye yesterday'  .match(/ye\B/ig)      ['ye']                    // \B    zero-width non-word boundary
-'abc'                .replace(/(abc)/, '$1def') 'abcdef'               // ()    capturing group back reference
+'abc'                  .match(/ab(c)/)       ['abc', 'c']              // ()    capturing group
+'abc'                  .match(/a(b)(c)/)     ['abc', 'b', 'c']         // ...
+'abc'                  .match(/(a)(c)/)      ['abc', 'a', 'c']         // ...
+'abc'                .replace(/(abc)/, '$1def') 'abcdef'               // ...   back reference
 'x x'                .replace(/(x)/g, '$1y')    'xy xy'                // ...
-'x y'                .replace(/(x)y/g, 'L$&')   'Lxy Lxy'              // ... whole match backref
+'x y'                .replace(/(x) y/g, 'L$&')  'Lx y'                 // ...   whole match backref
 
 // emulating and
 var str = 'all the leaves are brown and the sky is grey';
@@ -67,9 +70,10 @@ x(?!y)    x only if x is not followed by y
 
 capturing groups
 (x)       capturing group. recall matched substr from result array [1],[n] or use backrefs.
-(?:x)     non-capturing group. matched substr cann't be recalled.
+(?:x)     non-capturing group. matched substr can't be recalled.
+(?<name>) named capturing groupt.
 
-back references
+capturing groups back references
 $n        nth paren match from left. n = 1,...,100
 $`        portion of the string that precedes the match
 $'        portion of the string that follows the match
