@@ -1,0 +1,55 @@
+<style>
+#graph-container {
+	float: left;
+	overflow-y: auto;
+	width: 800;
+}
+canvas {
+	border: 1px dashed grey;
+}
+#y-labels {
+	float: left;
+}
+</style>
+
+<div>
+	<canvas id="y-labels"></canvas>
+	<div id="graph-container">
+		<canvas></canvas>
+	</div>
+</div>
+
+<script>
+width = 1200;
+height = 400;
+points = [...Array(width/10)].map((v,i)=>({ x: (i+1)*10, y: Math.floor(rand(height/2, rand(0,height))) }));
+
+graph = document.querySelector('#graph-container > canvas').getContext('2d');
+yAx = document.querySelector('#y-labels').getContext('2d');
+
+graph.canvas.width = width;
+graph.canvas.height = height;
+yAx.canvas.width = 50;
+yAx.canvas.height = graph.canvas.height;
+
+graph.moveTo(0, 0);
+for (const {x,y} of points) graph.lineTo(x, y);
+graph.stroke();
+
+graph.beginPath();
+yScale = 30;
+yLines = [...Array(Math.floor(height/yScale))].map((v,i)=>(i+1)*yScale);
+yLines = height % yScale ? yLines : yLines.slice(0,-1);
+yLines.forEach(y => {
+	graph.moveTo(0, y);
+	graph.lineTo(width, y);
+	yAx.fillText(y, 20,height-(y-24));
+	yAx.moveTo(45, y);
+	yAx.lineTo(yAx.canvas.width, y);
+	yAx.stroke();
+});
+graph.lineWidth = 0.1;
+graph.stroke();
+
+function rand(min=0,max=10) { return Math.floor(Math.random()*(max-min))+min }
+</script>
