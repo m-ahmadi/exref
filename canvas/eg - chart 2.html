@@ -2,7 +2,7 @@
 #graph-container {
 	float: left;
 	overflow-y: auto;
-	width: 800;
+	width: 600px;
 }
 canvas {
 	border: 1px dashed grey;
@@ -22,7 +22,7 @@ canvas {
 <script>
 width = 1200;
 height = 400;
-points = [...Array(width/10)].map((v,i)=>({ x: (i+1)*10, y: Math.floor(rand(height/2, rand(0,height))) }));
+points = [...Array(Math.floor(width/10))].map((v,i)=>({ x: (i+1)*10, y: Math.floor(rand(height/2, rand(0,height))) }));
 
 graph = document.querySelector('#graph-container > canvas').getContext('2d');
 yAx = document.querySelector('#y-labels').getContext('2d');
