@@ -1,6 +1,27 @@
 const child_process = require('child_process');
 const { promisify } = require('util');
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// exec
+child_process.execSync('node --version').toString() // v10.16.3
+
+const exec = promisify(child_process.exec);
+(async function () {
+  const { stdout } = await exec('node', ['--version']);
+  console.log(stdout);
+})()
+
+child_process.exec('ls -la', (error, stdout, stderr) => {
+	if (error) {
+		console.log(`error: ${error.message}`);
+		return;
+	}
+	if (stderr) {
+		console.log(`stderr: ${stderr}`);
+		return;
+	}
+	console.log(`stdout: ${stdout}`);
+});
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // execFile
 child_process.execFileSync('node', ['--version']).toString() // v10.16.3
 
@@ -15,21 +36,6 @@ const execFile = promisify(child_process.execFile);
 const child = child_process.spawn('ls', ['-a', '-l']);
 child.on('exit', code => {
   console.log(`Exit code is: ${code}`);
-});
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// exec
-const exec = promisify(child_process.exec);
-(async function () {
-  const { stdout } = await exec('node', ['--version']);
-  console.log(stdout);
-})()
-child_process.exec('cat *.js missing_file | wc -l', (error, stdout, stderr) => {
-  if (error) {
-    console.error(`exec error: ${error}`);
-    return;
-  }
-  console.log(`stdout: ${stdout}`);
-  console.error(`stderr: ${stderr}`);
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const child = child_process.fork('./worker');

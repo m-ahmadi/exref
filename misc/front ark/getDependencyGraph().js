@@ -15,5 +15,5 @@ function getDependencyGraph(entry, files, result=[]) {
 			if (groups.length) getDependencyGraph(undefined, groupsJoined, result);
 		}
 	}
-	return [entry, ...new Set(result)];
+	if (entry) return [entry, ...new Set(result)];
 }

@@ -7,8 +7,8 @@ function dirTree(p, tree=[{path: '', children: []}]) {
 		tree[0].path = p;
 		index = 0;
 	}
-	readdirSync(p).forEach((f, i) => {
-		const p2 = join(p, f);
+	readdirSync(p).forEach(file => {
+		const p2 = join(p, file);
 		if ( statSync(p2).isDirectory() ) {
 			tree[index].children.push({ path: p2, children: [] });
 			dirTree(p2, tree[index].children);
@@ -19,3 +19,20 @@ function dirTree(p, tree=[{path: '', children: []}]) {
 	
 	return tree;
 }
+
+// {file:'', dir: {file:'',...}, file:''}
+function dirTree2(dir, full, tree={}) {
+	readdirSync(dir).forEach(file => {
+		const path = join(dir, file);
+		const key = full ? path : file;
+		if ( statSync(path).isDirectory() ) {
+			tree[key] = {};
+			dirTree2(path, full, tree[key]);
+		} else {
+			tree[key] = '';
+		}
+	});
+	return tree;
+}
+dirTree2('./test')
+dirTree2('./test', true) // full paths
