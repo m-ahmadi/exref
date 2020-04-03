@@ -1,5 +1,5 @@
 <style>
-#graph-container {
+#chart {
 	float: left;
 	overflow-y: auto;
 	width: 600px;
@@ -12,11 +12,9 @@ canvas {
 }
 </style>
 
-<div>
-	<canvas id="y-labels"></canvas>
-	<div id="graph-container">
-		<canvas></canvas>
-	</div>
+<canvas id="y-labels"></canvas>
+<div id="chart">
+	<canvas></canvas>
 </div>
 
 <script>
@@ -24,7 +22,7 @@ width = 1200;
 height = 400;
 points = [...Array(Math.floor(width/10))].map((v,i)=>({ x: (i+1)*10, y: Math.floor(rand(height/2, rand(0,height))) }));
 
-graph = document.querySelector('#graph-container > canvas').getContext('2d');
+graph = document.querySelector('#chart > canvas').getContext('2d');
 yAx = document.querySelector('#y-labels').getContext('2d');
 
 graph.canvas.width = width;

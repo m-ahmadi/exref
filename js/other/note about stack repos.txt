@@ -13,3 +13,6 @@ stack3
 
 stack4
 	rollup instead of requirejs
+
+stack5
+	removed rollup and handlebars
