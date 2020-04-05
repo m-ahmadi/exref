@@ -40,7 +40,12 @@ pws	180 192 100	25  30  40
 -------------------------------------------------------------------------------
 console window properties (cmd & powershell)
 
-font=16 width=117 height=30 left=957 top=528 (laptop: w100 h25)
+font=16
+          width  height  left  top
+desktop:  117    30      957   528
+laptop:   83     21      676   360 (cmdleft=-4)
+
+(laptop alt: w100 h25)
 -------------------------------------------------------------------------------
 
 
