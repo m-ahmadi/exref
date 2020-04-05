@@ -9,4 +9,6 @@ setx foo "path/to/somewhere" /m		set under "System variables" (HKEY_LOCAL_MACHIN
 reg add %sys% /v foo /d e:\bar		... through registry
 reg delete %sys% /f /v foo		delete variable
 
-note: setx can't delete the variable
+note:
+don't use variable expansion inside the value, eg: foo=%bar%\baz as it leads to errors
+setx can't delete the variable

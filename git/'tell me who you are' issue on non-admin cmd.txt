@@ -1,15 +1,8 @@
-changing order of paths seems to fix it but won't persist after restart
-don't think specific order of things matter
-(don't know what to do)
+caused by using variable expansion inside environment variables
+eg: desk=%userprofile%\desk
 -------------------------------------------------------------------------------
-put git\bin before openssh in path
+failed attempt
 
-\cmder\vendor\git-for-windows\bin
-%SYSTEMROOT%\System32\OpenSSH
--------------------------------------------------------------------------------
-same issue on vscode
-put git\bin before vscode\bin in path
-
-\cmder\vendor\git-for-windows\bin
-\VSCode\bin
+change order of path, eg: put git\bin before openssh in path (order isn't important)
+won't persist after restart
 -------------------------------------------------------------------------------
