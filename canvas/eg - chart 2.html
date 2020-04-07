@@ -20,7 +20,12 @@ canvas {
 <script>
 width = 1200;
 height = 400;
-points = [...Array(Math.floor(width/10))].map((v,i)=>({ x: (i+1)*10, y: Math.floor(rand(height/2, rand(0,height))) }));
+yScale = 30;
+yPoints = [...Array(5)].map((v,i)=>rand(yScale,height-yScale));
+points = [...Array(Math.floor(width/10))].map((v,i)=>({
+	x: i*40,
+	y: yPoints[ rand(0, yPoints.length-1) ]
+}));
 
 graph = document.querySelector('#chart > canvas').getContext('2d');
 yAx = document.querySelector('#y-labels').getContext('2d');
@@ -30,12 +35,11 @@ graph.canvas.height = height;
 yAx.canvas.width = 50;
 yAx.canvas.height = graph.canvas.height;
 
-graph.moveTo(0, 0);
 for (const {x,y} of points) graph.lineTo(x, y);
 graph.stroke();
 
 graph.beginPath();
-yScale = 30;
+
 yLines = [...Array(Math.floor(height/yScale))].map((v,i)=>(i+1)*yScale);
 yLines = height % yScale ? yLines : yLines.slice(0,-1);
 yLines.forEach(y => {

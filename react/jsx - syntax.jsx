@@ -49,7 +49,7 @@ const App = () => (
 	<input type="checkbox" onChange={} checked={false} /> correct
 	
 	{/* `style` must be object, can't be string. (camelCase css props, px suffix by default) */}
-	<p style="z-index: red"></p>       error
+	<p style="z-index: 3"></p>         error
 	<p style={{zIndex: '3'}}></p>      correct
 	<p style={{color: 'red'}}></p>     correct
 	<div style={{width: 10}}></div>    result: "10px"
@@ -89,10 +89,10 @@ const App = () => (
 	<Comp a="foo" b="bar" /> same as:
 	<Comp {...obj} /> (given obj had those props)
 	
-	{/* react uses a value attr on root <select> instead of selected attr on <option> */}
-	<select>
+	{/* a value attr on root <select> instead of selected attr on <option> */}
+	<select value=2>              this
 		<option>1</option>
-		<option selected>2</option>
+		<option selected>2</option> not this
 	</select>
 	
 	{/* comment block */}
