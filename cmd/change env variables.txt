@@ -10,5 +10,5 @@ reg add %sys% /v foo /d e:\bar		... through registry
 reg delete %sys% /f /v foo		delete variable
 
 note:
-don't use variable expansion inside the value, eg: foo=%bar%\baz as it leads to errors
+don't use %expanded% value of another variable inside the value, eg: foo=%bar%\baz as it leads to errors
 setx can't delete the variable

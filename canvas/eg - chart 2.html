@@ -20,8 +20,8 @@ canvas {
 <script>
 width = 1200;
 height = 400;
-yScale = 30;
-yPoints = [...Array(5)].map((v,i)=>rand(yScale,height-yScale));
+yScale = 20;
+yPoints = [...Array(5)].map((v,i)=>rand(yScale, height-yScale));
 points = [...Array(Math.floor(width/10))].map((v,i)=>({
 	x: i*40,
 	y: yPoints[ rand(0, yPoints.length-1) ]
@@ -43,9 +43,13 @@ graph.beginPath();
 yLines = [...Array(Math.floor(height/yScale))].map((v,i)=>(i+1)*yScale);
 yLines = height % yScale ? yLines : yLines.slice(0,-1);
 yLines.forEach(y => {
+	const dLen = y.toString().length;
+	const xOffset =
+		dLen < 3 ? 10 : 
+		dLen < 4 ? 5 : 0;
 	graph.moveTo(0, y);
 	graph.lineTo(width, y);
-	yAx.fillText(y, 20,height-(y-24));
+	yAx.fillText(y, 20+xOffset,y+5);
 	yAx.moveTo(45, y);
 	yAx.lineTo(yAx.canvas.width, y);
 	yAx.stroke();
@@ -55,3 +59,4 @@ graph.stroke();
 
 function rand(min=0,max=10) { return Math.floor(Math.random()*(max-min))+min }
 </script>
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
