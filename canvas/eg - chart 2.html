@@ -1,5 +1,5 @@
 <style>
-#chart {
+#container {
 	float: left;
 	overflow-y: auto;
 	width: 600px;
@@ -13,8 +13,8 @@ canvas {
 </style>
 
 <canvas id="y-labels"></canvas>
-<div id="chart">
-	<canvas></canvas>
+<div id="container">
+	<canvas id="chart"></canvas>
 </div>
 
 <script>
@@ -27,7 +27,7 @@ points = [...Array(Math.floor(width/10))].map((v,i)=>({
 	y: yPoints[ rand(0, yPoints.length-1) ]
 }));
 
-graph = document.querySelector('#chart > canvas').getContext('2d');
+graph = document.querySelector('#chart').getContext('2d');
 yAx = document.querySelector('#y-labels').getContext('2d');
 
 graph.canvas.width = width;
@@ -43,13 +43,10 @@ graph.beginPath();
 yLines = [...Array(Math.floor(height/yScale))].map((v,i)=>(i+1)*yScale);
 yLines = height % yScale ? yLines : yLines.slice(0,-1);
 yLines.forEach(y => {
-	const dLen = y.toString().length;
-	const xOffset =
-		dLen < 3 ? 10 : 
-		dLen < 4 ? 5 : 0;
+	const idx = y.toString().length - 1;
 	graph.moveTo(0, y);
 	graph.lineTo(width, y);
-	yAx.fillText(y, 20+xOffset,y+5);
+	yAx.fillText(y, 10+([20,15,10,4,-1][idx]),y+4);
 	yAx.moveTo(45, y);
 	yAx.lineTo(yAx.canvas.width, y);
 	yAx.stroke();
