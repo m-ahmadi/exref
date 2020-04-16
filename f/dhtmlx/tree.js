@@ -1,7 +1,8 @@
 // basic:
 
-// include tree.css
-// include tree.js
+/* includes:
+tree.css
+tree.js */
 
 // <div id="tree_container"></div>
 var tree = new dhx.Tree("tree_container", {

@@ -4,12 +4,12 @@ nginx -s quit			graceful shutdown
 nginx -s reload			reloading the configuration file
 nginx -s reopen			reopening the log files
 
----------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 install as service
 
 not yet supported in windows
 
----------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 flags
 
 -s signal		send signal to a master process: stop, quit, reopen, reload
