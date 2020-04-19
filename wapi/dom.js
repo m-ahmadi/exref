@@ -3,3 +3,5 @@ function parseHTML(str) {
   el.innerHTML = str;
   return el.children;
 }
+
+if (x instanceof HTMLElement) // dom el
