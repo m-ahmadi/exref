@@ -1,5 +1,5 @@
-// Creating a variable in a function without var keyword will causes that variable to be GLOBAL.
-// These GLOBAL variables are not real variables, they become properties of the GLOBAL object
+// creating a variable in a function without var keyword will causes that variable to be GLOBAL.
+// these GLOBAL variables are not real variables, they become properties of the GLOBAL object
 // ES5 strict mode:  ReferenceError
 
 (function () {
@@ -23,9 +23,9 @@ novar = 2;
 	fromfunc = 3;
 }());
 
-delete vvar; 		// false
-delete novar; 		// true
-delete fromfunc; 	// true
+delete vvar;     // false
+delete novar;    // true
+delete fromfunc; // true
 
 vvar; 		// 1
 novar; 		// undefined

@@ -1,9 +1,9 @@
 var list = [ 7, 42 ];
 var [ a = 1, b = 2, c = 3, d ] = list;
-a === 7
-b === 42
-c === 3
-d === undefined
+a // 7
+b // 42
+c // 3
+d // undefined
 
 // same as:
 var list = [ 7, 42 ];
