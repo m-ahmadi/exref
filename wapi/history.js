@@ -22,7 +22,13 @@ window.addEventListener('popstate', function (event) {
 	history.pushState()
 	history.replaceState()
 	
-	console.log('location: ', document.location, ', state: ', event.state )
+	event.state // object if pushState() or replaceState() was used on entry being activated, otherwise null.
+	
+	console.log('location: ', document.location, ', state: ', event.state)
+	
+	setTimeout(() => {
+		// new document state ready
+	}, 0);
 })
 
 window.addEventListener('hashchange', function () {

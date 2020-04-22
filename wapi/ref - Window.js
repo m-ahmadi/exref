@@ -40,6 +40,8 @@ Window
 .performance
 .personalbar
 .screen
+	.width
+	.height
 .screenX | .screenLeft
 .screenY | .screenTop
 .scrollbars

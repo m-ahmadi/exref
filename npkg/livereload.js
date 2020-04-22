@@ -5,13 +5,12 @@ server.watch(__dirname + '/public');
 server.watch([__dirname + '/js', __dirname + '/css']);
 
 // or:
-
 const { join } = require('path');
 const server = livereload.createServer();
 server.watch(
 	['/public', '/js', '/css'].map( i => join(__dirname, i) )
 );
-
+console.log('livereload started...');
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
 const server = livereload.createServer({

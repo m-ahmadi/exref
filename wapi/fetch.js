@@ -8,6 +8,10 @@ foo().then(console.log)
 
 fetch('some/url/path').then(async res => await res.text() ).then(console.log)
 fetch('some/url/path').then(res => res.text().then(console.log) )
+
+new Promise((resolve, reject) => {
+	fetch(url).then( async res => resolve(await res.text()) ).catch(err => reject(err))
+});
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pass query strings
 const url = new URL('some/url')

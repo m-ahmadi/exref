@@ -14,8 +14,8 @@ in other words:
 replace() does not put the originating page in the session history,
 meaning the user won't get stuck in a never-ending back-button fiasco.
 
-If you want to simulate someone clicking on a link, use location.href/assign()
-If you want to simulate an HTTP redirect, use location.replace().
+if you want to simulate someone clicking on a link, use .href or .assign()
+if you want to simulate an HTTP redirect, use .replace().
 */
 
 // force reload from the server
