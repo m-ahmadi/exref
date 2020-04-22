@@ -6,6 +6,8 @@ async function foo() {
 }
 foo().then(console.log)
 
+var res = await (await fetch(url)).text()
+
 fetch('some/url/path').then(async res => await res.text() ).then(console.log)
 fetch('some/url/path').then(res => res.text().then(console.log) )
 
