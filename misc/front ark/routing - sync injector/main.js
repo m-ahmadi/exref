@@ -1,4 +1,9 @@
 const req = new XMLHttpRequest();
-req.open('GET', './_sidebar.html', false);
+req.open('GET', './_nav.html', false);
 req.send(null);
-const res = req.responseText;
+const nav = req.responseText;
+
+document.addEventListener('DOMContentLoaded', function () {
+	const oldBody = document.body.innerHTML;
+	document.body.innerHTML = nav + oldBody;
+});
