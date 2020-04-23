@@ -1,5 +1,5 @@
 Window
-
+[HTMLElement.id]: HTMLElement
 .closed																				!
 .console
 .controllers																	!

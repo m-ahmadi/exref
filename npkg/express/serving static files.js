@@ -28,6 +28,6 @@ app.use( express.static('public') );
 	localhost/css/syle.css       (NOT: localhost/public/css/style.css )
 */
 //----------------------------------------------------------------------------
-// others:
+// route to folder with different name
 app.use( '/static', express.static('public') );
 app.use( '/static', express.static(__dirname + '/public') );

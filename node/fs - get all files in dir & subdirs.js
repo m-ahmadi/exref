@@ -8,13 +8,13 @@ const stat = promisify(fs.stat);
 
 async function getFiles(dir, result=[]) {
 	const files = await readdir(dir);
-	for (let file of files) {
-		file = join(dir, file);
-		const stats = await stat(file);
+	for (const file of files) {
+		const path = join(dir, file);
+		const stats = await stat(path);
 		if ( stats.isDirectory() ) {
-			getFiles(file, result);
+			getFiles(path, result);
 		} else {
-			result.push(file);
+			result.push(file); // or path
 		}
 	}
 	return result;
@@ -25,11 +25,11 @@ const { readdirSync, statSync } = require('fs');
 
 function getFiles(dir, res=[]) {
 	const files = readdirSync(dir);
-	for (let file of files) {
-		file = join(dir, file);
-		const stats = statSync(file);
+	for (const file of files) {
+		const path = join(dir, file);
+		const stats = statSync(path);
 		if ( stats.isDirectory() ) {
-			getFiles(file, res);
+			getFiles(path, res);
 		} else {
 			res.push( file.replace(/\\/g, '/') );
 		}
