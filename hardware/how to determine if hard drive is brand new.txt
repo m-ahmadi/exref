@@ -1,4 +1,4 @@
-SMART Data :
+SMART Data:
 
 Power On Hours Count         how many hours it's been on
 Start/Stop Count             how many time it's been pluged to a port

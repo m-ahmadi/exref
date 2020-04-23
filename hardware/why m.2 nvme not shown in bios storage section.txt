@@ -1,6 +1,6 @@
+TLDR
 because nvme ssd connects directly to cpu through pci bus
 
-TLDR
 The Storage Configuration screen receives its information from the chipset only, not the PCIe lanes/interface.
 The SATA ports are provided by the chipset.
 If you used a SATA M.2 SSD, which uses the SATA/chipset resources, it would be shown in Storage Configuration.

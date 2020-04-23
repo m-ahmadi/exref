@@ -1,6 +1,7 @@
 const { readdirSync, statSync } = require('fs');
 const { join } = require('path');
 
+// [ {path: '', children: [] ]
 function dirTree(p, tree=[{path: '', children: []}]) {
 	let index = tree.findIndex(i => i.path === p);
 	if (index === -1) {
@@ -29,7 +30,7 @@ function dirTree2(dir, full, tree={}) {
 			tree[key] = {};
 			dirTree2(path, full, tree[key]);
 		} else {
-			tree[key] = '';
+			tree[key] = ''; // or readFileSync(path, 'utf8');
 		}
 	});
 	return tree;
