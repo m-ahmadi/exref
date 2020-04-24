@@ -1,7 +1,7 @@
 const { readdirSync, statSync } = require('fs');
 const { join } = require('path');
 
-// [ {path: '', children: [] ]
+// [ {path: '', children: [{}, ...]} ]
 function dirTree(p, tree=[{path: '', children: []}]) {
 	let index = tree.findIndex(i => i.path === p);
 	if (index === -1) {

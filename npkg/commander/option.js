@@ -22,13 +22,18 @@ app
 .option('-c, --bool',              'if set: true, if not set: undefined')          // node . -c => app.bool = true
 
 // negatable boolean flag: (defaults to true)
-.option('-d, --no-soup',           'no gets removed from prop name')               // node . -d => app.soup = false
+.option('-d, --no-soup',           'no gets removed from prop name')               // node . -d     => app.soup = false
+.option('-d, --no-soup',           'makes option true by default')                 // node .        => app.soup = true
+.option('--no-soup',               'not defining a --soup option')                 // node . --soup => error: unknown option '--soup'
+.option('--no-soup',               'makes option true by default')                 // node .        => app.soup = true
+.option('--cheese <flavour>',      '...', 'mozzarella')
+.option('--no-cheese',             'does not change default value of above')       // node . --cheese  app.cheese = 'mozzarella'
 
 // flag with value argument:
 .option('-e, --required <value>',  'required value, error if set with no value')   // node . -e => error: argument missing
 .option('-f, --optional [value]',  'optional value, true if set with no value')    // node . -f => app.optional = true
-.option('-g <value>',              'short only, required')                         // node . -g => app.G
-.option('-h [value]',              'short only, optional')                         // node . -h => app.H = true
+.option('-g <value>',              'short flag only, required')                    // node . -g => app.G
+.option('-h [value]',              'short flag only, optional')                    // node . -h => app.H = true
 
 // default value:
 .option('-i, --default1 <value>',  'with default value, required', 'foo')          // node . -i => error but: app.default1 = 'foo'
