@@ -4,6 +4,15 @@ var a = 2, b = 2;
 let [ a, b, c ] = [...Array(3)]    // all undefined
 let [ a, b, c ] = Array(3).fill(2) // all 2
 let [ a, b, c ] = [2,4,7]          // different values for each
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// automatic deconstruct using eval
+var obj = {myAge: 35, yourAge: 47};
+eval('var {'+ Object.keys(obj).join() +'} = obj;'); // only works with var (let & const won't work)
+
+var arr = [35, 47];
+var names = ['myAge', 'yourAge', 'boooooooooooo'];
+eval('const ['+names.join()+'] = arr;')
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pitfalls of multiple assignment construct
 

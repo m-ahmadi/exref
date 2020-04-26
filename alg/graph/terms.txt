@@ -6,7 +6,7 @@ multigraphs:          graphs with parallel links.
 ____________________________________________________________________________________________________________
 simple graphs:        graphs with no parallel links or self-loops.
 ____________________________________________________________________________________________________________
-incident link:        when an link connects two nodes. (one link is incident to both nodes.)
+incident link:        when a link connects two nodes. (one link is incident to both nodes.)
 ____________________________________________________________________________________________________________
 adjacent nodes:       two nodes connected via one link.
 ____________________________________________________________________________________________________________
@@ -18,7 +18,7 @@ path:                 a sequence of nodes connected by links.
 ____________________________________________________________________________________________________________
 simple path:          a path with no repeated nodes.
 ____________________________________________________________________________________________________________
-cycle:                a path with at least one link whose first and last nodes are the same.
+cycle:                a path with at least one link whose first and last nodes are the same. (a node that links to itself)
 ____________________________________________________________________________________________________________
 simple cycle:         a cycle with no repeated links or nodes. (except first and last nodes)
 ____________________________________________________________________________________________________________

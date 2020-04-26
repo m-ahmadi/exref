@@ -1,0 +1,46 @@
+graph is a data structure and is made up of vertices and edges.
+	
+vertex:		node or point. (plural: vertices or vertexes. singular: vertex instead of vertice)
+edge:		link or line, that connects two vertices.
+
+-------------------------------------------------------------------------------
+types of graphs
+
+undirected graph
+	edges go in both directions.
+directed graph
+	edges point in one direction.
+weighted grap
+	when nodes have additional data about their relationship
+-------------------------------------------------------------------------------
+algorithms
+
+breadth-first search
+	go to node's direct children one by one, then go to their direct children...
+  /\
+ /\/\
+/\/\/\
+depth-first search
+	go to node.firstChild then to firstChild.firstChild until no more children
+	then backtrack from lastFirstChild to lastFirstChild.parent and repeat
+  /\
+ /\ \
+/\ \
+  \
+
+shortest path
+-------------------------------------------------------------------------------
+data structure representation
+
+adjacency matrix (2d array)
+1 row and 1 column for every node
+when 2 nodes have a link add a one and point the instersect
+fast to lookup and add links
+O(n^2) space
+O(n^2) insert node
+
+adjacency list
+collection of nodes
+each node has its own array of its neighbors
+faster to iterate over nodes edges
+-------------------------------------------------------------------------------
