@@ -1,6 +1,10 @@
-<!-- <?php echo $_SERVER['REQUEST_URI']; ?> -->
+<?php
+$url = $_SERVER['REQUEST_URI'];
+$url = str_replace('/sitename', '', $url);
+$url = $url === '/' ? '/home' : $url;
+?>
 <head>
-	<script src="js/main.js"></script>
+	<!-- <script src="js/main.js"></script> -->
 </head>
 
 <nav>
@@ -12,4 +16,6 @@
 	</ul>
 </nav>
 
-<div id="content"></div>
+<div id="content">
+	<?php readfile( './pages'.$url.'.htm' ); ?>
+</div>
