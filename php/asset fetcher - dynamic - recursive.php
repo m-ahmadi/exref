@@ -1,5 +1,5 @@
 <?php
-header('Content-Type: text/css; charset=UTF-8');
+header('Content-Type: text/javascript; charset=UTF-8'); // text/css
 
 $path = isset( $_GET['path'] ) ? $_GET['path'] : null;
 if     (  !isset    ( $path )  ) {  die('path argument is not set.');         } else
@@ -20,20 +20,12 @@ foreach($arr as $filename) {
 
 function paths_under_dir($dir, &$arr) {
 	foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir)) as $filename) {
-		if (preg_match('/^.+[\\'. DIRECTORY_SEPARATOR .']\d{1,3}[-].+[.][c][s][s]$/', $filename)) {     // /\W{1}\.{1,2}$/  ==  \. \..
+	if (preg_match('/^.+[\\'. DIRECTORY_SEPARATOR .']\d{1,3}[-].+[.][j][s]$/', $filename)) { // [c][s][s]
 			array_push($arr, (string)$filename);
 		} else if ( !preg_match('/\W{1}\.{1,2}$/', $filename) ) {
-			echo "/* filename ($filename) does not match the template. (0-name.css) */\n";
+			echo "// filename ($filename) does not match the template. (0-name.js)\n"; // 0-name.css
 		}
 	}
 	sort($arr, SORT_STRING);
 }
-/*
-	^          start of line
-	[\]        only character backslash              note: [\\'.DS.']  =  [\] or [/] for Windows/Linux
-	.+         1 or more of any single character
-	\d{1,3}    between 1 and 3 of any digit: 0-000
-	[s]        only character s
-	$          end of line
-*/
 ?>
