@@ -1,5 +1,5 @@
 <?php
-defined('KEY_SUFFIX') ? null : define('KEY_SUFFIX', "258EAFA5-E914-47DA-95CA-C5AB0DC85B11");
+defined('KEY_SUFFIX') ? null : define('KEY_SUFFIX', '258EAFA5-E914-47DA-95CA-C5AB0DC85B11');
 $host = 'localhost';
 $port = 9090;
 
@@ -36,9 +36,9 @@ function handshake($key, $client) {
 	$sha1 = sha1($key.KEY_SUFFIX, true);
 	$accept = base64_encode($sha1);
 	
-	$write  = "HTTP/1.1 101 Switching Protocols\r\n";
-	$write .= "Upgrade: websocket\r\n";
-	$write .= "connection: Upgrade\r\n";
+	$write  = 'HTTP/1.1 101 Switching Protocols\r\n';
+	$write .= 'Upgrade: websocket\r\n';
+	$write .= 'connection: Upgrade\r\n';
 	$write .= "Sec-Websocket-Accept: $accept\r\n\r\n";
 	
 	socket_write($client, $write, strlen($write));
