@@ -1,9 +1,11 @@
-# redirect all requests to index.php
+# no need to restart server after changes
+
+# redirect all requests to index.php			remove these:
 RewriteEngine On
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+)$ index.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d			if not dir
+RewriteCond %{REQUEST_FILENAME} !-f			if not file
+RewriteCond $1 !^(css|js|fonts)				skip if route starts with these
+RewriteRule ^(.+)$ index.php [QSA,L]			QSA and L flags
 
 # custom error page
 ErrorDocument 404 /404.html

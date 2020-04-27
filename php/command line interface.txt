@@ -1,2 +1,0 @@
-php -S localhost:1337 -t D:\p
-php -q D:\script.php

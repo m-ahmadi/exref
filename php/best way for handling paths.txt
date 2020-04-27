@@ -1,5 +1,0 @@
-PHP accepts both \ and / as valid path separators in all OS.
-
-always use / instead of \
-
-./	= 	root of the drive in windows (C:\, E:\, etc)

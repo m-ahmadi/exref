@@ -1,0 +1,8 @@
+php -S localhost:1337 -t D:\p
+php -q D:\script.php
+
+php -modules				see the list of php installed modules
+
+php -r "print_r( openssl_get_cert_locations() );"
+
+php -S 127.0.0.1:4000 -t "D:\root"	built-in webserver
