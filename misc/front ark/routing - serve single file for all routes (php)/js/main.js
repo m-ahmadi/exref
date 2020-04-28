@@ -1,5 +1,5 @@
 (function () {
-	const pathname = location.pathname.replace('/sitename', '');
+	const pathname = location.pathname.replace('/foldername', '');
 	const path = pathname ===  '/' ? '/home' : pathname;
 	let rdy;
 	

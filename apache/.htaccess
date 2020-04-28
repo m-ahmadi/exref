@@ -1,11 +1,28 @@
-# no need to restart server after changes
-
-# redirect all requests to index.php			remove these:
+# route all urls to single file				remove these:
 RewriteEngine On
+RewriteBase /folder
 RewriteCond %{REQUEST_FILENAME} !-d			if not dir
 RewriteCond %{REQUEST_FILENAME} !-f			if not file
 RewriteCond $1 !^(css|js|fonts)				skip if route starts with these
 RewriteRule ^(.+)$ index.php [QSA,L]			QSA and L flags
-
+-------------------------------------------------------------------------------
 # custom error page
 ErrorDocument 404 /404.html
+-------------------------------------------------------------------------------
+# base and rule example
+RewriteBase /
+RewriteRule . index.php
+	localhost/*	=> htdocs/index.php
+
+RewriteBase /foo		or		RewriteBase /
+RewriteRule . index.php		or		RewriteRule . foo/index.php
+	localhost/foo*	=> htdocs/foo/index.php
+-------------------------------------------------------------------------------
+# QSA flag (combines query strings)
+RewriteRule "/pages/(.+)" "/page.php?page=$1" [QSA]
+
+with [QSA]	/pages/123?one=two	=>	/page.php?page=123&one=two
+without it	...			=>	/page.php?page=123
+-------------------------------------------------------------------------------
+# notes
+# no need to restart server after changes
