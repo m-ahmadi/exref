@@ -10,7 +10,7 @@ function colors() {
 		['cyan',       36],
 		['white',      37],
 	// foreground bold:
-		['whiteB',     90],
+		['blackB',     90],
 		['redB',       91],
 		['greenB',     92],
 		['yellowB',    93],

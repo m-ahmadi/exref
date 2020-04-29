@@ -7,6 +7,8 @@ Event.currentTarget
 Event.deepPath !
 Event.defaultPrevented
 Event.eventPhase
+Event.explicitOriginalTarget !
+Event.originalTarget !
 Event.returnValue
 Event.srcElement !
 Event.target
@@ -17,6 +19,15 @@ Event.composedPath()
 Event.preventDefault()
 Event.stopImmediatePropagation()
 Event.stopPropagation()
+var event = new Event(typeArg='', ?eventInit={
+	bubbles:    false,
+	cancelable: false,
+	composed:   false
+});
+
+CustomEvent extends Event
+CustomEvent.detail
+var event = new CustomEvent(typeArg='', ?customEventInit={detail: null} | eventInit)
 
 UIEvent extends Event <- MouseEvent, TouchEvent, FocusEvent, KeyboardEvent, WheelEvent, InputEvent, CompositionEvent
 UIEvent.detail

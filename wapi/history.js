@@ -16,6 +16,7 @@ history.replaceState(state={}, title='', ?url=document.URL) // modifies current 
 window.addEventListener('popstate', function (event) {
 	// triggered on back/forward/backspace buttons (alt + left/right arrows in chrome), and:
 	history.back()
+	history.forward()
 	history.go(n)
 	
 	// not triggered on:

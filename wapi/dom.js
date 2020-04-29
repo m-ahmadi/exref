@@ -64,7 +64,7 @@ Document.head
 Document.body
 Document.hidden
 Document.documentElement
-Document.readyState
+Document.readyState = 'loading'|'interactive'|'complete'
 Document.querySelector()
 Document.querySelectorAll()
 Document.getElementById()
