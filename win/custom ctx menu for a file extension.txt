@@ -1,0 +1,10 @@
+not complete. to be continued...
+
+HKCU\SOFTWARE\Classes\SystemFileAssociations\.foo\shell\HiImFooOpenerHowAreYouWTF\command
+	(Default):	HiImAnotherFooOpenerAndMyShortcutIs&s
+	command:	@="notepad.exe \"%1\""
+
+
+reg add HKCU\SOFTWARE\Classes\SystemFileAssociations\.foo\shell\HiImFooOpenerHowAreYouWTF\command /v command /d @="notepad.exe \"%1\""
+udno
+reg delete HKCU\SOFTWARE\Classes\SystemFileAssociations\.foo /f
