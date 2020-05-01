@@ -1,4 +1,6 @@
 // compilation
+
+// compile
 var fnTemplate = Handlebars.compile(strTemplate, options={
 	data:                   false, // disable @data tracking
 	compat:                 false,
@@ -22,22 +24,17 @@ var fnTemplate = Handlebars.template(  eval('(function(){return'+ templateSpec +
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // runtime
 
-// default location when precompiling with cli (after precompiled executed, otherwise undefined)
-Handlebars.templates
+// register partial
+var partial = Handlebars.compile
+	? strTemplate                                                                            // whole library (compiled on demand)
+	: Handlebars.template(eval('(()=>{return'+ Handlebars.precompile(strTemplate) +'})();')) // runtime only
+Handlebars.registerPartial(name, partial)
+Handlebars.partials[name] = partial      // same as above
 
-// register partial - whole lib
-Handlebars.registerPartial(strName, strPartial) // compiled on demand. same as:
-Handlebars.partials[strName] = Handlebars.compile(strPartial);
+Handlebars.unregisterPartial(name)
 
-// register partial - runtime only
-var fnPartial = Handlebars.template(eval('(()=>{return'+templateSpec+'})();'))
-Handlebars.registerPartial(strName, fnPartial)  // same as:
-Handlebars.partials[strName] = fnPartial
-
-Handlebars.unregisterPartial(strName)
-
-Handlebars.registerHelper(strName, fnHelper)
-Handlebars.unregisterHelper(strName)
+Handlebars.registerHelper(name, fnHelper)
+Handlebars.unregisterHelper(name)
 
 var isolatedHandlebarsEnvironment = Handlebars.create();
 var myHandlebars = Handlebars.noConflict();
@@ -45,3 +42,48 @@ var myHandlebars = Handlebars.noConflict();
 Handlebars.escapeExpression(str)
 Handlebars.Utils.escapeExpression(text)
 new Handlebars.SafeString(str)
+
+// default location when precompiling with cli (after precompiled executed, otherwise undefined)
+Handlebars.templates
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// manual precompile (same as `handlebars partialdir -p -o` and `handlebars tempdir -o`)
+const { writeFileSync, readFileSync, readdirSync, statSync } = require('fs');
+const { join, extname } = require('path');
+const Handlebars = require('handlebars');
+const srcdir = 'public/views/';
+function build() {
+	const files = getFiles(srcdir);
+	const partials = files.filter(i => i.startsWith('_partials'));
+	const templates = files.filter(i => !i.startsWith('_partials'));
+	let str = '(function () {\n';
+	str += 'const template = Handlebars.template;\n';
+	str += 'const templates = Handlebars.templates = Handlebars.templates || {};\n';
+	str += partials.reduce((a,c) => {
+		const name = c.replace('_partials/', '').replace(extname(c), '');
+		const content = readFileSync(join(srcdir, c), 'utf8');
+		const spec = Handlebars.precompile(content, {knownHelpersOnly: true});
+		return a += `Handlebars.partials['${ name }'] = template(${ spec });\n`;
+	}, '');
+	str += templates.reduce((a,c) => {
+		const name = c.replace(srcdir+'/', '').replace(extname(c), '');
+		const content = readFileSync(join(srcdir, c), 'utf8');
+		const spec = Handlebars.precompile(content, {knownHelpersOnly: true});
+		return a += `Handlebars.templates['${ name }'] = template(${ spec });\n`;
+	}, '');
+	str += '})();';
+	writeFileSync('precompiled.js', str);
+}
+function getFiles(dir, res=[]) {
+	const files = readdirSync(dir);
+	for (const file of files) {
+		const path = join(dir, file);
+		const stats = statSync(path);
+		if ( stats.isDirectory() ) {
+			getFiles(path, res);
+		} else {
+			res.push( path.replace(/\\/g, '/').replace(srcdir, '') );
+		}
+	}
+	return res;
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
