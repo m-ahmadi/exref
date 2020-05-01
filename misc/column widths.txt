@@ -1,6 +1,6 @@
 	laptop half	laptop full	desktop half
 win7			168		107
-win10	75		160		109
+win10	74		160		109
 
 n vs npp desktop half win10
 notepad++:	109 (.txt: 111)

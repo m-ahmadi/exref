@@ -31,7 +31,7 @@ function getFiles(dir, res=[]) {
 		if ( stats.isDirectory() ) {
 			getFiles(path, res);
 		} else {
-			res.push( file.replace(/\\/g, '/') );
+			res.push( file.replace(/\\/g, '/') ); // or path
 		}
 	}
 	return res;

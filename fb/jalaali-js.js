@@ -13,5 +13,5 @@ jalaali.isLeapJalaaliYear(1395)          // true
 jalaali.jalaaliMonthLength(1394, 12)     // 29
 jalaali.jalaaliMonthLength(1395, 12)     // 30
 
-// one-liner convert (assuming -g browserify)
-// mkdir tmp && cd tmp && npm i jalaali-js && path=%path%;.\node_modules\.bin && echo module.exports = require('jalaali-js'); > x.js && browserify x.js -o ../jalaali.js -s jalaali && del x.js && cd ../ && rmdir tmp /s /q
+// one-liner convert
+// mkdir tmp && cd tmp && npm i jalaali-js && echo module.exports = require('jalaali-js'); > x.js && npx browserify x.js -o ../jalaali-js.js -s jalaali && del x.js && cd ../ && rmdir tmp /s /q

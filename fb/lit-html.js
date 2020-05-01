@@ -1,43 +1,50 @@
-import {html, render} from 'https://unpkg.com/lit-html?module'; // in a <script type="module">
+import {html, render} from 'https://unpkg.com/lit-html?module'; // <script type="module">
 
-// basic
-const myTemplate = html`<div>Hello World</div>`;
-render(myTemplate, document.body);
+// ref
+var templateResult = html``;
+render(result, container=Element | DocumentFragment, ?options)
 
-// dynamic
-const myTemplate = (name) => html`<div>Hello ${name}</div>`;
-render(myTemplate('world'), document.body);
-render(myTemplate('lit-html'), document.body);
+// basic static
+var objTemplateResult = html`<div>Hello World</div>`;
+render(objTemplateResult, document.body);
+
+// for dynamic use functions
+var template = name => html`<div>Hello ${name}</div>`;
+render(template('world'), document.body);
+render(template('lit-html'), document.body);
 
 // using expressions
-const myTemplate = (subtotal, tax) => html`<div>Total: ${subtotal + tax}</div>`;
-const myTemplate2 = (name) => html`<div>${formatName(name.given, name.family, name.title)}</div>`;
+var template = (subtotal, tax) => html`<div>Total: ${subtotal + tax}</div>`;
+var template = (name) => html`<div>${formatName(name.given, name.family, name.title)}</div>`;
 
 // bind to attributes
-const myTemplate = (data) => html`<div class=${data.cssClass}>Stylish text.</div>`;
-const myTemplate2 = (data) => html`<div ?disabled=${!data.active}>Stylish text.</div>`;
+var template = (data) => html`<div class=${data.cssClass}>Stylish text.</div>`;
+var template = (data) => html`<div ?disabled=${!data.active}>Stylish text.</div>`;
 
 // bind to properties
-const myTemplate3 = (data) => html`<my-list .listItems=${data.items}></my-list>`;
+var template = (data) => html`<my-list .listItems=${data.items}></my-list>`;
 
 // add event listeners
-const clickHandler = function | {handleEvent(e) {}, capture: true};
-const myTemplate = () => html`<button @click=${clickHandler}>Click Me!</button>`;
+var clickHandler = function | {handleEvent(e) {}, capture: true};
+var template = () => html`<button @click=${clickHandler}>Click Me!</button>`;
 
-// nest
-const myHeader = html`<h1>Header</h1>`;
-const myPage = html`
+// nest and compose (kinda like hbs partials)
+var myHeader = html`<h1>Header</h1>`;
+var myPage = html`
   ${myHeader}
   <div>Here's my main page.</div>
 `;
 
-const myListView = (items) => html`<ul>...</ul>`;
-const myPage = (data) => html`
+var myListView = (items) => html`<ul>...</ul>`;
+var myPage = (data) => html`
   ${myHeader}
   ${myListView(data.items)}
 `;
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // conditional templates
+
+// ternary
 html`
   ${user.isloggedIn
       ? html`Welcome ${user.name}`
@@ -45,7 +52,7 @@ html`
   }
 `;
 
-// conditionals with if statements
+// if
 getUserMessage() {
   if (user.isloggedIn) {
     return html`Welcome ${user.name}`;
@@ -56,15 +63,18 @@ getUserMessage() {
 html`
   ${getUserMessage()}
 `
-
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // repeating templates
+
+// arr.map()
 html`
   <ul>
     ${items.map((item) => html`<li>${item}</li>`)}
   </ul>
 `;
 
-const itemTemplates = [];
+// loop
+var itemTemplates = [];
 for (const i of items) {
   itemTemplates.push(html`<li>${i}</li>`);
 }
@@ -74,6 +84,7 @@ html`
   </ul>
 `;
 
+// repeat directive
 const employeeList = (employees) => html`
 <ul>
 	${repeat(employees, (employee) => employee.id, (employee, index) => html`
@@ -81,18 +92,21 @@ const employeeList = (employees) => html`
 	`)}
 </ul>
 `;
-
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // rendering nothing
+
+// empty str
 ${user.isAdmin ? html`<button>DELETE</button>` : ''}
 
-import {nothing} from 'lit-html';
+// nothing variable
+import { nothing } from 'lit-html';
 html`
 <shadow-element>${user.isAdmin
 	? html`<button>DELETE</button>`
 	: nothing
 }</shadow-element>
 `;
-
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // caching template results: the cache directive
 const detailView = (data) => html`<div>...</div>`; 
 const summaryView = (data) => html`<div>...</div>`;

@@ -5,12 +5,17 @@ browserify -e main.js > bundle.js				using argument and redirect sign
 browserify -e main.js -o module.js -s export_name		umd bundle (in browser: export_name)
 browserify --help advanced					show advanced help
 
-one-liner convert
-assuming no -g browserify
-mkdir tmp && cd tmp && npm i lodash && where browserify && if errorlevel 1 (npm i browserify) else path=%path%;.\node_modules\.bin && echo module.exports = require('lodash'); > x.js && browserify x.js -o ../lodash.js -s _ && del x.js && cd ../ && rmdir tmp /s /q
+------------------------------------------------------------------------------------------------------------
+one-liner converts:
 
-assuming -g browserify
+with npx
+mkdir tmp && cd tmp && npm i lodash && echo module.exports = require('lodash'); > x.js && npx browserify x.js -o ../lodash.js -s _ && del x.js && cd ../ && rmdir tmp /s /q
+
+manual - assuming -g browserify
 mkdir tmp && cd tmp && npm i lodash && path=%path%;.\node_modules\.bin && echo module.exports = require('lodash'); > x.js && browserify x.js -o ../lodash.js -s _ && del x.js && cd ../ && rmdir tmp /s /q
+
+manual - assuming no -g browserify
+mkdir tmp && cd tmp && npm i lodash && where browserify & if errorlevel 1 (npm i browserify) && path=%path%;./node_modules/.bin && echo module.exports = require('lodash'); > x.js && browserify x.js -o ../lodash.js -s _ && del x.js && cd ../ && rmdir tmp /s /q
 ------------------------------------------------------------------------------------------------------------
 quick options:
 
