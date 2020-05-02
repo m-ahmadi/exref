@@ -1,8 +1,6 @@
 {
   "name": "x",
   "version": "0.0.1",
-  "main": "build.js",
-  "keywords": [],
   "dependencies": {
     "chokidar": "latest",
     "handlebars": "latest"

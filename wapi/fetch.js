@@ -15,6 +15,22 @@ new Promise((resolve, reject) => {
 	fetch(url).then( async res => resolve(await res.text()) ).catch(err => reject(err))
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// ref
+var fetchResponsePromise = fetch(resource, ?init={
+	method:         ,
+	headers:        ,
+	body:           ,
+	mode:           'cors' | 'no-cors' | 'same-origin',
+	credentials:    ,
+	cache:          ,
+	redirect:       'follow' | 'error' | 'manual',
+	referrer:       ,
+	referrerPolicy: 'no-referrer' | 'same-origin' | 'origin' | 'strict-origin' | ...
+	integrity:      ,
+	keepalive:      false,
+	signal:         ,
+})
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pass query strings
 const url = new URL('some/url')
 const params = {a:'x', b:'y'}  // or  [ ['a','x'], ['b','y'] ]

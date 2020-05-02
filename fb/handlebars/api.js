@@ -24,6 +24,15 @@ var fnTemplate = Handlebars.template(  eval('(function(){return'+ templateSpec +
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // runtime
 
+// render
+var template = Handlebars.templates[name]; // after precompiled executed, otherwise undefined
+template(context={}, options={
+	data:     {}, // custom @vars in addition to globalls
+	helpers:  {}, // custom helpers ...
+	partials: {}, // custom partials ...
+	allowCallsToHelperMissing: false,
+})
+
 // register partial
 var partial = Handlebars.compile
 	? strTemplate                                                                            // whole library (compiled on demand)
@@ -42,33 +51,31 @@ var myHandlebars = Handlebars.noConflict();
 Handlebars.escapeExpression(str)
 Handlebars.Utils.escapeExpression(text)
 new Handlebars.SafeString(str)
-
-// default location when precompiling with cli (after precompiled executed, otherwise undefined)
-Handlebars.templates
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // manual precompile (same as `handlebars partialdir -p -o` and `handlebars tempdir -o`)
+const Handlebars = require('handlebars');
 const { writeFileSync, readFileSync, readdirSync, statSync } = require('fs');
 const { join, extname } = require('path');
-const Handlebars = require('handlebars');
 const srcdir = 'public/views/';
 function build() {
 	const files = getFiles(srcdir);
 	const partials = files.filter(i => i.startsWith('_partials'));
 	const templates = files.filter(i => !i.startsWith('_partials'));
 	let str = '(function () {\n';
-	str += 'const template = Handlebars.template;\n';
-	str += 'const templates = Handlebars.templates = Handlebars.templates || {};\n';
+	str += 'var template = Handlebars.template;\n';
+	str += 'var partials = Handlebars.partials;\n';
+	str += 'var templates = Handlebars.templates = {};\n';
 	str += partials.reduce((a,c) => {
 		const name = c.replace('_partials/', '').replace(extname(c), '');
 		const content = readFileSync(join(srcdir, c), 'utf8');
 		const spec = Handlebars.precompile(content, {knownHelpersOnly: true});
-		return a += `Handlebars.partials['${ name }'] = template(${ spec });\n`;
+		return a += `partials['${ name }'] = template(${ spec });\n`;
 	}, '');
 	str += templates.reduce((a,c) => {
 		const name = c.replace(srcdir+'/', '').replace(extname(c), '');
 		const content = readFileSync(join(srcdir, c), 'utf8');
 		const spec = Handlebars.precompile(content, {knownHelpersOnly: true});
-		return a += `Handlebars.templates['${ name }'] = template(${ spec });\n`;
+		return a += `templates['${ name }'] = template(${ spec });\n`;
 	}, '');
 	str += '})();';
 	writeFileSync('precompiled.js', str);

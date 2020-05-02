@@ -1,5 +1,5 @@
 RewriteEngine On
-RewriteBase /x/public
+RewriteBase /put_folder_name_here
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.html [QSA,L]
