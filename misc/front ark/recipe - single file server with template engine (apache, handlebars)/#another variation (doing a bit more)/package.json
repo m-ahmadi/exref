@@ -1,0 +1,13 @@
+{
+  "name": "x",
+  "version": "0.0.1",
+  "main": "build.js",
+  "scripts": {
+    "start": "nodemon -x node --inspect-brk ."
+  },
+  "dependencies": {
+    "chokidar": "latest",
+    "handlebars": "latest",
+    "uglify-js": "latest"
+  }
+}

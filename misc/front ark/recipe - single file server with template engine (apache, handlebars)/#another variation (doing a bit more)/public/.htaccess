@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteBase /x/public
+
+# reject if in views and not a file
+RewriteCond %{REQUEST_URI} views/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . - [R=404]
+
+# force trailing slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ /x/public/$1/ [R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.html [L]
