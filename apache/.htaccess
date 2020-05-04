@@ -1,10 +1,47 @@
-# route all urls to single file				remove these:
+# route all urls to single file			remove these:
 RewriteEngine On
 RewriteBase /folder
-RewriteCond %{REQUEST_FILENAME} !-d			if not dir
-RewriteCond %{REQUEST_FILENAME} !-f			if not file
-#RewriteCond $1 !^(css|js|fonts)			optional: skip if route starts with these
-RewriteRule ^(.+)$ index.php [QSA,L]			QSA and L flags
+RewriteCond %{REQUEST_FILENAME} !-d		if not dir
+RewriteCond %{REQUEST_FILENAME} !-f		if not file
+#RewriteCond $1 !^(css|js|fonts)		optional: skip if route starts with these
+RewriteRule ^(.+)$ index.php [QSA,L]		QSA and L flags
+-------------------------------------------------------------------------------
+# deny some subdirs unless for files
+
+# with 2nd .htaccess file in folder/somedir/.htaccess
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.*) $1 [R=404,L]
+
+# or with 1 .htaccess file:
+RewriteEngine On
+RewriteBase /folder
+
+RewriteCond %{REQUEST_FILENAME} -d		if request is not for a file
+RewriteCond %{REQUEST_URI} views/ [OR]		and it starts with this
+RewriteCond %{REQUEST_URI} app/						or this
+RewriteRule (.*) $1 [R=404,L]			then reject
+
+RewriteCond %{REQUEST_FILENAME} !-f		otherwise if request is not for a file
+RewriteRule ^(.+)$ index.html [L]		send the only file
+-------------------------------------------------------------------------------
+# control flow
+
+RewriteCond %{REQUEST_FILENAME} -f		if these two conditions are true...
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule (.*) $1 [L]				then do this line
+
+RewriteCond %{REQUEST_URI} "views/"		otherwise if this condition is true...
+RewriteRule (.*) $1 [L]				then do this line
+---------------------------------------
+RewriteCond %{REQUEST_FILENAME} -f		if this is true
+RewriteRule (.*) $1 [R=404,L]			do this
+
+RewriteRule (.*) $1 [L]				otherwise do this
+---------------------------------------
+RewriteCond %{REQUEST_URI} "views/" [OR]	if this
+RewriteCond %{REQUEST_URI} "app/"			or this is true
+RewriteRule (.*) $1 [R=404]			do this
 -------------------------------------------------------------------------------
 # custom error page
 ErrorDocument 404 /404.html
