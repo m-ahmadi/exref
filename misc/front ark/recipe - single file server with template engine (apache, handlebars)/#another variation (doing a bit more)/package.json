@@ -8,6 +8,6 @@
   "dependencies": {
     "chokidar": "latest",
     "handlebars": "latest",
-    "uglify-js": "latest"
+    "terser": "latest"
   }
 }
