@@ -25,6 +25,17 @@ RewriteRule (.*) $1 [R=404,L]			then reject
 RewriteCond %{REQUEST_FILENAME} !-f		otherwise if request is not for a file
 RewriteRule ^(.+)$ index.html [L]		send the only file
 -------------------------------------------------------------------------------
+# treat .html files as .php
+
+AddType application/x-httpd-php .html .htm
+
+# or try version specific
+AddType application/x-httpd-php5 .html .htm
+
+# or another way
+RemoveHandler .html .htm
+AddType application/x-httpd-php .php .htm .html
+-------------------------------------------------------------------------------
 # control flow
 
 RewriteCond %{REQUEST_FILENAME} -f		if these two conditions are true...
@@ -45,6 +56,16 @@ RewriteRule (.*) $1 [R=404]			do this
 -------------------------------------------------------------------------------
 # custom error page
 ErrorDocument 404 /404.html
+
+# or 
+ErrorDocument 403 /error.php
+ErrorDocument 404 /error.php
+ErrorDocument 500 /error.php
+
+# or
+ErrorDocument 403 /403.html
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
 -------------------------------------------------------------------------------
 # base and rule example
 RewriteBase /
