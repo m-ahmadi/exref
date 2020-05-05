@@ -62,9 +62,9 @@ function build() {
 	const partials = files.filter(i => i.startsWith('_partials'));
 	const templates = files.filter(i => !i.startsWith('_partials'));
 	let str = '(function () {\n';
-	str += 'var template = Handlebars.template;\n';
-	str += 'var partials = Handlebars.partials;\n';
-	str += 'var templates = Handlebars.templates = {};\n';
+	str += 'const template = Handlebars.template;\n';
+	str += 'const partials = Handlebars.partials;\n';
+	str += 'const templates = Handlebars.templates = {};\n';
 	str += partials.reduce((a,c) => {
 		const name = c.replace('_partials/', '').replace(extname(c), '');
 		const content = readFileSync(join(srcdir, c), 'utf8');
