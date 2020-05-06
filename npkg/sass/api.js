@@ -4,6 +4,8 @@ sass.render({file: scss_filename}, function(err, result) {});
 // or
 var result = sass.renderSync({file: scss_filename});
 
+var css = result.css.toString();
+
 // ref
 sass.render | renderSync({
 	data:              '',
@@ -16,7 +18,7 @@ sass.render | renderSync({
 	indentedSyntax:    false,
 	linefeed:          'lf',
 	omitSourceMapUrl:  false,
-	outFile:           null | '',
+	outFile:           null | '',                 // won't write the file (used for sourcemaps)
 	outputStyle:       'expanded' | 'compressed',
 	sourceMapContents: false,
 	sourceMapEmbed:    false,

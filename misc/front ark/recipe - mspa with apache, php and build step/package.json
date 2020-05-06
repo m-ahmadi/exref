@@ -1,0 +1,12 @@
+{
+  "name": "x",
+  "version": "0.0.1",
+  "main": "build.js",
+  "scripts": {
+    "start": "nodemon -x node --inspect-brk ."
+  },
+  "dependencies": {
+    "chokidar": "^3.4.0",
+    "sass": "^1.26.5"
+  }
+}

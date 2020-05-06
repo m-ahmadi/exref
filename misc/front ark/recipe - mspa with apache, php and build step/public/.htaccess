@@ -1,0 +1,5 @@
+AddType application/x-httpd-php .html .htm
+
+ErrorDocument 403 /x/public/__errors/handler.php
+ErrorDocument 404 /x/public/__errors/handler.php
+ErrorDocument 500 /x/public/__errors/handler.php
