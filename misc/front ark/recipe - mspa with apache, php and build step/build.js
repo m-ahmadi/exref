@@ -11,19 +11,14 @@ watch('./public/**/*.scss', runSass);
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // scss
 function runSass() {
-	const files = getFiles('./public');
-	
-	(join, parse, extname, dirname, basename, relative, sep);
-	var  sassEntries = files.filter(i => basename(i) === 'style.scss');//.forEach(doScss);
-	
-	debugger
-
-	sassEntries.forEach(entry => {
-		const pardir = join(dirname(entry), '../');
-		const outFile = join(pardir, 'style.css');
-		const result = sass.renderSync({file: entry, outFile});
-		writeFileSync(outFile, result.css.toString());
-	});
+	getFiles('./public')
+		.filter(i => basename(i) === 'style.scss')
+		.forEach(entry => {
+			const pardir = join(dirname(entry), '../');
+			const outFile = join(pardir, 'style.css');
+			const result = sass.renderSync({file: entry, outFile});
+			writeFileSync(outFile, result.css.toString());
+		});
 	log('Ran sass.'.greenB);
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
