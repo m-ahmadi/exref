@@ -19,3 +19,8 @@ svg.setAttribute('viewBox', '100 100 200 200')
 var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
 svg.setAttribute('width', '400')
 svg.setAttribute('height', '400')
+
+// parse svg string
+var parser = new DOMParser()
+var doc = parser.parseFromString(str, 'image/svg+xml')
+doc.children[0]

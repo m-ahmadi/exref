@@ -5,6 +5,6 @@ import { NgModule } from '@angular/core';
 	imports: [],			// directives from other modules
 	providers: [],		// services
 	bootstrap: []
-  })
+})
 
-  export class AppModule { }
+export class AppModule { }

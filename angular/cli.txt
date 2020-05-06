@@ -1,4 +1,4 @@
-ng new <app_name>
+ng new myapp
 ng new --style=scss --routing
 
 ng serve
