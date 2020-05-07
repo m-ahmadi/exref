@@ -16,7 +16,7 @@ export default { // can be an array (for multiple inputs)
     // core output options
     dir:     '', // required if more than one chunk is generated
     file:    '',
-    format:  'amd'|'cjs'|'esm'|'iife'|'umd'|'system', // required
+    format:  'amd'|'cjs'|('es'|'esm')|'iife'|'umd'|'system', // required
 		globals: { [id: string]: string } | (id: string) => string,
     name:    '', // required for iife/umd bundles
 		

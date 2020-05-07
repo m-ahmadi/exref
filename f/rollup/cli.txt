@@ -4,7 +4,7 @@ rollup main.js -o bundle.js -f amd					amd format, hyphenless arg as input
 rollup -i main.js -o bundle.js -f amd					amd format, -i arg as input
 rollup main.js -o bundle.js -f amd -m bundle.js.map			sourcemap
 rollup main.js -o bundle.js -f umd -n myBundle				umd format
-rollup main.js -o bundle.js -f iife -n myBundle -g jquery:jQuery	iife format
+rollup main.js -o bundle.js -f iife -g jquery:jQuery			iife format
 rollup main.js -o bundle.js -f iife -g jquery:jQuery,lodash:_		iife with `window.jQuery` and `window._` as external globals
 rollup -c --environment INCLUDE_DEPS,BUILD:production			in config file, process.env.INCLUDE_DEPS === 'true' and process.env.BUILD === 'production'
 rollup main.js -o bundle.js -f cjs					create commonjs bundle.js from main.js
