@@ -64,10 +64,6 @@ x{n,m}    at least n and at most m occurrences of the preceding item x
 x*?       0 or more times of preceding item x (smallest possible match)
 x+?       1 or more times of preceding item x (smallest possible match)
 
-assertion
-x(?=y)    x only if x is followed by y
-x(?!y)    x only if x is not followed by y
-
 capturing groups
 (x)       capturing group. recall matched substr from result array [1],[n] or use backrefs.
 (?:x)     non-capturing group. matched substr can't be recalled.
@@ -92,6 +88,12 @@ eg:
 	[0-9]          \d
 	[^0-9]         \D
 	[a-zA-Z0-9_]   (\w|\d)
+
+assertion
+x(?=y)    x only if x is     followed by y (lookahead)
+x(?!y)    x only if x is not followed by y (negated lookahead)
+eg:
+	^(?!foo)       if doesn't start with foo
 
 flags
 g    global match:  find all matches rather than stopping after the first match.

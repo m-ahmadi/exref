@@ -1,7 +1,7 @@
 <?php include('_g.php') ?>
 <title><?php page_title(__DIR__) ?></title>
-<?php include('modulepreload-links.htm') ?>
-<link rel="stylesheet" href="style.css" />
+<?php include('_app/modulepreload-links.htm') ?>
+<link rel="stylesheet" href="_app/style.css" />
 
 <?php layout('header') ?>
 <?php layout('nav') ?>
@@ -10,4 +10,5 @@
 
 <?php layout('footer') ?>
 
-<?php include('module-scripts.htm') ?>
+<script src="_app/_templates.js"></script>
+<?php include('_app/module-scripts.htm') ?>
