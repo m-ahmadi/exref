@@ -26,7 +26,7 @@ Node.lastChild
 Node.isEqualNode(otherNode)
 Node.isSameNode(node)
 Node.contains(node)
-Node.cloneNode(deep=true) // false: without childs
+Node.cloneNode(deep=false) // true: with children. event listeners are not copied, except inline ones: <div onclick="">. canvas image is not copied.
 Node.appendChild(node) // old...
 Node.removeChild(node)
 Node.replaceChild(newNode, oldNode)

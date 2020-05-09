@@ -1,6 +1,6 @@
 elem.addEventListener(type, listener, ?useCapture=false | ?options)
 elem.removeEventListener(...)
-getEventListeners(elem) // only in developer console
+getEventListeners(elem) // only in devtools
 /* 3 phases of event propagation:
 1. capturing:  event goes down to    target element
 2. target:     event reaches         target element
@@ -59,3 +59,8 @@ var event = new Event('change')
 var event = new CustomEvent('build', {detail: 'event data', bubble, cancelable, ...})
 var event = new MouseEvent('click', {cancelable: true})
 elem.dispatchEvent(event)
+
+// destroy all listeners of an element (except inline listeners)
+var oldElem = document.querySelector('#something')
+var newElem = oldElem.cloneNode(true)
+oldElem.parentNode.replaceChild(newElem, oldElem)
