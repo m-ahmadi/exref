@@ -1,1 +1,1 @@
-Folder as Workspace		ctrl + b
+Light Explorer		ctrl + b
