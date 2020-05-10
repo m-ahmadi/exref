@@ -1,5 +1,5 @@
-options
-customize ribbon
+File -> Options -> Customize Ribbon
+
 under "Customize the Ribbon"
 select "Main Tabs"
 check "Developer"

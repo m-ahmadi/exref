@@ -1,7 +1,7 @@
 <?php
 // one single global scope for all variables, except inside functions.
 
-$a = 1; // available insde included file
+$a = 1; // available inside included file
 include 'b.inc';
 
 // functions have local scope
@@ -11,7 +11,7 @@ function foo() {
 } 
 foo(); // echos nothing
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// use global scope inside functions
+// global scope inside functions
 
 // global keyword
 $a = 37;
