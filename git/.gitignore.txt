@@ -14,6 +14,7 @@ abc/			all abc folder everywhere (root/abc, root/a/abc, etc)
 **/abc/			same as above
 
 **/			all directories everywhere
+foo/**/*.js		all .js files under foo folder and its subdirs
 
 *.vpp~[0-9]		filenames ending in different numbers
 *~			filenames ending in ~

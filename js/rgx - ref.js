@@ -29,7 +29,7 @@ str.match(/brown(=?.*sky)/ig) ['brown and the sky']
 
 /*
 character
-.         any character. except line terminators: \n \r \u2028 \u2029
+.         any character. except line terminators: \n \r \u2028 \u2029 (inside charset [.] means literal dot)
 \d        digit character. basic latin alphabet. eq: [0-9]
 \D        not a digit character. any character that's not a digit. eq: [^0-9]
 \w        word character. including underscore. eq: [A-Za-z0-9_]
