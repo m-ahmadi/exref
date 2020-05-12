@@ -23,7 +23,7 @@ new Date(2019, 11)     // 2019 12 01
 Date.now()
 Date.parse(dateString)
 Date.parse('2016/4/20')
-Date.parse('2016/4/20') = new Date('2016/4/20').getTime() // true
+Date.parse('2016/4/20') === new Date('2016/4/20').getTime() // true
 
 // instance methods
 var date = new Date(unix_timestamp*1000)

@@ -1,0 +1,9 @@
+how to extend vlookup to other cells:
+
+=VLOOKUP(B1,Prices!A$5:A$10,2)
+
+$ will lock the range
+
+$A1	will lock the column to A when the formulas is extended
+A$1	will lock the row
+$A$1	will lock both the column and the row

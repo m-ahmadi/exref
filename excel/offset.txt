@@ -1,0 +1,4 @@
+        from here  vert  horz
+=offset(reference, rows, cols, [width]. [height])
+
+=offset(A2, 1, 1, 1, 1)
