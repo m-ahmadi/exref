@@ -17,7 +17,11 @@ C:\Windows\System32\SetupApi.dll
 C:\Windows\System32\wmploc.dll
 C:\Windows\System32\wpdshext.dll
 
-
+C:\Windows\system32\ieframe.dll
+C:\Windows\system32\dmdskres.dll
+C:\Windows\system32\dsuiext.dll
+C:\Windows\system32\mstscax.dll
+C:\Windows\system32\wiashext.dll
 ------------------------------------------------
 old style
 
