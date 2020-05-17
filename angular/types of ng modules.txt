@@ -1,5 +1,0 @@
-Domain
-Routed
-Routing
-Service
-Widget

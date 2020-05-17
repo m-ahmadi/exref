@@ -1,0 +1,8 @@
+if you don't specify any `include`,`exclude`,`files` entries:
+
+all files in the folder containing the tsconfig.json and all its sub-directories are included in your compilation.
+
+include		specify what should be included in compilation
+files		specify exact files to be included in compilation
+
+exclude		specify what should be exlcuded in compilation

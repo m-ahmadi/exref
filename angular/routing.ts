@@ -1,5 +1,9 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// in module
+// *-routing.module.ts
+
+import { RouterModule, Routes } from '@angular/router';
+
+import { FooComponent } from './foo.component';
+import { BarComponent } from './bar.component';
 
 const appRoutes: Routes = [
 	{ path: '',                 component: HomeComponent },
@@ -9,17 +13,35 @@ const appRoutes: Routes = [
 	{
 		path: '',
 		loadChildren: 'app/components/gallery/gallery.module#Home'
+	},
+	
+	{
+		path?:                  ''
+		pathMatch?:             ''
+		matcher?:               UrlMatcher
+		component?:             undefined,
+		redirectTo?:            '',
+		outlet?:                '',
+		canActivate?:           [],
+		canActivateChild?:      [],
+		canDeactivate?:         [],
+		canLoad?:               [],
+		data?:                  Data
+		resolve?:               ResolveData
+		children?:              Routes
+		loadChildren?:          LoadChildren
+		runGuardsAndResolvers?: RunGuardsAndResolvers
 	}
 ];
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// in component
+// *.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({})
 
-export class UsersComponent implements OnInit {
+export class FooComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute) {}

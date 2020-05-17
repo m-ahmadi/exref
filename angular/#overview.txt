@@ -1,0 +1,25 @@
+decorators
+
+decorators that mark a class
+@NgModule	mark as NgModule			providers,declarations,imports,exports,entryComponents,bootstrap
+@Directive	mark as directive			selector,inputs,outputs,providers,exportAs,queries,host
+@Component	mark as component			moduleId,templateUrl,template,styleUrls,styles
+@Injectable	mark as injectable dependency		providedIn
+@Pipe		mark as pipe				name,pure
+
+decorators that mark a class field
+@Inpt		mark as input  (writable. bound to dom prop in template)	bindingPropertyName
+@Output		mark as output (readable. dom prop is bound to it)
+-------------------------------------------------------------------------------
+types of ng modules
+	Domain
+	Routed
+	Routing
+	Service
+	Widget
+-------------------------------------------------------------------------------
+directives
+	component  (has template)
+	structural (ngIf, ngFor)
+	attribute  (used as attributes of elements: NgStyle)
+-------------------------------------------------------------------------------

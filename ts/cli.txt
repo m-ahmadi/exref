@@ -1,0 +1,51 @@
+tsc main.ts						basic
+tsc main.ts --outFile main.js
+tsc main.ts --outFile main.js --sourceMap true		with sourcemaps
+tsc -p ./src --outDir ./dist				compile folder
+
+tsc -init						create config file
+
+tsc -w file.ts						watch file
+tsc -w							watch directory (dir must contain tsconfig.json)
+tsc -w main.ts --outFile main.js --sourceMap true	
+
+-------------------------------------------------------------------------------
+install 
+
+npm install typescript --save-dev		prefered
+npm install -g typescript
+
+npm install --save-dev @types/jquery		install type definintions
+-------------------------------------------------------------------------------
+flags
+
+-w, --watch				Watch input files.
+-p, --project <file> OR <dir>		Compile the project given the path to its configuration file, or to a folder with a 'tsconfig.json'.
+-b, --build				Build one or more projects and their dependencies, if out of date
+-t, --target <version>			Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019' or 'ESNEXT'.
+-m, --module <kind>			Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'.
+-d, --declaration			Generates corresponding '.d.ts' file.
+    --all				Show all compiler options.
+    --init				Initializes a TypeScript project and creates a tsconfig.json file.
+    --lib				Specify library files to be included in the compilation. (es5, es6, es7, dom, webworker, ...)
+    --allowJs				Allow javascript files to be compiled.
+    --jsx <kind>			Specify JSX code generation: 'preserve', 'react-native', or 'react'.
+    --declarationMap			Generates a sourcemap for each corresponding '.d.ts' file.
+    --sourceMap				Generates corresponding '.map' file.
+    --outFile <file> 			Concatenate and emit output to single file.
+    --outDir <dir>			Redirect output structure to the directory.
+    --removeComments			Do not emit comments to output.
+    --noEmit				Do not emit outputs.
+    --strict				Enable all strict type-checking options.
+    --noImplicitAny			Raise error on expressions and declarations with an implied 'any' type.
+    --strictNullChecks			Enable strict null checks.
+    --strictFunctionTypes		Enable strict checking of function types.
+    --strictBindCallApply		Enable strict 'bind', 'call', and 'apply' methods on functions.
+    --strictPropertyInitialization	Enable strict checking of property initialization in classes.
+    --noImplicitThis			Raise error on 'this' expressions with an implied 'any' type.
+    --alwaysStrict			Parse in strict mode and emit "use strict" for each source file.
+    --noUnusedLocals			Report errors on unused locals.
+    --noUnusedParameters		Report errors on unused parameters.
+    --noImplicitReturns			Report error when not all code paths in function return a value.
+    --noFallthroughCasesInSwitch	Report errors for fallthrough cases in switch statement.
+-------------------------------------------------------------------------------

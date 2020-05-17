@@ -1,0 +1,57 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ngIf
+
+shorthand syntax
+<div *ngIf="condition">content to render</div>
+
+expanded syntax
+<ng-template [ngIf]="condition">
+	<div>Content to render when condition is true.</div>
+</ng-template>
+
+else block
+<div *ngIf="condition; else elseBlock"></div>
+<ng-template #elseBlock></ng-template>
+
+then and else blocks
+<div *ngIf="condition; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock></ng-template>
+<ng-template #elseBlock></ng-template>
+
+storing the value locally
+<div *ngIf="condition as value; else elseBlock">{{value}}</div>
+<ng-template #elseBlock></ng-template>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ngFor
+
+shorthand syntax 
+<li *ngFor="let item of items; index as i; trackBy: trackByFn">...</li>
+
+expanded syntax
+<ng-template ngFor let-item [ngForOf]="items" let-i="index" [ngForTrackBy]="trackByFn">
+  <li>...</li>
+</ng-template>
+
+local variables
+<li *ngFor="let user of users; index as i; first as isFirst">
+	{{i}}/{{users.length}}. {{user}} <span *ngIf="isFirst">default</span>
+</li>
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ngClass
+
+<p [ngClass]="'first second'" />
+
+<p [ngClass]="['first', 'second']" />
+
+<p [ngClass]="{'first': true, 'second': true, 'third': false}" />
+
+<p [ngClass]="stringExp|arrayExp|objExp" />
+
+<p [ngClass]="{'class1 class2 class3' : true}" />
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ngStyle
+
+<p [ngStyle]="{'font-style': styleExp}" />
+<p [ngStyle]="{'max-width.px': widthExp}" />
+<p [ngStyle]="objExp" />
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
