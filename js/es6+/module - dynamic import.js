@@ -5,5 +5,5 @@ import('/modules/my-module.js').then((module) => {
 	// do something with the module.
 });
 
-// also supports the await keyword.
+// also supports the await keyword
 let module = await import('/modules/my-module.js');

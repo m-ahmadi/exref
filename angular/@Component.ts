@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 // a component belongs to some module (mentioned in declarations array of that module)
-
+@Component extends @Directive
 @Component({
 	changeDetection:     enum ChangeDetectionStrategy,
 	viewProviders:       Provider[],
@@ -20,7 +20,7 @@ import { Component } from '@angular/core';
 	selector:  '',
 	inputs:    [''],
 	outputs:   [''],
-	providers: Provider[],,
+	providers: Provider[],
 	exportAs:  '',
 	queries:   {},
 	host:      {},

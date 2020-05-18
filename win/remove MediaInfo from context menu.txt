@@ -1,0 +1,1 @@
+reg delete HKCR\SystemFileAssociations\.ts\Shell\MediaInfo /f

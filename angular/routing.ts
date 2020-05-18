@@ -1,5 +1,4 @@
 // *-routing.module.ts
-
 import { RouterModule, Routes } from '@angular/router';
 
 import { FooComponent } from './foo.component';
@@ -16,20 +15,20 @@ const appRoutes: Routes = [
 	},
 	
 	{
-		path?:                  ''
-		pathMatch?:             ''
-		matcher?:               UrlMatcher
-		component?:             undefined,
-		redirectTo?:            '',
-		outlet?:                '',
+		path?:                  '',           // path to match against
+		pathMatch?:             'prefix'|'full',
+		matcher?:               UrlMatcher,   // custom url-matching function
+		component?:             undefined,    // component to instantiate when path matches
+		redirectTo?:            '',           // url to redirect to when a path matches
+		outlet?:                '',           // RouterOutlet where component is placed when path matches
 		canActivate?:           [],
 		canActivateChild?:      [],
 		canDeactivate?:         [],
 		canLoad?:               [],
-		data?:                  Data
-		resolve?:               ResolveData
-		children?:              Routes
-		loadChildren?:          LoadChildren
+		data?:                  Data,
+		resolve?:               ResolveData,
+		children?:              Routes,
+		loadChildren?:          LoadChildren, // LoadChildren object specifying lazy-loaded child routes
 		runGuardsAndResolvers?: RunGuardsAndResolvers
 	}
 ];
