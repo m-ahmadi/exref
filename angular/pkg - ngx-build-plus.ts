@@ -12,3 +12,4 @@ declare const VERSION: string;
 @Component({selector: 'app-root',...}) class AppComponent { title = 'Version: ' + VERSION }
 
 // ng serve --extra-webpack-config webpack.partial.js -o
+// ng build --extra-webpack-config webpack.partial.js --plugin ~myplugin.js

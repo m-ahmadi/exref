@@ -1,9 +1,3 @@
-/*
-	If a webpack.config.js is present, webpack command picks it up by default.
-	
-	
-*/
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // basic
 module.exports = {
 	entry: './app/index.js',
@@ -40,32 +34,20 @@ module.exports = {
 	}
 };
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-/* modules
-all considered a webpack module:
-	an es2015 import statement
-	a commonjs require() statement
-	an amd define and require statement
-	an @import statement inside of a css/sass/less file
-	an image url() in css or <img /> tag in html
-*/
+// modules (import, require, define, css/scss @import, css url(), img tag)
 
 // absolute paths
 import '/home/me/file';
-
 import 'C:\\Users\\me\\file';
 
 // relative paths
 import '../src/file1';
 import './file2';
-/*
-	directory of resource file where import/require occurs is context directory.
-	relative path import/require is joined to this context path to produce absolute path to the module.
-*/
 
-// module paths
+// module paths (searched for in dirs specified in resolve.modules)
 import 'module';
 import 'module/lib/file';
-// modules are searched for inside all directories specified in resolve.modules.
+
 module.exports = {
 	module: {
 		resolve: {
