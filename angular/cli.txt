@@ -1,9 +1,10 @@
 npm install @angular/cli -g
 
 ng new myapp
-ng new myapp --style=scss --routing --skipTests
-ng new myapp --style=scss --routing --skipTests --minimal --skip-install
-ng new myapp --style=scss --routing -S -g --skip-install --minimal
+ng new myapp --style=scss --routing -S
+ng new myapp --style=scss --routing -S -g --minimal --skip-install
+
+note: if a symlink is in path of the proj, ng throws erros and can't compile.
 -------------------------------------------------------------------------------
 ng n|new
 	--directory=myapp

@@ -25,23 +25,21 @@ ReactDOM.render(
 );
 //--------------------------------------------------------------------------------
 // App.js
-render() {
-  return (
-    <div>
-      <header>
-        This is my website!
-      </header>
+const App = () => (
+	<div>
+		<header>
+			This is my website!
+		</header>
 
-      <main>
-        {this.props.children}
-      </main>
+		<main>
+			{this.props.children}
+		</main>
 
-      <footer>
-        Your copyright message
-      </footer>
-    </div>
-  );
-}
+		<footer>
+			Your copyright message
+		</footer>
+	</div>
+);
 //--------------------------------------------------------------------------------
 // Component.js
 import { Link } from 'react-router';

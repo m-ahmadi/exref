@@ -61,7 +61,7 @@ attr binding
 property binding
 
 {{expression}}                                              src-to-target (interpolate,prop,attr,class,style)
-<p [target]="expression"   | bind-target="expression" />    ...
+<p [target]="expression"   | bind-target="expression" />    ↑ ...
 <p (target)="statement"    | on-target="statement" />       target-to-src (event)
 <p [(target)]="expression" | bindon-target="expression" />  target-to-src-to-target (two-way)
 -------------------------------------------------------------------------------
@@ -90,21 +90,21 @@ the binding is to the property of htmlelement,component,directive and not html a
 every public member of a source directive is automatically available for binding.
 
 examples:
-<p [bindtarget]="bindsrc" />            bindtarget is changed when bindsrc changes
+<p [bindtarget]="bindsrc" />         bindtarget is changed when bindsrc changes
 <p [bindtarget]="classProp" />
 <p [disabled]="isDisabled" />
-<p (click)="classMethod($event)" />     event, bind a class method to an event
-<p [(ngModel)]="classProp" />           2 way binding, between class prop and html/component prop
+<p (click)="classMethod($event)" />  event, bind a class method to an event
+<p [(ngModel)]="classProp" />        2 way binding, between class prop and html/component prop
 
-<p *ngFor="let i of arr" />             loop through a class property, output this p for each iteration
+<p *ngFor="let i of arr" />          loop through a class property, output this p for each iteration
 <li *ngFor="let i of arr">{{i}}</li>
-<p *ngIf="condition"></p>               output p if class propery exist
+<p *ngIf="condition"></p>            output p if class propery exist
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 event binding
-<p (eventname)="template statement"></p>   parens notation
-<p on-eventname="template statement"></p>  on- prefix
+<p (eventname)="template statement"></p>  parens notation
+<p on-eventname="template statement"></p> on- prefix
 
-<p (click)="someMethod($event)"></p>       access event object with $event
+<p (click)="someMethod($event)"></p>      access event object with $event
 
 <input [value]="currentItem.name"
        (input)="currentItem.name=$event.target.value" >

@@ -35,8 +35,11 @@ done
 ------------------------------------------------------------------------------------------------------------
 change default start dir of cmd (bad cuz: ruins start path of all cmd .lnk shortcuts)
 
-reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /d "cd /d C:\Users\NYC"
-reg delete "HKCU\Software\Microsoft\Command Processor" /v Autorun /f
+reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /d "cd /d c:\"
+a bit better but still:
+reg add "HKCU\Software\Microsoft\Command Processor" /v AutoRun /t REG_SZ /d "IF x"%COMSPEC%"==x%CMDCMDLINE% (cd /d c:\)"
+undo:
+reg delete "HKCU\Software\Microsoft\Command Processor" /f
 
 note:
 if cmd.lnk "Run as administrator" then "Start in" won't work. (opens in system32)

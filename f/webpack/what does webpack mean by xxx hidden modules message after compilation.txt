@@ -1,5 +1,5 @@
 Webpack hides modules coming from folders like
-["node_modules", "bower_components", "jam", "components"]
+['node_modules', 'bower_components', 'jam', 'components']
 in your console output by default.
 
 This helps you to focus on your modules instead on your dependencies.

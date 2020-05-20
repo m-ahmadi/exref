@@ -1,12 +1,18 @@
+<base href="/"> in index.html defines root
+
 <div>
 	<router-outlet></router-outlet>             placeholder for the activated component
 </div>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-<a href="/users" >users</a>                   page refresh
 
-<a routerLink="/users" >users</a>             no page refresh
+<a RouterLinkActive="css-class"></a>  css class to add to element when route becomes active
+
+<a routerLink="/users" >users</a>
 <a routerLink="['/', 'users']" >users</a>
 <a routerLink="['/users']" >users</a>
+
+<a routerLink="/" [routerLinkActiveOptions]="{exact: true}">home</a>
+<a routerLink="/user">user</a>
+<a routerLink="profile">profile</a>
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 relative path:
 with a relative path it always appends the path you specifiy in the routerLink to the end of your current path,
@@ -23,6 +29,3 @@ absolute path:
 activated from outside the component:		localhost4200:/users
 activated from inside  the component		localhost4200:/users
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-<a routerLink="/"       routerLinkActive="css-class" [routerLinkActiveOptions]="{exact: true}">home</a>
-<a routerLink="/user"   routerLinkActive="css-class">user</a>
-<a routerLink="profile" routerLinkActive="css-class">profile</a>

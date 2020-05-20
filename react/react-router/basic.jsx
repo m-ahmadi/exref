@@ -72,11 +72,7 @@ const Topic = ({ match }) => (
   </div>
 );
 
-class App extends Component {
-	render() {
-		return(
-			<BasicExample />
-		);
-	}
-
-}
+ReactDOM.render(
+  <BasicExample />,
+  document.getElementById('app')
+);
