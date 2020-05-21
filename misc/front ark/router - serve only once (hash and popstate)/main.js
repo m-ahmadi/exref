@@ -3,7 +3,7 @@ window.addEventListener('popstate', async function (e) {
 	
 	if (route) {
 		const filePath = `_${route}.htm`;
-		document.title = route[0].toUpperCase() + route.slice(1);
+		document.title = route[0].toUpperCase() + route.slice(1).toLowerCase();
 		
 		// simple:
 		// const file = await (await fetch(filePath)).text();

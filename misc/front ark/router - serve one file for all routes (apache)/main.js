@@ -2,7 +2,7 @@
 	const route = location.pathname.replace('/put_folder_name_here', '').slice(1);
 	
 	if (route) {
-		document.title = route[0].toUpperCase() + route.slice(1);
+		document.title = route[0].toUpperCase() + route.slice(1).toLowerCase();
 		const filePath = `_${route}.htm`;
 		
 		// cache
