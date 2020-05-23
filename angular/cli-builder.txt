@@ -1,0 +1,17 @@
+angular.json
+	projects
+		myproj
+			architect
+				<target>
+				build
+				test
+				...
+-------------------------------------------------------------------------------
+builder project structure
+
+src/my-builder.ts		main source file for the builder definition
+src/my-builder.spec.ts		source file for tests
+src/schema.json			definition of builder input options
+builders.json			testing configuration
+package.json			dependencies
+tsconfig.json			typeScript config

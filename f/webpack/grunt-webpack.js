@@ -1,5 +1,5 @@
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//	create by me (works)
+// me
 module.exports = function(grunt) {
 	grunt.initConfig({
 		webpack: {
