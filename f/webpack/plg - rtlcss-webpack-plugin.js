@@ -1,11 +1,12 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const RtlCssPlugin = require('rtlcss-webpack-plugin');
- 
+const ExtractTextPlugin = require('extract-text-webpack-plugin'); // npm i extract-text-webpack-plugin -D
+const RtlCssPlugin = require('rtlcss-webpack-plugin');            // npm i rtlcss-webpack-plugin -D
+const path = require('path');
+
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [

@@ -3,8 +3,8 @@ const ExtractText = require('extract-text-webpack-plugin');
 module.exports = {
 	entry: './src/main.js',
 	output: {
-		path: __dirname + '/dist',
-		filename: 'app.js'
+		filename: 'app.js',
+		path: __dirname + '/dist'
 	},
 	resolve: {
 		modules: ['./js/src']

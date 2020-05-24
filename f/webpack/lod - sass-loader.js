@@ -1,4 +1,4 @@
-// npm i sass-loader sass --save-dev
+// npm i sass-loader sass -D
 
 module.exports = {
 	module: {

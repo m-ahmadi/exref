@@ -1,29 +1,30 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // me
+const path = require('path');
+
 module.exports = function(grunt) {
 	grunt.initConfig({
 		webpack: {
 			default: {
-				entry: "./js/main.js",
+				entry: './js/main.js',
 				output: {
-					path: "js/dist/",
-					filename: "bundle.js",
+					filename: 'bundle.js',
+					path: path.resolve(__dirname, './js/dist/')
 				}
 			}
 		}
 	});
 	
 	grunt.loadNpmTasks('grunt-webpack');
-	grunt.registerTask("default", ["webpack"]);
+	grunt.registerTask('default', ['webpack']);
 };
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 webpack: {
 	someName: {
 		// webpack options 
-		entry: "./client/lib/index.js",
+		entry: './client/lib/index.js',
 		output: {
-			path: "asserts/",
-			filename: "[hash].js",
+			filename: '[hash].js',
+			path: path.resolve(__dirname, './asserts/')
 		},
 
 		stats: {
@@ -34,7 +35,7 @@ webpack: {
 		},
 		// stats: false disables the stats output 
 
-		storeStatsTo: "xyz", // writes the status to a variable named xyz 
+		storeStatsTo: 'xyz', // writes the status to a variable named xyz 
 		// you may use it later in grunt i.e. <%= xyz.hash %> 
 
 		progress: false, // Don't show progress 
