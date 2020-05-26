@@ -1,5 +1,8 @@
 // npm i -D postcss-loader
 
+const rtlcss = require('rtlcss');
+const autoprefixer = require('autoprefixer');
+
 module.exports = {
 	module: {
 		rules: [
@@ -14,7 +17,7 @@ module.exports = {
 				use: [
 					'style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },
-					{ loader: 'postcss-loader', options: {plugins: [require('autoprefixer'),require('rtlcss')]} },
+					{ loader: 'postcss-loader', options: {plugins: [autoprefixer,rtlcss]} },
 					'sass-loader',
 				],
 			},
