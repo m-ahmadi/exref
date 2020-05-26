@@ -10,3 +10,9 @@ output // processed css
 result = rtlcss.configure(config).process(css, postcssOptions);
 result.css // processed css
 result.map // source map
+
+// using postcss directly
+var result = postcss()
+	.use(rtlcss([options , plugins, hooks]))
+	.use(autoprefixer())
+	.process(css);

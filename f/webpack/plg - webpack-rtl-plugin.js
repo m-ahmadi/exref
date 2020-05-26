@@ -24,7 +24,8 @@ module.exports = {
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
-				filename: 'style.css',
+			// same options as webpackOptions.output
+			filename: 'style.css'
 		}),
 		new WebpackRTLPlugin(),
 	],

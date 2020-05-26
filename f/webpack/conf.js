@@ -12,6 +12,7 @@ module.exports = {
 // ref
 module.exports = {
 	entry: './app/entry',                    // str|obj|arr Here the application starts executing and webpack starts bundling
+	
 	// options related how webpack emits results
 	output: {
 		path: path.resolve(__dirname, 'dist'), // string    the target directory for all output files, must be an absolute path
@@ -20,39 +21,36 @@ module.exports = {
 		library: 'MyLibrary',                  // string    the name of the exported library
 		libraryTarget: 'umd',                  // enum      the type of the exported library
 	},
+	
 	// configuration regarding modules
 	module: {
-		rules: [{
-			test: /\.jsx?$/,
-			include: [
-				path.resolve(__dirname, 'app')
-			],
-			exclude: [
-				path.resolve(__dirname, 'app/demo-files')
-			]
-			issuer: { test, include, exclude }, // conditions for the issuer (the origin of the import)
-			enforce: 'pre',                     // apply these rule even if rules are overridden (advanced option)
-			enforce: 'post',
-			loader: 'babel-loader',             // the loader which should be applied, it'll be resolve relative to the context, -loader suffix is no longer optional in Webpack 2 for clarity reasons
-			options: {
-				presets: ['es2015']
-			},
-			// options for the loader
-		}, {
-			test: '\.html$',
-
-			use: [
-				// apply multiple loaders and options
-				'htmllint-loader',
-				{
-					loader: 'html-loader',
-					options: {
-						/* ... */
-					}
-				}
-			]
-		}
+		rules: [
+			{ // Rule
+				test:                    /\.jsx?$/ | '\.html$',
+				use:                     '' | ['','',] | {loader:'',options:{}}  | UseEntry[],
+				loader:                  this.use.loader,
+				options | query:         this.use.options,
+				presets:                 ['es2015']
+				include:                 [ path.resolve(__dirname, 'app') ],
+				exclude:                 [ path.resolve(__dirname, 'app/demo-files') ]
+				issuer:                  Condition,
+				enforce:                 'pre' | 'post',
+				parser:                  ,
+				parser.dataUrlCondition: ,
+				generator.dataUrl:       ,
+				generator.filename:      ,
+				resource:                ,
+				resourceQuery:           ,
+				parser.parse:            ,
+				rules | oneOf:           , // nested rules
+				sideEffects:             ,
+				type:                    ,
+				resolve:                 , // v4.36.1+
+				loaders:                 , // deprecated
+			}
+		]
 	},
+	
 	// options for resolving module requests (does not apply to resolving to loaders)
 	resolve: {
 		modules: [                                    // directories where to look for modules
