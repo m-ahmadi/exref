@@ -8,14 +8,6 @@ tsc -init						create config file
 tsc -w file.ts						watch file
 tsc -w							watch directory (dir must contain tsconfig.json)
 tsc -w main.ts --outFile main.js --sourceMap true	
-
--------------------------------------------------------------------------------
-install 
-
-npm install typescript --save-dev		prefered
-npm install -g typescript
-
-npm install --save-dev @types/jquery		install type definintions
 -------------------------------------------------------------------------------
 flags
 

@@ -29,34 +29,44 @@ ng s|serve
 ng g|generate <schematic> [options]
 
 ng g component myComponent
+ng g c myComponent -m myModule
+	-m, --module=module		the declaring NgModule
+	-s, --inlineStyle		inline css in component.ts file (only possible for css, not scss,...)
+	-t, --inlineTemplate		inline template in component.ts file
 	--spec false
-	--export		export it in declaring NgModule
-	--skipImport		dont import into owning NgModule
-	--flat			create at top level of proj: ./src/
-	--project=project	name of the project to add this to
-	--selector		html selector for this component
-	--type=type		str to append to filename "name.type.ts"
-	-m, --module=module	the declaring NgModule
-	-s, --inlineStyle	inline css in component.ts file (only possible for css, not scss,...)
-	-t, --inlineTemplate	inline template in component.ts file
+	--export			export it in declaring NgModule
+	--skipImport			dont import into owning NgModule
+	--flat				create top level component (under proj root)
+	--project=project		name of the project to add this to
+	--selector			html selector for this component
+	--type=type			str to append to filename "name.type.ts"
 
 ng g service myService
 ng g directive myDirective
+ng g webWorker myWebWorker
+
+ng g m myModule
+ng g m myModule --routing -m app --route mypage
+	-m, --module=module		the declaring NgModule
+	--flat				create top level module (under proj root)
+	--routing			create routing module
+	--route				route path for a lazy-loaded module
+	--routingScope=Child|Root	scope for the new routing module
 
 schematics:
-	appShell		app shell for running a server-side version of an app
+	appShell			app shell for running a server-side version of an app
 	application
-	class			generic class definition
-c	component		generic component definition
+	class				generic class definition
+c	component			generic component definition
 d	directive
-	enum			generic enum definition
-	guard			generic route guard definition
+	enum				generic enum definition
+	guard				generic route guard definition
 	interceptor
 	interface
 	library
-	module			eneric NgModule definition
+m	module				eneric NgModule definition
 	pipe
-	service			generic service definition
+s	service				generic service definition
 	serviceWorker
 	webWorker
 -------------------------------------------------------------------------------

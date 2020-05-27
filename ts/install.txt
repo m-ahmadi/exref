@@ -1,0 +1,16 @@
+npm i typescript -D		prefered
+npm i -g typescript
+
+-------------------------------------------------
+install type definintions
+
+npm i @types/jquery -D
+
+@types/node
+@types/lodash
+@types/react
+@types/express
+@types/glob
+@types/body-parser
+...
+-------------------------------------------------
