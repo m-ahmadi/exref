@@ -24,7 +24,12 @@ ng n|new
 -------------------------------------------------------------------------------
 ng s|serve
 	-o, --open		open browser
-	--port			specify port
+	--port=4200		specify port
+	--source-map=false
+	--hmr=false
+	--liveReload=true
+	--optimization=false
+	--watch=true
 -------------------------------------------------------------------------------
 ng g|generate <schematic> [options]
 
