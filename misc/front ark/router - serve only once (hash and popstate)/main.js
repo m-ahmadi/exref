@@ -1,4 +1,4 @@
-window.addEventListener('popstate', async function (e) {
+window.addEventListener('popstate', async function () {
 	const route = location.hash.slice(1);
 	
 	if (route) {
