@@ -1,4 +1,4 @@
-npm install -g @vue/cli
+npm i @vue/cli -g
 
 vue create hello_world					create new project
 vue create .						inside current directory

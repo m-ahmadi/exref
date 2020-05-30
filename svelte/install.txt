@@ -1,0 +1,13 @@
+npx degit sveltejs/template myapp
+cd myapp
+npm i
+npm run dev
+
+-------------------------------------------------
+sapper
+
+npx degit "sveltejs/sapper-template#rollup" myapp
+# or: npx degit "sveltejs/sapper-template#webpack" myapp
+cd myapp
+npm i
+npm run dev

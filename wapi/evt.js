@@ -60,7 +60,7 @@ var event = new CustomEvent('build', {detail: 'event data', bubble, cancelable, 
 var event = new MouseEvent('click', {cancelable: true})
 elem.dispatchEvent(event)
 
-// destroy all listeners of an element (except inline listeners)
+// destroy all listeners of an element (except inline listeners: <div onclick>)
 var oldElem = document.querySelector('#something')
 var newElem = oldElem.cloneNode(true)
 oldElem.parentNode.replaceChild(newElem, oldElem)

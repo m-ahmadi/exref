@@ -1,4 +1,0 @@
-npx degit sveltejs/template myapp
-cd myapp
-npm install
-npm run dev
