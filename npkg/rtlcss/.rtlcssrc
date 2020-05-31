@@ -2,12 +2,12 @@
 	"options": {
 		"autoRename": false,
 		"autoRenameStrict": false,
-		"blacklist":{},
+		"blacklist": {},
 		"clean": true,
 		"greedy": false,
 		"processUrls": false,
-		"stringMap":[]
+		"stringMap": []
 	},
-	"plugins": [ ],
+	"plugins": [],
 	"map": false
 }

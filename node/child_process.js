@@ -1,13 +1,22 @@
 const child_process = require('child_process');
 const { promisify } = require('util');
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// spawning .bat .cmd files
+const { spawn, execSync } = require('child_process');
+
+// all equal:
+const child = spawn('cmd.exe', ['/c', 'my.bat']);
+const child = child_process.spawn('my', {shell:true});
+execSync('my.bat');
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // exec
 child_process.execSync('node --version').toString() // v10.16.3
 
 const exec = promisify(child_process.exec);
 (async function () {
-  const { stdout } = await exec('node', ['--version']);
-  console.log(stdout);
+  const { stdout, stderr } = await exec('node', ['--version']);
+  console.log(stdout, stderr);
 })()
 
 child_process.exec('ls -la', (error, stdout, stderr) => {
@@ -34,8 +43,35 @@ const execFile = promisify(child_process.execFile);
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // spawn
 const child = child_process.spawn('ls', ['-a', '-l']);
-child.on('exit', code => {
-  console.log(`Exit code is: ${code}`);
+const child = spawn('sass style.scss:style.css', {stdio: 'inherit'}); // preserve colors
+
+child.stdout.on('data', (data) => {
+  console.log('stdout:', data+'');
+});
+
+child.stderr.on('data', (data) => {
+  console.log('stderr:', data+'');
+});
+
+child.on('error', err => {
+  console.log('failed to start subprocess.', err);
+});
+
+child.on('close', (code, signal) => {
+  console.log('child process exited with code', code);
+});
+
+child.on('exit', (code, signal) => {
+  console.log('exit code is:', code);
+});
+
+child.on('message', (message, sendHandle) => {
+  console.log('message from subprocess.');
+});
+
+child.on('disconnect', () => {
+	// subprocess.disconnect() in parent
+	// process.disconnect()    in child
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const child = child_process.fork('./worker');

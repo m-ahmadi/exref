@@ -31,7 +31,7 @@ ghost typing
 command setup
 
 mklink %windir%\npp "D:\Program Files\Notepad++\notepad++.exe"				for win+r
-echo @"D:\Program Files\Notepad++\notepad++.exe" %* ^& exit > %windir%\npp.cmd		for within cmd
+echo @start "" "D:\Program Files\Notepad++\notepad++.exe" %* > %windir%\npp.cmd		for within cmd
 
 done.
 

@@ -6,7 +6,7 @@ const fs = require('fs');
 const css = fs.readFileSync('src/app.css', 'utf8');
 
 postcss([precss, rtlcss, autoprefixer, ...])
-	.process(css, { from: 'src/app.css', to: 'dest/app.css' })
+	.process(css, { from: 'src/app.css', to: 'dest/app.css', map: {inline: false} })
 	.then(result => {
 		result.css // result
 		result.map // map
