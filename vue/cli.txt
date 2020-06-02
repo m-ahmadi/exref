@@ -1,10 +1,25 @@
 npm i @vue/cli -g
 
-vue create hello_world					create new project
-vue create .						inside current directory
-vue ui							gui project setup
+npm run serve		serve
+npm run build		builds ./dist
 
 
-cd proj_dir
-npm run serve						serves the app on a local url
-npm run build						builds the ./dist folder
+vue create myapp			create new project
+	-p, --preset <name>		use saved or remote preset
+	-d, --default			default preset
+	-i, --inlinePreset <json>	inline preset
+	-m, --packageManager <cmd>	
+	-r, --registry			
+	-g, --git [msg]			
+	-n, --no-git			
+	-f, --force			
+	--merge				
+	-c, --clone			
+	-x, --proxy			
+	-b, --bare			
+	--skipGetStarted		
+
+
+vue ui				gui project setup
+
+

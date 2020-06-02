@@ -1,0 +1,79 @@
+<router-link
+	*to=               "str | Location"
+	replace=           "false"
+	append=            "false"
+	tag=               "a"
+	active-class=      "router-link-active"
+	exact=             "false"
+	event=             "click | str[]"
+	exact-active-class="router-link-exact-active"
+	aria-current-value="page |step|location|date|time"
+	v-slot=            "{...}"
+></router-link>
+
+<router-view name="default"></router-view>
+
+<script>
+const RouteConfig = {
+  path:        '',                         // required (rest all optional)
+  component:   Component,
+  name:        '',                         // for named routes
+  components:  { 'name': Component, ... }, // for named views
+  redirect:    '' | Location | () =>,
+  props:       boolean | {} | () =>,
+  alias:       '' | ''[],
+  children:    RouteConfig[],              // for nested routes
+  beforeEnter: (to=Route, from=Route, next=()=>) => void,
+  meta:        undefined,
+
+  // 2.6+
+  caseSensitive:       false, // use case sensitive match
+  pathToRegexpOptions: {}     // path-to-regexp options for compiling regex
+};
+
+const config = {
+	routes:               RouteConfig[],
+	mode:                 'hash'|'history'|'abstract',
+	base:                 '/',
+	linkActiveClass:      'router-link-active',
+	linkExactActiveClass: 'router-link-exact-active',
+	scrollBehavior:       (to, from, savedPosition) => {} | {x:0,y:0} | {selector:''},
+	parseQuery:           () => ,
+	stringifyQuery:       () => , 
+	fallback:             true,
+};
+
+const router =  new VueRouter(config);
+
+router.app: Vue
+router.mode === config.mode
+router.currentRoute: Route
+
+router.beforeEach(to, from, next)
+router.beforeResolve(to, from, next)
+router.afterEach(to, from)
+router.push(location, ?onComplete, ?onAbort)    | router.push(location).then(onComplete).catch(onAbort)
+router.replace(location, ?onComplete, ?onAbort) | router.replace(location).then(onComplete).catch(onAbort)
+router.go(1)
+router.back()
+router.forward()
+router.getMatchedComponents(?location) => Component[]
+router.resolve() => {location,route,href}
+router.addRoutes(routes)
+router.onReady(callback, ?errorCallback) // errorCallback 2.4+
+router.onError(callback)
+
+Route
+$route.path           ''
+$route.params         {}
+$route.query          {}
+$route.hash           ''
+$route.fullPath       ''
+$route.matched        RouteRecord[]
+$route.name           ''
+$route.redirectedFrom ''
+
+// component injected
+this.$route
+this.$router === router
+</script>

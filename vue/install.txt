@@ -1,0 +1,24 @@
+﻿cdn
+https://cdn.jsdelivr.net/npm/vue/dist/vue.js	development
+https://cdn.jsdelivr.net/npm/vue@latest		production (lock to specific version)
+https://cdn.jsdelivr.net/npm/vue		↑ ...
+https://cdn.jsdelivr.net/npm/vue@latest/dist	browse files
+
+https://unpkg.com/vue/dist/vue.js		latest
+https://unpkg.com/vue@latest/dist/vue.js	↑ ...
+https://unpkg.com/vue/dist/			browse files
+
+https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.js
+
+npm install vue
+
+
+different builds
+			   |--------------------|-----------------------|----------------------------|----------------------------|
+			   |  umd               |  commonjs             |  es module (for bundlers)  |  es module (for browsers)  |
+---------------------------|--------------------|-----------------------|----------------------------|----------------------------|
+full (compiler + runtime)  | vue.js             | vue.common.js         | vue.esm.js                 | vue.esm.browser.js         |
+runtime-only               | vue.runtime.js     | vue.runtime.common.js | vue.runtime.esm.js         | ---                        |
+full         (production)  | vue.min.js         | ---                   | ---                        | vue.esm.browser.min.js     |
+runtime-only (production)  | vue.runtime.min.js | ---                   | ---                        | ---                        |
+---------------------------|--------------------|-----------------------|----------------------------|----------------------------|

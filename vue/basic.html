@@ -1,0 +1,56 @@
+<script src="node_modules/vue/dist/vue.js"></script>
+<style>h2{font-family:monospace;}</style>
+
+<div id="app">
+	<div>
+		<h2>interpolation</h2>
+		{{ message }}
+	</div>
+	
+	<div><h2>bind</h2>
+		<input v-bind:placeholder="message" />
+	</div>
+	
+	<div><h2>conditional</h2>
+		<input type="checkbox" v-model="seen" />
+		<span v-if="seen">Now you see me</span>
+	</div>
+	
+	<div><h2>loop</h2>
+		<ol>
+			<li v-for="todo in todos">
+				{{ todo.text }}
+			</li>
+		</ol>
+	</div>
+	
+	<div><h2>user input</h2>
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">Reverse Message</button>
+	</div>
+	
+	<div><h2>two-way binding</h2>
+		<input v-model="message" />
+	</div>
+</div>
+
+<script>
+var app = new Vue({
+	el: '#app',
+	data: {
+		message: 'Hello Vue!',
+		message2: 'You loaded this page on ' + new Date().toLocaleString(),
+		seen: true,
+		todos: [
+			{ text: 'Learn JavaScript' },
+			{ text: 'Learn Vue' },
+			{ text: 'Build something awesome' }
+		]
+	},
+	methods: {
+		reverseMessage: function () {
+			this.message = this.message.split('').reverse().join('')
+		}
+	}
+});
+</script>

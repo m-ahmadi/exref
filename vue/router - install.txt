@@ -1,0 +1,13 @@
+https://cdn.jsdelivr.net/npm/vue-router@latest/dist/
+https://unpkg.com/browse/vue-router@latest/dist/
+
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+
+npm install vue-router
+
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+vue add router

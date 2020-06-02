@@ -7,19 +7,53 @@ function __temps(name='') {
 }
 
 function __els(root=document, obj, overwrite=false) {
-	if (typeof root === 'string') root = document.querySelector(root);
+	if (typeof root === 'string') root = document.querySelector(root); // $(root)
 	if (!root) return;
 	const res = {};
-	const el = root.querySelectorAll('[data-el]');
-	const els = root.querySelectorAll('[data-els]');
-	[...el].forEach(i => res[ i.dataset.el ] = i);
+	const el = root.querySelectorAll('[data-el]');   // $('[data-el]', root)
+	const els = root.querySelectorAll('[data-els]'); // $ ('[data-els]', root)
+	[...el].forEach(i => res[ i.dataset.el ] = i);   // $(i)
 	[...els].forEach(i => {
 		i.dataset.els.split(' ').forEach(k => {
-			if (!res[k]) res[k] = [];
-			res[k].push(i);
+			if (!res[k]) res[k] = []; // $()
+			res[k].push(i); // res[k] = res[k].add(i);
 		});
 	});
-	res.root = root;
+	res.root = root; // $(root)
+	if (obj) {
+		Object.keys(res).forEach(k => {
+			if (!obj[k] || overwrite) obj[k] = res[k];
+		});
+	} else {
+		return res;
+	}
+}
+
+// old
+function __els(root, obj, overwrite=false) {
+	if (!root) return;
+	const res = {};
+	let el, els;
+	if (typeof root === 'string') {
+		res.root = $(root);
+		el = $(root+' [data-el]');
+		els = $(root+' [data-els]');
+	} else if (root instanceof jQuery) {
+		res.root = root;
+		el = root.find('[data-el]');
+		els = root.find('[data-els]');
+	}
+	el.each(function (i, domEl) {
+		const $el = $(domEl);
+		res[ $el.data('el') ] = $el;
+	});
+	els.each(function (i, domEl) {
+		const $el = $(domEl);
+		$el.data('els').split(' ').forEach(k => {
+			if (!res[k]) res[k] = $();
+			res[k] = res[k].add($el);
+		});
+	});
 	if (obj) {
 		Object.keys(res).forEach(k => {
 			if (!obj[k] || overwrite) obj[k] = res[k];
