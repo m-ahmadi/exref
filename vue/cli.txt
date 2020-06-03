@@ -3,23 +3,47 @@ npm i @vue/cli -g
 npm run serve		serve
 npm run build		builds ./dist
 
-
 vue create myapp			create new project
 	-p, --preset <name>		use saved or remote preset
 	-d, --default			default preset
 	-i, --inlinePreset <json>	inline preset
-	-m, --packageManager <cmd>	
-	-r, --registry			
-	-g, --git [msg]			
-	-n, --no-git			
-	-f, --force			
-	--merge				
-	-c, --clone			
-	-x, --proxy			
-	-b, --bare			
-	--skipGetStarted		
+	-g, --git [msg]			git init with msg
+	-n, --no-git			skip git init
+	-b, --bare			no beginner instructions (html stuff)
+	--skipGetStarted		no "Get started" instructions
+	-f, --force			overwrite target dir if exists
+	    --merge			merge     target dir if exists
+	-m, --packageManager <cmd>	custom npm client
+	-r, --registry <url>		custom npm registry
+	-c, --clone			use git clone when fetching remote preset
+	-x, --proxy			use proxy
 
+vue add aplugin				install plugin (to invoke its generator)
+vue invoke aplugin			invoke generator of a plugin
+	--registry <url>
 
-vue ui				gui project setup
+vue inspect				inpect webpack config
+	--mode <mode>			env | prod
+	--rule <name>			inpect module rule
+	--plugin <name>			inspect plugin
+	--rules				list all rules
+	--plusings			list all plugins
+	-v, --verbose			show full definitions
 
+vue serve file.js | file.vue
+	-o, --open			open browser
+	-c, --copy			copy url to clipboard
+	-p, --port <n>
 
+vue build file.js | file.vue
+	-t, --target <target>		app|lib|wc|wc-async
+	-n, --name <name>		entry_filename
+	-d, --dest <dir>		dist
+
+vue config
+	-g, --get <path>
+	-s, --set <path> <value>	
+	-e, --edit			open in editor
+	    --json			output json result
+
+vue ui					gui project setup

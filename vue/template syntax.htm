@@ -1,42 +1,64 @@
-basic
-<span>Message: {{ msg }}</span>
-<span v-once>This will never change: {{ msg }}</span>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-raw html
-<p>Using mustaches: {{ rawHtml }}</p>
-<p>Using v-html directive: <span v-html="rawHtml"></span></p>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-attribute
-<div v-bind:id="dynamicId"></div>
-<button v-bind:disabled="isButtonDisabled">Button</button>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-js expression
-{{ number + 1 }}
+interpolation
+
+<p>{{ msg }}</p>         access data.props
+<p v-once>{{ msg }}</p>  one-time only (affects all bindings on the same node)
+<p>{{ rawHtml }}</p>     raw html treated as plain text
+<p v-html="rawHtml"></p> use `v-html` for html (data bindings in rawHtml are ignored)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+attr
+
+<p id="{{foo}}" />        error. can't use interpolation in attrs
+<p v-bind:id="foo" />     use `v-bind` instead
+<p v-bind:disabled="x" /> attr not included if x is null|undefined|false
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+expressions
+
+{{ num + 1 }}
 {{ ok ? 'YES' : 'NO' }}
-{{ message.split('').reverse().join('') }}
-{{ var a = 1 }} <!-- error (expression, not statement) -->
-{{ if (ok) { return message } }} <!-- error -->
-<div v-bind:id="'list-' + id"></div>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-directive
-<p v-if="seen">Now you see me</p>
-<!-- directive argument: v-directive:argument -->
-<a v-bind:href="url"></a>
-<a v-on:click="doSomething"></a>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-dynamic argument
-js expression in a directive argument, with some constraints about expression and its value
-<a v-bind:[attributeName]="url"></a>
-<a v-on:[eventName]="doSomething"></a>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+{{ message.split(',') }}
+{{ var a = 1 }}              error. no statement    allowed, only single expression
+{{ if (ok) { do() } }}       error. no flow control allowed, only ternary
+<p v-bind:id="'my-' + id" />
+
+available globals
+	Infinity undefined NaN isFinite isNaN parseFloat parseInt
+	decodeURI decodeURIComponent encodeURI encodeURIComponent
+	Math Number Date Array Object Boolean String RegExp Map Set JSON Intl
+	require
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+directives
+
+<p v-directive:argument="expression" /> only a single expression (except in v-for)
+
+<p v-if="foo" />        not rendered if foo is falsy
+<p v-bind:href="foo" /> directive argument (binds href to data.foo)
+<p v-on:click="foo" />  ...
+
+dynamic argument (2.6+)
+<p v-directive:[attrExpression]="valueExpression" />
+
+<p v-bind:[myAttr]="myValue" />    value expr must evaluate to string (except null)
+<p v-bind:[myAttr]="null" />       if value expr is null, then binding is removed
+<p v-bind:['foo' + bar]="value" /> error. no space and quote allowed
+
+
+
+
+<p v-bind:[attributeName]="foo" />
+<p v-bind:[attributeName]="foo" />
+<p v-on:[eventName]="foo" />
+
+
+
+
 modifier
-<form v-on:submit.prevent="onSubmit"></form>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<p v-on:submit.prevent="onSubmit" />
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 shorthands
-<a v-bind:href="url"> </a>        <!-- full syntax -->
-<a :href="url"> </a>              <!-- shorthand -->
-<a :[key]="url"> </a>             <!-- shorthand with dynamic argument (2.6.0+) -->
-<a v-on:click="doSomething"> </a> <!-- full syntax -->
-<a @click="doSomething"> </a>     <!-- shorthand -->
-<a @[event]="doSomething"> </a>   <!-- shorthand with dynamic argument (2.6.0+) -->
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<p v-bind:href="foo" /> full syntax
+<p :href="foo" />       shorthand
+<p :[key]="foo" />      shorthand with dynamic argument (2.6+)
+<p v-on:click="foo" />  ull syntax
+<p @click="foo" />      shorthand
+<p @[event]="foo" />    shorthand with dynamic argument (2.6+)
