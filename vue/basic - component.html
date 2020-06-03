@@ -1,0 +1,97 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<style>h2{font-family:monospace;}</style>
+
+<div id="app">
+	<h2>basic</h2>
+	<button-counter></button-counter>
+	
+	<ol>
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id"
+    ></todo-item>
+  </ol>
+	
+	<h2>passing data to components (props)</h2>
+	<blog-post title="hello dude"></blog-post>
+	
+	<blog-post
+		v-for="post in posts"
+		v-bind:key="post.id"
+		v-bind:title="post.title"
+	></blog-post>
+	
+	<h2>listen on component events</h2>
+	<div :style="{ fontSize: postFontSize + 'em' }">
+		<blog-post2 v-for="post in posts2" v-bind:key="post.id" v-bind:post="post"
+			v-on:enlarge-text="postFontSize += 0.1" 
+		></blog-post2>
+		<!--
+			v-on:enlarge-text="postFontSize += $event"        access the emitted event's value (uncomment L:64)
+			v-on:enlarge-text="onEnlargeText(1)"              use a method
+		-->
+	</div>
+</div>
+
+<script>
+Vue.component('button-counter', {
+	data: function () {
+		return { count: 0 };
+	},
+	template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+});
+
+Vue.component('todo-item', {
+	template: '<li>{{ todo.text }}</li>',
+	props: ['todo']
+});
+
+Vue.component('blog-post', {
+	props: ['title'],
+	template: '<p>{{ title }}</p>'
+});
+
+Vue.component('blog-post2', {
+	props: ['post'],
+	template: ''
++'	<div>'
++'		<h3>{{ post.title }}</h3>'
++'		<button'
++'			v-on:click="$emit(\'enlarge-text\')"'     // emit an event
+//+'			v-on:click="$emit(\'enlarge-text\', 0.1)"' // emit event and a value
++'		>Enlarge text</button>'
++'		<div v-html="post.content"></div>'
++'	</div>'
+});
+
+const app = new Vue({
+	el: '#app',
+	data: {
+		name: '2',
+		groceryList: [
+			{ id: 0, text: 'Vegetables' },
+			{ id: 1, text: 'Cheese' },
+			{ id: 2, text: 'Whatever else humans are supposed to eat' }
+		],
+		posts: [
+      { id: 1, title: 'My journey with Vue' },
+      { id: 2, title: 'Blogging with Vue' },
+      { id: 3, title: 'Why Vue is so fun' }
+    ],
+		
+		posts2: [
+			{id: 1, title: 'post1', content: 'content1'},
+			{id: 2, title: 'post2', content: 'content2'},
+			{id: 3, title: 'post3', content: 'content3'}
+		],
+		postFontSize: 1
+	},
+	methods: {
+		onEnlargeText: function (enlargeAmount) {
+			this.postFontSize += enlargeAmount;
+		}
+	}
+});
+
+</script>

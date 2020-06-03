@@ -1,6 +1,6 @@
 const options = {
 	// data
-	data:          {} | ()=>,     // fn: only in component
+	data:          {} | ()=>,     // fn only in component
 	props:         ['',] | {},
 	propsData:     { k: v, ...},  // only when new Vue()
 	computed:      { k: ()=> | get k | set k, ... },

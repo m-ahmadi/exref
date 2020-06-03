@@ -1,23 +1,20 @@
 interpolation
+<p>{{ msg }}</p>          access data.props
+<p v-once>{{ msg }}</p>   one-time only (affects all bindings on the same node)
+<p>{{ rawHtml }}</p>      raw html treated as plain text
+<p v-html="rawHtml"></p>  use `v-html` for html (data bindings in rawHtml are ignored)
 
-<p>{{ msg }}</p>         access data.props
-<p v-once>{{ msg }}</p>  one-time only (affects all bindings on the same node)
-<p>{{ rawHtml }}</p>     raw html treated as plain text
-<p v-html="rawHtml"></p> use `v-html` for html (data bindings in rawHtml are ignored)
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 attr
-
 <p id="{{foo}}" />        error. can't use interpolation in attrs
 <p v-bind:id="foo" />     use `v-bind` instead
 <p v-bind:disabled="x" /> attr not included if x is null|undefined|false
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-expressions
 
+expression
 {{ num + 1 }}
 {{ ok ? 'YES' : 'NO' }}
 {{ message.split(',') }}
-{{ var a = 1 }}              error. no statement    allowed, only single expression
-{{ if (ok) { do() } }}       error. no flow control allowed, only ternary
+{{ var a = 1 }}           error. no statement    allowed, only single expression
+{{ if (ok) { do() } }}    error. no flow control allowed, only ternary
 <p v-bind:id="'my-' + id" />
 
 available globals
@@ -27,38 +24,67 @@ available globals
 	require
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 directives
-
 <p v-directive:argument="expression" /> only a single expression (except in v-for)
 
-<p v-if="foo" />        not rendered if foo is falsy
-<p v-bind:href="foo" /> directive argument (binds href to data.foo)
-<p v-on:click="foo" />  ...
+<p v-if="prop" />        not rendered if foo is falsy
+<p v-bind:href="prop" /> directive argument (binds href to data.foo)
+<p v-on:click="fn" />    ...
 
 dynamic argument (2.6+)
 <p v-directive:[attrExpression]="valueExpression" />
 
-<p v-bind:[myAttr]="myValue" />    value expr must evaluate to string (except null)
-<p v-bind:[myAttr]="null" />       if value expr is null, then binding is removed
-<p v-bind:['foo' + bar]="value" /> error. no space and quote allowed
-
-
-
-
-<p v-bind:[attributeName]="foo" />
-<p v-bind:[attributeName]="foo" />
-<p v-on:[eventName]="foo" />
-
-
-
+<p v-bind:[myAttr]="foo" />      valueExpression must evaluate to string (except null)
+<p v-bind:[myAttr]="null" />     null can be used to explicitly remove the binding
+<p v-bind:['foo' + bar]="foo" /> error. attrExpression cannot contain any spaces or quotes
+<p v-bind:[myAttr]="foo" />      if using in-dom templates, browser coerces attr name to lowercase: `myattr`
 
 modifier
-<p v-on:submit.prevent="onSubmit" />
+<p v-directive:argument.modifier="expression" />
 
+<p v-on:submit.prevent="fn" /> call event.preventDefault() on triggered events
+
+shorthand
+<p v-bind:attr="expr" /> v-bind full syntax
+<p :attr="foo" />        shorthand
+<p :[attr]="foo" />      dynamic arg shorthand (2.6+)
+
+<p v-on:event="expr" />  v-on full syntax
+<p @event="expr" />      shorthand
+<p @[event]="expr" />    dynamic arg shorthand (2.6+)
+
+ref
+<p
+v-text=           "str"
+v-html=           "str"
+v-show=           "any"
+v-if=             "any"
+v-else
+v-else-if=        "any"
+v-for=            "[] | {} | 0 | Iterable"
+v-on:event=       "()=> | statement | {}" stop|prevent|capture|self|keyCode|keyAlia|native|once|left|right|middle|passive
+v-bind:attrOrProp="arg ? any : {}"        prop|camel|sync
+v-model=          "only for <input> <select> <textarea> <Component>" lazy|number|trim
+v-slot:name=      "only for <template>"
+v-pre
+v-cloak
+v-once
+/>
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-shorthands
-<p v-bind:href="foo" /> full syntax
-<p :href="foo" />       shorthand
-<p :[key]="foo" />      shorthand with dynamic argument (2.6+)
-<p v-on:click="foo" />  ull syntax
-<p @click="foo" />      shorthand
-<p @[event]="foo" />    shorthand with dynamic argument (2.6+)
+class style
+
+class
+<p class="foo" />                        static
+<p :class="{ foo: prop }" />       object syntax (.active only if prop is truthy)
+<p :class="{ 'foo-bar': prop }" /> ... quoted keys
+<p :class="obj" />                 ... a data.obj instead of inline obj (or computed prop)
+<p :class="[foo, bar]" />          array syntax
+<p :class="[a ? foo : '', bar]" /> ... expression
+<p :class="[{ a: foo }, bar]" />   combination
+
+style
+<p :style="{ cssProp: expression}" />     object syntax
+<p :style="{ fontSize: prop + 'px' }" />  camelCase or quoted kebab-case css prop
+<p :style="obj" />                        ... a data.obj instead of inline obj (or computed prop)
+<p :style="[prop1, prop2]" />             array syntax
+<p :style="{ color: ['a', 'b', ...] }" /> multiple (prefixed) values
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
