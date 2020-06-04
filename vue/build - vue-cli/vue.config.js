@@ -1,10 +1,32 @@
-// you can tweek @vue/cli default build (npm run build) parameters by creating a `vue.config.js`.
 
 module.exports = {
-// option     default          explanation
-	publicPath: '/',          // url of where your application bundle will be deployed at.
-	outputDir: 'dist',        // directory of production build files after running `npm run build`.
-	assetsDir: '',            // a directory path relative to `outputDir` for static assets. (js, css, img, fonts)
-	indexPath: 'index.html',  // output path for `index.html` file  relative to `outputDir`. (can be absolute path)
-	
+	baseUrl:                  '/',
+	publicPath:               'dist',
+	outputDir:                '',
+	assetsDir:                'index.html',
+	indexPath:                '',
+	filenameHashing:          true,
+	pages:                    undefined | { 'pageName': {*entry, template, filename, title, chunks:[]}, ... },
+	lintOnSave:               true | 'warning' | 'default' | 'error',
+	runtimeCompiler:          false,
+	transpileDependencies:    [''|/^/, ...],
+	productionSourceMap:      true,
+	crossorigin:              undefined | '',
+	integrity:                false,
+	configureWebpack:         {} | ()=>,
+	chainWebpack:             ()=>,
+	css: {
+		modules:                , // v4 deprecated
+		requireModuleExtension: true,
+		extract:                true | {},
+		sourceMap:              false,
+		loaderOptions:          { /* css-related loeaders options */ },
+	},
+	devServer: {
+		proxy:                  '' | {},
+		/* webpack-dev-server options */
+	},
+	parallel:                 require('os').cpus().length > 1 | boolean | number,
+	pwa:                      {},
+	pluginOptions:            {},
 };
