@@ -1,11 +1,9 @@
-Vue.component(stringId[, definitionObject]); /*
-registers component globally
-id string:   string.
-definition:  optional. function | object
-every component must have a single root element. */
+Vue.component(id='', ?definition={} | fn);
+// registers component globally
+// every component must have a single root element.
 
-// register an extended constructor:
-Vue.component('my-component', Vue.extend({ /* ... */ }));
+// extended constructor
+Vue.component('my-component', Vue.extend({}));
 
 // register an options object: (automatically call Vue.extend)
 Vue.component('my-component', {

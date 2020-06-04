@@ -25,7 +25,7 @@ Vue.observable(object)
 
 const options = {
 	// data
-	data:          {} | ()=>,     // fn only in component
+	data:          {} | ()=>,     // must be fn in component
 	props:         ['',] | {},
 	propsData:     { k: v, ...},  // only when new Vue()
 	computed:      { k: ()=> | get k | set k, ... },

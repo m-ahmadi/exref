@@ -1,0 +1,62 @@
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chosen-js@1.8.7/chosen.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.9/dist/themes/default/style.min.css" />
+</head>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chosen-js@1.8.7/chosen.jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jstree@3.3.9/dist/jstree.min.js"></script>
+
+<div id="app">
+	<pre>best to use v-once to break the connection <small>(though still works without it)</small></pre>
+	
+	<chosen v-once></chosen>
+	<chosen width="200px" v-once></chosen>
+	<chosen width="100px" @chose="onChose" v-once></chosen>
+	
+	<h3>You chose to: <i>{{ selected }}</i></h3>
+	
+	<tree v-once></tree>
+</div>
+
+<script>
+Vue.component('chosen', {
+	template: '<select><option>hello</option> <option>world</option></select>',
+	props: ['width'],
+	mounted() {
+		const self = this;
+		$(this.$el).chosen({width: this.width});
+		$(this.$el).on('change', function (e, params) {
+			self.$emit('chose', params.selected);
+		});
+	},
+	beforeDestroy() {
+		$(this.$el).datepicker('destroy');
+	}
+});
+
+Vue.component('tree', {
+	template: '<div></div>',
+	mounted() {
+		$(this.$el).jstree({
+			core: { data: ['foo', 'bar', 'baz'] }
+		});
+	},
+	beforeDestroy() {
+		$(this.$el).jstree(true).destroy();
+	}
+});
+
+
+new Vue({
+	el: '#app',
+	data: {
+		selected: ''
+	},
+	methods: {
+		onChose(i) {
+			this.selected = i;
+		}
+	}
+});
+</script>
