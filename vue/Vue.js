@@ -1,3 +1,28 @@
+// global config
+Vue.silent                = false;
+Vue.optionMergeStrategies = {} | {k: ()=>, ...}
+Vue.devtools              = true;
+Vue.errorHandler          = undefined | ()=> ;
+Vue.warnHandler           = undefined | ()=> ;
+Vue.ignoredElements       = [] | ['',] | /^/;
+Vue.keyCodes              = {} | {k: 0|[0,], ...}
+Vue.performance           = false;
+Vue.productionTip         = true;
+
+// global api
+Vue.version
+Vue.extend(options)
+Vue.nextTick(?callback, ?context)
+Vue.set(target, propName/index, value)
+Vue.delete(target, propName/index)
+Vue.directive(id, ?definition)
+Vue.filter(id, ?definition)
+Vue.component(id, ?definition)
+Vue.use(plugin)
+Vue.mixin(mixin)
+Vue.compile(template)
+Vue.observable(object)
+
 const options = {
 	// data
 	data:          {} | ()=>,     // fn only in component

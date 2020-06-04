@@ -87,7 +87,7 @@ const App = () => (
 	
 	{/* spread props from an object to component props */}
 	<Comp a="foo" b="bar" /> same as:
-	<Comp {...obj} /> (given obj had those props)
+	<Comp {...obj} />        (assuming obj had those props)
 	
 	{/* a value attr on root <select> instead of selected attr on <option> */}
 	<select value=2>              this
