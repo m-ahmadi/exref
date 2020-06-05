@@ -1,8 +1,23 @@
-React.useState(): [number, function]
+import React, { useState } from 'react';
+
+// hooks don't work inside classes
+useState(initValue, valueSetter)
+useEffect
+useContext
+useReducer
+useCallback
+useMemo
+useRef
+useImperativeHandle
+useLayoutEffect
+useDebugValue
 
 function Example() {
   // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] =  useState(0);
+	const [age, setAge] =  useState(42);
+  const [fruit, setFruit] = useState('banana');
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
 
   return (
     <div>
