@@ -69,11 +69,23 @@ v-pre
 v-cloak
 v-once
 />
+
+v-for
+<li v-for="i in arr"></li>                 no `:key` for simple content
+<li v-for="i in arr" :key="i.id"></li>     key must be unique. (best to always use keys if possible, used as a hint for vdom alg)
+<li v-for="i in arr"></li>                 for in
+<li v-for="i of arr"></li>                 for of
+<li v-for="(val, idx) in arr"></li>
+<li v-for="val in obj"></li>               with object
+<li v-for="(val, key) in obj"></li>        ...
+<li v-for="n in 10"></li>                  with a range
+<li v-for="i in arr" v-if="!i.prop"></li>  with v-if
+<Foo v-for="i in items" :key="i.id"></Foo> on a component
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 class style
 
 class
-<p class="foo" />                        static
+<p class="foo" />                  static
 <p :class="{ foo: prop }" />       object syntax (.active only if prop is truthy)
 <p :class="{ 'foo-bar': prop }" /> ... quoted keys
 <p :class="obj" />                 ... a data.obj instead of inline obj (or computed prop)
