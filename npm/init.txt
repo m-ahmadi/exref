@@ -1,0 +1,16 @@
+npm init				creates package.json in current dir
+npm init [--force|-f|--yes|-y|--scope]	use defaults
+npm init <@scope>			same as `npx <@scope>/create`
+npm init [<@scope>/]<name>		same as `npx [<@scope>/]create-<name>`
+
+-------------------------------------------------------------------------------
+init to npx transformation
+
+npm init <initializer>			<initializer>: an npm package named create-<initializer>
+
+npm init foo       -> npx create-foo
+npm init @usr/foo  -> npx @usr/create-foo
+npm init @usr      -> npx @usr/create
+
+npm init foo --bar -> npx create-foo --bar
+-------------------------------------------------------------------------------

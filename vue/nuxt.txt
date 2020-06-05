@@ -1,0 +1,6 @@
+npx create-nuxt-app myapp
+cd myapp
+
+npm run dev
+npm run build
+npm start

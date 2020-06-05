@@ -1,6 +1,3 @@
-npm init				creates package.json in current dir
-npm init [-f, --force, -y, --yes]	use defaults and don't prompt for any options
-npm search <keyword>			search packages (alias: find/s)
 npm bugs|issues <pkg>			open github issues page of a package
 
 npm v <pkg> version			show latest version of a package (alias: view/show/info)

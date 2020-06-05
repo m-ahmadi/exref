@@ -4,6 +4,9 @@ function compareFn(firstEl, secondEl) {
 	return 1  // b comes first
 	return 0  // leave a and b unchanged
 }
+// sorting algorithm used:
+// mozila: merge sort
+// chrome: quick sort, insertion sort, tim sort
 
 ['x', 'y', 'a', 'b'].sort() // ['a', 'b', 'x', 'y']
 
@@ -28,6 +31,7 @@ var arr = [ {y:2}, {y:5}, {y:3}, {y:6}, {y:4}, {y:1} ];
 arr.sort((a,b) => a.y - b.y) // {y:1}, {y:2}, ...
 arr.sort((a,b) => b.y - a.y) // {y:6}, {y:5}, ...
 
-// sorting algorithm used:
-// mozila: merge sort
-// chrome: quick sort, insertion sort, tim sort
+// sort array of arrays
+var arr = [  ['c',3], ['a',1], ['f',6], ['d',4], ['b',2]  ];
+arr.sort((a,b) => b[1] - a[1] ) // [  ['f',6], ['d',4], ...  ]
+arr.sort((a,b) => a[1] - b[1] ) // [  ['a',1], ['b',2], ...  ]

@@ -1,0 +1,53 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<h1>ToDoALoo</h1>
+	
+	<div>
+		<input v-model="todoText" @keyup.enter="addTodo" />	 
+		<small>Press Enter To Add Item</small>
+	</div>
+	
+	<ul>
+		<li is="todo-item"
+		v-for="(todo, index) in todos"
+		:key="todo.id"
+		:title="todo.title"
+		@remove="todos.splice(index, 1)"
+		></li>
+	</ul>
+</div>
+
+<script>
+Vue.component('todo-item', {
+	template: '\
+	<li>\
+		{{ title }}\
+		<button v-on:click="$emit(\'remove\')">&times;</button>\
+	</li>\
+	',
+	props: ['title']
+})
+
+new Vue({
+	el: '#app',
+	data: {
+		todoText: '',
+		todos: [
+			{id: 1, title: 'Learn Vue'},
+			{id: 2, title: 'Feed The Pig And Chickens'},
+			{id: 3, title: 'Practice World Domination Speech' }
+		],
+		nextTodoId: 4
+	},
+	methods: {
+		addTodo() {
+			this.todos.push({
+				id: this.nextTodoId++,
+				title: this.newTodoText
+			});
+			this.newTodoText = '';
+		}
+	}
+});
+</script>

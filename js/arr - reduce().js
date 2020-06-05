@@ -2,18 +2,19 @@ arr.reduce(callback(accumulator, currentVal, ?index, ?array), ?initVal) /*
 accumulator:   return value of previous iteration callback
 currentVal:    current element being processed 
 
-on first callback:
+on first callback (or reducer):
 initVal
 	? accumulator=initVal  currentVal=arr[0]
 	: accumulator=arr[0]   currentVal=arr[1]
 
 tip: use logical && to return accumulator manually in arrow oneliners  */
 
-// add all items
+// sum of numbers
 var arr = [1, 2, 3, 4];
 var reducer = (accumulator, currentVal) => accumulator + currentVal;
-arr.reduce(reducer)    // 10
-arr.reduce(reducer, 5) // 15
+arr.reduce((a,c) => a+c)               // sum:     10
+arr.reduce((a,c) => a+c, 5)            // 5 + sum: 15
+arr.reduce((a,c) => a+c) / arr.length  // average: 2.5
 
 // reversing
 arr.reduce((acc, cur) => ''+cur+acc) // '4321'

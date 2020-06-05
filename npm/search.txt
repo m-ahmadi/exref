@@ -1,0 +1,11 @@
+npm search <term>
+	-l, --long
+	--json
+	--parseable
+	--no-description 
+
+alias: find/s,se
+
+npm s keyword		search pkgs
+npm s keyword=user	search pkgs of a specific user
+npm s =user		... some packages of user (won't list all pkgs)
