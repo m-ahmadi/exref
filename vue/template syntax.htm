@@ -60,7 +60,7 @@ v-show=           "any"
 v-if=             "any"
 v-else
 v-else-if=        "any"
-v-for=            "[] | {} | 0 | Iterable"
+v-for=            "[] | {} | 0 | '' | Iterable(2.6+)"
 v-on:event=       "()=> | statement | {}" stop|prevent|capture|self|keyCode|keyAlia|native|once|left|right|middle|passive
 v-bind:attrOrProp="arg ? any : {}"        prop|camel|sync
 v-model=          "only for <input> <select> <textarea> <Component>" lazy|number|trim
@@ -71,6 +71,10 @@ v-once
 />
 
 v-for
+<li v-for="[] | {} | 0 | '' | Iterable(2.6+)">
+	{{ i }}
+</li>
+
 <li v-for="i in arr"></li>                 no `:key` for simple content
 <li v-for="i in arr" :key="i.id"></li>     key must be unique. (best to always use keys if possible, used as a hint for vdom alg)
 <li v-for="i in arr"></li>                 for in
@@ -78,7 +82,8 @@ v-for
 <li v-for="(val, idx) in arr"></li>
 <li v-for="val in obj"></li>               with object
 <li v-for="(val, key) in obj"></li>        ...
-<li v-for="n in 10"></li>                  with a range
+<li v-for="n in 10"></li>                  number range
+<li v-for="n in 'abc'"></li>               spreaded string
 <li v-for="i in arr" v-if="!i.prop"></li>  with v-if
 <Foo v-for="i in items" :key="i.id"></Foo> on a component
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -104,4 +109,4 @@ special attrs
 <p :key />
 <p ref="p" />               vm.$refs.p
 <child ref="child"></child> vm.$refs.child
-<p :is="" />
+<p :is="str|obj" />         used in-dom templates (due to limitations of < ul|ol|table|select and li|tr|option />)
