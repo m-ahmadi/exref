@@ -1,0 +1,17 @@
+{
+  "useTaobaoRegistry": true,
+  "packageManager": "npm",
+  "presets": {
+    "myPreset": {
+      "useConfigFiles": true,
+      "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-router": {
+          "historyMode": true
+        },
+        "@vue/cli-plugin-vuex": {}
+      },
+      "cssPreprocessor": "dart-sass"
+    }
+  }
+}

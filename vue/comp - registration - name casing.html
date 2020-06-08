@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<style>p {font: 1em monospace;}</style>
+
+<div id="app"></div>
+
+<script>
+Vue.component('my-component', {template: '<strong>Hi I\'m kebab</strong>'});
+Vue.component('MyAnotherComponent', {template: '<strong>Hi I\'m Pascal</strong>'});
+
+new Vue({
+	el: '#app',
+	template: `
+<div>
+	<p>if registered with kebab-case then refereced in template only with kebab-case</p>
+	<my-component /> <br>
+	<MyComponent /> <small>not rendered</small>
+	
+	<p>if registered with PascalCase then refereced in template with either case (kebab or Pascal)</p>
+	<my-another-component /> <br>
+	<MyAnotherComponent />
+	
+	<p>note: only kebab-case is valid inside in-dom (non-string) templates</p>
+<div>`
+});
+</script>

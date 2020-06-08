@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin'); // npm i html-webpack-
 module.exports = {
 	configureWebpack: {
 		plugins: [
-			new HtmlWebpackPlugin({template: './src/index.html'})
+			new HtmlWebpackPlugin({
+				template: './src/index.html',
+				cache: false // messes up livereloading if true
+			})
     ]
 	}
 };

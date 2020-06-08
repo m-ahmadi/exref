@@ -25,7 +25,7 @@ Vue.observable(object)
 
 const options = {
 	// data
-	data:          {} | ()=>,     // must be fn in component
+	data:          {} | ()=>,     // obj only allowed in root
 	props:         ['',] | {},
 	propsData:     { k: v, ...},  // only when new Vue()
 	computed:      { k: ()=> | get k | set k, ... },
@@ -33,7 +33,7 @@ const options = {
 	watch:         { k: '' | ()=> | {} | [] },
 	
 	// dom
-	el:            '' | Element, // only when new Vue()
+	el:            '' | Element, // root-only
 	template:      '',
 	render:        (createElement) => VNode,
 	renderError:   (createElement, error) => VNode, // only in dev & 2.2+
@@ -54,7 +54,7 @@ const options = {
 	// assets
 	directives:    {},
 	filters:       {},
-	components:    {},
+	components:    {compName: compDefinition, ...}, // local components
 	
 	// composition
 	parent:        vm,
@@ -64,14 +64,14 @@ const options = {
 	inject:        ...,
 	
 	// misc
-	name:          '', // only in component
+	name:          '', // component-only
 	delimiters:    ['{{', '}}'],
 	functional:    false,
 	model:         {prop: '', event: ''},
 	inheritAttrs:  true,
 	comments:      false,
 };
-var vm = new Vue();
+var vm = new Vue(options);
 
 // instance props
 vm.$data        {}

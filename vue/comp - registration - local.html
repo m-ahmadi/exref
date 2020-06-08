@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<style>p {font: 1em monospace;} i {font-family: consolas;}</style>
+
+<div id="app">
+	<comp-a></comp-a> <br>
+	<comp-b></comp-b> <br>
+	<comp-c></comp-c> <small>not rendered</small> <br>
+	<comp-d></comp-d>
+	
+	<br><br><p><strong>notes:</strong><br>
+		globally registered components (and all their subcomponents) are available in template of any root Vue instance (created after registration)<br>
+		locally registered components are not available in subcomponents
+	</p>
+</div>
+
+<script>
+var Comp1 = { template: '<i>I\' numer one</i>' };
+var Comp2 = { template: '<i>I\' numer 2</i>' };
+var Comp3 = { template: '<i>I\'m #3 only #4 knows me</i>' };
+var Comp4 = { template: '<i>I\'m #4 and I know #3. (<comp-c/>)</i>', components: {'comp-c': Comp3} };
+
+new Vue({
+  el: '#app',
+  components: {
+		'comp-a': Comp1,
+		'comp-b': Comp2,
+		'comp-d': Comp4
+  }
+});
+</script>

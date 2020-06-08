@@ -44,6 +44,15 @@ http://jsonplaceholder.typicode.com/posts/3
 http://jsonplaceholder.typicode.com/posts/4
 http://jsonplaceholder.typicode.com/posts/5
 */
+
+// for await of (es8)
+(async function () {
+	for (const i of await asinkFn()) console.log(i);
+})();
+
+async function asinkFn(n='') {
+	return await (await fetch('https://jsonplaceholder.typicode.com/todos/'+n)).json();
+}
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // forEach()
 // callbacks are not executed in sequence.
@@ -63,32 +72,6 @@ http://jsonplaceholder.typicode.com/posts/2
 http://jsonplaceholder.typicode.com/posts/4
 http://jsonplaceholder.typicode.com/posts/5
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// es8 for of (for await of)
-var asyncIterable = {
-  [Symbol.asyncIterator]() {
-    return {
-      i: 0,
-      next() {
-        if (this.i < 3) {
-          return Promise.resolve({ value: this.i++, done: false });
-        }
-
-        return Promise.resolve({ done: true });
-      }
-    };
-  }
-};
-
-(async function() {
-   for await (let num of asyncIterable) {
-     console.log(num);
-   }
-})();
-
-// 0
-// 1
-// 2
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function read(n=1) {
   return fetch('http://jsonplaceholder.typicode.com/posts/'+n)

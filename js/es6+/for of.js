@@ -12,6 +12,10 @@ for (const value of arr) {
 	console.log(entry);
 }
 // 1, 'string', false
+
+for await (value of iterable) {
+  console.log(value);
+}
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // for of vs for in
 var list = [4, 5, 6];
