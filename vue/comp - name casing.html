@@ -19,7 +19,16 @@ new Vue({
 	<my-another-component /> <br>
 	<MyAnotherComponent />
 	
-	<p>note: only kebab-case is valid inside in-dom (non-string) templates</p>
+<pre><hr><strong>notes:</strong>
+
+inside in-dom (non-string) templates:
+  component name can only be kebab-case
+  a self-closing component cannot be used
+
+for component names use:
+  PascalCase in string templates and single-file components
+  kebab-case in dom    templates
+</pre>
 <div>`
 });
 </script>

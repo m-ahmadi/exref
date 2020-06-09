@@ -86,6 +86,21 @@ v-for
 <li v-for="n in 'abc'"></li>               spreaded string
 <li v-for="i in arr" v-if="!i.prop"></li>  with v-if
 <Foo v-for="i in items" :key="i.id"></Foo> on a component
+
+v-on
+<button v-on:click="doThis"></button>                    method handler
+<button v-on:[event]="doThis"></button>                  dynamic event (2.6+)
+<button v-on:click="doThat('hello', $event)" />          inline statement
+<button @click="doThis"></button>                        shorthand
+<button @[event]="doThis"></button>                      shorthand dynamic event (2.6+)
+<button @click.stop="doThis" />                          stop propagation
+<button @click.prevent="doThis" />                       prevent default
+<form @submit.prevent />                                 prevent default without expression
+<button @click.stop.prevent="doThis" />                  chain modifiers
+<input @keyup.enter="onEnter" />                         key modifier using keyAlias
+<input @keyup.13="onEnter" />                            key modifier using keyCode
+<button @click.once="doThis" />                          triggered only once
+<button v-on="{ mousedown: doThis, mouseup: doThat }" /> object syntax (2.4+)
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 class style
 

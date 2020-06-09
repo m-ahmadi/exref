@@ -25,7 +25,7 @@ Vue.observable(object)
 
 const options = {
 	// data
-	data:          {} | ()=>,     // obj only allowed in root
+	data:          {} | ()=>,     // {} only allowed in root
 	props:         ['',] | {},
 	propsData:     { k: v, ...},  // only when new Vue()
 	computed:      { k: ()=> | get k | set k, ... },

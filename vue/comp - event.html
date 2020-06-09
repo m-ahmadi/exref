@@ -1,0 +1,16 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<foo @klik="console.log($event)" />
+</div>
+
+<script>
+var Foo = {
+	template: '<div @click="$emit(\'klik\', 23)">I am foo</div>'
+};
+
+new Vue({
+	el: '#app',
+	components: { foo: Foo }
+});
+</script>

@@ -49,9 +49,9 @@ new Vue({
 		},
 		removeTodo(event) {
 			const children = [...event.currentTarget.childNodes];
-			const target = event.target
-			if(target.tagName === 'BUTTON') {
-				this.todos.splice(children.indexOf(target.parentNode), 1)
+			const target = event.target;
+			if (target.tagName === 'BUTTON') {
+				this.todos.splice(children.indexOf(target.parentNode), 1);
 			}
 		}
 	}
