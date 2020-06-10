@@ -20,22 +20,23 @@ Settings -> Style Configurator
           KEYWORD -> User-defined keywords
           User ext: json mjs jsx
   CSS  -> TAG -> Font name: none
-  HTML -> User ext: handlebars hbs phbs vue tmpl svelte
+  HTML -> User ext: vue svelte handlebars hbs
 
 remove <Language name="json"> tag from %appdata%\notepad++\langs.xml
 -------------------------------------------------------------------------------
 Plugins -> Plugins Admin
 
-Compare
 Customize Toolbar
-Indent By Fold
-JSLint
-JSON Viewer
-JSTool
 Light Explorer
-NewFileBrowser
 Quick Color Picker +
+HTML Tag
+Indent By Fold
+JSTool
+XML Tools
+NewFileBrowser
 TextFX Characters
 Tidy2
-XML Tools
+Compare
+JSON Viewer
+JSLint
 -------------------------------------------------------------------------------

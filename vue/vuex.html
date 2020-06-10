@@ -1,0 +1,52 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuex"></script>
+
+<div id="app">
+	<h1>{{ count }}</h1>
+	<div>
+		<button @click="increment">+</button>
+		<button @click="decrement">-</button>
+		<button @click="doubleIt">*2</button>
+	</div>
+</div>
+
+<script>
+const store = new Vuex.Store({
+	state: {
+		count: 0
+	},
+	mutations: {
+		increment: state => state.count++,
+		decrement: state => state.count--,
+		double(state) {
+			state.count *= 2;
+		}
+	}
+});
+
+store.commit('increment');
+store.commit('double');
+
+new Vue({
+	el: '#app',
+	store: store, // injects the store instance to all child components (this.$store)
+	
+	computed: {
+		count() {
+			return this.$store.state.count;
+		}
+	},
+	
+	methods: {
+		increment() {
+			store.commit('increment');
+		},
+		decrement() {
+			this.$store.commit('decrement');
+		},
+		doubleIt() {
+			this.$store.commit('double');
+		}
+	}
+});
+</script>

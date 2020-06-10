@@ -1,0 +1,18 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<input v-model="newItem" /><button @click="items.push(newItem)">add</button>
+	<ul>
+		<li v-for="i of items">{{ i }}</li>
+	</ul>
+</div>
+
+<script>
+const vm = new Vue({
+	el: '#app',
+	data: {
+		newItem: '',
+		items: ['foo', 'bar', 'baz']
+	}
+});
+</script>

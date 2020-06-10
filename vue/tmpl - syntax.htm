@@ -3,11 +3,7 @@ interpolation
 <p v-once>{{ msg }}</p>   one-time only (affects all bindings on the same node)
 <p>{{ rawHtml }}</p>      raw html treated as plain text
 <p v-html="rawHtml"></p>  use `v-html` for html (data bindings in rawHtml are ignored)
-
-attr
 <p id="{{foo}}" />        error. can't use interpolation in attrs
-<p v-bind:id="foo" />     use `v-bind` instead
-<p v-bind:disabled="x" /> attr not included if x is null|undefined|false
 
 expression
 {{ num + 1 }}
@@ -15,7 +11,6 @@ expression
 {{ message.split(',') }}
 {{ var a = 1 }}           error. no statement    allowed, only single expression
 {{ if (ok) { do() } }}    error. no flow control allowed, only ternary
-<p v-bind:id="'my-' + id" />
 
 available globals
 	Infinity undefined NaN isFinite isNaN parseFloat parseInt
@@ -26,14 +21,17 @@ available globals
 directives
 <p v-directive:argument="expression" /> only a single expression (except in v-for)
 
-<p v-if="prop" />        not rendered if foo is falsy
-<p v-bind:href="prop" /> directive argument (binds href to data.foo)
-<p v-on:click="fn" />    ...
+<p v-if="prop" />            not rendered if foo is falsy
+<p v-bind:href="foo" />      bind href to data.foo (bindSrc=data.foo bindTarget= href)
+<p v-bind:id="foo" />        ...
+<p v-bind:id="'my-' + id" /> expression
+<p v-bind:disabled="x" />    attr not included if x is null|undefined|false
+<p v-on:click="fn" />        addEventListener('click', data.fn)
 
 dynamic argument (2.6+)
 <p v-directive:[attrExpression]="valueExpression" />
 
-<p v-bind:[myAttr]="foo" />      valueExpression must evaluate to string (except null)
+<p v-bind:[myAttr]="foo" />      valueExpression must evaluate to string (except if null)
 <p v-bind:[myAttr]="null" />     null can be used to explicitly remove the binding
 <p v-bind:['foo' + bar]="foo" /> error. attrExpression cannot contain any spaces or quotes
 <p v-bind:[myAttr]="foo" />      if using in-dom templates, browser coerces attr name to lowercase: `myattr`

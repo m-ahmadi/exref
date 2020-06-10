@@ -1,2 +1,4 @@
-Light Explorer		ctrl + b
-Reindent file		shift + alt + f
+Light Explorer				ctrl + b
+Reindent file				shift + alt + f
+HTML Tag: select tag + content		ctrl + t
+HTML Tag: select tag content		ctrl + shift + c

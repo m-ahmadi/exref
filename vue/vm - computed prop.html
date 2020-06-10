@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<h1>Hello {{fullname}} <small>(using normal fn)</small></h1>
+	<br>
+	<h1>Hello {{fullnameArrow}} <small>(using arrow)</small></h1>
+</div>
+
+<script>
+new Vue({
+	el: '#app',
+	data: {
+		firstname: 'John',
+		lastname: 'Yasari'
+	},
+	computed: {
+		fullname() {
+			return this.firstname +' '+ this.lastname;
+		},
+		fullnameArrow: (vm) => vm.firstname +' '+ vm.lastname
+	}
+});
+</script>

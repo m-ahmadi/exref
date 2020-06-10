@@ -1,3 +1,4 @@
+https://cdn.jsdelivr.net/npm/vue-router
 https://cdn.jsdelivr.net/npm/vue-router@latest/dist/
 https://unpkg.com/browse/vue-router@latest/dist/
 

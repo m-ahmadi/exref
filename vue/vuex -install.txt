@@ -1,0 +1,12 @@
+https://cdn.jsdelivr.net/npm/vuex
+https://cdn.jsdelivr.net/npm/vuex@latest/dist/
+https://unpkg.com/browse/vuex@latest/dist/
+
+<script src="vue.js"></script>
+<script src="vuex.js"></script>
+
+npm install vuex
+
+import Vue from 'vue'
+import Vuex from 'vue-router'
+Vue.use(Vuex)

@@ -1,0 +1,78 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuex"></script>
+
+<div id="app">
+	<input v-model="howMany" type="number" />
+	<button @click="fetchTodos">
+		<span v-if="loadingStatus === 'loading'">Loading...</span>
+		<span v-else>Reload</span>
+	</button>
+	
+	<ul>
+		<li v-for="todo in todos">{{todo.title}} {{todo.completed ? '✔' : '✖'}}</li>
+	</ul>
+	
+	<h3>These are done:</h3>
+	<ul>
+		<li v-for="todo in doneTodos">{{todo.title}}</li>
+	</ul>
+</div>
+
+<script>
+const store = new Vuex.Store({
+	state: {
+		loadingStatus: 'notLoading',
+		todos: []
+	},
+	mutations: {
+		SET_LOADING_STATUS(state, status) {
+			state.loadingStatus = status;
+		},
+		SET_TODOS(state, todos) {
+			state.todos = todos;
+		}
+	},
+	actions: {
+		fetchTodos(context) {
+			context.commit('SET_LOADING_STATUS', 'loading');
+			fetch('https://jsonplaceholder.typicode.com/todos').then(async res => {
+				context.commit('SET_LOADING_STATUS', 'notLoading');
+				context.commit('SET_TODOS', (await res.json()).slice(0,+vm.howMany));
+			});
+		}
+	},
+	getters: {
+		doneTodos(state) {
+			return state.todos.filter(todo => todo.completed);
+		}
+	}
+});
+
+var vm = new Vue({
+	el: '#app',
+	store: store,
+	
+	data: { howMany: 5 },
+	computed: {
+		loadingStatus() {
+			return this.$store.state.loadingStatus;
+		},
+		todos() {
+			return this.$store.state.todos;
+		},
+		doneTodos() {
+			return this.$store.getters.doneTodos;
+		}
+	},
+	
+	beforeCreate() {
+		this.$store.dispatch('fetchTodos');
+	},
+	
+	methods: {
+		fetchTodos() {
+			this.$store.dispatch('fetchTodos');
+		}
+	}
+});
+</script>
