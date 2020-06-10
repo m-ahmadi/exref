@@ -1,16 +1,23 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 <div id="app">
-	<foo @klik="console.log($event)" />
+	<h1 @click="onClick">click here kitty</h1>
+	<h2 @click="onClick($event.target.innerText)">another here</h2>
+	<foo @klik="console.log($event)"></foo>
 </div>
 
 <script>
 var Foo = {
-	template: '<div @click="$emit(\'klik\', 23)">I am foo</div>'
+	template: '<h1 @click="$emit(\'klik\', 23)">and here</h1>'
 };
 
 new Vue({
 	el: '#app',
-	components: { foo: Foo }
+	components: { foo: Foo },
+	data: {
+		onClick(e) {
+			console.log(e);
+		}
+	}
 });
 </script>

@@ -1,10 +1,17 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<style>.red {color: red;}</style>
+
 
 <div id="app">
 	<input v-model="newItem" /><button @click="items.push(newItem)">add</button>
 	<ul>
 		<li v-for="i of items">{{ i }}</li>
 	</ul>
+	
+	<ul>
+		<li :class="{red}" v-for="i of items">{{ i }}</li>
+	</ul>
+	<label><input type="checkbox" v-model="red" />red</label>
 </div>
 
 <script>
@@ -12,7 +19,8 @@ const vm = new Vue({
 	el: '#app',
 	data: {
 		newItem: '',
-		items: ['foo', 'bar', 'baz']
+		items: ['foo', 'bar', 'baz'],
+		red: true
 	}
 });
 </script>

@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<input v-model="foo" /> foo <br>
+	<input v-model="bar" /> bar
+	
+	<h1>{{msg}}</h1>
+</div>
+
+<script>
+new Vue({
+	el: '#app',
+	
+	data: {
+		foo: 2,
+		bar: 4,
+		msg: 'initial'
+	},
+	
+	watch: {
+		foo(val, oldVal) {
+			this.msg = `changed foo from ${oldVal} to ${val}`;
+		},
+		bar(val, oldVal) {
+			this.msg = 'changed bar';
+		}
+	}
+});
+</script>
