@@ -11,6 +11,14 @@ module.exports = {
 			},
 			// or
 			{
+				test: /\.(png|svg|jpg|gif)$/,
+				use: [{
+					loader: 'file-loader',
+					options: { outputPath: 'images/' }
+				}]
+			},
+			// or
+			{
 				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
 				use: [{
 					loader: 'file-loader',
