@@ -1,0 +1,38 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<input v-model="msg" /> <br><br>
+	{{ msg | capitalize }} <br><br>
+	
+	<a v-bind:href="msg | capitalize">look at my href</a> <br><br>
+	
+	{{ msg | capitalize | filterB }} <br><br>
+	
+	{{ msg | filterC('@', arg2) }} <br><br>
+	
+	<pre><hr><strong>notes:</strong>
+  filters are only allowed in mustache interpolations and v-bind
+  they're like angular pipes
+	</pre>
+</div>
+
+<script>
+new Vue({
+	el: '#app',
+	
+	filters: {
+		capitalize: function (value) {
+			return ''+value.charAt(0).toUpperCase() + value.slice(1);
+		},
+		filterB(value) {
+			return `(${value})`;
+		},
+		filterC: (value, str, somethin) => value + str + somethin
+	},
+	
+	data: {
+		msg: 'hello',
+		arg2: 'u good honey?'
+	},
+});
+</script>
