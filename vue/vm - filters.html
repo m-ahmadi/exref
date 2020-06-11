@@ -13,6 +13,7 @@
 	<pre><hr><strong>notes:</strong>
   filters are only allowed in mustache interpolations and v-bind
   they're like angular pipes
+  in case of name conflict between local and global filters, local has precedence over global
 	</pre>
 </div>
 
@@ -22,7 +23,8 @@ new Vue({
 	
 	filters: {
 		capitalize: function (value) {
-			return ''+value.charAt(0).toUpperCase() + value.slice(1);
+			<!-- return ''+value.charAt(0).toUpperCase() + value.slice(1); -->
+			return `<i>${value}</i>`;
 		},
 		filterB(value) {
 			return `(${value})`;

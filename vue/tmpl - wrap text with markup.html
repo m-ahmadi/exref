@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<style>.bg { background; yellow; }</style>
+
+<div id="app">
+	<h1>Hello</h1>
+	<h1 v-html="highlight('hello')+' world'"></h1>
+	
+	<h1 v-html="another('hello')+' world'"></h1>
+</div>
+
+<script>
+new Vue({
+	el: '#app',
+	
+	methods: {
+		highlight(str) {
+			return `<span style="color:yellow;">${str}</span>`;
+			
+		},
+		highlight(str) {
+			return `<span style="background:yellow;">${str}</span>`;
+			
+		},
+		another(str) {
+			return `<span class="bg">${str}</span>`;
+		}
+	}
+});
+</script>

@@ -38,7 +38,7 @@ const options = {
 	render:        (createElement) => VNode,
 	renderError:   (createElement, error) => VNode, // only in dev & 2.2+
 	
-	// lifecyle
+	// lifecyle (can't be async)
 	beforeCreate:  ()=>,
 	created:       ()=>,
 	beforeMount:   ()=>,
