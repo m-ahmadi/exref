@@ -2,7 +2,7 @@ interpolation
 <p>{{ msg }}</p>          access data.props
 <p v-once>{{ msg }}</p>   one-time only (affects all bindings on the same node)
 <p>{{ rawHtml }}</p>      raw html treated as plain text
-<p v-html="rawHtml"></p>  use `v-html` for html (data bindings in rawHtml are ignored)
+<p v-html="rawHtml"></p>  use `v-html` for html (data bindings in rawHtml are ignored, sfc scoped styles not applied to rawHtml)
 <p id="{{foo}}" />        error. can't use interpolation in attrs
 
 expression
@@ -21,12 +21,12 @@ available globals
 directives
 <p v-directive:argument="expression" /> only a single expression (except in v-for)
 
-<p v-if="prop" />            not rendered if foo is falsy
-<p v-bind:href="foo" />      bind href to data.foo (bindSrc=data.foo bindTarget= href)
-<p v-bind:id="foo" />        ...
+<p v-bind:href="prop" />     bind href to data.prop (bindSrc=data.prop bindTarget= href)
+<p v-bind:id="prop" />       ...
+<p v-if="prop" />            not rendered if data.prop is falsy
 <p v-bind:id="'my-' + id" /> expression
 <p v-bind:disabled="x" />    attr not included if x is null|undefined|false
-<p v-on:click="fn" />        addEventListener('click', data.fn)
+<p v-on:click="method" />    bind methods.method to 'click' event
 
 dynamic argument (2.6+)
 <p v-directive:[attrExpression]="valueExpression" />
@@ -86,19 +86,19 @@ v-for
 <Foo v-for="i in items" :key="i.id"></Foo> on a component
 
 v-on
-<button v-on:click="doThis"></button>                    method handler
-<button v-on:[event]="doThis"></button>                  dynamic event (2.6+)
-<button v-on:click="doThat('hello', $event)" />          inline statement
-<button @click="doThis"></button>                        shorthand
-<button @[event]="doThis"></button>                      shorthand dynamic event (2.6+)
-<button @click.stop="doThis" />                          stop propagation
-<button @click.prevent="doThis" />                       prevent default
-<form @submit.prevent />                                 prevent default without expression
-<button @click.stop.prevent="doThis" />                  chain modifiers
-<input @keyup.enter="onEnter" />                         key modifier using keyAlias
-<input @keyup.13="onEnter" />                            key modifier using keyCode
-<button @click.once="doThis" />                          triggered only once
-<button v-on="{ mousedown: doThis, mouseup: doThat }" /> object syntax (2.4+)
+<button v-on:click="method"></button>                      addEvenetListener('click', methods.method)
+<button v-on:[event]="method"></button>                    dynamic event (2.6+)
+<button v-on:click="method('hello', $event)" />            inline statement
+<button @click="method"></button>                          shorthand
+<button @[event]="method"></button>                        shorthand dynamic event (2.6+)
+<button @click.stop="method" />                            stop propagation
+<button @click.prevent="method" />                         prevent default
+<form @submit.prevent />                                   prevent default without expression
+<button @click.stop.prevent="method" />                    chain modifiers
+<input @keyup.enter="method" />                            key modifier using keyAlias
+<input @keyup.13="method" />                               key modifier using keyCode
+<button @click.once="method" />                            triggered only once
+<button v-on="{ mousedown: method1, mouseup: method2 }" /> object syntax (2.4+)
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 class style
 

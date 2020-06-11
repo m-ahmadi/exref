@@ -1,22 +1,35 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 <div id="app">
+	<div style="border:1px dashed grey"><h1>{{ name }}</h1></div>
+	
 	<h1 @click="onClick">click here kitty</h1>
-	<h2 @click="onClick($event.target.innerText)">another here</h2>
+	<h3 @click="onClick($event.target.innerText)">another here</h3>
+	<foo @klik="onClick"></foo>
 	<foo @klik="console.log($event)"></foo>
+	
+	<h1 @click="badOnClick" style="color:red">nono jojo</h1>
 </div>
 
 <script>
 var Foo = {
-	template: '<h1 @click="$emit(\'klik\', 23)">and here</h1>'
+	template: '<h2 @click="$emit(\'klik\', 23)">and here</h2>'
 };
 
 new Vue({
 	el: '#app',
 	components: { foo: Foo },
+	
 	data: {
+		name: 'hello',
+		badOnClick() {
+			this.name = 'duuude';
+		}
+	},
+	
+	methods: {
 		onClick(e) {
-			console.log(e);
+			this.name = e;
 		}
 	}
 });

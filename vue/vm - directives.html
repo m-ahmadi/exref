@@ -1,0 +1,20 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<input v-focus />
+	<input />
+</div>
+
+<script>
+new Vue({
+	el: '#app',
+	
+	directives: {
+		focus: {
+			inserted: function (el) {
+				el.focus()
+			}
+		}
+	}
+});
+</script>

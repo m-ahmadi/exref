@@ -4,15 +4,20 @@
 	<h1>Hello {{fullname}} <small>(using normal fn)</small></h1>
 	<br>
 	<h1>Hello {{fullnameArrow}} <small>(using arrow)</small></h1>
+	
+	<pre><hr><h3>computed vs methods</h3> computed props are cached based on their reactive dependencies
+	</pre>
 </div>
 
 <script>
 new Vue({
 	el: '#app',
+	
 	data: {
 		firstname: 'John',
 		lastname: 'Yasari'
 	},
+	
 	computed: {
 		fullname() {
 			return this.firstname +' '+ this.lastname;

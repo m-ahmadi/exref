@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	hello <comp post-title="world"></comp> <!-- kebab-case in HTML -->
+	
+	<pre><strong>notes:</strong>
+  html attr names are case-insensitive (browser sees uppercase char as lowercase)
+  in dom templates, use kebab-case equivalent of camelCase prop
+	</pre>
+</div>
+
+<script>
+Vue.component('comp', {
+  props: ['postTitle'], // camelCase in js
+	template: '<i>{{ postTitle }}</i>'
+});
+
+new Vue({
+	el: '#app'
+});
+</script>

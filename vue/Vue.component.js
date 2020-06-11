@@ -1,6 +1,6 @@
-Vue.component(id='', ?definition={} | fn);
-// registers component globally
-// every component must have a single root element.
+Vue.component(id='', ?definition={} | fn) // register global component
+var comp = Vue.component(id='')           // retrieve ...
+// every component must have a single root element
 
 // extended constructor
 Vue.component('my-component', Vue.extend({}));

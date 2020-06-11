@@ -52,9 +52,9 @@ const options = {
 	errorCaptured: (err, vm, info='')=>,
 	
 	// assets
-	directives:    {},
+	directives:    { dirvName: dirvDefinition, ... },
 	filters:       {},
-	components:    {compName: compDefinition, ...}, // local components
+	components:    { compName: compDefinition, ... }, // local components
 	
 	// composition
 	parent:        vm,

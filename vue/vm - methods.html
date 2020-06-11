@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<h1>{{ goodMethod() }}</h1>
+	
+	<h1>jojo no: {{ badMethod() }}</h1>
+</div>
+
+<script>
+new Vue({
+	el: '#app',
+	
+	data: {
+		name: 'hello'
+	},
+	
+	methods: {
+		goodMethod() {
+			return this.name;
+		},
+		badMethod: () => this.name
+	}
+});
+</script>
