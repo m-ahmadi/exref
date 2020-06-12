@@ -1,4 +1,6 @@
 Object.assign(target, ...sources)
+// copies enumerable own props of sources objects into target obj and returns target
+// DOES NOT create a new object (modifies the target obj)
 
 var o1 = { a: 1 }
 var o2 = { b: 2 }

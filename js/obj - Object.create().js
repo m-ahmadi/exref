@@ -1,16 +1,4 @@
 Object.create(proto[, propertiesObject])
-/*
-	Browser compatibility
-	
-	Desktop
-		Chrome					Firefox (Gecko)				Internet Explorer		Opera				Safari
-		5						4.0 (2)						9						11.60				5
-		
-	Mobile
-		Android					Firefox Mobile (Gecko)		IE Mobile				Opera Mobile		Safari Mobile
-		Chrome for Android		4.0 (2)						(Yes)					11.5				(Yes)
-		(Yes)
-*/
 
 var o;
 o = Object.create(Object.prototype) // o = {}

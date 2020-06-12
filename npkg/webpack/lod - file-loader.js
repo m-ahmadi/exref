@@ -14,18 +14,16 @@ module.exports = {
 				test: /\.(png|svg|jpg|gif)$/,
 				use: [{
 					loader: 'file-loader',
-					options: { outputPath: 'images/' }
+					options: { outputPath: 'images/', name: '[name].[ext]' } // default name: '[contenthash].[ext]'
 				}]
 			},
 			// or
 			{
 				test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+				test: /\.(woff|woff2|ttf)$/,
 				use: [{
 					loader: 'file-loader',
-					options: {
-						name: '[name].[ext]',
-						outputPath: 'fonts/'
-					}
+					options: { outputPath: 'fonts/', name: '[name].[ext]', }
 				}]
 			}
 		],

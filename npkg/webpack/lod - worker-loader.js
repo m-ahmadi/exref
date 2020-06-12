@@ -19,7 +19,7 @@ module.exports = {
 	}
 };
 
-// App.js
+// main.js
 import Worker from './file.worker.js';
 
 const worker = new Worker();

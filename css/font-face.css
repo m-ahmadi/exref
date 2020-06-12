@@ -1,15 +1,52 @@
 @font-face {
-	font-family: 'myFont';
-	src: url('../fonts/filename.eot');                                    /* IE9 Compat Modes */
-	src: url('../fonts/filename.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-		 url('../fonts/filename.woff2')        format('woff2'),             /* Super  Modern Browsers */
-		 url('../fonts/filename.woff')         format('woff'),              /* Pretty Modern Browsers */
-		 url('../fonts/filename.ttf')          format('truetype'),          /* Safari, Android, iOS */
-		 url('../fonts/filename.svg#myFont')   format('svg');               /* Legacy iOS */
+	font-family: 'MyWebFont';
+	src:  url('myfont.woff2') format('woff2'),
+				url('myfont.woff')  format('woff'),
+				url('myfont.ttf')   format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/* options */
 
+/* super progressive
+	chr 36 | ff 35 | saf n | op23 | ie n | and 37 | ios n
+*/
+@font-face {
+	font-family: 'MyWebFont';
+	src: url('myfont.woff2') format('woff2');
+}
+
+/* practical
+	chr 5 | ff 3.6 | saf 5.1 | op 11.50 | ie 9 | and 4.4 | ios 5.1
+*/
+@font-face {
+	font-family: 'MyWebFont';
+	src:  url('myfont.woff2') format('woff2'),
+				url('myfont.woff')  format('woff');
+}
+
+/* slightly deeper
+	chr 3.5 | ff 3.5 | saf 3 | op 10.1 | ie 9 | and 2.2 | ios 4.3
+*/
+@font-face {
+	font-family: 'MyWebFont';
+	src: url('myfont.woff2') format('woff2'),
+			 url('myfont.woff')  format('woff'),
+			 url('myfont.ttf')   format('truetype');
+}
+
+/* deepest possible */
+@font-face {
+	font-family: 'MyWebFont';
+	src: url('../fonts/filename.eot');                                       /* IE9 Compat Modes */
+	src: url('../fonts/filename.eot?#iefix')    format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/filename.woff2')         format('woff2'),             /* Super  Modern Browsers */
+		   url('../fonts/filename.woff')          format('woff'),              /* Pretty Modern Browsers */
+		   url('../fonts/filename.ttf')           format('truetype'),          /* Safari, Android, iOS */
+		   url('../fonts/filename.svg#MyWebFont') format('svg');               /* Legacy iOS */
+}
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 /*
 	eot       IE 4+
 	svg       Chrome  3+		Opera     9+    Safari 3.2+

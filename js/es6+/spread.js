@@ -33,15 +33,27 @@ var arr2 = [4, 5, 6]
 var merge1 = [...arr1, ...arr2]           // [1, 2, 3, 4, 5, 6]
 var merge2 = ['a', ...arr1, 'b', ...arr2] // ['a', 1, 2, 3, 'b', 4, 5, 6]
 //-----------------------------------------------------------------------------
-// copy object props (like Object.assign() except it doesn't trigger setters)
-var obj1 = {foo: 'a', x: 4};
-var obj2 = {foo: 'b', y: 7};
+// copy object props (only copies own enumerable props, kinda like Object.assign)
+var obj1 = {foo: 'a', x: 4}
+var obj2 = {foo: 'b', y: 7}
+var cloned = {...obj1}          // { foo: 'a', x: 4 }
+var merged = {...obj1, ...obj2} // { foo: 'b', x: 4, y: 7 }
 
-var cloned = {...obj1};          // { foo: 'a', x: 4 }
-var merged = {...obj1, ...obj2}; // { foo: 'b', x: 4, y: 7 }
+// differences with Object.assign()
+
+// DOES NOT copy inherited props
+var a = new EventTarget()
+var b = {foo: 1, bar: 2}
+var x1 = {...a, ...b};          x1.addEventListener // undefined
+var x2 = Object.assign(a, b);   x2.addEventListener // f addEventListener() { [native code] }
+
+// DOES NOT trigger setters
+var a = { set foo(n) { this.bar = n*2 } }
+{ ...a, ...{foo:3} }      // {foo: 3}
+Object.assign(a, {foo:3}) // {bar: 6}
 
 // conflict with rest parameter (acts as rest instead of spread)
-var merge = (...objects) => ( { ...objects } );
+var merge = (...objects) => ( { ...objects } )
 merge(obj1, obj2)
 // expected: {foo: 'b', x: 4, y: 7}
 // got:      { 0: {foo: 'a', x: 4}, 1: {foo: 'b', y: 7} }
