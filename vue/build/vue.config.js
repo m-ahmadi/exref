@@ -1,6 +1,6 @@
 
 module.exports = {
-	baseUrl:                  '/',
+	baseUrl:                  '/', // v3.3 deprecated
 	publicPath:               'dist',
 	outputDir:                '',
 	assetsDir:                'index.html',

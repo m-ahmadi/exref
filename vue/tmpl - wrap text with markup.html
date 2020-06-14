@@ -1,28 +1,51 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<style>.bg { background; yellow; }</style>
+<style>comp .bg { background; yellow; }</style>
 
 <div id="app">
 	<h1>Hello</h1>
 	<h1 v-html="highlight('hello')+' world'"></h1>
 	
 	<h1 v-html="another('hello')+' world'"></h1>
+	
+	<comp str="salam olaghe aziz" substr="olaghe"></comp>
 </div>
 
 <script>
+var Comp = {
+	props: ['str', 'substr'],
+	template: '\
+		<span>\
+			{{before}}\
+			<i class="bg">{{substr}}</i>\
+			<i style="color:red">{{substr}}</i>\
+			{{after}}\
+		</span>\
+	',
+	computed: {
+		before() {
+			return this.str.replace(new RegExp(this.substr+'.*'), '');
+		},
+		after() {
+			return this.str.replace(new RegExp('.*'+this.substr), '');
+		}
+	}
+};
+
 new Vue({
 	el: '#app',
+	components: { comp: Comp },
 	
 	methods: {
 		highlight(str) {
-			return `<span style="color:yellow;">${str}</span>`;
+			return '<span style="color:yellow;">'+str+'</span>';
 			
 		},
 		highlight(str) {
-			return `<span style="background:yellow;">${str}</span>`;
+			return '<span style="background:yellow;">'+str+'</span>';
 			
 		},
 		another(str) {
-			return `<span class="bg">${str}</span>`;
+			return '<span class="bg">'+str+'</span>';
 		}
 	}
 });

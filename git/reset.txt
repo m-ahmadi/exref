@@ -2,4 +2,6 @@ undo (removes) commits and unstage changes
 
 git reset HEAD~			reset last commit (goes back one by one)
 git reset --hard HEAD		reset last commit (not sure if this is exactly equal to above command)
-git reset <commit_hash>		reset to specific commit
+
+git reset <commit_hash>		reset to specific commit (resets commit history but not the files)
+git reset --hard <commit_hash>	... (also resets the files)

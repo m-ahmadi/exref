@@ -1,5 +1,7 @@
-git diff						show diffs between last commit and current state
+git diff			show diff between last commit and current state
+git diff HEAD~ 581936a		show diff of specific commit
+git diff-tree -p 581936a	... same
 
-git fetch						won't change the working copy
+git fetch					won't change the working copy
 git diff master origin/master
-git diff master origin/master --name-only		show file names only
+git diff master origin/master --name-only	show file names only

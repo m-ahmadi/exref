@@ -8,12 +8,21 @@ module.exports = {
 		rules: [
 			{
 				test: /\.css$/,
-				use: [ 'style-loader', 'postcss-loader' ] // postcss.config.js
+				use: ['style-loader', 'postcss-loader'] // postcss.config.js
 			},
-			
-			// another:
+			// or
 			{
-				test: /\.s[ac]ss$/i,
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+					'postcss-loader'
+        ]
+      },
+			// or
+			{
+				test: /\.scss$/,
 				use: [
 					'style-loader',
 					{ loader: 'css-loader', options: { importLoaders: 1 } },

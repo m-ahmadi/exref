@@ -12,7 +12,12 @@
 <script>
 Vue.component('comp', {
   props: ['postTitle'], // camelCase in js
-	template: '<i>{{ postTitle }}</i>'
+	
+	template: '<i>{{ postTitle }} <strong>{{allCaps}}</strong></i>',
+	
+	computed: {
+		allCaps() { return this.postTitle.toUpperCase() }
+	}
 });
 
 new Vue({

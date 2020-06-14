@@ -32,7 +32,7 @@ module.exports = {
 				options | query:         this.use.options,
 				presets:                 ['es2015']
 				include:                 [ path.resolve(__dirname, 'app') ],
-				exclude:                 [ path.resolve(__dirname, 'app/demo-files') ]
+				exclude:                 /node_modules/ | [ path.resolve(__dirname, 'app/demo-files') ]
 				issuer:                  Condition,
 				enforce:                 'pre' | 'post',
 				parser:                  ,
