@@ -1,30 +1,37 @@
 // npm i worker-loader -D
 
 module.exports = {
-	publicPath: process.env.NODE_ENV === 'production' ? '/sigman.v/dist/' : '/',
 	configureWebpack: {
 		module: {
 			rules: [
 				{
 					test: /\.worker\.js$/,
-					use: { loader: 'worker-loader' }
+					use: 'worker-loader'
 				}
-				
+			]
+		}
+	}
+}
+
+module.exports = {
+	...(process.env.NODE_ENV === 'production') && { publicPath: '/subpath/dist/' },
+	
+	configureWebpack: {
+		module: {
+			rules: [
 				{
 					test: /\.worker\.js$/,
 					use: {
 						loader: 'worker-loader',
-						options: {
-							publicPath: process.env.NODE_ENV === 'production' ? './' : '/'
-							...process.env.NODE_ENV === 'production' && {publicPath: './'}
-						} // prod=./ dev=/
+						...(process.env.NODE_ENV === 'production') && { options: {publicPath: './'} }
 					}
 				}
 			]
 		}
 	}
-	
-	// or
+}
+
+module.exports = {
 	chainWebpack: config => {
     config.module
       .rule('worker')
@@ -33,4 +40,4 @@ module.exports = {
 			.loader('worker-loader')
 			.end()
   }
-};
+}

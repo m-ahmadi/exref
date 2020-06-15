@@ -13,8 +13,8 @@ module.exports = {
 	productionSourceMap:      true,
 	crossorigin:              undefined | '',
 	integrity:                false,
-	configureWebpack:         {} | ()=>,
-	chainWebpack:             ()=>,
+	configureWebpack:         {} | (config)=>,
+	chainWebpack:             (config)=>,
 	css: {
 		modules:                , // v4 deprecated
 		requireModuleExtension: true,

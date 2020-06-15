@@ -1,0 +1,54 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	
+</div>
+
+<script>
+Vue.component('async-example', function (resolve, reject) {
+	setTimeout(function () {
+		// pass the component definition to the resolve callback
+		resolve({
+			template: '<div>I am async!</div>'
+		})
+	}, 1000)
+});
+
+Vue.component('async-webpack-example', function (resolve) {
+	// This special require syntax will instruct Webpack to
+	// automatically split your built code into bundles which
+	// are loaded over Ajax requests.
+	require(['./my-async-component'], resolve);
+});
+
+Vue.component(
+	'async-webpack-example',
+	// A dynamic import returns a Promise.
+	() => import('./my-async-component')
+);
+
+new Vue({
+	// ...
+	components: {
+		'my-component': () => import('./my-async-component')
+	}
+})
+
+const AsyncComponent = () => ({
+	// The component to load (should be a Promise)
+	component: import('./MyComponent.vue'),
+	// A component to use while the async component is loading
+	loading: LoadingComponent,
+	// A component to use if the load fails
+	error: ErrorComponent,
+	// Delay before showing the loading component. Default: 200ms.
+	delay: 200,
+	// The error component will be displayed if a timeout is
+	// provided and exceeded. Default: Infinity.
+	timeout: 3000
+});
+
+new Vue({
+	el: '#app'
+});
+</script>

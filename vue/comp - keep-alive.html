@@ -1,0 +1,13 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<keep-alive>
+		<component v-bind:is="currentTabComponent"></component>
+	</keep-alive>
+</div>
+
+<script>
+new Vue({
+	el: '#app'
+});
+</script>

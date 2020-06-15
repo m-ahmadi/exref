@@ -27,7 +27,7 @@ module.exports = {
 		rules: [
 			{ // Rule
 				test:                    /\.jsx?$/ | '\.html$',
-				use:                     '' | ['','',] | {loader:'',options:{}}  | UseEntry[],
+				use:                     '' | ['',] | {loader:'',options:{}}  | [{loader,options}, ...],
 				loader:                  this.use.loader,
 				options | query:         this.use.options,
 				presets:                 ['es2015']

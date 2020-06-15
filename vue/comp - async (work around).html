@@ -1,0 +1,41 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="app">
+	<comp-2></comp-2>
+	
+	<comp-1></comp-1>
+</div>
+
+<script>
+var Comp1 = {
+	template: '<h1 v-if="ready">Hello Hoeny</h1>',
+	data: () => ({
+		ready: false
+	}),
+	async mounted() {
+		await fetch('http://jsonplaceholder.typicode.com/posts');
+		setTimeout(() => this.ready = true, 1000);
+		//this.ready = true;
+	}
+};
+
+var Comp2 = {
+	template: '<h1>{{text}}</h1>',
+	data: () => ({
+		text: ''
+	}),
+	async mounted() {
+		this.text = 'Loading...';
+		const text = (await (await fetch('http://jsonplaceholder.typicode.com/users/1')).json()).name;
+		this.text = text;
+	}
+};
+
+new Vue({
+	el: '#app',
+	components: {
+    'comp-1': Comp1,
+    'comp-2': Comp2,
+  },
+});
+</script>

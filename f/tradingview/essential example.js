@@ -2,15 +2,7 @@
 let chart;
 let bars;
 
-async function getData(ferom, to) {
-	if (!bars) bars = await $.get('./api');
-	if (chart) chart.setVisibleRange({ from: bars[0].time, to: bars[bars.length-1].time });
-	let subset = bars.filter(i => i.time >= ferom && i.time <= to);
-	subset.forEach(i => i.time *= 1000);
-	return subset;
-}
-
-const japi = {
+const JSAPI = {
 	onReady(callback) {
 		const config = {
 			supports_marks: false
@@ -30,11 +22,15 @@ const japi = {
 		setTimeout(onSymbolResolvedCallback, 0, symbolInfo);
 	},
 	async getBars(symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) {
-		const _bars = await getData(from, to).catch( err => onErrorCallback(err) );
-		if (_bars.length) {
-			onHistoryCallback(_bars, {noData: false})
+		if (!bars) bars = await fetch('api/').catch(err => onErrorCallback(err));
+		if (chart) chart.setVisibleRange({ from: bars[0].time, to: bars[bars.length-1].time });
+		
+		const subBars = bars.filter(i => (i.time/1000) >= ferom && (i.time/1000) <= to);
+		
+		if (subBars.length) {
+			onHistoryCallback(subBars, {noData: false})
 		} else {
-			onHistoryCallback(_bars, {noData: true})
+			onHistoryCallback(subBars, {noData: true})
 		}
 	},
 	subscribeBars() {}
@@ -45,7 +41,7 @@ const widget = new TradingView.widget({
 	symbol: 'zob',
 	interval: '1D',
 	container_id: 'tv_chart_container',
-	datafeed: japi,
+	datafeed: JSAPI,
 	library_path: 'tradingview/charting_library/',
 	disabled_features: [
 		'header_widget',
