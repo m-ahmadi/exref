@@ -9,6 +9,12 @@
 	<foo @klik="console.log($event)"></foo>
 	
 	<h1 @click="badOnClick" style="color:red">nono jojo</h1>
+	
+	<hr>
+	<h1 @click="name = 'hasan'">name = 'hasan'</h1>
+	<h1 @click="console.log(this)">console.log(this)</h1>
+	<h1 @click="console.log($el)">console.log($el)</h1>
+	<h1 ref="javad" @click="console.log($refs)">console.log($refs)</h1>
 </div>
 
 <script>
