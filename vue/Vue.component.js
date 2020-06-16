@@ -1,23 +1,6 @@
 Vue.component(id='', ?definition={} | fn) // register global component
-var comp = Vue.component(id='')           // retrieve ...
-// every component must have a single root element
+var Comp = Vue.component(id='')           // retrieve ...
 
-// extended constructor
-Vue.component('my-component', Vue.extend({}));
-
-// register an options object: (automatically call Vue.extend)
-Vue.component('my-component', {
-	props: [],
-	template: '', // or:
-	render: function (createElement) {
-		// render function has priority over the render function compiled from `this.template`.
-		return createElement();
-	},
-	data: function () {}, // data must be a function
-	methods: {
-		something: function () {}
-	}
-});
-
-// get registered component (its constructor)
-var MyComponent = Vue.component('my-component');
+Vue.component('comp-1', Vue.extend(def)) // extended constructor
+Vue.component('comp-1', def)             // register an options object: (automatically call Vue.extend)
+var Comp1 = Vue.component('comp-1')      // get registered component (its constructor)

@@ -8,7 +8,7 @@
 }
 </style>
 <div style="margin-bottom:10px;"></div>
-<div id="box"></div>
+<div id="box" ></div>
 
 <script>
 el = document.querySelector('#box');
@@ -25,10 +25,11 @@ el.addEventListener('mouseup', function () {
 	this.style.cursor = 'grab';
 });
 
-el.addEventListener('mousemove', function (e) {
-	if (this.dragging) {
-		this.style.left = (e.pageX - this.parentElement.offsetLeft) - this.clickOffsetX;
-		this.style.top = (e.pageY - this.parentElement.offsetTop) - this.clickOffsetY;
+el.parentElement.addEventListener('mousemove', function (e) {
+	const target = e.target;
+	if (target.dragging) {
+		el.style.left = (e.pageX - this.offsetLeft) - el.clickOffsetX;
+		el.style.top = (e.pageY - this.offsetTop) - el.clickOffsetY;
 	}
 });
 </script>

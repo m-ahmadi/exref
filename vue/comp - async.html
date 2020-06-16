@@ -1,54 +1,58 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 <div id="app">
-	
+	<comp-1></comp-1>
+	<comp-2></comp-2>
+	<comp-3></comp-3>
 </div>
 
 <script>
-Vue.component('async-example', function (resolve, reject) {
-	setTimeout(function () {
-		// pass the component definition to the resolve callback
-		resolve({
-			template: '<div>I am async!</div>'
-		})
-	}, 1000)
+// factory component definition (fn that returns obj instead of obj)
+Vue.component('comp-1', function (resolve, reject) {
+	setTimeout(() => {
+		var Comp = { template: '<div>I am async!</div>' };
+		resolve(Comp);
+		// reject(reason);
+	}, 1000);
 });
-
-Vue.component('async-webpack-example', function (resolve) {
-	// This special require syntax will instruct Webpack to
-	// automatically split your built code into bundles which
-	// are loaded over Ajax requests.
-	require(['./my-async-component'], resolve);
-});
-
-Vue.component(
-	'async-webpack-example',
-	// A dynamic import returns a Promise.
-	() => import('./my-async-component')
-);
 
 new Vue({
-	// ...
+	el: '#app',
 	components: {
-		'my-component': () => import('./my-async-component')
+		// same as import() (cuz dynamic import returns Promise)
+		'comp-2': () => new Promise((resolve, reject) => {
+			setTimeout(() => resolve({template: '<h1>Hi I am too<h1>'}), 2000);
+		}),
+		
+		'comp-3': resolve => setTimeout(() => resolve({template: '<i>Look</i>'}), 2500)
+	}
+});
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// in webpack
+// splits built code into bundles which are loaded over ajax requests
+
+// special require syntax
+Vue.component('Comp1', function (resolve) {
+	require(['./Comp1.vue'], resolve);
+});
+
+// or dynamic import
+Vue.component('Comp2', () => import('./Comp2.vue'));
+
+// same in local registration
+new Vue({ //export default {
+	components: {
+		'Comp3': () => import('./Comp3.vue')
 	}
 })
 
+// vue 2.3+ vue-router 2.4+
 const AsyncComponent = () => ({
-	// The component to load (should be a Promise)
-	component: import('./MyComponent.vue'),
-	// A component to use while the async component is loading
-	loading: LoadingComponent,
-	// A component to use if the load fails
-	error: ErrorComponent,
-	// Delay before showing the loading component. Default: 200ms.
-	delay: 200,
-	// The error component will be displayed if a timeout is
-	// provided and exceeded. Default: Infinity.
-	timeout: 3000
+	component: import('./MyComponent.vue'), // component to load (should be a Promise)
+	loading: LoadingComponent,							// component to use while the async component is loading
+	error: ErrorComponent,									// component to use if load fails
+	delay: 200,															// delay before showing the loading component
+	timeout: Infinity												// error component displayed if timeout is provided and exceeded
 });
-
-new Vue({
-	el: '#app'
-});
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 </script>

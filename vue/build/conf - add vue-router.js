@@ -2,9 +2,9 @@
 npm i vue-router
 npm i @vue/cli-plugin-router -D
 
-note:
+notes:
 	router in webpack is slightly different than vue-router in browser
-	eg: it's not mentioned in the docs that RouteConfig.component can be function (hmmmm, don't know why)
+	RouteConfig.component === Vue.components.component
 */
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // src/router/index.js
