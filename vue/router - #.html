@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-router"></script>
+
+<div id="app">
+	<router-link to="/a">a</router-link>
+	<router-link to="/b">b</router-link>
+	<router-view></router-view>
+</div>
+
+<script>
+const A = { template: '<h1>A</h1>' };
+const B = { template: '<h1>B</h1>' };
+
+const router = new VueRouter({
+	routes: [
+		{ path: '/a', component: A },
+		{ path: '/b', component: B }
+	]
+});
+
+new Vue({
+	el: '#app',
+  router
+});
+</script>

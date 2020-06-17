@@ -1,0 +1,28 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-router"></script>
+<style>.active { color: deeppink }</style>
+
+<div id="app">
+	<ul>
+		<li :class="{active: $route.path === '/a'}"><router-link to="/a">a</router-link></li>
+		<li :class="{active: $route.path === '/b'}"><router-link to="/b">b</router-link></li>
+	</ul>
+	<router-view></router-view>
+</div>
+
+<script>
+const A = { template: '<h1>A</h1>' };
+const B = { template: '<h1>B</h1>' };
+
+const router = new VueRouter({
+	routes: [
+		{ path: '/a', component: A },
+		{ path: '/b', component: B }
+	]
+});
+
+new Vue({
+	el: '#app',
+  router
+});
+</script>
