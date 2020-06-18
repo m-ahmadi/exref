@@ -1,5 +1,11 @@
-either step by step shortcuts
+f2		edit formula
+f4		lock formula
+f9		evaluate formula
 
-or 
+ctrl + d	duplicate shape
+-------------------------------------------------
+2 ways for shortcuts:
 
+step by step shortcuts
 recording a macro
+-------------------------------------------------
