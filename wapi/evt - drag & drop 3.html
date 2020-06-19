@@ -1,0 +1,92 @@
+<style>
+body {
+	background: darksalmon;
+}
+
+.fill {
+	background-image: url('https://source.unsplash.com/random/150x150');
+	position: relative;
+	height: 150px;
+	width: 150px;
+	top: 5px;
+	left: 5px;
+	cursor: pointer;
+}
+
+.hold {
+	border: solid 5px #ccc;
+}
+
+.empty {
+	display: inline-block;
+	height: 160px;
+	width: 160px;
+	margin: 10px;
+	border: solid 3px salmon;
+	background: white;
+}
+
+.hovered {
+	background: #f4f4f4;
+	border-style: dashed;
+}
+</style>
+
+<div class="empty">
+	<div class="fill" draggable="true"></div>
+</div>
+
+<div class="empty"></div>
+
+<div class="empty"></div>
+
+<div class="empty"></div>
+
+<div class="empty"></div>
+
+<br><a href="https://codepen.io/bradtraversy/pen/odmVgN">src</a>
+
+<script>
+const fill = document.querySelector('.fill');
+const empties = document.querySelectorAll('.empty');
+
+// fill listeners
+fill.addEventListener('dragstart', dragStart);
+fill.addEventListener('dragend', dragEnd);
+
+// loop through empty boxes and add listeners
+for (const empty of empties) {
+	empty.addEventListener('dragover', dragOver);
+	empty.addEventListener('dragenter', dragEnter);
+	empty.addEventListener('dragleave', dragLeave);
+	empty.addEventListener('drop', dragDrop);
+}
+
+// drag Functions
+function dragStart() {
+	this.className += ' hold';
+	setTimeout(() => (this.className = 'invisible'), 0);
+}
+
+function dragEnd() {
+	this.className = 'fill';
+}
+
+function dragOver(e) {
+	e.preventDefault();
+}
+
+function dragEnter(e) {
+	e.preventDefault();
+	this.className += ' hovered';
+}
+
+function dragLeave() {
+	this.className = 'empty';
+}
+
+function dragDrop() {
+	this.className = 'empty';
+	this.append(fill);
+}
+</script>
