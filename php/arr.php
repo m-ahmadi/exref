@@ -9,4 +9,3 @@ in_array('2', [1,2,3], true) // false
 
 // last item
 end([1,2,3]) // 3
-?>

@@ -25,12 +25,14 @@ const JSAPI = {
 		if (!bars) bars = await fetch('api/').catch(err => onErrorCallback(err));
 		if (chart) chart.setVisibleRange({ from: bars[0].time, to: bars[bars.length-1].time });
 		
-		const subBars = bars.filter(i => (i.time/1000) >= ferom && (i.time/1000) <= to);
+		const subset = bars
+			.filter(i => i.time >= from && i.time <= to)
+			.map(i => ({ ...i, time: i.time*1000 }));
 		
-		if (subBars.length) {
-			onHistoryCallback(subBars, {noData: false})
+		if (subset.length) {
+			onHistoryCallback(subset, {noData: false})
 		} else {
-			onHistoryCallback(subBars, {noData: true})
+			onHistoryCallback(subset, {noData: true})
 		}
 	},
 	subscribeBars() {}

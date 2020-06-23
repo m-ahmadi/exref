@@ -10,11 +10,11 @@ function __els(root=document, obj, overwrite=false) {
 	if (typeof root === 'string') root = document.querySelector(root); // $(root)
 	if (!root) return;
 	const res = {};
-	const el = root.querySelectorAll('[data-el]');   // $('[data-el]', root)
-	const els = root.querySelectorAll('[data-els]'); // $ ('[data-els]', root)
-	[...el].forEach(i => res[ i.dataset.el ] = i);   // $(i)
+	const el = root.querySelectorAll('[ref]');   // $('[ref]', root)
+	const els = root.querySelectorAll('[refs]'); // $ ('[refs]', root)
+	[...el].forEach(i => res[ i.attributes.ref.value ] = i);   // $(i)
 	[...els].forEach(i => {
-		i.dataset.els.split(' ').forEach(k => {
+		i.attributes.refs.value.split(' ').forEach(k => {
 			if (!res[k]) res[k] = []; // $()
 			res[k].push(i); // res[k] = res[k].add(i);
 		});

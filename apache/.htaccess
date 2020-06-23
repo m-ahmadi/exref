@@ -5,7 +5,7 @@ RewriteCond %{REQUEST_FILENAME} !-d		if not dir
 RewriteCond %{REQUEST_FILENAME} !-f		if not file
 #RewriteCond $1 !^(css|js|fonts)		optional: skip if route starts with these
 RewriteRule ^(.+)$ index.php [QSA,L]		QSA and L flags
--------------------------------------------------------------------------------
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # deny some subdirs unless for files
 
 # with 2nd .htaccess file in folder/somedir/.htaccess
@@ -24,7 +24,7 @@ RewriteRule (.*) $1 [R=404,L]			then reject
 
 RewriteCond %{REQUEST_FILENAME} !-f		otherwise if request is not for a file
 RewriteRule ^(.+)$ index.html [L]		send the only file
--------------------------------------------------------------------------------
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # treat .html files as .php
 
 AddType application/x-httpd-php .html .htm
@@ -35,7 +35,11 @@ AddType application/x-httpd-php5 .html .htm
 # or another way
 RemoveHandler .html .htm
 AddType application/x-httpd-php .php .htm .html
--------------------------------------------------------------------------------
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# set php.ini flags
+
+php_flag short_open_tag on
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # control flow
 
 RewriteCond %{REQUEST_FILENAME} -f		if these two conditions are true...
@@ -53,7 +57,7 @@ RewriteRule (.*) $1 [L]				otherwise do this
 RewriteCond %{REQUEST_URI} "views/" [OR]	if this
 RewriteCond %{REQUEST_URI} "app/"			or this is true
 RewriteRule (.*) $1 [R=404]			do this
--------------------------------------------------------------------------------
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # custom error page
 ErrorDocument 404 /404.html
 
@@ -66,7 +70,7 @@ ErrorDocument 500 /error.php
 ErrorDocument 403 /403.html
 ErrorDocument 404 /404.html
 ErrorDocument 500 /500.html
--------------------------------------------------------------------------------
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # base and rule example
 RewriteBase /
 RewriteRule . index.php
@@ -75,12 +79,12 @@ RewriteRule . index.php
 RewriteBase /foo		or		RewriteBase /
 RewriteRule . index.php		or		RewriteRule . foo/index.php
 	localhost/foo*	=> htdocs/foo/index.php
--------------------------------------------------------------------------------
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # QSA flag (combines query strings)
 RewriteRule "/pages/(.+)" "/page.php?page=$1" [QSA]
 
 with [QSA]	/pages/123?one=two	=>	/page.php?page=123&one=two
 without it	...			=>	/page.php?page=123
--------------------------------------------------------------------------------
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # notes
 # no need to restart server after changes
