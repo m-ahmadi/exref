@@ -1,0 +1,73 @@
+<style>
+.container {
+	width: 200px;
+	background: wheat;
+	padding: 1em;
+	margin: 1em 0;
+	/*display: flex;*/
+}
+.draggable {
+	cursor: move;
+	background: lightcyan;
+	margin: 5px;
+	/*padding: 1em;*/
+}
+.draggable.dragging {
+	background: blue;
+}
+</style>
+<p>terrible solution cuz only based on y (breaks with horizontal els. eg: flex)</p>
+
+<div class="container">
+	<p class="draggable" draggable="true">1</p>
+	<p class="draggable" draggable="true">2</p>
+</div>
+
+<div class="container">
+	<p class="draggable" draggable="true">3</p>
+	<p class="draggable" draggable="true">4</p>
+</div>
+
+<script>
+const draggables = document.querySelectorAll('.draggable');
+const containers = document.querySelectorAll('.container');
+
+for (const i of draggables) {
+	i.addEventListener('dragstart', function () {
+		this.classList.add('dragging');
+	})
+
+	i.addEventListener('dragend', function () {
+		this.classList.remove('dragging');
+	})
+}
+
+for (const i of containers) {
+	i.addEventListener('dragover', function (e) {
+		e.preventDefault(); // for cursor
+		const afterElement = getDragAfterElement(this, e.clientY)
+		const dargging = document.querySelector('.dragging');
+		
+		if (!afterElement) {
+			this.append(dargging);
+		} else {
+			this.insertBefore(dargging, afterElement);
+		}
+	})
+}
+
+function getDragAfterElement(container, y) {
+	const els = [...container.querySelectorAll('.draggable:not(.dragging)')];
+
+	return els.reduce((acc, cur) => {
+		const box = cur.getBoundingClientRect();
+		const offset = y - box.top - box.height / 2; // distance from middle of box to mouse pos
+		
+		if (offset < 0 && offset > acc.offset) {
+			return { offset, element: cur };
+		} else {
+			return acc;
+		}
+	}, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+</script>

@@ -1,0 +1,45 @@
+<style>
+#box {
+	position: absolute;
+	background: wheat;
+	width: 200px;
+	height: 200px;
+}
+.drag-handle {
+	cursor: move;
+	background: red;
+	color: white;
+	padding: 2px;
+}
+</style>
+
+<div id="box">
+	<span class="drag-handle">&#x2725;</span>
+</div>
+
+<script>
+var el = document.querySelector('#box');
+var handle = el.querySelector('.drag-handle');
+
+handle.onmousedown = mousedown; // el.onmousedown = mousedown;
+
+var downCX = 0;
+var downCY = 0;
+
+function mousedown(e) {
+	downCX = e.clientX;
+	downCY = e.clientY;
+	document.onmousemove = mousemove;
+	document.onmouseup = mouseup;
+}
+function mousemove(e) {
+	el.style.left = (el.offsetLeft - (downCX - e.clientX));
+	el.style.top = (el.offsetTop - (downCY - e.clientY));
+	downCX = e.clientX;
+	downCY = e.clientY;
+}
+function mouseup() {
+	document.onmouseup = undefined;
+	document.onmousemove = undefined;
+}
+</script>

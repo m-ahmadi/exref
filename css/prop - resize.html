@@ -1,0 +1,23 @@
+<style>
+.resizable {
+  width: 400px;
+  height: 400px;
+  background: wheat;
+  overflow: auto;
+}
+</style>
+
+<button>none</button>
+<button>both</button>
+<button>horizontal</button>
+<button>vertical</button>
+
+<div class="resizable"></div>
+
+<script>
+document.querySelectorAll('button').forEach(i => 
+	i.addEventListener('click', function() {
+		document.querySelector('.resizable').style.resize = this.innerText;
+	})
+);
+</script>

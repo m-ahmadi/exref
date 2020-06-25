@@ -2,9 +2,8 @@
 body {
 	background: darksalmon;
 }
-
 .fill {
-	background-image: url('https://source.unsplash.com/random/150x150');
+	background: red;
 	position: relative;
 	height: 150px;
 	width: 150px;
@@ -12,11 +11,9 @@ body {
 	left: 5px;
 	cursor: pointer;
 }
-
 .hold {
 	border: solid 5px #ccc;
 }
-
 .empty {
 	display: inline-block;
 	height: 160px;
@@ -25,7 +22,6 @@ body {
 	border: solid 3px salmon;
 	background: white;
 }
-
 .hovered {
 	background: #f4f4f4;
 	border-style: dashed;
@@ -35,13 +31,9 @@ body {
 <div class="empty">
 	<div class="fill" draggable="true"></div>
 </div>
-
 <div class="empty"></div>
-
 <div class="empty"></div>
-
 <div class="empty"></div>
-
 <div class="empty"></div>
 
 <br><a href="https://codepen.io/bradtraversy/pen/odmVgN">src</a>
@@ -51,41 +43,36 @@ const fill = document.querySelector('.fill');
 const empties = document.querySelectorAll('.empty');
 
 // fill listeners
-fill.addEventListener('dragstart', dragStart);
-fill.addEventListener('dragend', dragEnd);
+fill.addEventListener('dragstart', start);
+fill.addEventListener('dragend', end);
 
 // loop through empty boxes and add listeners
-for (const empty of empties) {
-	empty.addEventListener('dragover', dragOver);
-	empty.addEventListener('dragenter', dragEnter);
-	empty.addEventListener('dragleave', dragLeave);
-	empty.addEventListener('drop', dragDrop);
+for (const i of empties) {
+	i.addEventListener('dragover', over);
+	i.addEventListener('dragenter', enter);
+	i.addEventListener('dragleave', leave);
+	i.addEventListener('drop', drop);
 }
 
-// drag Functions
-function dragStart() {
+// drag functions
+function start() {
 	this.className += ' hold';
-	setTimeout(() => (this.className = 'invisible'), 0);
+	setTimeout(() => this.className = 'invisible', 0);
 }
-
-function dragEnd() {
+function end() {
 	this.className = 'fill';
 }
-
-function dragOver(e) {
+function over(e) {
 	e.preventDefault();
 }
-
-function dragEnter(e) {
+function enter(e) {
 	e.preventDefault();
 	this.className += ' hovered';
 }
-
-function dragLeave() {
+function leave() {
 	this.className = 'empty';
 }
-
-function dragDrop() {
+function drop() {
 	this.className = 'empty';
 	this.append(fill);
 }

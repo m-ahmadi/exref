@@ -109,6 +109,17 @@ DragEvent extends MouseEvent
 DragEvent.dataTransfer
 'drag' 'dragstart' 'dragleave' 'dragenter' 'dragover' 'dragexit' 'dragend' 'drop'
 
+DataTransfer()
+DataTransfer.dropEffect 'none|copy|link|move'
+DataTransfer.effectAllowed 'none|copy|copyLink|copyMove|link|linkMove|move|all|uninitialized'
+DataTransfer.files: FileList
+DataTransfer.items: DataTransferItemList
+DataTransfer.types: ['','',]
+DataTransfer.clearData(?format='')
+DataTransfer.getData(format='')
+DataTransfer.setData(format='', data='')
+DataTransfer.setDragImage(img | element, xOffset=0, yOffset=0)
+
 TouchEvent extends UIEvent
 TouchEvent.altKey
 TouchEvent.changedTouches
@@ -132,3 +143,4 @@ GlobalEventHandlers. ...
 // ps
 ! = non-standard
 X = experimental
+R = read only

@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 	// when dom is ready.
 });
+// or
+window.addEventListener('DOMContentLoaded', function () {});
 
 window.addEventListener('load', function () {
 	// when entire page is ready. (dom, images, iframes, ...?)

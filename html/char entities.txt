@@ -1,16 +1,20 @@
-<	&lt;	&#60;
+ï»¿<	&lt;	&#60;
 >	&gt;	&#62;
 &	&amp;	&#38;
 "	&quot;	&#34;
 '	&apos;	&#39;
-¢	&cent;	&#162;
-£	&pound;	&#163;
-¥	&yen;	&#165;
-€	&euro;	&#8364;
-©	&copy;	&#169;
-®	&reg;	&#174;
+Â¢	&cent;	&#162;
+Â£	&pound;	&#163;
+Â¥	&yen;	&#165;
+â‚¬	&euro;	&#8364;
+Â©	&copy;	&#169;
+Â®	&reg;	&#174;
 	&nbsp;	&#160;	(non-breaking space)
 	&zwnj;	&#8204;	(zero-width non-joiner)
+â†”	&harr;	&#8596;
+â†•	&varr;	&#8597;
+
+âœ¥		&#10021; &#x2725;
 
 letter accents (eg: O&#771;)
 &#768;

@@ -1,0 +1,9 @@
+<p draggable="true">This element is draggable.</p>
+
+<p>This element is not.</p>
+
+<script>
+document.querySelector('p').addEventListener('dragstart', function (e) {
+	e.dataTransfer.setData('text/plain', e.target.id)
+});
+</script>
