@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+
+<header class="uk-navbar-container" uk-navbar uk-sticky>
+    <div class="uk-navbar-left">
+      <ul class="uk-navbar-nav">
+        <li>
+          <a id="sidebar-toggle" class="uk-button uk-button-text">
+            <span uk-icon="icon: menu; ratio: 2;"</span>
+          </a>
+				</li>
+        <li><a href="#">Item</a></li>
+      </ul>
+    </div>
+</header>
+
+<div uk-grid class="uk-grid-collapse">
+	<div id="sidebar-container" class="uk-height-1-1">
+    <div id="sidebar" class="uk-card uk-card-default uk-card-body uk-hidden" uk-sticky="offset: 80;">
+			<ul class="uk-nav uk-nav-default">
+				<li class="uk-active"><a href="#">ddddddddddddddd</a></li>
+				<li><a href="#">Iteddddddddddddddm</a></li>
+				<li><a href="#">Iddddddddddtem</a></li>
+				<li><a href="#">dddddddddddddddd</a></li>
+				<li><a href="#">Iteddddddddddm</a></li>
+			</ul>
+		</div>
+    
+		<div id="sidebar-slim" class="uk-card uk-card-default uk-card-body" uk-sticky="offset: 80;">
+			<ul class="uk-nav uk-nav-default">
+				<li class="uk-active"><a href="#">Active</a></li>
+				<li><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+			</ul>
+		</div>
+	</div>
+  
+	<div class="uk-width-expand">
+		<div class="uk-card uk-card-default uk-card-body">
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+		</div>
+	</div>
+</div>
+
+<script>
+$(function () {
+	const $sbToggle = $('#sidebar-toggle');
+	const $sb = $('#sidebar');
+	const $sbSlim = $('#sidebar-slim');
+	const $sbContainer = $('#sidebar-container');
+	const CLS = 'uk-hidden';
+
+	adjustWidth();
+
+	$sbToggle.on('click', function () {
+		$sb.toggleClass(CLS);
+		$sbSlim.toggleClass(CLS);
+		adjustWidth();
+	});
+	
+	function adjustWidth() {
+		if ( $sb.hasClass(CLS) ) {
+			$sbContainer.width('100px');
+		} else if ( $sbSlim.hasClass(CLS) ) {
+			$sbContainer.width('250px');
+		}
+		//$(window).resize();
+		UIkit.update('update');
+	}
+
+});
+</script>

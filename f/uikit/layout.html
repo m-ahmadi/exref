@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@latest/dist/css/uikit.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@latest/dist/js/uikit-icons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
+
+<header class="uk-navbar-container" uk-navbar uk-sticky>
+	<div class="uk-navbar-left">
+		<ul class="uk-navbar-nav">
+			<li>
+				<a id="sidebar-toggle" class="uk-button uk-button-text">
+					<span uk-icon="icon: menu; ratio: 2;"></span>
+				</a>
+			</li>
+			<li><a href="#">Item</a></li>
+		</ul>
+	</div>
+</header>
+
+<div class="uk-grid-collapse uk-grid-match" uk-grid>
+	<div id="sidebar-fat" style="width: 200px; display: none;" uk-height-viewport="">
+		<div uk-sticky="offset: 80; width-element: #sidebar-fat;"
+			class="uk-card uk-card-default uk-card-body uk-padding-small uk-height-1-1"
+			
+		>
+			<ul class="uk-nav uk-nav-default">
+				<li><a href="#">Iteeeeeeeeeeeeeeeeeeeem</a></li>
+				<li><a href="#">Iteeeeeeeeeeeeeeeeeeeem</a></li>
+				<li class="uk-active"><a href="#">Iteeeeeeeeeeeeeeeeeeeem</a></li>
+				<li><a href="#">Iteeeeeeeeeeeeeeeeeeeem</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="sidebar-slim" style="width: 100px; display: none;" uk-height-viewport="">
+		<div uk-sticky="offset: 80; width-element: #sidebar-slim;"
+			class="uk-card uk-card-default uk-card-body uk-padding-small uk-height-1-1"
+		>
+			<ul class="uk-nav uk-nav-default">
+				<li><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+				<li class="uk-active"><a href="#">Item</a></li>
+				<li><a href="#">Item</a></li>
+			</ul>
+		</div>
+	</div>
+  
+	<div class="uk-width-expand">
+		<div class="uk-card uk-card-default uk-card-body">
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+			<h1>Lorem ipsum dolor</h1>
+		</div>
+	</div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	const $fat = document.querySelector('#sidebar-fat');
+	const $slim = document.querySelector('#sidebar-slim');
+	const getCurrent = () => JSON.parse( localStorage.getItem('slimSidebar') );
+	const isSlim = getCurrent();
+	$fat.style.display = isSlim ? 'none' : 'block';
+	$slim.style.display  = isSlim ? 'block' : 'none';
+	document.querySelector('#sidebar-toggle').addEventListener('click', function () {
+		const newVal = !getCurrent();
+		$fat.style.display = newVal ? 'none' : 'block';
+		$slim.style.display  = newVal ? 'block' : 'none';
+		localStorage.setItem('slimSidebar', newVal);
+		UIkit.update()
+	});
+});
+</script>
