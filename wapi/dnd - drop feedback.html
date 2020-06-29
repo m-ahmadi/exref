@@ -8,30 +8,20 @@ div[draggable=true] {
 	width: 150px;
 	height: 150px;
 	border: 1px dashed grey;
-	margin: 1em 0;
+	margin: 1em 4em;
 }
 
 p { background: dodgerblue; }
 </style>
 
-<div id="item" draggable="true" ondragstart="dragstart(event)"></div>
+<div class="draggable"></div>
 
-<div class="dropzone"
-	ondragenter="dragenter(event)"
-	ondragleave="dragleave(event)"
-	ondragover="dragover(event)"
-	ondrop="drop(event)"
->
+<div class="dropzone">
 	<p>foo</p>
 	<p>bar</p>
 </div>
 
-<div class="dropzone"
-	ondragenter="dragenter(event)"
-	ondragexit="dragleave(event)"
-	ondragover="dragover(event)"
-	ondrop="drop(event)"
->
+<div class="dropzone">
 	<p>hello</p>
 	<p>world</p>
 </div>
@@ -39,27 +29,65 @@ p { background: dodgerblue; }
 
 <script>
 log = console.log;
-function dragstart(e) {
-	e.dataTransfer.setData('text/plain', e.target.id);
-	e.dataTransfer.dropEffect = 'move';
-}
+$ = (selector, ctx=document) => [...ctx.querySelectorAll(selector)];
 
-function dragenter(e) {
-	log(e.target);
-	e.target.style.border = '2px dashed dodgerblue';
-}
-function dragleave(e) {
-	log('here');
-	e.target.style.border = '';
-}
-function dragover(e) {
-	e.preventDefault();
-}
+$('.draggable').forEach(draggable);
+$('.dropzone').forEach(droppable);
 
-function drop(e) {
-	e.preventDefault();
-	var id = e.dataTransfer.getData('text/plain');
+function draggable(el) {
+	var n = 0;
+	if (!el.id) el.setAttribute('id', '_dnd'+(n++));
+	el.setAttribute('draggable', true);
+	el.ondragstart = dragstart;
 	
-	e.target.append( document.getElementById(id) );
+	function dragstart(e) {
+		e.dataTransfer.effectAllowed = 'move';
+		e.dataTransfer.dropEffect = 'move';
+		e.dataTransfer.setData('text/plain', e.target.id);
+	}
+}
+
+function droppable(el) {
+	el.ondragenter = dragenter;
+	el.ondragleave = dragleave;
+	el.ondragover = dragover;
+	el.ondrop = drop;
+	
+	function dragenter(e) {
+		e.target.style.border = '2px dashed dodgerblue';
+	}
+	function dragleave(e) {
+		e.target.style.border = '';
+	}
+	function dragover(e) {
+		e.preventDefault();
+		//log(e.clientX, e.clientY);
+		//log(this.offsetLeft, this.offsetTop);
+		log(e.clientX - this.offsetLeft, e.clientY - this.offsetTop);
+		var t = getElementsFromRect('p', 0,0, e.clientX-this.offsetLeft, e.clientY-this.offsetTop, this)
+		log(t);
+		//const box = cur.getBoundingClientRect();
+	}
+
+	function drop(e) {
+		e.preventDefault();
+		var id = e.dataTransfer.getData('text/plain');
+		e.target.append( document.getElementById(id) );
+	}
+}
+
+function getElementsFromRect(selector, x1, y1, x2, y2, ctx=document) {
+	var res = [];
+	ctx.querySelectorAll(selector).forEach(i => {
+		var rect = i.getBoundingClientRect();
+		var x = i.offsetLeft;
+		var y = i.offsetTop;
+		var w = rect.width;
+		var h = rect.height;
+		if (x >= x1 && y >= y1 && x+w <= x2 && y+h <= y2) {
+			res.push(i);
+		}
+	});
+	return res;
 }
 </script>

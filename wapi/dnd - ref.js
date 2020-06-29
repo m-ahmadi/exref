@@ -5,7 +5,7 @@
 'dragover'  // a dragged item is being dragged over a valid drop target (constantly firing every few hundred milliseconds)
 'dragleave' // a dragged item leaves a valid drop target
 
-'dragexit'  // an element is no longer the drag operation's immediate selection target
+'dragexit'  // mozila-only. an element is no longer the drag operation's immediate selection target
 
 'drop'      // an item is dropped on a valid drop target
 'dragend'   // a drag operation ends (mouse release | esc key)
