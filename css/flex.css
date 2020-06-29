@@ -1,5 +1,5 @@
 .flex-container {
-	display: flex | inline-flex;
+	display:         flex | inline-flex;
 	flex-direction:  row|column|row-reverse|column-reverse;
 	flex-wrap:       nowrap|wrap|wrap-reverse;
 	justify-content: flex-start|flex-end|center|space-between|space-around;

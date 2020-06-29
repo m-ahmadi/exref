@@ -24,16 +24,16 @@ Window
 .innerWidth
 .isSecureContext															X
 .length
-.location																			NR
+.location																			W
 .locationbar
 .localStorage
 .menubar
 .messageManager
 .mozInnerScreenX															!
 .mozInnerScreenY															!
-.name																					NR
+.name																					W
 .navigator
-.opener																				NR
+.opener																				W
 .outerHeight
 .outerWidth
 .parent
@@ -50,16 +50,16 @@ Window
 .scrollX | .pageXOffset
 .scrollY | .pageYOffset
 .self
-.sessionStorage																NR
+.sessionStorage																W
 .sidebar																			!
 .speechSynthesis
-.status																				NR
+.status																				W
 .statusbar
 .toolbar
 .top
 .visualViewport
 .window
-window[0], window[1], ...											NR
+window[0], window[1], ...											W
 
 .alert()
 .blur()

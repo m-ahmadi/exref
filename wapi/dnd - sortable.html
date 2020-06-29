@@ -44,7 +44,7 @@ for (const i of draggables) {
 
 for (const i of containers) {
 	i.addEventListener('dragover', function (e) {
-		e.preventDefault(); // for cursor
+		e.preventDefault();
 		const afterElement = getDragAfterElement(this, e.clientY)
 		const dargging = document.querySelector('.dragging');
 		

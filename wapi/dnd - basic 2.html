@@ -1,0 +1,38 @@
+<style>
+div {
+	width: 100px;
+	height: 50px;
+	padding: 10px;
+	margin: 5px 0;
+	border: 1px solid grey;
+}
+</style>
+
+
+<div ondrop="drop(event)" ondragover="dragover(event)">
+	<span id="drag" draggable="true" ondragstart="dragstart(event)">drag me to the other box</span>
+</div>
+
+<div ondrop="drop(event)" ondragover="dragover(event)"></div>
+
+<script>
+function dragstart(e) {
+	e.target.style.color = 'green';
+	e.dataTransfer.setData('text/plain', e.target.id);
+	e.dataTransfer.dropEffect = 'move';
+	
+}
+
+function dragover(e) {
+	e.target.style.color = 'blue';
+	e.preventDefault();
+}
+
+function drop(e) {
+	e.preventDefault();
+	var data = e.dataTransfer.getData('text/plain');
+	var el = document.getElementById(data);
+	el.style.color = 'black';
+	e.target.append(el);
+}
+</script>

@@ -1,0 +1,65 @@
+<style>
+div[draggable=true] {
+	width: 20px; height: 20px;
+	background: red;
+}
+
+.dropzone {
+	width: 150px;
+	height: 150px;
+	border: 1px dashed grey;
+	margin: 1em 0;
+}
+
+p { background: dodgerblue; }
+</style>
+
+<div id="item" draggable="true" ondragstart="dragstart(event)"></div>
+
+<div class="dropzone"
+	ondragenter="dragenter(event)"
+	ondragleave="dragleave(event)"
+	ondragover="dragover(event)"
+	ondrop="drop(event)"
+>
+	<p>foo</p>
+	<p>bar</p>
+</div>
+
+<div class="dropzone"
+	ondragenter="dragenter(event)"
+	ondragexit="dragleave(event)"
+	ondragover="dragover(event)"
+	ondrop="drop(event)"
+>
+	<p>hello</p>
+	<p>world</p>
+</div>
+
+
+<script>
+log = console.log;
+function dragstart(e) {
+	e.dataTransfer.setData('text/plain', e.target.id);
+	e.dataTransfer.dropEffect = 'move';
+}
+
+function dragenter(e) {
+	log(e.target);
+	e.target.style.border = '2px dashed dodgerblue';
+}
+function dragleave(e) {
+	log('here');
+	e.target.style.border = '';
+}
+function dragover(e) {
+	e.preventDefault();
+}
+
+function drop(e) {
+	e.preventDefault();
+	var id = e.dataTransfer.getData('text/plain');
+	
+	e.target.append( document.getElementById(id) );
+}
+</script>

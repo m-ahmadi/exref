@@ -1,0 +1,34 @@
+<style>
+.dropzone {
+	width: 200px;
+	height: 200px;
+	border: 1px dashed grey;
+}
+</style>
+
+
+<p id="x" draggable="true" ondragstart="dragstart(event)">This element is draggable.</p>
+
+<p>This element is not.</p>
+
+<div class="dropzone" ondragover="dragover(event)" ondrop="drop(event)"></div>
+
+
+<script>
+function dragstart(e) {
+	e.dataTransfer.setData('text/plain', 'foo');
+	e.dataTransfer.setData('text/html', e.target.outerHTML);
+	e.dataTransfer.dropEffect = 'copy';
+}
+
+function dragover(e) {
+	e.preventDefault();
+}
+
+function drop(e) {
+	e.preventDefault();
+	e.target.innerHTML = e.dataTransfer.getData('text/html');
+	// or
+	e.target.append( e.dataTransfer.getData('text/plain') );
+}
+</script>

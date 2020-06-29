@@ -1,0 +1,64 @@
+<style>
+.draggable {
+	width: 200px;
+	height: 20px;
+	text-align: center;
+	background: white;
+}
+
+.dropzone {
+	width: 200px;
+	height: 20px;
+	border: 1px dashed grey;
+	margin: 10px 0;
+	padding: 2em;
+}
+</style>
+
+<div class="dropzone">
+	<div class="draggable" draggable="true" ondragstart="event.dataTransfer.setData('text/plain',null)">
+		This div is draggable
+	</div>
+</div>
+<div class="dropzone"></div>
+<div class="dropzone"></div>
+<div class="dropzone"></div>
+
+
+<script>
+var dragged;
+
+// drag targets
+document.addEventListener('drag', function (e) {
+});
+document.addEventListener('dragstart', function (e) {
+	dragged = e.target;
+	e.target.style.background = 'yellow';
+});
+document.addEventListener('dragend', function (e) {
+	e.target.style.background = '';
+});
+
+// drop target
+document.addEventListener('dragover', function (e) {
+	e.preventDefault();
+});
+document.addEventListener('dragenter', function (e) {
+	if ( e.target.classList.contains('dropzone') ) {
+		e.target.style.background = 'purple';
+	}
+});
+document.addEventListener('dragleave', function (e) {
+	if ( e.target.classList.contains('dropzone') ) {
+		e.target.style.background = '';
+	}
+});
+document.addEventListener('drop', function (e) {
+	e.preventDefault();
+	if ( e.target.classList.contains('dropzone') ) {
+		e.target.style.background = '';
+		dragged.remove(); // dragged.parentNode.removeChild(dragged);
+		e.target.append(dragged);
+	}
+});
+</script>

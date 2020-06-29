@@ -1,0 +1,19 @@
+<button onclick="console.log(this)">console.log(this)</button> <br><br>
+
+<button onclick="doSome">bad - doSome</button> <br><br>
+<button onclick="doSome()">doSome()</button> <br><br>
+
+<button onclick="doSome.bind(this)()">bounded - doSome.bind(this)()</button> <br><br>
+
+<button onclick="doElse(event)">doEv(event)</button>
+
+
+<script>
+function doSome(e) {
+	console.log(this);
+}
+
+function doElse(e) {
+	console.log(e);
+}
+</script>

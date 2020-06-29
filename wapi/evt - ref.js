@@ -106,12 +106,12 @@ WheelEvent.deltaZ
 WheelEvent.deltaMode
 
 DragEvent extends MouseEvent
-DragEvent.dataTransfer
+DragEvent.dataTransfer: DataTransfer
 'drag' 'dragstart' 'dragleave' 'dragenter' 'dragover' 'dragexit' 'dragend' 'drop'
 
-DataTransfer()
+DataTransfer
 DataTransfer.dropEffect 'none|copy|link|move'
-DataTransfer.effectAllowed 'none|copy|copyLink|copyMove|link|linkMove|move|all|uninitialized'
+DataTransfer.effectAllowed 'all|none|copy|copyLink|copyMove|link|linkMove|move|uninitialized'
 DataTransfer.files: FileList
 DataTransfer.items: DataTransferItemList
 DataTransfer.types: ['','',]
@@ -119,6 +119,19 @@ DataTransfer.clearData(?format='')
 DataTransfer.getData(format='')
 DataTransfer.setData(format='', data='')
 DataTransfer.setDragImage(img | element, xOffset=0, yOffset=0)
+
+DataTransferItemList
+DataTransferItemList.length
+DataTransferItemList.add()
+DataTransferItemList.remove()
+DataTransferItemList.clear()
+DataTransferItemList.DataTransferItem()
+
+DataTransferItem
+DataTransferItem.kind
+DataTransferItem.type
+DataTransferItem.getAsFile()
+DataTransferItem.getAsString(callback=(dragData)=>)
 
 TouchEvent extends UIEvent
 TouchEvent.altKey
