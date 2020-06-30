@@ -12,6 +12,8 @@ div[draggable=true] {
 }
 
 p { background: dodgerblue; }
+
+.dragging { background: green !important; }
 </style>
 
 <div class="draggable"></div>
@@ -41,6 +43,7 @@ function draggable(el) {
 	el.ondragstart = dragstart;
 	
 	function dragstart(e) {
+		this.classList.add('dragging');
 		e.dataTransfer.effectAllowed = 'move';
 		e.dataTransfer.dropEffect = 'move';
 		e.dataTransfer.setData('text/plain', e.target.id);
@@ -61,31 +64,47 @@ function droppable(el) {
 	}
 	function dragover(e) {
 		e.preventDefault();
+		
+		const dragging = document.querySelector('.dragging');
+		
+		const box = this.getBoundingClientRect();
+		
+		const dragX = e.clientX - box.x;
+		const dragY = e.clientY - box.y;
+		
+		const directChildren = this.querySelectorAll(':scope > *');
+		let draggedOver;
+		for (el of directChildren) {
+			const { x, y, width, height } = el.getBoundingClientRect();
+			const { clientX: cX, clientY: cY } = e;
+			if ((cX > x && cX < x+width) && (cY > y && cY < y+height)) {
+				draggedOver = el;
+			}
+		}
+		if (draggedOver) {
+			draggedOver.before(dragging);
+		} else {
+			//this.append(dragging);
+		}
 		//log(e.clientX, e.clientY);
-		//log(this.offsetLeft, this.offsetTop);
-		log(e.clientX - this.offsetLeft, e.clientY - this.offsetTop);
-		var t = getElementsFromRect('p', 0,0, e.clientX-this.offsetLeft, e.clientY-this.offsetTop, this)
-		log(t);
-		//const box = cur.getBoundingClientRect();
+		//log(draggedOver);
 	}
 
 	function drop(e) {
 		e.preventDefault();
 		var id = e.dataTransfer.getData('text/plain');
-		e.target.append( document.getElementById(id) );
+		var el = document.getElementById(id);
+		el.classList.remove('dragging');
+		e.target.append(el);
 	}
 }
 
 function getElementsFromRect(selector, x1, y1, x2, y2, ctx=document) {
-	var res = [];
-	ctx.querySelectorAll(selector).forEach(i => {
-		var rect = i.getBoundingClientRect();
-		var x = i.offsetLeft;
-		var y = i.offsetTop;
-		var w = rect.width;
-		var h = rect.height;
-		if (x >= x1 && y >= y1 && x+w <= x2 && y+h <= y2) {
-			res.push(i);
+	const res = [];
+	ctx.querySelectorAll(selector).forEach(el => {
+		const { x, y, width, height } = el.getBoundingClientRect();
+		if (x >= x1 && y >= y1 && x+width <= x2 && y+height <= y2) {
+			res.push(el);
 		}
 	});
 	return res;

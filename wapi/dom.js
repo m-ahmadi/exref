@@ -186,21 +186,21 @@ function parseHTML(str) {
 
 if (x instanceof HTMLElement) // dom el
 
+// direct child
+el.querySelectorAll('> *') // error
+el.querySelectorAll(':scope > *')
+
 // $el .width() .height()
-+getComputedStyle(el, null).width.replace('px', '')
++getComputedStyle(el,null).width.replace('px','')
 el.getBoundingClientRect().width
 
 // get els from bounding rect
 function getElementsFromRect(selector, x1, y1, x2, y2, ctx=document) {
-	var res = [];
-	ctx.querySelectorAll(selector).forEach(i => {
-		var rect = i.getBoundingClientRect();
-		var x = i.offsetLeft;
-		var y = i.offsetTop;
-		var w = rect.width;
-		var h = rect.height;
-		if (x >= x1 && y >= y1 && x+w <= x2 && y+h <= y2) {
-			res.push(i);
+	const res = [];
+	ctx.querySelectorAll(selector).forEach(el => {
+		const { x, y, width, height } = el.getBoundingClientRect();
+		if (x >= x1 && y >= y1 && x+width <= x2 && y+height <= y2) {
+			res.push(el);
 		}
 	});
 	return res;

@@ -52,6 +52,8 @@ function dragover(e) {
 function drop(e) {
 	e.preventDefault();
 	
+	var data = e.dataTransfer.getData('text/html'); // drag data only available on drop
+	
 	e.target.innerHTML = e.dataTransfer.getData('text/html');
 	// or
 	e.target.append( e.dataTransfer.getData('text/plain') );

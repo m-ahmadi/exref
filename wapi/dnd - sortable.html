@@ -45,7 +45,7 @@ for (const i of draggables) {
 for (const i of containers) {
 	i.addEventListener('dragover', function (e) {
 		e.preventDefault();
-		const afterElement = getDragAfterElement(this, e.clientY)
+		const afterElement = getDragAfterElement(this, e.clientY);
 		const dargging = document.querySelector('.dragging');
 		
 		if (!afterElement) {
@@ -58,16 +58,29 @@ for (const i of containers) {
 
 function getDragAfterElement(container, y) {
 	const els = [...container.querySelectorAll('.draggable:not(.dragging)')];
-
-	return els.reduce((acc, cur) => {
-		const box = cur.getBoundingClientRect();
+	
+	let min = Number.NEGATIVE_INFINITY;
+	let res;
+	
+	for (const el of els) {
+		const box = el.getBoundingClientRect();
 		const offset = y - box.top - box.height / 2; // distance from middle of box to mouse pos
-		
+		if (offset < 0 && offset > min) {
+			min = offset;
+			res = el;
+		}
+	}
+	
+	return res;
+	
+	/*return els.reduce((acc, cur) => {
+		const box = cur.getBoundingClientRect();
+		const offset = y - box.top - box.height / 2;
 		if (offset < 0 && offset > acc.offset) {
 			return { offset, element: cur };
 		} else {
 			return acc;
 		}
-	}, { offset: Number.NEGATIVE_INFINITY }).element;
+	}, { offset: Number.NEGATIVE_INFINITY }).element; */
 }
 </script>
