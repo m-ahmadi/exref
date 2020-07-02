@@ -8,15 +8,15 @@
 }
 .draggable {
 	cursor: move;
-	background: lightcyan;
+	background: green;
 	margin: 5px;
 	/*padding: 1em;*/
 }
 .draggable.dragging {
-	background: blue;
+	background: lightpink;
 }
 </style>
-<p>terrible solution cuz only based on y (breaks with horizontal els. eg: flex)</p>
+<p>only based on y (breaks with horizontal els. eg: flex)</p>
 
 <div class="container">
 	<p class="draggable" draggable="true">1</p>
@@ -46,25 +46,25 @@ for (const i of containers) {
 	i.addEventListener('dragover', function (e) {
 		e.preventDefault();
 		const afterElement = getDragAfterElement(this, e.clientY);
-		const dargging = document.querySelector('.dragging');
+		const dragging = document.querySelector('.dragging');
 		
-		if (!afterElement) {
-			this.append(dargging);
+		if (afterElement) {
+			afterElement.before(dragging); //this.insertBefore(dragging, afterElement);
 		} else {
-			this.insertBefore(dargging, afterElement);
+			this.append(dragging);
 		}
 	})
 }
 
-function getDragAfterElement(container, y) {
+function getDragAfterElement(container, clientY) {
 	const els = [...container.querySelectorAll('.draggable:not(.dragging)')];
 	
 	let min = Number.NEGATIVE_INFINITY;
 	let res;
 	
 	for (const el of els) {
-		const box = el.getBoundingClientRect();
-		const offset = y - box.top - box.height / 2; // distance from middle of box to mouse pos
+		const { y, height } = el.getBoundingClientRect();
+		const offset = clientY - y - height / 2; // distance from middle of box to mouse pos
 		if (offset < 0 && offset > min) {
 			min = offset;
 			res = el;
@@ -74,8 +74,8 @@ function getDragAfterElement(container, y) {
 	return res;
 	
 	/*return els.reduce((acc, cur) => {
-		const box = cur.getBoundingClientRect();
-		const offset = y - box.top - box.height / 2;
+		const { y, height } = el.getBoundingClientRect();
+		const offset = clientY - y - height / 2;
 		if (offset < 0 && offset > acc.offset) {
 			return { offset, element: cur };
 		} else {

@@ -1,0 +1,70 @@
+<style>
+.list {
+	background: wheat;
+	width: 400px;
+	padding: 2em;
+}
+.list-item {
+	background: lightpink;
+	cursor: move;
+	padding: 1em;
+	margin: 1em 0;
+}
+.ghost {
+	opacity: .8;
+	background: yellowgreen !important;
+}
+</style>
+
+<div class="list">
+	<div class="list-item">Item 1</div>
+	<div class="list-item">Item 2</div>
+	<div class="list-item">Item 3</div>
+	<div class="list-item">Item 4</div>
+</div>
+
+<script>
+log = console.log;
+const el = document.querySelector('.list');
+
+sortable(el);
+
+function sortable(rootEl) {
+	[...rootEl.children].forEach(i => i.setAttribute('draggable', true));
+	let dragEl;
+	
+	rootEl.addEventListener('dragstart', function (e) {
+		dragEl = e.target;
+		e.dataTransfer.effectAllowed = 'move';
+		dragEl.classList.add('ghost');
+		
+		rootEl.addEventListener('dragover', dragover);
+		rootEl.addEventListener('drop', drop);
+	});
+	
+	function dragover(e) {
+		e.preventDefault();
+		e.dataTransfer.dropEffect = 'move';
+		const target = e.target;
+		
+		if ( target && target !== dragEl && target.classList.contains('list-item') ) {
+			const { y, bottom } = target.getBoundingClientRect();
+			const offsetY = e.pageY - y;
+			const middleY = (bottom - y) / 2;
+			
+			if (offsetY > middleY) {
+				target.nextSibling.before(dragEl); //this.insertBefore(dragEl, target.nextSibling);
+			} else {
+				target.before(dragEl); //this.insertBefore(dragEl, target);
+			}
+		}
+	}
+	
+	function drop(e) {
+		e.preventDefault();
+		dragEl.classList.remove('ghost');
+		rootEl.removeEventListener('dragover', dragover);
+		rootEl.removeEventListener('drop', drop);
+	}
+}
+</script>

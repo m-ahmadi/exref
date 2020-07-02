@@ -107,17 +107,17 @@ var sortable = new Sortable(el, {
 	},
 
 	// event when you move an item in the list or between lists
-	onMove: function (e, /**Event*/originalEvent) {
-		// Example: https://jsbin.com/nawahef/edit?js,output
-		e.dragged; // dragged HTMLElement
-		e.draggedRect; // DOMRect {left, top, right, bottom}
-		e.related; // HTMLElement on which have guided
-		e.relatedRect; // DOMRect
-		e.willInsertAfter; // Boolean that is true if Sortable will insert drag element after target by default
+	onMove: function (e, originalEvent) {
+		// example: https://jsbin.com/nawahef/edit?js,output
+		e.dragged;             // dragged HTMLElement
+		e.draggedRect;         // DOMRect {left, top, right, bottom}
+		e.related;             // HTMLElement on which have guided
+		e.relatedRect;         // DOMRect
+		e.willInsertAfter;     // Boolean that is true if Sortable will insert drag element after target by default
 		originalEvent.clientY; // mouse position
-		// return false; — for cancel
-		// return -1; — insert before target
-		// return 1; — insert after target
+		// return false;       // for cancel
+		// return -1;          // insert before target
+		// return 1;           // insert after target
 	},
 
 	// called when creating a clone of element

@@ -1,18 +1,16 @@
 <style>
 div[draggable=true] {
-	width: 20px; height: 20px;
+	width: 50px; height: 50px;
 	background: red;
+	cursor: move;
 }
-
 .dropzone {
-	width: 150px;
-	height: 150px;
+	width: 400px; height: 150px;
 	border: 1px dashed grey;
 	margin: 1em 4em;
+	padding: 2em;
 }
-
 p { background: dodgerblue; }
-
 .dragging { background: green !important; }
 </style>
 
@@ -30,17 +28,15 @@ p { background: dodgerblue; }
 
 
 <script>
-log = console.log;
-$ = (selector, ctx=document) => [...ctx.querySelectorAll(selector)];
-
-$('.draggable').forEach(draggable);
-$('.dropzone').forEach(droppable);
+document.querySelectorAll('.draggable').forEach(draggable);
+document.querySelectorAll('.dropzone').forEach(droppable);
 
 function draggable(el) {
-	var n = 0;
+	let n = 0;
 	if (!el.id) el.setAttribute('id', '_dnd'+(n++));
 	el.setAttribute('draggable', true);
 	el.ondragstart = dragstart;
+	el.ondragend = dragend;
 	
 	function dragstart(e) {
 		this.classList.add('dragging');
@@ -48,65 +44,49 @@ function draggable(el) {
 		e.dataTransfer.dropEffect = 'move';
 		e.dataTransfer.setData('text/plain', e.target.id);
 	}
+	function dragend(e) {
+		this.classList.remove('dragging');
+	}
 }
 
 function droppable(el) {
-	el.ondragenter = dragenter;
-	el.ondragleave = dragleave;
+	let afterEl;
 	el.ondragover = dragover;
 	el.ondrop = drop;
 	
-	function dragenter(e) {
-		e.target.style.border = '2px dashed dodgerblue';
-	}
-	function dragleave(e) {
-		e.target.style.border = '';
-	}
 	function dragover(e) {
 		e.preventDefault();
-		
+		const target = e.target;
 		const dragging = document.querySelector('.dragging');
 		
-		const box = this.getBoundingClientRect();
-		
-		const dragX = e.clientX - box.x;
-		const dragY = e.clientY - box.y;
-		
-		const directChildren = this.querySelectorAll(':scope > *');
-		let draggedOver;
-		for (el of directChildren) {
-			const { x, y, width, height } = el.getBoundingClientRect();
-			const { clientX: cX, clientY: cY } = e;
-			if ((cX > x && cX < x+width) && (cY > y && cY < y+height)) {
-				draggedOver = el;
+		if (target && target !== dragging && target.tagName === 'P') {
+			const { y, bottom } = target.getBoundingClientRect();
+			const offsetY = e.pageY - y;
+			const middleY = (bottom - y) / 2;
+			
+			if (offsetY > middleY) {
+				target.nextSibling.before(dragging);
+				afterEl = target.nextSibling;
+			} else {
+				target.before(dragging);
+				afterEl = target;
 			}
 		}
-		if (draggedOver) {
-			draggedOver.before(dragging);
-		} else {
-			//this.append(dragging);
-		}
-		//log(e.clientX, e.clientY);
-		//log(draggedOver);
 	}
 
 	function drop(e) {
 		e.preventDefault();
-		var id = e.dataTransfer.getData('text/plain');
-		var el = document.getElementById(id);
-		el.classList.remove('dragging');
-		e.target.append(el);
-	}
-}
-
-function getElementsFromRect(selector, x1, y1, x2, y2, ctx=document) {
-	const res = [];
-	ctx.querySelectorAll(selector).forEach(el => {
-		const { x, y, width, height } = el.getBoundingClientRect();
-		if (x >= x1 && y >= y1 && x+width <= x2 && y+height <= y2) {
-			res.push(el);
+		const id = e.dataTransfer.getData('text/plain');
+		const el = document.getElementById(id);
+		
+		if (afterEl) {
+			afterEl.before(el);
+		} else {
+			this.append(el);
 		}
-	});
-	return res;
+		
+		el.ondragover = undefined;
+		el.ondrop = undefined;
+	}
 }
 </script>

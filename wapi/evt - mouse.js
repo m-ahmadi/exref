@@ -15,13 +15,22 @@
 'wheel'
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pointer position
-e.pageX,   e.pageY		// relative to document (html element)  unit: css pixels    (not changed on page scroll)
-e.clientX, e.clientY	// relative to viewport (window)        unit: css pixels    (    changed on page scroll)
+e.pageX,   e.pageY		// relative to document (html element)  unit: css pixels    (    changed on page scroll)
+e.clientX, e.clientY	// relative to viewport (window)        unit: css pixels    (not changed on page scroll)
 e.offsetX, e.offsetY	// relative to parent element           unit: css pixels
 e.screenX, e.screenY  // relative to screen                   unit: device pixels
 
 e.pageX === e.clientX + window.pageXOffset
 e.pageY === e.clientY + window.pageYOffset
+
+// see
+document.addEventListener('mousemove', function(e) {
+  console.table(
+		`page(${e.pageX},${e.pageY}) `,
+		`client(${e.clientX},${e.clientY}) `,
+		`screen(${e.screenX},${e.screenY})`
+	);
+});
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // which mouse key was pressed
 elem.addEventListener('mousedown', function (e) {

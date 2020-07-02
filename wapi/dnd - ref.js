@@ -59,4 +59,7 @@ function drop(e) {
 	e.target.append( e.dataTransfer.getData('text/plain') );
 	// or
 	e.target.append( document.getElementById(data) );
+	
+	// cleanup
+	e.dataTransfer.clearData();
 }
