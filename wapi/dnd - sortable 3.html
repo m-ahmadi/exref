@@ -1,81 +1,84 @@
 <style>
-#container {
-	width: 300px;
-	display: block;
-	margin: auto;
+.list {
+	background: wheat;
+	width: 400px;
+	padding: 2em;
 }
-p {
-	float: right;
+.list-item {
+	background: lightpink;
+	cursor: move;
+	padding: 1em;
+	margin: 1em 0;
 }
-#list {
-	list-style: none;
-}
-#list li {
-	margin: 10px;
-	cursor: pointer;
+.ghost {
+	opacity: .8;
+	background: yellowgreen !important;
 }
 </style>
 
-<div id="container">
-	<h1 id="isRight"></h1>
-	<ul id="list"></ul>
+<div class="list">
+	<div class="list-item">Item 1</div>
+	<div class="list-item">Item 2</div>
+	<div class="list-item">Item 3</div>
+	<div class="list-item">Item 4</div>
 </div>
 
 <script>
-var list = document.getElementById('list');
-var base;
-var randomized;
-var dragging;
-var draggedOver;
-var isRight = 'Not In Order!';
+log = console.log;
+const el = document.querySelector('.list');
 
-function genRandom(array) {
-	base = [];
-	randomized = array.sort(() => Math.random() - 0.5);
-	if (randomized.join('') !== base.join('')) {
-		renderItems(randomized);
-	} else {
-		//recursion to account if the randomization returns the original array
-		genRandom();
+sortable(el);
+
+function sortable(rootEl) {
+	[...rootEl.children].forEach(i => i.setAttribute('draggable', true));
+	let dragEl;
+	let afterEl;
+	
+	rootEl.addEventListener('dragstart', function (e) {
+		dragEl = e.target;
+		e.dataTransfer.effectAllowed = 'move';
+		dragEl.classList.add('ghost');
+		
+		rootEl.addEventListener('dragover', dragover);
+		rootEl.addEventListener('drop', drop);
+	});
+	
+	rootEl.addEventListener('dragend', function (e) {
+		dragEl.classList.remove('ghost');
+	});
+	
+	function dragover(e) {
+		e.preventDefault();
+		e.dataTransfer.dropEffect = 'move';
+		afterEl = getDragAfterElement(this, e.clientY);
+		
+		if (afterEl) {
+			afterEl.before(dragEl);
+		} else {
+			this.append(dragEl);
+		}
+	}
+	
+	function drop(e) {
+		e.preventDefault();
+		rootEl.removeEventListener('dragover', dragover);
+		rootEl.removeEventListener('drop', drop);
 	}
 }
 
-function renderItems(data) {
-	document.getElementById('isRight').innerText = isRight;
-	list.innerText = '';
-	data.forEach(item => {
-		var node = document.createElement('li');
-		node.draggable = true;
-		node.style.backgroundColor = item;
-		node.style.backgroundColor = node.style.backgroundColor.length > 0 ? item : 'lightblue';
-		node.addEventListener('drag', setDragging);
-		node.addEventListener('dragover', setDraggedOver);
-		node.addEventListener('drop', compare);
-		node.innerText = item;
-		list.appendChild(node);
-	})
+function getDragAfterElement(container, clientY) {
+	const els = [...container.children];
+	let min = Number.NEGATIVE_INFINITY;
+	let res;
+	
+	for (const el of els) {
+		const { y, height } = el.getBoundingClientRect();
+		const offset = clientY - y - height / 2;
+		if (offset < 0 && offset > min) {
+			min = offset;
+			res = el;
+		}
+	}
+	return res;
 }
-
-function compare(e) {
-	var index1 = randomized.indexOf(dragging);
-	var index2 = randomized.indexOf(draggedOver);
-	randomized.splice(index1, 1);
-	randomized.splice(index2, 0, dragging);
-
-	isRight = randomized.join('') === base.join('') ? 'In Order!' : 'Not In Order!';
-
-	renderItems(randomized);
-};
-
-function setDraggedOver(e) {
-	e.preventDefault();
-	draggedOver = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText : parseInt(e.target.innerText);
-}
-
-function setDragging(e) {
-	dragging = Number.isNaN(parseInt(e.target.innerText)) ? e.target.innerText : parseInt(e.target.innerText);
-}
-
-// genRandom([0, 1, 2, 3, 4, 5, 6])
-genRandom(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'])
 </script>

@@ -1,6 +1,6 @@
 <style>
 .container {
-	width: 200px;
+	width: 400px;
 	background: wheat;
 	padding: 1em;
 	margin: 1em 0;
@@ -9,8 +9,9 @@
 .draggable {
 	cursor: move;
 	background: green;
-	margin: 5px;
-	/*padding: 1em;*/
+	margin: 1em;
+	padding: 1em;
+	color: white;
 }
 .draggable.dragging {
 	background: lightpink;
@@ -27,6 +28,7 @@
 	<p class="draggable" draggable="true">3</p>
 	<p class="draggable" draggable="true">4</p>
 </div>
+
 
 <script>
 const draggables = document.querySelectorAll('.draggable');
