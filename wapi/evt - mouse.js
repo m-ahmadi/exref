@@ -1,10 +1,10 @@
 'click'
 'dblclick'
 'mousedown'
-'mouseenter'
+'mouseenter'        // mouse entered div (and not its children)
 'mouseleave'
 'mousemove'
-'mouseover'
+'mouseover'         // mouse entered div or its children
 'mouseout'
 'mouseup'
 'contextmenu'

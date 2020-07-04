@@ -12,7 +12,7 @@
 }
 .ghost {
 	opacity: .8;
-	background: yellowgreen !important;
+	background: yellowgreen;
 }
 </style>
 
@@ -32,7 +32,6 @@ sortable(el);
 function sortable(rootEl) {
 	[...rootEl.children].forEach(i => i.setAttribute('draggable', true));
 	let dragEl;
-	let afterEl;
 	
 	rootEl.addEventListener('dragstart', function (e) {
 		dragEl = e.target;
@@ -44,13 +43,14 @@ function sortable(rootEl) {
 	});
 	
 	rootEl.addEventListener('dragend', function (e) {
-		dragEl.classList.remove('ghost');
+		e.target.classList.remove('ghost'); // e.target === dragEl
 	});
 	
 	function dragover(e) {
 		e.preventDefault();
 		e.dataTransfer.dropEffect = 'move';
-		afterEl = getDragAfterElement(this, e.clientY);
+		
+		const afterEl = getAfterElement(this, e.clientY);
 		
 		if (afterEl) {
 			afterEl.before(dragEl);
@@ -66,7 +66,7 @@ function sortable(rootEl) {
 	}
 }
 
-function getDragAfterElement(container, clientY) {
+function getAfterElement(container, clientY) {
 	const els = [...container.children];
 	let min = Number.NEGATIVE_INFINITY;
 	let res;

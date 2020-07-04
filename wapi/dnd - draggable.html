@@ -1,0 +1,38 @@
+<style>
+[draggable="true"] {
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+</style>
+
+<div draggable="true"></div>
+
+<script>
+var el = document.querySelector('[draggable="true"]');
+
+el.style.position = 'absolute';
+
+el.ondragstart = function (e) {
+	e.dataTransfer.effectAllowed = 'move';
+	e.dataTransfer.dropEffect = 'move';
+	this.clickX = e.offsetX;
+	this.clickY = e.offsetY;
+	el.parentElement.ondragover = dragover;
+};
+
+el.ondragend = () => el.parentElement.ondragover = undefined;
+
+function dragover(e) {
+	e.preventDefault();
+	el.style.left = (e.pageX - this.offsetLeft) - el.clickX;
+	el.style.top = (e.pageY - this.offsetTop) - el.clickY;
+}
+
+function destroy() {
+	el.style.position = '';
+	el.ondragstart = undefined;
+	el.ondragend = undefined;
+	el.parentElement.ondragover = undefined;
+}
+</script>
