@@ -1,0 +1,11 @@
+quantitative:	numbers, can be measured. hight width temperature humidity price
+
+discrete:	integers, whole things, indivisible entities. children (cant have 2.5 kids)
+continuous:	divisible to finer levels. weight (can be on more precise scales: meter,centi,milli,...)
+-------------------------------------------------------------------------------
+qualitative:	characteristics and descriptors, can't be measured. smells tastes textures colors
+
+binomial:	binary
+nominal:	unordered
+ordinal:	ordered
+-------------------------------------------------------------------------------
