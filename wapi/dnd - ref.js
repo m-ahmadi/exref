@@ -32,6 +32,9 @@ function dragstart(e) {
 	img.src = 'https://picsum.photos/200';
 	e.dataTransfer.setDragImage(img, 10, 10);
 	
+	// hide drag ghost
+	e.dataTransfer.setDragImage(new Image(), 0, 0);
+	
 	// define drag data
 	e.dataTransfer.setData('text/plain', e.target.innerText);
   e.dataTransfer.setData('text/html', e.target.outerHTML);

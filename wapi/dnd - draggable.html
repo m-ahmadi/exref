@@ -25,8 +25,8 @@ el.ondragend = () => el.parentElement.ondragover = null;
 
 function dragover(e) {
 	e.preventDefault();
-	el.style.left = (e.pageX - this.offsetLeft) - el.clickX;
-	el.style.top = (e.pageY - this.offsetTop) - el.clickY;
+	el.style.left = ((e.pageX - this.offsetLeft) - el.clickX) + 'px';
+	el.style.top = ((e.pageY - this.offsetTop) - el.clickY) + 'px';
 }
 
 function destroy() {
