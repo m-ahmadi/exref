@@ -1,0 +1,185 @@
+<style>
+.grid {
+	display: grid;
+	grid-template-columns: 5fr 95fr;
+}
+
+.card {
+	padding: 5px;
+	margin: 2px 0;
+	border: 1px solid grey;
+	background: cornsilk;
+}
+
+.ghost {
+	opacity: .8;
+	background: dodgerblue !important;
+}
+
+#side {
+	padding: 5px;
+	background: lightpink;
+}
+#main {
+	position: relative;
+}
+</style>
+
+<div class="grid">
+	
+	<div id="side">
+		<div class="card">1</div>
+		<div class="card">2</div>
+		<div class="card">3</div>
+	</div>
+  
+	<div id="main" class="card">
+		<h1>Lorem</h1>
+		<a href="#">ipsum</a>
+		<h1>dolor</h1>
+		<div class="card" draggable="true" style="background: lightcyan;">x</div>
+	</div>
+</div>
+
+<div class="card" draggable="true" style="background: violet;">y</div>
+
+<script>
+log = console.log;
+$$ = (selector, ctx=document) => { var t = ctx.querySelectorAll(selector); return t.length > 1 ? [...t] : t[0] };
+
+const side = $$('#side');
+const main = $$('#main');
+
+let n = 0;
+[...side.children].forEach(el => {
+	el.draggable = true;
+	if (!el.id) el.id = '_dnd'+(n++);
+});
+
+document.ondragstart = dragstart;
+document.ondragend = dragend;
+
+let dragEl;
+function dragstart(e) {
+	const { target } = e;
+	if (target.nodeType === 3) return;
+	if (!target.closest('#side') && !target.closest('#main')) return;
+	
+	dragEl = target;
+	dragEl.classList.add('ghost');
+	
+	document.ondragover = dragover;
+	document.ondrop = drop;
+}
+function dragend(e) {
+	if (!dragEl) return;
+	dragEl.classList.remove('ghost');
+	dragEl = undefined;
+	document.ondragover = null;
+	document.ondrop = null;
+}
+
+function dragover(e) {
+	if (!dragEl) return;
+	e.dataTransfer.dropEffect = 'move';
+	e.preventDefault();
+	
+	const sideRect = side.getBoundingClientRect();
+	const isInSide = e.pageX < sideRect.right && e.clientY < sideRect.bottom;
+	
+	log(isInSide);
+	if (isInSide) {
+		if (dragEl._draggable === true) dragEl._undraggable();
+		if (!dragEl.draggable) dragEl.draggable = true;
+		
+		const afterEl = getAfterElement(side, e.clientY);
+		if (afterEl) {
+			afterEl.before(dragEl);
+		} else {
+			side.append(dragEl);
+		}
+	}
+}
+function drop(e) {
+	if (!dragEl) return;
+	const { target } = e;
+	
+	const containerSide = target.closest('#side');
+	const containerMain = target.closest('#main');
+	if (!containerSide && !containerMain) return;
+	
+	dragEl.classList.remove('ghost');
+	e.preventDefault();
+	
+	if ( target.closest('#main') ) {
+		
+		if (dragEl._draggable !== true) {
+			const left = e.pageX - main.offsetLeft;
+			const top = e.pageY - main.offsetTop;
+			
+			main.append(dragEl);
+			dragEl = dragEl._draggable();
+			dragEl.style.left = left;
+			dragEl.style.top = top;
+			//$(dragEl).css({position: 'absolute'}).appendTo(main).draggable().css({left, top});
+		}
+	}
+}
+
+function getAfterElement(container, clientY) {
+	const els = [...container.children];
+	let min = Number.NEGATIVE_INFINITY;
+	let res;
+	
+	for (const el of els) {
+		const { y, height } = el.getBoundingClientRect();
+		const offset = clientY - y - height / 2;
+		if (offset < 0 && offset > min) {
+			min = offset;
+			res = el;
+		}
+	}
+	return res;
+}
+
+(function () {
+	function create() {
+		const el = this;
+		if (!el.draggable) el.draggable = true;
+		el.style.position = 'absolute';
+		
+		el.ondragstart = function (e) {
+			e.dataTransfer.effectAllowed = 'move';
+			e.dataTransfer.dropEffect = 'move';
+			this.clickX = e.offsetX;
+			this.clickY = e.offsetY;
+			el.parentElement.ondragover = dragover;
+		};
+		
+		el.ondragend = () => el.parentElement.ondragover = null;
+		
+		function dragover(e) {
+			e.preventDefault();
+			el.style.left = (e.pageX - this.offsetLeft) - el.clickX;
+			el.style.top = (e.pageY - this.offsetTop) - el.clickY;
+		}
+		el._draggable = true;
+		return el;
+	};
+
+	function destroy() {
+		const el = this;
+		el.style.position = '';
+		el.style.top = '';
+		el.style.left = '';
+		el.removeAttribute('draggable');
+		el.ondragstart = null;
+		el.ondragend = null;
+		el.parentElement.ondragover = null;
+		el._draggable = create;
+	};
+	
+	HTMLElement.prototype._draggable = create;
+	HTMLElement.prototype._undraggable = destroy;
+})();
+</script>

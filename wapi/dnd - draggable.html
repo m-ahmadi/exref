@@ -21,7 +21,7 @@ el.ondragstart = function (e) {
 	el.parentElement.ondragover = dragover;
 };
 
-el.ondragend = () => el.parentElement.ondragover = undefined;
+el.ondragend = () => el.parentElement.ondragover = null;
 
 function dragover(e) {
 	e.preventDefault();
@@ -31,8 +31,8 @@ function dragover(e) {
 
 function destroy() {
 	el.style.position = '';
-	el.ondragstart = undefined;
-	el.ondragend = undefined;
-	el.parentElement.ondragover = undefined;
+	el.ondragstart = null;
+	el.ondragend = null;
+	el.parentElement.ondragover = null;
 }
 </script>
