@@ -149,8 +149,10 @@ function getAfterElement(container, clientY) {
 		el.style.position = 'absolute';
 		
 		el.ondragstart = function (e) {
-			e.dataTransfer.effectAllowed = 'move';
-			e.dataTransfer.dropEffect = 'move';
+			const dt = e.dataTransfer;
+			dt.effectAllowed = 'move';
+			dt.dropEffect = 'move';
+			dt.setDragImage(new Image(), 0, 0);
 			this.clickX = e.offsetX;
 			this.clickY = e.offsetY;
 			el.parentElement.ondragover = dragover;

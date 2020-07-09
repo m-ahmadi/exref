@@ -1,12 +1,11 @@
 (function () {
 	function create() {
 		const el = this;
-		el.setAttribute('draggable', true);
 		el.style.position = 'absolute';
 		
 		el.onmousedown = function (e) {
 			if (e.target !== el) return;
-			el.draggable = true;
+			el.setAttribute('draggable', true);
 			el.ondragstart = dragstart;
 		};
 		
@@ -23,15 +22,16 @@
 		
 		el.ondragend = () => {
 			el.style.zIndex = '';
-			el.draggable = false;
+			el.removeAttribute('draggable');
 			el.ondragstart = null;
 			el.parentElement.ondragover = null;
 		};
 		
 		function dragover(e) {
 			e.preventDefault();
-			el.style.left = ((e.pageX - this.offsetLeft) - el.clickX) + 'px';
-			el.style.top = ((e.pageY - this.offsetTop) - el.clickY) + 'px';
+			const pad = (+getComputedStyle(el).padding.replace('px','') * 2);
+			el.style.left = ((e.pageX - this.offsetLeft) - el.clickX) +pad+ 'px';
+			el.style.top = ((e.pageY - this.offsetTop) - el.clickY) +pad+ 'px';
 		}
 		el._draggable = true;
 		return el;

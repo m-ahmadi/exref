@@ -1,0 +1,58 @@
+<style>
+.draggable {
+	width: 100px;
+	height: 100px;
+	background: wheat;
+}
+.drag-handle {
+	background: lightcyan;
+	cursor: move;
+	user-select: none;
+}
+</style>
+
+<div class="draggable">
+	<span class="drag-handle">&#x2725;</span>
+</div>
+
+
+
+<script>
+var el = document.querySelector('.draggable');
+
+el.style.position = 'absolute';
+
+el.onmousedown = e => {
+	if ( !e.target.classList.contains('drag-handle') ) return;
+	el.setAttribute('draggable', true);
+	el.ondragstart = dragstart;
+};
+
+function dragstart(e) {
+	e.dataTransfer.effectAllowed = 'move';
+	e.dataTransfer.dropEffect = 'move';
+	this.clickX = e.offsetX;
+	this.clickY = e.offsetY;
+	el.parentElement.ondragover = dragover;
+}
+
+el.ondragend = () => {
+	el.removeAttribute('draggable');
+	el.ondragstart = null
+	el.parentElement.ondragover = null;
+};
+
+function dragover(e) {
+	e.preventDefault();
+	el.style.left = ((e.pageX - this.offsetLeft) - el.clickX) + 'px';
+	el.style.top = ((e.pageY - this.offsetTop) - el.clickY) + 'px';
+}
+
+function destroy() {
+	el.style.position = '';
+	el.onmousedown = null;
+	el.ondragstart = null;
+	el.ondragend = null;
+	el.parentElement.ondragover = null;
+}
+</script>

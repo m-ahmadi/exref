@@ -206,6 +206,12 @@ function getElementsFromRect(selector, x1, y1, x2, y2, ctx=document) {
 	return res;
 }
 
+// get iframe document or window
+var iframe = document.querySelector('iframe');
+iframe.contentDocument
+iframe.contentWindow
+iframe.contentWindow.document
+
 // ps
 A <- B, C, D // B,C,D implements A (implemented by)
 ! = non-standard
