@@ -1,8 +1,23 @@
-f2		edit formula
+﻿f2		edit formula
 f4		lock formula
 f9		evaluate formula
 
 ctrl + d	duplicate shape
+-------------------------------------------------
+enter			enter and move down
+shitf    enter		enter and move up
+tab      enter		enter and move right
+shit tab enter		enter and move left
+ctrl     enter		enter and stay in cell (or multicell data entering)
+
+ctrl ;			insert current date
+ctrl shift :		insert current time
+ctrl d			fill down    from cell above
+ctrl r			fill right   from cell left
+ctrl '			copy formula from cell above
+ctrl shift "		copy value   from cell above
+ctrk k			add hyperlink
+Alt ↓			display autocomplete list
 -------------------------------------------------
 2 ways for shortcuts:
 

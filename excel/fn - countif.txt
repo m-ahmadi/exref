@@ -1,0 +1,22 @@
+=COUNTIF(A2:A5,"London")		count occurrences of str
+=COUNTIF(A2:A5,A4)			count occurrences of value of another cell
+
+
+=COUNTIF(D5:D12,">100")			count sales over 100
+=COUNTIF(B5:B12,"jim")			count name = "jim"
+=COUNTIF(C5:C12,"ca")			count state = "ca"
+
+				double quotes in criteria
+=COUNTIF(A1:A10,100)			count cells equal to 100
+=COUNTIF(A1:A10,">32")			count cells greater than 32
+=COUNTIF(A1:A10,"jim")			count cells equal to "jim"
+
+=COUNTIF(A1:A10,"<"&B1)			count cells less than B1
+
+				with dates
+=COUNTIF(A1:A10, ">"&B1)		count dates greater than A1
+=COUNTIF(A1:A10,"<"&DATE(2020,4,1))	dates less than 1-Apr-2020
+
+				wildcards
+=COUNTIF(A1:A5,"*apple*")		cells that contain "apple"
+=COUNTIF(A1:A5,"???")			cells that contain any 3 characters

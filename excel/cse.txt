@@ -1,0 +1,5 @@
+array formula (aka cse formula)
+
+ctrl + shift + enter
+
+=arrayformula(if(F1=A1,A2:A7,if(F1=B1,B2:B6,if(F1=C1,C2:C7,""))))

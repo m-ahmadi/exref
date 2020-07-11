@@ -1,0 +1,10 @@
+=ROWS(table)
+=COLUMNS(table)
+
+=SUM(table[amount])		sum amount column
+=COUNTA(table[item])		count all in item column
+
+=[@color]			current row
+
+=table[ @[amt] ]		relative
+=table[ @[amt]:[amt] ]		absolute

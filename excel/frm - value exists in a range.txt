@@ -1,0 +1,7 @@
+=COUNTIF(range,value)>0
+
+=IF(COUNTIF(range,value),"Yes","No")
+
+=COUNTIF(A1:A100,"*"&C1&"*")>0			test for a substr or partial match
+
+=ISNUMBER(MATCH(value,range,0))			alternative
