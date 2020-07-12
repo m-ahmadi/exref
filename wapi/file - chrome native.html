@@ -1,0 +1,47 @@
+<!--
+	chrome://flags/#native-file-system-api    Enabled
+-->
+
+<button id="open">open file</button>
+<button id="save">save file</button>
+
+<textarea></textarea>
+
+<button id="dir">open dir</button>
+
+<script>
+const btnOpenFile = document.getElementById('open');
+const btnSaveFile = document.getElementById('save');
+const textArea = document.querySelector('textArea');
+
+let fileHandle;
+btnOpenFile.addEventListener('click', async function () {
+	fileHandle = await window.chooseFileSystemEntries();
+	const file = await fileHandle.getFile();
+	const contents = await file.text();
+	textArea.value = contents;
+});
+
+btnSaveFile.addEventListener('click', async function () {
+	await writeFile(fileHandle, textArea.value);
+});
+
+
+// write to file system
+async function writeFile(fileHandle, contents) {
+  const writable = await fileHandle.createWritable(); // permission popup (if not already granted)
+  await writable.write(contents);                     // write content of file to the stream
+  await writable.close();                             // close the file and write content to disk
+}
+
+// open a directory and enumerate its content
+const btnDir = document.getElementById('dir');
+btnDir.addEventListener('click', async function () {
+  const handle = await window.chooseFileSystemEntries({type: 'open-directory'});
+  const entries = await handle.getEntries();
+  for await (const entry of entries) {
+    const kind = entry.isFile ? 'File' : 'Directory';
+    console.log(kind, entry.name);
+  }
+});
+</script>
