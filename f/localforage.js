@@ -1,5 +1,9 @@
 // includes: localforage.js
-// cdn: https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js
+/* cdn:
+	https://cdn.jsdelivr.net/npm/localforage
+	https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js
+*/
+
 import * as localforage from 'localforage'; // typescript, webpack, ...
 import localforage from 'localforage';      // only if allowSyntheticDefaultImports in `tsconfig.json`
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

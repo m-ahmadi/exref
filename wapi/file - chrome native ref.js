@@ -1,8 +1,13 @@
+FileSystemFileHandle.isFile
+FileSystemFileHandle.isDirectory
 FileSystemFileHandle.getFile()
+FileSystemFileHandle.isSameEntry(handle2): boolean
 FileSystemFileHandle.createWritable(): FileSystemWritableFileStream
-FileSystemFileHandle.createWriter():   FileSystemWriter
+FileSystemFileHandle.createWriter():	 FileSystemWriter
+FileSystemFileHandle.requestPermission(options={writable:false,...}): 'granted'| 'prompt' | ''
+FileSystemFileHandle.queryPermission(options={writable:false,...}):   'granted'| 'prompt' | ''
 
-FileSystemDirectoryHandle.getEntries(): [Entry, ...] // Entry.name .isFile
+FileSystemDirectoryHandle.getEntries(): [entry, ...] // entry.name entry.isFile
 
 FileSystemWritableFileStream // essentially a WritableStream
 FileSystemWritableFileStream.write(contents=''|BufferSource|Blob)
@@ -33,30 +38,46 @@ something.addEventListener('click', async function () {
 
 // open a directory and enumerate its content
 something.addEventListener('click', async function () {
-  const handle = await window.chooseFileSystemEntries({type: 'open-directory'});
-  const entries = await handle.getEntries();
-  for await (const entry of entries) {
-    const kind = entry.isFile ? 'File' : 'Directory';
-    console.log(kind, entry.name);
-  }
+	const handle = await window.chooseFileSystemEntries({type: 'open-directory'});
+	const entries = await handle.getEntries();
+	for await (const entry of entries) {
+		const kind = entry.isFile ? 'File' : 'Directory';
+		console.log(kind, entry.name);
+	}
 });
 
 // write to file system
 (async function () {
-  const writable = await fileHandle.createWritable(); // permission popup (if not already granted)
-  await writable.write(contents);                     // write file content to stream
-  await writable.close();                             // close file and write content to disk
+	const writable = await fileHandle.createWritable(); // permission popup (if not already granted)
+	await writable.write(contents);											// write file content to stream
+	await writable.close();															// close file and write content to disk
 	// or by piping:
-  const response = await fetch(url);    // make http request for content
-  await response.body.pipeTo(writable); // stream the response into file
-  // no need to close (pipeTo() closes destination pipe by default)
+	const response = await fetch(url);		// make http request for content
+	await response.body.pipeTo(writable); // stream the response into file
+	// no need to close (pipeTo() closes destination pipe by default)
 	
 	
 	// in chrome 82 and earlier
 	const writer = await fileHandle.createWriter();
-  await writer.write(0, contents);
-  await writer.close();
+	await writer.write(0, contents);
+	await writer.close();
 })()
+
+
+// store file handles in IndexedDB
+async function verifyPermission(fileHandle, withWrite) {
+	const opts = {};
+	if (withWrite) {
+		opts.writable = true;
+	}
+	if (await fileHandle.queryPermission(opts) === 'granted') { // we already have permission
+		return true;
+	}
+	if (await fileHandle.requestPermission(opts) === 'granted') { // we don't have permission, so we request it
+		return true;
+	}
+	return false; // user didn't grant permission
+}
 
 // util
 async function getNewFileHandle() {

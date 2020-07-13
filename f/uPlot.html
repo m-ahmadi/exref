@@ -1,40 +1,43 @@
-<link rel="stylesheet" href="uPlot.min.css">
-<script src="uPlot.iife.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot@1.0.11/dist/uPlot.min.css">
+<script src="https://cdn.jsdelivr.net/npm/uplot@1.0.11/dist/uPlot.iife.min.js"></script>
 
-<div id="chart1"></div>
+<div id="x"></div>
+<div id="y"></div>
 
 <script>
 const data = [
-  [1546300800, 1546387200],    // x-values (timestamps) must be numbers, unique, and in ascending order
-  [        35,         71],    // y-values (series 1)   must be numbers (or nulls for missing data)
-  [        90,         15],    // y-values (series 2)   ...
-	// x y arrays must be of equal lengths >= 2
+	[1546300800, 1546387200],
+	[35, 71],
+	[90, 15],
 ];
 
-const opts = {
-  title: 'My Chart',
-  id: 'chart1',         // html attrs to set on chart's container <div>
-  class: 'my-chart',    // ...
-  width: 600,           // required in area, axes & ticks
-  height: 400,          // ...
-  series: [             // series are only rendered if specified here
-    {},
-    { // all optional:
-      show: true,       // initial toggled state (optional)
-      spanGaps: false,  // set true to connect null data points
-      label: 'RAM',     // in-legend display. default: Value
-      value: (self, rawValue) => '$' + rawValue.toFixed(2),
-      // series style
-      stroke: 'red',    // default: black
-      width: 1,         // series' line width in css pixels
-      fill: 'rgba(255,0,0,0.3)',
-      dash: [10, 5],
-		}, // stroke, width, fill, dash map directly to canvas api
-		{
-			show: true
-		}
-  ],
-};
+const chart1 = new uPlot({width:600,height:400,series:[{},{},{}]}, data, document.body);
 
-const uplot = new uPlot(opts, data, document.body);
+const chart2 = new uPlot({width:600,height:400,
+	series:[
+		{ label: false, value: false},
+		{label: false, value: false}
+	]
+	
+}, data, document.body);
+
+const chart3 = new uPlot({
+	title: 'My Chart',
+	width: 600,
+	height: 400,
+	series: [
+		{},
+		{
+			show: true,
+			spanGaps: false,
+			label: 'RAM',
+			value: (self, rawValue) => '$' + rawValue.toFixed(2),
+			stroke: 'red',
+			width: 1,
+			fill: 'rgba(255,0,0,0.3)',
+			dash: [10, 5],
+		},
+		{ show: true }
+	],
+}, data, document.body);
 </script>

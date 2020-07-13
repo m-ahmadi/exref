@@ -1,4 +1,5 @@
 Light Explorer				ctrl + b
 Reindent file				shift + alt + f
-HTML Tag: select tag + content		ctrl + t
+Space to TAB (Leading)			ctrl + T
+
 HTML Tag: select tag content		ctrl + shift + c
