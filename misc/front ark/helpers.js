@@ -19,7 +19,7 @@ function __els(root=document, obj, overwrite=false) {
 			res[k].push(i); // res[k] = res[k].add(i);
 		});
 	});
-	res.root = root; // $(root)
+	res.root = root;
 	if (obj) {
 		Object.keys(res).forEach(k => {
 			if (!obj[k] || overwrite) obj[k] = res[k];

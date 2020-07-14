@@ -43,8 +43,22 @@ const opts = {
 		},
 	],
 	
+	cursor: {
+		show: false
+	},
+	select: {
+		show: false,
+	},
+	legend: {
+		show: false,
+	},
+	scales: {
+		x: {
+			time: false,
+		},
+	},
+	
 	axes: [
-		{},
 		{
 			show:       true,
 			label:     'Population',

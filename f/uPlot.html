@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot@1.0.11/dist/uPlot.min.css">
 <script src="https://cdn.jsdelivr.net/npm/uplot@1.0.11/dist/uPlot.iife.min.js"></script>
 
+<a href="https://leeoniya.github.io/uPlot/demos/index.html">demos</a>
 <div id="x"></div>
 <div id="y"></div>
 
@@ -13,15 +14,26 @@ const data = [
 
 const chart1 = new uPlot({width:600,height:400,series:[{},{},{}]}, data, document.body);
 
-const chart2 = new uPlot({width:600,height:400,
-	series:[
-		{ label: false, value: false},
-		{label: false, value: false}
-	]
-	
+const chart2 = new uPlot({
+	width:600,height:400,
+	//cursor: {show: false},
+	//select: {show: false},
+	legend: {show: false},
+	//scales: { x: {time: false} },
+	series: [ {}, {} ],
 }, data, document.body);
 
 const chart3 = new uPlot({
+	width:600,height:400,
+	cursor: {show: false},
+	select: {show: false},
+	legend: {show: false},
+	scales: { x: {time: false} },
+	axes: [ {show: false}, {show: false} ],
+	series: [ {}, {} ],
+}, data, document.body);
+
+const chart4 = new uPlot({
 	title: 'My Chart',
 	width: 600,
 	height: 400,
