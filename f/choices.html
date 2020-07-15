@@ -1,0 +1,28 @@
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css" /> -->
+<style>body{font-family:calibri;}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+<a href="https://joshuajohnson.co.uk/Choices/">demos</a> <br><br>
+
+<select id="i1">
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+</select>
+
+<input id="i2" />
+
+<select id="i3" multiple>
+	<option>1</option>
+	<option>2</option>
+	<option>3</option>
+</select>
+
+<script>
+new Choices('#i1');
+
+new Choices('#i2', {items: ['value 1','value 2','value 3']});
+
+new Choices('#i3', {removeItemButton: true});
+</script>
