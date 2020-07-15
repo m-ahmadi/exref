@@ -3,6 +3,16 @@ clc         % clear command window
 doc moveavg % open docs
 help plot   % show help
 
+x = 1:10;
+y = 11:20;
+y(7) % 7
+y(7) = 77
+y(7) % 77
+y(1:4) = [11 12 13 14]
+y(4) % 14
+
+% create section in livescript
+%% section_name enter
 
 % plot multiple things
 plot(1:10)

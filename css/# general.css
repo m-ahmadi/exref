@@ -28,12 +28,16 @@ img {
 	max-width: 100%; /* prevent image from scaling larger than its original size */
 }
 
-
 /* combine a background image and gradients */
 body {
 	background: #6cab26;
 	background-image: url(IMAGE_URL); /* fallback */
 	background-image: url(IMAGE_URL), linear-gradient(to bottom, #6cab26, #6ceb86);
+}
+
+/* alt text of image in css */
+.x {
+	content: url("foo.png") / "I am an alt text";
 }
 
 /* text in paragraph goes outside of p element width

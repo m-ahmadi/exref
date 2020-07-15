@@ -1,0 +1,1 @@
+<installation_dir>\uninstall\bin\win64\uninstall.exe
