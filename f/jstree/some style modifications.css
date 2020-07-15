@@ -3,3 +3,7 @@
 
 /* hide icons of non-root nodes */
 .jstree.jstree-default > ul.jstree-container-ul > * li.jstree-node > a.jstree-anchor > i.jstree-themeicon { display: none; }
+
+/* move text of all nodes closer to checkbox/foldericon */
+.jstree.jstree-default .jstree-anchor { line-height: 20px; }
+.jstree.jstree-default .jstree-anchor > .jstree-themeicon { margin-right: -4px; margin-left: -2px; }
