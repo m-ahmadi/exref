@@ -1,0 +1,5 @@
+type a.txt b.txt > out.txt
+
+copy a.txt + b.txt out.txt
+
+copy /b *.txt newfile.txt			order not guaranteed

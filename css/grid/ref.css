@@ -9,8 +9,10 @@
 	grid-auto-flow:        row|column|dense|row dense|column dense;
 	grid-auto-rows:        auto|max-content|min-content|length;
 	
-	grid-row-gap:          number;
-	grid-column-gap:       number;
+	row-gap:               number; /* standard */
+	column-gap:            number; /* standard */
+	grid-row-gap:          number; /* old */
+	grid-column-gap:       number; /* old */
 	
 	/* shorthands: */
 	grid-gap:      row-gap column-gap;

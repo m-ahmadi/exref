@@ -1,8 +1,9 @@
 @echo off
 
 echo normal!
-echo escape percent by doubling it:
+echo escape percent and double-qoute by doubling them:
 echo   25%% of my share
+echo   node -e "console.log(""hello dude"")"
 echo escape rest with caret:
 echo   ^\
 echo   ^&
