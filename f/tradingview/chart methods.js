@@ -13,10 +13,11 @@ chart.getVisibleRange()      // {from: 1351486800, to: 1376366400}
 chart.getVisiblePriceRange() // {from: 2567.615763546798, to: 4212.384236453202}
 
 chart.removeAllShapes()
-chart.removeEntity(entityId) // id returned when creating the shape
+chart.removeEntity(entityId)                            // id returned when creating the shape
 
-chart.onDataLoaded().subscribe(null, callback) // each time history bars are loaded
+chart.onDataLoaded().subscribe(null, callback)          // each time history bars are loaded
 chart.dataReady( callback(interval) )
+chart.onVisibleRangeChanged().subscribe(null, callback) // when zooming/panning
 
 chart.getShapeById('elKGRt').getProperties()
 chart.getShapeById('elKGRt').setProperties({text: 'new text'})

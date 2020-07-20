@@ -3,6 +3,10 @@ code .
 code --install-extension <extension_name>
 code --list-extensions
 
+-------------------------------------------------------------------------------
+win+r command setup
+
+mklink %windir%\code "D:\Program Files\VSCode\Code.exe"
 --------------------------------------------------------------------------------
 export extension list
 code --list-extensions | xargs -L 1 echo code --install-extension

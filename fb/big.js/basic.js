@@ -1,5 +1,9 @@
-// cdn: https://cdnjs.cloudflare.com/ajax/libs/big.js/5.2.2/big.min.js
-// install
+/* cdn
+	https://cdn.jsdelivr.net/npm/big.js
+	https://cdnjs.cloudflare.com/ajax/libs/big.js/5.2.2/big.min.js
+*/
+
+// install 
 Big                                // browser global <script src='big.js'></script>
 require(['big'], function(Big) {}) // requirejs
 const Big = require('big.js')      // node

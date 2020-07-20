@@ -25,12 +25,12 @@
 		// "editor.wordHighlightBackground": "#75D975",      // change word highlight color ("#d2c8ff" for matching html tag highlight color, but not the right solution)
 		// "editor.selectionHighlightBackground": "#C0C0C0", // fixing selected text color highlight issue
 		"editorBracketMatch.background": "#fff",
-		"editorBracketMatch.border": "#ff0000"
+		"editorBracketMatch.border": "#ff0000",
 	},
 	
 	// treat hbs as html
 	"files.associations": {
-		"*.hbs": "html"
+		"*.hbs": "html",
 	},
 	
 	// "git.enabled": false // disable git

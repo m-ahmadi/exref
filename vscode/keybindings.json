@@ -15,4 +15,5 @@
 	{ "key": "ctrl+d",       "command": "editor.action.copyLinesDownAction",  "when": "editorTextFocus && !editorReadonly" },
 	{ "key": "ctrl+u",       "command": "editor.action.transformToLowercase", "when": "textInputFocus" },
 	{ "key": "ctrl+shift+u", "command": "editor.action.transformToUppercase", "when": "textInputFocus" },
+	{ "key": "ctrl+shift+b", "command": "workbench.action.toggleActivityBarVisibility" },
 ]
