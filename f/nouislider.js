@@ -1,6 +1,10 @@
-// includes:
-// nouislider.min.css
-// nouislider.min.js
+/* includes:
+nouislider.css
+nouislider.js
+
+cdn:
+https://cdn.jsdelivr.net/npm/nouislider/
+*/
 
 var slider = document.getElementById('slider'); // jquery el won't work: $('#slider')
 

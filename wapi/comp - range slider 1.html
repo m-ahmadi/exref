@@ -1,0 +1,162 @@
+<style>
+/*
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+*/
+
+.slider {
+	width: 600px;
+	height: 80px;
+	background: yellow;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.slider-selection {
+	position: absolute;
+	height: 100%;
+	background: blue;
+}
+
+.slider-handle {
+	position: absolute;
+	width: 10px;
+	height: 120%;
+	background: rgba(255,0,0,.4);
+	cursor: ew-resize;
+}
+
+</style>
+
+<div class="slider" id="slider">
+	<div class="slider-selection" style="width: 80%; left: 10%;" id="selection"></div>
+	<div class="slider-handle" style="left:0; top:-20%;"></div>
+	<div class="slider-handle" style="right:0; bottom:-20%;"></div>
+</div>
+
+<script>
+log=console.log;
+$ = (selector, ctx) => [...document.querySelectorAll(selector)];
+
+const draggable = (() => {
+	const els = [];
+	
+	let el;
+	let which;
+	
+	const leftHandle = $('.slider-handle')[0];
+	const rightHandle = $('.slider-handle')[1];
+	
+	window.addEventListener('mousedown', start);
+	window.addEventListener('dragstart', start);
+	
+	window.addEventListener('mouseup', end);
+	window.addEventListener('dragend', end);
+	
+	//const move = throttle(_move, 15);
+	const move = _move;
+	window.addEventListener('mousemove', move);
+	window.addEventListener('dragover', move);
+	
+	function start(e) {
+		el = e.target;
+		el.dragging = true;
+		el.clickOffsetX = e.offsetX;
+		if (els.indexOf(el) === -1) { el = undefined; return; }
+	}
+	
+	function end() {
+		if (!el) return;
+		el.dragging = false;
+		el = undefined;
+	}
+	
+	let selectionRight = selection.getBoundingClientRect().right;
+	let prevLeft, prevWidth;
+	
+	function _move(e) {
+		if (!el || !el.dragging) return;
+		e.preventDefault();
+		
+		let leftBound, rightBound;
+		
+		const rootBox  = slider.getBoundingClientRect();
+		const elWidth  = el.getBoundingClientRect().width;
+		leftBound = 0;
+		rightBound = rootBox.right - rootBox.left;
+		
+		let n = (e.pageX - el.parentElement.offsetLeft) - el.clickOffsetX;
+		if (n < leftBound) n = leftBound;
+		if (n + elWidth > rightBound) n = rightBound - elWidth;
+		
+		let newLeft = n;
+		let newWidth;
+		
+		
+		if (el._which === 'left') {
+			newWidth = selectionRight - newLeft;
+			
+			if (newLeft === prevLeft || newWidth === prevWidth) return;
+			prevLeft = newLeft;
+			prevWidth = newWidth;
+			
+			rightBound = rightHandle.offsetLeft;
+			
+			
+			if (newLeft + elWidth > rightBound) newLeft = rightBound - elWidth;
+			if (newWidth < el.offsetWidth*2) newWidth = el.offsetWidth*2;
+			
+			el.style.left = newLeft;
+			selection.style.left = newLeft;
+			selection.style.width = newWidth;
+			
+		} else if (el._which === 'right') {
+			newWidth = el.offsetLeft - selection.offsetLeft + el.offsetWidth;
+			
+			rightBound = leftHandle.offsetLeft + leftHandle.offsetWidth;
+			if (newLeft < rightBound) newLeft = rightBound;
+			
+			el.style.left = newLeft;
+			if (newWidth === prevWidth) return;
+			prevWidth = newWidth;
+			
+			
+			selection.style.width = newWidth;
+			selectionRight =  el.offsetLeft + el.offsetWidth;
+		}
+		
+	}
+	
+	
+	
+	return (el, which) => {
+		el._which = which;
+		els.push(el);
+	};
+})();
+
+
+draggable($('.slider-handle')[0], 'left');
+draggable($('.slider-handle')[1], 'right');
+draggable($('.slider-selection')[0], 'middle');
+
+
+//15
+function throttle(fn, wait=100) {
+	let last;
+	let deferTimer;
+	return function (...args) {
+		const now = Date.now();
+		if (last && now < last + wait) {
+			clearTimeout(deferTimer);
+			deferTimer = setTimeout(function () {
+				last = now;
+				fn.apply(this, args);
+			}, wait);
+		} else {
+			last = now;
+			fn.apply(this, args);
+		}
+	};
+}
+</script>

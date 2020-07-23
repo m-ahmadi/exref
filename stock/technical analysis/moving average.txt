@@ -1,0 +1,18 @@
+moving average:
+	is an average of a certain body of data.
+	is a follower, not a leader.
+	never anticipates, it only reacts.
+	functions in the same senses that standard chart analysis do.
+
+types of moving averages
+sma:		simple (arithmetic)
+smma:		smoothed
+lwma:		linearly weighted
+ema:		exponential
+	
+
+which prices to use
+close
+midpoint	dividing the day's range by two (whaaat?)
+hlc		high + low + close / 3
+price-bands	average of high and low separately (volatility buffer or neutral zone)
