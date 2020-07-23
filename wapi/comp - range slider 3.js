@@ -1,51 +1,45 @@
-<style>
-/*
-html { box-sizing: border-box; }
-*, *::before, *::after { box-sizing: inherit; }
-*/
-
-.slider {
-	width: 600px;
-	height: 80px;
-	background: yellow;
-	position: relative;
-	box-sizing: border-box;
-}
-
-.slider-selection {
-	position: relative;
-	height: 100%;
-	background: blue;
-}
-
-.slider-handle {
-	position: absolute;
-	width: 10px;
-	height: 120%;
-	background: rgba(255,0,0,.4);
-	cursor: ew-resize;
-}
-
-</style>
-
-<div class="slider">
-	<div class="slider-selection" style="width: 80%; left: 10%;">
-		<div class="slider-handle" style="left:0; top:-20%;"></div>
-		<div class="slider-handle" style="right:0; bottom:-20%;"></div>
-	</div>
-</div>
-
-<script>
-log=console.log;
-$ = (selector, ctx) => [...document.querySelectorAll(selector)];
-
-const slider = $('.slider')[0];
-const selection = $('.slider-selection')[0];
-const leftHandle = $('.slider-handle')[0];
-const rightHandle = $('.slider-handle')[1];
-
-const draggable = (() => {
-	const els = [];
+const newRangeSlider = (() => {
+	
+function create(container, options) {
+	const instance = new EventTarget();
+	
+	container.innerHTML = '\
+	<div class="slider">\
+	<div class="slider-selection" style="width: 80%; left: 10%;">\
+				<div class="slider-handle" style="left:0; top:-20%;"></div>\
+				<div class="slider-handle" style="right:0; bottom:-20%;"></div>\
+			</div>\
+		</div>\
+	';
+	
+	const slider      = container.querySelector('.slider'); 
+	const selection   = container.querySelector('.slider-selection');
+	const leftHandle  = container.querySelectorAll('.slider-handle')[0];
+	const rightHandle = container.querySelectorAll('.slider-handle')[1];
+	
+	Object.assign(slider.style, {
+		width:      '600px',
+		height:     '80px',
+		background: 'yellow',
+		position:   'relative',
+		boxSizing:  'border-box',
+	});
+	
+	[leftHandle, rightHandle].forEach(i => Object.assign(i.style, {
+		position:   'absolute',
+		width:      '10px',
+		height:     '120%',
+		background: 'rgba(255,0,0,.4)',
+		cursor:     'ew-resize',
+	}));
+	
+	Object.assign(selection.style, {
+		position:   'relative',
+		height:     '100%',
+		background: 'blue',
+	});
+	
+	const els = [leftHandle, rightHandle, selection];
 	
 	let el;
 	let which;
@@ -122,25 +116,15 @@ const draggable = (() => {
 			selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
 		}
 		
-		log(  (selection.getBoundingClientRect().width / slider.getBoundingClientRect().width) * 100   );
+		const newRange = {};
+		instance.dispatchEvent( new CustomEvent('slide', {detail: newRange}) );
+		console.log(  (selection.getBoundingClientRect().width / slider.getBoundingClientRect().width) * 100   );
 		
 	}
 	
-	
-	
-	return (el, which) => {
-		el._which = which;
-		els.push(el);
-	};
-})();
+	return instance;
+}
 
-
-draggable($('.slider-handle')[0], 'left');
-draggable($('.slider-handle')[1], 'right');
-draggable($('.slider-selection')[0], 'middle');
-
-
-//15
 function throttle(fn, wait=100) {
 	let last;
 	let deferTimer;
@@ -158,4 +142,6 @@ function throttle(fn, wait=100) {
 		}
 	};
 }
-</script>
+	
+return create;
+})();

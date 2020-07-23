@@ -53,8 +53,8 @@ const draggable = (() => {
 	window.addEventListener('mouseup', end);
 	window.addEventListener('dragend', end);
 	
-	//const move = throttle(_move, 15);
-	const move = _move;
+	const move = throttle(_move, 15);
+	//const move = _move;
 	window.addEventListener('mousemove', move);
 	window.addEventListener('dragover', move);
 	
