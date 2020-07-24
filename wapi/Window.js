@@ -63,7 +63,7 @@ window[0], window[1], ...											W
 
 .alert()
 .blur()
-.cancelAnimationFrame()												X
+.cancelAnimationFrame(requestID)							X
 .cancelIdleCallback()													X
 .clearImmediate()
 .close()
@@ -83,7 +83,7 @@ window[0], window[1], ...											W
 .postMessage()
 .print()
 .prompt()
-.requestAnimationFrame()
+.requestAnimationFrame(callback): requestID
 .requestIdleCallback()												X
 .resizeBy()
 .resizeTo()

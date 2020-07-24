@@ -59,6 +59,7 @@ var event = new Event('change')
 var event = new CustomEvent('build', {detail: 'event data', bubble, cancelable, ...})
 var event = new MouseEvent('click', {cancelable: true})
 elem.dispatchEvent(event)
+var cancelled = !elem.dispatchEvent(event)
 
 // custom event
 var my = new EventTarget();

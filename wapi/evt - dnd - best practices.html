@@ -1,0 +1,45 @@
+<style>
+#box {
+	width: 100px;
+	height: 100px;
+	background: red;
+	position: absolute;
+	cursor: grab;
+}
+</style>
+
+<div id="box"></div>
+
+<script>
+// bind low
+box.addEventListener('mousedown', function (e) {
+	this.dragging = true;
+	this.clickOffsetX = e.offsetX;
+	this.clickOffsetY = e.offsetY;
+	this.style.cursor = 'grabbing';
+	
+	// bind late
+	window.addEventListener('mouseup', up.bind(this));
+	window.addEventListener('mousemove', move.bind(this));
+});
+
+function up() {
+	this.dragging = false;
+	this.style.cursor = '';
+	window.removeEventListener('mouseup', up);
+	window.removeEventListener('mousemove', move);
+}
+
+let reqId;
+function move(e) {
+	if (this.dragging) {
+		if (reqId) window.cancelAnimationFrame(reqId);
+		reqId = window.requestAnimationFrame(() => {
+			console.log(2);
+			this.style.left = (e.pageX - this.parentElement.offsetLeft) - this.clickOffsetX;
+			this.style.top = (e.pageY - this.parentElement.offsetTop) - this.clickOffsetY;
+			reqId = undefined;
+		});
+	}
+}
+</script>

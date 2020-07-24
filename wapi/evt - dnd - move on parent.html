@@ -8,21 +8,21 @@
 }
 </style>
 
-<div id="box" ></div>
+<div id="box"></div>
 
 <script>
 var el = document.querySelector('#box');
 
 el.addEventListener('mousedown', function (e) {
 	this.dragging = true;
-	this.clickOffsetX = e.offsetX; //e.clientX - this.offsetLeft;
-	this.clickOffsetY = e.offsetY; //e.clientY - this.offsetTop;
+	this.clickOffsetX = e.offsetX; //e.pageX - this.offsetLeft;
+	this.clickOffsetY = e.offsetY; //e.pageX - this.offsetTop;
 	this.style.cursor = 'grabbing';
 });
 
 el.addEventListener('mouseup', function () {
 	this.dragging = false;
-	this.style.cursor = 'grab';
+	this.style.cursor = '';
 });
 
 el.parentElement.addEventListener('mousemove', function (e) {

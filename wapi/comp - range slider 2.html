@@ -39,13 +39,13 @@ html { box-sizing: border-box; }
 log=console.log;
 $ = (selector, ctx) => [...document.querySelectorAll(selector)];
 
-const slider = $('.slider')[0];
-const selection = $('.slider-selection')[0];
-const leftHandle = $('.slider-handle')[0];
+const slider      = $('.slider')[0];
+const selection   = $('.slider-selection')[0];
+const leftHandle  = $('.slider-handle')[0];
 const rightHandle = $('.slider-handle')[1];
 
-const draggable = (() => {
-	const els = [];
+(() => {
+	const els = [leftHandle, rightHandle, selection];
 	
 	let el;
 	let which;
@@ -122,25 +122,15 @@ const draggable = (() => {
 			selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
 		}
 		
-		log(  (selection.getBoundingClientRect().width / slider.getBoundingClientRect().width) * 100   );
+		let min = 0;
+		let max = 100;
+		log('range', (selection.getBoundingClientRect().width / slider.getBoundingClientRect().width) * 100   );
+		log('min', max*(selection.offsetLeft / slider.getBoundingClientRect().width)   );
+		log('max', max*((selection.offsetLeft + selection.offsetWidth) / slider.getBoundingClientRect().width)   );
 		
 	}
-	
-	
-	
-	return (el, which) => {
-		el._which = which;
-		els.push(el);
-	};
 })();
 
-
-draggable($('.slider-handle')[0], 'left');
-draggable($('.slider-handle')[1], 'right');
-draggable($('.slider-selection')[0], 'middle');
-
-
-//15
 function throttle(fn, wait=100) {
 	let last;
 	let deferTimer;

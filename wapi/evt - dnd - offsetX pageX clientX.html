@@ -1,0 +1,52 @@
+<style>
+.box {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	cursor: grab;
+	color: white;
+	font-size: 5em;
+}
+</style>
+
+<div id="a" class="box" style="background: green">a</div>    <br><br>
+
+<div id="b" class="box" style="background: deeppink">b</div> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div id="c" class="box" style="background: orange">c</div>   <br><br>
+
+<script>
+a.onmousedown = function (e) {
+	this.dragging = true;
+	this.clickOffsetX = e.offsetX;
+	this.clickOffsetY = e.offsetY;
+};
+
+b.onmousedown = function (e) {
+	this.dragging = true;
+	this.clickOffsetX = e.pageX - this.offsetLeft;
+	this.clickOffsetY = e.pageY - this.offsetTop;
+};
+
+c.onmousedown = function (e) {
+	this.dragging = true;
+	this.clickOffsetX = e.clientX - this.offsetLeft;
+	this.clickOffsetY = e.clientY - this.offsetTop;
+};
+
+
+[a,b,c].forEach(i => {
+	i.onmouseup = up;
+	i.onmousemove = move;
+});
+
+function up() {
+	this.dragging = false;
+}
+function move(e) {
+	if (this.dragging) {
+		this.style.left = (e.pageX - this.parentElement.offsetLeft) - this.clickOffsetX;
+		this.style.top = (e.pageY - this.parentElement.offsetTop) - this.clickOffsetY;
+	}
+}
+</script>

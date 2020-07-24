@@ -40,6 +40,22 @@ UIEvent.view
 ! UIEvent.which
 
 MouseEvent extends UIEvent
+var event = new MouseEvent(typeArg='', ?mouseEventInit={
+	...eventInit,
+	...UIEventInit,
+	screenX:       0,
+	screenY:       0,
+	clientX:       0,
+	clientY:       0,
+	ctrlKey:       false,
+	shiftKey:      false,
+	altKey:        false,
+	metaKey:       false,
+	button:        0,
+	buttons:       0,
+	relatedTarget: null,
+	region:        null,
+})
 MouseEvent.WEBKIT_FORCE_AT_MOUSE_DOWN
 MouseEvent.WEBKIT_FORCE_AT_FORCE_MOUSE_DOWN
 MouseEvent.altKey
@@ -64,7 +80,7 @@ MouseEvent.which !
 MouseEvent.MouseEvent.mozInputSource !
 MouseEvent.webkitForce !
 MouseEvent.getModifierState()
-'click' 'dblclick' 'mousedown' 'mouseenter' 'mouseleave' 'mousemove' 'mouseover' 'mouseout' 'mouseup' 'contextmenu' 'auxclick' 
+'click' 'dblclick' 'mousedown' 'mouseenter' 'mouseleave' 'mousemove' 'mouseover' 'mouseout' 'mouseup' 'contextmenu' 'auxclick'
 
 KeyboardEvent extends UIEvent
 KeyboardEvent.DOM_KEY_LOCATION_STANDARD

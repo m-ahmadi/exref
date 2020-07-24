@@ -1,16 +1,16 @@
 const newRangeSlider = (() => {
-	
+log=console.log;
+
 function create(container, options) {
 	const instance = new EventTarget();
 	
-	container.innerHTML = '\
-	<div class="slider">\
+	container.innerHTML = ''+
+'<div class="slider">\
 	<div class="slider-selection" style="width: 80%; left: 10%;">\
-				<div class="slider-handle" style="left:0; top:-20%;"></div>\
-				<div class="slider-handle" style="right:0; bottom:-20%;"></div>\
-			</div>\
+			<div class="slider-handle" style="left:0; top:-20%;"></div>\
+			<div class="slider-handle" style="right:0; bottom:-20%;"></div>\
 		</div>\
-	';
+</div>';
 	
 	const slider      = container.querySelector('.slider'); 
 	const selection   = container.querySelector('.slider-selection');
@@ -42,7 +42,7 @@ function create(container, options) {
 	const els = [leftHandle, rightHandle, selection];
 	
 	let el;
-	let which;
+	let reqId;
 	
 	window.addEventListener('mousedown', start);
 	window.addEventListener('dragstart', start);
@@ -50,11 +50,10 @@ function create(container, options) {
 	window.addEventListener('mouseup', end);
 	window.addEventListener('dragend', end);
 	
-	const move = throttle(_move, 5);
-	//const move = _move;
+	const move = throttle(_move, 15);
+	// const move = _move;
 	window.addEventListener('mousemove', move);
 	window.addEventListener('dragover', move);
-	
 	
 	function start(e) {
 		if (els.indexOf(e.target) === -1) return;
@@ -73,53 +72,59 @@ function create(container, options) {
 	
 	function _move(e) {
 		if (!el || !el.dragging) return;
-		e.preventDefault();
+		//e.preventDefault();
+		if (e.type === 'dragover') e.preventDefault();
 		
-		if (el === leftHandle) {
-			const leftBound = 0;
-			const rightBound = rightHandle.getBoundingClientRect().left - slider.offsetLeft;
+		if (reqId) window.cancelAnimationFrame(reqId);
+		reqId = window.requestAnimationFrame(() => {
 			
-			let newLeft = e.pageX - el.clickOffsetX - slider.offsetLeft;
-			if (newLeft < leftBound) newLeft = leftBound;
-			const elWidth  = el.getBoundingClientRect().width;
-			if (newLeft + elWidth > rightBound) newLeft = rightBound - elWidth;
+			if (el === leftHandle) {
+				const leftBound = 0;
+				const rightBound = rightHandle.getBoundingClientRect().left - slider.offsetLeft;
+				
+				let newLeft = e.pageX - el.clickOffsetX - slider.offsetLeft;
+				if (newLeft < leftBound) newLeft = leftBound;
+				const elWidth  = el.getBoundingClientRect().width;
+				if (newLeft + elWidth > rightBound) newLeft = rightBound - elWidth;
+				
+				const newWidth = selectionRight - newLeft;
+				
+				selection.style.left = newLeft;
+				selection.style.width = newWidth;
+				
+			} else if (el === rightHandle) {
+				const leftBox = leftHandle.getBoundingClientRect();
+				const leftBound = leftBox.right - leftBox.left + leftBox.width;
+				const rightBound = slider.getBoundingClientRect().right - selection.offsetLeft - slider.offsetLeft;
+				
+				
+				let newWidth = e.pageX - el.clickOffsetX - selection.offsetLeft - slider.offsetLeft + el.offsetWidth;
+				if (newWidth < leftBound) newWidth = leftBound;
+				if (newWidth > rightBound) newWidth = rightBound;
+				
+				selection.style.width = newWidth;
+				selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
+				
+			} else if (el === selection) {
+				const leftBound = 0;
+				const rightBound = slider.getBoundingClientRect().right - slider.offsetLeft;
+				
+				let newLeft = e.pageX - el.clickOffsetX - slider.offsetLeft;
+				
+				if (newLeft < leftBound) newLeft = leftBound;
+				const elWidth  = el.getBoundingClientRect().width;
+				if (newLeft + elWidth > rightBound) newLeft = rightBound - elWidth;
+				
+				selection.style.left = newLeft;
+				selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
+			}
 			
-			const newWidth = selectionRight - newLeft;
-			
-			selection.style.left = newLeft;
-			selection.style.width = newWidth;
-			
-		} else if (el === rightHandle) {
-			const leftBox = leftHandle.getBoundingClientRect();
-			const leftBound = leftBox.right - leftBox.left + leftBox.width;
-			const rightBound = slider.getBoundingClientRect().right - selection.offsetLeft - slider.offsetLeft;
-			
-			
-			let newWidth = e.pageX - el.clickOffsetX - selection.offsetLeft - slider.offsetLeft + el.offsetWidth;
-			if (newWidth < leftBound) newWidth = leftBound;
-			if (newWidth > rightBound) newWidth = rightBound;
-			
-			selection.style.width = newWidth;
-			selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
-			
-		} else if (el === selection) {
-			const leftBound = 0;
-			const rightBound = slider.getBoundingClientRect().right - slider.offsetLeft;
-			
-			let newLeft = e.pageX - el.clickOffsetX - slider.offsetLeft;
-			
-			if (newLeft < leftBound) newLeft = leftBound;
-			const elWidth  = el.getBoundingClientRect().width;
-			if (newLeft + elWidth > rightBound) newLeft = rightBound - elWidth;
-			
-			selection.style.left = newLeft;
-			selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
-		}
+			const newRange = {};
+			instance.dispatchEvent( new CustomEvent('slide', {detail: newRange}) );
+			//console.log(  (selection.getBoundingClientRect().width / slider.getBoundingClientRect().width) * 100   );
 		
-		const newRange = {};
-		instance.dispatchEvent( new CustomEvent('slide', {detail: newRange}) );
-		console.log(  (selection.getBoundingClientRect().width / slider.getBoundingClientRect().width) * 100   );
-		
+			reqId = undefined;
+		});
 	}
 	
 	return instance;
@@ -141,6 +146,28 @@ function throttle(fn, wait=100) {
 			fn.apply(this, args);
 		}
 	};
+}
+
+// 
+const opts = {passive:false, useCapture:true};
+window.addEventListener('touchstart', touch2mouse, opts);
+window.addEventListener('touchmove', touch2mouse, opts);
+window.addEventListener('touchend', touch2mouse, opts);
+function touch2mouse(e) {
+	e.preventDefault();
+	const touch = e.changedTouches[0];
+	let type = e.type;
+	type =
+		type === 'touchstart' ? 'mousedown' : 
+		type === 'touchend'   ? 'mouseup' : 
+		type === 'touchmove'  ? 'mousemove' : type;
+	const mouseEvent = new MouseEvent(type, {
+		screenX: touch.screenX,
+		screenY: touch.screenY,
+		clientX: touch.clientX,
+		clientY: touch.clientY
+	});
+	touch.target.dispatchEvent(mouseEvent);
 }
 	
 return create;

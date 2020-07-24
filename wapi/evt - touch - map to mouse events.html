@@ -1,0 +1,51 @@
+<div id="box" style="width:100px; height:100px; background:red; position:absolute;"></div>
+
+<script>
+
+box.onmousedown = function (e) {
+	this.dragging = true;
+	this.clickOffsetX = e.offsetX;
+	this.clickOffsetY = e.offsetY;
+	document.onmouseup = up.bind(this);
+	document.onmousemove = move.bind(this);
+};
+function up() {
+	this.dragging = false;
+	document.onmouseup = null;
+	document.onmousemove = null;
+}
+function move(e) {
+	if (this.dragging) {
+		this.style.left = (e.pageX - this.parentElement.offsetLeft) - this.clickOffsetX;
+		this.style.top = (e.pageY - this.parentElement.offsetTop) - this.clickOffsetY;
+	}
+}
+
+// map touch events to existing mouse events
+window.addEventListener('touchstart', touch2mouse, {passive:false});
+window.addEventListener('touchmove', touch2mouse, {passive:false});
+window.addEventListener('touchend', touch2mouse, {passive:false});
+window.addEventListener('touchcancel', touch2mouse, {passive:false});
+
+function touch2mouse(e) {
+	e.preventDefault();
+	
+	const touch = e.changedTouches[0];
+	
+	let type = e.type;
+	type =
+		type === 'touchstart'  ? 'mousedown' : 
+		type === 'touchend'    ? 'mouseup' : 
+		type === 'touchcancel' ? 'mouseup' : 
+		type === 'touchmove'   ? 'mousemove' : type;
+	
+	const mouseEvent = new MouseEvent(type, {
+		screenX: touch.screenX,
+		screenY: touch.screenY,
+		clientX: touch.clientX,
+		clientY: touch.clientY
+	});
+	
+	touch.target.dispatchEvent(mouseEvent);
+}
+</script>
