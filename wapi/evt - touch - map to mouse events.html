@@ -34,12 +34,13 @@ function touch2mouse(e) {
 	
 	let type = e.type;
 	type =
-		type === 'touchstart'  ? 'mousedown' : 
-		type === 'touchend'    ? 'mouseup' : 
-		type === 'touchcancel' ? 'mouseup' : 
+		type === 'touchstart'  ? 'mousedown' :
+		type === 'touchend'    ? 'mouseup' :
+		type === 'touchcancel' ? 'mouseup' :
 		type === 'touchmove'   ? 'mousemove' : type;
 	
 	const mouseEvent = new MouseEvent(type, {
+		bubbles: true, // if needed
 		screenX: touch.screenX,
 		screenY: touch.screenY,
 		clientX: touch.clientX,

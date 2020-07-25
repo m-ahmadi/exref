@@ -74,9 +74,9 @@ function create(container, options) {
 		if (!el || !el.dragging) return;
 		//e.preventDefault();
 		if (e.type === 'dragover') e.preventDefault();
+		if (reqId) cancelAnimationFrame(reqId);
 		
-		if (reqId) window.cancelAnimationFrame(reqId);
-		reqId = window.requestAnimationFrame(() => {
+		reqId = requestAnimationFrame(() => {
 			
 			if (el === leftHandle) {
 				const leftBound = 0;
@@ -148,20 +148,22 @@ function throttle(fn, wait=100) {
 	};
 }
 
-// 
-const opts = {passive:false, useCapture:true};
+const opts = {passive:false};
 window.addEventListener('touchstart', touch2mouse, opts);
 window.addEventListener('touchmove', touch2mouse, opts);
 window.addEventListener('touchend', touch2mouse, opts);
+window.addEventListener('touchcancel', touch2mouse, opts);
 function touch2mouse(e) {
 	e.preventDefault();
 	const touch = e.changedTouches[0];
 	let type = e.type;
 	type =
-		type === 'touchstart' ? 'mousedown' : 
-		type === 'touchend'   ? 'mouseup' : 
-		type === 'touchmove'  ? 'mousemove' : type;
+		type === 'touchstart'  ? 'mousedown' :
+		type === 'touchend'    ? 'mouseup' :
+		type === 'touchcancel' ? 'mouseup' :
+		type === 'touchmove'   ? 'mousemove' : type;
 	const mouseEvent = new MouseEvent(type, {
+		bubbles: true,
 		screenX: touch.screenX,
 		screenY: touch.screenY,
 		clientX: touch.clientX,
