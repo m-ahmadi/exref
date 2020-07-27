@@ -79,7 +79,7 @@ const rightHandle = $('.slider-handle')[1];
 	
 	function _move(e) {
 		if (!el || !el.dragging) return;
-		e.preventDefault();
+		if (e.type === 'dragover') e.preventDefault();
 		
 		if (el === leftHandle) {
 			const leftBound = 0;
@@ -122,13 +122,16 @@ const rightHandle = $('.slider-handle')[1];
 			selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
 		}
 		
-		let min = 0;
-		let max = 100;
-		log('range', (selection.getBoundingClientRect().width / slider.getBoundingClientRect().width) * 100   );
-		log('min', max*(selection.offsetLeft / slider.getBoundingClientRect().width)   );
-		log('max', max*((selection.offsetLeft + selection.offsetWidth) / slider.getBoundingClientRect().width)   );
-		
+		const _pxWidth = slider.getBoundingClientRect().width;
+		const _pxMin   = selection.offsetLeft;
+		const _pxMax   = selection.offsetLeft + selection.offsetWidth;
+		const _ratio = _pxWidth / rangeMax;
+		const _min   = Math.round(_pxMin / _ratio); // rangeMax * (_pxMin / _pxWidth)
+		const _max   = Math.round(_pxMax / _ratio);
+		log('min=',_min, 'max=',_max);
 	}
+	const rangeMin = 0;
+	const rangeMax = 100;
 })();
 
 function throttle(fn, wait=100) {

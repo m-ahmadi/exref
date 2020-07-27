@@ -42,6 +42,10 @@ let { user: a, level: { name: b }, champion: c } = obj; // same as:
 let a = obj.user;
 let b = obj.level.num;
 let c = obj.champion;
+
+// another example
+var obj = { foo: 28, bar: {x:2,y:4} };
+var { bar: {y} } = obj; // y = obj.bar.y
 //--------------------------------------------------------------------------------------
 // combined array and object
 let props = [

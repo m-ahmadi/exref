@@ -1,4 +1,9 @@
-Object.defineProperty(obj, prop, descriptor)
+Object.defineProperty(obj, prop, descriptor={
+	value:        undefined,
+	writable:     false,
+	configurable: false,
+	enumerable:   false,
+})
 
 Object.defineProperty(obj, prop, {
 	value : function () {

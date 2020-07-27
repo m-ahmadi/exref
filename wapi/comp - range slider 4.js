@@ -1,4 +1,4 @@
-const newRangeSlider = (() => {
+// const newRangeSlider = (() => {
 log=console.log;
 
 function create(root, _opts={}) {
@@ -9,20 +9,28 @@ function create(root, _opts={}) {
 		moveDebounce: 15,
 		emitDebounce: 15
 	};
-	const opts = { ...defOpts, ..._opts };
+	const _atts = root.attributes;
+	const attrs = {
+		..._atts.min   && {min:   +_atts.min.value},
+		..._atts.max   && {max:   +_atts.max.value},
+		..._atts.width && {width: _atts.width.value},
+	};
+	const opts = { ...defOpts, ...attrs, ..._opts };
 	
 	root.innerHTML = ''+
-//<div class"slider">
-	'<div class="slider-selection" style="width: 80%; left: 10%;">\
+	'<div class="slider-selection" style="">\
 		<div class="slider-handle"   style="left:0; top:-20%;"></div>\
 		<div class="slider-handle"   style="right:0; bottom:-20%;"></div>\
 	</div>';
-//</div>
 	
-	const slider      = root;//.querySelector('.slider');
+	/* const slider      = root;
 	const selection   = root.querySelector('.slider-selection');
 	const leftHandle  = root.querySelectorAll('.slider-handle')[0];
-	const rightHandle = root.querySelectorAll('.slider-handle')[1];
+	const rightHandle = root.querySelectorAll('.slider-handle')[1]; */
+	slider      = root;
+	selection   = root.querySelector('.slider-selection');
+	leftHandle  = root.querySelectorAll('.slider-handle')[0];
+	rightHandle = root.querySelectorAll('.slider-handle')[1];
 	
 	Object.assign(slider.style, {
 		width:      opts.width,
@@ -35,7 +43,7 @@ function create(root, _opts={}) {
 	
 	[leftHandle, rightHandle].forEach(i => Object.assign(i.style, {
 		position:   'absolute',
-		width:      '10px',
+		width:      '2%',
 		height:     '120%',
 		background: 'rgba(255,0,0,.4)',
 		cursor:     'ew-resize',
@@ -68,8 +76,8 @@ function create(root, _opts={}) {
 		window.addEventListener('mousemove', move);
 		window.addEventListener('mouseup', end);
 		if (el !== selection) document.body.style.cursor = 'ew-resize';
+		
 	}
-	
 	function end() {
 		if (!el) return;
 		el.dragging = false;
@@ -83,7 +91,7 @@ function create(root, _opts={}) {
 	
 	function _move(e) {
 		if (!el || !el.dragging) return;
-		if (e.type === 'dragover') e.preventDefault();
+		if (e.type && e.type === 'dragover') e.preventDefault();
 		if (reqId) cancelAnimationFrame(reqId);
 		
 		reqId = requestAnimationFrame(() => {
@@ -127,14 +135,14 @@ function create(root, _opts={}) {
 				
 				selection.style.left = newLeft;
 				selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
+				
 			}
 			
-			const pxWidth = slider.getBoundingClientRect().width;
-			const pxMin   = selection.offsetLeft;
-			const pxMax   = selection.offsetLeft + selection.offsetWidth;
-			const ratio   = pxWidth / initialMax;
-			min = Math.round(pxMin / ratio);
-			max = Math.round(pxMax / ratio);
+			
+			
+			const { _min, _max } = getCurrentRange();
+			min = _min;
+			max = _max;
 			
 			if (min !== prevMin || max !== prevMax) {
 				if (min !== prevMin) prevMin = min;
@@ -144,6 +152,20 @@ function create(root, _opts={}) {
 			reqId = undefined;
 		});
 		
+	}
+	
+	function updateUi(min, max) {
+		
+	}
+	
+	function getCurrentRange() {
+		const pxWidth = slider.getBoundingClientRect().width;
+		const pxMin   = selection.offsetLeft;
+		const pxMax   = selection.offsetLeft + selection.offsetWidth;
+		const ratio   = pxWidth / initialMax;
+		const _min    = Math.round(pxMin / ratio);
+		const _max    = Math.round(pxMax / ratio);
+		return { _min, _max };
 	}
 	
 	return slider;
@@ -202,5 +224,31 @@ function touch2mouse(e) {
 	touch.target.dispatchEvent(mouseEvent);
 }
 	
-return create;
-})();
+
+
+/* 
+	Object.defineProperties(slider, {
+		'min': {
+			get: () => min,
+			set(v) {
+				min = v;
+				el = leftHandle;
+				el.dragging = true;
+				leftHandle.dispatchEvent(new MouseEvent('mousemove', {bubbles:true}));
+			}
+		},
+		'max': {
+			get: () => max,
+			set(v) {
+				max = v;
+				el = rightHandle;
+				el.dragging = true;
+				leftHandle.dispatchEvent(new MouseEvent('mousemove', {bubbles:true}));
+			}
+		},
+	});
+	*/
+
+const newRangeSlider = create;
+// return create;
+// })();

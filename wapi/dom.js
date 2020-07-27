@@ -179,9 +179,9 @@ fragment.append(elemB)
 elemC.append(fragment)
 
 function parseHTML(str) {
-  var el = document.createElement('div');
-  el.innerHTML = str;
-  return el.children;
+	var el = document.createElement('div');
+	el.innerHTML = str;
+	return el.children;
 }
 
 if (x instanceof HTMLElement) // dom el
@@ -193,6 +193,11 @@ el.querySelectorAll(':scope > *')
 // $el .width() .height()
 +getComputedStyle(el,null).width.replace('px','')
 el.getBoundingClientRect().width
+
+// $el.index()
+function index(el) {
+	return [...el.parentElement.children].indexOf(el);
+}
 
 // get els from bounding rect
 function getElementsFromRect(selector, x1, y1, x2, y2, ctx=document) {

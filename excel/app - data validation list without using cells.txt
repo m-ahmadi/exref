@@ -1,0 +1,6 @@
+use comma separated list:
+
+true,false
+yes,no
+2,4,6,8
+with space,without

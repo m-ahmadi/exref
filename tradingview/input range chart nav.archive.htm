@@ -1,0 +1,21 @@
+zoom:<input id="zoom" type="range" min="0" value="1" oninput="pan.max = this.value, zoomTo()" />&nbsp;&nbsp;&nbsp;
+pan: <input id="pan"  type="range" min="1" value="0" oninput="panTo()" />
+
+<script>
+tv.addEventListener('bars_ready', () => {
+	const n  = bars.length - 1;
+	pan.max  = n;
+	zoom.max = n;
+});
+
+function zoomTo() {
+  chart.setVisibleRange({ from: bars[+zoom.min].time, to: bars[+zoom.max - zoom.value].time });
+}
+function panTo() {
+	const _end = bars.length - 1;
+	const fromIdx = +pan.value;
+	let toIdx   =  fromIdx + (+zoom.value);
+	if (toIdx > _end) toIdx = _end;
+  chart.setVisibleRange({ from: bars[fromIdx].time, to: bars[toIdx].time });
+}
+</script>
