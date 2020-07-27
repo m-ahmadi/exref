@@ -29,8 +29,8 @@ function create(root, _opts={}) {
 		height:     '20px',
 		display:    'inline-block',
 		position:   'relative',
-		boxSizing:  'border-box',
-		background: 'yellow',
+		userSelect: 'none',
+		background: 'grey',
 	});
 	
 	[leftHandle, rightHandle].forEach(i => Object.assign(i.style, {
@@ -44,7 +44,7 @@ function create(root, _opts={}) {
 	Object.assign(selection.style, {
 		position:   'relative',
 		height:     '100%',
-		background: 'blue',
+		background: 'dodgerblue',
 	});
 	
 	let el;
@@ -75,6 +75,8 @@ function create(root, _opts={}) {
 		el.dragging = false;
 		el = undefined;
 		document.body.style.cursor = '';
+		window.removeEventListener('mousemove', move);
+		window.removeEventListener('mouseup', end);
 	}
 	
 	let selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;

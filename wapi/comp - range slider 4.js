@@ -19,8 +19,8 @@ function create(root, _opts={}) {
 	
 	root.innerHTML = ''+
 	'<div class="slider-selection" style="">\
-		<div class="slider-handle"   style="left:0; top:-20%;"></div>\
-		<div class="slider-handle"   style="right:0; bottom:-20%;"></div>\
+		<div class="slider-handle"   style="left:-10px;"></div>\
+		<div class="slider-handle"   style="right:-10px;"></div>\
 	</div>';
 	
 	/* const slider      = root;
@@ -33,26 +33,31 @@ function create(root, _opts={}) {
 	rightHandle = root.querySelectorAll('.slider-handle')[1];
 	
 	Object.assign(slider.style, {
-		width:      opts.width,
-		height:     '20px',
-		display:    'inline-block',
-		position:   'relative',
-		boxSizing:  'border-box',
-		background: 'yellow',
+		width:        opts.width,
+		height:       '20px',
+		display:      'inline-block',
+		position:     'relative',
+		userSelect:   'none',
+		background:   '#EEEEEF',
+		borderRadius: '1px',
+		border:       '1px solid #B2B2B2',
 	});
 	
 	[leftHandle, rightHandle].forEach(i => Object.assign(i.style, {
-		position:   'absolute',
-		width:      '2%',
-		height:     '120%',
-		background: 'rgba(255,0,0,.4)',
-		cursor:     'ew-resize',
+		position:     'absolute',
+		width:        '10px',
+		minWidth:     '1px',
+		height:       '200%',
+		top:          '-50%',
+		background:   '#23FB8B',
+		cursor:       'ew-resize',
+		borderRadius: '3px',
 	}));
 	
 	Object.assign(selection.style, {
-		position:   'relative',
-		height:     '100%',
-		background: 'blue',
+		position:     'relative',
+		height:       '100%',
+		background:   'dodgerblue',
 	});
 	
 	let el;
@@ -73,6 +78,7 @@ function create(root, _opts={}) {
 		el = this;
 		el.dragging = true;
 		el.clickOffsetX = e.offsetX;
+		log(e.offsetX);
 		window.addEventListener('mousemove', move);
 		window.addEventListener('mouseup', end);
 		if (el !== selection) document.body.style.cursor = 'ew-resize';
@@ -83,6 +89,8 @@ function create(root, _opts={}) {
 		el.dragging = false;
 		el = undefined;
 		document.body.style.cursor = '';
+		window.removeEventListener('mousemove', move);
+		window.removeEventListener('mouseup', end);
 	}
 	
 	let selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
@@ -98,9 +106,11 @@ function create(root, _opts={}) {
 			
 			if (el === leftHandle) {
 				const leftBound = 0;
-				const rightBound = rightHandle.getBoundingClientRect().left - slider.offsetLeft;
+				// const rightBound = rightHandle.getBoundingClientRect().left - slider.offsetLeft;
+				const rightBound = rightHandle.getBoundingClientRect().left;
 				
-				let newLeft = e.pageX - el.clickOffsetX - slider.offsetLeft;
+				// let newLeft = e.pageX - el.clickOffsetX - slider.offsetLeft;
+				let newLeft = e.pageX - slider.offsetLeft;
 				if (newLeft < leftBound) newLeft = leftBound;
 				const elWidth  = el.getBoundingClientRect().width;
 				if (newLeft + elWidth > rightBound) newLeft = rightBound - elWidth;
