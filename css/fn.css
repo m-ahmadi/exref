@@ -1,0 +1,12 @@
+.x {
+	/* hexadecimal notation */
+	color: #RGB[A];
+	color: #RRGGBB[AA];
+	
+	/* functional notation (RGBA=number|percent) */
+	color: rgb[a](R, G, B[, A]);
+	color: rgb[a](R G B[ / A]);
+	
+	color: hsl[a](H, S, L[, A]);
+	color: hsl[a](H S L[ / A]);
+}

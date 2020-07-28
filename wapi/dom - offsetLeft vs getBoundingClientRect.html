@@ -1,0 +1,51 @@
+<pre><p>mostly identical except when css transform is applied:
+
+Node.getBoundingClientRect()               returns rendering cooridantes
+HTMLElement.offsetWidth/Height/Top/Left    returns layout    cooridantes
+
+</p></pre>
+
+<style>.box {width: 100px; height: 50px; display: inline-block; color: white; font-size: 1.5em;} i {font: 1.5em monospace;}</style>
+
+<div id="box1" class="box" style="background: red;">box1</div>
+<div id="box2" class="box" style="background: green;">box2</div>
+<div id="box3" class="box" style="background: blue; transform: scale(0.5)">box3</div>
+<div id="box4" class="box" style="background: orange; transform: scale(1.5)">box4</div>
+
+<br><br>
+
+<select id="which" onchange="
+r1.innerText = window[which.value].offsetLeft,
+r2.innerText = window[which.value].offsetTop,
+r3.innerText = window[which.value].offsetWidth,
+r4.innerText = window[which.value].offsetHeight,
+
+r5.innerText = window[which.value].getBoundingClientRect().left,
+r6.innerText = window[which.value].getBoundingClientRect().top,
+r7.innerText = window[which.value].getBoundingClientRect().width,
+r8.innerText = window[which.value].getBoundingClientRect().height,
+r9.innerText = JSON.stringify(window[which.value].getBoundingClientRect())" multiple>
+	<option>box1</option>
+	<option>box2</option>
+	<option>box3</option>
+	<option>box4</option>
+</select>
+<br>
+
+<pre>
+offsetLeft    <i id="r1"></i>
+offsetTop     <i id="r2"></i>
+offsetWidth   <i id="r3"></i>
+offsetHeight  <i id="r4"></i>
+
+
+getBoundingClientRect()
+  .left       <i id="r5"></i>
+  .top        <i id="r6"></i>
+  .width      <i id="r7"></i>
+  .height     <i id="r8"></i>
+
+
+
+<small><small><i id="r9"></i></small></small>
+</pre>
