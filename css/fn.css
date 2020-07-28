@@ -1,12 +1,20 @@
 .x {
-	/* hexadecimal notation */
+	/* hex color */
 	color: #RGB[A];
 	color: #RRGGBB[AA];
 	
-	/* functional notation (RGBA=number|percent) */
+	/* functional color (RGBA=number|percent) */
 	color: rgb[a](R, G, B[, A]);
 	color: rgb[a](R G B[ / A]);
 	
 	color: hsl[a](H, S, L[, A]);
 	color: hsl[a](H S L[ / A]);
+	
+	
+	/* prop val calc */
+	width: calc(10px + 100px);
+	width: calc(100% - 30px);
+	width: calc(2em * 5);
+	width: calc(10% - (3px - 2em));
+	width: calc(var(--variable-width) + 20px);
 }

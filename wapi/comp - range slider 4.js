@@ -6,21 +6,20 @@ function create(root, _opts={}) {
 		min:          0,
 		max:          100,
 		width:        '100%',
+		height:       '20px',
 		moveDebounce: 15,
-		emitDebounce: 15
+		emitDebounce: 15,
+		handleHight:  1.5,
+		handleTop:    0.5,
+		handleWidth:  '5px',
 	};
-	const _atts = root.attributes;
-	const attrs = {
-		..._atts.min   && {min:   +_atts.min.value},
-		..._atts.max   && {max:   +_atts.max.value},
-		..._atts.width && {width: _atts.width.value},
-	};
-	const opts = { ...defOpts, ...attrs, ..._opts };
+	for (const i of root.attributes) if (Object.keys(defOpts).indexOf(i.name) !== -1) defOpts[i.name] = typeof defOpts[i.name] === 'number' ? +i.value : i.value;
+	const opts = { ...defOpts, ..._opts };
 	
 	root.innerHTML = ''+
 	'<div class="slider-selection" style="">\
-		<div class="slider-handle"   style="left:-10px;"></div>\
-		<div class="slider-handle"   style="right:-10px;"></div>\
+		<div class="slider-handle"   style="left:-5px;"></div>\
+		<div class="slider-handle"   style="right:-5px;"></div>\
 	</div>';
 	
 	/* const slider      = root;
@@ -32,26 +31,30 @@ function create(root, _opts={}) {
 	leftHandle  = root.querySelectorAll('.slider-handle')[0];
 	rightHandle = root.querySelectorAll('.slider-handle')[1];
 	
+	
+	const h            = +opts.height.replace(/px|%|em|rem/,'');
+	const handleHeight = h * opts.handleHight;
+	const handleTop    = -(h - (handleHeight * 0.5));
+	
 	Object.assign(slider.style, {
-		width:        opts.width,
-		height:       '20px',
-		display:      'inline-block',
-		position:     'relative',
-		userSelect:   'none',
-		background:   '#EEEEEF',
-		borderRadius: '1px',
-		border:       '1px solid #B2B2B2',
+		width:         `calc(${opts.width} - ${opts.handleWidth} * 2)`,
+		height:        opts.height,
+		display:       'inline-block',
+		verticalAlign: 'top',
+		position:      'relative',
+		userSelect:    'none',
+		margin:        `${-handleTop+5}px 5px`,
+		background:    '#ebebed',
 	});
 	
 	[leftHandle, rightHandle].forEach(i => Object.assign(i.style, {
 		position:     'absolute',
-		width:        '10px',
-		minWidth:     '1px',
-		height:       '200%',
-		top:          '-50%',
-		background:   'rgb(35 251 139 / 70%)',
+		width:        '5px',
+		height:       handleHeight+'px',
+		top:          handleTop+'px',
+		background:   'rgb(169 169 169 / 60%)',
 		cursor:       'ew-resize',
-		borderRadius: '3px',
+		borderRadius: '1px',
 	}));
 	
 	Object.assign(selection.style, {
@@ -78,18 +81,22 @@ function create(root, _opts={}) {
 		el = this;
 		el.dragging = true;
 		el.clickOffsetX = e.offsetX;
-		log(e.offsetX);
 		window.addEventListener('mousemove', move);
 		window.addEventListener('mouseup', end);
-		if (el !== selection) document.body.style.cursor = 'ew-resize';
+		if (el !== selection) {
+			document.body.style.cursor = 'ew-resize';
+		} else {
+			[leftHandle, rightHandle].forEach(i => i.style.cursor = 'default')
+		}
 	}
 	function end() {
 		if (!el) return;
 		el.dragging = false;
-		el = undefined;
 		window.removeEventListener('mousemove', move);
 		window.removeEventListener('mouseup', end);
 		document.body.style.cursor = '';
+		if (el === selection) [leftHandle, rightHandle].forEach(i => i.style.cursor = 'ew-resize');
+		el = undefined;
 	}
 	
 	let selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
@@ -107,7 +114,7 @@ function create(root, _opts={}) {
 				const leftBound = 0;
 				const rightBound = selectionRight;
 				
-				let newLeft = e.pageX - el.clickOffsetX - slider.offsetLeft;
+				let newLeft = e.pageX + (el.offsetWidth - el.clickOffsetX) - slider.offsetLeft;
 				if (newLeft < leftBound)  newLeft = leftBound;
 				if (newLeft > rightBound) newLeft = rightBound;
 				
@@ -120,8 +127,7 @@ function create(root, _opts={}) {
 				const minWidth = selection.getBoundingClientRect().left - selection.offsetLeft - slider.offsetLeft;
 				const maxWidth = slider.getBoundingClientRect().right - selection.offsetLeft - slider.offsetLeft;
 				
-				
-				let newWidth = e.pageX - el.clickOffsetX - selection.offsetLeft - slider.offsetLeft + el.offsetWidth;
+				let newWidth = e.pageX - el.clickOffsetX - selection.offsetLeft - slider.offsetLeft;
 				if (newWidth < minWidth) newWidth = minWidth;
 				if (newWidth > maxWidth) newWidth = maxWidth;
 				
@@ -142,8 +148,6 @@ function create(root, _opts={}) {
 				selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
 				
 			}
-			
-			
 			
 			const { _min, _max } = getCurrentRange();
 			min = _min;
