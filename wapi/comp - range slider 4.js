@@ -7,19 +7,24 @@ function create(root, _opts={}) {
 		max:          100,
 		width:        '100%',
 		height:       '20px',
-		moveDebounce: 15,
+		moveThrottle: 15,
 		emitDebounce: 15,
-		handleHight:  1.5,
+		handleHeight:  1.5,
 		handleTop:    0.5,
 		handleWidth:  '5px',
 	};
-	for (const i of root.attributes) if (Object.keys(defOpts).indexOf(i.name) !== -1) defOpts[i.name] = typeof defOpts[i.name] === 'number' ? +i.value : i.value;
+	const _keys = Object.keys(defOpts);
+	for (const i of root.attributes) {
+		const k = camel(i.name);
+		if (_keys.indexOf(k) !== -1) defOpts[k] = typeof defOpts[k] === 'number' ? +i.value : i.value;
+	}
 	const opts = { ...defOpts, ..._opts };
+	log(opts);
 	
 	root.innerHTML = ''+
-	'<div class="slider-selection" style="">\
-		<div class="slider-handle"   style="left:-5px;"></div>\
-		<div class="slider-handle"   style="right:-5px;"></div>\
+	'<div class="slider-selection">\
+		<div class="slider-handle"></div>\
+		<div class="slider-handle"></div>\
 	</div>';
 	
 	/* const slider      = root;
@@ -33,29 +38,31 @@ function create(root, _opts={}) {
 	
 	
 	const h            = +opts.height.replace(/px|%|em|rem/,'');
-	const handleHeight = h * opts.handleHight;
-	const handleTop    = -(h - (handleHeight * 0.5));
+	const handleHeight = h * opts.handleHeight;
+	const handleTop    = -(h - (handleHeight * opts.handleTop));
 	
 	Object.assign(slider.style, {
-		width:         `calc(${opts.width} - ${opts.handleWidth} * 2)`,
+		width:         `calc(${opts.width} - (${opts.handleWidth} * 2))`,
 		height:        opts.height,
 		display:       'inline-block',
 		verticalAlign: 'top',
 		position:      'relative',
 		userSelect:    'none',
-		margin:        `${-handleTop+5}px 5px`,
+		margin:        `${-handleTop+5}px calc(${opts.handleWidth} + 5px)`,
 		background:    '#ebebed',
 	});
 	
 	[leftHandle, rightHandle].forEach(i => Object.assign(i.style, {
 		position:     'absolute',
-		width:        '5px',
+		width:        opts.handleWidth,
 		height:       handleHeight+'px',
 		top:          handleTop+'px',
 		background:   'rgb(169 169 169 / 60%)',
 		cursor:       'ew-resize',
 		borderRadius: '1px',
 	}));
+	leftHandle.style.left   = '-'+opts.handleWidth;
+	rightHandle.style.right = '-'+opts.handleWidth;
 	
 	Object.assign(selection.style, {
 		position:     'relative',
@@ -68,25 +75,24 @@ function create(root, _opts={}) {
 	let min = opts.min;
 	let max = opts.max;
 	let prevMin, prevMax;
-	const initialMax = max;
 	
 	[leftHandle, rightHandle, selection].forEach(i => {
 		i.addEventListener('mousedown', start);
 		i.addEventListener('dragstart', e => e.preventDefault());
 	});
-	const move = throttle(_move, opts.moveDebounce);
+	const move = throttle(_move, opts.moveThrottle);
 	
 	function start(e) {
-		e.stopPropagation();
 		el = this;
 		el.dragging = true;
 		el.clickOffsetX = e.offsetX;
 		window.addEventListener('mousemove', move);
 		window.addEventListener('mouseup', end);
-		if (el !== selection) {
-			document.body.style.cursor = 'ew-resize';
-		} else {
+		if (el === selection) {
 			[leftHandle, rightHandle].forEach(i => i.style.cursor = 'default')
+		} else {
+			e.stopPropagation();
+			document.body.style.cursor = 'ew-resize';
 		}
 	}
 	function end() {
@@ -99,7 +105,9 @@ function create(root, _opts={}) {
 		el = undefined;
 	}
 	
-	let selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
+	let selectionRight;
+	const setSelectionRight = () => selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
+	setSelectionRight();
 	
 	const emit = debounce(_emit, opts.emitDebounce);
 	
@@ -132,7 +140,7 @@ function create(root, _opts={}) {
 				if (newWidth > maxWidth) newWidth = maxWidth;
 				
 				selection.style.width = newWidth;
-				selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
+				setSelectionRight();
 				
 			} else if (el === selection) {
 				const leftBound = 0;
@@ -145,7 +153,7 @@ function create(root, _opts={}) {
 				if (newLeft + elWidth > rightBound) newLeft = rightBound - elWidth;
 				
 				selection.style.left = newLeft;
-				selectionRight = selection.getBoundingClientRect().right - slider.offsetLeft;
+				setSelectionRight();
 				
 			}
 			
@@ -163,19 +171,61 @@ function create(root, _opts={}) {
 		
 	}
 	
-	function updateUi(min, max) {
-		
-	}
-	
 	function getCurrentRange() {
 		const pxWidth = slider.getBoundingClientRect().width;
 		const pxMin   = selection.offsetLeft;
 		const pxMax   = selection.offsetLeft + selection.offsetWidth;
-		const ratio   = pxWidth / initialMax;
+		const ratio   = pxWidth / opts.max;
 		const _min    = Math.round(pxMin / ratio);
 		const _max    = Math.round(pxMax / ratio);
 		return { _min, _max };
 	}
+	
+	function setCurrentRange(newMin=prevMin||min, newMax=prevMax||max) {
+		if (newMin === prevMin && newMax === prevMax) return;
+		
+		// log(min, max);
+		log(newMin, newMax);
+		// log(prevMin, prevMax);
+		
+		const pxWidth = slider.getBoundingClientRect().width;
+		const ratio   = pxWidth / opts.max;
+		
+		if (newMin !== prevMin) {
+			newMin = newMin < opts.min ? opts.min : newMin > max ? max : newMin;
+			
+			const newLeft = newMin * ratio;
+			const newWidth = selectionRight - newLeft;
+			
+			// log(newMin,newLeft, newWidth);
+			selection.style.left  = newLeft;
+			selection.style.width = newWidth;
+			
+			min = newMin;
+			prevMin = newMin;
+			
+		}
+		
+		if (newMax !== prevMax) {
+			newMax = newMax < min ? min : newMax > opts.max ? opts.max : newMax;
+			
+			const newWidth = newMax * ratio;
+			
+			// log(newWidth);
+			
+			selection.style.width = newWidth;
+			
+			max = newMax;
+			prevMax = newMax;
+			
+		}
+		
+		setSelectionRight();
+	}
+	
+	
+	
+	window.set = setCurrentRange.bind(this);
 	
 	return slider;
 }
@@ -207,6 +257,12 @@ function debounce(fn, wait) {
 		clearTimeout(timeout);
 		timeout = setTimeout(() => fn.apply(this, args), wait);
 	};
+}
+function camel(str) {
+	return str
+		.split('-')
+		.map((v, i) => i ? v.charAt(0).toUpperCase() + v.slice(1).toLowerCase() : v)
+		.join('');
 }
 
 const opts = {passive:false};

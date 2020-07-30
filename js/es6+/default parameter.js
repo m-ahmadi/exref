@@ -1,5 +1,5 @@
 // es5
-var link = function (height, color, url) {
+function link(height, color, url) {
 	var height = height || 50;
 	var color = color   || 'red';
 	var url = url       || 'http://azat.co';
@@ -11,6 +11,16 @@ var link = function (height, color, url) {
 }
 
 // es6
-var link = function (height = 50, color = 'red', url = 'http://azat.co') {
+function link(height=50, color='red', url='http://azat.co') {
 	
 }
+
+// args can't have same name as in-scope labels
+var foo = 7;
+var bar = 8;
+function hi(foo=foo, bar) { return foo * bar }
+hi()            // ReferenceError: Cannot access 'foo' before initialization
+hi(3)           // NaN
+hi(undefined,4) // ReferenceError: Cannot access 'foo' before initialization
+hi(null,4)      // 0
+hi(3,4)         // 12
