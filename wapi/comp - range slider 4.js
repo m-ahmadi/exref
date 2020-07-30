@@ -1,5 +1,4 @@
-// const newRangeSlider = (() => {
-log=console.log;
+const newRangeSlider = (() => {
 
 function create(root, _opts={}) {
 	const defOpts = {
@@ -9,17 +8,16 @@ function create(root, _opts={}) {
 		height:       '20px',
 		moveThrottle: 15,
 		emitDebounce: 15,
-		handleHeight:  1.5,
+		handleHeight: 1.5,
 		handleTop:    0.5,
 		handleWidth:  '5px',
 	};
-	const _keys = Object.keys(defOpts);
+	const keys = Object.keys(defOpts);
 	for (const i of root.attributes) {
 		const k = camel(i.name);
-		if (_keys.indexOf(k) !== -1) defOpts[k] = typeof defOpts[k] === 'number' ? +i.value : i.value;
+		if (keys.indexOf(k) !== -1) defOpts[k] = typeof defOpts[k] === 'number' ? +i.value : i.value;
 	}
 	const opts = { ...defOpts, ..._opts };
-	log(opts);
 	
 	root.innerHTML = ''+
 	'<div class="slider-selection">\
@@ -27,15 +25,10 @@ function create(root, _opts={}) {
 		<div class="slider-handle"></div>\
 	</div>';
 	
-	/* const slider      = root;
+	const slider      = root;
 	const selection   = root.querySelector('.slider-selection');
 	const leftHandle  = root.querySelectorAll('.slider-handle')[0];
-	const rightHandle = root.querySelectorAll('.slider-handle')[1]; */
-	slider      = root;
-	selection   = root.querySelector('.slider-selection');
-	leftHandle  = root.querySelectorAll('.slider-handle')[0];
-	rightHandle = root.querySelectorAll('.slider-handle')[1];
-	
+	const rightHandle = root.querySelectorAll('.slider-handle')[1];
 	
 	const h            = +opts.height.replace(/px|%|em|rem/,'');
 	const handleHeight = h * opts.handleHeight;
@@ -110,6 +103,9 @@ function create(root, _opts={}) {
 	setSelectionRight();
 	
 	const emit = debounce(_emit, opts.emitDebounce);
+	function _emit(detail) {
+		slider.dispatchEvent( new CustomEvent('slide', {detail}) );
+	}
 	
 	function _move(e) {
 		if (!el || !el.dragging) return;
@@ -164,7 +160,7 @@ function create(root, _opts={}) {
 			if (min !== prevMin || max !== prevMax) {
 				if (min !== prevMin) prevMin = min;
 				if (max !== prevMax) prevMax = max;
-				emit(slider, {min,max});
+				emit({min,max});
 			}
 			reqId = undefined;
 		});
@@ -181,57 +177,48 @@ function create(root, _opts={}) {
 		return { _min, _max };
 	}
 	
-	function setCurrentRange(newMin=prevMin||min, newMax=prevMax||max) {
+	function setCurrentRange(newMin, newMax) {
 		if (newMin === prevMin && newMax === prevMax) return;
 		
-		// log(min, max);
-		log(newMin, newMax);
-		// log(prevMin, prevMax);
+		newMin = typeof newMin === 'number' ? newMin : (prevMin || min);
+		newMax = typeof newMax === 'number' ? newMax : (prevMax || max);
 		
 		const pxWidth = slider.getBoundingClientRect().width;
 		const ratio   = pxWidth / opts.max;
 		
-		if (newMin !== prevMin) {
-			newMin = newMin < opts.min ? opts.min : newMin > max ? max : newMin;
-			
-			const newLeft = newMin * ratio;
-			const newWidth = selectionRight - newLeft;
-			
-			// log(newMin,newLeft, newWidth);
-			selection.style.left  = newLeft;
-			selection.style.width = newWidth;
-			
-			min = newMin;
-			prevMin = newMin;
-			
-		}
+		newMin = newMin < opts.min ? opts.min : newMin > max ? max : newMin;
+		const newLeft = newMin * ratio;
+		// const newWidth1 = selectionRight - newLeft;
+		selection.style.left  = newLeft;
+		// selection.style.width = newWidth1;
+		// setSelectionRight();
+		min = newMin;
 		
-		if (newMax !== prevMax) {
-			newMax = newMax < min ? min : newMax > opts.max ? opts.max : newMax;
-			
-			const newWidth = newMax * ratio;
-			
-			// log(newWidth);
-			
-			selection.style.width = newWidth;
-			
-			max = newMax;
-			prevMax = newMax;
-			
-		}
+		newMax = newMax < min ? min : newMax > opts.max ? opts.max : newMax;
+		const newWidth = (newMax * ratio) - selection.offsetLeft;
+		selection.style.width = newWidth;
+		max = newMax;
 		
-		setSelectionRight();
+		if (newMin !== prevMin || newMax !== prevMax) {
+			if (newMin !== prevMin) prevMin = newMin;
+			if (newMax !== prevMax) prevMax = newMax;
+			emit({min,max});
+		}
 	}
 	
-	
-	
-	window.set = setCurrentRange.bind(this);
+	Object.defineProperties(slider, {
+		'min': {
+			get: () => min,
+			set: v => setCurrentRange(v)
+		},
+		'max': {
+			get: () => max,
+			set: v => setCurrentRange(undefined, v)
+		},
+		'_setSliderRange': { value: setCurrentRange }
+	});
 	
 	return slider;
-}
-
-function _emit(instance, detail) {
-	instance.dispatchEvent( new CustomEvent('slide', {detail}) );
 }
 
 function throttle(fn, wait=5) {
@@ -288,32 +275,6 @@ function touch2mouse(e) {
 	});
 	touch.target.dispatchEvent(mouseEvent);
 }
-	
 
-
-/* 
-	Object.defineProperties(slider, {
-		'min': {
-			get: () => min,
-			set(v) {
-				min = v;
-				el = leftHandle;
-				el.dragging = true;
-				leftHandle.dispatchEvent(new MouseEvent('mousemove', {bubbles:true}));
-			}
-		},
-		'max': {
-			get: () => max,
-			set(v) {
-				max = v;
-				el = rightHandle;
-				el.dragging = true;
-				leftHandle.dispatchEvent(new MouseEvent('mousemove', {bubbles:true}));
-			}
-		},
-	});
-	*/
-
-const newRangeSlider = create;
-// return create;
-// })();
+return create;
+})();
