@@ -199,6 +199,12 @@ function index(el) {
 	return [...el.parentElement.children].indexOf(el);
 }
 
+// $('select').val()
+[...select.selectedOptions].map(i => i.value)
+[...select.options].filter(i => i.selected).map(i => i.value)
+[...select.querySelectorAll(':checked')].map(i => i.value)
+[...select.options].reduce((a,c) => (c.selected ? a.push(c.value) : 1) && a, [])
+
 // get els from bounding rect
 function getElementsFromRect(selector, x1, y1, x2, y2, ctx=document) {
 	const res = [];
@@ -222,6 +228,13 @@ var iframe = document.querySelector('iframe');
 iframe.contentDocument
 iframe.contentWindow
 iframe.contentWindow.document
+
+// $()
+function $(selector='', ctx=document) {
+	const res = ctx.querySelectorAll(selector);
+	if (!res.length) return;
+	return res.length > 1 ? [...res] : res[0];
+}
 
 // ps
 A <- B, C, D // B,C,D implements A (implemented by)

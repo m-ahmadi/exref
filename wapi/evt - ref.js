@@ -80,29 +80,29 @@ MouseEvent.which !
 MouseEvent.MouseEvent.mozInputSource !
 MouseEvent.webkitForce !
 MouseEvent.getModifierState()
-'click' 'dblclick' 'mousedown' 'mouseenter' 'mouseleave' 'mousemove' 'mouseover' 'mouseout' 'mouseup' 'contextmenu' 'auxclick'
+'click dblclick mousedown mouseenter mouseleave mousemove mouseover mouseout mouseup contextmenu auxclick'
 
 KeyboardEvent extends UIEvent
-KeyboardEvent.DOM_KEY_LOCATION_STANDARD
-KeyboardEvent.DOM_KEY_LOCATION_LEFT
-KeyboardEvent.DOM_KEY_LOCATION_RIGHT
-KeyboardEvent.DOM_KEY_LOCATION_NUMPAD
-KeyboardEvent.altKey
-KeyboardEvent.code
-KeyboardEvent.ctrlKey
-KeyboardEvent.isComposing
-KeyboardEvent.key
+KeyboardEvent.DOM_KEY_LOCATION_STANDARD  0x00
+KeyboardEvent.DOM_KEY_LOCATION_LEFT      0x01
+KeyboardEvent.DOM_KEY_LOCATION_RIGHT     0x02
+KeyboardEvent.DOM_KEY_LOCATION_NUMPAD    0x03
+KeyboardEvent.altKey                     boolean
+KeyboardEvent.code                       ''
+KeyboardEvent.ctrlKey                    boolean
+KeyboardEvent.isComposing                boolean
+KeyboardEvent.key                        ''
 KeyboardEvent.locale
-KeyboardEvent.location
-KeyboardEvent.metaKey
-KeyboardEvent.repeat
-KeyboardEvent.shiftKey
-KeyboardEvent.getModifierState()
-'keydown' 'keyup'
+KeyboardEvent.location                   0
+KeyboardEvent.metaKey                    boolean
+KeyboardEvent.repeat                     boolean
+KeyboardEvent.shiftKey                   boolean
+KeyboardEvent.getModifierState(): boolean
+'keydown keyup'
 
 FocusEvent extends UIEvent
 FocusEvent.relatedTarget
-'focus' 'blur' 'focusin' 'focusout'
+'focus blur focusin focusout'
 
 X InputEvent extends UIEvent
 InputEvent.data
@@ -123,7 +123,7 @@ WheelEvent.deltaMode
 
 DragEvent extends MouseEvent
 DragEvent.dataTransfer: DataTransfer
-'drag' 'dragstart' 'dragleave' 'dragenter' 'dragover' 'dragexit' 'dragend' 'drop'
+'drag dragstart dragleave dragenter dragover dragexit dragend drop'
 
 DataTransfer
 DataTransfer.dropEffect 'none|copy|link|move'
@@ -159,7 +159,7 @@ TouchEvent.targetTouches
 TouchEvent.touches
 ! TouchEvent.rotation
 ! TouchEvent.scale
-'touchstart' 'touchend' 'touchmove' 'touchcancel'
+'touchstart touchend touchmove touchcancel'
 
 mixin GlobalEventHandlers
 GlobalEventHandlers.onclick

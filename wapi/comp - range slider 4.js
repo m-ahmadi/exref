@@ -158,6 +158,8 @@ function create(root, _opts={}) {
 			max = _max;
 			
 			if (min !== prevMin || max !== prevMax) {
+				min = min < opts.min ? opts.min : min > max ? max : min;
+				max = max < min ? min : max > opts.max ? opts.max : max;
 				if (min !== prevMin) prevMin = min;
 				if (max !== prevMax) prevMax = max;
 				emit({min,max});
@@ -177,7 +179,7 @@ function create(root, _opts={}) {
 		return { _min, _max };
 	}
 	
-	function setCurrentRange(newMin, newMax) {
+	function setCurrentRange(newMin, newMax, shouldEmit=true) {
 		if (newMin === prevMin && newMax === prevMax) return;
 		
 		newMin = typeof newMin === 'number' ? newMin : (prevMin || min);
@@ -202,7 +204,7 @@ function create(root, _opts={}) {
 		if (newMin !== prevMin || newMax !== prevMax) {
 			if (newMin !== prevMin) prevMin = newMin;
 			if (newMax !== prevMax) prevMax = newMax;
-			emit({min,max});
+			if (shouldEmit) emit({min,max});
 		}
 	}
 	
@@ -215,8 +217,9 @@ function create(root, _opts={}) {
 			get: () => max,
 			set: v => setCurrentRange(undefined, v)
 		},
-		'_setSliderRange': { value: setCurrentRange }
+		'_setRange': { value: setCurrentRange }
 	});
+	slider._options = opts;
 	
 	return slider;
 }
