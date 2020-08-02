@@ -20,6 +20,10 @@ for (let i=0; i<10; i++) {
 	console.log(i); // 0 8 9
 	if (i===1) i = 8;
 }
+for (let i=0; i<50; i+=1) {
+	console.log(i); // 0 1 2 48 49
+	if (i===2) i = 47
+}
 
 // dynamic index:
 for (let i=0,j=1; i<10; i+=j) {
