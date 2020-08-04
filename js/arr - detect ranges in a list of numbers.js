@@ -17,14 +17,15 @@ nums = [12, 14, 15, 17, 18, 19, 19, 21, 28, 29, 30, 30, 31, 32, 34, 34, 36, 39, 
 	[94, 95, 96, 98]
 */
 
-function getRanges(nums=[], diff=1, percent=true) {
+function getRanges(_nums=[], _diff=1, percent=true) {
+	const nums = [..._nums];
 	nums.sort((a,b) => a-b);
 	
 	const ranges = [];
 	for (let i=0; i<nums.length; i+=1) {
 		const num = nums[i];
-		const _diff = percent ? perc(diff, num) : diff;
-		const range = nums.filter( j => isInRange(j, num-_diff, num+_diff) );
+		const diff = percent ? perc(_diff, num) : _diff;
+		const range = nums.filter( j => isInRange(j, num-diff, num+diff) );
 		if (range.length) {
 			ranges.push(range);
 			nums = nums.slice(range.length);
