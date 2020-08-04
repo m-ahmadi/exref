@@ -9,3 +9,9 @@ try {
 	e.message    // "Assignment to constant variable."
 	e.toString() // "TypeError: Assignment to constant variable."
 }
+
+try {
+	new URL('foo')
+} catch {
+	console.log('busted')
+}
