@@ -2,8 +2,6 @@ function iqr(_nums=[]) {
 	const nums = [..._nums];
 	nums.sort((a,b) => a-b)
 	
-	
-	
 	let firstHalf, secondHalf;
 	
 	const len = nums.length;

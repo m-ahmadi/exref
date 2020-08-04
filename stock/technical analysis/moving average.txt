@@ -4,12 +4,19 @@ moving average:
 	never anticipates, it only reacts.
 	functions in the same senses that standard chart analysis do.
 
-types of moving averages
+
+types of moving averages:
+basic types:	simple weighted exponential
+
 sma:		simple (arithmetic)
 smma:		smoothed
-lwma:		linearly weighted
+lwma:		weighted (linearly)
 ema:		exponential
 	
+commonly used time frames
+10-20	for short term
+50	for mid   term
+200	for long  term
 
 which prices to use
 close
