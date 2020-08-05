@@ -1,0 +1,27 @@
+Accumulation/Distribution		Detrended Price Oscillator		MA Cross				SMI Ergodic Indicator/Oscillator
+Accumulative Swing Index		Directional Movement			MA with EMA Cross			Smoothed Moving Average
+Advance/Decline				Donchian Channels			MACD					Spread
+Arnaud Legoux Moving Average		Double EMA				Mass Index				Stochastic
+Aroon										McGinley Dynamic			Stochastic RSI
+Average Directional Index		EMA Cross				Momentum				SuperTrend
+Average True Range			Ease Of Movement			Money Flow
+Awesome Oscillator			Elder's Force Index			Moving Average				TRIX
+					Envelope				Moving Average Channel			Triple EMA
+Balance of Power								Moving Average Exponential		True Strength Indicator
+Bollinger Bands				Fisher Transform			Moving Average Weighted
+Bollinger Bands %B													Ultimate Oscillator
+Bollinger Bands Width			Historical Volatility			Net Volume
+					Hull Moving Average								VWAP
+Chaikin Money Flow								On Balance Volume			VWMA
+Chaikin Oscillator			Ichimoku Cloud									Volume
+Chande Kroll Stop								Parabolic SAR				Volume Oscillator
+Chande Momentum Oscillator		Keltner Channels			Pivot Points Standard			Vortex Indicator
+Chop Zone				Klinger Oscillator			Price Channel
+Choppiness Index			Know Sure Thing				Price Oscillator			Williams %R
+Commodity Channel Index								Price Volume Trend			Williams Alligator
+Connors RSI				Least Squares Moving Average							Williams Fractal
+Coppock Curve				Linear Regression Curve			Rate Of Change
+Correlation Coefficient								Ratio					Zig Zag
+										Relative Strength Index
+										Relative Vigor Index
+										Relative Volatility Index
