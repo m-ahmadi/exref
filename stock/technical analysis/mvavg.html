@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<script src="mvavg-technicalindicators.min.js"></script>
+<style>
+	input { width: 50px; }
+	input[type="checkbox"] { width: initial; margin:0; }
+	.box { padding: .5rem; border: 1px dashed grey; }
+</style>
+
+<button onclick="randomBars(+a.value), clearChart()">randomBars(<input type="number"value="50"id="a">)</button>
+
+<label>
+	<input id="b1"type="checkbox"onchange="setIndicator()">sma<input id="b2"type="number"value="5"onchange="setIndicator()">
+</label>
+
+<label>
+	<input id="c1"type="checkbox"onchange="setIndicator()">wma<input id="c2"type="number"value="5"onchange="setIndicator()">
+</label>
+
+<label>
+	<input id="d1"type="checkbox"onchange="setIndicator()">ema<input id="d2"type="number"value="2"onchange="setIndicator()">
+</label>
+
+<div id="charts"></div>
+
+<script>
+randomBars();
+makeChart(chartData);
+
+
+function clearChart() { chart.setData(chartData) }
+
+function setIndicator() {
+	chartData = [
+		xAxis,
+		bars,
+		b1.checked ? Array(+b2.value).fill(null).concat( sma({period: +b2.value, values: bars}) ) : [],
+		c1.checked ? Array(+c2.value).fill(null).concat( wma({period: +c2.value, values: bars}) ) : [],
+		d1.checked ? Array(+d2.value).fill(null).concat( ema({period: +d2.value, values: bars}) ) : []
+	],
+	chart.setData(chartData);
+}
+
+function randomBars(len=+a.value) {
+	bars = [100];
+	for (let i=1; i<len; i+=1) {
+		const prev = bars[i-1];
+		const r = prev * 0.05;
+		let value = randInt(prev-r, prev+r);
+		
+		let k = 2;
+		while (value === prev) {
+			value = randInt(prev-r, prev+r*k);
+			k *=2;
+		}
+		bars.push(value);
+	}
+	xAxis = bars.map(i=> randInt(1200300400,1600500400)).sort();
+	chartData = [ xAxis,bars,[],[],[] ];
+}
+
+function makeChart(data, title) {
+	const colors = ['','black','blue','orange','red'];
+	const labels = ['','price','sma','wma','ema'];
+	const opts = {
+		width: 1850,
+		height: 600,
+		series: data.map((v,i)=>({stroke: colors[i], label: labels[i]})),
+		legend: {show: true},
+		class: 'box',
+	};
+	chart = new uPlot({...opts, title}, data, document.getElementById('charts'));
+}
+
+function randInt(min, max) {
+  min = min ? Math.ceil(min) : 0;
+  max = max ? Math.floor(max) : 10;
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+</script>

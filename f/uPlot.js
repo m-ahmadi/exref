@@ -86,3 +86,5 @@ const opts = {
 };
 
 const chart = new uPlot(opts, data, document.body);
+
+chart.setData(newData=[])

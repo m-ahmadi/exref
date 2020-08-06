@@ -1,2 +1,4 @@
 rename old.txt new.txt		renames old.txt to new.txt
+rename olddir newdir		rename dir
+
 alias: ren

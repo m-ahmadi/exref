@@ -1,18 +1,13 @@
 moving average:
 	is an average of a certain body of data.
+	identifies if a new trend has begun or an old trend has ended or reversed.
 	is a follower, not a leader.
 	never anticipates, it only reacts.
+	is not a curving trendline.
 	functions in the same senses that standard chart analysis do.
+	smoothes the data, making the underlying trend clearer.
+	by its nature, lags the market action. (less lag with shorter averages, but never completely eliminated)
 
-
-types of moving averages:
-basic types:	simple weighted exponential
-
-sma:		simple (arithmetic)
-smma:		smoothed
-lwma:		weighted (linearly)
-ema:		exponential
-	
 commonly used time frames
 10-20	for short term
 50	for mid   term
@@ -20,6 +15,36 @@ commonly used time frames
 
 which prices to use
 close
-midpoint	dividing the day's range by two (whaaat?)
+midpoint	dividing the day's range by two: median(high,low)
 hlc		high + low + close / 3
 price-bands	average of high and low separately (volatility buffer or neutral zone)
+-----------------------------------------------------------------------------------------------------------------------
+types of moving averages:
+
+basic types: simple weighted exponential
+
+simple moving average
+	average of last N days
+	criticism:
+		only the period covered by the average is taken into account
+		it gives equal weight to each day (some say more recent days should weight heavier)
+
+linearly weighted
+	weighted average of last N days
+	(1st day * 1) + ... + (10th day * 10) / sum_of_weights=55
+	criticism:
+		only the period covered by the average is taken into account
+
+exponentially smoothed
+	weighted average of all previous day
+	the weight of last day depends on the number of periods in the moving average
+
+1.	calculate the simple moving average for the initial EMA value
+	EMA has to start somewhere, so a SMA is used as the previous period's EMA in the first calculation.
+
+2.	calculate the weighting multiplier.
+
+3. 	calculate the exponential moving average for each day between the initial EMA value and today, using the price, the multiplier, and the previous period's EMA value.
+
+
+
