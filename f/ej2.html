@@ -1,0 +1,92 @@
+<!-- minimum dependencies required to use the Chart
+@syncfusion/ej2-charts
+	@syncfusion/ej2-base
+	@syncfusion/ej2-data
+	@syncfusion/ej2-pdf-export
+	@syncfusion/ej2-file-utils
+	@syncfusion/ej2-compression
+	@syncfusion/ej2-svg-base
+-->
+
+<div id="element"></div>
+<div id="element2"></div>
+
+<script src="https://cdn.syncfusion.com/ej2/ej2-base/dist/global/ej2-base.min.js"></script>
+<script src="https://cdn.syncfusion.com/ej2/ej2-data/dist/global/ej2-data.min.js"></script>
+<script src="https://cdn.syncfusion.com/ej2/ej2-pdf-export/dist/global/ej2-pdf-export.min.js"></script>
+<script src="https://cdn.syncfusion.com/ej2/ej2-file-utils/dist/global/ej2-file-utils.min.js"></script>
+<script src="https://cdn.syncfusion.com/ej2/ej2-compression/dist/global/ej2-compression.min.js"></script>
+<script src="https://cdn.syncfusion.com/ej2/ej2-svg-base/dist/global/ej2-svg-base.min.js"></script>
+<script src="https://cdn.syncfusion.com/ej2/ej2-charts/dist/global/ej2-charts.min.js"></script>
+<script>
+const { Chart, LineSeries, Legend, DataLabel, Tooltip, Category } = ej.charts;
+
+Chart.Inject(LineSeries, Legend, DataLabel, Tooltip, Category);
+
+var chartData = [
+	{ month: 'Jan', sales: 35 }, { month: 'Feb', sales: 28 },
+	{ month: 'Mar', sales: 34 }, { month: 'Apr', sales: 32 },
+	{ month: 'May', sales: 40 }, { month: 'Jun', sales: 32 },
+	{ month: 'Jul', sales: 35 }, { month: 'Aug', sales: 55 },
+	{ month: 'Sep', sales: 38 }, { month: 'Oct', sales: 30 },
+	{ month: 'Nov', sales: 25 }, { month: 'Dec', sales: 32 }
+];
+
+var chart = new Chart({
+	primaryXAxis: {
+		valueType: 'Category'
+	},
+	series: [{
+		dataSource: chartData,
+		xName: 'month',
+		yName: 'sales',
+		type: 'Line'
+	}]
+}, '#element');
+
+makeAnother();
+
+
+
+
+
+function makeAnother() {
+	const { Trendlines, ScatterSeries, SplineSeries, TrendlineTypes } = ej.charts;
+	Chart.Inject(ScatterSeries, SplineSeries, Trendlines);
+
+	const data = [];
+	const yValue = [
+		7.66, 8.03, 8.41, 8.97, 8.77, 8.20, 8.16, 7.89, 8.68, 9.48, 10.11, 11.36, 12.34, 12.60,
+		12.95, 13.91, 16.21, 17.50, 22.72, 28.14, 31.26, 31.39, 32.43, 35.52, 36.36, 41.33, 43.12,
+		45.00, 47.23, 48.62, 46.60, 45.28, 44.01, 45.17, 41.20, 43.41, 48.32, 45.65, 46.61, 53.34, 58.53
+	];
+	let point;
+	let i; let j = 0;
+	for (i = 1973; i <= 2013; i++) {
+		point = { x: i, y: yValue[j] };
+		data.push(point);
+		j++;
+	}
+	const chart = new Chart({
+		primaryXAxis: {
+			title: 'Months',
+		},
+		primaryYAxis: {
+			title: 'Rupees against Dollars',
+			interval: 5
+		},
+		tooltip: { enable: true },
+		chartArea: { border: { width: 0 } },
+		series: [{
+			dataSource: data,
+			xName: 'x', yName: 'y',
+			name: 'Apple Inc',
+			fill: '#0066FF',
+			type: 'Scatter',
+			trendlines: [{ type: 'MovingAverage' }]
+		}],
+
+		title: 'Historical Indian Rupee Rate (INR USD)'
+	}, '#element2');
+}
+</script>

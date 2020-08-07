@@ -1,0 +1,4 @@
+r -h
+r --version
+
+note: add to path manually
