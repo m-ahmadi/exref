@@ -1,0 +1,3 @@
+makes it possible to divide by multiplication
+
+6 * 0.25	same as		6 / 4		(both are dividing but with different operations)

@@ -1,9 +1,15 @@
-mean	= normal average (numbers.sum / numbers.count)
+mean		= normal average (numbers.sum / numbers.count)
 
-median	= middle value in the list of ascending-sorted numbers (mean of two middle values if list is even)
+median		= middle value in the list of ascending-sorted numbers (mean of two middle values if list is even)
 
-mode	= most occurred value in a list of numbers (no repeated numbers = no mode)
+mode		= most occurred value in a list of numbers (no repeated numbers = no mode)
 
-range	= difference between largest and smallest values in a list of numbers
+range		= difference between largest and smallest values in a list of numbers (max - min)
+midrange	= mean(min,max)
 
-iqr	= difference betwwen median of first and second half of list (if list is odd, median of list is excluded from halves)
+iqr		= difference betwwen median of first and second half of list (if list is odd, median of list is excluded from halves)
+
+
+types of statistics
+descriptive		making information that describes the data in some manner
+inferential		making conclusions about the data, using only some part of it
