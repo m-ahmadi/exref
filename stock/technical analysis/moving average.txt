@@ -159,15 +159,14 @@ this technique is used almost exclusively by cyclic analysts to isolate underlyi
 moving averages tied to cycles
 
 time cycles
-	play an important role in market movement (many believe)
-	used to determine the approximate times when market tops or bottoms will occur (since cycles are repetitive and can be measured)
+	play an important role in market movements (many believe)
+	are used to determine the approximate times when market tops or bottoms will occur (since cycles are repetitive and can be measured)
 
 many different cycles from 5 day to 54 year (kondratieff) exist simultaneously
-there seems to be a relationship between underlying cycles that affect a certain market and the correct moving averages to use
+there seems to be a relationship between underlying cycles that affect a certain market and correct moving averages to use
 moving averages can be adjusted to fit the dominant cycles in each market
 
-There appears to be a definite relationship between moving averages and cycles.
-
+there appears to be a definite relationship between moving averages and cycles
 example
 	monthly cycle operates heavily in commodity markets
 	cycles (tend to) relate to next longer & shorter cycles harmonically or by a factor of two
@@ -236,256 +235,149 @@ moving average can be
 	applied to virtually any technical data or indicator
 	used on open interest and volume figures (including on balance volume)
 	used on various indicators and ratios
-	applied to oscillators as well.
+	applied to oscillators as well
 -----------------------------------------------------------------------------------------------------------------------
-THE WEEKLY RULE
-There are other alternatives to the moving average as a trend-following
-device. One of the best known and most successful of
-these techniques is called the weekly price channel or, simply, the
-weekly rule. This technique has many of the benefits of the moving
-average, but is less time consuming and simpler to use.
-With the improvements in computer technology over the
-past decade, a considerable amount of research has been done on
-the development of technical trading systems. These systems are
-mechanical in nature, meaning that human emotion and judgment
-are eliminated. These systems have become increasingly
-sophisticated. At first, simple moving averages were utilized.
-Then, double and triple crossovers of the averages were added.
-The averages were then linearly weighted and exponentially
-smoothed. These systems are primarily trend-following, which
-means their purpose is to identify and then trade in the direction
-of an existing trend.
-With the increased fascination with fancier and more complex
-systems and indicators, however, there has been a tendency
-to overlook some of the simpler techniques that continue to work
-quite well and have stood the test of time. We're going to discuss
-one of the simplest of these techniques-the weekly rule.
-In 1970, a booklet entitled the Trader's Notebook was published
-by Dunn & Hargitt's Financial Services in Lafayette,
-Indiana. The best known commodity trading systems of the day
-were computer-tested and compared. The final conclusion of all
-that research was that the most successful of all the systems tested
-was the 4 week rule, developed by Richard Donchian. Mr.
+weekly rule
 
-Donchian has been recognized as a pioneer in the field of commodity
-trend trading using mechanical systems. (In 1983,
-Managed Account Reports chose Donchian as the first recipient of
-the Most Valuable Performer Award for outstanding contributions
-to the field of futures money management, and presents The
-Donchian Award to other worthy recipients.)
-More recent work done by Louis Lukac, former research
-director at Dunn & Hargitt and currently president of Wizard
-Trading (a Massachusetts CTA) supports the earlier conclusions
-that breakout ( or channel) systems similar to the weekly rule continue
-to show superior results. (Lukac et al.)*
-Of the 12 systems tested from 1975-84, only 4 generated
-significant profits. Of those 4, 2 were channel breakout systems
-and one was a dual moving average crossover system. A later article
-by Lukac and Brorsen in The Financial Review (November 1990)
-published the results of a more extensive study done on data from
-1976-86 that compared 23 technical trading systems. Once again,
-channel breakouts and moving average systems came out on top.
-Lukac finally concluded that a channel breakout system was his
-personal choice as the best starting point for all technical trading
-system testing and development.
------------------------------------------------------------------------------------------------------------------------
-The 4 Week Rule
-The 4 week rule is used primarily for futures trading.
-The system based on the 4 week rule is simplicity itself:
-1. Cover short positions and buy long whenever the price
-exceeds the highs of the four preceding full calendar weeks.
-2. Liquidate long positions and sell short whenever the price
-falls below the lows of the four preceding full calendar weeks.
-The system, as it is presented here, is continuous in nature,
-which means that the trader always has a position, either long or
-short. As a general rule, continuous systems have a basic weakness.
-They stay in the market and get "whipsawed" during trendless market
-periods. It's already been stressed that trend-following systems do not
-work well when markets are in these sideways, or trendless phases.
-* See Bibliography
+aka weekly price channel (developed by richard donchian)
+most successful alternative trend-following device to the moving average
+has many benefits of moving average but less time consuming and simpler to use
+works quite well and have stood test of time
+gets overlooked due to existence of fancier things
+(technical trading systems development timeline: sma, doubl/triple crossover, lwma/esma)
+general rule: trend-following systems dont work well in trendless phases
 
-The 4 week rule can be modified to make it noncontinuous.
-This can be accomplished by using a shorter time span-such
-as a one or two week rule-for liquidation purposes. In other
-words, a four week "breakout" would be necessary to initiate a
-new position, but a one or two week signal in the opposite direction
-would warrant liquidation of the position. The trader would
-then remain out of the market until a new four week breakout is
-registered.
-The logic behind the system is based on sound technical
-principles. Its signals are mechanical and clearcut. Because it is
-trend following, it virtually guarantees participation on the
-right side of every important trend. It is also structured to follow
-the often quoted maxim of successful trading-"let profits
-run, while cutting losses short." Another feature, which should
-not be overlooked, is that this method tends to trade less frequently,
-so that commissions are lower. Another plus is that
-the system can be implemented with or without the aid of a
-computer.
-The main criticism of the weekly rule is the same one leveled
-against all trend-following approaches, namely, that it does
-not catch tops or bottoms. But what trend-following system
-does? The important point to keep in mind is that the four week
-rule performs at least as well as most other trend-following systems
-and better than many, but has the added benefit of incredible
-simplicity.
------------------------------------------------------------------------------------------------------------------------
-Adjustments to the 4 Week Rule
-Although we're treating the four week rule in its original form,
-there are many adjustments and refinements that can be
-employed. For one thing, the rule does not have to be used as a
-trading system. Weekly signals can be employed simply as another
-technical indicator to identify breakouts and trend reversals.
-Weekly breakouts can be used as a confirming filter for other techniques,
-such as moving average crossovers. One or 2 week rules
-function as excellent filters. A moving average crossover signal
-could be confirmed by a two week breakout in the same direction
-in order for a market position to be taken.
------------------------------------------------------------------------------------------------------------------------
-Shorten or Lengthen Time Periods
-for Sensitivity
-Chapter 9
-The time period employed can be expanded or compressed in the
-interests of risk management and sensitivity. For example, the
-time period could be shortened if it is desirable to make the system
-more sensitive. In a relatively high priced market, where
-prices are trending sharply higher, a shorter time span could be
-chosen to make the system more sensitive. Suppose, for example,
-that a long position is taken on a 4 week upside breakout with a
-protective stop placed just below the low of the past 2 weeks. If
-the market has rallied sharply and the trader wishes to trail the
-position with a closer protective stop, a one week stopout point
-could be used.
-In a trading range situation, where a trend trader would
-just as soon stay on the sidelines until an important trend signal
-is given, the time period could be expanded to eight weeks. This
-would prevent taking positions on shorter term and premature
-trend signals.
------------------------------------------------------------------------------------------------------------------------
-The 4 Week Rule Tied to Cycles
-Earlier in the chapter reference was made to the importance of the
-monthly cycle in commodity markets. The 4 week, or 20 day,
-trading cycle is a dominant cycle that influences all markets. This
-may help explain why the 4 week time period has proven so successful.
-Notice that mention was made of 1, 2, and 8 week rules.
-The principle of harmonics in cyclic analysis holds that each cycle
-is related to its neighboring cycles (next longer and next shorter
-cycles) by 2.
-In the previous discussion of moving averages, it was
-pointed out how the monthly cycle and harmonics explained the
-popularity of the 5, 10, 20, and 40 day moving averages. The same
-time periods hold true in the realm of weekly rules. Those daily
-numbers translated into weekly time periods are 1, 2, 4, and 8
-weeks. Therefore, adjustments to the 4 week rule seem to work
-best when the beginning number (4) is divided or multiplied by
-2. To shorten the time span, go from 4 to 2 weeks. If an even
-shorter time span is desired, go from 2 to 1. To lengthen, go from
+history
+louis lukac suggest breakout (channel) systems show superior results (like weekly rule)
+	12 systems tested from 1975-84
+	4 generated significant profits (2 channel breakout, 1 dual crossover avg)
+	
+	23 systems tested from 1976-86
+	extensive study done on data from 1976-86
+	again channel breakout & moving average won
+	
+	channel breakout is great choice as a starting point system (says lokac)
 
-4 to 8. Because this method combines price and time, there's no
-reason why the cyclic principle of harmonics should not play an
-important role. The tactic of dividing a weekly parameter by 2 to
-shorten it, or doubling it to lengthen it, does have cycle logic
-behind it.
-The 4 week rule is a simple breakout system. The original
-system can be modified by using a shorter time period-a 1 or 2
-week rule-for liquidation purposes. If the user desires a more sensitive
-system, a 2 week period can be employed for entry signals.
-Because this rule is meant to be simple, it is best addressed on that
-level. The 4 week rule is simple, but it works.(Charting packages
-allow you to plot price channels above and below current prices to
-spot channel breakouts. Price channels can be used on daily,
-weekly, or monthly charts. See Figures 9.11 and 9.12.)
------------------------------------------------------------------------------------------------------------------------
-TO OPTIMIZE OR NOT
-The first edition of this book included the results of extensive
-research produced by Merrill Lynch, which published a series of
-studies on computerized trading techniques applied to the futures
-markets from 1978-82. Extensive testing of various moving average
-and channel breakout parameters was performed to find the
-best possible combinations in each futures market. The Merrill
-Lynch researchers produced a different set of optimized indicator
-values for each market.
-Most charting packages allow you to optimize systems and
-indicators. Instead of using the same moving average in all markets,
-for example, you could ask the computer to find the moving
-average, or moving average combinations, that have worked the
-best in the past for that market. That could also be done for daily
 
-and weekly breakout systems and virtually all technical indicators
-included in this book. Optimization allows technical parameters
-to adapt to changing market conditions.
-Some argue that optimization helps their trading results
-and others that it doesn't. The heart of the debate centers on how
-the data is optimized. Researchers stress that the correct procedure
-is to use only part of the price data to choose the best parameters,
-and another portion to actually test the results. Testing the optimized
-parameters on "out of sample" price data helps ensure that
-the final results will be closer to what one might experience from
-actual trading.
-The decision to optimize or not is a personal one. Most evidence,
-however, suggests that optimization is not the Holy Grail
-some think it to be. I generally advise traders following only a
-handful of markets to experiment with optimization. Why should
-Treasury Bonds or the German mark have the exact same moving
-averages as corn or cotton? Stock market traders are a different
-story. Having to follow thousands of stocks argues against optimizing.
+4 week rule
+	is a simple breakout system
+	used primarily for futures
+	tends to trade less frequently (lower commission)
+	main criticism: does not catch tops or bottoms (same for all trend-following approaches)
+	
+	info:
+		logic is based on sound technical principles
+		mechanical and clearcut signals
+		almost guarantees participation on right side of every important trend (due to being trend-following)
+		structured to follow maxim of successful trading "let profits run, while cutting losses short."
+		at least as good as most other trend-following systems and better than many
+
+continuous (always in position, long or short)
+	buy	when price exceeds      highs of past 4 full calendar weeks (buy long       & cover short)
+	sell	when price falls below  lows  of past 4 full calendar weeks (liquidate long & sell  short)
+	
+	basic weakness: stays in market and get "whipsawed" during trendless periods
+
+noncontinuous (shorter time span for sell, 1 or 2 week)			modifications 1 or 2 week for liquidation
+	buy	...
+	sell	... past 2 full calendar weeks
+
+	remains out of market until a new 4 week breakout is registered
+
+adjustments
+	does not have to be a trading system
+	using weekly signals as indicator to identify breakouts & trend reversals
+	using weekly breakouts as confirming filter for moving average crossover (or other techniques)
+	confirmed crossover signal:	2 week breakout in same direction
+	excellent filters:		1 or 2 week rules
+
+time period adjustment
+	expand or compress for risk management & sensitivity
+	
+	shorter period:		more sensitive system. eg:2 week for entry (good when prices trending sharply higher, aka high priced market)
+	
+	trainling stop
+		long position on 4 week upside breakout		stoploss at low of past 2 weeks
+		if market sharp rally				stoploss at low of past   week
+	
+	8 week period		prevents position on shorter term & premature trend signals (if staying out until important trend signal is given, aka? trading range situation)
+
+
+tied to cycles
+	4 week (or 20 day) trading cycle is a dominant cycle that influences all markets (may explain success of 4 week period)
+	
+	remember that
+		variations of 4 week rule were 1 2 8 week rules
+		principle of harmonics in cyclic analysis holds that each cycle is related to its neighboring cycles by 2 (next longer & next shorter cycles)
+		how monthly cycle & harmonics explained popularity of 5 10 20 40 day averages (line 178)
+
+	same time periods hold true in weekly rules
+	daily numbers translated to weekly periods	 1 2 4 8 week
+
+
+	4 week rule adjustments seem to work best when 4 is divided or multiplied by 2 (this tactic has cycle logic behind it)
+		to shorten		go from 4 to 2 week
+		... even more		go from 2 to 1 week
+		
+		to lengthen		go from 4 to 8
+
+	(in charting software: plot price channels above and below current prices to spot channel breakouts)
+-----------------------------------------------------------------------------------------------------------------------
+to optimize or not
+
+The first edition of this book included the results of extensive research produced by Merrill Lynch, which published a series of studies on computerized trading techniques applied to the futures markets from 1978-82.
+Extensive testing of various moving average and channel breakout parameters was performed to find the best possible combinations in each futures market.
+The Merrill Lynch researchers produced a different set of optimized indicator values for each market.
+Most charting packages allow you to optimize systems and indicators.
+Instead of using the same moving average in all markets, for example, you could ask the computer to find the moving average, or moving average combinations, that have worked the best in the past for that market.
+That could also be done for daily and weekly breakout systems and virtually all technical indicators included in this book. Optimization allows technical parameters to adapt to changing market conditions.
+Some argue that optimization helps their trading results and others that it doesn't.
+The heart of the debate centers on how the data is optimized.
+Researchers stress that the correct procedure is to use only part of the price data to choose the best parameters, and another portion to actually test the results.
+Testing the optimized parameters on "out of sample" price data helps ensure that the final results will be closer to what one might experience from actual trading.
+The decision to optimize or not is a personal one.
+Most evidence, however, suggests that optimization is not the Holy Grail some think it to be.
+I generally advise traders following only a handful of markets to experiment with optimization.
+Why should Treasury Bonds or the German mark have the exact same moving averages as corn or cotton?
+Stock market traders are a different story.
+Having to follow thousands of stocks argues against optimizing.
 If you specialize in a handful of markets, try optimizing.
-If you're a generalist who follows a large number of markets, use
-the same technical parameters for all of them.
+If you're a generalist who follows a large number of markets, use the same technical parameters for all of them.
 -----------------------------------------------------------------------------------------------------------------------
 SUMMARY
-We've presented a lot of variations on the moving average
-approach. Let's try to simplify things a bit. Most technicians use
-a combination of two moving averages. Those two averages are
-usually simple averages. Although exponential averages have
-become popular, there's no real evidence to prove that they work
-any better than the simple average. The most commonly used
-daily moving average combinations in futures markets are 4 and
-9, 9 and 18, 5 and 20, and 10 and 40. Stock traders rely heavily
-on a SO day ( or 10 week) moving average. For longer range stock
-market analysis, popular weekly moving averages are 30 and 40
-weeks (or 200 days). Bollinger Bands make use of 20 day and 20
-week moving averages. The 20 week average can be converted to
-daily charts by utilizing a 100 day average, which is another use
 
-ful moving average. Channel breakout systems work extremely
-well in trending markets and can be used on daily, weekly, and
-monthly charts.
+We've presented a lot of variations on the moving average approach.
+Let's try to simplify things a bit.
+Most technicians use a combination of two moving averages.
+Those two averages are usually simple averages.
+Although exponential averages have become popular, there's no real evidence to prove that they work any better than the simple average.
+The most commonly used daily moving average combinations in futures markets are 4 and 9, 9 and 18, 5 and 20, and 10 and 40.
+Stock traders rely heavily on a 5O day (or 10 week) moving average.
+For longer range stock market analysis, popular weekly moving averages are 30 and 40 weeks (or 200 days).
+
+Bollinger Bands make use of 20 day and 20 week moving averages.
+The 20 week average can be converted to daily charts by utilizing a 100 day average, which is another useful moving average.
+Channel breakout systems work extremely well in trending markets and can be used on daily, weekly, and monthly charts.
 -----------------------------------------------------------------------------------------------------------------------
-THE ADAPTIVE
-MOVING AVERAGE
-One of the problems encountered with the moving average is
-choosing between a fast or a slow average. While one may work
-better in a trading range market, the other may be preferable in a
-trending market. The answer to the problem of choosing between
-the two may lie with an innovative approach called the "adaptive
-moving average."
-Perry Kaufman presents this technique in his book Smarter
-Trading. The speed of Kaufman's "adaptive moving average" automatically
-adjusts to the level of noise (or volatility) in a market.
-The AMA moves more slowly when markets are trending sideways,
-but then moves more swiftly when the market is trending.
-That avoids the problem of using a faster moving average (and
-getting whipsawed more frequently) during a trading range, and
-using a slower average that trails too far behind a market when it
-is trending.
-Kaufman does that by constructing an Efficiency Ratio that
-compares price direction with the level of volatility. When the
-Efficiency Ratio is high, there is more direction than volatility
-(favoring a faster average). When the ratio is low, there's more
-volatility than direction (favoring a slower average). By incorporating
-the Efficiency Ratio, the AMA automatically adjusts to the
-speed most suitable for the current market.
+THE ADAPTIVE MOVING AVERAGE
+
+One of the problems encountered with the moving average is choosing between a fast or a slow average.
+While one may work better in a trading range market, the other may be preferable in a trending market.
+The answer to the problem of choosing between the two may lie with an innovative approach called the "adaptive moving average."
+Perry Kaufman presents this technique in his book Smarter Trading.
+The speed of Kaufman's "adaptive moving average" automatically adjusts to the level of noise (or volatility) in a market.
+The AMA moves more slowly when markets are trending sideways, but then moves more swiftly when the market is trending.
+That avoids the problem of using a faster moving average (and getting whipsawed more frequently) during a trading range, and using a slower average that trails too far behind a market when it is trending.
+Kaufman does that by constructing an Efficiency Ratio that compares price direction with the level of volatility.
+When the Efficiency Ratio is high, there is more direction than volatility (favoring a faster average).
+When the ratio is low, there's more volatility than direction (favoring a slower average).
+By incorporating the Efficiency Ratio, the AMA automatically adjusts to the speed most suitable for the current market.
 -----------------------------------------------------------------------------------------------------------------------
-ALTERN ATIVES TO THE
-MOVING AVERAGE
-223
-Moving averages don't work all of the time. They do their best
-work when the market is in a trending phase. They're not very
-helpful during trendless periods when prices trade sideways.
-Fortunately, there's another class of indicator that performs much
-better than the moving average during those frustrating trading
-ranges. They're called oscillators and we'll explain them in the
-next chapter.
------------------------------------------------------------------------------------------------------------------------
+ALTERN ATIVES TO THE MOVING AVERAGE
+
+Moving averages don't work all of the time.
+They do their best work when the market is in a trending phase.
+They're not very helpful during trendless periods when prices trade sideways.
+Fortunately, there's another class of indicator that performs much better than the moving average during those frustrating trading ranges.
+They're called oscillators and we'll explain them in the next chapter.
 -----------------------------------------------------------------------------------------------------------------------
