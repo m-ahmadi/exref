@@ -18,7 +18,7 @@ nums = [12, 14, 15, 17, 18, 19, 19, 21, 28, 29, 30, 30, 31, 32, 34, 34, 36, 39, 
 */
 
 function getRanges(_nums=[], _diff=1, percent=true) {
-	const nums = [..._nums];
+	let nums = [..._nums];
 	nums.sort((a,b) => a-b);
 	
 	const ranges = [];

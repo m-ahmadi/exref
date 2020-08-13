@@ -35,3 +35,8 @@ arr.sort((a,b) => b.y - a.y) // {y:6}, {y:5}, ...
 var arr = [  ['c',3], ['a',1], ['f',6], ['d',4], ['b',2]  ];
 arr.sort((a,b) => b[1] - a[1] ) // [  ['f',6], ['d',4], ...  ]
 arr.sort((a,b) => a[1] - b[1] ) // [  ['a',1], ['b',2], ...  ]
+
+// sort array of arrays by length
+var arr = [ [1,1], [1,1,1], [1] ];
+arr.sort((a,b) => a.length - b.length) // [ [1], [1,1], [1,1,1] ]
+arr.sort((a,b) => b.length - a.length) // [ [1,1,1], [1,1], [1] ]

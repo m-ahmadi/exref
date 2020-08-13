@@ -1,3 +1,11 @@
+/* includes:
+spectrum.css
+spectrum.js
+
+cdn:
+	https://cdn.jsdelivr.net/npm/spectrum-colorpicker/ 
+*/
+
 // basic
 $('#colorpick').spectrum({
 	color: '#f00',
@@ -17,7 +25,7 @@ $('#full').spectrum({
 	maxSelectionSize: 10,
 	preferredFormat: 'hex',
 	localStorageKey: 'spectrum.demo',
-	move: function (color) {
+	\move: function (color) {
 		
 	},
 	show: function () {

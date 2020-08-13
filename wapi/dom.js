@@ -199,7 +199,11 @@ function index(el) {
 	return [...el.parentElement.children].indexOf(el);
 }
 
-// $('select').val()
+// selected value of single select
+ranges.selectedOptions[0].value
+select.options[select.options.selectedIndex].value
+
+// selected values of multiple select
 [...select.selectedOptions].map(i => i.value)
 [...select.options].filter(i => i.selected).map(i => i.value)
 [...select.querySelectorAll(':checked')].map(i => i.value)

@@ -1,1 +1,1 @@
-P/E ratio = price per share ÷ earnings per share (EPS)
+P/E ratio = price per share / earnings per share (EPS)
