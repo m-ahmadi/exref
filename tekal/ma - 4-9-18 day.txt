@@ -1,0 +1,17 @@
+4-9-18 day moving average system
+
+shortest average follows the trend most closely
+
+proper alignment
+	in uptrend	4 above 9 and 9 above 18
+	in downtrend	4 lowest, followed by 9 and then 18 (exact opposite of uptrend)
+
+in downtrend
+	buy alert:		when 4 crosses above both 9 and 18
+	confirmed buy signal:	when 9 day crosses above 18 (4 over 9, 9 over 18)
+	general uptrend remains intact despite of some intermingling of averages during corrections or consolidations
+	during intermingling some might buy more and some might take profit (depending on how aggressively one wants to trade)
+
+in uptred
+	sell alert:		when 4 dips below 9 and 18 (might be enough for some traders to liquidate longs, sign that uptrend reversing to the downside)
+	confirmed sell signal:	when 9 drops below 18 (or sell short signal)

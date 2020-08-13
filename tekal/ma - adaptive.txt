@@ -1,0 +1,20 @@
+adaptive moving average
+
+developed by perry kaufman (his book: "smarter trading")
+
+problem of choosing fast or slow average?
+	fast average 	gets whipsawed more   when trendless
+	slow average	trails too far behind when trending
+	(one might work when trending, other one while trendless)
+
+ama automatically adjusts to the speed most suitable for market (using efficiency ratio)
+speed of ama automatically adjusts to the level of noise (volatility) in market
+	moves slowly when trendless
+	moves faster when trending
+
+efficiency ratio
+	used in ama formula
+	compares price direction & volatility level
+	
+	when high:	faster average (more direction  than volatility)
+	when low:	slower average (more volatility than direction)

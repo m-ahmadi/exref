@@ -4,7 +4,7 @@ Advance/Decline				Donchian Channels			MACD					Spread
 Arnaud Legoux Moving Average		Double EMA				Mass Index				Stochastic
 Aroon										McGinley Dynamic			Stochastic RSI
 Average Directional Index		EMA Cross				Momentum				SuperTrend
-Average True Range			Ease Of Movement			Money Flow
+Average True Range			Ease of Movement			Money Flow
 Awesome Oscillator			Elder's Force Index			Moving Average				TRIX
 					Envelope				Moving Average Channel			Triple EMA
 Balance of Power								Moving Average Exponential		True Strength Indicator

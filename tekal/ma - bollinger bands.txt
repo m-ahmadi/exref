@@ -1,0 +1,34 @@
+bollinger bands
+
+developed by john bollinger
+are two trading bands placed around a moving average similar to envelopes, except they
+are placed two standard deviations above & below a (usually) 20 day moving average
+can also be applied to weekly/monthly charts by using 20 week/month instead of 20 day
+work best when combined with overbought/oversold oscillators
+bandwidth measures volatility
+tend to alternate between expansion & contraction
+	
+standard deviation describes how prices are dispersed around an average value and using two ensures that 95% of price data falls between the two bands
+
+prices are considered
+	overextended upside   (overbought)	when prices touch upper band
+	overextended downside (oversold)	when prices touch lower band
+
+using bands as price targets
+	if prices bounce off lower band and cross above 20 day average, upper band becomes target
+	a crossing below 20 day average would identify the lower band as target
+
+in a strong uptrend
+	prices usually fluctuate between upper band and the average
+	a crossing below the average warns of a trend reversal to the downside
+
+major difference of bollinger bands and envelopes
+	envelopes stay a constant percentage width apart
+	bollinger bands expand and contract based on last 20 days' volatility
+
+distance between the bands
+	will widen 		during a period of rising price volatility
+	will contract		during a period of low    price volatility
+
+when bands are unusually far apart:		a sign (often) that current trend may be ending
+when bands are too close to near each other:	a sign (often) that a new   trend may be starting

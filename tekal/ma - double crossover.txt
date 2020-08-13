@@ -1,0 +1,11 @@
+double crossover (two moving averages)
+
+this technique lags the market a bit more than a single average but produces fewer whipsaws
+
+buy  signal:	when shorter average crosses above the longer
+sell signal:	when ...                     below the longer
+
+
+popular combinations
+	5  and 20 day (buy when 5 crosses above 20, sell when 5 moves below 20)
+	10 and 50 day (... 10 above 50 signals uptrend, 10 under 50 signals downtrend)

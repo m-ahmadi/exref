@@ -1,0 +1,13 @@
+envelopes
+	can enhance a single moving average
+	help determine when market has gotten overextended in either direction (prices have strayed too far from their moving average line)
+
+envelopes are placed at fixed percentages above and below the average
+trend is considered overextended when prices reach one of the envelopes
+
+common in short term
+	3% envelopes around a simple 21 day average
+
+possible combinations for long term
+	5% envelopes around a 10 week average
+	10% envelope around a 40 week average

@@ -66,84 +66,6 @@ long average
 finding an average sensitive enough to generate early signals but insensitive enough to avoid most noises is a tradeoff
 using only one moving average has several disadvantages and it's best to use two
 -----------------------------------------------------------------------------------------------------------------------
-two moving averages (double crossover)
-
-this technique lags the market a bit more than a single average but produces fewer whipsaws
-
-buy signal:	when shorter average crosses above the longer
-
-popular combinations
-	5  and 20 day (buy when 5 crosses above 20, sell when 5 moves below 20)
-	10 and 50 day (... 10 above 50 signals uptrend, 10 under 50 signals downtrend)
-
------------------------------------------------------------------------------------------------------------------------
-4-9-18 day moving average system
-
-shortest average follows the trend most closely
-
-proper alignment
-	in uptrend	4 above 9 and 9 above 18
-	in downtrend	4 lowest, followed by 9 and then 18 (exact opposite of uptrend)
-
-in downtrend
-	buy alert:		when 4 crosses above both 9 and 18
-	confirmed buy signal:	when 9 day crosses above 18 (4 over 9, 9 over 18)
-	general uptrend remains intact despite of some intermingling of averages during corrections or consolidations
-	during intermingling some might buy more and some might take profit (depending on how aggressively one wants to trade)
-
-in uptred
-	sell alert:		when 4 dips below 9 and 18 (might be enough for some traders to liquidate longs, sign that uptrend reversing to the downside)
-	confirmed sell signal:	when 9 drops below 18 (or sell short signal)
------------------------------------------------------------------------------------------------------------------------
-moving average envelopes
-	can enhance a single moving average
-	help determine when market has gotten overextended in either direction (prices have strayed too far from their moving average line)
-
-envelopes are placed at fixed percentages above and below the average
-trend is considered overextended when prices reach one of the envelopes
-
-common in short term
-	3% envelopes around a simple 21 day average
-
-possible combinations for long term
-	5% envelopes around a 10 week average
-	10% envelope around a 40 week average
------------------------------------------------------------------------------------------------------------------------
-bollinger bands (developed by john bollinger)
-
-bollinger bands
-	are two trading bands placed around a moving average similar to envelopes, except they
-	are placed two standard deviations above and below a (usually) 20 day moving average
-	can also be applied to weekly/monthly charts by using 20 week/month instead of 20 day
-	work best when combined with overbought/oversold oscillators
-	bandwidth measures volatility
-	tend to alternate between expansion and contraction
-	
-standard deviation describes how prices are dispersed around an average value and using two ensures that 95% of price data falls between the two bands
-
-prices are considered
-	overextended upside   (overbought)	when prices touch upper band
-	overextended downside (oversold)	when prices touch lower band
-
-using bands as price targets
-	if prices bounce off lower band and cross above 20 day average, upper band becomes target
-	a crossing below 20 day average would identify the lower band as target
-
-in a strong uptrend
-	prices usually fluctuate between upper band and the average
-	a crossing below the average warns of a trend reversal to the downside
-
-major difference of bollinger bands and envelopes
-	envelopes stay a constant percentage width apart
-	bollinger bands expand and contract based on last 20 days' volatility
-
-distance between the bands
-	will widen 		during a period of rising price volatility
-	will contract		during a period of low    price volatility
-
-when bands are unusually far apart:		a sign (often) that current trend may be ending
-when bands are too close to near each other:	a sign (often) that a new   trend may be starting:	
------------------------------------------------------------------------------------------------------------------------
 centering the average
 
 plotting a moving average in middle of the time period it covers (instead of at end)
@@ -236,92 +158,6 @@ moving average can be
 	used on various indicators and ratios
 	applied to oscillators as well
 -----------------------------------------------------------------------------------------------------------------------
-weekly rule
-
-aka weekly price channel (developed by richard donchian)
-most successful alternative trend-following device to the moving average
-has many benefits of moving average but less time consuming and simpler to use
-works quite well and have stood test of time
-gets overlooked due to existence of fancier things
-(technical trading systems development timeline: sma, doubl/triple crossover, lwma/esma)
-general rule: trend-following systems dont work well in trendless phases
-
-history
-louis lukac suggest breakout (channel) systems show superior results (like weekly rule)
-	12 systems tested from 1975-84
-	4 generated significant profits (2 channel breakout, 1 dual crossover avg)
-	
-	23 systems tested from 1976-86
-	extensive study done on data from 1976-86
-	again channel breakout & moving average won
-	
-	channel breakout is great choice as a starting point system (says lokac)
-
-
-4 week rule
-	is a simple breakout system
-	used primarily for futures
-	tends to trade less frequently (lower commission)
-	main criticism: does not catch tops or bottoms (same for all trend-following approaches)
-	
-	info:
-		logic is based on sound technical principles
-		mechanical and clearcut signals
-		almost guarantees participation on right side of every important trend (due to being trend-following)
-		structured to follow maxim of successful trading "let profits run, while cutting losses short."
-		at least as good as most other trend-following systems and better than many
-
-continuous (always in position, long or short)
-	buy	when price exceeds      highs of past 4 full calendar weeks (buy long       & cover short)
-	sell	when price falls below  lows  of past 4 full calendar weeks (liquidate long & sell  short)
-	
-	basic weakness: stays in market and get "whipsawed" during trendless periods
-
-noncontinuous (shorter time span for sell, 1 or 2 week)			modifications 1 or 2 week for liquidation
-	buy	...
-	sell	... past 2 full calendar weeks
-
-	remains out of market until a new 4 week breakout is registered
-
-adjustments
-	does not have to be a trading system
-	using weekly signals as indicator to identify breakouts & trend reversals
-	using weekly breakouts as confirming filter for moving average crossover (or other techniques)
-	confirmed crossover signal:	2 week breakout in same direction
-	excellent filters:		1 or 2 week rules
-
-time period adjustment
-	expand or compress for risk management & sensitivity
-	
-	shorter period:		more sensitive system. eg:2 week for entry (good when prices trending sharply higher, aka high priced market)
-	
-	trainling stop
-		long position on 4 week upside breakout		stoploss at low of past 2 weeks
-		if market sharp rally				stoploss at low of past   week
-	
-	8 week period		prevents position on shorter term & premature signals. iow: staying out until more important signal (eg in trading range situation)
-
-
-ties to cycles
-	4 week (or 20 day) trading cycle is a dominant cycle that influences all markets (may explain success of 4 week period)
-	
-	remember that
-		variations of 4 week rule were 1 2 8 week rules
-		principle of harmonics in cyclic analysis holds that each cycle is related to its neighboring cycles by 2 (next longer & next shorter cycles)
-		how monthly cycle & harmonics explained popularity of 5 10 20 40 day averages (line 178)
-
-	same time periods hold true in weekly rules
-	daily numbers translated to weekly periods	 1 2 4 8 week
-
-
-	4 week rule adjustments seem to work best when 4 is divided or multiplied by 2 (this tactic has cycle logic behind it)
-		to shorten		go from 4 to 2 week
-		... even more		go from 2 to 1 week
-		
-		to lengthen		go from 4 to 8
-
-	(in charting software: plot price channels above and below current prices to spot channel breakouts)
------------------------------------------------------------------------------------------------------------------------
 optimization
 
 goal is to find best combination of moving averages & channel breakout parameters for each market
@@ -337,6 +173,7 @@ correct way to optimize data (helps with closer to reality results)
 should you optimize advise:
 	do	 if following a handful      of markets
 	don't	 if following a large number of markets (use same parameters for all)
+
 -----------------------------------------------------------------------------------------------------------------------
 summary
 
@@ -357,25 +194,4 @@ common in stock market
 bollinger bands:	20 day & 20 week
 useful:			20 week | 100 day
 daily/weekly/monthly channel breakout works in trending market
------------------------------------------------------------------------------------------------------------------------
-adaptive moving average
-
-developed by perry kaufman (his book: "smarter trading")
-
-problem of choosing fast or slow average?
-	fast average 	gets whipsawed more   when trendless
-	slow average	trails too far behind when trending
-	(one might work when trending, other one while trendless)
-
-ama automatically adjusts to the speed most suitable for market (using efficiency ratio)
-speed of ama automatically adjusts to the level of noise (volatility) in market
-	moves slowly when trendless
-	moves faster when trending
-
-efficiency ratio
-	used in ama formula
-	compares price direction & volatility level
-	
-	when high:	faster average (more direction  than volatility)
-	when low:	slower average (more volatility than direction)
 -----------------------------------------------------------------------------------------------------------------------

@@ -1,0 +1,86 @@
+weekly rule
+
+aka weekly price channel (developed by richard donchian)
+most successful alternative trend-following device to the moving average
+has many benefits of moving average but less time consuming and simpler to use
+works quite well and have stood test of time
+gets overlooked due to existence of fancier things
+(technical trading systems development timeline: sma, doubl/triple crossover, lwma/esma)
+general rule: trend-following systems dont work well in trendless phases
+
+history
+louis lukac suggest breakout (channel) systems show superior results (like weekly rule)
+	12 systems tested from 1975-84
+	4 generated significant profits (2 channel breakout, 1 dual crossover avg)
+	
+	23 systems tested from 1976-86
+	extensive study done on data from 1976-86
+	again channel breakout & moving average won
+	
+	channel breakout is great choice as a starting point system (says lokac)
+-----------------------------------------------------------------------------------------------------------------------
+4 week rule
+is a simple breakout system
+used primarily for futures
+tends to trade less frequently (lower commission)
+main criticism: does not catch tops or bottoms (same for all trend-following approaches)
+
+info:
+logic is based on sound technical principles
+mechanical and clearcut signals
+almost guarantees participation on right side of every important trend (due to being trend-following)
+structured to follow maxim of successful trading "let profits run, while cutting losses short."
+at least as good as most other trend-following systems and better than many
+
+continuous (always in position, long or short)
+	buy	when price exceeds      highs of past 4 full calendar weeks (buy long       & cover short)
+	sell	when price falls below  lows  of past 4 full calendar weeks (liquidate long & sell  short)
+	
+	basic weakness: stays in market and get "whipsawed" during trendless periods
+
+noncontinuous (shorter time span for sell, 1 or 2 week)			modifications 1 or 2 week for liquidation
+	buy	...
+	sell	... past 2 full calendar weeks
+
+	remains out of market until a new 4 week breakout is registered
+
+adjustments
+	does not have to be a trading system
+	using weekly signals as indicator to identify breakouts & trend reversals
+	using weekly breakouts as confirming filter for moving average crossover (or other techniques)
+	confirmed crossover signal:	2 week breakout in same direction
+	excellent filters:		1 or 2 week rules
+-----------------------------------------------------------------------------------------------------------------------
+time period adjustment
+
+expand or compress for risk management & sensitivity
+
+shorter period:		more sensitive system. eg:2 week for entry (good when prices trending sharply higher, aka high priced market)
+
+trainling stop
+	long position on 4 week upside breakout		stoploss at low of past 2 weeks
+	if market sharp rally				stoploss at low of past   week
+
+8 week period		prevents position on shorter term & premature signals. iow: staying out until more important signal (eg in trading range situation)
+-----------------------------------------------------------------------------------------------------------------------
+ties to cycles
+
+4 week (or 20 day) trading cycle is a dominant cycle that influences all markets (may explain success of 4 week period)
+
+remember that
+	variations of 4 week rule were 1 2 8 week rules
+	principle of harmonics in cyclic analysis holds that each cycle is related to its neighboring cycles by 2 (next longer & next shorter cycles)
+	how monthly cycle & harmonics explained popularity of 5 10 20 40 day averages (line 178)
+
+same time periods hold true in weekly rules
+daily numbers translated to weekly periods	 1 2 4 8 week
+
+
+4 week rule adjustments seem to work best when 4 is divided or multiplied by 2 (this tactic has cycle logic behind it)
+	to shorten		go from 4 to 2 week
+	... even more		go from 2 to 1 week
+	
+	to lengthen		go from 4 to 8
+
+(in charting software: plot price channels above and below current prices to spot channel breakouts)
+-----------------------------------------------------------------------------------------------------------------------
