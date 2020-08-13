@@ -14,10 +14,10 @@ commonly used time frames
 	200		long  term
 
 which prices to use
-close		most common
-midpoint	dividing the day's range by two: median(high,low) aka `midrange` in statistics
-hlc		high + low + close / 3
-price-bands	average of high and low separately (volatility buffer or neutral zone)
+	close		most common
+	midpoint	dividing the day's range by two: median(high,low) aka `midrange` in statistics
+	hlc		high + low + close / 3
+	price-bands	average of high and low separately (volatility buffer or neutral zone)
 -----------------------------------------------------------------------------------------------------------------------
 types of moving averages:
 
