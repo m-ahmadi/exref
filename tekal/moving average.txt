@@ -156,7 +156,7 @@ major flaw of producing much later trend change signals
 usually not used (averages usually placed at end)
 this technique is used almost exclusively by cyclic analysts to isolate underlying market cycles
 -----------------------------------------------------------------------------------------------------------------------
-moving averages tied to cycles
+ties to cycles
 
 time cycles
 	play an important role in market movements (many believe)
@@ -185,7 +185,7 @@ example
 cyclic influences & harmonic relationships of neighboring cycles can explain many commonly used moving averages (including 4-9-18 day, which are derivatives of 5, 10, 20) 
 4 week cycle might explain the success of 4 week rule (and 2 week rule)
 -----------------------------------------------------------------------------------------------------------------------
-fibonacci numbers used as moving averages
+fibonacci numbers as moving averages
 
 fib number series (13, 21, 34, 55, ...) seem to lend themselves quite well to moving average analysis
 
@@ -194,7 +194,7 @@ true for daily & weekly charts
 21 day  average is a fib number
 13 week average is a fib number (and has proven valuable in both stocks and commodities)
 -----------------------------------------------------------------------------------------------------------------------
-moving averages applied to long term charts
+applied to long term charts
 
 proven to be useful in longer range trend analysis
 
@@ -205,14 +205,13 @@ some pros and cons of moving average
 
 pro
 	so popular as trend-following systems
-	they embody some of the oldest maxims of successful trading
+	they embody some of the oldest maxims of successful trading "let profits run, while cutting losses short."
 	they trade in direction of trend
-	they let profit run and cut loss short
 	they force user to obey the rules by providing specific buy/sell signals based on principles
-	they work best when market is in trending period (due to being trend-following in nature)
+	they work best when market is in trending phase (due to being trend-following in nature)
 	they can't be beat in (certain) trending markets (just switch to automatic)
 con
-
+	not very helpful during trendless phase (oscillators perform better in trendless phase)
 	they perform very poorly when market gets choppy and trade sideways for a period of time (and that might be a third to half the time)
 	dangerous to rely too heavily on them (since do not work (that well) most of the time ↑)
 	a nontrending methods like over-bought/sold oscillator is more appropriate in nontrending market
@@ -300,10 +299,10 @@ time period adjustment
 		long position on 4 week upside breakout		stoploss at low of past 2 weeks
 		if market sharp rally				stoploss at low of past   week
 	
-	8 week period		prevents position on shorter term & premature trend signals (if staying out until important trend signal is given, aka? trading range situation)
+	8 week period		prevents position on shorter term & premature signals. iow: staying out until more important signal (eg in trading range situation)
 
 
-tied to cycles
+ties to cycles
 	4 week (or 20 day) trading cycle is a dominant cycle that influences all markets (may explain success of 4 week period)
 	
 	remember that
@@ -323,61 +322,60 @@ tied to cycles
 
 	(in charting software: plot price channels above and below current prices to spot channel breakouts)
 -----------------------------------------------------------------------------------------------------------------------
-to optimize or not
+optimization
 
-The first edition of this book included the results of extensive research produced by Merrill Lynch, which published a series of studies on computerized trading techniques applied to the futures markets from 1978-82.
-Extensive testing of various moving average and channel breakout parameters was performed to find the best possible combinations in each futures market.
-The Merrill Lynch researchers produced a different set of optimized indicator values for each market.
-Most charting packages allow you to optimize systems and indicators.
-Instead of using the same moving average in all markets, for example, you could ask the computer to find the moving average, or moving average combinations, that have worked the best in the past for that market.
-That could also be done for daily and weekly breakout systems and virtually all technical indicators included in this book. Optimization allows technical parameters to adapt to changing market conditions.
-Some argue that optimization helps their trading results and others that it doesn't.
-The heart of the debate centers on how the data is optimized.
-Researchers stress that the correct procedure is to use only part of the price data to choose the best parameters, and another portion to actually test the results.
-Testing the optimized parameters on "out of sample" price data helps ensure that the final results will be closer to what one might experience from actual trading.
-The decision to optimize or not is a personal one.
-Most evidence, however, suggests that optimization is not the Holy Grail some think it to be.
-I generally advise traders following only a handful of markets to experiment with optimization.
-Why should Treasury Bonds or the German mark have the exact same moving averages as corn or cotton?
-Stock market traders are a different story.
-Having to follow thousands of stocks argues against optimizing.
-If you specialize in a handful of markets, try optimizing.
-If you're a generalist who follows a large number of markets, use the same technical parameters for all of them.
+goal is to find best combination of moving averages & channel breakout parameters for each market
+instead of same moving average in all markets, find the one or a combination, that has worked best in past for that market
+can be done for daily/weekly breakout systems & all indicators
+allows technical parameters to adapt to changing market conditions
+isn't the holy grail some think is (based on evidence)
+
+correct way to optimize data (helps with closer to reality results)
+	use only    part of data to  choose best parameters
+	use another part of data to  test the results
+
+should you optimize advise:
+	do	 if following a handful      of markets
+	don't	 if following a large number of markets (use same parameters for all)
 -----------------------------------------------------------------------------------------------------------------------
-SUMMARY
+summary
 
-We've presented a lot of variations on the moving average approach.
-Let's try to simplify things a bit.
-Most technicians use a combination of two moving averages.
-Those two averages are usually simple averages.
-Although exponential averages have become popular, there's no real evidence to prove that they work any better than the simple average.
-The most commonly used daily moving average combinations in futures markets are 4 and 9, 9 and 18, 5 and 20, and 10 and 40.
-Stock traders rely heavily on a 5O day (or 10 week) moving average.
-For longer range stock market analysis, popular weekly moving averages are 30 and 40 weeks (or 200 days).
+most technicians use two sma
+ema while popular no evidence proves it's better than sma
 
-Bollinger Bands make use of 20 day and 20 week moving averages.
-The 20 week average can be converted to daily charts by utilizing a 100 day average, which is another useful moving average.
-Channel breakout systems work extremely well in trending markets and can be used on daily, weekly, and monthly charts.
+common daily averages in futures market
+	4   &  9
+	9   &  18
+	5   &  10
+	10  &  40
+
+common in stock market
+	5O day (or 10 week)
+	30, 40 (or 200 days) for longer range
+
+
+bollinger bands:	20 day & 20 week
+useful:			20 week | 100 day
+daily/weekly/monthly channel breakout works in trending market
 -----------------------------------------------------------------------------------------------------------------------
-THE ADAPTIVE MOVING AVERAGE
+adaptive moving average
 
-One of the problems encountered with the moving average is choosing between a fast or a slow average.
-While one may work better in a trading range market, the other may be preferable in a trending market.
-The answer to the problem of choosing between the two may lie with an innovative approach called the "adaptive moving average."
-Perry Kaufman presents this technique in his book Smarter Trading.
-The speed of Kaufman's "adaptive moving average" automatically adjusts to the level of noise (or volatility) in a market.
-The AMA moves more slowly when markets are trending sideways, but then moves more swiftly when the market is trending.
-That avoids the problem of using a faster moving average (and getting whipsawed more frequently) during a trading range, and using a slower average that trails too far behind a market when it is trending.
-Kaufman does that by constructing an Efficiency Ratio that compares price direction with the level of volatility.
-When the Efficiency Ratio is high, there is more direction than volatility (favoring a faster average).
-When the ratio is low, there's more volatility than direction (favoring a slower average).
-By incorporating the Efficiency Ratio, the AMA automatically adjusts to the speed most suitable for the current market.
------------------------------------------------------------------------------------------------------------------------
-ALTERN ATIVES TO THE MOVING AVERAGE
+developed by perry kaufman (his book: "smarter trading")
 
-Moving averages don't work all of the time.
-They do their best work when the market is in a trending phase.
-They're not very helpful during trendless periods when prices trade sideways.
-Fortunately, there's another class of indicator that performs much better than the moving average during those frustrating trading ranges.
-They're called oscillators and we'll explain them in the next chapter.
+problem of choosing fast or slow average?
+	fast average 	gets whipsawed more   when trendless
+	slow average	trails too far behind when trending
+	(one might work when trending, other one while trendless)
+
+ama automatically adjusts to the speed most suitable for market (using efficiency ratio)
+speed of ama automatically adjusts to the level of noise (volatility) in market
+	moves slowly when trendless
+	moves faster when trending
+
+efficiency ratio
+	used in ama formula
+	compares price direction & volatility level
+	
+	when high:	faster average (more direction  than volatility)
+	when low:	slower average (more volatility than direction)
 -----------------------------------------------------------------------------------------------------------------------
