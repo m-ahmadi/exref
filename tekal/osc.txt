@@ -1,0 +1,773 @@
+oscillator
+	is an alternative to trend-following approaches
+	extremely useful in trendless market (prices fluctuating in horizontal band or trading range)
+	enables profiting from periodic sideways
+	also useful in trending phases (in conjunction with other tools) by alerting short term extremes (overbought/oversold)
+	can warn that trend is losing momentum before evident in price action
+	can signal that trend is near completion by showing certain divergences
+------------------------------------------------------------------------------------------------------------
+oscillator usage in conjunction with trend
+
+
+direction of overriding trend is very important
+oscillator
+	is only a secondary indicator (must be secondary to basic trend analysis)
+	is not that helpful near the beginning of important moves (can even be misleading)
+	becomes extremely valuable toward the end of market moves
+no study of market extremes is complete without discussing contrary opinion philosophy
+
+
+@@ interpretation of oscillators
+different ways to construct oscillators but interpretation differs very little
+
+most oscillators
+	plotted at bottom of chart and resemble a flat horizontal band
+	highs & lows in oscillator coincide with highs & lows in chart
+some oscillators
+	have a midpoint value (usually zero line) that divides the range to 2 halves (upper & lower)
+	have upper & lower boundaries ranging from 0 to 100
+	
+@@ general interpretation rules
+
+when oscillator reaches extreme value in upper/lower ends
+	current price move has gone too far too fast (due for correction/consolidation)
+when oscillator line in
+	lower end:	buy
+	upper end:	sell
+crossing of midpoint line often used to generate buy/sell signals
+
+@@ 3 situation when oscillator is most useful is when
+	1. its value reaches an extreme reading near the upper/lower end of its boundaries (upper=overbought, lower=oversold, warns that trend is overextended/vulnerable)
+	2. it's in extreme position and there's a divergence between oscillator & price action (usually an important warning)
+	3. it's crossing the zero line (important signal in direction of trend)
+------------------------------------------------------------------------------------------------------------
+MEASURING MOMENTUM
+
+The concept of momentum is the most basic application of oscillator
+analysis. Momentum measures the velocity of price changes as
+opposed to the actual price levels themselves. Market momentum
+is measured by continually taking price differences for a fixed
+time interval. To construct a 10 day momentum line, simply subtract
+the closing price 10 days ago from the last closing price. This
+positive or negative value is then plotted around a zero line. The
+formula for momentum is:
+	M = V - V^x
+where V is the latest closing price and vx is the closing price x
+days ago.
+
+If the latest closing price is greater than that of 10 days ago
+(in other words, prices have moved higher), then a positive value
+would be plotted above the zero line. If the latest close is below
+the close 10 days earlier (prices have declined), then a negative
+value is plotted below the zero line.
+
+While the 10 day momentum is a commonly used time
+period for reasons discussed later, any time period can be
+employed. (See Figure 10.la.) A shorter time period (such as 5
+days) produces a more sensitive line with more pronounced oscillations.
+A longer number of days (such as 40 days) results in a
+much smoother line in which the oscillator swings are less
+volatile. (See Figure 10.lb.)
+
+@@ Momentum Measures Rates of Ascent or Descent
+Let's talk a bit more about just what this momentum indicator is
+measuring. By plotting price differences for a set period of time,
+the chartist is studying rates of ascent or descent. If prices are rising
+and the momentum line is above the zero line and rising, this
+means the uptrend is accelerating. If the up-slanting momentum
+line begins to flatten out, this means that the new gains being
+achieved by the latest closes are the same as the gains 10 days earlier.
+While prices may still be advancing, the rate of ascent (or the
+velocity) has leveled off. When the momentum line begins to
+drop toward the zero line, the uptrend in prices is still in force,
+but at a decelerating rate. The uptrend is losing momentum.
+
+When the momentum line moves below the zero line, the
+latest 10 day close is now under the close of 10 days ago and a
+near term downtrend is in effect. (And, incidentally, the 10 day
+moving average also has begun to decline.) As momentum continues
+to drop farther below the zero line, the downtrend gains
+momentum. Only when the line begins to advance again does the
+analyst know that the downtrend is decelerating.
+
+It's important to remember that momentum measures the
+differences between prices at two time intervals. In order for the
+line to advance, the price gains for the last day's close must be
+greater than the gains of 10 days ago. If prices advance by only
+the same amount as 10 days ago, the momentum line will be flat.
+If the last price gain is less than that of 10 days ago, the momentum
+line begins to decline even though prices are still rising. This
+is how the momentum line measures the acceleration or deceleration
+in the current advance or decline in the price trend.
+
+@@ The Momentum Line Leads the Price Action
+Because of the way it is constructed, the momentum line is always
+a step ahead of the price movement. It leads the advance or
+decline in prices, then levels off while the current price trend is
+still in effect. It then begins to move in the opposite direction as
+prices begin to level off.
+
+@@ The Crossing of the Zero Line as a Trading Signal
+The momentum chart has a zero line. Many technicians use the
+crossing of the zero line to generate buy and sell signals. A
+crossing above the zero line would be a buy signal, and a crossing
+below the zero line, a sell signal. It should be stressed here
+again, however, that basic trend analysis is still the overriding
+consideration. Oscillator analysis should not be used as an
+excuse to trade against the prevailing market trend. Buy positions
+should only be taken on crossings above the zero line if
+the market trend is up. Short positions should be taken on
+crossings below the zero line only if the price trend is down.
+(See Figures 10.2a and b.)
+
+@@ The Need for an Upper and Lower Boundary
+One problem with the momentum line, as it is described here, is
+the absence of a fixed upper and lower boundary. It was stated earlier
+that one of the major values of oscillator analysis is being able
+to determine when markets are in extreme areas. But, how high is
+too high and how low is too low on the momentum line? The
+simplest way to solve this problem is by visual inspection. Check
+the back history of the momentum line on the chart and draw
+horizontal lines along its upper and lower boundaries. These lines
+will have to be adjusted periodically, especially after important
+trend changes have occurred. But it is the simplest and probably
+the most effective way of identifying the outer extremities. (See
+Figures 10.3 and 10.4.)
+
+@@ MEASURING RATE OF CHANGE (ROC)
+To measure the rate of change, a ratio is constructed of the most
+recent closing price to a price a certain number of days in the past.
+To construct a 10 day rate of change oscillator, the latest closing
+price is divided by the close 10 days ago. The formula is as follows:
+	Rate of change= 100 (V /Vx)
+where Vis the latest close and Vx is the closing price x days ago.
+
+In this case, the 100 line becomes the midpoint line. If
+the latest price is higher than the price 10 days ago (prices are
+rising), the resulting rate of change value will be above 100. If
+the last close is below 10 days ago, the ratio would be below
+100. (Charting software sometimes uses variations of the preceding
+formulas for momentum and rate of change. While the
+construction techniques may vary, the interpretation remains
+the same.)
+------------------------------------------------------------------------------------------------------------
+CONSTRUCTING AN OSCILLATOR USING TWO MO VING AVERAGES
+
+Chapter 9 discussed two moving averages being used to generate
+buy and sell signals. The crossing of the shorter average above or
+below the longer average registered buy and sell signals, respectively.
+It was mentioned at that time that these dual moving average
+combinations could also be used to construct oscillator charts.
+This can be done by plotting the difference between the two averages
+as a histogram. These histogram bars appear as a plus or
+minus value around a centered zero line. This type of oscillator
+has three uses:
+
+1. To help spot divergences.
+
+2. To help identify short term variations from the long term
+trend, when the shorter average moves too far above or
+below the longer average.
+
+3. To pinpoint the crossings of the two moving averages,
+which occur when the oscillator crosses the zero line.
+
+The shorter average is divided by the longer. In both cases,
+however, the shorter average oscillates around the longer average,
+which is in effect the zero line. If the shorter average is above the
+longer, the oscillator would be positive. A negative reading would
+be present if the shorter average were under the longer. (See
+Figures 10.5-10.7.)
+
+When the two moving average lines move too far apart,
+a market extreme is created calling for a pause in the trend.
+(See Figure 10.6.) Very often, the trend remains stalled until
+the shorter average line moves back to the longer. When the
+shorter line approaches the longer, a critical point is reached. In
+an uptrend, for example, the shorter line dips back to the longer
+average, but should bounce off it. This usually represents an ideal
+buying area. It's much like the testing of an up trendline. If the
+shorter average crosses below the longer average, however, a trend
+reversal is signaled.
+
+In a downtrend, a rise in the shorter average to the longer
+usually represents an ideal selling area unless the longer line is
+crossed, in which case a trend reversal signal would be registered.
+The relationships between the two averages can be used, therefore,
+not only as an excellent trend-following system, but also to
+help identify short term overbought and oversold conditions.
+------------------------------------------------------------------------------------------------------------
+COMMODITY CHANNEL INDEX
+
+It is possible to normalize an oscillator by dividing the values by
+a constant divisor. In the construction of his Commodity
+Channel Index (CCI), Donald R. Lambert compares the current
+price with a moving average over a selected time span-usually 20
+days. He then normalizes the oscillator values by using a divisor
+based on mean deviation. As a result, the CCI fluctuates in a constant
+range from +100 on the upside to -100 on the downside.
+Lambert recommended long positions in those markets with values
+over +100. Markets with CCI values below -100 were candidates
+for short sales.
+
+It seems, however, that most chartists use CCI simply as an
+overbought/oversold oscillator. Used in that fashion readings over
++100 are considered overbought and under -100 are oversold.
+While the Commodity Channel Index was originally developed
+for commodities, it is also used for trading stock index futures and
+options like the S&P 100 (OEX). Although 20 days is the common
+default value for CCI, the user can vary the number to adjust its
+sensitivity. (See Figures 10.8 and 10.9.)
+------------------------------------------------------------------------------------------------------------
+THE RELATIVE STRENGTH INDEX (RSI)
+
+The RSI was developed by J. Welles Wilder, Jr. and presented in his
+1978 book, New Concepts in Technical Trading Systems. We're only
+going to cover the main points here. A reading of the original
+work by Wilder himself is recommended for a more in-depth
+treatment. Because this particular oscillator is so popular among
+traders, we'll use it to demonstrate most of the principles of oscillator
+analysis.
+
+As Wilder points out, one of the two major problems in
+constructing a momentum line (using price differences) is the
+erratic movement often caused by sharp changes in the values
+being dropped off. A sharp advance or a decline 10 days ago (in
+the case of a 10 day momentum line) can cause sudden shifts in
+the momentum line even if the current prices show little change.
+Some smoothing is therefore necessary to minimize these distortions.
+The second problem is that there is the need for a constant
+range for comparison purposes. The RSI formula not only provides
+the necessary smoothing, but also solves the latter problem
+by creating a constant vertical range of Oto 100.
+
+The term "relative strength," incidentally, is a misnomer
+and often causes confusion among those more familiar with
+that term as it is used in stock market analysis. Relative strength
+generally means a ratio line comparing two different entities. A
+ratio of a stock or industry group to the S&P 500 Index is one
+way of gauging the relative strength of different stocks or industry
+groups against one objective benchmark. We'll show you
+later in the book how useful relative strength or ratio analysis can
+be. Wilder's Relative Strength Index doesn't really measure the
+relative strength between different entities and, in that sense,
+the name is somewhat misleading. The RSI, however, does solve
+the problem of erratic movement and the need for a constant
+upper and lower boundary. The actual formula is calculated as
+follows:
+	RS = 100 - ( 100 / (1 + RS) )
+	RS = (average of x days' up closes) / (average of x days' down closes)
+
+Fourteen days are used in the calculation; 14 weeks are
+used for weekly charts. To find the average up value, add the total
+points gained on up days during the 14 days and divide that total
+by 14. To find the average down value, add the total number of
+points lost during the down days and divide that total by 14.
+Relative strength (RS) is then determined by dividing the up average
+by the down average. That RS value is then inserted into the
+formula for RSI. The number of days can be varied by simply
+changing the value of x.
+
+Wilder originally employed a 14 day period. The shorter the
+time period, the more sensitive the oscillator becomes and the wider its
+amplitude. RSI works best when its fluctuations reach the upper
+and lower extremes. Therefore, if the user is trading on a very short
+term basis and wants the oscillator swings to be more pronounced,
+the time period can be shortened. The time period is lengthened
+to make the oscillator smoother and narrower in amplitude. The
+amplitude in the 9 day oscillator is therefore greater than the original
+14 day. While 9 and 14 day spans are the most common values
+used, technicians experiment with other periods. Some use
+shorter lengths, such as 5 or 7 days, to increase the volatility of the
+RSI line. Others use 21 or 28 days to smooth out the RSI signals.
+(See Figures 10.10 and 10.11.)
+
+@@ Interpreting RSI
+RSI is plotted on a vertical scale of Oto 100. Movements above
+70 are considered overbought, while an oversold condition
+would be a move under 30. Because of shifting that takes place
+in bull and bear markets, the 80 level usually becomes the overbought
+level in bull markets and the 20 level the oversold level
+in bear markets.
+
+"Failure swings," as Wilder calls them, occur when the RSI
+is above 70 or under 30. A top failure swing occurs when a peak in
+the RSI (over 70) fails to exceed a previous peak in an uptrend, followed
+by a downside break of a previous trough. A bottom failure
+swing occurs when the RSI is in a downtrend (under 30), fails to
+set a new low, and then proceeds to exceed a previous peak. (See
+Figures 10.12a-b.)
+
+Divergence between the RSI and the price line, when the
+RSI is above 70 or below 30, is a serious warning that should be
+heeded. Wilder himself considers divergence "the single most
+indicative characteristic of the Relative Strength Index" [Wilder, p. 70].
+
+Trendline analysis can be employed to detect changes in
+the trend of the RSI. Moving averages can also be used for the
+same purpose. (See Figure 10.13.)
+
+In my own personal experience with the RSI oscillator, its
+greatest value lies in failure swings or divergences that occur
+when the RSI is over 70 or under 30. Let's clarify another important
+point on the use of oscillators. Any strong trend, either up
+or down, usually produces an extreme oscillator reading before
+too long. In such cases, claims that a market is overbought or
+oversold are usually premature and can lead to an early exit
+from a profitable trend. In strong uptrends, overbought markets
+can stay overbought for some time. Just because the oscillator
+has moved into the upper region is not reason enough to liquidate
+a long position (or, even worse, short into the strong
+uptrend).
+
+The first move into the overbought or oversold region is
+usually just a warning. The signal to pay close attention to is the
+second move by the oscillator into the danger zone. If the second
+move fails to confirm the price move into new highs or new lows
+(forming a double top or bottom on the oscillator), a possible
+divergence exists. At that point, some defensive action can be
+taken to protect existing positions. If the oscillator moves in the
+opposite direction, breaking a previous high or low, then a divergence
+or failure swing is confirmed.
+
+The SO level is the RSI midpoint value, and will often act
+as support during pullbacks and resistance during bounces.
+Some traders treat RSI crossings above and below the SO level as
+buying and selling signals respectively.
+
+@@ USING THE 70 AND 30 LINES TO GENERATE SIGNALS
+Horizontal lines appear on the oscillator chart at the 70 and 30
+values. Traders often use those lines to generate buy and sell signals.
+We already know that a move under 30 warns of an oversold
+condition. Suppose the trader thinks a market is about to
+bottom and is looking for a buying opportunity. He or she
+watches the oscillator dip under 30. Some type of divergence or
+double bottom may develop in the oscillator in that oversold
+region. A crossing back above the 30 line at that point is taken
+by many traders as a confirmation that the trend in the oscillator
+has turned up. Accordingly, in an overbought market, a
+crossing back under the 70 line can often be used as a sell signal.
+(See Figure 10.14.)
+------------------------------------------------------------------------------------------------------------
+STOCHASTICS (K%D)
+
+The Stochastic oscillator was popularized by George Lane (president
+of Investment Educators, Inc., Watseka, IL). It is based on the
+observation that as prices increase, closing prices tend to be closer
+to the upper end of the price range. Conversely, in downtrends,
+the closing price tends to be near the lower end of the range. Two
+lines are used in the Stochastic Process-the %K line and the %D
+line. The %D line is the more important and is the one that provides
+the major signals.
+
+The intent is to determine where the most recent closing price
+is in relation to the price range for a chosen time period. Fourteen is
+the most common period used for this oscillator. To determine the K
+line, which is the more sensitive of the two, the formula is:
+	%K = 100 * ((C - L14) / (H14 - L14))
+where C is the latest close, L14 is the lowest low for the last 14
+periods, and H14 is the highest high for the same 14 periods (14
+periods can refer to days, weeks, or months).
+
+The formula simply measures, on a percentage basis of O to
+100, where the closing price is in relation to the total price range
+for a selected time period. A very high reading (over 80) would put
+the closing price near the top of the range, while a low reading
+(under 20) near the bottom of the range.
+
+The second line (o/oD) is a 3 period moving average of the
+o/oK line. This formula produces a version called fast stochastics.
+By taking another 3 period average of %D, a smoother version
+called slow stochastics is computed. Most traders use the slow stochastics
+because of its more reliable signals.*
+
+These formulas produce two lines that oscillate between a
+vertical scale from Oto 100. The Kline is a faster line, while the D
+line is a slower line. The major signal to watch for is a divergence
+between the D line and the price of the underlying market when
+the D line is in an overbought or oversold area. The upper and
+lower extremes are the 80 and 20 values. (See Figure 10.15.)
+
+A bearish divergence occurs when the D line is over 80 and
+forms two declining peaks while prices continue to move higher.
+A bullish divergence is present when the D line is under 20 and
+forms two rising bottoms while prices continue to move lower.
+Assuming all of these factors are in place, the actual buy or sell signal
+is triggered when the faster K line crosses the slower D line.
+
+There are other refinements in the use of Stochastics, but
+this explanation covers the more essential points. Despite the higher
+level of sophistication, the basic oscillator interpretation remains
+the same. An alert or set-up is present when the o/oD line is in an
+extreme area and diverging from the price action. The actual signal
+takes place when the D line is crossed by the faster K line.
+
+The Stochastic oscillator can be used on weekly and monthly
+charts for longer range perspective. It can also be used effectively
+on intraday charts for shorter term trading. (See Figure 10.16.)
+
+One way to combine daily and weekly stochastics is to use
+weekly signals to determine market direction and daily signals for
+timing. It's also a good idea to combine stochastics with RSI. (See
+Figure 10.17.)
+
+*The second smoothing produces 3 lines. Fast stochastics uses the first 2 lines.
+Slow stochastics uses the last 2 lines.
+------------------------------------------------------------------------------------------------------------
+LARRY WILLIAMS %R
+
+Larry Williams %R is based on a similar concept of measuring the
+latest close in relation to its price range over a given number of
+days. Today's close is subtracted from the price high of the range
+for a given number of days and that difference is divided by the
+total range for the same period. The concepts already discussed for
+oscillator interpretation are applied to %R as well, with the main
+factors being the presence of divergences in overbought or oversold
+areas. (See Figure 10.18.) Since %R is subtracted from the
+high, it looks like an upside down stochastics. To correct that,
+charting packages plot an inverted version of %R.
+------------------------------------------------------------------------------------------------------------
+Choice of Time Period Tied to Cycles
+
+Oscillator lengths can be tied to underlying market cycles. A time
+period of 1/ 2 the cycle length is used. Popular time inputs are 5, 10,
+and 20 days based on calendar day periods of 14, 28, and 56 days.
+Wilder's RSI uses 14 days, which is half of 28. In the previous
+chapter, we discussed some reasons why the numbers 5, 10, and
+20 keep cropping up in moving average and oscillator formulations,
+so we won't repeat them here. Suffice it to mention here
+that 28 calendar days (20 trading days) represent an important
+dominant monthly trading cycle and that the other numbers are
+related harmonically to that monthly cycle. The popularity of the
+10 day momentum and the 14 day RSI lengths are based largely
+on the 28 day trading cycle and measure 1/2 of the value of that
+dominant trading cycle. We'll come back to the importance of
+cycles in Chapter 14.
+------------------------------------------------------------------------------------------------------------
+THE IMPORTANCE OF TREND
+
+In this chapter, we've discussed the use of the oscillator in market
+analysis to help determine near term overbought and oversold
+conditions, and to alert traders to possible divergences. We started
+with the momentum line. We discussed another way to measure
+rates of change (ROC) by using price ratios instead of differences.
+We then showed how two moving averages could be compared
+to spot short term extremes and crossovers. Finally, we
+looked at RSI and Stochastics and considered how oscillators
+should be synchronized with cycles.
+
+Divergence analysis provides us with the oscillator's greatest
+value. However, the reader is cautioned against placing too much
+importance on divergence analysis to the point where basic trend
+analysis is either ignored or overlooked. Most oscillator buy signals
+work best in uptrends and oscillator sell signals are most profitable
+in downtrends. The place to start your market analysis is always by
+determining the general trend of the market. If the trend is up,
+then a buying strategy is called for. Oscillators can then be used to
+help time market entry. Buy when the market is oversold in an
+uptrend. Sell short when the market is overbought in a downtrend.
+Or, buy when the momentum oscillator crosses back above the
+zero line when the major trend is bullish and sell a crossing under
+the zero line in a bear market.
+
+The importance of trading in the direction of the major
+trend cannot be overstated. The danger in placing too much importance
+on oscillators by themselves is the temptation to use divergence
+as an excuse to initiate trades contrary to the general trend.
+This action generally proves a costly and painful exercise. The oscillator,
+as useful as it is, is just one tool among many others and must
+always be used as an aid, not a substitute, for basic trend analysis.
+------------------------------------------------------------------------------------------------------------
+WHEN OSCILLATORS ARE MOST USEFUL
+
+There are times when oscillators are more useful than at others.
+During choppy market periods, as prices move sideways for several
+weeks or months, oscillators track the price movement very closely.
+The peaks and troughs on the price chart coincide almost exactly
+with the peaks and troughs on the oscillator. Because both price
+and oscillator are moving sideways, they look very much alike. At
+some point, however, a price breakout occurs and a new uptrend or
+downtrend begins. By its very nature, the oscillator is already in an
+extreme position just as the breakout is taking place. If the breakout
+is to the upside, the oscillator is already overbought. An oversold
+reading usually accompanies a downside breakout. The trader
+is faced with a dilemma. Should he or she buy the bullish breakout
+in the face of an overbought oscillator reading? Should the downside
+breakout be sold into an oversold market?
+
+In such cases, the oscillator is best ignored for the time
+being and the position taken. The reason for this is that in the
+early stages of a new trend, following an important breakout,
+oscillators often reach extremes very quickly and stay there for
+awhile. Basic trend analysis should be the main consideration at
+such times, with oscillators given a lesser role. Later on, as the
+trend begins to mature, the oscillator should be given greater
+weight. (We'll see in Chapter 13, that the fifth and final wave in
+Elliott Wave analysis is often confirmed by bearish oscillator
+divergences.) Many dynamic bull moves have been missed by
+traders who saw the major trend signal, but decided to wait for
+their oscillators to move into an oversold condition before buying.
+To summarize, give less attention to the oscillator in the early
+stages of an important move, but pay close attention to its signals
+as the move reaches maturity.
+------------------------------------------------------------------------------------------------------------
+MOVING AVERAGE CONVERGENCE/DIVERGENCE (MACD)
+
+We mentioned in the previous chapter an oscillator technique
+that uses 2 exponential moving averages and here it is. The
+Moving Average Convergence/Divergence indicator, or simply
+MACD, was developed by Gerald Appel. What makes this indicator
+so useful is that it combines some of the oscillator principles
+we've already explained with a dual moving average crossover
+approach. You'll see only two lines on your computer screen
+although three lines are actually used in its calculation. The faster
+line (called the MACD line) is the difference between two exponentially
+smoothed moving averages of closing prices (usually the
+last 12 and 26 days or weeks). The slower line (called the signal
+line) is usually a 9 period exponentially smoothed average of the
+MACD line. Appel originally recommended one set of numbers
+for buy signals and another for sell signals. Most traders, however,
+utilize the default values of 12, 26, and 9 in all instances. That
+would include daily and weekly values. (See Figure 10.19a.)
+
+The actual buy and sell signals are given when the two
+lines cross. A crossing by the faster MACD line above the slower
+signal line is a buy signal. A crossing by the faster line below the
+slower is a sell signal. In that sense, MACD resembles a dual moving
+average crossover method. However, the MACD values also
+fluctuate above and below a zero line. That's where it begins to
+resemble an oscillator. An overbought condition is present when
+the lines are too far above the zero line. An oversold condition is
+present when the lines are too far below the zero line. The best
+buy signals are given when prices are well below the zero line
+(oversold). Crossings above and below the zero line are another
+way to generate buy and sell signals respectively, similar to the
+momentum technique we discussed previously.
+
+Divergences appear between the trend of the MACD lines
+and the price line. A negative, or bearish, divergence exists when
+the MACD lines are well above the zero line (overbought) and start
+to weaken while prices continue to trend higher. That is often a
+warning of a market top. A positive, or bullish, divergence exists
+when the MACD lines are well below the zero line (oversold) and
+start to move up ahead of the price line. That is often an early sign
+of a market bottom. Simple trendlines can be drawn on the MACO
+lines to help identify important trend changes. (See Figure 10.19b.)
+------------------------------------------------------------------------------------------------------------
+MACO HISTOGRAM
+
+We showed you earlier in the chapter how a histogram could be
+constructed that plots the difference between two moving average
+lines. Using that same technique, the two MACD lines can be
+turned into an MACD histogram. The histogram consists of vertical
+bars that show the difference between the two MACD lines.
+The histogram has a zero line of its own. When the MACD lines
+are in positive alignment (faster line over the slower), the histogram
+is above its zero line. Crossings by the histogram above
+and below its zero line coincide with actual MACD crossover buy
+and sell signals.
+
+The real value of the histogram is spotting when the
+spread between the two lines is widening or narrowing. When
+the histogram is over its zero line (positive) but starts to fall
+toward the zero line, the uptrend is weakening. Conversely,
+when the histogram is below its zero line (negative) and starts
+to move upward toward the zero line, the downtrend is losing
+its momentum. Although no actual buy or sell signal is given
+until the histogram crosses its zero line, the histogram turns
+provide earlier warnings that the current trend is losing
+momentum. Turns in the histogram back toward the zero line
+always precede the actual crossover signals. Histogram turns are
+best used for spotting early exit signals from existing positions.
+It's much more dangerous to use the histogram turns as an
+excuse to initiate new positions against the prevailing trend.
+(See Figure 10.20a.)
+------------------------------------------------------------------------------------------------------------
+COMBINE WEEKLIES AND DAILIES
+
+As with all technical indicators, signals on weekly charts are
+always more important than those on daily charts. The best way
+to combine them is to use weekly signals to determine market
+direction and the daily signals to fine-tune entry and exit
+points. A daily signal is followed only when it agrees with the
+weekly signal. Used in that fashion, the weekly signals become
+trend filters for daily signals. That prevents using daily signals to
+trade against the prevailing trend. Two crossover systems in
+which this principle is especially true are MACD and Stochastics.
+(See Figure 10.20b.)
+------------------------------------------------------------------------------------------------------------
+THE PRINCIPLE OF CONTRARY OPINION IN FUTURES
+
+Oscillator analysis is the study of market extremes. One of the
+most widely followed theories in measuring those market
+extremes is the principle of Contrary Opinion. At the beginning
+of the book, two principal philosophies of market analysis were
+identified-fundamental and technical analysis. Contrary
+Opinion, although it is generally listed under the category of
+technical analysis, is more aptly described as a form of psychological
+analysis. Contrary Opinion adds the important third
+dimension to market analysis-the psychological-by determining
+the degree of bullishness or bearishness among participants in
+the various financial markets.
+
+The principle of Contrary Opinion holds that when the
+vast majority of people agree on anything, they are generally
+wrong. A true contrarian, therefore, will first try to determine
+what the majority are doing and then will act in the opposite
+direction.
+
+Humphrey B . Neill, considered the dean of contrary
+thinking, described his theories in a 1954 book entitled, The Art
+of Contrary Thinking. Ten years later, in 1964, James H. Sibbet
+began to apply Neill's principles to commodity futures trading
+by creating the Market Vane advisory service, which includes
+the Bullish Consensus numbers (Market Vane, P.O. Box 90490,
+Pasadena, CA 91109). Each week a poll of market letters is taken
+to determine the degree of bullishness or bearishness among
+commodity professionals. The purpose of the poll is to quantify
+market sentiment into a set of numbers that can be analyzed
+and used in the market forecasting process. The rationale behind
+this approach is that most futures traders are influenced to a
+great extent by market advisory services. By monitoring the
+views of the professional market letters, therefore, a reasonably
+accurate gauge of the attitudes of the trading public can be
+obtained.
+
+Another service that provides an indication of market sentiment
+is the "Consensus Index of Bullish Market Opinion," published
+by Consensus National Commodity Futures Weekly
+(Consensus, Inc., 1735 McGee Street, Kansas City, MO 64108).
+These numbers are published each Friday and use 75% as an overbought
+and 25% as an oversold measurement.
+
+@@ Interpreting Bullish Consensus Numbers
+Most traders seem to employ a fairly simple method of analyzing
+these weekly numbers. If the numbers are above 75%, the market
+is considered to be overbought and means that a top may be near.
+A reading below 25% is interpreted to warn of an oversold condition
+and the increased likelihood that a market bottom is near.
+
+@@ Contrary Opinion Measures Remaining Buying or Selling Power
+Consider the case of an individual speculator. Assume that speculator
+reads his or her favorite newsletter and becomes convinced
+that a market is about to move substantially higher. The
+more bullish the forecast, the more aggressively that trader will
+approach the market. Once that individual speculator's funds
+are fully committed to that particular market, however, he or
+she is overbought-meaning there are no more funds to commit
+to the market.
+
+Expanding this situation to include all market participants,
+if 80-90% of market traders are bullish on a market, it is
+assumed that they have already taken their market positions.
+Who is left to buy and push the market higher? This then is one
+of the keys to understanding Contrary Opinion. If the overwhelming
+sentiment of market traders is on one side of the market,
+there simply isn't enough buying or selling pressure left to
+continue the present trend.
+
+@@ Contrary Opinion Measures Strong Versus Weak Hands
+A second feature of this philosophy is its ability to compare strong
+versus weak hands. Futures trading is a zero sum game. For every
+long there is also a short. If 80% of the traders are on the long side
+of a market, then the remaining 20% (who are holding short positions)
+must be well financed enough to absorb the longs held by
+the other 80%. The shorts, therefore, must be holding much larger
+positions than the longs (in this case, 4 to 1).
+
+This means further that the shorts must be well capitalized
+and are considered to be strong hands. The 80%, who are holding
+much smaller positions per trader, are considered to be weaker
+hands who will be forced to liquidate those longs on any sudden
+turn in prices.
+
+@@ Some Additional Features of the Bullish Consensus Numbers
+Let's consider a few additional points that should be kept in mind
+when using these numbers. The norm or equilibrium point is at
+55%. This allows for a built-in bullish bias on the part of the general
+public. The upper extreme is considered to be 90% and the
+lower extreme, 20%. Here again, the numbers are shifted upward
+slightly to allow for the bullish bias.
+
+A contrarian position can usually be considered when the
+bullish consensus numbers are above 90% or under 20%.
+Readings over 75% or under 25% are also considered warning
+zones and suggest that a turn may be near. However, it is generally
+advisable to await a change in the trend of the numbers before
+taking action against the trend. A change in the direction of the
+Bullish Consensus numbers, especially if it occurs from one of the
+danger zones, should be watched closely.
+
+@@ The Importance of Open Interest (Futures)
+Open interest also plays a role in the use of Bullish Consensus numbers.
+In general, the higher the open interest figures are, the better the
+chance that the contrarian positions will prove profitable. A contrarian
+position should not be taken, however, while open interest is still
+increasing. A continued rise in open interest numbers increases the
+odds that the present trend will continue. Wait for the open interest
+numbers to begin to flatten out or to decline before taking action.
+
+Study the Commitments of Traders Report to ensure that
+hedgers hold less than 50% of the open interest. Contrary Opinion
+works better when most of the open interest is held by speculators,
+who are considered to be weaker hands. It is not advisable to trade
+against large hedging interests.
+
+@@ Watch the Market's Reaction to Fundamental News
+Watch the market's reaction to fundamental news very closely.
+The failure of prices to react to bullish news in an overbought
+area is a clear warning that a turn may be near. The first
+adverse news is usually enough to quickly push prices in the
+other direction. Correspondingly, the failure of prices in an
+oversold area (under 25%) to react to bearish news can be
+taken as a warning that all the bad news has been fully discounted
+in the current low price. Any bullish news will push
+prices higher.
+
+@@ Combine Contrarian Opinion with Other Technical Tools
+As a general rule, trade in the same direction as the trend of the
+consensus numbers until an extreme is reached, at which time the
+numbers should be monitored for a sign of a change in trend. It
+goes without saying that standard technical analytical tools can
+and should also be employed to help identify market turns at
+these critical times. The breaking of support or resistance levels,
+trendlines, or moving averages can be utilized to help confirm
+that the trend is in fact turning. Divergences on oscillator charts
+are especially useful when the Bullish Consensus numbers are
+overbought or oversold.
+------------------------------------------------------------------------------------------------------------
+INVESTOR SENTIMENT READINGS
+
+Each weekend Barron's includes in its Market Laboratory section a
+set of numbers under the heading "Investor Sentiment Readings."
+In that space, four different investor polls are included to gauge
+the degree of bullishness and bearishness in the stock market. The
+figures are given for the latest week and the period two and three
+weeks back for comparison purposes. Here's a random sample of
+what the latest week's figures might look like. Remember that
+these numbers are contrary indicators. Too much bullishness is
+bad. Too much bearishness is good.
+------------------------------------------------------------------------------------------------------------
+INVESTORS INTELLIGENCE NUMBERS
+
+Investors Intelligence (30 Church Street, New Rochelle, NY
+10801) takes a weekly poll of investment advisors and produces
+three numbers-the percent of investment advisors that are bullish,
+those that are bearish, and those that are expecting a market
+correction. Bullish readings over 55% warn of too much optimism
+and are potentially negative for the market. Bullish readings
+below 35% reflect too much pessimism and are considered positive
+for the market. The correction figure represents advisers who
+are bullish but expecting short term weakness.
+
+Investors Intelligence also publishes figures each week that
+measure the number of stocks that are above their 10 and 30 week
+moving averages. Those numbers can also be used in a contrary
+fashion. Readings above 70% suggest an overbought stock market.
+Readings below 30% suggest an oversold market. The 10 week
+readings are useful for measuring short to intermediate market
+turns. The 30 week numbers are more useful for measuring major
+market turns. The actual signal of a potential change in trend
+takes place when the numbers rise back above 30 or fall back
+below 70.
+------------------------------------------------------------------------------------------------------------
