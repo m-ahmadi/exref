@@ -16,8 +16,8 @@ oscillator
 	becomes extremely valuable toward the end of market moves
 no study of market extremes is complete without discussing contrary opinion philosophy
 
-
-@@ interpretation of oscillators
+=============================
+interpretation of oscillators
 different ways to construct oscillators but interpretation differs very little
 
 most oscillators
@@ -26,8 +26,9 @@ most oscillators
 some oscillators
 	have a midpoint value (usually zero line) that divides the range to 2 halves (upper & lower)
 	have upper & lower boundaries ranging from 0 to 100
-	
-@@ general interpretation rules
+
+=============================
+general interpretation rules
 
 when oscillator reaches extreme value in upper/lower ends
 	current price move has gone too far too fast (due for correction/consolidation)
@@ -36,122 +37,95 @@ when oscillator line in
 	upper end:	sell
 crossing of midpoint line often used to generate buy/sell signals
 
-@@ 3 situation when oscillator is most useful is when
+=============================
+3 situation when oscillator is most useful is when
 	1. its value reaches an extreme reading near the upper/lower end of its boundaries (upper=overbought, lower=oversold, warns that trend is overextended/vulnerable)
 	2. it's in extreme position and there's a divergence between oscillator & price action (usually an important warning)
 	3. it's crossing the zero line (important signal in direction of trend)
 ------------------------------------------------------------------------------------------------------------
-MEASURING MOMENTUM
+measuring momentum
 
-The concept of momentum is the most basic application of oscillator
-analysis. Momentum measures the velocity of price changes as
-opposed to the actual price levels themselves. Market momentum
-is measured by continually taking price differences for a fixed
-time interval. To construct a 10 day momentum line, simply subtract
-the closing price 10 days ago from the last closing price. This
-positive or negative value is then plotted around a zero line. The
-formula for momentum is:
-	M = V - V^x
-where V is the latest closing price and vx is the closing price x
-days ago.
+most basic application of oscillator
 
-If the latest closing price is greater than that of 10 days ago
-(in other words, prices have moved higher), then a positive value
-would be plotted above the zero line. If the latest close is below
-the close 10 days earlier (prices have declined), then a negative
-value is plotted below the zero line.
+momentum
+	measures velocity of price changes as opposed to actual price levels
+	measured by continually taking price differences for a fixed time interval
 
-While the 10 day momentum is a commonly used time
-period for reasons discussed later, any time period can be
-employed. (See Figure 10.la.) A shorter time period (such as 5
-days) produces a more sensitive line with more pronounced oscillations.
-A longer number of days (such as 40 days) results in a
-much smoother line in which the oscillator swings are less
-volatile. (See Figure 10.lb.)
+construct 10 day momentum line:
+	subtract the closing price 10 days ago from last closing price
+	then plot the value (positive/negative) around a zero line
 
-@@ Momentum Measures Rates of Ascent or Descent
-Let's talk a bit more about just what this momentum indicator is
-measuring. By plotting price differences for a set period of time,
-the chartist is studying rates of ascent or descent. If prices are rising
-and the momentum line is above the zero line and rising, this
-means the uptrend is accelerating. If the up-slanting momentum
-line begins to flatten out, this means that the new gains being
-achieved by the latest closes are the same as the gains 10 days earlier.
-While prices may still be advancing, the rate of ascent (or the
-velocity) has leveled off. When the momentum line begins to
-drop toward the zero line, the uptrend in prices is still in force,
-but at a decelerating rate. The uptrend is losing momentum.
+formula: M = V - Vx 
+	V  = latest closing price
+	Vx = closing price x days ago
 
-When the momentum line moves below the zero line, the
-latest 10 day close is now under the close of 10 days ago and a
-near term downtrend is in effect. (And, incidentally, the 10 day
-moving average also has begun to decline.) As momentum continues
-to drop farther below the zero line, the downtrend gains
-momentum. Only when the line begins to advance again does the
-analyst know that the downtrend is decelerating.
+positive:	price is above 10 days ago (price moved higher)
+negative:	price is below 10 days ago (price declined)
 
-It's important to remember that momentum measures the
-differences between prices at two time intervals. In order for the
-line to advance, the price gains for the last day's close must be
-greater than the gains of 10 days ago. If prices advance by only
-the same amount as 10 days ago, the momentum line will be flat.
-If the last price gain is less than that of 10 days ago, the momentum
-line begins to decline even though prices are still rising. This
-is how the momentum line measures the acceleration or deceleration
-in the current advance or decline in the price trend.
 
-@@ The Momentum Line Leads the Price Action
-Because of the way it is constructed, the momentum line is always
-a step ahead of the price movement. It leads the advance or
-decline in prices, then levels off while the current price trend is
-still in effect. It then begins to move in the opposite direction as
-prices begin to level off.
+any time period can be used (10 day very common)
+	shorter period (5 day):		more sensitive line with more pronounced oscillations
+	longer  period (40 day):	much smoother  line with less volatile   oscillator swings
 
-@@ The Crossing of the Zero Line as a Trading Signal
-The momentum chart has a zero line. Many technicians use the
-crossing of the zero line to generate buy and sell signals. A
-crossing above the zero line would be a buy signal, and a crossing
-below the zero line, a sell signal. It should be stressed here
-again, however, that basic trend analysis is still the overriding
-consideration. Oscillator analysis should not be used as an
-excuse to trade against the prevailing market trend. Buy positions
-should only be taken on crossings above the zero line if
-the market trend is up. Short positions should be taken on
-crossings below the zero line only if the price trend is down.
-(See Figures 10.2a and b.)
+=============================
+momentum measures rates of ascent or descent
 
-@@ The Need for an Upper and Lower Boundary
-One problem with the momentum line, as it is described here, is
-the absence of a fixed upper and lower boundary. It was stated earlier
-that one of the major values of oscillator analysis is being able
-to determine when markets are in extreme areas. But, how high is
-too high and how low is too low on the momentum line? The
-simplest way to solve this problem is by visual inspection. Check
-the back history of the momentum line on the chart and draw
-horizontal lines along its upper and lower boundaries. These lines
-will have to be adjusted periodically, especially after important
-trend changes have occurred. But it is the simplest and probably
-the most effective way of identifying the outer extremities. (See
-Figures 10.3 and 10.4.)
+momentum
+	studies rates of ascent or descent (plots price differences of a time period)
+	measures differences between prices at 2 time intervals
+	measures acceleration/deceleration in current advance/decline of trend
 
-@@ MEASURING RATE OF CHANGE (ROC)
-To measure the rate of change, a ratio is constructed of the most
-recent closing price to a price a certain number of days in the past.
-To construct a 10 day rate of change oscillator, the latest closing
-price is divided by the close 10 days ago. The formula is as follows:
-	Rate of change= 100 (V /Vx)
-where Vis the latest close and Vx is the closing price x days ago.
+when momentum line:
+	above zero & rising + rising price:		uptrend is accelerating
+	above zero & begins to come near zero:		while price may still advancing, velocity has leveled off (price same as 10 days ago)
+	begins to drop toward zero:			uptrend is losing momentum (uptrend still in force but at decelerating rate)
+	moves below zero:				near term downtrend in effect (price lower than 10 days ago, 10 day moving average begins to decline)
+	continues dropping lower:			downtrend gains momentum
+	begins to go up again:				downtrend is decelerating
 
-In this case, the 100 line becomes the midpoint line. If
-the latest price is higher than the price 10 days ago (prices are
-rising), the resulting rate of change value will be above 100. If
-the last close is below 10 days ago, the ratio would be below
-100. (Charting software sometimes uses variations of the preceding
-formulas for momentum and rate of change. While the
-construction techniques may vary, the interpretation remains
-the same.)
+when momentum line:
+	advance:	price > 10 days ago
+	is flat:	price = 10 days ago
+	decline:	price < 10 days ago (even though price still rising)
+=============================
+momentum line leads the price action
+
+momentum line
+	is always ahead of price advance/decline (due to how it's constructed)
+	then levels off while current trend still in effect
+	then begins to move in opposite direction as price begins to level off
+
+*leveloff: stops rising/falling and stays at same level
+=============================
+crossing of zero line as trading signal
+
+remember: basic trend analysis overrules (don't trade against current trend)
+
+buy signal:	crossing above zero (only if trend is up)
+sell signal:	crossing below zero (only if trend is down)
+=============================
+the need for upper and lower boundary
+
+problem with momentum line:	absence of a fixed upper & lower boundary (where is considered too high/low)
+solution:			draw horizontal line along previous upper/lower boundaries (line must be adjusted periodically, especially after important trend changes)
+=============================
+rate of change (roc)
+
+rate of change = ratio of last price to the price of n days ago
+
+10 day rate of change = (price / 10 days ago's price)
+
+formula: rate of change = 100 (V / Vx)
+	V:  latest close
+	Vx: closing price x days ago
+
+with this formula, the 100 line is midpoint
+	price > 10 days ago:	roc above 100
+	price < 10 days ago:	roc below 100
+
+momentum & roc formulas might slightly differ in some softwares, but interpretation remains the same
 ------------------------------------------------------------------------------------------------------------
-CONSTRUCTING AN OSCILLATOR USING TWO MO VING AVERAGES
+constructing an oscillator using two mo ving averages
 
 Chapter 9 discussed two moving averages being used to generate
 buy and sell signals. The crossing of the shorter average above or
