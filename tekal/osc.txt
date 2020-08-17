@@ -125,7 +125,7 @@ with this formula, the 100 line is midpoint
 
 momentum & roc formulas might slightly differ in some softwares, but interpretation remains the same
 ------------------------------------------------------------------------------------------------------------
-constructing an oscillator using two mo ving averages
+constructing an oscillator using two moving averages
 
 Chapter 9 discussed two moving averages being used to generate
 buy and sell signals. The crossing of the shorter average above or

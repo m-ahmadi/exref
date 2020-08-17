@@ -1,0 +1,12 @@
+Tools -> Options
+
+General ->
+	Tab size:			2
+	List names after:		1
+	Insert spaces:			uncheck
+	Highlight matching brackets:	check
+	Highlight current line:		check
+
+Font    ->
+	Font: Consolas
+	Size: 11

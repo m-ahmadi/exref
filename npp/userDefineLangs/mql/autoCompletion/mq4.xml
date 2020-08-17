@@ -1,0 +1,1643 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<NotepadPlus>
+	<AutoComplete>
+<KeyWord name="AccountBalance" func="yes">
+	<Overload retVal="Returns balance value of the current account (the amount of money on the account).">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountCredit" func="yes">
+	<Overload retVal="Returns credit value of the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountCompany" func="yes">
+	<Overload retVal="Returns the brokerage company name where the current account was registered.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountCurrency" func="yes">
+	<Overload retVal="Returns currency name of the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountEquity" func="yes">
+	<Overload retVal="Returns equity value of the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountFreeMargin" func="yes">
+	<Overload retVal="Returns free margin value of the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountFreeMarginCheck" func="yes">
+	<Overload retVal="Returns free margin that remains after the specified position has been opened at the current price on the current account.">
+		<Param name="string symbol"/>
+		<Param name=" int cmd"/>
+		<Param name=" double volume"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountFreeMarginMode" func="yes">
+	<Overload retVal="Calculation mode of free margin allowed to open positions on the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountLeverage" func="yes">
+	<Overload retVal="Returns leverage of the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountMargin" func="yes">
+	<Overload retVal="Returns margin value of the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountName" func="yes">
+	<Overload retVal="Returns the current account name.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountNumber" func="yes">
+	<Overload retVal="Returns the number of the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountProfit" func="yes">
+	<Overload retVal="Returns profit value of the current account.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountServer" func="yes">
+	<Overload retVal="Returns the connected server name.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountStopoutLevel" func="yes">
+	<Overload retVal="Returns the value of the Stop Out level.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="AccountStopoutMode" func="yes">
+	<Overload retVal="Returns the calculation mode for the Stop Out level.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayBsearch" func="yes">
+	<Overload retVal="If the element with the specified value doesn't exist in the array, the function returns the index of the nearest smallest value of the elements between which the searched value is located.">
+		<Param name="double array[]"/>
+		<Param name=" double value"/>
+		<Param name=" int count=WHOLE_ARRAY"/>
+		<Param name=" int start=0"/>
+		<Param name=" int direction=MODE_ASCEND"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayCopy" func="yes">
+	<Overload retVal="Copies an array to another one.">
+		<Param name="object&amp; dest[]"/>
+		<Param name="object source[]"/>
+		<Param name="int start_dest=0"/>
+		<Param name="int start_source=0"/>
+		<Param name="int count=WHOLE_ARRAY"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayCopyRates" func="yes">
+	<Overload retVal="Copies rates to the two-dimensional array from chart RateInfo array and returns copied bars amount, or -1 if failed.">
+		<Param name="double&amp; dest_array[]"/>
+		<Param name="string symbol=NULL"/>
+		<Param name="int timeframe=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayCopySeries" func="yes">
+	<Overload retVal="Copies a series array to another one and returns the count of the copied elements.">
+		<Param name="double&amp; array[]"/>
+		<Param name="int series_index"/>
+		<Param name="string symbol=NULL"/>
+		<Param name="int timeframe=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayDimension" func="yes">
+	<Overload retVal="Returns the multidimensional array rank.">
+		<Param name="object array[]"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayGetAsSeries" func="yes">
+	<Overload retVal="Returns TRUE if array is organized as a series array (array elements are indexed from the last to the first one), otherwise returns FALSE.">
+		<Param name="object array[]"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayInitialize" func="yes">
+	<Overload retVal="Sets all elements of a numeric array to the same value.">
+		<Param name="double&amp; array[]"/>
+		<Param name=" double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayIsSeries" func="yes">
+	<Overload retVal="Returns TRUE if the array under check is a series array (Time[],Open[],Close[],High[],Low[], or Volume[]), otherwise returns FALSE.">
+		<Param name="object array[]"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayMaximum" func="yes">
+	<Overload retVal="Searches for the element with maximum value.">
+		<Param name="double array[]"/>
+		<Param name=" int count=WHOLE_ARRAY"/>
+		<Param name=" int start=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayMinimum" func="yes">
+	<Overload retVal="Searches for the element with minimum value.">
+		<Param name="double array[]"/>
+		<Param name=" int count=WHOLE_ARRAY"/>
+		<Param name=" int start=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayRange" func="yes">
+	<Overload retVal="Returns the count of elements in the given dimension of the array.">
+		<Param name="object array[]"/>
+		<Param name=" int range_index"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArrayResize" func="yes">
+	<Overload retVal="Sets a new size for the first dimension.">
+		<Param name="object&amp; array[]"/>
+		<Param name=" int new_size"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArraySetAsSeries" func="yes">
+	<Overload retVal="Sets indexing direction of the array.">
+		<Param name="double&amp; array[]"/>
+		<Param name=" bool set"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArraySize" func="yes">
+	<Overload retVal="Returns the count of elements contained in the array.">
+		<Param name="object array[]"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ArraySort" func="yes">
+	<Overload retVal="Sorts numeric arrays by first dimension.">
+		<Param name="double&amp; array[]"/>
+		<Param name=" int count=WHOLE_ARRAY"/>
+		<Param name=" int start=0"/>
+		<Param name=" int sort_dir=MODE_ASCEND"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GetLastError" func="yes">
+	<Overload retVal="The function returns the last occurred error, then the value of special last_error variable where the last error code is stored will be zeroized.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsConnected" func="yes">
+	<Overload retVal="The function returns the status of the main connection between client terminal and server that performs data pumping.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsDemo" func="yes">
+	<Overload retVal="Returns TRUE if the expert runs on a demo account, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsDllsAllowed" func="yes">
+	<Overload retVal="Returns TRUE if the function DLL call is allowed for the expert, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsExpertEnabled" func="yes">
+	<Overload retVal="Returns TRUE if expert advisors are enabled for running, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsLibrariesAllowed" func="yes">
+	<Overload retVal="Returns TRUE if the expert can call library function, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsOptimization" func="yes">
+	<Overload retVal="Returns TRUE if expert runs in the strategy tester optimization mode, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsStopped" func="yes">
+	<Overload retVal="Returns TRUE if the program (an expert or a script) has been commanded to stop its operation, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsTesting" func="yes">
+	<Overload retVal="Returns TRUE if expert runs in the testing mode, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsTradeAllowed" func="yes">
+	<Overload retVal="Returns TRUE if the expert is allowed to trade and a thread for trading is not occupied, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsTradeContextBusy" func="yes">
+	<Overload retVal="Returns TRUE if a thread for trading is occupied by another expert advisor, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IsVisualMode" func="yes">
+	<Overload retVal="Returns TRUE if the expert is tested with checked &quot;Visual Mode&quot; button, otherwise returns FALSE.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="UninitializeReason" func="yes">
+	<Overload retVal="Returns the code of the uninitialization reason for the experts, custom indicators, and scripts.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TerminalCompany" func="yes">
+	<Overload retVal="Returns the name of company owning the client terminal.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TerminalName" func="yes">
+	<Overload retVal="Returns client terminal name.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TerminalPath" func="yes">
+	<Overload retVal="Returns the directory, from which the client terminal was launched.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Alert" func="yes">
+	<Overload retVal="Displays a dialog box containing the user-defined data.">
+		<Param name="..."/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Comment" func="yes">
+	<Overload retVal="The function outputs the comment defined by the user in the left top corner of the chart.">
+		<Param name="..."/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GetTickCount" func="yes">
+	<Overload retVal="The GetTickCount() function retrieves the number of milliseconds that have elapsed since the system was started.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MarketInfo" func="yes">
+	<Overload retVal="Returns various data about securities listed in the Market Watch window.">
+		<Param name="string symbol"/>
+		<Param name=" int type"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MessageBox" func="yes">
+	<Overload retVal="The MessageBox function creates, displays, and operates message box.">
+		<Param name="string text=NULL"/>
+		<Param name=" string caption=NULL"/>
+		<Param name=" int flags=EMPTY"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="PlaySound" func="yes">
+	<Overload retVal="Function plays a sound file.">
+		<Param name="string filename"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Print" func="yes">
+	<Overload retVal="Prints a message to the experts log.">
+		<Param name="..."/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SendFTP" func="yes">
+	<Overload retVal="Sends the file to the FTP server set in the Tools-&amp;gt;Options-&amp;gt;Publisher tab.">
+		<Param name="string filename"/>
+		<Param name=" string ftp_path=NULL"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SendMail" func="yes">
+	<Overload retVal="Sends a message to the e-mail set in the Tools-&amp;gt;Options-&amp;gt;EMail tab.">
+		<Param name="string subject"/>
+		<Param name=" string some_text"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SendNotification" func="yes">
+	<Overload retVal="Sends Push notification to mobile terminals whose MetaQuotes IDs are specified on the &quot;Notifications&quot; tab in options window.">
+		<Param name="string message"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Sleep" func="yes">
+	<Overload retVal="The Sleep() function suspends execution of the current expert within the specified interval.">
+		<Param name="int milliseconds"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="CharToStr" func="yes">
+	<Overload retVal="Conversion of the symbol code into a one-character string.">
+		<Param name="int char_code"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="DoubleToStr" func="yes">
+	<Overload retVal="Returns text string with the specified numerical value converted into a specified precision format.">
+		<Param name="double value"/>
+		<Param name=" int digits"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="NormalizeDouble" func="yes">
+	<Overload retVal="Rounds the floating point value to the given precision.">
+		<Param name="double value"/>
+		<Param name=" int digits"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StrToDouble" func="yes">
+	<Overload retVal="Converts string representation of number to double type (double-precision format with floating point).">
+		<Param name="string value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StrToInteger" func="yes">
+	<Overload retVal="Converts string containing the value character representation into a value of the int (integer) type.">
+		<Param name="string value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StrToTime" func="yes">
+	<Overload retVal="Converts string in the format &quot;yyyy.mm.dd hh:mi&quot; to datetime type (the amount of seconds that have passed since 1 Jan., 1970).">
+		<Param name="string value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeToStr" func="yes">
+	<Overload retVal="Converts value containing time in seconds that has passed since January 1, 1970, into a string of &quot;yyyy.mm.dd hh:mi&quot; format.">
+		<Param name="datetime value"/>
+		<Param name=" int mode=TIME_DATE|TIME_MINUTES"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IndicatorBuffers" func="yes">
+	<Overload retVal="Allocates memory for buffers used for custom indicator calculations.">
+		<Param name="int count"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IndicatorCounted" func="yes">
+	<Overload retVal="The function returns the amount of bars not changed after the indicator had been launched last.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IndicatorDigits" func="yes">
+	<Overload retVal="Sets precision format (the count of digits after decimal point) to visualize indicator values.">
+		<Param name="int digits"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="IndicatorShortName" func="yes">
+	<Overload retVal="Sets the &quot;short&quot; name of a custom indicator to be shown in the DataWindow and in the chart subwindow.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetIndexArrow" func="yes">
+	<Overload retVal="Sets an arrow symbol for indicators line of the DRAW_ARROW type.">
+		<Param name="int index"/>
+		<Param name=" int code"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetIndexBuffer" func="yes">
+	<Overload retVal="Binds the array variable declared at a global level to the custom indicator pre-defined buffer.">
+		<Param name="int index"/>
+		<Param name=" double array[]"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetIndexDrawBegin" func="yes">
+	<Overload retVal="Sets the bar number (from the data beginning) from which the drawing of the given indicator line must start.">
+		<Param name="int index"/>
+		<Param name=" int begin"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetIndexEmptyValue" func="yes">
+	<Overload retVal="Sets drawing line empty value.">
+		<Param name="int index"/>
+		<Param name=" double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetIndexLabel" func="yes">
+	<Overload retVal="Sets drawing line description for showing in the DataWindow and in the tooltip.">
+		<Param name="int index"/>
+		<Param name=" string text"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetIndexShift" func="yes">
+	<Overload retVal="Sets offset for the drawing line.">
+		<Param name="int index"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetIndexStyle" func="yes">
+	<Overload retVal="Sets the new type, style, width and color for a given indicator line.">
+		<Param name="int index"/>
+		<Param name=" int type"/>
+		<Param name=" int style=EMPTY"/>
+		<Param name=" int width=EMPTY"/>
+		<Param name=" color clr=CLR_NONE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetLevelStyle" func="yes">
+	<Overload retVal="The function sets a new style, width and color of horizontal levels of indicator to be output in a separate window.">
+		<Param name="int draw_style"/>
+		<Param name=" int line_width"/>
+		<Param name=" color clr=CLR_NONE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="SetLevelValue" func="yes">
+	<Overload retVal="The function sets a value for a given horizontal level of the indicator to be output in a separate window.">
+		<Param name="int level"/>
+		<Param name=" double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Day" func="yes">
+	<Overload retVal="Returns the current day of the month, i.e., the day of month of the last known server time.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="DayOfWeek" func="yes">
+	<Overload retVal="Returns the current zero-based day of the week (0-Sunday,1,2,3,4,5,6) of the last known server time.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="DayOfYear" func="yes">
+	<Overload retVal="Returns the current day of the year (1 means 1 January,..,365(6) does 31 December), i.e., the day of year of the last known server time.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Hour" func="yes">
+	<Overload retVal="Returns the hour (0,1,2,..23) of the last known server time by the moment of the program start (this value will not change within the time of the program execution).">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Minute" func="yes">
+	<Overload retVal="Returns the current minute (0,1,2,..59) of the last known server time by the moment of the program start (this value will not change within the time of the program execution).">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Month" func="yes">
+	<Overload retVal="Returns the current month as number (1-January,2,3,4,5,6,7,8,9,10,11,12), i.e., the number of month of the last known server time.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Seconds" func="yes">
+	<Overload retVal="Returns the amount of seconds elapsed from the beginning of the current minute of the last known server time by the moment of the program start (this value will not change within the time of the program execution).">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeCurrent" func="yes">
+	<Overload retVal="Returns the last known server time (time of incoming of the latest quote) as number of seconds elapsed from 00:00 January 1, 1970.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeDay" func="yes">
+	<Overload retVal="Returns day of month (1 - 31) for the specified date.">
+		<Param name="datetime date"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeDayOfWeek" func="yes">
+	<Overload retVal="Returns the zero-based day of week (0 means Sunday,1,2,3,4,5,6) for the specified date.">
+		<Param name="datetime date"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeDayOfYear" func="yes">
+	<Overload retVal="Returns day (1 means 1 January,..,365(6) does 31 December) of year for the specified date.">
+		<Param name="datetime date"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeHour" func="yes">
+	<Overload retVal="Returns the hour for the specified time.">
+		<Param name="datetime time"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeLocal" func="yes">
+	<Overload retVal="Returns local computer time as number of seconds elapsed from 00:00 January 1, 1970.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeMinute" func="yes">
+	<Overload retVal="Returns the minute for the specified time.">
+		<Param name="datetime time"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeMonth" func="yes">
+	<Overload retVal="Returns the month number for the specified time.">
+		<Param name="datetime time"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeSeconds" func="yes">
+	<Overload retVal="Returns the amount of seconds elapsed from the beginning of the minute for the specified time.">
+		<Param name="datetime time"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="TimeYear" func="yes">
+	<Overload retVal="Returns year for the specified date.">
+		<Param name="datetime time"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Year" func="yes">
+	<Overload retVal="Returns the current year, i.e., the year of the last known server time.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileClose" func="yes">
+	<Overload retVal="Closes file previously opened by the FileOpen() function.">
+		<Param name="int handle"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileDelete" func="yes">
+	<Overload retVal="Removes specified file name.">
+		<Param name="string filename"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileFlush" func="yes">
+	<Overload retVal="Flushes all data stored in the file buffer to the disk.">
+		<Param name="int handle"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileIsEnding" func="yes">
+	<Overload retVal="Returns logical true if file pointer is at the end of the file, otherwise returns false.">
+		<Param name="int handle"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileIsLineEnding" func="yes">
+	<Overload retVal="For CSV file returns logical true if file pointer is at the end of the line, otherwise returns false.">
+		<Param name="int handle"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileOpen" func="yes">
+	<Overload retVal="Opens file for input and/or output.">
+		<Param name="string filename"/>
+		<Param name=" int mode"/>
+		<Param name=" int delimiter=';'"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileOpenHistory" func="yes">
+	<Overload retVal="Opens file in the current history directory (terminal_directory\history\server_name) or in its subfolders.">
+		<Param name="string filename"/>
+		<Param name=" int mode"/>
+		<Param name=" int delimiter=';'"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileReadArray" func="yes">
+	<Overload retVal="Reads the specified amount of elements from the binary file into array.">
+		<Param name="int handle"/>
+		<Param name=" object&amp; array[]"/>
+		<Param name=" int start"/>
+		<Param name=" int count"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileReadDouble" func="yes">
+	<Overload retVal="Reads the double-precision number with floating point from the current binary file position.">
+		<Param name="int handle"/>
+		<Param name=" int size=DOUBLE_VALUE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileReadInteger" func="yes">
+	<Overload retVal="The function reads the integer from the current binary file position.">
+		<Param name="int handle"/>
+		<Param name=" int size=LONG_VALUE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileReadNumber" func="yes">
+	<Overload retVal="Read the number from the current file position before the delimiter.">
+		<Param name="int handle"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileReadString" func="yes">
+	<Overload retVal="The function reads the string from the current file position.">
+		<Param name="int handle"/>
+		<Param name=" int length=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileSeek" func="yes">
+	<Overload retVal="The function moves the file pointer to a new position that is an offset, in bytes, from the beginning, the end or the current file position.">
+		<Param name="int handle"/>
+		<Param name=" int offset"/>
+		<Param name=" int origin"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileSize" func="yes">
+	<Overload retVal="The function returns file size in bytes.">
+		<Param name="int handle"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileTell" func="yes">
+	<Overload retVal="Returns the current position of the file pointer.">
+		<Param name="int handle"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileWrite" func="yes">
+	<Overload retVal="The function is intended for writing of data into a CSV file, delimiter being inserted automatically.">
+		<Param name="int handle"/>
+		<Param name=" ..."/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileWriteArray" func="yes">
+	<Overload retVal="The function writes the array to a binary file.">
+		<Param name="int handle"/>
+		<Param name=" object array[]"/>
+		<Param name=" int start"/>
+		<Param name=" int count"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileWriteDouble" func="yes">
+	<Overload retVal="The function writes a double value with floating point to a binary file.">
+		<Param name="int handle"/>
+		<Param name=" double value"/>
+		<Param name=" int size=DOUBLE_VALUE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileWriteInteger" func="yes">
+	<Overload retVal="The function writes the integer value to a binary file.">
+		<Param name="int handle"/>
+		<Param name=" int value"/>
+		<Param name=" int size=LONG_VALUE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="FileWriteString" func="yes">
+	<Overload retVal="The function writes the string to a binary file from the current file position.">
+		<Param name="int handle"/>
+		<Param name=" string value"/>
+		<Param name=" int length"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GlobalVariableCheck" func="yes">
+	<Overload retVal="Returns TRUE if the global variable exists, otherwise, returns FALSE.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GlobalVariableDel" func="yes">
+	<Overload retVal="Deletes the global variable.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GlobalVariableGet" func="yes">
+	<Overload retVal="Returns the value of an existing global variable or 0 if an error occurs.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GlobalVariableName" func="yes">
+	<Overload retVal="The function returns the name of a global variable by its index in the list of global variables.">
+		<Param name="int index"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GlobalVariableSet" func="yes">
+	<Overload retVal="Sets a new value of the global variable.">
+		<Param name="string name"/>
+		<Param name=" double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GlobalVariableSetOnCondition" func="yes">
+	<Overload retVal="Sets the new value of the existing global variable if the current value equals to the third parameter check_value.">
+		<Param name="string name"/>
+		<Param name=" double value"/>
+		<Param name=" double check_value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GlobalVariablesDeleteAll" func="yes">
+	<Overload retVal="Deletes global variables.">
+		<Param name="string prefix_name=NULL"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="GlobalVariablesTotal" func="yes">
+	<Overload retVal="The function returns the total count of global variables.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathAbs" func="yes">
+	<Overload retVal="Returns the absolute value (modulus) of the specified numeric value.">
+		<Param name="double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathArccos" func="yes">
+	<Overload retVal="The MathArccos function returns the arccosine of x within the range 0 to £k (in radians).">
+		<Param name="double x"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathArcsin" func="yes">
+	<Overload retVal="The MathArcsin function returns the arcsine of x in the range -£k/2 to £k/2 radians.">
+		<Param name="double x"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathArctan" func="yes">
+	<Overload retVal="The MathArctan returns the arctangent of x.">
+		<Param name="double x"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathCeil" func="yes">
+	<Overload retVal="The MathCeil function returns a numeric value representing the smallest integer that exceeds or equals to x.">
+		<Param name="double x"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathCos" func="yes">
+	<Overload retVal="Returns the cosine of the specified angle.">
+		<Param name="double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathExp" func="yes">
+	<Overload retVal="Returns the value of e raised to the power of d.">
+		<Param name="double d"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathFloor" func="yes">
+	<Overload retVal="The MathFloor function returns a numeric value representing the largest integer that is less than or equal to x.">
+		<Param name="double x"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathLog" func="yes">
+	<Overload retVal="The MathLog function returns the natural logarithm of x if successful.">
+		<Param name="double x"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathMax" func="yes">
+	<Overload retVal="Returns the maximum value of two numeric values.">
+		<Param name="double value1"/>
+		<Param name=" double value2"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathMin" func="yes">
+	<Overload retVal="Returns the minimum value of two numeric values.">
+		<Param name="double value1"/>
+		<Param name=" double value2"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathMod" func="yes">
+	<Overload retVal="The function returns the floating-point remainder of division of two numbers.">
+		<Param name="double value"/>
+		<Param name=" double value2"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathPow" func="yes">
+	<Overload retVal="Returns the value of the base expression raised to the specified power (exponent value).">
+		<Param name="double base"/>
+		<Param name=" double exponent"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathRand" func="yes">
+	<Overload retVal="The MathRand function returns a pseudorandom integer within the range of 0 to 32767.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathRound" func="yes">
+	<Overload retVal="Returns value rounded to the nearest integer of the specified numeric value.">
+		<Param name="double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathSin" func="yes">
+	<Overload retVal="Returns the sine of the specified angle.">
+		<Param name="double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathSqrt" func="yes">
+	<Overload retVal="The MathSqrt function returns the square root of x.">
+		<Param name="double x"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathSrand" func="yes">
+	<Overload retVal="The MathSrand() function sets the starting point for generating a series of pseudorandom integers.">
+		<Param name="int seed"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="MathTan" func="yes">
+	<Overload retVal="MathTan returns the tangent of x.">
+		<Param name="double x"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectCreate" func="yes">
+	<Overload retVal="Creation of an object with the specified name, type and initial coordinates in the specified window.">
+		<Param name="string name"/>
+		<Param name=" int type"/>
+		<Param name=" int window"/>
+		<Param name=" datetime time1"/>
+		<Param name=" double price1"/>
+		<Param name=" datetime time2=0"/>
+		<Param name=" double price2=0"/>
+		<Param name=" datetime time3=0"/>
+		<Param name=" double price3=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectDelete" func="yes">
+	<Overload retVal="Deletes object having the specified name.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectDescription" func="yes">
+	<Overload retVal="Return object description.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectFind" func="yes">
+	<Overload retVal="Search for an object having the specified name.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectGet" func="yes">
+	<Overload retVal="The function returns the value of the specified object property.">
+		<Param name="string name"/>
+		<Param name=" int index"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectGetFiboDescription" func="yes">
+	<Overload retVal="The function returns the level description of a Fibonacci object.">
+		<Param name="string name"/>
+		<Param name=" int index"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectGetShiftByValue" func="yes">
+	<Overload retVal="The function calculates and returns bar index (shift related to the current bar) for the given price.">
+		<Param name="string name"/>
+		<Param name=" double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectGetValueByShift" func="yes">
+	<Overload retVal="The function calculates and returns the price value for the specified bar (shift related to the current bar).">
+		<Param name="string name"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectMove" func="yes">
+	<Overload retVal="The function moves an object coordinate in the chart.">
+		<Param name="string name"/>
+		<Param name=" int point"/>
+		<Param name=" datetime time1"/>
+		<Param name=" double price1"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectName" func="yes">
+	<Overload retVal="The function returns the object name by its index in the objects list.">
+		<Param name="int index"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectsDeleteAll" func="yes">
+	<Overload retVal="Removes all objects of the specified type and in the specified sub-window of the chart.">
+		<Param name="int window=EMPTY"/>
+		<Param name=" int type=EMPTY"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectSet" func="yes">
+	<Overload retVal="Changes the value of the specified object property.">
+		<Param name="string name"/>
+		<Param name=" int index"/>
+		<Param name=" double value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectSetFiboDescription" func="yes">
+	<Overload retVal="The function assigns a new description to a level of a Fibonacci object.">
+		<Param name="string name"/>
+		<Param name=" int index"/>
+		<Param name=" string text"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectSetText" func="yes">
+	<Overload retVal="Changes the object description.">
+		<Param name="string name"/>
+		<Param name=" string text"/>
+		<Param name=" int font_size"/>
+		<Param name=" string font=NULL"/>
+		<Param name=" color text_color=CLR_NONE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectsTotal" func="yes">
+	<Overload retVal="Returns total amount of objects of the specified type in the chart.">
+		<Param name="int type=EMPTY"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="ObjectType" func="yes">
+	<Overload retVal="The function returns the object type value.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StringConcatenate" func="yes">
+	<Overload retVal="Forms a string of the data passed and returns it.">
+		<Param name="..."/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StringFind" func="yes">
+	<Overload retVal="Search for a substring.">
+		<Param name="string text"/>
+		<Param name=" string matched_text"/>
+		<Param name=" int start=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StringGetChar" func="yes">
+	<Overload retVal="Returns character (code) from the specified position in the string.">
+		<Param name="string text"/>
+		<Param name=" int pos"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StringLen" func="yes">
+	<Overload retVal="Returns character count in a string.">
+		<Param name="string text"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StringSetChar" func="yes">
+	<Overload retVal="Returns the string copy with changed character in the specified position.">
+		<Param name="string text"/>
+		<Param name=" int pos"/>
+		<Param name=" int value"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StringSubstr" func="yes">
+	<Overload retVal="Extracts a substring from text string starting from the given position.">
+		<Param name="string text"/>
+		<Param name=" int start"/>
+		<Param name=" int length=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StringTrimLeft" func="yes">
+	<Overload retVal="The function cuts line feed characters, spaces and tabs in the left part of the string.">
+		<Param name="string text"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="StringTrimRight" func="yes">
+	<Overload retVal="The function cuts line feed characters, spaces and tabs in the right part of the string.">
+		<Param name="string text"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iAC" func="yes">
+	<Overload retVal="Calculates the Bill Williams' Accelerator/Decelerator oscillator.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iAD" func="yes">
+	<Overload retVal="Calculates the Accumulation/Distribution indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iAlligator" func="yes">
+	<Overload retVal="Calculates the Bill Williams' Alligator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int jaw_period"/>
+		<Param name=" int jaw_shift"/>
+		<Param name=" int teeth_period"/>
+		<Param name=" int teeth_shift"/>
+		<Param name=" int lips_period"/>
+		<Param name=" int lips_shift"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iADX" func="yes">
+	<Overload retVal="Calculates the Movement directional index and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iATR" func="yes">
+	<Overload retVal="Calculates the Indicator of the average true range and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iAO" func="yes">
+	<Overload retVal="Calculates the Bill Williams' Awesome oscillator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iBearsPower" func="yes">
+	<Overload retVal="Calculates the Bears Power indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iBands" func="yes">
+	<Overload retVal="Calculates the Bollinger bands indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int deviation"/>
+		<Param name=" int bands_shift"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iBandsOnArray" func="yes">
+	<Overload retVal="Calculation of the Bollinger Bands indicator on data stored in a numeric array.">
+		<Param name="double array[]"/>
+		<Param name=" int total"/>
+		<Param name=" int period"/>
+		<Param name=" int deviation"/>
+		<Param name=" int bands_shift"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iBullsPower" func="yes">
+	<Overload retVal="Calculates the Bulls Power indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iCCI" func="yes">
+	<Overload retVal="Calculates the Commodity channel index and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iCCIOnArray" func="yes">
+	<Overload retVal="Calculation of the Commodity Channel Index on data stored in a numeric array.">
+		<Param name="double array[]"/>
+		<Param name=" int total"/>
+		<Param name=" int period"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iCustom" func="yes">
+	<Overload retVal="Calculates the specified custom indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" string name"/>
+		<Param name=" ..."/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iDeMarker" func="yes">
+	<Overload retVal="Calculates the DeMarker indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iEnvelopes" func="yes">
+	<Overload retVal="Calculates the Envelopes indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int ma_period"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int ma_shift"/>
+		<Param name=" int applied_price"/>
+		<Param name=" double deviation"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iEnvelopesOnArray" func="yes">
+	<Overload retVal="Calculation of the Envelopes indicator on data stored in a numeric array.">
+		<Param name="double array[]"/>
+		<Param name=" int total"/>
+		<Param name=" int ma_period"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int ma_shift"/>
+		<Param name=" double deviation"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iForce" func="yes">
+	<Overload retVal="Calculates the Force index and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iFractals" func="yes">
+	<Overload retVal="Calculates the Fractals and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iGator" func="yes">
+	<Overload retVal="Gator oscillator calculation.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int jaw_period"/>
+		<Param name=" int jaw_shift"/>
+		<Param name=" int teeth_period"/>
+		<Param name=" int teeth_shift"/>
+		<Param name=" int lips_period"/>
+		<Param name=" int lips_shift"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iIchimoku" func="yes">
+	<Overload retVal="Calculates the Ichimoku Kinko Hyo and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int tenkan_sen"/>
+		<Param name=" int kijun_sen"/>
+		<Param name=" int senkou_span_b"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iBWMFI" func="yes">
+	<Overload retVal="Calculates the Bill Williams Market Facilitation index and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iMomentum" func="yes">
+	<Overload retVal="Calculates the Momentum indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iMomentumOnArray" func="yes">
+	<Overload retVal="Calculation of the Momentum indicator on data stored in a numeric array.">
+		<Param name="double array[]"/>
+		<Param name=" int total"/>
+		<Param name=" int period"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iMFI" func="yes">
+	<Overload retVal="Calculates the Money flow index and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iMA" func="yes">
+	<Overload retVal="Calculates the Moving average indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int ma_shift"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iMAOnArray" func="yes">
+	<Overload retVal="Calculation of the Moving Average on data stored in a numeric array.">
+		<Param name="double array[]"/>
+		<Param name=" int total"/>
+		<Param name=" int period"/>
+		<Param name=" int ma_shift"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iOsMA" func="yes">
+	<Overload retVal="Calculates the Moving Average of Oscillator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int fast_ema_period"/>
+		<Param name=" int slow_ema_period"/>
+		<Param name=" int signal_period"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iMACD" func="yes">
+	<Overload retVal="Calculates the Moving averages convergence/divergence and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int fast_ema_period"/>
+		<Param name=" int slow_ema_period"/>
+		<Param name=" int signal_period"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iOBV" func="yes">
+	<Overload retVal="Calculates the On Balance Volume indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iSAR" func="yes">
+	<Overload retVal="Calculates the Parabolic Stop and Reverse system and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" double step"/>
+		<Param name=" double maximum"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iRSI" func="yes">
+	<Overload retVal="Calculates the Relative strength index and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iRSIOnArray" func="yes">
+	<Overload retVal="Calculation of the Relative Strength Index on data stored in a numeric array.">
+		<Param name="double array[]"/>
+		<Param name=" int total"/>
+		<Param name=" int period"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iRVI" func="yes">
+	<Overload retVal="Calculates the Relative Vigor index and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iStdDev" func="yes">
+	<Overload retVal="Calculates the Standard Deviation indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int ma_period"/>
+		<Param name=" int ma_shift"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int applied_price"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iStdDevOnArray" func="yes">
+	<Overload retVal="Calculation of the Standard Deviation indicator on data stored in a numeric array.">
+		<Param name="double array[]"/>
+		<Param name=" int total"/>
+		<Param name=" int ma_period"/>
+		<Param name=" int ma_shift"/>
+		<Param name=" int ma_method"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iStochastic" func="yes">
+	<Overload retVal="Calculates the Stochastic oscillator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int %Kperiod"/>
+		<Param name=" int %Dperiod"/>
+		<Param name=" int slowing"/>
+		<Param name=" int method"/>
+		<Param name=" int price_field"/>
+		<Param name=" int mode"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iWPR" func="yes">
+	<Overload retVal="Calculates the Larry William's percent range indicator and returns its value.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int period"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iBars" func="yes">
+	<Overload retVal="Returns the number of bars on the specified chart.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iBarShift" func="yes">
+	<Overload retVal="Search for bar by open time.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" datetime time"/>
+		<Param name=" bool exact=false"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iClose" func="yes">
+	<Overload retVal="Returns Close value for the bar of indicated symbol with timeframe and shift.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iHigh" func="yes">
+	<Overload retVal="Returns High value for the bar of indicated symbol with timeframe and shift.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iHighest" func="yes">
+	<Overload retVal="Returns the shift of the maximum value over a specific number of periods depending on type.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int type"/>
+		<Param name=" int count=WHOLE_ARRAY"/>
+		<Param name=" int start=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iLow" func="yes">
+	<Overload retVal="Returns Low value for the bar of indicated symbol with timeframe and shift.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iLowest" func="yes">
+	<Overload retVal="Returns the shift of the least value over a specific number of periods depending on type.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int type"/>
+		<Param name=" int count=WHOLE_ARRAY"/>
+		<Param name=" int start=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iOpen" func="yes">
+	<Overload retVal="Returns Open value for the bar of indicated symbol with timeframe and shift.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iTime" func="yes">
+	<Overload retVal="Returns Time value for the bar of indicated symbol with timeframe and shift.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="iVolume" func="yes">
+	<Overload retVal="Returns Tick Volume value for the bar of indicated symbol with timeframe and shift.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+		<Param name=" int shift"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderClose" func="yes">
+	<Overload retVal="Closes opened order.">
+		<Param name="int ticket"/>
+		<Param name=" double lots"/>
+		<Param name=" double price"/>
+		<Param name=" int slippage"/>
+		<Param name=" color Color=CLR_NONE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderCloseBy" func="yes">
+	<Overload retVal="Closes an opened order by another opposite opened order.">
+		<Param name="int ticket"/>
+		<Param name=" int opposite"/>
+		<Param name=" color Color=CLR_NONE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderClosePrice" func="yes">
+	<Overload retVal="Returns close price for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderCloseTime" func="yes">
+	<Overload retVal="Returns close time for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderComment" func="yes">
+	<Overload retVal="Returns comment for the selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderCommission" func="yes">
+	<Overload retVal="Returns calculated commission for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderDelete" func="yes">
+	<Overload retVal="Deletes previously opened pending order.">
+		<Param name="int ticket"/>
+		<Param name=" color Color=CLR_NONE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderExpiration" func="yes">
+	<Overload retVal="Returns expiration date for the selected pending order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderLots" func="yes">
+	<Overload retVal="Returns amount of lots for the selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderMagicNumber" func="yes">
+	<Overload retVal="Returns an identifying (magic) number for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderModify" func="yes">
+	<Overload retVal="Modification of characteristics for the previously opened position or pending orders.">
+		<Param name="int ticket"/>
+		<Param name=" double price"/>
+		<Param name=" double stoploss"/>
+		<Param name=" double takeprofit"/>
+		<Param name=" datetime expiration"/>
+		<Param name=" color arrow_color=CLR_NONE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderOpenPrice" func="yes">
+	<Overload retVal="Returns open price for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderOpenTime" func="yes">
+	<Overload retVal="Returns open time for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderPrint" func="yes">
+	<Overload retVal="Prints information about the selected order in the log in the following format:ticket number;open time;trade operation;amount of lots;open price;Stop Loss;Take Profit;close time;close price;commission;swap;profit;comment;magic number;pending order expiration date. Order must be selected by the OrderSelect() function.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderProfit" func="yes">
+	<Overload retVal="Returns the net profit value (without swaps or commissions) for the selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderSelect" func="yes">
+	<Overload retVal="The function selects an order for further processing.">
+		<Param name="int index"/>
+		<Param name=" int select"/>
+		<Param name=" int pool=MODE_TRADES"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderSend" func="yes">
+	<Overload retVal="The main function used to open a position or place a pending order.">
+		<Param name="string symbol"/>
+		<Param name=" int cmd"/>
+		<Param name=" double volume"/>
+		<Param name=" double price"/>
+		<Param name=" int slippage"/>
+		<Param name=" double stoploss"/>
+		<Param name=" double takeprofit"/>
+		<Param name=" string comment=NULL"/>
+		<Param name=" int magic=0"/>
+		<Param name=" datetime expiration=0"/>
+		<Param name=" color arrow_color=CLR_NONE"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrdersHistoryTotal" func="yes">
+	<Overload retVal="Returns the number of closed orders in the account history loaded into the terminal.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderStopLoss" func="yes">
+	<Overload retVal="Returns stop loss value for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrdersTotal" func="yes">
+	<Overload retVal="Returns market and pending orders count.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderSwap" func="yes">
+	<Overload retVal="Returns swap value for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderSymbol" func="yes">
+	<Overload retVal="Returns the order symbol value for selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderTakeProfit" func="yes">
+	<Overload retVal="Returns take profit value for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderTicket" func="yes">
+	<Overload retVal="Returns ticket number for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="OrderType" func="yes">
+	<Overload retVal="Returns order operation type for the currently selected order.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="HideTestIndicators" func="yes">
+	<Overload retVal="The function sets a flag hiding indicators called by the Expert Advisor.">
+		<Param name="bool hide"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Period" func="yes">
+	<Overload retVal="Returns the amount of minutes determining the used period (chart timeframe).">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="RefreshRates" func="yes">
+	<Overload retVal="Refreshing of data in pre-defined variables and series arrays.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="Symbol" func="yes">
+	<Overload retVal="Returns a text string with the name of the current financial instrument.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowBarsPerChart" func="yes">
+	<Overload retVal="Function returns the amount of bars visible on the chart.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowExpertName" func="yes">
+	<Overload retVal="Returns name of the executed expert, script, custom indicator, or library, depending on the MQL4 program, from which this function has been called.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowFind" func="yes">
+	<Overload retVal="If indicator with name was found, the function returns the window index containing this specified indicator, otherwise it returns -1.">
+		<Param name="string name"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowFirstVisibleBar" func="yes">
+	<Overload retVal="The function returns the first visible bar number in the current chart window.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowHandle" func="yes">
+	<Overload retVal="Returns the system window handler containing the given chart.">
+		<Param name="string symbol"/>
+		<Param name=" int timeframe"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowIsVisible" func="yes">
+	<Overload retVal="Returns TRUE if the chart subwindow is visible, otherwise returns FALSE.">
+		<Param name="int index"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowOnDropped" func="yes">
+	<Overload retVal="Returns window index where expert, custom indicator or script was dropped.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowPriceMax" func="yes">
+	<Overload retVal="Returns maximal value of the vertical scale of the specified subwindow of the current chart (0-main chart window, the indicators' subwindows are numbered starting from 1).">
+		<Param name="int index=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowPriceMin" func="yes">
+	<Overload retVal="Returns minimal value of the vertical scale of the specified subwindow of the current chart (0-main chart window, the indicators' subwindows are numbered starting from 1).">
+		<Param name="int index=0"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowPriceOnDropped" func="yes">
+	<Overload retVal="Returns the price part of the chart point where expert or script was dropped.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowRedraw" func="yes">
+	<Overload retVal="Redraws the current chart forcedly.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowScreenShot" func="yes">
+	<Overload retVal="Saves current chart screen shot as a GIF file.">
+		<Param name="string filename"/>
+		<Param name=" int size_x"/>
+		<Param name=" int size_y"/>
+		<Param name=" int start_bar=-1"/>
+		<Param name=" int chart_scale=-1"/>
+		<Param name=" int chart_mode=-1"/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowTimeOnDropped" func="yes">
+	<Overload retVal="Returns the time part of the chart point where expert or script was dropped.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowsTotal" func="yes">
+	<Overload retVal="Returns count of indicator windows on the chart (including main chart).">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowXOnDropped" func="yes">
+	<Overload retVal="Returns the value at X axis in pixels for the chart window client area point at which the expert or script was dropped.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="WindowYOnDropped" func="yes">
+	<Overload retVal="Returns the value at Y axis in pixels for the chart window client area point at which the expert or script was dropped.">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+<KeyWord name="" func="yes">
+	<Overload retVal="">
+		<Param name=""/>
+	</Overload>
+</KeyWord>
+	</AutoComplete>
+</NotepadPlus>

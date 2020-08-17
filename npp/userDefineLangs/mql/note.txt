@@ -1,0 +1,5 @@
+functionList.xml
+	responsible for the set of hints appearing when editing mq4 files and for parsing a set of functions from the Notepada++ menu of the View-> List of functions menu.
+	only insert xml sections for mq4 into your file
+
+note: enable Settings -> Preferences -> Auto-Completion -> "Function parameters hint on input"
