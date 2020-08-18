@@ -1,0 +1,8 @@
+metaeditor64.exe /compile:<path to source> [/inc:<path to MQL folder>] [/log]
+
+metatester64 /?
+	/compile:"path"		compile source file|folder|project file
+	/project		compile project file
+	/include		path to MQL5 dir
+	/log			create compilation log file
+	/s			check program syntax without compiling
