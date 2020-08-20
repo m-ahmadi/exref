@@ -21,3 +21,6 @@
 'keypress'
 'keyup'
 'input'
+
+// <detail> tag open close
+'toggle'

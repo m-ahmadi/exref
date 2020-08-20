@@ -1,19 +1,19 @@
-Object.defineProperty(obj, prop, descriptor={
+Object.defineProperty(obj, 'prop', descriptor={
 	value:        undefined,
 	writable:     false,
 	configurable: false,
 	enumerable:   false,
 })
 
-Object.defineProperty(obj, prop, {
-	value : function () {
+Object.defineProperty(obj, 'prop', {
+	value: function () {
 		// this is a method
 	},
 
 });
 
-Object.defineProperty(obj, prop, {
-	get : function () {
+Object.defineProperty(obj, 'prop', {
+	get: function () {
 		// this function is executed each time this prop is accessed
 		// and its return value becomes the value of this prop
 		

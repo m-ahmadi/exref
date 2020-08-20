@@ -40,4 +40,6 @@ arr.reduce((a,c)=>({count: a.count+c.count})).count // 17
 [ ['a',1], ['b',2], ['c',3] ].reduce((a,c) => (a[c[0]] = c[1]) && a, {}) // {a: 1, b: 2, c: 3}
 
 // [ [a,b], [c,d], ...] to [a,b,c,d,...]
-[ [1,2], [3,4], [5,6] ].reduce((a,c) => a.push(...c) && a, []) // [1, 2, 3, 4, 5, 6]
+var arr = [ [1,2], [3,4], [5,6] ];
+arr.reduce((a,c) => a.push(...c) && a, []) // [1, 2, 3, 4, 5, 6]
+arr.reduce((a,c)=> a = a.concat(c), [])    // [1, 2, 3, 4, 5, 6]

@@ -23,5 +23,19 @@ async function addHeadScript() {
 	});
 }
 
-// check if resource already there
+// check if resource already exists
 if ( [...document.head.children].filter(i => i.tagName === 'SCRIPT').find(i => /myscript/.test(i.src)) )
+
+async function addHeadScript() {
+	return new Promise((resolve, reject) => {
+		if ( [...document.head.children].filter(i => i.tagName === 'SCRIPT').find(i => /myscript/.test(i.src)) ) {
+			resolve();
+		} else {
+			const script = document.createElement('script');
+			script.async = true;
+			script.src = '/path/to/myscript.js';
+			script.onload = () => resolve();
+			document.head.append(script);
+		}
+	});
+}
