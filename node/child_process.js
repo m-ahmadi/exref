@@ -7,7 +7,7 @@ const { spawn, execSync } = require('child_process');
 
 // all equal:
 const child = spawn('cmd.exe', ['/c', 'my.bat']);
-const child = child_process.spawn('my', {shell:true});
+const child = spawn('my', {shell:true});
 execSync('my.bat');
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // exec

@@ -11,7 +11,7 @@ Promise.reject(reason)       // ...
 'pending'   // not done: not fulfilled & not rejected
 'settled'   // done:         fulfilled |     rejected
 
-//												break?				break on?							fulfilled on?					rejected on?
+//												breaks?				breaks on?							fulfilled on?					rejected on?
 //======================================================================================================
 Promise.all()				 //		✔						first rejected				all fulfilled					first rejected
 Promise.allsettled() //		✖						never									always								never
