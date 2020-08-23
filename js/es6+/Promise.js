@@ -54,14 +54,3 @@ function runAsyncTasks() {
 }
 runAsyncTasks().then(result => console.log(result));
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Promise.all()
-var promise1 = Promise.resolve(3)
-var promise2 = 42
-var promise3 = new Promise((res, rej) => {
-  setTimeout(res, 1000, 'foo')
-})
-
-Promise.all([promise1, promise2, promise3]).then(function(values) {
-  console.log(values)
-})
-// after 1 second: [3, 42, 'foo']

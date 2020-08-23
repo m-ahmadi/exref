@@ -2,12 +2,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	// when dom is ready.
 });
 // or
-window.addEventListener('DOMContentLoaded', function () {});
+document.addEventListener('DOMContentLoaded', function () {});
 
 window.addEventListener('load', function () {
 	// when entire page is ready. (dom, images, iframes, ...?)
 });
 
+document.addEventListener('readystatechange', function () {
+	// when
+	document.readyState // changes from
+	'loading'           // to
+	'interactive'       // to
+	'complete'
+});
 
 document.readyState = 'loading | interactive | complete'
 /* .mjs vs .js `readyState` in different places
@@ -31,5 +38,9 @@ note: `readyState` always `loading` no matter where <script> tag is placed
 if (document.readyState !== 'loading') { // or === 'complete'
 	fn();
 } else {
+	document.addEventListener('readystatechange', fn);
+	// or
 	document.addEventListener('DOMContentLoaded', fn);
+	// or
+	window.addEventListener('load', fn);
 }
