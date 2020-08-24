@@ -1,5 +1,6 @@
 Light Explorer				ctrl + b
 Reindent file				shift + alt + f
 Space to TAB (Leading)			ctrl + T
+Show White Space and TAB		alt + ~
 
 HTML Tag: select tag content		ctrl + shift + c
