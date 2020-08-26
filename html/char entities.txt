@@ -9,8 +9,11 @@
 €	&euro;	&#8364;
 ©	&copy;	&#169;
 ®	&reg;	&#174;
-	&nbsp;	&#160;	(non-breaking space)
-	&zwnj;	&#8204;	(zero-width non-joiner)
+	&nbsp;	&#160;	- non-breaking single space
+	&thinsp;	- thin space
+	&ensp;  	- en space (half the point size of font)
+	&emsp;  	- em space (point size of font)
+	&zwnj;	&#8204;	- zero-width non-joiner
 ↔	&harr;	&#8596;
 ↕	&varr;	&#8597;
 

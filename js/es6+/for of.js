@@ -16,6 +16,13 @@ for (const value of arr) {
 for await (value of iterable) {
   console.log(value);
 }
+
+// continue break same as for
+for (var i of [1,2,3,4,5,6]) {
+	if (i < 2) continue;
+	if (i > 4) break;
+	console.log(i); // 2 3 4
+}
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // for of vs for in
 var list = [4, 5, 6];

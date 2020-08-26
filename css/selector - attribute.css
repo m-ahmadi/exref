@@ -8,6 +8,9 @@
 [attribute~=value] /* contains the word   value (value + single space before and after) */
 [attribute*=value] /* contains the substr value (just the letters of value in a row no matter where) */
 
+[attr=val][attr=val] /* multi */
+not([attr=val])      /* negate */
+
 /* unquoted attr vals
 any string (alphanumeric) is a valid unquoted attr value except: */
 [attr=]      /* empty string */
@@ -22,3 +25,4 @@ input[type="checkbox"][disabled] {}
 input[type="checkbox"]:disabled {} /* ie9+ */
 input[type="radio"] {}
 input[type="checkbox"] {}
+input[type=number]:not([id]) {}
