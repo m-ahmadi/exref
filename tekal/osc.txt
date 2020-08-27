@@ -125,139 +125,111 @@ with this formula, the 100 line is midpoint
 
 momentum & roc formulas might slightly differ in some softwares, but interpretation remains the same
 ------------------------------------------------------------------------------------------------------------
-constructing an oscillator using two moving averages
+constructing an oscillator using 2 moving averages
 
-Chapter 9 discussed two moving averages being used to generate
-buy and sell signals. The crossing of the shorter average above or
-below the longer average registered buy and sell signals, respectively.
-It was mentioned at that time that these dual moving average
-combinations could also be used to construct oscillator charts.
-This can be done by plotting the difference between the two averages
-as a histogram. These histogram bars appear as a plus or
-minus value around a centered zero line. This type of oscillator
-has three uses:
+plot the difference between 2 averages as histogram
+histogram bars appear as plus/minus values around a centered zero line
 
-1. To help spot divergences.
+relationships between 2 averages can be used
+	as a trend-following system
+	to help identify short term overbought/oversold conditions
 
-2. To help identify short term variations from the long term
-trend, when the shorter average moves too far above or
-below the longer average.
+uses:
+	helps spot divergences
+	helps identify short term variations from long term trend (when shortAvg moves too far above/below longAvg)
+	pinpoint crossings of 2 averages (when oscillator crosses zero)
 
-3. To pinpoint the crossings of the two moving averages,
-which occur when the oscillator crosses the zero line.
+formula:	shortAvg / longAvg
 
-The shorter average is divided by the longer. In both cases,
-however, the shorter average oscillates around the longer average,
-which is in effect the zero line. If the shorter average is above the
-longer, the oscillator would be positive. A negative reading would
-be present if the shorter average were under the longer. (See
-Figures 10.5-10.7.)
+shortAvg oscillates around longAvg
+oscillator is:
+	positive	when	short above long
+	negative	when	short below long
 
-When the two moving average lines move too far apart,
-a market extreme is created calling for a pause in the trend.
-(See Figure 10.6.) Very often, the trend remains stalled until
-the shorter average line moves back to the longer. When the
-shorter line approaches the longer, a critical point is reached. In
-an uptrend, for example, the shorter line dips back to the longer
-average, but should bounce off it. This usually represents an ideal
-buying area. It's much like the testing of an up trendline. If the
-shorter average crosses below the longer average, however, a trend
-reversal is signaled.
+when 2 averages move too far apart:
+	a market extreme is created, calling for a pause in trend
+	trend remains paused until shortAvg moves back to longAvg (very often)
 
-In a downtrend, a rise in the shorter average to the longer
-usually represents an ideal selling area unless the longer line is
-crossed, in which case a trend reversal signal would be registered.
-The relationships between the two averages can be used, therefore,
-not only as an excellent trend-following system, but also to
-help identify short term overbought and oversold conditions.
+when shortAvg approaches longAvg a critical point is reached
+	in uptrend:
+		ideal buy:		short dips back to long AND bounces off it (much like testing of up trendline)
+		trend reversal signal:	short dips back to long AND crosses below
+	in downtrend:
+		ideal sell:		short rises     to long
+		trend reversal signal:	short rises     to long AND crosses long
 ------------------------------------------------------------------------------------------------------------
-COMMODITY CHANNEL INDEX
+commodity channel index
 
-It is possible to normalize an oscillator by dividing the values by
-a constant divisor. In the construction of his Commodity
-Channel Index (CCI), Donald R. Lambert compares the current
-price with a moving average over a selected time span-usually 20
-days. He then normalizes the oscillator values by using a divisor
-based on mean deviation. As a result, the CCI fluctuates in a constant
-range from +100 on the upside to -100 on the downside.
-Lambert recommended long positions in those markets with values
-over +100. Markets with CCI values below -100 were candidates
-for short sales.
+a momentum-based oscillator
+it's possible to normalize an oscillator by dividing the values by a constant divisor
+while:
+	originally developed for commodities, also used for stock/index/futures/options
+	20 days most common, it can vary to adjust sensitivity
+developed by donald lambert
 
-It seems, however, that most chartists use CCI simply as an
-overbought/oversold oscillator. Used in that fashion readings over
-+100 are considered overbought and under -100 are oversold.
-While the Commodity Channel Index was originally developed
-for commodities, it is also used for trading stock index futures and
-options like the S&P 100 (OEX). Although 20 days is the common
-default value for CCI, the user can vary the number to adjust its
-sensitivity. (See Figures 10.8 and 10.9.)
+cci:
+	compares current price with a moving average over a selected time span (usually 20 days)
+	values are normalized by using a divisor based on mean deviation
+	fluctuates in a constant range from +100 upside to -100 downside
+
+buy: 	values above +100
+sell: 	values below -100
+
+cci as overbought/oversold oscillator
+	above +100:	overbought
+	below -100:	oversold
 ------------------------------------------------------------------------------------------------------------
-THE RELATIVE STRENGTH INDEX (RSI)
+relative strength index (rsi)
 
-The RSI was developed by J. Welles Wilder, Jr. and presented in his
-1978 book, New Concepts in Technical Trading Systems. We're only
-going to cover the main points here. A reading of the original
-work by Wilder himself is recommended for a more in-depth
-treatment. Because this particular oscillator is so popular among
-traders, we'll use it to demonstrate most of the principles of oscillator
-analysis.
+developed by j welles wilder (his 1978 book: "new concepts in technical trading systems")
 
-As Wilder points out, one of the two major problems in
-constructing a momentum line (using price differences) is the
-erratic movement often caused by sharp changes in the values
-being dropped off. A sharp advance or a decline 10 days ago (in
-the case of a 10 day momentum line) can cause sudden shifts in
-the momentum line even if the current prices show little change.
-Some smoothing is therefore necessary to minimize these distortions.
-The second problem is that there is the need for a constant
-range for comparison purposes. The RSI formula not only provides
-the necessary smoothing, but also solves the latter problem
-by creating a constant vertical range of Oto 100.
+2 major problems of momentum (price differences):
+1:
+	erratic movement caused by sharp changes in the values being dropped off
+	a sharp advance/decline 10 days ago (in 10day mtm) can cause sudden shift in momentum line even if current prices show little change
+	solution: some smoothing to minimize the distortions
+2:
+	lack of a constant range for comparison purposes
 
-The term "relative strength," incidentally, is a misnomer
-and often causes confusion among those more familiar with
-that term as it is used in stock market analysis. Relative strength
-generally means a ratio line comparing two different entities. A
-ratio of a stock or industry group to the S&P 500 Index is one
-way of gauging the relative strength of different stocks or industry
-groups against one objective benchmark. We'll show you
-later in the book how useful relative strength or ratio analysis can
-be. Wilder's Relative Strength Index doesn't really measure the
-relative strength between different entities and, in that sense,
-the name is somewhat misleading. The RSI, however, does solve
-the problem of erratic movement and the need for a constant
-upper and lower boundary. The actual formula is calculated as
-follows:
-	RS = 100 - ( 100 / (1 + RS) )
-	RS = (average of x days' up closes) / (average of x days' down closes)
 
-Fourteen days are used in the calculation; 14 weeks are
-used for weekly charts. To find the average up value, add the total
-points gained on up days during the 14 days and divide that total
-by 14. To find the average down value, add the total number of
-points lost during the down days and divide that total by 14.
-Relative strength (RS) is then determined by dividing the up average
-by the down average. That RS value is then inserted into the
-formula for RSI. The number of days can be varied by simply
-changing the value of x.
 
-Wilder originally employed a 14 day period. The shorter the
-time period, the more sensitive the oscillator becomes and the wider its
-amplitude. RSI works best when its fluctuations reach the upper
-and lower extremes. Therefore, if the user is trading on a very short
-term basis and wants the oscillator swings to be more pronounced,
-the time period can be shortened. The time period is lengthened
-to make the oscillator smoother and narrower in amplitude. The
-amplitude in the 9 day oscillator is therefore greater than the original
-14 day. While 9 and 14 day spans are the most common values
-used, technicians experiment with other periods. Some use
-shorter lengths, such as 5 or 7 days, to increase the volatility of the
-RSI line. Others use 21 or 28 days to smooth out the RSI signals.
-(See Figures 10.10 and 10.11.)
+relative strength:
+	is an inaccurate/misleading name (confuses those more familiar with how it's used in stock market analysis)
+	generally means a ratio line comparing two different entities (eg: ratio of a stock to an s&p 500 index, relative strength of one thing against some other thing)
+	relative strength (ratio analysis) can be very useful, but rsi is not that
+	rsi does not measure relative strength between entities
+
+rsi
+	has smoothing and solves problem of erratic movement
+	has a constant vertical range of O to 100
+
+
+formula:
+	rsi = 100 - ( 100 / (1 + rs) )
+	rs = (average of x days' up closes) / (average of x days' down closes)
+	
+	rs:		up average / down average
+	up average:	sum(total points gained on up   days during the 14 days) / 14
+	down average:	sum(total points lost   on down days during the 14 days) / 14
+	
+	
+	
+14 day is common (14 week for weekly charts)
+number of days is variable (wilder originally used 14 day)
+
+rsi works best when its fluctuations reach upper/lower extremes
+
+time period
+	shorter:	more sensitive oscillator with wider    amplitude (more pronounced oscillator swings)
+	longer:		smoother       oscillator with narrower amplitude
+
+	most common: 	14 and 9 (amplitude of 9 > 14)
+	other periods:
+		5  or 7  day (increased volatility)
+		21 or 28 day (smoothed out signals)
 
 @@ Interpreting RSI
-RSI is plotted on a vertical scale of Oto 100. Movements above
+RSI is plotted on a vertical scale of O to 100. Movements above
 70 are considered overbought, while an oversold condition
 would be a move under 30. Because of shifting that takes place
 in bull and bear markets, the 80 level usually becomes the overbought

@@ -5,8 +5,8 @@ ti.SMA.calculate({period: 5, values: [1,2,3,4,5,6,7,8,9]});
 
 /* browser:
 cdn
-	https://cdn.jsdelivr.net/npm/technicalindicators/
 	https://cdn.jsdelivr.net/npm/technicalindicators/dist/browser.es6.js
+	https://cdn.jsdelivr.net/npm/technicalindicators/
 	https://unpkg.com/browse/technicalindicators@latest/
 
 local

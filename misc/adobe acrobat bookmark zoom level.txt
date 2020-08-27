@@ -1,0 +1,1 @@
+right click on bookmark -> Properties -> Actions -> Edit -> Zoom: "Inherit Zoom"
