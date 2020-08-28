@@ -1,0 +1,16 @@
+﻿conditions	relative results (more conds = more cols)
+cond1		✔			
+cond2		✔	✔	✖
+cond3			✔	
+-------------------------------------
+actions
+do1		✔		
+do2				✔
+do3			✔	
+do4				✔
+-------------------------------------
+
+translates into: (↑ → ↓)
+	cond1 && cond2 ? do1
+	cond2 && cond3 ? do3
+	!cond2         ? do2 && do3

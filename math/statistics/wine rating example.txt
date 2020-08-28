@@ -1,0 +1,8 @@
+100 point scale (james suckling)
+
+up to	15  points for	color
+	25		aroma
+	25		structure
+	35		overall quality
+       ----
+	100

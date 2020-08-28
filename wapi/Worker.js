@@ -1,7 +1,9 @@
-new Worker()       // dedicated worker. only accessible from the script that first spawned (called) it.
-new SharedWorker() // shared    worker. can be accessed from multiple scripts.
-// you can't pass function, DOM nodes and some other things to workers.
+new Worker()       // dedicated worker. only accessible from the script that first spawned (called) it
+new SharedWorker() // shared    worker. can be accessed from multiple scripts
 
+worker.postMessage(message={}|[], ?transfer=[]);
+// you can't pass function, dom nodes and some other things to workers
+// more: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // main.js
 var myWorker = new Worker('js/worker.js');
@@ -38,3 +40,31 @@ self.onmessage = function (e) {
 };
 
 close(); // closing the worker from the worker thread
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// usage example with promises
+
+// main.js
+var worker = new Worker('path/to/worker.js');
+
+var result = await askWorker('doSome', 'with this input data');
+
+function askWorker(_action='', inputData) {
+	return new Promise(resolve => {
+		worker.onmessage = function ({data: {action, result}}) {
+			if (action !== _action) return;
+			worker.onmessage = null;
+			resolve(result);
+		};
+		
+		worker.postMessage({action: 'doSome', data: input});
+	});
+}
+
+// worker.js
+self.onmessage = function ({data: {action, data}}) {
+	const result = action == 'doSome' ? doSome(data) : undefined;
+	self.postMessage({action, result});
+};
+
+function doSome(input) { return input.replace(/a/g, 'b') }
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

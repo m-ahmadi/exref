@@ -1,0 +1,79 @@
+1. write three questions you're trying to decide
+
+	"which mortgage professional should i choose?"
+
+2. write up 5 or 6 "must-have qualities"
+
+	attr (quality)				description
+	=========================================================
+	integrity				(what he says is consistent with what he does)
+	professional knowledge and expertise	(makes recommendations consistent with what i value)
+	quality of communication		(helps me understand quickly)
+	accessibility				(i can reach them when i need them)
+	competitive pricing			(rates and costs are amongst the best in the marketplace)
+	reliability of recommendations		(shows me that live market data is consistent with recommendations so i can make a timely decision to choose them)
+	
+3. rate the importance of each of these qualities on a scale of 1 to 10 in terms of how important each is to you.
+	(if "reliability" is far more important than anything, it gets a 10,
+	if "competitive pricing" is the second most important but really not nearly as important as "reliability" you might give it a 5 or 6, and so on)
+	
+	attr					importance score
+	=========================================================
+	integrity				4
+	professional knowledge and expertise	2
+	quality of communication		1
+	accessibility				2
+	competitive pricing			6
+	reliability of recommendations		9
+
+4. list your options
+	bank loan officer
+	realtor referred
+	my current loan broker
+
+5. rate each option on a scale of 1 to 10 for each quality you put down for that option
+	(if your current loan broker rates are good with you, give them an 8, but if you think they are average, give them a 5.)
+	this is a subjective scale, so it's up to you to score it as honestly as possible to make the best decision by the end of this process.
+	
+	attr scores			attr1	attr2	attr3	attr4	attr5	attr6
+	=================================================================================
+	bank loan officer		0	2	3	4	5	6
+	realtor referred		8	5	6	2	8	2
+	my current loan broker		6	2	4	3	8	9
+
+6. compute scores for each option by multiplying the quality score you gave your option with your target quality score, the one you created in step 3.
+	(for example, your loan broker scores 56 in integrity: 8 [the importance of integrity] x 7 [how well you rate them in that area]).
+
+					attr1	attr2	attr3	attr4	attr5	attr6
+	=================================================================================
+	bank loan officer		0x4	2x3	3x1	4x2	5x6	6x9
+	realtor referred		8x4	5x3	6x1	2x2	8x6	2x9
+	my current loan broker		6x4	2x3	4x1	3x2	8x6	9x9
+	---------------------------------------------------------------------------------
+	bank loan officer		4	6	3	8	30	54
+	realtor referred		32	15	6	4	48	18
+	my current loan broker		24	6	4	6	48	81
+
+7. sum up the scores for each quality for a total score for that option. compute a separate score for each option.
+	
+	bank loan officer		105	(4  + 6  + 3 + 8 + 30 + 54)
+	realtor referred		123	(32 + 15 + 6 + 4 + 48 + 18)
+	my current loan broker		169	(24 + 6  + 4 + 6 + 48 + 81)
+
+8. decide on a target score
+	target_score
+	how to come up with it: "Figure out the ideal 'solution' and tally that up"
+	note: analogous to sum_of_weights in weighted average
+
+9. divide each option's total score by your target score and multiply by 100 to get a percentage score.
+	the option with the highest score (compared to your target) is your best choice.
+	
+	bank loan officer		(105 / target_score) * 100
+	realtor referred		(123 / target_score) * 100
+	my current loan broker		(169 / target_score) * 100
+	
+	eg target_score = 50
+	bank loan officer		210	( (105 / 50) * 100 )
+	realtor referred		246	( (123 / 50) * 100 )
+	my current loan broker		338	( (169 / 50) * 100 )
+
