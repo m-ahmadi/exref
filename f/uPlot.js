@@ -44,8 +44,28 @@ const opts = {
 	],
 	
 	cursor: {
-		show: false
+		show:        false,
+		lock:        true,
+		focus: {
+			prox:      16,
+		},
+		sync: {
+			key:       '',
+			setSeries: true,
+			scales:    ['', '']
+		},
+		points: {
+			show:      false,
+		},
+		drag: {
+			setScale:  false,
+			x:         true,
+			y:         true,
+			dist:      0,
+			uni:       0
+		},
 	},
+	
 	select: {
 		show: false,
 	},
@@ -56,6 +76,16 @@ const opts = {
 		x: {
 			time: false,
 		},
+		y: {
+			min:   0,
+			max:   0,
+			distr: 0, // log scale?
+		},
+		'': {
+			auto: false,
+			range: [0,0] | ()=>[0,0],
+			from: '',
+		}
 	},
 	
 	axes: [
@@ -67,6 +97,7 @@ const opts = {
 			font:      '12px Arial',
 			gap:       5,
 			size:      50,
+			space:     15,
 			stroke:    'red',
 			grid: {
 				show:    true,

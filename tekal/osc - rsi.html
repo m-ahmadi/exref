@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css">
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/technicalindicators/dist/browser.es6.js"></script>
+
+<style>
+	input { width: 50px; }
+	input[type="checkbox"] { width: initial; margin:0; }
+	.box { padding: .5rem; border: 1px dashed grey; }
+</style>
+
+<button onclick="randomBars(+gnr.value), setGraph(), setOsc()">randomBars(<input type="number"value="500"id="gnr">)</button>
+
+<div id="_graph"></div>
+
+<div id="_osc">
+	<label><strong>RSI:</strong> <input type="number" min="0" value="14" id="_rsi" onchange="setOsc()" /></label>
+	<label>upper: <input type="number" min="0" max="100"value="70" id="_upper" onchange="setOsc()" /></label>
+	<label>lower: <input type="number" min="0" max="100"value="30" id="_lower" onchange="setOsc()" /></label>
+</div>
+
+
+<script>
+let bars, graphData, oscData, xAxis;
+const cursorOpts = { lock: true, sync:{key:'foo'} };
+
+randomBars();
+
+const graph = new uPlot({
+	width: 1850, height: 500,
+	series: [ {}, {}, {}],
+	legend: {show: false},
+	cursor: cursorOpts,
+	class: 'box'
+}, graphData, _graph);
+
+const osc = new uPlot({
+	width: 1850, height: 300,
+	series: [ {}, {}, {stroke:'red'}, {stroke:'red'}, {stroke:'purple'} ],
+	legend: {show: false},
+	axes: [ {time: false} ],
+	cursor: cursorOpts,
+	scales: { y: {auto:false,min:0, max:100} },
+	class: 'box'
+}, oscData, _osc);
+
+setOsc();
+
+function setGraph() { graph.setData(graphData) }
+
+function setOsc() {
+	const oscArr = Array(+_rsi.value).fill(null).concat( rsi({period: +_rsi.value, values: bars}) );
+	const upper = Array(oscArr.length).fill(+_upper.value);
+	const lower = Array(oscArr.length).fill(+_lower.value);
+	oscData = [ xAxis, [], upper, lower, oscArr ];
+	osc.setData(oscData);
+}
+
+
+function randomBars(len=+gnr.value) {
+	const randInt = (min, max) => Math.floor( Math.random() * (Math.floor(max)-Math.ceil(min)) ) + Math.ceil(min);
+	bars = [100];
+	for (let i=1; i<len; i+=1) {
+		const prev = bars[i-1];
+		const r = prev * 0.05;
+		let value = randInt(prev-r, prev+r);
+		
+		let k = 2;
+		while (value === prev) {
+			value = randInt(prev-r, prev+r*k);
+			k *=2;
+		}
+		bars.push(value);
+	}
+	xAxis = bars.map(i=> randInt(1200300400,1600500400)).sort();
+	graphData = [ xAxis, bars, [] ];
+}
+</script>

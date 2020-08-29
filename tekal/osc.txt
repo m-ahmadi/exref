@@ -344,36 +344,35 @@ one way to combine daily and weekly stochastics:
 
 it's also a good idea to combine stochastics with rsi
 ------------------------------------------------------------------------------------------------------------
-larry williams %r
+larry williams %R
 
-based on a similar concept of measuring latest close in relation to its price range over a given number of days
+based on a similar concept of measuring latest close in relation to its price range over a number of days
 
-today's close is subtracted from the price high of the range for a given number of days and that difference is divided by the total range for the same period.
+formula: ( (today' close) - (period' high) ) / (total range: period' high - period' low)
+	looks like upside down stochastics (since %R subtracted from high) and to correct that, charting softwares plot an inverted version of %R
 
-The concepts already discussed for oscillator interpretation are applied to %R as well, with the main factors being the presence of divergences in overbought or oversold areas. (See Figure 10.18.)
-
-Since %R is subtracted from the high, it looks like an upside down stochastics.
-
-To correct that, charting packages plot an inverted version of %R.
+interpretation (same as already discussed)
+	presence of divergences in overbought/oversold areas
 ------------------------------------------------------------------------------------------------------------
-Choice of Time Period Tied to Cycles
+choice of time period tied to cycles
 
-Oscillator lengths can be tied to underlying market cycles. A time
-period of 1/ 2 the cycle length is used. Popular time inputs are 5, 10,
-and 20 days based on calendar day periods of 14, 28, and 56 days.
-Wilder's RSI uses 14 days, which is half of 28. In the previous
-chapter, we discussed some reasons why the numbers 5, 10, and
-20 keep cropping up in moving average and oscillator formulations,
-so we won't repeat them here. Suffice it to mention here
-that 28 calendar days (20 trading days) represent an important
-dominant monthly trading cycle and that the other numbers are
-related harmonically to that monthly cycle. The popularity of the
-10 day momentum and the 14 day RSI lengths are based largely
-on the 28 day trading cycle and measure 1/2 of the value of that
-dominant trading cycle. We'll come back to the importance of
-cycles in Chapter 14.
+oscillator lengths can be tied to underlying market cycles
+
+a time period of 1/2 (half) the cycle length is used
+
+popular time inputs:		 5 10 20    days	(previous chapter discussed why 5 10 20 keep appearing in moving average and oscillator formulations)
+based on calendar day periods:	   14 28 56 days
+
+rsi uses 14 days which is half of 28
+
+28 calendar days (20 trading days)
+	important dominant monthly trading cycle (other numbers are harmonically related to it)
+	popularity of following lengths are largely based on 28 day cycle and its 1/2 (half)
+	popular lengths based on it and its 1/2 (half)
+		10 day momentum
+		14 day rsi
 ------------------------------------------------------------------------------------------------------------
-THE IMPORTANCE OF TREND
+importance of trend
 
 In this chapter, we've discussed the use of the oscillator in market
 analysis to help determine near term overbought and oversold
