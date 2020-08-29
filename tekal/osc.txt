@@ -16,7 +16,7 @@ oscillator
 	becomes extremely valuable toward the end of market moves
 no study of market extremes is complete without discussing contrary opinion philosophy
 
-=============================
+=================================================
 interpretation of oscillators
 different ways to construct oscillators but interpretation differs very little
 
@@ -27,7 +27,7 @@ some oscillators
 	have a midpoint value (usually zero line) that divides the range to 2 halves (upper & lower)
 	have upper & lower boundaries ranging from 0 to 100
 
-=============================
+=================================================
 general interpretation rules
 
 when oscillator reaches extreme value in upper/lower ends
@@ -37,7 +37,7 @@ when oscillator line in
 	upper end:	sell
 crossing of midpoint line often used to generate buy/sell signals
 
-=============================
+=================================================
 3 situation when oscillator is most useful is when
 	1. its value reaches an extreme reading near the upper/lower end of its boundaries (upper=overbought, lower=oversold, warns that trend is overextended/vulnerable)
 	2. it's in extreme position and there's a divergence between oscillator & price action (usually an important warning)
@@ -67,7 +67,7 @@ any time period can be used (10 day very common)
 	shorter period (5 day):		more sensitive line with more pronounced oscillations
 	longer  period (40 day):	much smoother  line with less volatile   oscillator swings
 
-=============================
+=================================================
 momentum measures rates of ascent or descent
 
 momentum
@@ -87,7 +87,7 @@ when momentum line:
 	advance:	price > 10 days ago
 	is flat:	price = 10 days ago
 	decline:	price < 10 days ago (even though price still rising)
-=============================
+=================================================
 momentum line leads the price action
 
 momentum line
@@ -96,19 +96,19 @@ momentum line
 	then begins to move in opposite direction as price begins to level off
 
 *leveloff: stops rising/falling and stays at same level
-=============================
+=================================================
 crossing of zero line as trading signal
 
 remember: basic trend analysis overrules (don't trade against current trend)
 
 buy signal:	crossing above zero (only if trend is up)
 sell signal:	crossing below zero (only if trend is down)
-=============================
+=================================================
 the need for upper and lower boundary
 
 problem with momentum line:	absence of a fixed upper & lower boundary (where is considered too high/low)
 solution:			draw horizontal line along previous upper/lower boundaries (line must be adjusted periodically, especially after important trend changes)
-=============================
+=================================================
 rate of change (roc)
 
 rate of change = ratio of last price to the price of n days ago
@@ -227,151 +227,134 @@ time period
 	other periods:
 		5  or 7  day (increased volatility)
 		21 or 28 day (smoothed out signals)
+=================================================
+interpreting rsi
 
-@@ Interpreting RSI
-RSI is plotted on a vertical scale of O to 100. Movements above
-70 are considered overbought, while an oversold condition
-would be a move under 30. Because of shifting that takes place
-in bull and bear markets, the 80 level usually becomes the overbought
-level in bull markets and the 20 level the oversold level
-in bear markets.
+rsi is plotted on a vertical scale of o to 100
+	movements above 70	considered overbought
+	movements under 30	considered oversold
 
-"Failure swings," as Wilder calls them, occur when the RSI
-is above 70 or under 30. A top failure swing occurs when a peak in
-the RSI (over 70) fails to exceed a previous peak in an uptrend, followed
-by a downside break of a previous trough. A bottom failure
-swing occurs when the RSI is in a downtrend (under 30), fails to
-set a new low, and then proceeds to exceed a previous peak. (See
-Figures 10.12a-b.)
+because of shifting that happens in bull & bear markets
+	80 level		overbought level in bull market
+	20 level		oversold   level in bear market
 
-Divergence between the RSI and the price line, when the
-RSI is above 70 or below 30, is a serious warning that should be
-heeded. Wilder himself considers divergence "the single most
-indicative characteristic of the Relative Strength Index" [Wilder, p. 70].
 
-Trendline analysis can be employed to detect changes in
-the trend of the RSI. Moving averages can also be used for the
-same purpose. (See Figure 10.13.)
+"failure swings" (as called by wilder)
+	occur when rsi is above 70 or under 30 (must)
+	top    failure swing:	rsi (over 70) in uptrend   and fails to exceed a previous high, followed by a downside break of a previous low
+	bottom failure swing:	rsi (nder 30) in downtrend and fails to set    a new      low,  followed by a upside   break of a previous high
 
-In my own personal experience with the RSI oscillator, its
-greatest value lies in failure swings or divergences that occur
-when the RSI is over 70 or under 30. Let's clarify another important
-point on the use of oscillators. Any strong trend, either up
-or down, usually produces an extreme oscillator reading before
-too long. In such cases, claims that a market is overbought or
-oversold are usually premature and can lead to an early exit
-from a profitable trend. In strong uptrends, overbought markets
-can stay overbought for some time. Just because the oscillator
-has moved into the upper region is not reason enough to liquidate
-a long position (or, even worse, short into the strong
-uptrend).
+trendlines and moving averages can be used to detect changes in rsi's trend
 
-The first move into the overbought or oversold region is
-usually just a warning. The signal to pay close attention to is the
-second move by the oscillator into the danger zone. If the second
-move fails to confirm the price move into new highs or new lows
-(forming a double top or bottom on the oscillator), a possible
-divergence exists. At that point, some defensive action can be
-taken to protect existing positions. If the oscillator moves in the
-opposite direction, breaking a previous high or low, then a divergence
-or failure swing is confirmed.
+"the single most indicative characteristic of rsi" (says wilder himself)
+	divergence between rsi and price when rsi is above 70 or below 30
 
-The SO level is the RSI midpoint value, and will often act
-as support during pullbacks and resistance during bounces.
-Some traders treat RSI crossings above and below the SO level as
-buying and selling signals respectively.
+"greatest value of rsi" (says john murphy)
+	failure swings or divergences    when rsi is above 70 or below 30
 
-@@ USING THE 70 AND 30 LINES TO GENERATE SIGNALS
-Horizontal lines appear on the oscillator chart at the 70 and 30
-values. Traders often use those lines to generate buy and sell signals.
-We already know that a move under 30 warns of an oversold
-condition. Suppose the trader thinks a market is about to
-bottom and is looking for a buying opportunity. He or she
-watches the oscillator dip under 30. Some type of divergence or
-double bottom may develop in the oscillator in that oversold
-region. A crossing back above the 30 line at that point is taken
-by many traders as a confirmation that the trend in the oscillator
-has turned up. Accordingly, in an overbought market, a
-crossing back under the 70 line can often be used as a sell signal.
-(See Figure 10.14.)
+important point about oscillator usage:
+	any strong trend (up or down) usually produces an extreme oscillator reading before too long
+	when that happens, claiming that market is overbought/oversold is usually premature (leads to early enter/exit from a lossful/profitable trend)
+	in strong uptrends, overbought markets can stay overbought for some time
+	just because oscillator moves into upper region is not enough reason to liquidate a long position (or even worse short into the strong uptrend)
+	
+	first move  into overbought/oversold region is usually just a   warning
+	second move into the danger zone            is a more important signal
+	if second move fails to confirm the price move into new highs/lows, a possible divergence exists (forming a double top/bottom on the oscillator)
+	at this point, some defensive action can be taken to protect existing positions
+	if oscillator moves in opposite direction, breaking a previous high/low, then a divergence or failure swing is confirmed
+
+	50 level is rsi midpoint value, and often acts as support during pullbacks and resistance during bounces
+	some traders treat crossings above/below the 50 level as buy/sell signal
+=================================================
+using 70 and 30 lines to generate signals
+
+traders often use 70/30 lines to generate buy/sell signals
+
+
+oversold warning:	oscillator dips under 30
+getting stronger:	some type of divergence or double bottom develops in oscillator (under 30)
+buy signal:		a crossing back above 30 (confirms that trend in oscillator has turned up)
+
+...
+...
+sell signal:		a crossing back under 70
 ------------------------------------------------------------------------------------------------------------
-STOCHASTICS (K%D)
+stochastics (k%d)
 
-The Stochastic oscillator was popularized by George Lane (president
-of Investment Educators, Inc., Watseka, IL). It is based on the
-observation that as prices increase, closing prices tend to be closer
-to the upper end of the price range. Conversely, in downtrends,
-the closing price tends to be near the lower end of the range. Two
-lines are used in the Stochastic Process-the %K line and the %D
-line. The %D line is the more important and is the one that provides
-the major signals.
+developed by george lane
+based on the observation that:
+	in uptrend	closing price tends to be closer to upper end of price range
+	in downtrend	...				    lower ...
 
-The intent is to determine where the most recent closing price
-is in relation to the price range for a chosen time period. Fourteen is
-the most common period used for this oscillator. To determine the K
-line, which is the more sensitive of the two, the formula is:
-	%K = 100 * ((C - L14) / (H14 - L14))
-where C is the latest close, L14 is the lowest low for the last 14
-periods, and H14 is the highest high for the same 14 periods (14
-periods can refer to days, weeks, or months).
+2 lines are used in stochastic process
+	%K line		more sensitive
+	%D line		more important, provides major signals
 
-The formula simply measures, on a percentage basis of O to
-100, where the closing price is in relation to the total price range
-for a selected time period. A very high reading (over 80) would put
-the closing price near the top of the range, while a low reading
-(under 20) near the bottom of the range.
+goal:	where the most recent closing price is in relation to price range of a time period
 
-The second line (o/oD) is a 3 period moving average of the
-o/oK line. This formula produces a version called fast stochastics.
-By taking another 3 period average of %D, a smoother version
-called slow stochastics is computed. Most traders use the slow stochastics
-because of its more reliable signals.*
+most common time period is 14
 
-These formulas produce two lines that oscillate between a
-vertical scale from Oto 100. The Kline is a faster line, while the D
-line is a slower line. The major signal to watch for is a divergence
-between the D line and the price of the underlying market when
-the D line is in an overbought or oversold area. The upper and
-lower extremes are the 80 and 20 values. (See Figure 10.15.)
+%K line formula:
+	%K = 100 * ( (C - L14) / (H14 - L14) )
+	C:		latest close
+	L14:		lowest  low  of last 14 periods (periods: days/weeks/months)
+	H14:		highest high of last 14 periods ...
+	
+	measures on a percentage basis of 0 to 100, where closing price is in relation to price range of a selected time period
 
-A bearish divergence occurs when the D line is over 80 and
-forms two declining peaks while prices continue to move higher.
-A bullish divergence is present when the D line is under 20 and
-forms two rising bottoms while prices continue to move lower.
-Assuming all of these factors are in place, the actual buy or sell signal
-is triggered when the faster K line crosses the slower D line.
 
-There are other refinements in the use of Stochastics, but
-this explanation covers the more essential points. Despite the higher
-level of sophistication, the basic oscillator interpretation remains
-the same. An alert or set-up is present when the o/oD line is in an
-extreme area and diverging from the price action. The actual signal
-takes place when the D line is crossed by the faster K line.
+high reading (over  80):	puts closing price near the top    of the range
+low  reading (under 20):	...			    bottom ...
 
-The Stochastic oscillator can be used on weekly and monthly
-charts for longer range perspective. It can also be used effectively
-on intraday charts for shorter term trading. (See Figure 10.16.)
+%D line formula:
+	fast stochastics:	a       3 period moving average of %K line
+	slow stochastics:	another 3 period        average of %D line (smoother than the fast one)
 
-One way to combine daily and weekly stochastics is to use
-weekly signals to determine market direction and daily signals for
-timing. It's also a good idea to combine stochastics with RSI. (See
-Figure 10.17.)
+	most traders use the slow one because of its more reliable signals
+	second smoothing produces 3 lines, fast uses first 2, slow uses last 2
 
-*The second smoothing produces 3 lines. Fast stochastics uses the first 2 lines.
-Slow stochastics uses the last 2 lines.
+
+plots 2 lines that oscillate between a vertical scale from 0 to 100
+	%K line:	faster line
+	%D line:	slower line
+
+major signal:
+	divergence between %D line and price when %D line is in overbought/oversold area
+	upper extreme:	80
+	lower extreme	20
+	
+	bearish divergence:	%D line above 80 and forms 2 declining peaks   while price continues to go higher
+	bullish divergence: 	...     below 20 ...	   2 rising    bottoms ... 			   lower
+
+	buy/sell signal:	faster %K line crosses slower %D line (assuming all prev factors are in place)
+
+
+this was an essential explanation (there are other refinements in usage of stochastics)
+while more sophisticated, basic oscillator interpretation remains the same
+	alert:		%D line in extreme area and diverging from price action
+	signal:		%D line is crossed by %K line
+
+weekly and monthly charts can be used for longer range perspective
+also effective on intraday charts for shorter term trading
+
+one way to combine daily and weekly stochastics:
+	use weekly signals to determine market direction
+	use daily  signals for timing
+
+it's also a good idea to combine stochastics with rsi
 ------------------------------------------------------------------------------------------------------------
-LARRY WILLIAMS %R
+larry williams %r
 
-Larry Williams %R is based on a similar concept of measuring the
-latest close in relation to its price range over a given number of
-days. Today's close is subtracted from the price high of the range
-for a given number of days and that difference is divided by the
-total range for the same period. The concepts already discussed for
-oscillator interpretation are applied to %R as well, with the main
-factors being the presence of divergences in overbought or oversold
-areas. (See Figure 10.18.) Since %R is subtracted from the
-high, it looks like an upside down stochastics. To correct that,
-charting packages plot an inverted version of %R.
+based on a similar concept of measuring latest close in relation to its price range over a given number of days
+
+today's close is subtracted from the price high of the range for a given number of days and that difference is divided by the total range for the same period.
+
+The concepts already discussed for oscillator interpretation are applied to %R as well, with the main factors being the presence of divergences in overbought or oversold areas. (See Figure 10.18.)
+
+Since %R is subtracted from the high, it looks like an upside down stochastics.
+
+To correct that, charting packages plot an inverted version of %R.
 ------------------------------------------------------------------------------------------------------------
 Choice of Time Period Tied to Cycles
 
@@ -500,7 +483,7 @@ start to move up ahead of the price line. That is often an early sign
 of a market bottom. Simple trendlines can be drawn on the MACO
 lines to help identify important trend changes. (See Figure 10.19b.)
 ------------------------------------------------------------------------------------------------------------
-MACO HISTOGRAM
+MACD HISTOGRAM
 
 We showed you earlier in the chapter how a histogram could be
 constructed that plots the difference between two moving average
