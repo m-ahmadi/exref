@@ -374,155 +374,129 @@ rsi uses 14 days which is half of 28
 ------------------------------------------------------------------------------------------------------------
 importance of trend
 
-In this chapter, we've discussed the use of the oscillator in market
-analysis to help determine near term overbought and oversold
-conditions, and to alert traders to possible divergences. We started
-with the momentum line. We discussed another way to measure
-rates of change (ROC) by using price ratios instead of differences.
-We then showed how two moving averages could be compared
-to spot short term extremes and crossovers. Finally, we
-looked at RSI and Stochastics and considered how oscillators
-should be synchronized with cycles.
+covered so far
+	oscillator used to
+		detect near term overbought/oversold conditions
+		alert traders to possible divergences
+	momentum
+	roc using price ratios instead of differences
+	moving average
+	rsi
+	stochastics
+	oscillator synced with cycles
+	oscillator's greatest value: divergence
 
-Divergence analysis provides us with the oscillator's greatest
-value. However, the reader is cautioned against placing too much
-importance on divergence analysis to the point where basic trend
-analysis is either ignored or overlooked. Most oscillator buy signals
-work best in uptrends and oscillator sell signals are most profitable
-in downtrends. The place to start your market analysis is always by
-determining the general trend of the market. If the trend is up,
-then a buying strategy is called for. Oscillators can then be used to
-help time market entry. Buy when the market is oversold in an
-uptrend. Sell short when the market is overbought in a downtrend.
-Or, buy when the momentum oscillator crosses back above the
-zero line when the major trend is bullish and sell a crossing under
-the zero line in a bear market.
+caution
+	do not place too much importance on divergence analysis to the point of ignoring basic trend analysis
+	most oscillator buy  signals work best in uptrends
+	...		sell signals ...	  downtrends
 
-The importance of trading in the direction of the major
-trend cannot be overstated. The danger in placing too much importance
-on oscillators by themselves is the temptation to use divergence
-as an excuse to initiate trades contrary to the general trend.
-This action generally proves a costly and painful exercise. The oscillator,
-as useful as it is, is just one tool among many others and must
-always be used as an aid, not a substitute, for basic trend analysis.
+how should be
+	start with determining general trend of market
+	if trend is up, use a buying strategy
+	then use oscillator for time of entry
+	buy  when market is oversold   in an uptrend
+	sell ...	    overbought ...   downtrend
+	or
+	buy  when momentum crosses back above zero line when major trend is bullish
+	sell ...			under ...			    bearish
+	
+always trade in direction of the major trend
+
+danger of placing too much importance on oscillator:
+	temptation to use divergence as excuse to trade against the general trend (costly and painful)
+
+oscillator must be used as aid for basic trend analysis (and not a substitute)
 ------------------------------------------------------------------------------------------------------------
-WHEN OSCILLATORS ARE MOST USEFUL
+when oscillators are most useful
 
-There are times when oscillators are more useful than at others.
-During choppy market periods, as prices move sideways for several
-weeks or months, oscillators track the price movement very closely.
-The peaks and troughs on the price chart coincide almost exactly
-with the peaks and troughs on the oscillator. Because both price
-and oscillator are moving sideways, they look very much alike. At
-some point, however, a price breakout occurs and a new uptrend or
-downtrend begins. By its very nature, the oscillator is already in an
-extreme position just as the breakout is taking place. If the breakout
-is to the upside, the oscillator is already overbought. An oversold
-reading usually accompanies a downside breakout. The trader
-is faced with a dilemma. Should he or she buy the bullish breakout
-in the face of an overbought oscillator reading? Should the downside
-breakout be sold into an oversold market?
+some times oscillators are more useful than other times
 
-In such cases, the oscillator is best ignored for the time
-being and the position taken. The reason for this is that in the
-early stages of a new trend, following an important breakout,
-oscillators often reach extremes very quickly and stay there for
-awhile. Basic trend analysis should be the main consideration at
-such times, with oscillators given a lesser role. Later on, as the
-trend begins to mature, the oscillator should be given greater
-weight. (We'll see in Chapter 13, that the fifth and final wave in
-Elliott Wave analysis is often confirmed by bearish oscillator
-divergences.) Many dynamic bull moves have been missed by
-traders who saw the major trend signal, but decided to wait for
-their oscillators to move into an oversold condition before buying.
-To summarize, give less attention to the oscillator in the early
-stages of an important move, but pay close attention to its signals
-as the move reaches maturity.
+oscillators track price very closely during choppy market periods (sideways for several weeks/months)
+price and oscillator look very much alike because both are moving sideways (highs & lows of price coincide almost exactly with highs & lows on oscillator)
+at some point a breakout happens and a new trend begins (up/down)
+when breakout happens, oscillator is already in extreme position (by its very nature)
+in upside   breakout, oscillator is already overbought
+.. downside ...       oscillator ...	    oversold
+trader dilemma:
+	should I buy  bullish breakout while oscillator in overbought reading?
+	...    I sell bearish ...			   oversold   ...    ?
+
+it's best to ignore the oscillator for the time being and the position taken
+why?
+	in early stages of a new trend, after an important breakout
+	oscillators often reach extremes very quickly and stay there for awhile
+	oscillators must be given a lesser role and basic trend analysis should be used at such times
+	oscillators gain back greater weight later on as trend begins to mature
+	(5th elliott wave is often confirmed by bearish oscillator divergences)
+
+
+many dynamic bull moves are missed by traders who saw the major trend signal, but decided to wait for oscillators to move into oversold before buying
+summary
+	oscillator lesser  importance in early stages of important move
+	...	   greater ...		 later ... 		   ...  (when move reaches maturity)
 ------------------------------------------------------------------------------------------------------------
-MOVING AVERAGE CONVERGENCE/DIVERGENCE (MACD)
+moving average convergence/divergence (macd)
 
-We mentioned in the previous chapter an oscillator technique
-that uses 2 exponential moving averages and here it is. The
-Moving Average Convergence/Divergence indicator, or simply
-MACD, was developed by Gerald Appel. What makes this indicator
-so useful is that it combines some of the oscillator principles
-we've already explained with a dual moving average crossover
-approach. You'll see only two lines on your computer screen
-although three lines are actually used in its calculation. The faster
-line (called the MACD line) is the difference between two exponentially
-smoothed moving averages of closing prices (usually the
-last 12 and 26 days or weeks). The slower line (called the signal
-line) is usually a 9 period exponentially smoothed average of the
-MACD line. Appel originally recommended one set of numbers
-for buy signals and another for sell signals. Most traders, however,
-utilize the default values of 12, 26, and 9 in all instances. That
-would include daily and weekly values. (See Figure 10.19a.)
+an oscillator that uses 2 exponential moving averages
+developed by gerald appel
+very useful because it combines oscillator principles with dual moving average crossover approach
+plots 2 lines but 3 lines are used in calculation
+	faster line: (macd   line)	difference between 2 exponentially smoothed moving averages of closing prices of a period (usually last 12 and 26 days or weeks)
+	slower line: (signal line)	9 period (usually) exponentially smoothed average of macd line
 
-The actual buy and sell signals are given when the two
-lines cross. A crossing by the faster MACD line above the slower
-signal line is a buy signal. A crossing by the faster line below the
-slower is a sell signal. In that sense, MACD resembles a dual moving
-average crossover method. However, the MACD values also
-fluctuate above and below a zero line. That's where it begins to
-resemble an oscillator. An overbought condition is present when
-the lines are too far above the zero line. An oversold condition is
-present when the lines are too far below the zero line. The best
-buy signals are given when prices are well below the zero line
-(oversold). Crossings above and below the zero line are another
-way to generate buy and sell signals respectively, similar to the
-momentum technique we discussed previously.
+author recommended different numbers for buy and sell signals, but many use default values of 12 26 9 everywhere (whether daily or weekly)
 
-Divergences appear between the trend of the MACD lines
-and the price line. A negative, or bearish, divergence exists when
-the MACD lines are well above the zero line (overbought) and start
-to weaken while prices continue to trend higher. That is often a
-warning of a market top. A positive, or bullish, divergence exists
-when the MACD lines are well below the zero line (oversold) and
-start to move up ahead of the price line. That is often an early sign
-of a market bottom. Simple trendlines can be drawn on the MACO
-lines to help identify important trend changes. (See Figure 10.19b.)
+
+
+generates signals when 2 lines cross
+	buy:	macd line crossing  above  signal line
+	sell:	...		    below  ...
+
+macd resembles both a dual moving average crossover and an oscillator since its values fluctuate above and below a zero line
+
+overbought:	lines are too far above zero line
+oversold:	...		  below ...		(best buy signals: prices well below zero line)
+
+another way to generate buy/sell signals:
+	cross above and below zero (similar to momentum)
+
+divergence between trend of macd lines and trend of price
+	negative divergence: (bearish)		macd lines are well above zero and start to weaken while price continues to trend higher	(warning of market top)
+	positive divergence: (bullish)		...		    below ...		    move up ahead of price				(often, early sign of market bottom)
+	
+	draw trendlines on macd lines to identify important trend changes
 ------------------------------------------------------------------------------------------------------------
-MACD HISTOGRAM
+macd histogram
 
-We showed you earlier in the chapter how a histogram could be
-constructed that plots the difference between two moving average
-lines. Using that same technique, the two MACD lines can be
-turned into an MACD histogram. The histogram consists of vertical
-bars that show the difference between the two MACD lines.
-The histogram has a zero line of its own. When the MACD lines
-are in positive alignment (faster line over the slower), the histogram
-is above its zero line. Crossings by the histogram above
-and below its zero line coincide with actual MACD crossover buy
-and sell signals.
+plots vertical bars that show difference between 2 macd lines (already covered: histogram of difference between 2 moving average lines)
+has a zero line of its own
+histogram above zero:				macd lines are in positive alignment (faster line over the slower)
+histogram crossing above and below zero:	coincide with macd crossover buy/sell signals
 
-The real value of the histogram is spotting when the
-spread between the two lines is widening or narrowing. When
-the histogram is over its zero line (positive) but starts to fall
-toward the zero line, the uptrend is weakening. Conversely,
-when the histogram is below its zero line (negative) and starts
-to move upward toward the zero line, the downtrend is losing
-its momentum. Although no actual buy or sell signal is given
-until the histogram crosses its zero line, the histogram turns
-provide earlier warnings that the current trend is losing
-momentum. Turns in the histogram back toward the zero line
-always precede the actual crossover signals. Histogram turns are
-best used for spotting early exit signals from existing positions.
-It's much more dangerous to use the histogram turns as an
-excuse to initiate new positions against the prevailing trend.
-(See Figure 10.20a.)
-------------------------------------------------------------------------------------------------------------
-COMBINE WEEKLIES AND DAILIES
+histogram's real value:	spot when spread between 2 lines is widening or narrowing
 
-As with all technical indicators, signals on weekly charts are
-always more important than those on daily charts. The best way
-to combine them is to use weekly signals to determine market
-direction and the daily signals to fine-tune entry and exit
-points. A daily signal is followed only when it agrees with the
-weekly signal. Used in that fashion, the weekly signals become
-trend filters for daily signals. That prevents using daily signals to
-trade against the prevailing trend. Two crossover systems in
-which this principle is especially true are MACD and Stochastics.
-(See Figure 10.20b.)
+uptrend   weakening:				histogram above zero (positive) and starts to fall toward zero
+downtrend weakening (losing momentum):		...	  below ...  (negative) ...	      rise ...		(move upward)
+
+histogram turns
+	early warning that current trend is losing momentum (no actual signal until crossing zero)
+	turns back toward zero always precede actual crossover signals
+	best used for spotting early exit signals from existing positions
+	dangerous to use them against existing trend
+=================================================
+combine weeklies and dailies
+
+signals on weekly charts are always more important than on daily charts (for all indicators)
+
+best way to combine:
+	use weekly signals to determine market direction
+	use daily  signals to fine-tune entry/exit points
+
+a daily signal is followed only when it agrees with the weekly signal
+	weekly signals become trend filters for daily signals
+	prevents using daily signals to against existing trend
+	this principle is especially true in macd & stochastics (which both are crossover systems)
 ------------------------------------------------------------------------------------------------------------
 THE PRINCIPLE OF CONTRARY OPINION IN FUTURES
 
