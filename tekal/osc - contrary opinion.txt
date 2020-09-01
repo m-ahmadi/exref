@@ -1,0 +1,145 @@
+principle of contrary opinion in futures
+
+oscillator analysis:	study of market extremes
+contrary opinion:
+	a theory in measuring those extremes (widely followed)
+	a form of psychological analysis (though generally listed under category of technical analysis)
+	adds the important 3rd dimension to market analysis (along fundamental & technical)
+	determines degree of bullishness/bearishness among market participants
+
+principle:	when majority of people agree on anything, they are generally wrong
+
+first determine what majority are doing, then act in opposite direction
+
+dean of contrary thinking:	humphrey neill (his 1954 book: "the art of contrary thinking")
+
+what james sibbet did in 1964: (10 years after neill's book)
+	applied neill's principles by creating "bullish consensus" numbers
+	took a poll each week to determine degree of bull/bear among market professionals
+	purpose of the poll:	quantify market sentiment into numbers
+	rationale behind it:
+		most traders are influenced by market advisory services
+		get estimate of trader attitudes by monitoring views of professional advisors
+
+"bullish consensus numbers"
+	a service called "Consensus Index of Bullish Market Opinion" that provides an indication of market sentiment (published weekly)
+	uses 75% as overbought and 25% as oversold measurement
+
+=================================================
+interpreting bullish consensus numbers
+
+simple method used by most traders:
+	above 75%	overbought (a top    may be near)
+	below 25%	oversold   (a bottom may be near)
+
+=================================================
+contrary opinion measures remaining buying or selling power
+
+example:
+	1.  trader reads a forecast and thinks market is about to go higher
+	2.  the more bullish the forecast, more money he puts into market
+	3.  then he has no more money to buy (he is overbought)
+	4.  so if 80-90% of traders are bullish on a market, it's assumed they already have taken positions
+	5.  then who is left to buy and push the market higher?
+	
+	this a key to understanding "contrary opinion"
+
+if major sentiment of traders is on one side of market
+	not enough (buy/sell) pressure is left to continue the present trend
+
+(if most traders think market is going higher, they have bought, so no one is left to buy anymore and push market higher)
+=================================================
+contrary opinion measures strong versus weak hands
+
+1. if 80% of traders are long on a market
+2. then remaining 20% shorts must be so strong to absorb longs held by other 80%
+3. so the shorts must be holding much larger positions
+this means
+	strong hands:	20% shorts (well capitalized)
+	weaker hands:	80% longs with smaller positions per trader (forced to liquidate on sudden turn)
+=================================================
+some additional features of bullish consensus numbers
+
+some points on using these numbers:
+	90%		upper extreme
+	55%		norm or equilibrium (allows for built-in bullish bias from general public)
+	20%		lower extreme
+	
+	(numbers are shifted upward to allow bullish bias)
+	
+	warning:	above 75% or under 25%
+	signal:		above 90% or below 20%
+	
+	best to wait for change in trend of the numbers before going against the trend
+	a change in direction of numbers, especially from danger zones should be watched closely	
+=================================================
+the importance of open interest (futures)
+
+"open interest" plays a role in the use of "bullish consensus numbers"
+	more open interest means better chance of a profitable contrarian position
+	don't take contrarian position while open interest is still increasing
+	continued rise in open interest increases the odds that present trend will continue
+	wait for open interest to begin to flatten out or decline before taking action
+	
+	ensure that hedgers hold less than 50% of the open interest
+	contrary opinion works better when most of open interest is held by speculators (who considered to be weaker hands)
+	it's not advisable to trade against large hedging interests
+=================================================
+watch the market's reaction to fundamental news
+
+
+watch reaction to fundamental news very closely
+
+in overbought area
+	failure to react to bullish news:	clear warning that a turn may be near
+	first bad news:				enough to push prices lower
+	
+in oversold area (under 25%)
+	failure to react to bearish news:	warning that all bad news have been ignored in the current low price
+	any bullish news:			enough to push prices higher
+=================================================
+combine contrarian opinion with other technical tools
+
+trade in direction of trend of "consensus numbers" until an extreme is reached
+when exterem reached: monitor the numbers for a sign of a change in trend
+
+use standard technical tools to identify market turns at these critical times
+	breake of support/resistance/trendlines/moving averages can help to confirm that trend is turning
+	oscillator divergences are very useful when "bullish consensus numbers" are overbought/oversold
+------------------------------------------------------------------------------------------------------------
+investor sentiment readings
+
+some polls to estimate degree of bullishness/bearishness in stock market
+
+remember that these numbers are contrary indicators
+	too much bullishness:	bad
+	too much bearishness:	good
+
+example of 4 different polls:
+
+"investor's intelligence"	bulls: 48%		bears: 27%	correction: 24%
+"aaii index" 			bullish: 53% 		bearish: 13	neutral: 34
+"consensus index"		bullish opinion: 77%
+"market vane" bullish 		consensus: 66%
+------------------------------------------------------------------------------------------------------------
+"investors intelligence" numbers
+
+a weekly poll of investment advisors that produces 3 numbers: (published by "investors intelligence" company)
+	bullish		n%
+	bearish		n%
+	correction	n% (those expecting a correction)
+
+readings:
+	bullish above 55%:	too much optimism  and potentially negative for market
+	bullish below 35%:	too much pessimism and             positive for market
+	correction:		represents those who are bullish but expect short term weakness
+
+number of stocks above 10 and 30 week moving averages can also be used in contrary fashion:
+	above 70%:	suggest overbought market
+	below 30%:	suggest oversold   market
+	
+	10 week:	useful for measuring short to intermediate market turns
+	30 week:	useful for measuring major market turns
+	
+	signal of potential trend change:	when numbers rise back above 30 or fall back below 70
+------------------------------------------------------------------------------------------------------------

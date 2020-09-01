@@ -7,55 +7,55 @@ var widget = new TradingView.widget({
 
 // reference:
 var widget = new TradingView.widget({
-	symbol: 'AMZN',                            // default symbol of the chart. (AAPL, MSFT, FB)
-	interval: 'D',                             // time period of one bar: 1S, 1, 1h/H (60), 1D, 1W, 1M, 12M
-	timeframe: '',                             // default timeframe. a period of bars loaded and shown on screen. valid timeframe: a number + letter D or M (1D 2M)
-	container_id: 'tv_chart_container',        // required. html container element.
-	datafeed: new Datafeeds.UDFCompatibleDatafeed('https://demo_feed.tradingview.com'), // required. object that implements the js api interface to supply the chart with data
-	timezone: 'America/New_York',              // time on the timescale is displayed according to this timezone.
-	debug: false,                              // true: write detailed api logs
-	library_path: 'js/lib/charting_library/',  // path to the static folder. (default: 'dir where html was served')
-	width: '',                                 // widget width: '200px' '60%' (use fullscreen: true instead of width: '100%')
-	height: '',                                // widget height
-	fullscreen: false,                         // true: use all available space in the window
-	autosize: false,                           // true: use all available space in the container and resize when container is resized.
-	symbol_search_request_delay: 0,            // delay in milliseconds to reduce requests when user is typing in the search box.
-	auto_save_delay: 0,                        // delay in seconds to reduce the number of onAutoSaveNeeded calls.
-	toolbar_bg: '#ffffff',                     // background color of the toolbars. (only in hex)
-	study_count_limit: 2,                      // max studies on a multichart-layout chart. min is 2. (since v1.5)
-	saved_data: {},                            // object containing saved chart content. load content after chart is initialized using .load(state) method.
-	locale: 'en',                              // locale to be used. 'en', 'fa', 'ru', 'fr'
-	numeric_formatting: {decimal_sign: ','},   // object containing formatting options for numbers. (currently only 1 option: decimal_sign) 
-	disabled_features: ['left_toolbar'],       // names array of ui features to be disabled by default.
-	enabled_features: ['fix_left_edge'],       // names array of ui features to be enabled  by default.
-	snapshot_url: '',                          // url to send a post request with chart snapshots (base64-encoded) when user presses snapshot button. (endpoint should return full url of saved image in response)
-	preset: '',                                // predefined widget settings (currently only 1 option: mobile) 
-	charts_storage_url: '',                    // related to high-level save/load api.
-	client_id: ,                               // related to high-level save/load api.
-	user_id: ,                                 // related to high-level save/load api.
-	charts_storage_api_version: '1.0',         // a version of your backend. options: '1.0' | '1.1' (study templates are supported since v1.1)
-	load_last_chart: false,                    // true: load the last saved chart. (you should implement save/load first).
-	theme: 'Light',                            // custom theme. default: 'light'. options: 'Light' | 'Dark'. (since v1.13)
-	custom_css_url: '',                        // adds your custom css to the chart. url: absolute/relative path to the static folder. (since v1.4)
-	loading_screen: {                          // customization of the loading spinner. (since v1.4)
-		backgroundColor: '#000000',
-		foregroundColor: '#000000'
+	symbol:                      'AMZN',                     // default symbol of the chart (AAPL, MSFT, FB)
+	interval:                    'D',                        // time period of one bar: 1S, 1, 1h/H (60), 1D, 1W, 1M, 12M
+	timeframe:                   '',                         // default timeframe. a period of bars loaded and shown on screen. valid timeframe: a number + letter D or M (1D 2M)
+	container_id:                'tv_chart_container',       // required. html container element
+	datafeed:                    new Datafeeds.UDFCompatibleDatafeed('https://demo_feed.tradingview.com'), // required. object that implements the js api interface to supply the chart with data
+	timezone:                    'America/New_York',         // time on the timescale is displayed according to this timezone
+	debug:                       false,                      // true: write detailed api logs
+	library_path:                'js/lib/charting_library/', // path to the static folder (default: 'dir where html was served')
+	width:                       '',                         // widget width: '200px' '60%' (use fullscreen: true instead of width: '100%')
+	height:                      '',                         // widget height
+	fullscreen:                  false,                      // true: use all available space in the window
+	autosize:                    false,                      // true: use all available space in the container and resize when container is resized
+	symbol_search_request_delay: 0,                          // delay in milliseconds to reduce requests when user is typing in the search box
+	auto_save_delay:             0,                          // delay in seconds to reduce the number of onAutoSaveNeeded calls
+	toolbar_bg:                  '#ffffff',                  // background color of the toolbars (only in hex)
+	study_count_limit:           2,                          // max studies on a multichart-layout chart. min is 2 (v1.5+)
+	saved_data:                  {},                         // object containing saved chart content. load content after chart is initialized using .load(state) method.
+	locale:                      'en',                       // locale to be used ('en' | 'fa' | 'ru' | 'fr' | ...)
+	numeric_formatting:          {decimal_sign: ','},        // object containing formatting options for numbers (currently only 1 option: decimal_sign) 
+	disabled_features:           ['left_toolbar'],           // names array of ui features to be disabled by default
+	enabled_features:            ['fix_left_edge'],          // names array of ui features to be enabled  by default
+	snapshot_url:                '',                         // url to send a post request with chart snapshots (base64-encoded) when user presses snapshot button (endpoint should return full url of saved image in response)
+	preset:                      '',                         // predefined widget settings (currently only 1 option: mobile) 
+	charts_storage_url:          '',                         // related to high-level save/load api
+	client_id:                   ?,                          // related to high-level save/load api
+	user_id:                     ?,                          // related to high-level save/load api
+	charts_storage_api_version:  '1.0',                      // a version of your backend. options: '1.0' | '1.1' (study templates are supported since v1.1)
+	load_last_chart:             false,                      // true: load the last saved chart (you should implement save/load first)
+	theme:                       'Light',                    // custom theme. default: 'Light' options: 'Light' | 'Dark' (v1.13+)
+	custom_css_url:              '',                         // adds your custom css to the chart. url: absolute/relative path to the static folder (v1.4+)
+	loading_screen: {                                        // customization of the loading spinner (v1.4+)
+		backgroundColor:           '#000000',
+		foregroundColor:           '#000000'
 	},
-	studies_access: {},                        // # control which indicators should be shown/disabled/enabled. (since v1.1)
-	drawings_access: {},                       // # control which drawing tools should be shown/disabled/enabled. (since v1.1)
-	customFormatters: {},                      // # adjust display format of date/time values.
-	overrides: {},                             // # object containing new values for default widget properties.
-	custom_indicators_getter: function () {},  // # function that returns a promise with an array of your custom indicators.
-	studies_overrides: {},                     // # customize the style or inputs of the indicators or compare series.
-	time_frames: [],                           // # array of objects. list of visible timeframes selectable at bottom of the chart.
-	favorites: {},                             // # specify items that should be marked as favorite by default.
-	save_load_adapter: {},                     // # an object containing save/load functions.
-	settings_adapter: {},                      // # an object containing set/remove functions.
+	studies_access:              {},                         // # control which indicators should be shown/disabled/enabled (v1.1+)
+	drawings_access:             {},                         // # control which drawing tools should be shown/disabled/enabled (v1.1+)
+	customFormatters:            {},                         // # adjust display format of date/time values
+	overrides:                   {},                         // # object containing new values for default widget properties
+	custom_indicators_getter:    function () {},             // # function that returns a promise with an array of your custom indicators
+	studies_overrides:           {},                         // # customize the style or inputs of the indicators or compare series
+	time_frames:                 [],                         // # array of objects. list of visible timeframes selectable at bottom of the chart
+	favorites:                   {},                         // # specify items that should be marked as favorite by default
+	save_load_adapter:           {},                         // # an object containing save/load functions
+	settings_adapter:            {},                         // # an object containing set/remove functions
 });
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // studies_access
-// an object for controling which indicators should be shown/disabled/enabled. (since v1.1)
+// an object for controling which indicators should be shown/disabled/enabled. (v1.1+)
 // structure:
 studies_access: {
 	type: 'black' | 'white',
@@ -78,7 +78,7 @@ tools:	the list. array of objects, each object with following props:
 when user clicks on a grayed out study the `.onGrayedObjectClicked()` function is called. */
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* drawings_access
-an object same as studies_access but it controls drawing tools. (since v1.1)
+an object same as studies_access but it controls drawing tools. (v1.1+)
 use the same names from ui.
 special case for 'Icon' tool:
 	use the 'Font Icons' name.
@@ -191,8 +191,8 @@ list of visible timeframes that can be selected at the bottom of the chart.
 array of objects that contain 4 properties:
 	text:					should have the following format: <integer><y|m|d> ( \d+(y|m|d) as Regex ).
 	resolution:		a string representing a resolution.
-	description:	pop-up menu display. optional. not specified: title/text used as description. (since v1.7)
-	title:				a value to override default title generated based on text property. optional. (since v1.9) */
+	description:	pop-up menu display. optional. not specified: title/text used as description. (v1.7+)
+	title:				a value to override default title generated based on text property. optional. (v1.9+) */
 time_frames: [
 	{ text: '50y',   resolution: '6M', description: '50 Years'              },
 	{ text: '3y',    resolution: 'W',  description: '3 Years', title: '3yr' },
@@ -212,7 +212,7 @@ favorites: {
 	chartTypes: ['Area', 'Candles']
 },
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// save_load_adapter (since v1.12)
+// save_load_adapter (v1.12+)
 // an object containing the save/load functions.
 // if available, it should have the following methods:
 
@@ -228,7 +228,7 @@ removeStudyTemplate(studyTemplateInfo: StudyTemplateMetaInfo): Promise<void>
 saveStudyTemplate(studyTemplateData: StudyTemplateData): Promise<void>
 getStudyTemplateContent(studyTemplateInfo: StudyTemplateMetaInfo): Promise<StudyTemplateContent>
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// settings_adapter (since v1.11)
+// settings_adapter (v1.11+)
 // an object containing set/remove functions, for saving chart settings to preferred storage. (including server-side)
 // if available, it should have the following methods:
 settings_adapter: {
