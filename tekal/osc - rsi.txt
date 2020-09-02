@@ -1,0 +1,101 @@
+relative strength index (rsi)
+
+developed by j welles wilder (his 1978 book: "new concepts in technical trading systems")
+
+2 major problems of momentum (price differences):
+1:
+	erratic movement caused by sharp changes in the values being dropped off
+	a sharp advance/decline 10 days ago (in 10day mtm) can cause sudden shift in momentum line even if current prices show little change
+	solution: some smoothing to minimize the distortions
+2:
+	lack of a constant range for comparison purposes
+
+
+
+relative strength:
+	is an inaccurate/misleading name (confuses those more familiar with how it's used in stock market analysis)
+	generally means a ratio line comparing two different entities (eg: ratio of a stock to an s&p 500 index, relative strength of one thing against some other thing)
+	relative strength (ratio analysis) can be very useful, but rsi is not that
+	rsi does not measure relative strength between entities
+
+rsi
+	has smoothing and solves problem of erratic movement
+	has a constant vertical range of O to 100
+
+
+formula:
+	rsi = 100 - ( 100 / (1 + rs) )
+	rs = (average of x days' up closes) / (average of x days' down closes)
+	
+	rs:		up average / down average
+	up average:	sum(total points gained on up   days during the 14 days) / 14
+	down average:	sum(total points lost   on down days during the 14 days) / 14
+	
+	
+	
+14 day is common (14 week for weekly charts)
+number of days is variable (wilder originally used 14 day)
+
+rsi works best when its fluctuations reach upper/lower extremes
+
+time period
+	shorter:	more sensitive oscillator with wider    amplitude (more pronounced oscillator swings)
+	longer:		smoother       oscillator with narrower amplitude
+
+	most common: 	14 and 9 (amplitude of 9 > 14)
+	other periods:
+		5  or 7  day (increased volatility)
+		21 or 28 day (smoothed out signals)
+------------------------------------------------------------------------------------------------------------
+interpreting rsi
+
+rsi is plotted on a vertical scale of o to 100
+	movements above 70	considered overbought
+	movements under 30	considered oversold
+
+because of shifting that happens in bull & bear markets
+	80 level		overbought level in bull market
+	20 level		oversold   level in bear market
+
+
+"failure swings" (as called by wilder)
+	occur when rsi is above 70 or under 30 (must)
+	top    failure swing:	rsi (over 70) in uptrend   and fails to exceed a previous high, followed by a downside break of a previous low
+	bottom failure swing:	rsi (nder 30) in downtrend and fails to set    a new      low,  followed by a upside   break of a previous high
+
+trendlines and moving averages can be used to detect changes in rsi's trend
+
+"the single most indicative characteristic of rsi" (says wilder himself)
+	divergence between rsi and price when rsi is above 70 or below 30
+
+"greatest value of rsi" (says john murphy)
+	failure swings or divergences    when rsi is above 70 or below 30
+
+important point about oscillator usage:
+	any strong trend (up or down) usually produces an extreme oscillator reading before too long
+	when that happens, claiming that market is overbought/oversold is usually premature (leads to early enter/exit from a lossful/profitable trend)
+	in strong uptrends, overbought markets can stay overbought for some time
+	just because oscillator moves into upper region is not enough reason to liquidate a long position (or even worse short into the strong uptrend)
+	
+	first move  into overbought/oversold region is usually just a   warning
+	second move into the danger zone            is a more important signal
+	if second move fails to confirm the price move into new highs/lows, a possible divergence exists (forming a double top/bottom on the oscillator)
+	at this point, some defensive action can be taken to protect existing positions
+	if oscillator moves in opposite direction, breaking a previous high/low, then a divergence or failure swing is confirmed
+
+	50 level is rsi midpoint value, and often acts as support during pullbacks and resistance during bounces
+	some traders treat crossings above/below the 50 level as buy/sell signal
+------------------------------------------------------------------------------------------------------------
+using 70 and 30 lines to generate signals
+
+traders often use 70/30 lines to generate buy/sell signals
+
+
+oversold warning:	oscillator dips under 30
+getting stronger:	some type of divergence or double bottom develops in oscillator (under 30)
+buy signal:		a crossing back above 30 (confirms that trend in oscillator has turned up)
+
+...
+...
+sell signal:		a crossing back under 70
+------------------------------------------------------------------------------------------------------------

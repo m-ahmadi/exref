@@ -1,0 +1,63 @@
+stochastics (k%d)
+
+developed by george lane
+based on the observation that:
+	in uptrend	closing price tends to be closer to upper end of price range
+	in downtrend	...				    lower ...
+
+2 lines are used in stochastic process
+	%K line		more sensitive
+	%D line		more important, provides major signals
+
+goal:	where the most recent closing price is in relation to price range of a time period
+
+most common time period is 14
+
+%K line formula:
+	%K = 100 * ( (C - L14) / (H14 - L14) )
+	C:		latest close
+	L14:		lowest  low  of last 14 periods (periods: days/weeks/months)
+	H14:		highest high of last 14 periods ...
+	
+	measures on a percentage basis of 0 to 100, where closing price is in relation to price range of a selected time period
+
+
+high reading (over  80):	puts closing price near the top    of the range
+low  reading (under 20):	...			    bottom ...
+
+%D line formula:
+	fast stochastics:	a       3 period moving average of %K line
+	slow stochastics:	another 3 period        average of %D line (smoother than the fast one)
+
+	most traders use the slow one because of its more reliable signals
+	second smoothing produces 3 lines, fast uses first 2, slow uses last 2
+
+
+plots 2 lines that oscillate between a vertical scale from 0 to 100
+	%K line:	faster line
+	%D line:	slower line
+
+major signal:
+	divergence between %D line and price when %D line is in overbought/oversold area
+	upper extreme:	80
+	lower extreme:	20
+	
+	bearish divergence:	%D line above 80 and forms 2 declining peaks   while price continues to go higher
+	bullish divergence: 	...     below 20 ...	   2 rising    bottoms ... 			   lower
+
+	buy/sell signal:	faster %K line crosses slower %D line (assuming all prev factors are in place)
+
+
+this was an essential explanation (there are other refinements in usage of stochastics)
+while more sophisticated, basic oscillator interpretation remains the same
+	alert:		%D line in extreme area and diverging from price action
+	signal:		%D line is crossed by %K line
+
+weekly and monthly charts can be used for longer range perspective
+also effective on intraday charts for shorter term trading
+
+one way to combine daily and weekly stochastics:
+	use weekly signals to determine market direction
+	use daily  signals for timing
+
+it's also a good idea to combine stochastics with rsi

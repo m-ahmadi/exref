@@ -1,0 +1,9 @@
+larry williams %R
+
+based on a similar concept of measuring latest close in relation to its price range over a number of days
+
+formula: ( (today' close) - (period' high) ) / (total range: period' high - period' low)
+	looks like upside down stochastics (since %R subtracted from high) and to correct that, charting softwares plot an inverted version of %R
+
+interpretation (same as already discussed)
+	presence of divergences in overbought/oversold areas

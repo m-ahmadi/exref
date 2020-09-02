@@ -1,0 +1,82 @@
+measuring momentum
+
+most basic application of oscillator
+
+momentum
+	measures velocity of price changes as opposed to actual price levels
+	measured by continually taking price differences for a fixed time interval
+
+construct 10 day momentum line:
+	subtract the closing price 10 days ago from last closing price
+	then plot the value (positive/negative) around a zero line
+
+formula: M = V - Vx 
+	V  = latest closing price
+	Vx = closing price x days ago
+
+positive:	price is above 10 days ago (price moved higher)
+negative:	price is below 10 days ago (price declined)
+
+
+any time period can be used (10 day very common)
+	shorter period (5 day):		more sensitive line with more pronounced oscillations
+	longer  period (40 day):	much smoother  line with less volatile   oscillator swings
+
+------------------------------------------------------------------------------------------------------------
+momentum measures rates of ascent or descent
+
+momentum
+	studies rates of ascent or descent (plots price differences of a time period)
+	measures differences between prices at 2 time intervals
+	measures acceleration/deceleration in current advance/decline of trend
+
+when momentum line:
+	above zero & rising + rising price:		uptrend is accelerating
+	above zero & begins to come near zero:		while price may still advancing, velocity has leveled off (price same as 10 days ago)
+	begins to drop toward zero:			uptrend is losing momentum (uptrend still in force but at decelerating rate)
+	moves below zero:				near term downtrend in effect (price lower than 10 days ago, 10 day moving average begins to decline)
+	continues dropping lower:			downtrend gains momentum
+	begins to go up again:				downtrend is decelerating
+
+when momentum line:
+	advance:	price > 10 days ago
+	is flat:	price = 10 days ago
+	decline:	price < 10 days ago (even though price still rising)
+------------------------------------------------------------------------------------------------------------
+momentum line leads the price action
+
+momentum line
+	is always ahead of price advance/decline (due to how it's constructed)
+	then levels off while current trend still in effect
+	then begins to move in opposite direction as price begins to level off
+
+*leveloff: stops rising/falling and stays at same level
+------------------------------------------------------------------------------------------------------------
+crossing of zero line as trading signal
+
+remember: basic trend analysis overrules (don't trade against current trend)
+
+buy signal:	crossing above zero (only if trend is up)
+sell signal:	crossing below zero (only if trend is down)
+------------------------------------------------------------------------------------------------------------
+the need for upper and lower boundary
+
+problem with momentum line:	absence of a fixed upper & lower boundary (where is considered too high/low)
+solution:			draw horizontal line along previous upper/lower boundaries (line must be adjusted periodically, especially after important trend changes)
+------------------------------------------------------------------------------------------------------------
+rate of change (roc)
+
+rate of change = ratio of last price to the price of n days ago
+
+10 day rate of change = (price / 10 days ago's price)
+
+formula: rate of change = 100 (V / Vx)
+	V:  latest close
+	Vx: closing price x days ago
+
+with this formula, the 100 line is midpoint
+	price > 10 days ago:	roc above 100
+	price < 10 days ago:	roc below 100
+
+momentum & roc formulas might slightly differ in some softwares, but interpretation remains the same
+------------------------------------------------------------------------------------------------------------

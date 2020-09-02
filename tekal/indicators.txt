@@ -25,3 +25,20 @@ Correlation Coefficient								Ratio					Zig Zag
 										Relative Strength Index
 										Relative Vigor Index
 										Relative Volatility Index
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+classification
+
+==========================================================================================================================
+Momentum		Trend			Volatility		Volume				Chart studies
+==========================================================================================================================
+^Stochastic		ADX			*Bollinger Bands	^Chaikin Oscillator		Horizontal lines
+^RSI 			*Moving averages	*Standard deviation	^On Balance Volume		Fibonacci
+^CCI			ATR			*ATR			*Volume Rate of Change		Supply / Demand
+Williams %R		*MACD			Keltner Channel						Trend lines
+MACD			*Parabolic SAR		Envelopes
+Ichimoku Cloud		Bollinger Bands
+			Ichimoku Cloud
+
+* Lagging
+^ Leading
+---------------------------------------------------------------------------------------------------------------------------------------------------------------

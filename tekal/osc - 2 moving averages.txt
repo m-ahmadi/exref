@@ -1,0 +1,32 @@
+constructing an oscillator using 2 moving averages
+
+plot the difference between 2 averages as histogram
+histogram bars appear as plus/minus values around a centered zero line
+
+relationships between 2 averages can be used
+	as a trend-following system
+	to help identify short term overbought/oversold conditions
+
+uses:
+	helps spot divergences
+	helps identify short term variations from long term trend (when shortAvg moves too far above/below longAvg)
+	pinpoint crossings of 2 averages (when oscillator crosses zero)
+
+formula:	shortAvg / longAvg
+
+shortAvg oscillates around longAvg
+oscillator is:
+	positive	when	short above long
+	negative	when	short below long
+
+when 2 averages move too far apart:
+	a market extreme is created, calling for a pause in trend
+	trend remains paused until shortAvg moves back to longAvg (very often)
+
+when shortAvg approaches longAvg a critical point is reached
+	in uptrend:
+		ideal buy:		short dips back to long AND bounces off it (much like testing of up trendline)
+		trend reversal signal:	short dips back to long AND crosses below
+	in downtrend:
+		ideal sell:		short rises     to long
+		trend reversal signal:	short rises     to long AND crosses long

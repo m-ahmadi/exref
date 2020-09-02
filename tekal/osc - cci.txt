@@ -1,0 +1,20 @@
+commodity channel index
+
+a momentum-based oscillator
+it's possible to normalize an oscillator by dividing the values by a constant divisor
+while:
+	originally developed for commodities, also used for stock/index/futures/options
+	20 days most common, it can vary to adjust sensitivity
+developed by donald lambert
+
+cci:
+	compares current price with a moving average over a selected time span (usually 20 days)
+	values are normalized by using a divisor based on mean deviation
+	fluctuates in a constant range from +100 upside to -100 downside
+
+buy: 	values above +100
+sell: 	values below -100
+
+cci as overbought/oversold oscillator
+	above +100:	overbought
+	below -100:	oversold

@@ -1,0 +1,49 @@
+moving average convergence/divergence (macd)
+
+an oscillator that uses 2 exponential moving averages
+developed by gerald appel
+very useful because it combines oscillator principles with dual moving average crossover approach
+plots 2 lines but 3 lines are used in calculation
+	faster line: (macd   line)	difference between 2 exponentially smoothed moving averages of closing prices of a period (usually last 12 and 26 days or weeks)
+	slower line: (signal line)	9 period (usually) exponentially smoothed average of macd line
+
+author recommended different numbers for buy and sell signals, but many use default values of 12 26 9 everywhere (whether daily or weekly)
+
+
+
+generates signals when 2 lines cross
+	buy:	macd line crossing  above  signal line
+	sell:	...		    below  ...
+
+macd resembles both a dual moving average crossover and an oscillator since its values fluctuate above and below a zero line
+
+overbought:	lines are too far above zero line
+oversold:	...		  below ...		(best buy signals: prices well below zero line)
+
+another way to generate buy/sell signals:
+	cross above and below zero (similar to momentum)
+
+divergence between trend of macd lines and trend of price
+	negative divergence: (bearish)		macd lines are well above zero and start to weaken while price continues to trend higher	(warning of market top)
+	positive divergence: (bullish)		...		    below ...		    move up ahead of price				(often, early sign of market bottom)
+	
+	draw trendlines on macd lines to identify important trend changes
+------------------------------------------------------------------------------------------------------------
+macd histogram
+
+plots vertical bars that show difference between 2 macd lines (already covered: histogram of difference between 2 moving average lines)
+has a zero line of its own
+histogram above zero:				macd lines are in positive alignment (faster line over the slower)
+histogram crossing above and below zero:	coincide with macd crossover buy/sell signals
+
+histogram's real value:	spot when spread between 2 lines is widening or narrowing
+
+uptrend   weakening:				histogram above zero (positive) and starts to fall toward zero
+downtrend weakening (losing momentum):		...	  below ...  (negative) ...	      rise ...		(move upward)
+
+histogram turns
+	early warning that current trend is losing momentum (no actual signal until crossing zero)
+	turns back toward zero always precede actual crossover signals
+	best used for spotting early exit signals from existing positions
+	dangerous to use them against existing trend
+------------------------------------------------------------------------------------------------------------
