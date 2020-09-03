@@ -1,0 +1,77 @@
+Absolute Breadth Index				Momentum
+Accumulation/Distribution			Momentum
+Accumulation Swing Index
+Advance/Decline Line				Breadth
+Advance/Decline Ratio
+Advancing-Declining Issues			Momentum
+Advancing, Declining, Unchanged Volume		Momentum
+Arms Index
+Average True Range				Volatility
+Bollinger Bands 
+Breadth Thrust					Momentum
+Bull/Bear Ratio					Sentiment
+Chaikin Oscillator				Volume
+Chaikin's Volatility
+Commodity Channel Index
+Commodity Selection Index			Momentum
+Cumulative Volume Index				Momentum
+Demand Index
+Detrended Price Oscillator
+Directional Movement				Trend
+Ease of Movement				Volume
+Envelopes (Trading Bands)
+Herrick Payoff Index
+Large Block Ratio				Sentiment
+Linear Regression Lines
+MACD						Trend
+Mass Index
+McClellan Oscillator				Breadth
+McClellan Summation Index			Breadth
+Median Price
+Member Short Ratio				Sentiment
+Momentum
+Money Flow Index				Momentum
+Moving Averages
+Negative Volume Index
+New Highs-Lows Cumulative			Momentum
+New Highs-New Lows				Divergence
+New Highs/Lows Ratio
+Odd Lot Balance Index				Sentiment
+Odd Lot Purchases/Sales
+Odd Lot Short Ratio				Sentiment
+On Balance Volume				Momentum
+Open Interest
+Open-10 TRIN
+Overbought/Oversold				Breadth
+Parabolic SAR
+Performance
+Positive Volume Index
+Price and Volume Trend
+Price Oscillator
+Price Rate-of-Change				Momentum
+Public Short Ratio
+Puts/Calls Ratio
+Quadrant Lines
+Relative Strength, Comparative
+Relative Strength Index
+Spreads
+Standard Deviation
+STIX
+Stochastic Oscillator
+Swing Index
+Time Series Forcast
+Total Short Ratio
+Trade Volume Index
+TRIX						Momentum
+Typical Price
+Ultimate Oscillator
+Upside/Downside Ratio
+Upside/Downside Volume
+Vertical Horizonal Filter
+Volume
+Volume Oscillator
+Volume Rate-of-Change
+Weighted Close
+Williams' Accumulation/Distribution
+Williams' %R					Momentum
+Zig Zag

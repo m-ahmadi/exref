@@ -1,0 +1,66 @@
+Indicator Formula Template Table
+Acceleration Bands
+Aroon & Aroon Oscillator
+Average True Range (ATR)
+Balance of Power (BOP)
+Bollinger %b
+Bollinger Bands
+Bollinger Bandwidth
+Chaikin Money Flow
+Chaikin Oscillator
+Chande Momentum Oscillator
+Commodity Channel Index
+ConnorsRSI
+Coppock Curve
+Derivative Oscillator
+Directional Movement +DI -DI ADX
+Detrended Price Oscillator
+Dollar Volume
+Donchian Channels
+Double Exponential Moving Average
+Double Smoothed Stochastic Bressert
+Ease of Movement
+Elder Force Index
+Elder Ray Bull & Bear Power
+Elliott Wave Oscillator
+Envelope Channels
+Exponential Moving Average Function
+Fisher Transform
+Heiken-Ashi Candles (HA)
+Historical Volatility
+Historical Volatility Ratio
+Kaufman Efficiency Ratio
+Keltner Channels
+Linear Regression Line & Moving Linear Regression
+MACD & MACD Histogram
+Moving Average Convergence Divergence (MACD) and Histogram (MACDH) (v16)
+Mass Index
+Momentum
+Money Flow Index
+MoneyStream
+Moving Average
+On Balance Volume
+Percent Volume Oscillator (PVO)
+Pivot Points
+Price Percent Oscillator & Histogram
+Rate of Change & Rate of Change Percent
+RSI & Wilder's RSI
+R-Squared (R^2)
+Standard Deviation
+Stochastic Oscillator
+Stochastic Momentum Index (SMI)
+Tilson T3 Moving Average
+Time Segmented Volume
+Triple Exponential Moving Average (TEMA)
+Time Series Forecast
+TRIX
+True Strength Index
+Twiggs Money Flow
+VWAP & Moving VWAP
+Volume Weighted Moving Average
+Williams Acceleration/Deceleration
+Williams Accumulation/Distribution
+Williams Alligator
+Williams Awesome Oscillator
+William's %R
+Worden Stochastics

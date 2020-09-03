@@ -1,0 +1,14 @@
+=========================================================================================================================================
+Momentum		Trend			Volatility		Volume				Chart studies (line studies)
+=========================================================================================================================================
+^Stochastic		ADX			*Bollinger Bands	^Chaikin Oscillator		Horizontal lines
+^RSI 			*Moving averages	*Standard deviation	^On Balance Volume		Fibonacci Retracements
+^CCI			ATR			*ATR			*Volume Rate of Change		Fibonacci Arcs
+Williams %R		*MACD			Keltner Channel						Trend lines
+MACD			*Parabolic SAR		Envelopes						Speed Resistance Lines
+Ichimoku Cloud		Bollinger Bands		Donchian Channels					Gann Lines
+			Ichimoku Cloud									Percentage Retracements
+													Andrews' Pitchfork
+													Supply / Demand
+* Lagging
+^ Leading
