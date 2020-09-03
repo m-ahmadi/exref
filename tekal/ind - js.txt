@@ -1,0 +1,26 @@
+Accumulation Distribution Line		ADL
+Average Directional Index		ADX
+Average True Range			ATR
+Awesome Oscillator			AO
+Bollinger Bands				BB
+Commodity Channel Index			CCI
+Force Index				FI
+Know Sure Thing				KST
+Moneyflow Index				MFI
+Moving Average Convergence Divergence	MACD
+On Balance Volume			OBV
+Parabolic Stop and Reverse		PSAR
+Rate of Change				ROC
+Relative Strength Index			RSI
+Simple Moving Average			SMA
+Stochastic Oscillator			KD
+Stochastic RSI				StochRSI
+Triple Exponentially Smoothed Average	TRIX
+Typical Price				(H+L+C) / 3
+Volume Weighted Average Price		VWAP
+Volume Profile				VP
+Exponential Moving Average		EMA
+Weighted Moving Average			WMA
+Wilder’s Smoothing			Smoothed Moving Average, WEMA
+WilliamsR				W%R
+Ichimoku Cloud

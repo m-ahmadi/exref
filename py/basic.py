@@ -41,3 +41,5 @@ class Student:
 s = Student('John', 88, None)
 s.name # 'John'
 s.age  # 88
+
+type(s) # determine type of variable 

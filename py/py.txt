@@ -1,0 +1,4 @@
+py -m pip install --upgrade pip		upgrade pip
+py -V
+
+alies: python

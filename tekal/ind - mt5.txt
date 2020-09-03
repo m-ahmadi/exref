@@ -1,0 +1,39 @@
+Accelerator Oscillator					iAC
+Accumulation/Distribution				iAD
+Average Directional Index				iADX
+Average Directional Index by Welles Wilder		iADXWilder
+Alligator						iAlligator
+Adaptive Moving Average					iAMA
+Awesome Oscillator					iAO
+Average True Range					iATR
+Bears Power						iBearsPower
+Bollinger Bands						iBands
+Bulls Power						iBullsPower
+Commodity Channel Index					iCCI
+Chaikin Oscillator					iChaikin
+Custom indicator 					iCustom
+Double Exponential Moving Average			iDEMA
+DeMarker						iDeMarker
+Envelopes						iEnvelopes
+Force Index						iForce
+Fractals						iFractals
+Fractal Adaptive Moving Average				iFrAMA
+Gator Oscillator					iGator
+Ichimoku Kinko Hyo					iIchimoku
+Market Facilitation Index by Bill Williams		iBWMFI
+Momentum						iMomentum
+Money Flow Index					iMFI
+Moving Average						iMA
+Moving Average of Oscillator (MACD histogram)		iOsMA
+Moving Averages Convergence-Divergence			iMACD
+On Balance Volume					iOBV
+Parabolic Stop And Reverse System			iSAR
+Relative Strength Index					iRSI
+Relative Vigor Index					iRVI
+Standard Deviation					iStdDev
+Stochastic Oscillator					iStochastic
+Triple Exponential Moving Average			iTEMA
+Triple Exponential Moving Averages Oscillator		iTriX
+Williams' Percent Range					iWPR
+Variable Index Dynamic Average				iVIDyA
+Volumes							iVolumes

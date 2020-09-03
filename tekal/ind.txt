@@ -36,7 +36,7 @@ Momentum		Trend			Volatility		Volume				Chart studies
 ^CCI			ATR			*ATR			*Volume Rate of Change		Supply / Demand
 Williams %R		*MACD			Keltner Channel						Trend lines
 MACD			*Parabolic SAR		Envelopes
-Ichimoku Cloud		Bollinger Bands
+Ichimoku Cloud		Bollinger Bands		Donchian Channels
 			Ichimoku Cloud
 
 * Lagging

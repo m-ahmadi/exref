@@ -1,5 +1,0 @@
-type(i) 					determine the variable type
-
-python -m pip install --upgrade pip		upgrade pip
-
-python -V

@@ -1,0 +1,34 @@
+﻿Accumulation/Distribution Index		ADI			Volume
+Average Directional Movement Index 	ADX			Trend
+Average True Range			ATR			Volatility
+Awesome Oscillator			AO			Momentum
+Bollinger Bands				BB			Volatility
+Chaikin Money Flow			CMF			Volume
+Commodity Channel Index			CCI			Trend
+Cumulative Return 			CR			Others
+Daily Return				DR			Others
+Daily Log Return			DLR			Others
+Detrended Price Oscillator 		DPO			Trend
+Donchian Channel 			DC			Volatility
+Ease of Movement			EoM, EMV		Volume
+Force Index				FI			Volume
+Ichimoku Kinko Hyo 			Ichimoku		Trend
+Kaufman's Adaptive Moving Average	KAMA			Momentum
+Keltner Channel				KC			Volatility
+KST Oscillator 				KST			Trend
+Mass Index 				MI			Trend
+Money Flow Index			MFI			Momentum
+Moving Average Convergence Divergence 	MACD			Trend
+Negative Volume Index			NVI			Volume
+On-Balance Volume			OBV			Volume
+Parabolic Stop And Reverse		Parabolic SAR		Trend
+Rate of Change				ROC			Momentum
+Relative Strength Index			RSI			Momentum
+Stochastic Oscillator			SR			Momentum
+Trix 					TRIX			Trend
+True strength index			TSI			Momentum
+Ultimate Oscillator			UO			Momentum
+Volume-price Trend			VPT			Volume
+Volume Weighted Average Price		VWAP			Volume
+Vortex Indicator 			VI			Trend
+Williams %R				WR			Momentum

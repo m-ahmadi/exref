@@ -1,3 +1,0 @@
-pip install SomePackage
-
-pip install pandas
