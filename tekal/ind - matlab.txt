@@ -1,0 +1,27 @@
+Accumulation/Distribution oscillator		adosc			Time Series Oscillations
+Chaikin oscillator				chaikosc
+Moving Average Convergence/Divergence (MACD)	macd
+Stochastic oscillator				stochosc
+Acceleration between times			tsaccel
+Momentum between times				tsmom
+
+Chaikin volatility				chaikvolat		Time Series Volatilities
+Williams %R					willpctr
+
+Negative volume index				negvolidx		Time Series Volumes
+Positive volume index				posvolidx
+Relative Strength Index (RSI)			rsindex
+
+Accumulation/Distribution line			adline			Time Series Rate of Change
+Time series Bollinger band			bollinger
+Highest high					hhigh
+Lowest low					llow
+Median price					medprice
+Moving average of a financial time series	movavg
+On-Balance Volume (OBV)				onbalvol
+Price rate of change				prcroc
+Price and Volume Trend (PVT)			pvtrend
+Typical price					typprice
+Volume rate of change				volroc
+Weighted close					wclose
+Williams Accumulation/Distribution line		willad

@@ -149,6 +149,9 @@ HTMLOrForeignElement.blur()
 HTMLElement.click()
 HTMLOrForeignElement.focus()
 
+HTMLObjectElement extends HTMLElement
+HTMLObjectElement.setCustomValidity
+
 abstract NonDocumentTypeChildNode <- Element, CharacterData
 NonDocumentTypeChildNode.nextElementSibling
 NonDocumentTypeChildNode.previousElementSibling
@@ -239,6 +242,9 @@ function $(selector='', ctx=document) {
 	if (!res.length) return;
 	return res.length > 1 ? [...res] : res[0];
 }
+
+// custom error message for form element
+myinput.setCustomValidity('some custom message')
 
 // ps
 A <- B, C, D // B,C,D implements A (implemented by)

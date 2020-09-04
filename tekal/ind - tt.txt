@@ -1,8 +1,8 @@
+Absolute Price Oscillator 			APO
 Acceleration Bands 				ABANDS
 Accumulation/Distribution 			AD
 Average Directional Movement 			ADX
 Adaptive Moving Average 			AMA
-Absolute Price Oscillator 			APO
 Aroon 						AR
 Aroon Oscillator 				ARO
 Average True Range 				ATR
