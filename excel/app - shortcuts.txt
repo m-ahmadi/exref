@@ -3,6 +3,7 @@ f4		lock formula
 f9		evaluate formula
 
 ctrl + d	duplicate shape
+alt + ↓		open dropdown
 -------------------------------------------------
 enter			enter and move down
 shitf    enter		enter and move up
