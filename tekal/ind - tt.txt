@@ -36,13 +36,13 @@ Momentum 					MOM
 Normalized Average True Range 			NATR
 On Balance Volume 				OBV
 Price Channel 					PC
-PLOT 						PLT
+PLOT (custom indicator) 			PLT
 Percent Price Oscillator 			PPO
 Price Volume Trend 				PVT
 Rate of Change 					ROC
-Rate of Change 					ROC100
-Rate of Change 					ROCP
-Rate of Change 					ROCR
+Rate of Change 100 				ROC100
+Rate of Change Percentage			ROCP
+Rate of Change Rate				ROCR
 Relative Strength Indicator 			RSI
 Session Volume 					S_VOL
 Parabolic Sar 					SAR

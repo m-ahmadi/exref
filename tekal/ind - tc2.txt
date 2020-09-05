@@ -1,4 +1,3 @@
-Indicator Formula Template Table
 Acceleration Bands
 Aroon & Aroon Oscillator
 Average True Range (ATR)
