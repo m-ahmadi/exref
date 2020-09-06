@@ -203,7 +203,7 @@ function index(el) {
 }
 
 // selected value of single select
-ranges.selectedOptions[0].value
+select.selectedOptions[0].value
 select.options[select.options.selectedIndex].value
 
 // selected values of multiple select

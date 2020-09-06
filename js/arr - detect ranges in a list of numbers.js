@@ -3,6 +3,24 @@ log = console.log;
 // nums = [...Array(40)].map(i=>rand()).sort((a,b)=>a-b).filter((v,i,a)=>a.indexOf(v)===i)
 nums = [12, 14, 15, 17, 18, 19, 19, 21, 28, 29, 30, 30, 31, 32, 34, 34, 36, 39, 43, 44, 48, 48, 48, 51, 52, 58, 60, 61, 67, 68, 69, 73, 73, 75, 87, 89, 94, 95, 96, 98];
 
+//--------------------------------------------------------------------------------------------------------
+// score ranges
+var scores = scoreRanges(nums, 2, false);
+
+function scoreRanges(nums=[], _diff=1, percent=true) {
+	const scores = nums.map((num, idx) => {
+		const diff = percent ? perc(_diff, num) : _diff;
+		const rest = [...nums];
+		rest.splice(idx, 1);
+		return {
+			num: num,
+			score: rest.filter(j => isInRange(j, num-diff, num+diff)).length
+		};
+	});
+	// scores.sort((a,b) => b.score - a.score);
+	return scores;
+}
+//--------------------------------------------------------------------------------------------------------
 /* desired output: (ranges of -5 to +5)
 	[12, 14, 15, 17]
 	[18, 19, 19, 21]
@@ -34,7 +52,7 @@ function getRanges(_nums=[], _diff=1, percent=true) {
 	}
 	return ranges;
 }
-
+//--------------------------------------------------------------------------------------------------------
 function perc(percent, n) {
 	return n * (percent * 0.01);
 }

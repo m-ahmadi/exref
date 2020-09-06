@@ -1,4 +1,8 @@
-var arrDeletedItems = array.splice(start, ?deleteCount, ...items)
+var arrDeletedItems = array.splice(start, ?deleteCount, ...items) /*
+start:          change arr from this index
+deleteCount:    number of items to remove from `start`
+...items:       items to add from `start`
+*/
 array.splice(start)
 array.splice(start, deleteCount)
 array.splice(start, deleteCount, item1, item2, ...)
