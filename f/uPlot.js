@@ -96,20 +96,22 @@ const opts = {
 			labelFont: 'bold 12px Arial',
 			font:      '12px Arial',
 			gap:       5,
+			side:      1,
 			size:      50,
 			space:     15,
 			stroke:    'red',
+			class:     '',
 			grid: {
 				show:    true,
 				stroke:  '#eee',
 				width:   2,
-				dash:    [],
+				dash:    [5,5],
 			},
 			ticks: {
 				show:    true,
 				stroke:  '#eee',
 				width:   2,
-				dash:    [],
+				dash:    [5,5],
 				size:    10,
 			}
 		}
