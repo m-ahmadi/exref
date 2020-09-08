@@ -1,3 +1,9 @@
+import foo                 # foo imported and bound locally
+import foo.bar.baz         # foo.bar.baz imported, foo bound locally
+import foo.bar.baz as fbb  # foo.bar.baz imported and bound as fbb
+from foo.bar import baz    # foo.bar.baz imported and bound as baz
+from foo import attr       # foo imported and foo.attr bound as attr
+
 print("This line will be printed.")
 myint = 7
 myfloat = 7.0
@@ -22,11 +28,20 @@ odd_numbers = [1,3,5,7]
 all_numbers = odd_numbers + even_numbers
 
 if name == "John" and age == 23:
-    print("Your name is John, and you are also 23 years old.")
+	print("Your name is John, and you are also 23 years old.")
 
 
 def my_function():
 	print("Hello From My Function!")
+
+def addition(n): 
+	return n + n 
+numbers = [1,2,3]
+result = map(addition, numbers) 
+print( list(result) )  # [2, 4, 6]
+
+# predicate
+list( map(lambda i: i*2, [1,2,3]) ) # [2, 4, 6]
 
 
 class Student:
