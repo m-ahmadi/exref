@@ -49,27 +49,27 @@ function listDelete(list, node) {
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // data: (list can be an array as well, but object with redundant keys is more efficient.)
 var list = {
-	"0": {
+	'0': {
 		key: 0,
 		next: 1,
 		prev: undefined
 	},
-	"1": {
+	'1': {
 		key: 1,
 		next: 2,
 		prev: 0
 	},
-	"2": {
+	'2': {
 		key: 2,
 		next: 3,
 		prev: 1
 	},
-	"3": {
+	'3': {
 		key: 3,
 		next: 4,
 		prev: 2
 	},
-	"4": {
+	'4': {
 		key: 4,
 		next: undefined,
 		prev: 3
