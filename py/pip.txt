@@ -1,6 +1,5 @@
-pip install <package_name>		install package
-pip install pandas			...
-pip install setuptools --upgrade	update already installed package to latest
-
+pip install <pkg_name>			install package
+pip install <pkg_name> --upgrade	update already installed package to latest
+pip install pip --upgrade		update pip itself
 
 pip list				show installed packages

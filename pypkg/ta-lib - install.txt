@@ -1,0 +1,12 @@
+1. download "http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-msvc.zip"
+2. place in C:\ta-lib
+3. download & install "https://visualstudio.microsoft.com/visual-cpp-build-tools/"
+4. in elevated cmd:
+	pushd "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Auxiliary\Build"
+	vcvars64.bat
+	pushd C:\ta-lib\c\make\cdr\win32\msvc
+	nmake
+
+5. pip install numpy --upgrade			(not sure if necessary)
+6. pip install TA-LIB
+done.
