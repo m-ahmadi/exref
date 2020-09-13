@@ -1,5 +1,4 @@
 # pip install --upgrade ta
-
 import ta
 
 ta.momentum. rsi stoch
