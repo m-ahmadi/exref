@@ -1,17 +1,12 @@
-const { readFileSync, renameSync, readdirSync, statSync } = require('fs');
-const { join } = require('path');
-
-const dirs = (p) => readdirSync(p).filter(f => statSync(join(p, f)).isDirectory());
-const files = (p) => readdirSync(p).filter(f => statSync(join(p, f)).isFile());
-
-
-// const seasons = readFileSync('./path/to/episodes.txt', 'utf8').split('\r\n\r\n');
-dirs('./').forEach(dir => {
-	
-	
-	files(dir).forEach(file => {
-		// fs.renameSync(oldPath, newPath)
-		console.log(file);
+// manual
+var fs = require('fs');
+var { join } = require('path');
+var seasons = fs.readFileSync('./episodes.txt', 'utf8').split('@').map( i => i.split('\r\n').filter(i=>i) );
+fs.readdirSync('./').filter(i=>i.includes('Silicon')).forEach((folder,i) => {
+	var names = seasons[i];
+	var files = fs.readdirSync(folder).filter(i => i !=='sub');
+	files.forEach((file, j) => {
+		fs.renameSync(join(folder,file), join(folder, names[j]+'.mkv'))
 	});
 });
 

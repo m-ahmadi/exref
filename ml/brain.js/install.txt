@@ -1,6 +1,0 @@
-node
-npm install brain.js
-needs python2 and "Common Tools for Visual C++ 2015" from vs2015 iso (cl.exe)
-
-browser
-https://cdn.rawgit.com/BrainJS/brain.js/master/browser.js

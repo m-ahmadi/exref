@@ -6,9 +6,9 @@ for training with brain.NeuralNetwork() each training pattern should have:
 let network = new brain.NeuralNetwork();
 
 const data1 = [
-	{ input: { r: 0.03, g: 0.7, b: 0.5 },  output: { black: 1 } },
+	{ input: { r: 0.03, g: 0.7,  b: 0.5 }, output: { black: 1 } },
 	{ input: { r: 0.16, g: 0.09, b: 0.2 }, output: { white: 1 } },
-	{ input: { r: 0.5, g: 0.5, b: 1.0 },   output: { white: 1 } }
+	{ input: { r: 0.5,  g: 0.5,  b: 1.0 }, output: { white: 1 } }
 ];
 network.train(data1);
 network.run({ r: 1, g: 0.4, b: 0 });  // { white: 0.99, black: 0.002 }
@@ -31,10 +31,10 @@ for training with RNN, LSTM and GRUe, each training pattern (item of data array)
 */
 const data = [
 	[1,2,3],
-	"string",
+	'string',
 	{ input: [1,2],       output: [0] },
-	{ input: "string",    output: [0] },
-	{ input: [1,2],       output: "string" },
+	{ input: 'string',    output: [0] },
+	{ input: [1,2],       output: 'string' },
 ];
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*

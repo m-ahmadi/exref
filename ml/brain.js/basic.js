@@ -1,3 +1,16 @@
+/* install
+node
+	npm i brain.js
+	needs python2 and "Common Tools for Visual C++ 2015" from vs2015 iso (cl.exe)
+
+cdn
+	https://cdn.jsdelivr.net/npm/brain.js/dist/
+	https://unpkg.com/browse/brain.js/dist/
+	
+	https://cdn.jsdelivr.net/npm/brain.js/dist/brain-browser.min.js
+	
+*/
+
 const config = {
 	binaryThresh: 0.5,
 	hiddenLayers: [3],     // array of ints for the sizes of the hidden layers in the network
