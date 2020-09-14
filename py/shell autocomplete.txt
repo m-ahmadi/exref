@@ -1,1 +1,0 @@
-py -m pip install pyreadline
