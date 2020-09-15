@@ -111,12 +111,13 @@ const opts = {
 	},
 	
 	scales: {
-		yAxes: [
+		'xAxes | yAxes | ...': [
 			{}, {}, ...
 			{
 				display:                    true,
-				position:                   'left',
+				position:                   'left | right | top | bottom',
 				offset:                     false,
+				type:                       'linear | radialLinear| category',
 				gridLines: {
 					display:                  true,
 					color:                    'rgba(0,0,0,0.1)',
@@ -189,10 +190,10 @@ const opts = {
 	},
 	
 	animation: {
-		duration:   1000,
-		easing:    'easeOutQuart',
-		onProgress: null | ani => ani.animationObject, // {chart, currentStep, numSteps, ...}
-		onComplete: null | ani => ani.animationObject
+		duration:           1000,
+		easing:             'easeOutQuart',
+		onProgress:         null | ani => ani.animationObject, // {chart, currentStep, numSteps, ...}
+		onComplete:         null | ani => ani.animationObject
 	},
 	
 };

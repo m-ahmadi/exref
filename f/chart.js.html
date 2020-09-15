@@ -50,21 +50,22 @@ var chart2 = new Chart(b, {
   }
 });
 
-var scatterChart = new Chart(c, {
+var chart3 = new Chart(c, {
 	type: 'scatter',
 	data: {
-	datasets: [
-		{
-			label: 'Scatter Dataset',
-			data: [ {x:-10,y:0}, {x:0,y:10}, {x:10,y:5} ]
-		}
-	]
+		datasets: [
+			{
+				label: 'Scatter Dataset',
+				data: [ {x:-10,y:7}, {x:0,y:10}, {x:10,y:5}, {x:2,y:6}, {x:9,y:8}, {x:-4,y:2},],
+				backgroundColor: 'blue'
+			}
+		]
 	},
 	options: {
 		scales: {
 			xAxes: [
 				{ type: 'linear', position: 'bottom' }
-				]
+			]
 		}
 	}
 });
