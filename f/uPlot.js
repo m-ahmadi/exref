@@ -69,9 +69,11 @@ const opts = {
 	select: {
 		show: false,
 	},
+	
 	legend: {
 		show: false,
 	},
+	
 	scales: {
 		x: {
 			time: false,
@@ -100,7 +102,7 @@ const opts = {
 			size:      50,
 			space:     15,
 			stroke:    'red',
-			class:     '',
+			class:     'css-class',
 			grid: {
 				show:    true,
 				stroke:  '#eee',
@@ -115,6 +117,12 @@ const opts = {
 				size:    10,
 			}
 		}
+	],
+	
+	plugins: [
+		()=>,
+		()=>,
+		...
 	]
 };
 

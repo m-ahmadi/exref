@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css"/>
+
+<div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<script>
+plot = uPlot({
+	width:  600,
+	height: 400,
+	series:[
+		{ show: false, label: 'x', value: '', },
+		{ width: 0,    label: 'y', value: (s,r)=>r, },
+		{ width: 1, spanGaps: true, }
+	],
+	axes: [
+		{ label:'independent variable', grid: {width:1} },
+		{ label: 'dependant variable',  grid: {width:1} },
+	],
+	scales: {
+		x: {
+			time: false,
+		},
+	}
+},
+[[1,2,3,4,5,6,7,8], [45, 66,5,6,7,8],[50,null,null,null,null,null,70,null]], 
+document.body);
+
+
+</script>
