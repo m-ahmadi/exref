@@ -1,0 +1,22 @@
+<!-- <script src="https://cdn.jsdelivr.net/npm/highcharts/highcharts.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/highcharts/highstock.js"></script>
+
+<div id="hc"></div>
+
+<script>
+var chart = Highcharts.stockChart(hc, {
+	rangeSelector: false,
+	exporting: false,
+	credits: false,
+	chart: {
+		zoomType: 'x'
+	},
+	series: [{
+		name: 'Water',
+		data: [[0, 0], [1, 5], [2, 3], [4, 8]],
+		tooltip: {
+			valueDecimals: 2
+		}
+	}]
+});
+</script>
