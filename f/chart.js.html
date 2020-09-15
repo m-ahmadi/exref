@@ -1,13 +1,12 @@
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.css" /> -->
 
 <div style="display: grid; grid-template-columns: auto auto auto;">
-	
 	<div style="width:600; height:400"><canvas id="a" width="600" height="400"></canvas></div>
-
 	<div style="width:600; height:400"><canvas id="b" width="600" height="400"></canvas></div>
-
 	<div style="width:600; height:400"><canvas id="c" width="600" height="400"></canvas></div>
-
+	<div style="width:600; height:400"><canvas id="d" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="e" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="f" width="600" height="400"></canvas></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
@@ -16,12 +15,14 @@ var chart1 = new Chart(a, {
 	type: 'line',
 	data: {
 		labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-		datasets: [{
-			label: 'My First dataset',
-			backgroundColor: 'rgb(255, 99, 132)',
-			borderColor: 'rgb(255, 99, 132)',
-			data: [0, 10, 5, 2, 20, 30, 45]
-		}]
+		datasets: [
+			{
+				label: 'My First dataset',
+				backgroundColor: 'rgba(255, 99, 132, .3)',
+				borderColor: 'rgb(255, 99, 132)',
+				data: [0, 10, 5, 2, 20, 30, 45]
+			}
+		]
 	}
 });
 
@@ -46,7 +47,8 @@ var chart2 = new Chart(b, {
           beginAtZero: true
         }
       }]
-    }
+    },
+		legend: { display: false }
   }
 });
 
@@ -56,17 +58,75 @@ var chart3 = new Chart(c, {
 		datasets: [
 			{
 				label: 'Scatter Dataset',
-				data: [ {x:-10,y:7}, {x:0,y:10}, {x:10,y:5}, {x:2,y:6}, {x:9,y:8}, {x:-4,y:2},],
-				backgroundColor: 'blue'
+				data: [ {x:-10,y:-4}, {x:-2,y:-6}, {x:7,y:4}, {x:2,y:6}, {x:3,y:3}, {x:-4,y:2},],
+				backgroundColor: 'blue',
+				radius: 5
+			}
+		]
+	}
+});
+
+var chart4 = new Chart(d, {
+	type: 'bar',
+	data: {
+		datasets: [
+			{
+				label: 'Bar Dataset',
+				data: [15, 20, 25, 20],
+				backgroundColor: 'rgba(230,255,153,0.8)'
+			},
+			{
+				type: 'line',
+				label: 'Line Dataset',
+				data: [10, 30, 20, 40],
+				fill: false,
+				borderColor: 'purple',
+				borderWidth: 5,
+				lineTension: 0
+			}
+		],
+		labels: ['January', 'February', 'March', 'April']
+	},
+	options: { legend: {position:'bottom'} }
+});
+
+var chart5 = new Chart(e, {
+	type: 'scatter',
+	data: {
+		datasets: [
+			{
+				label: 'Scatter Dataset',
+				data: [ {x:2,y:3}, {x:4,y:3}, {x:2,y:5}, {x:6,y:7}, {x:5,y:6}, {x:4,y:2} ],
+				backgroundColor: 'red',
+				radius: 4
+			},
+			{
+				type: 'line',
+				label: 'Line Dataset',
+				data: [ {x:2,y:3}, {x:10,y:8.7} ],
+				fill: false,
+				borderColor: 'blue',
+				borderWidth: 2,
+				lineTension: 0
+			},
+		]
+	},
+	options: { legend: {position: 'bottom'} }
+});
+
+var chart6 = new Chart(f, {
+	type: 'pie',
+	data: {
+		labels: ['Chrome', 'Mozila', 'Safari', 'Opera'],
+		datasets: [
+			{
+				label: 'Pie',
+				data: [ 60, 10, 20, 5],
+				backgroundColor: ['darkblue', 'greenyellow', 'teal', 'deeppink'],
+				
 			}
 		]
 	},
-	options: {
-		scales: {
-			xAxes: [
-				{ type: 'linear', position: 'bottom' }
-			]
-		}
-	}
+	options: { legend: {position: 'right'} }
 });
 </script>

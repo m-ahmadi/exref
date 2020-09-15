@@ -8,8 +8,12 @@ const chart = new Chart(ctx=HTMLCanvasElement | CanvasRenderingContext2D | $ctx 
 		labels:   [ '', '', ...],
 		datasets: [ {}, {}, ...
 			{
+				// most props also accept an array of same type of values: (I think)
+				prop: value | [ value, value, ... ]
+				
 				label:                     '',
 				data:                      [ 0|{},  ... ],
+				type:                      'line|bar|pie|...', // for mixed charts (change the type of this dataset)
 				order:                     0,
 				xAxisID:                   'first x axis',
 				yAxisID:                   'first y axis',
@@ -24,7 +28,7 @@ const chart = new Chart(ctx=HTMLCanvasElement | CanvasRenderingContext2D | $ctx 
 				borderJoinStyle:           'miter',
 				borderSkipped:             undefined | ('bottom|left|top|right' | false) if 'bar',
 				borderWidth:               3 | 2 if 'pie|doughnut' | ( 0 | {left:0,right:0,top:0,bottom:0} ) if 'bar',
-				cubicInterpolationMode:    'default',
+				cubicInterpolationMode:    'default | monotone',
 				clip:                      (this.borderWidth / 2) | {},
 				fill:                      true | '',
 				hoverBackgroundColor:      '',
@@ -64,10 +68,10 @@ const chart = new Chart(ctx=HTMLCanvasElement | CanvasRenderingContext2D | $ctx 
 				circumference:             2 * Math.PI, 	
 				
 				// polarArea only
-				startAngle: -0.5 * Math.PI
+				startAngle:                -0.5 * Math.PI,
 				
-				// bubble only
-				radius: 3
+				// bubble/scatter only
+				radius:                    3,
 				
 				animation.animateRotate:   undefined | true  if 'pie|doughnut|plotArea'
 				animation.animateScale:    undefined | false if 'pie|doughnut' | true if 'polarArea'
@@ -88,7 +92,7 @@ const opts = {
 	
 	title: {
 		display:    false,
-		position:   'top'|'left'|'bottom'|'right',
+		position:   'top | left | bottom | right',
 		fontSize:   this.parent.defaultFontSize
 		fontStyle:  'bold',
 		fullWidth:  true,
@@ -99,8 +103,8 @@ const opts = {
 	
 	legend: {
 		display:    true,
-		position:   'top',
-		align:      'center',
+		position:   'top | left | bottom | right',
+		align:      'center | start | end',
 		fullWidth:  true,
 		reverse:    false,
 		weight:     1000,
