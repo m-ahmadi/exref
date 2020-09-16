@@ -1,29 +1,78 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css"/>
+<style>input[type=number] { width: 60px; }</style>
 
-<div></div>
+<button onclick="updatePoints(), _auto.checked && updateLine(), chart.update()">
+	randomPoints(
+		count=<input id="_count" type="number" value="3" min="2" />,
+		xmin= <input id="_xmin"  type="number" value="0" />,
+		xmax= <input id="_xmax"  type="number" value="10" />,
+		ymin= <input id="_ymin"  type="number" value="0" />,
+		ymax= <input id="_ymax"  type="number" value="10" />
+	)
+</button>
 
-<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<br><br>
+
+<button onclick="updateLine(), chart.update()">adjustRegressionLine()</button>
+<label><input id="_auto" type="checkbox" checked />auto</label>
+
+<br><br>
+
+<div style="width:1900; height:600"><canvas id="_chart" width="1900" height="600"></canvas></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
+<script src="./fn.js"></script>
 <script>
-plot = uPlot({
-	width:  600,
-	height: 400,
-	series:[
-		{ show: false, label: 'x', value: '', },
-		{ width: 0,    label: 'y', value: (s,r)=>r, },
-		{ width: 1, spanGaps: true, }
-	],
-	axes: [
-		{ label: 'independent variable', grid: {width:1} },
-		{ label: 'dependant variable',   grid: {width:1} },
-	],
-	scales: {
-		x: {
-			time: false,
-		},
-	}
-},
-[[1,2,3,4,5,6,7,8], [45, 66,5,6,7,8],[50,null,null,null,null,null,70,null]], 
-document.body);
+var points = [ {x:1,y:2}, {x:2,y:4}, {x:3,y:5}, {x:4,y:4}, {x:5,y:5} ];
+var line = [];
 
+function updatePoints() {
+	points = randomPoints(+_count.value, +_xmin.value, +_xmax.value, +_ymin.value, +_ymax.value);
+	chart.data.datasets[0].data = points;
+}
+function updateLine() {
+	line = regressionLinear(points).map((n, i) => ({ x: points[i].x, y: n }));
+	chart.data.datasets[1].data = line;
+}
 
+var chart = new Chart(_chart, {
+	type: 'scatter',
+	data: {
+		datasets: [
+			{
+				label: 'Points',
+				data: points,
+				backgroundColor: 'red',
+				radius: 5
+			},
+			{
+				type: 'line',
+				label: 'Regression Line',
+				data: line,
+				fill: false,
+				borderColor: 'blue',
+				radius: 2,
+				borderWidth: 2,
+				lineTension: 0
+			},
+		]
+	},
+	options: { legend: {position: 'bottom'} }
+});
+
+updatePoints();
+updateLine();
+chart.update();
+
+function randomPoints(count=3, xmin=0, xmax=10, ymin=0, ymax=10) {
+	return [...Array(count)].map(() => ({
+		x: randInt(xmin, xmax),
+		y: randInt(ymin, ymax)
+	}));
+}
+function randInt(min=0, max=10) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor( Math.random() * (max - min + 1) ) + min;
+}
 </script>

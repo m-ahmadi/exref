@@ -26,3 +26,26 @@ function median(nums=[]) {
 		return nums[(len-1) / 2];
 	}
 }
+
+function regressionLinear(points=[]) {
+	const xs = points.map(point => point.x);
+	const ys = points.map(point => point.y);
+	const xsMean = sum(xs) / xs.length;
+	const ysMean = sum(ys) / ys.length;
+	
+	const xMeanDiff = xs.map(n => n - xsMean);
+	const yMeanDiff = ys.map(n => n - ysMean);
+	const xMeanDiffSquared        = xMeanDiff.map(n => n * n);
+	const xMeanDiffTimesYMeanDiff = xMeanDiff.map((n, i) => n * yMeanDiff[i]);
+	
+	const b1 = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
+	const b0 = ysMean - (b1 * xsMean);
+	
+	const regresions = xs.map(x => b0 + (b1 * x));
+	
+	return regresions;
+}
+
+function sum(nums=[]) {
+	return nums.reduce((a,c) => a += c, 0);
+}

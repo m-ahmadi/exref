@@ -17,6 +17,14 @@ for x in mylist:
 
 mylist[4] # error
 
+x<range> = range(start, stop, step)
+x = range(1,10,2)
+print( list(x) ) # [1, 3, 5, 7, 9]
+
+x = range(6)
+for n in x:
+  print(n)
+
 number = 1 + 2 * 3 / 4.0 # 2.5
 remainder = 11 % 3
 squared = 7 ** 2
