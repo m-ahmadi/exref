@@ -35,7 +35,7 @@ function regressionLinear(points=[]) {
 	
 	const xMeanDiff = xs.map(n => n - xsMean);
 	const yMeanDiff = ys.map(n => n - ysMean);
-	const xMeanDiffSquared        = xMeanDiff.map(n => n * n);
+	const xMeanDiffSquared        = xMeanDiff.map(n => n * n); // Math.pow(n, 2)
 	const xMeanDiffTimesYMeanDiff = xMeanDiff.map((n, i) => n * yMeanDiff[i]);
 	
 	const b1 = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
