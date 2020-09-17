@@ -193,6 +193,43 @@ const opts = {
 		callbacks:          {}
 	},
 	
+	elements: {
+		arc: {
+			backgroundColor: 'rgba(0,0,0,0.1)',
+			borderColor: '#fff',
+			borderWidth: 2,
+			borderAlign: 'center'
+		},
+		line: {
+			tension: 0.4,
+			backgroundColor: 'rgba(0,0,0,0.1)',
+			borderWidth: 3,
+			borderColor: 'rgba(0,0,0,0.1)',
+			borderCapStyle: 'butt',
+			borderDash: [],
+			borderDashOffset: 0,
+			borderJoinStyle: 'miter',
+			capBezierPoints: true,
+			fill: true
+		},
+		point: {
+			radius: 3,
+			pointStyle: 'circle',
+			backgroundColor: 'rgba(0,0,0,0.1)',
+			borderColor: 'rgba(0,0,0,0.1)',
+			borderWidth: 1,
+			hitRadius: 1,
+			hoverRadius: 4,
+			hoverBorderWidth: 1
+		},
+		rectangle: {
+			backgroundColor: 'rgba(0,0,0,0.1)',
+			borderColor: 'rgba(0,0,0,0.1)',
+			borderSkipped: 'bottom',
+			borderWidth: 0
+		}
+	},
+	
 	animation: {
 		duration:           1000,
 		easing:             'easeOutQuart',
