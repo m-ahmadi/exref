@@ -14,7 +14,7 @@ var chart1 = Highcharts.stockChart(a, {
 	credits: false,
 	chart: {
 		zoomType: 'x',
-		
+		width: 600,
 	},
 	series: [
 		{
@@ -31,7 +31,7 @@ var chart1 = Highcharts.stockChart(a, {
 var chart2 = Highcharts.chart(b, {
 	chart: {
 		type: 'column',
-		
+		width: 600,
 	},
 	title: {
 		align: 'left',
@@ -79,7 +79,8 @@ var chart3 = Highcharts.stockChart(d, {
 		}
 	},
 	chart: {
-		zoomType: 'x'
+		zoomType: 'x',
+		width: 600,
 		/* resetZoomButton: { // works only with Highcharts.chart
 			relativeTo: 'chart',
 			position: {

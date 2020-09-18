@@ -1,6 +1,6 @@
+// https://cdn.jsdelivr.net/npm/highcharts/
 Highcharts.chart(container, config)
 Highcharts.stockChart(container, config)
-
 
 ChartType = 'line|area|column|bar|pie|scatter||bubble|...\
 line      | spline                                                                                                                               \
@@ -15,59 +15,74 @@ scatter3d | funnel3d       pyramid3d|                                           
 gauge     | solidgauge                                                                                                                           \
 dependencywheel  networkgraph  organization  sankey  streamgraph  sunburst  timeline  wordcloud',
 
+Color = GradientColor{} | Pattern{}
+
 var chart = Highcharts.chart(container=HTMLElement|'id', config={
 	series: [ {}, {}, ...
 		{
-			type: ChartType,
+			type: 'ChartType',
 			data: [ 0|{}, ... ]
 		}
 	],
 	
 	chart: {
-		type: ChartType,
+		type: 'ChartType',
 		resetZoomButton: { relativeTo:'chart',  position:{align:'right',verticalAlign:'top',x:0,y:0}, them:{zIndex:6} }
 	},
 	
 	chart: {
 		alignTicks:          true,
 		animation:           false | AnimationOptions{},
-		backgroundColor:     '#ffffff' | GradientColor{} | Pattern{},
-		borderColor:         '#335cad' | ↑ ...,
+		backgroundColor:     '#ffffff' | Color,
+		borderColor:         '#335cad' | Color,
 		borderRadius:        0,
 		borderWidth:         0,
 		className:           '',
 		colorCount:          10,
-		defaultSeriesType:   'line',
+		defaultSeriesType:   'line', // depricated
 		displayErrors:       true,
-		events:              {...},
+		events:              {
+			addSeries:   (e)=>,
+			afterPrint:  (e)=>,
+			beforePrint: (e)=>,
+			click:       (e)=>,
+			drilldown:   (e)=>,
+			drillup:     (e)=>,
+			drillupall:  (e)=>,
+			exportData:  (e)=>,
+			load:        (e)=>,
+			redraw:      (e)=>,
+			render:      (e)=>,
+			selection:   (e)=>,
+		},
 		height:              null,
 		ignoreHiddenSeries:  true,
 		inverted:            false,
-		margin:              undefined,
-		marginBottom:        undefined,
-		marginLeft:          undefined,
-		marginRight:         undefined,
-		marginTop:           undefined,
-		numberFormatter:     undefined,
+		margin:              0 | [0, ...],
+		marginBottom:        0,
+		marginLeft:          0,
+		marginRight:         0,
+		marginTop:           0,
+		numberFormatter:     ()=>,
 		options3d:           {...},
-		panKey:              undefined,
-		panning:             {...},
+		panKey:              '',
+		panning:             {enabled: false, type: 'x'},
 		parallelAxes:        {...},
 		parallelCoordinates: false,
-		pinchType:           undefined,
-		plotBackgroundColor: undefined,
-		plotBackgroundImage: undefined,
-		plotBorderColor:     '#cccccc',
+		pinchType:           undefined | 'x|y|xy',
+		plotBackgroundColor: '' | Color,
+		plotBackgroundImage: '',
+		plotBorderColor:     '#cccccc' | Color,
 		plotBorderWidth:     0,
 		plotShadow:          false,
 		polar:               false,
 		reflow:              true,
-		renderTo:            undefined,
+		renderTo:            'id' | HTMLElement,
 		resetZoomButton:     {...},
 		scrollablePlotArea:  {...},
 		selectionMarkerFill: 'rgba(51,92,173,0.25)',
 		shadow:              false,
-		showAxes:            undefined,
+		showAxes:            false,
 		spacing:             [10, 10, 15, 10],
 		spacingBottom:       15,
 		spacingLeft:         10,
@@ -77,8 +92,8 @@ var chart = Highcharts.chart(container=HTMLElement|'id', config={
 		styledMode:          false,
 		type:                'line' | ChartType,
 		width:               null,
-		zoomKey:             undefined,
-		zoomType:            undefined,
+		zoomKey:             '',
+		zoomType:            '',
 	}
 
 	
@@ -87,6 +102,17 @@ var chart = Highcharts.chart(container=HTMLElement|'id', config={
 		text:   '',
 		style:  {color:'', fontSize:''}
 	},
+	
+	align:         'center|left|right',
+	floating:      false,
+	margin:        15,
+	style:         {color: '#333333', fontSize: '18px'},
+	text:          '',
+	useHTML:       false,
+	verticalAlign: undefined | 0,
+	widthAdjust:   -44,
+	x:             0
+	y:             undefined | 0,
 	
 	xAxis: {
 		labels: true,
