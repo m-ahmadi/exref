@@ -1,22 +1,115 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/highcharts/highcharts.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/highcharts/highstock.js"></script>
 
-<div id="hc"></div>
+<div style="display: grid; grid-template-columns: auto auto auto;">
+	<div id="a"></div>
+	<div id="b"></div>
+	<div id="d"></div>
+</div>
 
 <script>
-var chart = Highcharts.stockChart(hc, {
+var chart1 = Highcharts.stockChart(a, {
 	rangeSelector: false,
 	exporting: false,
 	credits: false,
 	chart: {
-		zoomType: 'x'
+		zoomType: 'x',
+		
 	},
-	series: [{
-		name: 'Water',
-		data: [[0, 0], [1, 5], [2, 3], [4, 8]],
-		tooltip: {
-			valueDecimals: 2
+	series: [
+		{
+			name: 'Water',
+			data: [ [0, 0], [1, 5], [2, 3], [4, 8] ],
+			tooltip: {
+				valueDecimals: 2
+			}
 		}
-	}]
+	]
+});
+
+// bar chart
+var chart2 = Highcharts.chart(b, {
+	chart: {
+		type: 'column',
+		
+	},
+	title: {
+		align: 'left',
+		text: 'hi',
+		style: {
+			color: '#717171',
+			fontSize: '14px'
+		}
+	},
+	xAxis: {
+		labels: false,
+	},
+	yAxis: {
+		title: false
+	},
+	tooltip: {
+		formatter: function () {
+			return '<span style="color:'+this.color+'">\u25CF</span>';
+			//return this.series.name +':<b>'+ this.y.toFixed(2) +'</b>';
+		},
+		changeDecimals: 2,
+	},
+	series: [
+		{data: [2]}, {data: [4]}, {data: [6]}
+	],
+	rangeSelector: false,
+	exporting: false,
+	credits: false,
+	legend: {
+		enabled: true
+	}
+});
+
+// line chart
+var chart3 = Highcharts.stockChart(d, {
+	rangeSelector: false,
+	exporting: false,
+	credits: false,
+	title: {
+		align: 'left',
+		text: 'line',
+		style: {
+			color: '#717171',
+			fontSize: '14px'
+		}
+	},
+	chart: {
+		zoomType: 'x'
+		/* resetZoomButton: { // works only with Highcharts.chart
+			relativeTo: 'chart',
+			position: {
+				align: 'right',
+				verticalAlign: 'top',
+				x: 0,
+				y: 0
+			}
+		} */
+	},
+	navigator: {
+		adaptToUpdatedData: false
+	},/*
+	xAxis: {
+		events: {
+			setExtremes: e => {
+				let d = e.DOMEvent;
+				let trigger = e.trigger;
+				if ( (d && d.DOMType !== 'mousemove') || trigger === 'zoom' ) { // drag-end or zoom
+					startDate = moment(e.min).format(DATE_FORMAT);
+					endDate = moment(e.max).format(DATE_FORMAT);
+					loadGraphSensorData();
+				}
+			}
+		}
+	},
+	yAxis: [],*/
+	legend: {
+		enabled: true
+	},
+	series: [ {data: [1,2,3,4]}, {data: [2,4,6,8]}, {data: [1,3,5,7]} ]
 });
 </script>

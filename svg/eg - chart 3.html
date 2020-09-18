@@ -1,0 +1,161 @@
+<meta charset="utf-8" />
+<style>
+svg {
+	width: 800px;
+	height: 400px;
+	border: 1px solid grey;
+}
+svg path:not([stroke]) {
+	fill:none;
+	stroke:black;
+}
+</style>
+
+<svg>
+	<path d="M 10,50 l790,0" stroke=green />
+	<path d="M 10,80 l790,0" stroke=green />
+	
+	<!-- <path d="
+		M 10,200
+		l 50,40
+		l 50,-60
+		l 50,40
+		l 50,-30
+		l 50,70
+		l 50,-55
+		l 50,35
+		l 50,-20
+		l 50,10
+		l 50,-70
+		l 50,50
+	" /> -->
+	
+	<path d="M 10,200 l790,0" stroke=blue />
+	<path d="M 10,220 l790,0" stroke=blue />
+	
+	<path d="M 10,300 l790,0" stroke=red />
+	<path d="M 10,350 l790,0" stroke=red />
+</svg>
+
+<canvas></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/cash-dom@latest/dist/cash.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script> -->
+<script>
+const log = console.log;
+class Path {
+	constructor(points, attrs) {
+		const {x,y} = points[0];
+		return createEl('path', {
+			d: `M${x},${y}` + points.slice(1).map(({x,y})=>`L${x},${y}`).join(' '),
+			stroke: 'black',
+			...attrs
+		});
+	}
+}
+
+class Circle {
+	constructor(cx, cy, attrs) {
+		return createEl('circle', {
+			cx,
+			cy,
+			r: 1,
+			fill: 'red',
+			...attrs
+		});
+	}
+}
+
+const signals = [
+	{symbol: '', enter: [], targets: [], supps: [], time: 30},
+];
+
+$(async function () {
+	
+	svg = $('svg');
+	width = svg.width();
+	height = svg.height();
+	
+	
+	//$( createEl('path', {d:'M 10,20 l600,50', stroke:'orange'}) ).appendTo(svg);
+	//svg.append( new Path([[500,50],[10,400]]) );
+	prices = randomBars(700)
+	
+	prices = map2px(prices);
+	prices = scale(prices, 0, height);
+	
+	step = 0;
+	points = prices.map(i => ({x: step+=1, y: i}));
+	
+	path = new Path(points, {fill:'none','stroke-width':2});
+	svg.append(path);
+	
+	path.addEventListener('click', function (e) {
+		const point = svg[0].createSVGPoint();
+		point.x = e.x;
+		point.y = e.y;
+		console.log( point );
+		console.log( points.find(({x,y})=> x===e.x && y===e.y) );
+	});
+	
+	points.forEach( ({x,y}) => svg.append(new Circle(x,y)) );
+});
+
+function createEl(tag, attrs) {
+	const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+	Object.keys(attrs).forEach(k => el.setAttribute(k, attrs[k]) );
+	return el;
+}
+
+/*
+svg[0].addEventListener('wheel', function (e) {
+	const { deltaY } = e;
+	if (deltaY < 0) {
+		// up
+		svg[0].setAttribute('viewBox', `0 0 ${width-=10} ${height-=10}`)
+	} else if (deltaY > 0) { 
+		// down
+		svg[0].setAttribute('viewBox', `0 0 ${width+=10} ${height+=10}`)
+	}
+});
+*/
+
+function map2px(nums) {
+	const min = Math.min(...nums);
+	return nums.map(i =>
+		+(i + ( height - (i+(i-min)) )).toFixed(1)
+	);
+}
+
+function scale(nums, newMin=0, newMax=100) {
+	const min = Math.min(...nums);
+	const max = Math.max(...nums);
+	const diff = max - min;
+	const newDiff = newMax - newMin;
+	return nums.map(i =>
+		+(newDiff * (i-min) / diff + newMin).toFixed(2)
+	);
+}
+
+function randomBars(len=400) {
+	const bars = [100];
+	for (let i=1; i<len; i+=1) {
+		const prev = bars[i-1];
+		const r = prev * 0.05;
+		let value = randInt(prev-r, prev+r);
+		
+		let k = 2;
+		while (value === prev) {
+			value = randInt(prev-r, prev+r*k);
+			k *=2;
+		}
+		bars.push(value);
+	}
+	return bars;
+}
+function randInt(min=0, max=10) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor( Math.random() * (max - min + 1) ) + min;
+}
+</script>

@@ -1,107 +1,119 @@
-// some examples from past
+Highcharts.chart(container, config)
+Highcharts.stockChart(container, config)
 
-// todo: full ref
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// bar chart
-var chart = Highcharts.chart(container, {
-	chart: {
-		type: 'column'
-	},
-	title: {
-		align: 'left',
-		text: title || '',
-		style: {
-			color: '#717171',
-			fontSize: '14px'
+ChartType = 'line|area|column|bar|pie|scatter||bubble|...\
+line      | spline                                                                                                                               \
+area      | arearange      areaspline   areasplinerange  bellcurve  windbarb                                                                     \
+column    | columnpyramid  columnrange  boxplot          cylinder   errorbar  funnel  histogram  lollipop  pareto  pyramid  variwide  waterfall| \
+bar       | bullet         dumbbell     xrange                                                                                                   \
+pie       | variablepie    venn                                                                                                                  \
+scatter   | item           polygon      vector                                                                                                   \
+bubble    | packedbubble                                                                                                                         \
+heatmap   | treemap        tilemap|                                                                                                              \
+scatter3d | funnel3d       pyramid3d|                                                                                                            \
+gauge     | solidgauge                                                                                                                           \
+dependencywheel  networkgraph  organization  sankey  streamgraph  sunburst  timeline  wordcloud',
+
+var chart = Highcharts.chart(container=HTMLElement|'id', config={
+	series: [ {}, {}, ...
+		{
+			type: ChartType,
+			data: [ 0|{}, ... ]
 		}
+	],
+	
+	chart: {
+		type: ChartType,
+		resetZoomButton: { relativeTo:'chart',  position:{align:'right',verticalAlign:'top',x:0,y:0}, them:{zIndex:6} }
 	},
+	
+	chart: {
+		alignTicks:          true,
+		animation:           false | AnimationOptions{},
+		backgroundColor:     '#ffffff' | GradientColor{} | Pattern{},
+		borderColor:         '#335cad' | ↑ ...,
+		borderRadius:        0,
+		borderWidth:         0,
+		className:           '',
+		colorCount:          10,
+		defaultSeriesType:   'line',
+		displayErrors:       true,
+		events:              {...},
+		height:              null,
+		ignoreHiddenSeries:  true,
+		inverted:            false,
+		margin:              undefined,
+		marginBottom:        undefined,
+		marginLeft:          undefined,
+		marginRight:         undefined,
+		marginTop:           undefined,
+		numberFormatter:     undefined,
+		options3d:           {...},
+		panKey:              undefined,
+		panning:             {...},
+		parallelAxes:        {...},
+		parallelCoordinates: false,
+		pinchType:           undefined,
+		plotBackgroundColor: undefined,
+		plotBackgroundImage: undefined,
+		plotBorderColor:     '#cccccc',
+		plotBorderWidth:     0,
+		plotShadow:          false,
+		polar:               false,
+		reflow:              true,
+		renderTo:            undefined,
+		resetZoomButton:     {...},
+		scrollablePlotArea:  {...},
+		selectionMarkerFill: 'rgba(51,92,173,0.25)',
+		shadow:              false,
+		showAxes:            undefined,
+		spacing:             [10, 10, 15, 10],
+		spacingBottom:       15,
+		spacingLeft:         10,
+		spacingRight:        10,
+		spacingTop:          10,
+		style:               {fontFamily: '"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif', fontSize: '12px'},
+		styledMode:          false,
+		type:                'line' | ChartType,
+		width:               null,
+		zoomKey:             undefined,
+		zoomType:            undefined,
+	}
+
+	
+	title: {
+		align:  '',
+		text:   '',
+		style:  {color:'', fontSize:''}
+	},
+	
 	xAxis: {
-		labels: false,
+		labels: true,
+		
+		events: {
+			setExtremes: (e)=>
+		}
 	},
+	
 	yAxis: {
-		title: false
+		title: false,
 	},
-	tooltip: {
-		formatter: function () {
-			// <span style='color:{this.color}'>\u25CF</span>
-			return `
-				${this.series.name}:
-				<b>${ u.toDecimalPlace(this.y, 2) }</b>
-			`;
-		},
-		changeDecimals: 2,
-	},
-	series: [],
-	rangeSelector: false,
-	exporting: false,
-	credits: false,
+	
 	legend: {
-		enabled: true
-	}
-});
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// stock
-var chart = Highcharts.stockChart(container, {
-	rangeSelector: false,
-	exporting: false,
-	credits: false,
-	chart: {
-		zoomType: 'x'
-	}
-	series: [{
-		name: 'Water',
-		data: [[0, 0], [1, 5], [2, 3], [4, 8]],
-		tooltip: {
-			valueDecimals: 2
-		}
-	}]
-});
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// line chart
-var chart = Highcharts.stockChart(container=HTMLElement|'id', {
-	rangeSelector: false,
-	exporting: false,
-	credits: false,
-	title: {
-		align: 'left',
-		text: title || '',
-		style: {
-			color: '#717171',
-			fontSize: '14px'
-		}
+		enabled: true,
 	},
-	chart: {
-		zoomType: 'x'
-		/* resetZoomButton: { // works only with Highcharts.chart
-			relativeTo: 'chart',
-			position: {
-				align: 'right',
-				verticalAlign: 'top',
-				x: 0,
-				y: 0
-			}
-		} */
+	
+	tooltip: {
+		formatter: ()=>,
+		changeDecimals: 0
 	},
+	
 	navigator: {
 		adaptToUpdatedData: false
 	},
-	xAxis: {
-		events: {
-			setExtremes: e => {
-				let d = e.DOMEvent;
-				let trigger = e.trigger;
-				if ( (d && d.DOMType !== 'mousemove') || trigger === 'zoom' ) { // drag-end or zoom
-					startDate = moment(e.min).format(DATE_FORMAT);
-					endDate = moment(e.max).format(DATE_FORMAT);
-					loadGraphSensorData();
-				}
-			}
-		}
-	},
-	yAxis: [],
-	legend: {
-		enabled: true
-	},
-	series: []
-});
+	
+	rangeSelector: false,
+	exporting:     false,
+	credits:       false,
+})
