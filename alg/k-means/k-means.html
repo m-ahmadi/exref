@@ -14,13 +14,55 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
 <script>
-const sqr = n => n * n;
-const distanceEuc = ({x:x1,y:y1}, {x:x2,y:y2}) => Math.sqrt( sqr(x2-x1) + sqr(y2-y1) );
+var points;
 
 function kMeans(points=[], k=2) {
 	
+	const len = points.length;
+	//if (!len) return [];
 	if (k < 2) k = 2;
+	const sqr = n => n * n;
+	const distanceEuc = ({x:x1,y:y1}, {x:x2,y:y2}) => Math.sqrt( sqr(x2-x1) + sqr(y2-y1) );
+	
+	const centroids = [...Array(k)].map(() => ( {...points[randInt(0, points.length, false)]} ));
+	const clusters = centroids.map(() => []);
+	
+	for (const point of points) {
+		let shortestDistance = Infinity;
+		let closestCentroidIndex;
+		for (let i=0, n=centroids.length; i<n; i++) {
+			const distance = distanceEuc(point, centroids[i]);
+			if (distance < shortestDistance) {
+				shortestDistance = distance;
+				closestCentroidIndex = i;
+			}
+		}
+		
+		clusters[closestCentroidIndex].push({...point});
+	}
+	
+	return clusters;
 }
+
+function findCentroid(points=[]) {
+	let centroidIndex;
+	
+	for (const point of points) {
+		let shortestDistance = Infinity;
+		let closestCentroidIndex;
+		for (let i=0, n=centroids.length; i<n; i++) {
+			const distance = distanceEuc(point, centroids[i]);
+			if (distance < shortestDistance) {
+				shortestDistance = distance;
+				closestCentroidIndex = i;
+			}
+		}
+	}
+	
+	return centroidIndex;
+}
+
+
 
 var chart= new Chart(_chart, {
 	type: 'scatter',
@@ -38,6 +80,10 @@ var chart= new Chart(_chart, {
 		legend: { position: 'bottom' }
 	}
 });
+
+updatePoints();
+kMeans(points)
+
 function updatePoints() {
 	points = randomPoints(+_count.value, +_xmin.value, +_xmax.value, +_ymin.value, +_ymax.value);
 	chart.data.datasets[0].data = points;
