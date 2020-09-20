@@ -1,3 +1,38 @@
+function range(nums=[]) {
+	return Math.max(...nums) - Math.min(...nums);
+}
+
+function mode(list=[]) {
+	const tmp = {};
+	for (const i of list) {
+		if (!tmp[i]) tmp[i] = 0;
+		tmp[i]++;
+	}
+	const counts = list.map(i => tmp[i]);
+	const maxCount = Math.max(...counts);
+	const maxIndex = counts.indexOf(maxCount);
+	return list[maxIndex];
+}
+
+function median(nums=[]) {
+	const len = nums.length;
+	if (len % 2 === 0) {
+		return (nums[(len/2)-1] + nums[len/2]) / 2;
+	} else {
+		return nums[(len-1) / 2];
+	}
+}
+
+function stdv(nums=[]) {
+	return Math.sqrt( variance(nums) );
+}
+
+function variance(nums=[]) {
+	const _mean = mean(nums);
+	const sqrDiffs = nums.map(n => Math.pow(n - _mean, 2));
+	return mean(sqrDiffs);
+}
+
 function iqr(_nums=[]) {
 	const nums = [..._nums];
 	nums.sort((a,b) => a-b)
@@ -18,15 +53,6 @@ function iqr(_nums=[]) {
 	return median(secondHalf) - median(firstHalf);
 }
 
-function median(nums=[]) {
-	const len = nums.length;
-	if (len % 2 === 0) {
-		return (nums[(len/2)-1] + nums[len/2]) / 2;
-	} else {
-		return nums[(len-1) / 2];
-	}
-}
-
 function regressionLinear(points=[]) {
 	const xs = points.map(point => point.x);
 	const ys = points.map(point => point.y);
@@ -44,6 +70,10 @@ function regressionLinear(points=[]) {
 	const regresions = xs.map(x => b0 + (b1 * x));
 	
 	return regresions;
+}
+
+function mean(nums=[]) {
+	return sum(nums) / nums.length;
 }
 
 function sum(nums=[]) {
