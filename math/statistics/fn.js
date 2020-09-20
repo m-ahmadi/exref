@@ -15,7 +15,7 @@ function iqr(_nums=[]) {
 		secondHalf = nums.slice(idx+1, nums.length);
 	}
 	
-	return median(secondHalf) - median(firstHalf)
+	return median(secondHalf) - median(firstHalf);
 }
 
 function median(nums=[]) {
