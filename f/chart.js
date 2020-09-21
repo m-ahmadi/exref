@@ -258,6 +258,29 @@ chart.getDatasetMeta(index)
 chart.data.datasets[0].data[2] = 50;
 chart.update();
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+function plotPie(series=[], w=600, h=400) {
+	var div = document.createElement('div');
+	div.style.width = w;
+	div.style.height = h;
+	div.innerHTML = '<canvas width="'+w+'" height="'+h+'"></canvas>';
+	document.body.append(div);
+	
+	var colors = ['red', 'blue', 'yellow', 'green', 'purple', 'orange'];
+	var chart = new Chart(div.children[0], {
+		type: 'pie',
+		data: {
+			labels: series.map(i => i[0]),
+			datasets: [
+				{
+					backgroundColor: series.map((v,i) => colors[i]),
+					data:            series.map(i => i[1]),
+				}
+			]
+		},
+		options: { legend: {position:'bottom'} }
+	});
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // defaults ref
 Chart.defaults = {
 	global: {
