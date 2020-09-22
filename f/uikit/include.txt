@@ -1,6 +1,11 @@
 uikit.css
 uikit.js
 uikit-icons.js
+
+cdn
+	https://cdn.jsdelivr.net/npm/uikit/dist/css/uikit.min.css
+	https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit.min.js
+	https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit-icons.min.js
 ------------------------------------------------------------------------------------------------------------
 info
 

@@ -21,19 +21,19 @@ var timer = setInterval(function () {
 
 
 /*	
-	Options
+	options
 	These are keys in the options object you can pass to the progress bar along with total as seen in the example above.
 
-	curr 				current completed index
-	total 				total number of ticks to complete
-	width 				the displayed width of the progress bar defaulting to total
-	stream 				the output stream defaulting to stderr
-	head 				head character defaulting to complete character
-	complete 			completion character defaulting to "="
-	incomplete			incomplete character defaulting to "-"
-	renderThrottle		minimum time between updates in milliseconds defaulting to 16
-	clear				option to clear the bar on completion defaulting to false
-	callback			optional function to call when the progress bar completes
+	curr              current completed index
+	total             total number of ticks to complete
+	width             the displayed width of the progress bar defaulting to total
+	stream            the output stream defaulting to stderr
+	head              head character defaulting to complete character
+	complete          completion character defaulting to "="
+	incomplete        incomplete character defaulting to "-"
+	renderThrottle    minimum time between updates in milliseconds defaulting to 16
+	clear             option to clear the bar on completion defaulting to false
+	callback          optional function to call when the progress bar completes
 */
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var ProgressBar = require('progress');

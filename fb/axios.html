@@ -1,0 +1,45 @@
+<script src="https://cdn.jsdelivr.net/npm/axios"></script>
+<script>
+//-----------------------------------------------
+// get
+axios('/user/12345');
+axios('/user/12345').then( res => console.log(res) );
+const req = await axios.get('api/users');
+const { data } = await axios.get('api/users');
+axios.get('/user', { params: {ID: 12345} });
+//-----------------------------------------------
+// post
+var data = {firstName: 'Fred', lastName: 'Flintstone'};
+axios({
+	url: '/user/12345',
+	method: 'post',
+	data: data
+});
+// or
+axios.post('/user', data);
+//-----------------------------------------------
+// application/x-www-form-urlencoded
+const params = new URLSearchParams();
+params.append('param1', 'value1');
+params.append('param2', 'value2');
+axios.post('/foo', params);
+// or
+axios({
+	url: '/foo'
+  method: 'post',
+  headers: {'content-type': 'application/x-www-form-urlencoded'},
+  data: params
+});
+//-----------------------------------------------
+// text/xml
+axios({
+	url: '/foo'
+  method: 'post',
+  headers: {'Content-Type': 'text/xml;charset=UTF-8'},
+  data: xmlBody
+});
+// or
+axios.post('/foo', xmlBody, {
+	headers: {'Content-Type': 'text/xml;charset=UTF-8'}
+});
+</script>
