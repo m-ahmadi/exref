@@ -23,7 +23,7 @@ print( list(x) ) # [1, 3, 5, 7, 9]
 
 x = range(6)
 for n in x:
-  print(n)
+	print(n)
 
 number = 1 + 2 * 3 / 4.0 # 2.5
 remainder = 11 % 3

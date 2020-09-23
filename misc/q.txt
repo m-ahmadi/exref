@@ -513,6 +513,7 @@ Rule 2 (for experts only): Don't do it yet. ” - Michael A. Jackson
 “ Walking on water and developing software from a specification are easy if both are frozen. ” - Edward V Berard
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 “ Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it. ” - Brian Kernighan
+Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 “ It's not at all important to get it right the first time. It's vitally important to get it right the last time. ” - Andrew Hunt and David Thomas
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
