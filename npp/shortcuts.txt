@@ -1,6 +1,8 @@
-Light Explorer				ctrl + b
-Reindent file				shift + alt + f
-Space to TAB (Leading)			ctrl + T
-Show White Space and TAB		alt + ~
+light explorer			ctrl b
+space to tab (leading)		ctrl t
+show white space and tab	alt  ~
 
-HTML Tag: select tag content		ctrl + shift + c
+reindent file			shift alt   f			Indent By Fold
+format js			ctrl  alt   m			JSTool
+format json			ctrl  alt   shift m		JSON Viewer
+select tag content		ctrl  shift c			HTML Tag

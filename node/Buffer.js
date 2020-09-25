@@ -4,6 +4,9 @@ a buffer is:
 	similar to an array of integers but corresponds to a raw memory allocation outside the v8 heap.
 	a temporary holding spot for data being moved from one place to another.
 */
+
+Buffer.concat(list=Buffer[] | Uint8Array[], ?totalLength=int): Buffer
+
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Buffer.alloc(size [, fill=0[, encoding='utf8']]) /*
 size:      integer

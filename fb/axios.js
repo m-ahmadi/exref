@@ -25,8 +25,8 @@ var response = axios(url=''|config, ?config={
 	responseEncoding:   'utf8',
 	xsrfCookieName:     'XSRF-TOKEN',
 	xsrfHeaderName:     'X-XSRF-TOKEN',
-	onUploadProgress:   (progressEvent)=>,
-	onDownloadProgress: (progressEvent)=>,
+	onUploadProgress:   (progressEvent)=>, // browser only
+	onDownloadProgress: (progressEvent)=>, // ...
 	maxContentLength:   2000,
 	validateStatus:     (status)=> status>=200 && status<300,
 	maxRedirects:       5,
