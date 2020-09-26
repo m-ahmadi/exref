@@ -79,7 +79,7 @@ window[0], window[1], ...											W
 .minimize() (top-level XUL windows only)
 .moveBy()
 .moveTo()
-.open()
+.open(url='about:blank', windowName='', windowFeatures=''): WindowProxy
 .postMessage()
 .print()
 .prompt()

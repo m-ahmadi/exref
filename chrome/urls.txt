@@ -1,0 +1,9 @@
+chrome://about
+
+chrome://bookmarks
+chrome://extensions
+chrome://flags
+chrome://inspect
+chrome://apps
+chrome://downloads
+...
