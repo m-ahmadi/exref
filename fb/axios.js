@@ -21,7 +21,7 @@ var response = axios(url=''|config, ?config={
 	withCredentials:    false,
 	adapter:            (config)=>,
 	auth:               {username: '', password: ''},
-	responseType:       'json',
+	responseType:       'json|text|document|arraybuffer|stream|blobl', // 'blob' only in browser
 	responseEncoding:   'utf8',
 	xsrfCookieName:     'XSRF-TOKEN',
 	xsrfHeaderName:     'X-XSRF-TOKEN',
@@ -70,6 +70,28 @@ axios({
 .then(function (response) {
 	response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
 });
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// download progress in node
+const fs = require('fs');
+const path = require('path');
+const axios = require('axios');
+const Progress = require('progress');
+
+(async () => {
+	const { data, headers } = await axios({
+		url: 'https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_2500kB.jpg',
+		method: 'GET',
+		responseType: 'stream'
+	});
+	
+	const total = +headers['content-length'];
+	const bar = new Progress('[:bar] :percent :etas', {total, width:40, renderThrottle:1});
+
+	const writeStream = fs.createWriteStream('file.jpg');
+
+	data.on('data', chunk => bar.tick(chunk.length));
+	data.pipe(writeStream);
+})()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // soap request
 var xmlBody = `<?xml version="1.0" encoding="utf-8"?>

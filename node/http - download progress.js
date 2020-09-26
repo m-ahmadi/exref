@@ -1,57 +1,30 @@
-var http = require('http');
-var zlib = require('zlib');
-var cliProgress = require('cli-progress');
+const http = require('http');
+const https = require('https');
+const zlib = require('zlib');
+const Progress = require('progress');
 
-// fail
-var req = http.get('http://jsonplaceholder.typicode.com/posts', res => {
-	res.setEncoding('utf8');
+// html file (with decompression step)
+http.get('http://cdn6.tsetmc.com/Loader.aspx?ParTree=15131P&i=26997316501080743&d=20200922', res => {
+	if (res.statusCode !== 200) return;
+	//res.setEncoding('utf8'); // Error: incorrect header check
+	const total = +res.headers['content-length'];
+	const bar = new Progress('[:bar] :percent :etas', {total, width:80, renderThrottle:1});
 	
-	let len = +res.headers['content-length'];
-	
-	const bar1 = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-	bar1.start(len, 0);	
-	
-	res.on('data', function (chunk) {
-		var compressed = zlib.gzipSync(chunk).toString();
-		len += compressed.length; // len += chunk.length;
-		bar1.update(len);
-	});
-	
+	const compressStream = zlib.createGunzip();
+	const writeStream = fs.createWriteStream('file.html');
+	res
+		.on('data', chunk => bar.tick(chunk.length))
+		.pipe(compressStream)
+		.pipe(writeStream);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// axios
-const fs = require('fs')  
-const path = require('path')  
-const axios = require('axios')  
-const Progress = require('progress')
 
-async function downloadImage () {  
-	const url = 'https://unsplash.com/photos/AaEQmoufHLk/download?force=true'
-	
-	console.log('Connecting …')
-	const { data, headers } = await axios({
-		url,
-		method: 'GET',
-		responseType: 'stream'
-	})
-	const totalLength = headers['content-length']
-	
-	console.log('Starting download')
-	const progress = new Progress('-> downloading [:bar] :percent :etas', {
-		width: 40,
-		complete: '=',
-		incomplete: ' ',
-		renderThrottle: 1,
-		total: parseInt(totalLength)
-	})
-	
-	const writer = fs.createWriteStream(
-		path.resolve(__dirname, 'images', 'code.jpg')
-	)
-	
-	data.on('data', (chunk) => progress.tick(chunk.length))
-	data.pipe(writer)
-}
-
-downloadImage()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// image file (without decompression step)
+https.get('https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_2500kB.jpg', res => {
+	if (res.statusCode !== 200) return;
+	const total = +res.headers['content-length'];
+	const bar = new Progress('[:bar] :percent :etas', {total, width:80, renderThrottle:1});
+	const writeStream = fs.createWriteStream('file.jpg');
+	res
+		.on('data', chunk => bar.tick(chunk.length))
+		.pipe(writeStream);
+});

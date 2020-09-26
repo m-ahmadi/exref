@@ -8,29 +8,6 @@ zlib.gzipSync('a')
 zlib.gzipSync(new Uint8Array([97]))
 
 zlib.gzip('a', (err, data) => console.log(data))
-
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// decompress a gzip stream
-var gunzip = zlib.createGunzip();
-
-var buffers = [];
-
-gunzip.on('data', function (buffer) {
-	buffers.push(buffer);
-});
-
-gunzip.on('end', function () {
-	decompressed = Buffer.concat(buffers);
-});
-
-gunzip.on('error', function (err) {
-	console.log(err);
-});
-
-// not sure
-http.get('url', res => {
-	res.on('data').pipe(gunzip);
-})
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // compress/decompress a stream
 // piping source stream data through a zlib stream into a destination stream:

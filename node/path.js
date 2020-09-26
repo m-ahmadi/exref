@@ -7,6 +7,7 @@ path.sep
 //	/ on POSIX
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // path of current running module (script)
+// only in commonjs modules
 __filename // file name of current module. for a main program this isn't necessarily same as file name used in command line.
 __dirname  // dir  name of current module. same as: path.dirname(__filename)
 
@@ -15,6 +16,12 @@ console.log(__filename); // /Users/mjr/example.js
 console.log(__dirname);  // /Users/mjr
 
 path.join(__dirname, 'your/path')
+
+// esm equivalents 
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // join
 // calls path.normalize to normalize a string path (takes care of .. and . paths)
