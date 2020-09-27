@@ -10,11 +10,11 @@ http.get('http://cdn6.tsetmc.com/Loader.aspx?ParTree=15131P&i=26997316501080743&
 	const total = +res.headers['content-length'];
 	const bar = new Progress('[:bar] :percent :etas', {total, width:80, renderThrottle:1});
 	
-	const compressStream = zlib.createGunzip();
+	const decompressStream = zlib.createGunzip();
 	const writeStream = fs.createWriteStream('file.html');
 	res
 		.on('data', chunk => bar.tick(chunk.length))
-		.pipe(compressStream)
+		.pipe(decompressStream)
 		.pipe(writeStream);
 });
 

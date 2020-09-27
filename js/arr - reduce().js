@@ -46,3 +46,7 @@ arr.reduce((a,c)=> a = a.concat(c), [])    // [1, 2, 3, 4, 5, 6]
 
 // 'a=b&c=d' to {a:'b', c:'d'}
 'name=abc&foo=bar'.split('&').reduce((a,c) => (a[ c.split('=')[0] ] = c.split('=')[1]) && a, {}) // {name: 'abc', foo: 'bar'}
+
+// {k:v, k:v} to 'k=v&k=v' 
+var o = {foo:'a', bar:'b'};
+Object.keys(o).reduce((a,k)=> a+= k+'='+o[k]+'&', '').slice(0,-1) // 'foo=a&bar=b&baz=c'
