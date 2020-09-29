@@ -16,20 +16,66 @@ new Promise((resolve, reject) => {
 });
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
-var fetchResponsePromise = fetch(resource, ?init={
-	method:         ,
-	headers:        ,
-	body:           ,
-	mode:           'cors' | 'no-cors' | 'same-origin',
-	credentials:    ,
-	cache:          ,
-	redirect:       'follow' | 'error' | 'manual',
-	referrer:       ,
-	referrerPolicy: 'no-referrer' | 'same-origin' | 'origin' | 'strict-origin' | ...
-	integrity:      ,
+var responsePromise = WindowOrWorkerGlobalScope.fetch(resource=''|URL|Request, ?init={
+	method:         'get|post|put|patch|delete|head',
+	headers:        Headers | {k:ByteString, ...},
+	body:           Blob | BufferSource | FormData | URLSearchParams | USVString | ReadableStream, if method !'get|head'
+	mode:           'cors|no-cors|same-origin',
+	credentials:    'same-origin|omit|include' | FederatedCredential | PasswordCredential,
+	cache:          'default|no-store|reload|no-cache|force-cache|only-if-cached',
+	redirect:       'follow|error|manual',
+	referrer:       '' | 'about:client',
+	referrerPolicy: 'no-referrer|origin|same-origin|strict-origin|unsafe-url| origin-when-cross-origin | strict-origin-when-cross-origin | no-referrer-when-downgrade',
+	
+	integrity:      '',
 	keepalive:      false,
-	signal:         ,
+	signal:         AbortSignal,
 })
+
+Request implements Body {
+	...init
+	destination  RequestDestination
+	body         Body.body
+	bodyUsed     Body.bodyUsed
+	clone()
+}
+Response implements Body {
+	headers      Headers
+	ok           false (status >=200 & <=299)
+	redirected   false
+	status       0
+	statusText   ''
+	trailers     await Headers
+	type         'basic|cors|...'
+	url          ''
+	useFinalURL  false
+	body         Body.body
+	bodyUsed     Body.bodyUsed
+	clone()
+	error()
+	redirect()
+}
+mixin Body {
+	body          ReadableStream
+	bodyUsed      false
+	arrayBuffer()
+	blob()
+	formDate()
+	json()
+}
+Headers {
+	append(name, value)
+	delete(name)
+	entries()
+	forEach()
+	get(name)
+	has(name)
+	keys()
+	set(name, value)
+	values()
+}
+
+! = depricated
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pass query strings
 const url = new URL('some/url')
@@ -137,7 +183,7 @@ fetch('https://example.com/posts', {
 .catch(error => console.error('Error:', error));
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // request
-// instead of passing a path to fetch() call, you can pass an instance of Request().
+// instead of passing a path to fetch() call, you can pass an instance of Request()
 
 // basic:
 const request = new Request('https://www.mozilla.org/favicon.ico');
@@ -178,14 +224,14 @@ myHeaders = new Headers({
 });
 
 // querying and retrieving:
-myHeaders.has('Content-Type'); // true
-myHeaders.has('Set-Cookie'); // false
-myHeaders.set('Content-Type', 'text/html');
-myHeaders.append('X-Custom-Header', 'AnotherValue');
+myHeaders.has('Content-Type') // true
+myHeaders.has('Set-Cookie')   // false
+myHeaders.set('Content-Type', 'text/html')
+myHeaders.append('X-Custom-Header', 'AnotherValue')
  
-myHeaders.get('Content-Length'); // 11
-myHeaders.get('X-Custom-Header'); // ['ProcessThisImmediately', 'AnotherValue']
+myHeaders.get('Content-Length')  // 11
+myHeaders.get('X-Custom-Header') // ['ProcessThisImmediately', 'AnotherValue']
  
-myHeaders.delete('X-Custom-Header');
-myHeaders.get('X-Custom-Header'); // [ ]
+myHeaders.delete('X-Custom-Header')
+myHeaders.get('X-Custom-Header') // [ ]
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

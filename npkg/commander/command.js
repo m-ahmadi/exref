@@ -2,6 +2,7 @@ program
 	.command(name)
 		// name: string containing command name and arguments
 		// when name is '*' an un-matched command will be passed as the first arg, followed by the rest of ARGV remaining.
+	.alias(name)
 	.description(desc)
 		// desc: description string that appears on help
 	.action(function (cmdArg1 [, cmdArg2, ..., ] options) {})

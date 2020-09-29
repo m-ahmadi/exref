@@ -1,0 +1,4 @@
+terser src.js -o min.js
+terser src.js -o min.js -c -m --mangle-props
+
+type src.js | terser -o min.js				read stdin

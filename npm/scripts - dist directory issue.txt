@@ -1,0 +1,11 @@
+1. add the umd (or dist) directory to your .gitignore file
+2. add the umd directory to your files array in package.json
+3. use a build script to generate your build in the umd directory when you publish
+
+
+{
+	"scripts": {
+		"prepare": "node scripts/build.js"	
+	},
+	"files": ["dist"]
+}

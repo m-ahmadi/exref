@@ -1,11 +1,11 @@
-var Terser = require('terser');
+var Terser = require('terser'); // npm i terser
 
 var code = 'function add(first, second) { return first + second; }';
 var result = Terser.minify(code);
 result.error // runtime error, or `undefined` if no error
 result.code  // minified code
 
-// more than one JavaScript file at a time
+// more than one js file at a time
 var code = {
 	'file1.js': 'function add(first, second) { return first + second; }',
 	'file2.js': 'console.log(add(1 + 2, 3 + 4));'
@@ -20,6 +20,7 @@ Terser.minify(code, options={
 	},
 	compress: {
 		// compress options
+		defaults: true,
 	},
 	mangle: {
 		// mangle options

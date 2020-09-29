@@ -10,21 +10,20 @@ fs.copyFile('source.txt', 'destination.txt', COPYFILE_EXCL, callback);
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
-fs.copyFile(src, dest[, flags], callback)
-fs.copyFileSync(src, dest[, flags]) /*
-dest is overwritten if it already exists.
-if third arg is number, then it specifies flags.
+fs.copyFile(src=''|Buffer|URL, dest=..., ?mode=0 | ?callback=(err)=>)
+fs.copyFileSync(src=''|Buffer|URL, dest=..., ?mode=0)
+// dest is overwritten if it already exists.
+// if third arg is number, then it specifies flags.
 
-flags:
 
-COPYFILE_EXCL
-	copy operation fails if dest already exists.
-COPYFILE_FICLONE
+fs.constants.COPYFILE_EXCL
+	// copy operation fails if dest already exists.
+fs.constants.COPYFILE_FICLONE /*
 	copy operation attempts to create a copy-on-write reflink.
-	if the platform does not support copy-on-write, then a fallback copy mechanism is used.
-COPYFILE_FICLONE_FORCE
+	if the platform does not support copy-on-write, then a fallback copy mechanism is used. */
+fs.constants.COPYFILE_FICLONE_FORCE /*
 	copy operation will attempt to create a copy-on-write reflink.
-if the platform does not support copy-on-write, then the operation will fail. */
+	if the platform does not support copy-on-write, then the operation will fail. */
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // using streams
 fs.createReadStream('source.txt').pipe(
