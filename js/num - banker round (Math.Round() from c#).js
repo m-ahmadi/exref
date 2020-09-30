@@ -39,3 +39,15 @@ Big.RM = 2; // round mode: ROUND_HALF_EVEN
 +Big(1.5).round()         // 2
 +Big(1.21474).round(4, 2) // 1.2147
 +Big(1.21475).round(4, 2) // 1.2148
+
+function me(num=0, decimals=2) {
+	const str = ''+num;
+	if ( /\./.test(str) ) {
+		const frac = str.match(/\d+\.(\d+)/)[1];
+		const fracRound = (+frac * +('0.'+Array(frac.length-1).fill(0).join('')+'1') ).toFixed(decimals).slice(2);
+		const result = str.replace(/(\d+)\.(\d+)/,'$1.'+fracRound);
+		return parseFloat(result);
+	} else {
+		return num;
+	}
+}

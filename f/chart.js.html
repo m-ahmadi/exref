@@ -1,17 +1,20 @@
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.css" /> -->
 
 <div style="display: grid; grid-template-columns: auto auto auto;">
-	<div style="width:600; height:400"><canvas id="a" width="600" height="400"></canvas></div>
-	<div style="width:600; height:400"><canvas id="b" width="600" height="400"></canvas></div>
-	<div style="width:600; height:400"><canvas id="c" width="600" height="400"></canvas></div>
-	<div style="width:600; height:400"><canvas id="d" width="600" height="400"></canvas></div>
-	<div style="width:600; height:400"><canvas id="e" width="600" height="400"></canvas></div>
-	<div style="width:600; height:400"><canvas id="f" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c1" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c2" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c3" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c4" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c5" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c6" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c7" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c8" width="600" height="400"></canvas></div>
+	<div style="width:600; height:400"><canvas id="c9" width="600" height="400"></canvas></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
 <script>
-var chart1 = new Chart(a, {
+var chart1 = new Chart(c1, {
 	type: 'line',
 	data: {
 		labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -26,31 +29,31 @@ var chart1 = new Chart(a, {
 	}
 });
 
-var chart2 = new Chart(b, {
-  type: 'bar',
-  data: {
-    labels: ['red', 'blue', 'yellow', 'green', 'purple', 'orange'],
-    datasets: [
+var chart2 = new Chart(c2, {
+	type: 'bar',
+	data: {
+		labels: ['red', 'blue', 'yellow', 'green', 'purple', 'orange'],
+		datasets: [
 			{
 				label: '',
 				backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple', 'orange'],
 				data:            [1,2,1,2,3,2],
 			}
 		]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
-    },
+	},
+	options: {
+		scales: {
+			yAxes: [{
+				ticks: {
+					beginAtZero: true
+				}
+			}]
+		},
 		legend: { display: false }
-  }
+	}
 });
 
-var chart3 = new Chart(c, {
+var chart3 = new Chart(c3, {
 	type: 'scatter',
 	data: {
 		datasets: [
@@ -64,7 +67,7 @@ var chart3 = new Chart(c, {
 	}
 });
 
-var chart4 = new Chart(d, {
+var chart4 = new Chart(c4, {
 	type: 'bar',
 	data: {
 		datasets: [
@@ -88,7 +91,7 @@ var chart4 = new Chart(d, {
 	options: { legend: {position:'bottom'} }
 });
 
-var chart5 = new Chart(e, {
+var chart5 = new Chart(c5, {
 	type: 'scatter',
 	data: {
 		datasets: [
@@ -112,7 +115,7 @@ var chart5 = new Chart(e, {
 	options: { legend: {position: 'bottom'} }
 });
 
-var chart6 = new Chart(f, {
+var chart6 = new Chart(c6, {
 	type: 'pie',
 	data: {
 		labels: ['Chrome', 'Mozila', 'Safari', 'Opera'],
@@ -126,5 +129,107 @@ var chart6 = new Chart(f, {
 		]
 	},
 	options: { legend: {position: 'right'} }
+});
+
+var chart7 = new Chart(c7, {
+	type: 'bar',
+	data: {
+		labels: ['red', 'blue', 'yellow', 'green'],
+		datasets: [
+			{
+				label:           'foo',
+				backgroundColor: 'chartreuse',
+				data:            [-5,-2,3,1],
+			},
+			{
+				label:           'bar',
+				backgroundColor: 'darkorchid',
+				data:            [-7,-4,6,8],
+			}
+		]
+	},
+	options: {
+		legend: { position: 'left' }
+	}
+});
+
+var chart8 = new Chart(c8, {
+	type: 'horizontalBar',
+	data: {
+		labels: ['April', 'May', 'June', 'July'],
+		datasets: [
+			{
+				label:           'foo',
+				backgroundColor: 'lightskyblue',
+				data:            [-5,-2,3,1],
+			},
+			{
+				label:           'bar',
+				backgroundColor: 'lightgrey',
+				data:            [-7,-4,6,8],
+			}
+		]
+	},
+	options: {
+		legend: { position: 'right' }
+	}
+});
+
+var chart9 = new Chart(c9, {
+	type: 'bar',
+	data: {
+		labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+		datasets: [
+			{
+				data: [600, 620, 580, 520, 505, 555, 560],
+				type: 'line',
+				label: 'val',
+				fill: false,
+				borderColor: 'darkblue',
+				pointRadius: 4,
+				yAxisID: 'y1',
+			},
+			{
+				data: [10, 20, -40, -60, -15, 50, 5],
+				label: 'chg',
+				backgroundColor: [10, 20, -40, -60, -15, 50, 5].map(n => n > 0 ? 'green' : 'crimson'),
+				yAxisID: 'y2',
+			}
+		]
+	},
+	options: {
+		responsive: true,
+		legend: { position: 'left' },
+		scales: {
+			xAxes: [{
+				gridLines: {display: false},
+				scaleLabel: {
+					display: true,
+					labelString: 'time',
+					fontSize: 20
+				}
+			}],
+			yAxes: [{
+				position: 'right',
+				id: 'y1',
+				gridLines: {display: false},
+				scaleLabel: {
+					display: true,
+					labelString: 'val',
+					fontSize: 20
+				},
+				ticks: { callback: n => n.toLocaleString() }
+			}, {
+				position: 'left',
+				id: 'y2',
+				scaleLabel: {
+					display: true,
+					labelString: 'chg',
+					fontSize: 20
+				},
+				ticks: { callback: n => n.toLocaleString() }
+			}]
+		}
+	}
 });
 </script>

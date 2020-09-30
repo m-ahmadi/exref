@@ -1,0 +1,2 @@
+https://purge.jsdelivr.net/npm/pkg-name@latest
+https://purge.jsdelivr.net/npm/pkg-name/file.js

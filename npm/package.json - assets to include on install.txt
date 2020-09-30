@@ -2,6 +2,8 @@
 2. add the umd directory to your files array in package.json
 3. use a build script to generate your build in the umd directory when you publish
 
+.gitignore
+dist/*
 
 {
 	"scripts": {
