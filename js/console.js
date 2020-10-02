@@ -20,7 +20,7 @@ for (let i=0; i<4; i++) console[i%2?'warn' :'error'](i)
 
 console.warn()
 console.info()
-console.table()
+console.table({} | [], columns=['','',...])
 console.dir()
 console.trace() // outputs stack trace
 console.clear()

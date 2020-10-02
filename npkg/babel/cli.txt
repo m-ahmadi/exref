@@ -1,15 +1,16 @@
-babel main.js 					output to stdout
-babel main.js -o app.js				output to a file
-babel main.js -o app.js --watch			compile a file every time that you change it
-babel main.js -o app.js --source-maps		add a source map file
-babel main.js -o app.js --source-maps inline	inline source maps
-babel src -d dist				compile src directory, output to lib directory
-babel src -o app.js				compile src directory, output to one concatenated file
-babel src -d dist --ignore hold.js,test.js	ignore 2 files
-babel src -d dist --ignore @*.js		ignore all files starting with @
-babel src -d dist --ignore lib			ignore a folder
-babel src -d dist --copy-files			copy files that will not be compiled
-babel src -d dist --presets @babel/env		using a preset
+babel main.js 						output to stdout
+babel main.js -o app.js					output to a file
+babel main.js -o app.js --watch				compile a file every time that you change it
+babel main.js -o app.js --source-maps			add a source map file
+babel main.js -o app.js --source-maps inline		inline source maps
+babel src -d dist					compile src directory, output to lib directory
+babel src -o app.js					compile src directory, output to one concatenated file
+babel src -d dist --ignore hold.js,test.js		ignore 2 files
+babel src -d dist --ignore @*.js			ignore all files starting with @
+babel src -d dist --ignore lib				ignore a folder
+babel src -d dist --copy-files				copy files that will not be compiled
+babel src -d dist --presets @babel/env			using a preset
+babel file.js -o out.js --plugins babel-plugin-*	using a plugin
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 options:
 -f, --filename [filename]			filename to use when reading from stdin - this will be used in source-maps, errors etc

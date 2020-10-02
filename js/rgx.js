@@ -19,7 +19,7 @@ var replace = 'olaghe'
 var rgx = new RegExp(replace, 'g')
 'salam olaghe aziz'.replace(rgx, 'gave')
 
-// escape
+// escape. needed to escape: [ \ ^ $ . | ? * + ( )
 str.replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&') // other variations: add \/ or remove -
 
 // capturing groups (if group matches multiple times, only last match returns)
