@@ -1,0 +1,4 @@
+changes character encoding
+
+chcp 65001	utf8
+chcp 1256	arabic	

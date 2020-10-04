@@ -1,0 +1,4 @@
+open "Media Player Classic"
+View -> Options -> Player -> Formats -> Explorer Context Menu
+	uncheck Directories
+	uncheck File(s)

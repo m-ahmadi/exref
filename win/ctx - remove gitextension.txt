@@ -1,0 +1,3 @@
+cd "C:\Program Files (x86)\GitExtensions"
+
+regsvr32 /u GitExtensionsShellEx64.dll

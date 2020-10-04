@@ -28,6 +28,19 @@ odds  = evens.map(function (v) { return v + 1; })
 pairs = evens.map(function (v) { return { even: v, odd: v + 1 }; })
 nums  = evens.map(function (v, i) { return v + i; })
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// return shorthands in curlyless body
+
+// comma + parens
+var f = () => (3, 4);
+
+// logical and (ONLY if first operand truthy)
+var f = () => 3 && 4; // 4
+var f = () => 0 && 4; // 0
+
+// logical or  (ONLY if first operand falsy)
+var f = () => 0 || 7; // 7
+var f = () => 1 || 7; // 1
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // lexical this
 // arrow functions automatically bind this
 // (that's why they overwrite the this value in a jquery event handler)
