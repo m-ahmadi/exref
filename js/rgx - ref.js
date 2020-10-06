@@ -67,7 +67,7 @@ x+?       1 or more times of preceding item x (smallest possible match)
 capturing groups
 (x)       capturing group. recall matched substr from result array [1],[n] or use backrefs.
 (?:x)     non-capturing group. matched substr can't be recalled.
-(?<name>) named capturing groupt.
+(?<name>) named capturing group.
 
 capturing groups back references
 $n        nth paren match from left. n = 1,...,100
@@ -80,6 +80,8 @@ character set
 []        character set
 [a-d]     range of characters: [a-d] eq: [abcd]
 [^]       negate of character set
+^ - ] \   escape needed chars inside the set. all other chars are literal. (and don't need escaping)
+[-a] [a-] hyphen at start or end is literal too
 eg:
 	[abc]          (a|b|c)
 	[a-z]          (a|b|...|z)
@@ -88,6 +90,8 @@ eg:
 	[0-9]          \d
 	[^0-9]         \D
 	[a-zA-Z0-9_]   (\w|\d)
+	[.]            \.
+	[*]            \*
 
 assertion
 x(?=y)    x only if x is     followed by y (lookahead)

@@ -7,13 +7,7 @@
 	the entry point of the current application can be obtained by checking require.main.filename.
 */
 
-if ( require.main === module ) {
-	// file wasn't included
-} else {
-	// file is being included
-}
-
-if ( require.main === module ) {
+if (require.main === module) {
 	console.log('called directly');
 } else {
 	console.log('required as a module');

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <key name="Software">
 	<key name="ConEmu">
-		<key name=".Vanilla" modified="2020-10-03 03:04:57" build="200928">
+		<key name=".Vanilla" modified="2020-10-05 05:03:38" build="200928">
 			<value name="Language" type="string" data="en"/>
 			<value name="StartType" type="hex" data="02"/>
 			<value name="CmdLine" type="string" data=""/>
@@ -136,7 +136,7 @@
 			<value name="AutoSaveSizePos" type="hex" data="01"/>
 			<value name="Cascaded" type="hex" data="01"/>
 			<value name="IntegralSize" type="hex" data="00"/>
-			<value name="WindowMode" type="dword" data="0000051f"/>
+			<value name="WindowMode" type="dword" data="00000520"/>
 			<value name="ConWnd X" type="long" data="958"/>
 			<value name="ConWnd Y" type="long" data="516"/>
 			<value name="LastMonitor" type="string" data="0,0,1920,1040"/>
@@ -339,7 +339,7 @@
 			<value name="ShowFarWindows" type="hex" data="01"/>
 			<value name="TryToCenter" type="hex" data="01"/>
 			<value name="CenterConsolePad" type="ulong" data="4"/>
-			<value name="ShowScrollbar" type="hex" data="02"/>
+			<value name="ShowScrollbar" type="hex" data="01"/>
 			<value name="ScrollBarAppearDelay" type="ulong" data="100"/>
 			<value name="ScrollBarDisappearDelay" type="ulong" data="1000"/>
 			<value name="IconID" type="ulong" data="1"/>

@@ -9,4 +9,10 @@ program.option('-f, --foo', 'description')                          // define op
 program.command().description().action()                            // add command
 program.parse(process.argv)                                         // parse argv, settings, options and invoking commands when defined
 program.opts()                                                      // object containing passed options
-if (!program.args.length) program.help()                            // show help if no arg (didn't work)
+
+// show help if no arg
+if (!program.args.length)      program.help()                       
+if (process.argv.length === 2) program.help()
+
+// hypenless args
+program.args

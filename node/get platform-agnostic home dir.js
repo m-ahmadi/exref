@@ -1,20 +1,25 @@
+require('os').homedir() // best
+
+process.env[process.platform==='win32'?'USERPROFILE':'HOME'] // process.env.HOME || process.env.USERPROFILE;
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// old
 process.env
 process.platform 'aix' | 'darwin' | 'freebsd' | 'linux' | 'openbsd' | 'sunos' | 'win32'
-'darwin' // Mac
-'win32'  // Windows (even on 64 bit)
+'darwin' // mac
+'win32'  // windows (even on 64 bit)
 
 
-process.env.APPDATA ||
-(process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local')
+process.env.APPDATA || (process.platform == 'darwin' ? process.env.HOME + 'Library/Preferences' : '/var/local')
 
 /*
 	The expected result is:
-	OS X - '/Users/user/Library/Preferences'
-	Windows 8 - 'C:\Users\User\AppData\Roaming'
+	OS X       - '/Users/user/Library/Preferences'
+	Windows 8  - 'C:\Users\User\AppData\Roaming'
 	Windows XP - 'C:\Documents and Settings\User\Application Data'
-	Linux - '/var/local'
+	Linux      - '/var/local'
 
-	on linux box /var/local needs sudo permission. Shouldn't this be somewhere that doesn't require sudo?
+	on linux box /var/local needs sudo permission. shouldn't this be somewhere that doesn't require sudo?
 			
 	It is really dependent on the type of app you are making.
 	If you are running a shared config between all users,
@@ -34,3 +39,4 @@ process.env.APPDATA ||
 	C:\Users\JohnD\AppData\Roaming                   - Windows Vista and Up
 	/Users/JohnD/Library/Preferences                 - MacOS
 */
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
