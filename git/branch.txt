@@ -13,8 +13,8 @@ git branch -D dev		force delete branch. shortcut for: --delete --force
 git pull origin dev		pull from branch
 git push -u origin dev		push new branch to remote
 
-git push origin --delete <branch_name>			delete a remote branch using
-git branch -d <branch_name>				delete the local branch use
+git push -d origin <branch_name>			delete remote branch
+git branch -d <branch_name>				delete local branch
 
 git branch --set-upstream-to=origin/master master	set upstream
 

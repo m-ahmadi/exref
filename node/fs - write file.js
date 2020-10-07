@@ -36,9 +36,12 @@ fs.writeFileSync(file, data[, options])
 // if options is a string, then it specifies the encoding
 
 fs.writeFileSync('message.txt', 'Hello sync', 'utf8');
+fs.writeFileSync('message.txt', 'Hello asky', 'ascii');
 fs.writeFileSync('message.txt', 'Hello sync'); // defaults to 'utf8'
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // utf8 bom
 // prepend \ufeff to the string
 var str = 'hello bom';
 fs.writeFileSync('utf8bom.txt', '\ufeff'+str, 'utf8');
+
+

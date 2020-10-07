@@ -1,28 +1,29 @@
-// a.js
-module.exports = {
-	foo: function () {},
-	bar: function () {}
-};
-var zemba = function () {};
+module.exports // default export
 
-
-// b.js
-var foerign = require('./a.js');
-debugger;
-/*
-	foerign {
-		foo: function () {},
-		bar: function () {}
-	}
-*/
-tools.zemba; // undefined
+exports.foo    // name exports
+exports.bar
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// exports
-(function some() {
-	module.exports = 'some other';
-})()
+// default export
 
-module.exports = 'some value';
+// foo.js
+module.exports = {
+	foo: 1,
+	bar: 2
+};
+
+// bar.js
+var foo = require('./a.js');
+foo // { foo: 1, bar: 2 }
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// named exports
+
+// foo.js
+exports.name = 'hello';
+exports.job = 'world';
+
+// bar.js
+var foo = require('./a.js');
+foo // { name: 'hello', job: 'world' }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // es6
 /*

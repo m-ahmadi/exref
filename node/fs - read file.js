@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 //----------------------------------------------------------------------------------------------------------
 //	async
@@ -21,16 +21,16 @@ callback  function
 	err     error
 	data    string | buffer
 */
-fs.readFile("file.txt", function (err, data) {
+fs.readFile('file.txt', function (err, data) {
 	if (err) throw err;
 	console.log(data);
 });
 
-fs.readFile("file.txt", "utf8", callback);
+fs.readFile('file.txt', 'utf8', callback);
 
-fs.readFile("file.txt", { encoding: "utf8", flag: "r" }, callback);
+fs.readFile('file.txt', { encoding: 'utf8', flag: 'r' }, callback);
 
-let content = await fs.readFile("file.txt", "utf8");
+let content = await fs.readFile('file.txt', 'utf8');
 //----------------------------------------------------------------------------------------------------------
 //	sync
 let content = fs.readFileSync(file[, options])
@@ -38,10 +38,10 @@ let content = fs.readFileSync(file[, options])
 	Synchronous version of fs.readFile. Returns the contents of the file.
 	If the encoding option is specified then this function returns a string, otherwise it returns a buffer.
 */
-let content = fs.readFileSync("file.txt", {
-	encoding: "utf-8", // Default: null
-	flag: "r"          // Default: "r"
+let content = fs.readFileSync('file.txt', {
+	encoding: 'utf-8', // Default: null
+	flag: 'r'          // Default: 'r'
 });
 
 // If options is a string, then it specifies the encoding:
-let content = fs.readFileSync("temp.txt", "utf8");
+let content = fs.readFileSync('temp.txt', 'utf8');
