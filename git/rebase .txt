@@ -1,0 +1,1 @@
+git rebase -i HEAD~4			squash 4 commits to 1 (opens editor)

@@ -10,8 +10,23 @@ the lifecycle of the status of your files:
 	unmodified
 	modified
 	staged
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 repo naming convention
 
 there's not really a standard, but lowercase-names-seprated-with-hyphens is the prefered one.
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+3 commands with similar names:
+
+git revert
+	making a new commit that reverts the changes made by other commits
+
+git reset
+	updating your branch, moving the tip in order to add or remove commits from the branch
+	changes the commit history
+	also can restore the index (overlapping with git restore)
+
+git restore
+	restoring files in the working tree from either the index or another commit
+	does not update your branch.
+	also can restore files in the index from another commit
+-------------------------------------------------------------------------------

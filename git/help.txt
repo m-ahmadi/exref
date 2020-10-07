@@ -1,0 +1,4 @@
+git push -h		stdout help
+git push --help		open manual
+
+git help push		open manual

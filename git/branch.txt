@@ -3,10 +3,13 @@ git status			show the branch you're on
 git branch --all		all the branches (including remote ones)
 
 git branch dev			create new branch
+git switch -c dev		... v2.23+
 git checkout dev		switch to another branch
-git checkout -b dev		equal to prev 2 lines (create & switch)
-git checkout --orphan tmp	create new orphan branch (wth is orphan?)
-git branch -d dev		delete branch (alias: -D)
+git switch dev			... v2.23+
+git checkout -b dev		create & siwtch. same as "git branch dev && git checkout dev"
+git checkout --orphan tmp	create new branch in a `git init`-like state on a non-new repository
+git branch -d dev		delete branch
+git branch -D dev		force delete branch. shortcut for: --delete --force
 git pull origin dev		pull from branch
 git push -u origin dev		push new branch to remote
 
@@ -14,3 +17,30 @@ git push origin --delete <branch_name>			delete a remote branch using
 git branch -d <branch_name>				delete the local branch use
 
 git branch --set-upstream-to=origin/master master	set upstream
+
+-------------------------------------------------------------------------------
+basic branching
+
+git branch cooler
+git checkout cooler			moves current commit history to new branch (from master or already selected branch?)
+edit some files...			go wild in another direction...
+git add .
+git commit -m "cooler way"
+git push origin cooler
+-------------------------------------------------------------------------------
+move master to another branch and start new master
+
+git branch 1.x
+git checkout 1.x
+git push origin 1.x
+github-repo -> Settings -> Branches -> Default branch -> change default branch to 1.x (or any non-master)
+git push origin :master		(deletes remote master)
+
+git checkout 1.x		(if not already on non-master)
+git branch master -d
+git checkout --orphan master
+git commit -m "init"
+git push origin master
+
+github-repo -> ... change default branch back to master
+-------------------------------------------------------------------------------

@@ -1,2 +1,5 @@
 git reset .
+
+git restore .			git v2.23+
+
 git rm -r --cached .

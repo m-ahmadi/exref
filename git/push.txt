@@ -3,3 +3,6 @@ git push origin master			normal push
 git push origin <branch_name>		push branch
 git push -f				force push
 git push -u -f origin master		force push and set upstream
+
+git push origin :master			shorthand for: git push <repository> <refspec> (pushing empty <refspec> deletes remote branch)
+git push origin --force-with-lease	do not overwrite remote branch if remote branch has more commits (is ahead of local branch)
