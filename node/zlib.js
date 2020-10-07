@@ -1,8 +1,8 @@
 const zlib = require('zlib'); // compression using gzip, deflate/inflate, and brotli.
 
 // compress data using gzip
-zlib.gzip(buffer[, options], callback)
-zlib.gzipSync(buffer[, options])
+zlib.gzip(buffer, ?options, callback)
+zlib.gzipSync(buffer, ?options)
 
 zlib.gzipSync('a')
 zlib.gzipSync(new Uint8Array([97]))
@@ -61,6 +61,28 @@ var options = {
 	info: false,
 		// if true, returns an object with buffer and engine.
 };
+
+// stream creators
+zlib.createBrotliCompress(?options)
+zlib.createBrotliDecompress(?options)
+zlib.createDeflate(?options)
+zlib.createDeflateRaw(?options)
+zlib.createGunzip(?options)
+zlib.createGzip(?options)
+zlib.createInflate(?options)
+zlib.createInflateRaw(?options)
+zlib.createUnzip(?options)
+
+// convenience methods
+zlib.brotliCompress(buffer, ?options, callback)				zlib.brotliCompressSync(buffer, ?options)
+zlib.brotliDecompress(buffer, ?options, callback)			zlib.brotliDecompressSync(buffer, ?options)
+zlib.deflate(buffer, ?options, callback)							zlib.deflateSync(buffer, ?options)
+zlib.deflateRaw(buffer, ?options, callback)						zlib.deflateRawSync(buffer, ?options)
+zlib.gunzip(buffer, ?options, callback)								zlib.gunzipSync(buffer, ?options)
+zlib.gzip(buffer, ?options, callback)									zlib.gzipSync(buffer, ?options)
+zlib.inflate(buffer, ?options, callback)							zlib.inflateSync(buffer, ?options)
+zlib.inflateRaw(buffer, ?options, callback)						zlib.inflateRawSync(buffer, ?options)
+zlib.unzip(buffer, ?options, callback)								zlib.unzipSync(buffer, ?options)
 
 // zlib.constants
 zlib.DEFLATE:    1
