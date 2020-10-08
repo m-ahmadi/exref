@@ -1,10 +1,14 @@
 var pako = require('pako'); // npm install pako --save
 
-pako.gzip(data [, options]): Uint8Array | Array | String
-// data:  Uint8Array | Array | String
+pako.gzip(data=Uint8Array|Array|String, ?options={...zlibOptions, to: 'string'}): Uint8Array|Array|String
+// https://zlib.net/manual.html#Advanced
 
-pako.gzip("a")  // Uint8Array(21) [31, 139, 8, 0, 0, 0, 0, 0, 0, 3, 75, 4, 0, 67, 190, 183, 232, 1, 0, 0, 0]
+pako.gzip('a')  // Uint8Array(21) [31, 139, 8, 0, 0, 0, 0, 0, 0, 3, 75, 4, 0, 67, 190, 183, 232, 1, 0, 0, 0]
 pako.gzip([97]) // Uint8Array(21) [31, 139, 8, 0, 0, 0, 0, 0, 0, 3, 75, 4, 0, 67, 190, 183, 232, 1, 0, 0, 0]
+
+var zip   = pako.gzip('hello');
+var unzip = pako.ungzip(zip, {to:'string'});
+unzip // 'hello'
 
 // deflate
 var input = new Uint8Array(); // fill input data
@@ -31,3 +35,4 @@ var data = pako.inflate(binData);                      // pako magic
 var strData = String.fromCharCode.apply(null, new Uint16Array(data)); // convert gunzipped byteArray back to ascii string:
 
 console.log(strData);
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

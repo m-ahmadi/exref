@@ -36,6 +36,8 @@ gunzip
 		// fs.writeFileSync('input.txt', buffs);
 	});
 
+read.pipe(gunzip);
+// or
 stream.pipeline(read, gunzip, (err, val) => {
 	if (!err) console.error('done');
 });

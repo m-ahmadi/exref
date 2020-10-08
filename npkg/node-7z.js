@@ -7,3 +7,8 @@ stream.on('data', data => );
 stream.on('progress', progress => );
 stream.on('end', () => ); // end of the operation
 stream.on('error', err => handleError(err));  // must be handled
+
+// compress
+const compress = Seven.add('archive.7z', '*.exe', {
+	method: ['0=BCJ', '1=LZMA:d=21']
+})

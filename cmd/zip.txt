@@ -1,2 +1,0 @@
-7z x file.zip			extract here
-7z x -y file.zip		yes to all. for when contents already exist

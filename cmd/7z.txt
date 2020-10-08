@@ -1,0 +1,6 @@
+7z x file.zip			extract here
+7z x -y file.zip		... yes to all (for when contents already exist)
+
+7z a out.7z			compress ./ dir to out.7z
+7z a out.7z *.txt		compress all .txt files to out.7z
+7z a out.7z file.txt -mx9	compression level -mx1 (fastest) -mx9 (ultra)

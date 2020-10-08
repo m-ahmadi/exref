@@ -1,6 +1,20 @@
 // basic
 new Promise((resolve, reject) => resolve(10)).then(console.log)
 new Promise((resolve, reject) => reject(10)).then(console.log).catch(console.log)
+
+// code after resolve still executes if not returned
+(async () => {
+	const x = await new Promise(resolve => {
+		if (2+2===4) {
+			resolve(4);
+			//return;
+		}
+		console.log('dude'); // still runs
+		resolve(5);
+	})
+	
+	alert(x); // always 4
+})()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // verbose example
 const myPromise = new Promise(executorFunc);

@@ -8,6 +8,10 @@ zlib.gzipSync('a')
 zlib.gzipSync(new Uint8Array([97]))
 
 zlib.gzip('a', (err, data) => console.log(data))
+
+
+fs.writeFileSync('out.gz', zlib.gzipSync(fs.readFileSync('in.txt')))   // zip
+fs.writeFileSync('out.txt', zlib.gunzipSync(fs.readFileSync('in.gz'))) // unzip
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // compress/decompress data in a single step:
 const input = '.................................';
@@ -74,14 +78,17 @@ zlib.createInflateRaw(?options)
 zlib.createUnzip(?options)
 
 // convenience methods
+zlib.gzip(buffer, ?options, callback)									zlib.gzipSync(buffer, ?options)
+zlib.gunzip(buffer, ?options, callback)								zlib.gunzipSync(buffer, ?options)
+
 zlib.brotliCompress(buffer, ?options, callback)				zlib.brotliCompressSync(buffer, ?options)
 zlib.brotliDecompress(buffer, ?options, callback)			zlib.brotliDecompressSync(buffer, ?options)
+
 zlib.deflate(buffer, ?options, callback)							zlib.deflateSync(buffer, ?options)
 zlib.deflateRaw(buffer, ?options, callback)						zlib.deflateRawSync(buffer, ?options)
-zlib.gunzip(buffer, ?options, callback)								zlib.gunzipSync(buffer, ?options)
-zlib.gzip(buffer, ?options, callback)									zlib.gzipSync(buffer, ?options)
 zlib.inflate(buffer, ?options, callback)							zlib.inflateSync(buffer, ?options)
 zlib.inflateRaw(buffer, ?options, callback)						zlib.inflateRawSync(buffer, ?options)
+
 zlib.unzip(buffer, ?options, callback)								zlib.unzipSync(buffer, ?options)
 
 // zlib.constants
