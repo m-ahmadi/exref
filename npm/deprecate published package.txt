@@ -4,4 +4,4 @@ npm deprecate <pkg>[@<version>] <message>
 npm deprecate my-thing@"< 0.2.3" "critical bug fixed in v0.2.3"
 npm deprecate my-pkg@"<=1.00" "WARNING: This project has been renamed to something else."
 
-npm deprecate %ProjectName%@"<=put-latest-version-here" "WARNING: This project has been renamed to %NewProjectName%. Install using %NewProjectName% instead."
+npm deprecate <pkg>@"<=put-latest-version-here" "WARNING: This project has been renamed to %NewProjectName%. Install using %NewProjectName% instead."
