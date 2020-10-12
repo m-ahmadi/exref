@@ -1,15 +1,28 @@
+map = new Map([ [], [], ... ])
+map.size
+map.clear()
+map.delete(key)
+map.entries()
+map.forEach((value, key, map)=>, thisArg)
+map.get(key)
+map.has(key)
+map.keys()
+map.set(key, value)
+map.values()
+
+
+var map = new Map([ ['a', 'hello'], ['b', 'dear'], ['c', 'world'] ])
+
 var map = new Map([
 	['foo', 3],
 	['bar', {}],
 	['baz', undefined]
 ]);
-
 map.forEach((value, key, map) => {
 	// key   foo  bar baz
 	// value 3    {}  undefined
 });
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var keyString = 'a string';
 var keyObj = {};
 var keyFunc = () => {};
@@ -29,4 +42,3 @@ map.get(keyFunc);      // 'value associated with keyFunc'
 map.get('a string');   // 'value associated with 'a string''      because keyString === 'a string'
 map.get({});           // undefined, because keyObj !== {}
 map.get(function() {}) // undefined, because keyFunc !== function () {}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

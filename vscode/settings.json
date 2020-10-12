@@ -4,6 +4,7 @@
 	"editor.fontSize": 15,
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingQuotes": "never",
+	"editor.mouseWheelZoom": true,
 	
 	// tab size and spaces
 	"editor.tabSize": 2,

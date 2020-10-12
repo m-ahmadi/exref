@@ -6,6 +6,9 @@
 // replace comma with dot
 (/(\d+),(\d{1,})/g, '$1.$2')
 
+// separate last 3 digits with comma
+(/(\d+)(\d{3})/, '$1,$2')
+
 // fa date string from 1380 to 1419 (without mil & cent)
 (/^[0189]{1}\d{1}\/(1[0-2]|[1-9])\/([1-9]|[1-2]\d|3[01])$/)
 

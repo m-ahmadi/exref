@@ -1,0 +1,1 @@
+ctrl+p -> user settings -> font size -> change & change back
