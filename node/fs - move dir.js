@@ -22,7 +22,7 @@ async function moveDir(oldPath, newPath) {
 		await mkdir(newPath);
 	}
 	const files = await readdir(oldPath);
-	for (file of files) {
+	for (const file of files) {
 		const ferom = join(oldPath, file);
 		const to = join(newPath, file);
 	//await rename(ferom, to); // (not capable of moving across drives/partitions)
@@ -46,7 +46,7 @@ async function moveDir(oldPath, newPath) {
 		await mkdir(newPath);
 	}
 	const files = await readdir(oldPath);
-	for (file of files) {
+	for (const file of files) {
 		const ferom = join(oldPath, file);
 		const to = join(newPath, file);
 		const stats = await stat(ferom);
@@ -60,5 +60,26 @@ async function moveDir(oldPath, newPath) {
 		}
 	}
 	await rmdir(oldPath);
+}
+
+// sync
+function moveDirSync(src, dest) {
+	if ( !fs.existsSync(dest) ) fs.mkdirSync(dest);
+	if ( !fs.statSync(dest).isDirectory() ) {
+		fs.unlinkSync(dest);
+		fs.mkdirSync(dest);
+	}
+	for (const file of fs.readdirSync(src)) {
+		const ferom = path.join(src, file);
+		const to = path.join(dest, file);
+		if ( fs.statSync(ferom).isDirectory() ) {
+			fs.mkdirSync(to);
+			if (fs.readdirSync(ferom).length) moveDirSync(ferom, to);
+		} else {
+			fs.copyFileSync(ferom, to);
+			fs.unlinkSync(ferom);
+		}
+	}
+	fs.rmdirSync(src);
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
