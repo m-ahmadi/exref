@@ -20,3 +20,11 @@ git commit --amend -m "message"		--ammend with message argument. (doesn't open e
 50/72 commit message format
 first line 50 chars
 rest 72 chars
+------------------------------------------------------------------------------------------------------------------------
+min chars to identify commit hash
+
+github needs at least 7
+git default is 7
+
+git rev-parse --short=4 <commit_hash>		ask for shortest and yet unique sha1
+------------------------------------------------------------------------------------------------------------------------

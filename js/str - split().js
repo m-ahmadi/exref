@@ -1,4 +1,4 @@
-str.split([separator[, limit]])
+str.split(separator=''|/./, ?limit=+0)
 
 var str = 'The quick brown fox jumps over the lazy dog.';
 

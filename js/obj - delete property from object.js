@@ -6,3 +6,5 @@ object[expression] = undefined
 delete object.name
 delete object[expression]
 
+// delete undefined keys
+Object.keys(opts).forEach(key => opts[key] === undefined && delete opts[key]);

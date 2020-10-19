@@ -25,14 +25,32 @@ Promise.all       (iterable) => [1, 2]               )
 Promise.allSettled(iterable) => [{status: 'fulfilled', value: 1}, {status: 'fulfilled', value: 2}] )
 
 
-// basic
-var promise1 = Promise.resolve(3)
-var promise2 = 42
-var promise3 = new Promise((res, rej) => {
-  setTimeout(res, 1000, 'foo')
-})
+// all
+var p1 = Promise.resolve(3);
+var p2 = 42;
+var p3 = new Promise(res => setTimeout(res, 1000, 'foo'));
+Promise.all([p1, p2, p3]).then(console.log).catch(console.log)                    // after 1 second: [3, 42, 'foo']
+Promise.all([p1, p2, p3, Promise.reject(1)]).then(console.log).catch(console.log) // 1
 
-Promise.all([promise1, promise2, promise3]).then(function(values) {
-  console.log(values)
-})
-// after 1 second: [3, 42, 'foo']
+// any
+var p1 = Promise.reject(0);
+var p2 = new Promise(res => setTimeout(res, 100, 'quick'));
+var p3 = new Promise(res => setTimeout(res, 500, 'slow'));
+Promise.any([p1, p2, p3]).then(console.log);                    // quick
+Promise.any([p1, p1, p1]).then(console.log).catch(console.log); // AggregateError: All promises were rejected
+
+// race
+var p1 = new Promise(res => setTimeout(res, 500, 'one'));
+var p2 = new Promise(res => setTimeout(res, 100, 'two'));
+Promise.race([p1, p2]).then(console.log);                                                  // 'two'
+Promise.race([Promise.reject(1), Promise.reject(2)]).then(console.log).catch(console.log); // 1
+
+// allSettled
+var p1 = Promise.resolve(3);
+var p2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+Promise.allSettled([p1, p2]).then(console.log); /*
+[
+	{status: 'fulfilled', value: 3}
+	{status: 'rejected', reason: 'foo'}
+]
+*/
