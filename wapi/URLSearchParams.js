@@ -1,16 +1,21 @@
-new URLSearchParams(init)
-.append()
-.delete()
-.entries()
-.forEach()
-.get()
-.getAll()
-.has()
-.keys()
-.set()
-.sort()
-.toString()
-.values()
+new URLSearchParams(?init='' | {} | [])
+
+URLSearchParams {
+	append(name, value)
+	delete(name)
+	entries()
+	forEach(callback)
+	get(name)
+	getAll(name)
+	has(name)
+	keys()
+	set(name, value)
+	sort()
+	toString()
+	values()
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// examples
 
 var p = new URLSearchParams({a:'x', b:'y'})
 p.toString() // 'a=x&b=y'
@@ -25,9 +30,6 @@ p.get('foo')                  // null
 p.append('topic', 'webdev')   // 'name=woody&topic=api&topic=webdev'
 p.set('topic', 'More webdev') // 'name=woody&topic=More+webdev'
 p.delete('topic')             // 'name=woody'
-
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// notes
 
 // will remove leading ? if present
 new URLSearchParams('?query=value') +'' // 'query=value'
@@ -46,4 +48,3 @@ var url = new URL('http://example.com/search?query=%40')
 var p = new URLSearchParams(url.search)
 p.has('query') // true
 p.get('query') // '@'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

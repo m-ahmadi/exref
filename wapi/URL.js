@@ -1,22 +1,27 @@
-window.URL | webkitURL
-new URL("http://google.com")
-
-// returns a URL object (just like window.location object)
-{
-	hash: "",
-	host: "google.com",
-	hostname: "google.com",
-	href: "http://google.com/",
-	origin: "http://google.com",
-	password: "",
-	pathname: "/",
-	port: "",
-	protocol: "http:",
-	// etc...
+new URL(url='', ?base='')
+URL {
+	hash:         ''
+	host:         ''
+	hostname:     ''
+	href:         ''
+	origin:       ''
+	password:     ''
+	pathname:     ''
+	port:         ''
+	protocol:     ''
+	search:       ''
+	searchParams: URLSearchParams
+	username:     ''
+	
+	toString()
+	toJSON()
 }
 
-URL.createObjectURL()
-URL.revokeObjectURL()
+URL.createObjectURL(object=File|Blob|MediaSource): ''
+URL.revokeObjectURL('')
+
+// example
+new URL('http://google.com')
 
 // base urls
 new URL('bar',  'http://foo.com/')     // http://foo.com/bar
