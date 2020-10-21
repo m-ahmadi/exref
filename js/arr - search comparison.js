@@ -4,21 +4,9 @@ arr.some       ( callback(element[, index[, array]])[, thisArg] ) // return: tru
 arr.indexOf    ( searchElement[, fromIndex]                     ) // return: first index of the element in array | -1 if not found
 arr.lastIndexOf( searchElement[, fromIndex]                     ) // return: last  index of the element in array | -1 if not found
 arr.findIndex  ( callback(element[, index[, array]])[, thisArg] ) // return: index of first element in array that passes the test | -1
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//	search if an object is in array:
-var arr = [ {a: 'a'}, {b: 'b'} ];
-arr.some(function (el) {
-	return el.name === 'WhatImLookingFor';
-});
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-/*	performance
 
-	first-items											last-items
-	indexOf   (fastest) 						custom    (fastest) 
-	custom    (80% slower)					indexOf   (45% slower)
-	$.inArray (99% slower)					$.inArray (68% slower)
-	
-	indexOf: IE9+, Firefox 1.5+
-*/
+// has
+[ {n: 4}, {n: 7}, {n: 3} ].some(i => i.n > 5) // true
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// substr match
+['a.htm', 'b.htm', 'c.asad'].filter(i => /.htm/.test(i)) // ['a.htm', 'b.htm']

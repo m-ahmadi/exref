@@ -12,7 +12,7 @@ async functions always return a promise:
 
 async function returns a pending promise to caller of function when it reaches the first await.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // basic
 async function f() {
 	var some = await $.get('http://site.com/get');
@@ -53,7 +53,7 @@ async function f() {
 	var inced = await fetch('/number').then(d => d += 1)
 	console.log(inced);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // rejected promise is thrown
 async function f() {
   try {
@@ -74,7 +74,7 @@ async function f() {
 	return await Promise.reject(30).catch(console.log);
 }
 f()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // automatic conversion to promise
 async function f() {
 	return 1;
@@ -87,14 +87,14 @@ async function f() {
   return y; // 20
 }
 f().then(console.log)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // different places
 var value = await foo() || await bar()
 var value = doSomething(await foo(), await bar())
 if ( await foo() )
 if ( !await bar() )
 var value = await a() ? await b() : !await c();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // a shortcut syntax
 async function f() { return 1 }
 f().then(alert)
@@ -104,7 +104,7 @@ f().then( r => alert(r) )
 f().then(console.log) 
 // same as:
 f().then( r => console.log(r) )
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // nested awaits
 (async () => 
 	await (await fetch('https://jsonplaceholder.typicode.com/users/1')).text()
@@ -117,7 +117,7 @@ f().then( r => console.log(r) )
 	const text = await res.text();
 	return text;
 })().then(console.log)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // example:
 function asyncTask(i) {
 	return new Promise(resolve => resolve(i + 5));
@@ -132,7 +132,7 @@ async function runAsyncTasks(i) {
 
 runAsyncTasks().then(console.log)  // {res1: 5,  res2: 10, res3: 15}
 runAsyncTasks(5).then(console.log) // {res1: 10, res2: 15, res3: 20}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // async vs promise
 const getInfo = () => axios.get('/users')
 	.then(users => {
