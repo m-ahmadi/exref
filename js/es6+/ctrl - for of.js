@@ -1,9 +1,12 @@
+for (variable of iterable) {
+	statement
+}
+
 var iterable = [10, 20, 30];
 // for of can iterate over iterable objects. (Array, Map, Set, String, TypedArray, arguments object, ...)
-
 for (let value of iterable) {
-  value += 1;
-  console.log(value);
+	value += 1;
+	console.log(value);
 }
 // 11 21 31
 
@@ -13,18 +16,20 @@ for (const value of arr) {
 }
 // 1, 'string', false
 
-for await (value of iterable) {
-  console.log(value);
-}
-
 // continue break same as for
 for (var i of [1,2,3,4,5,6]) {
 	if (i < 2) continue;
 	if (i > 4) break;
 	console.log(i); // 2 3 4
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+// accessing index (slower than forEach)
+for (const [i, v] of ['a', 'b', 'c'].entries()) {
+	console.log(i, v)
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // for of vs for in
+
 var list = [4, 5, 6];
 list.foo = 'hello';
 
@@ -38,9 +43,9 @@ for (const i in list) {
 	console.log(i);   // 0, 1, 2
 }
 for (const i in list) {
-  if (list.hasOwnProperty(i)) {
+	if (list.hasOwnProperty(i)) {
 		console.log(i); // 0, 1, 2, 'foo'
-  }
+	}
 }
 
 // another example:
@@ -54,8 +59,4 @@ for (const pet in pets) {
 for (const pet of pets) {
 	console.log(pet); // 'Cat', 'Dog', 'Hamster'
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// accessing an index in for of. (slower than forEach)
-for (const [i, v] of ['a', 'b', 'c'].entries()) {
-	console.log(i, v)
-}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -53,12 +53,16 @@ http://jsonplaceholder.typicode.com/posts/5
 */
 
 // for await of (es8)
-(async function () {
-	for (const i of await asinkFn()) console.log(i);
-})();
+for await (const i of asinkFn()) console.log(i);
+async function asinkFn() {
+	return await (await fetch('https://jsonplaceholder.typicode.com/todos/')).json();
+}
 
-async function asinkFn(n='') {
-	return await (await fetch('https://jsonplaceholder.typicode.com/todos/'+n)).json();
+var urls = [...Array(10).keys()].map(i=> 'https://jsonplaceholder.typicode.com/todos/'+(i+1));
+for (let i of urls) {
+	let r = await fetch(i);
+	let t = await r.text();
+	console.log(t);
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // forEach()

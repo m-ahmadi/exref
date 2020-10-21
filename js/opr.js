@@ -9,10 +9,10 @@
 new typeof in of instanceof delete async await void yield yield*
 
 function function* class var let const import export from as
-if else for break continue while do switch case try catch throw throws return debugger with
+if else for break continue while do switch case try catch finally throw throws return debugger with
 true false NaN Infinity null [number string int short char byte float double long boolean]
 super static this prototype [enum abstract interface extends implements private public protected]
-[package native transient volatile final finally goto synchronized default]
+[package native transient volatile final goto synchronized default]
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // arithmetic
 +
