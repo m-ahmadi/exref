@@ -1,0 +1,16 @@
+npm ls <@scope>/<pkg>
+
+--depth <int>
+-g --global
+-j --json			output format
+-l --long			...
+-p --parseable			...
+--prod | --only "prod"		only dependencies
+--dev  | --only "dev"		only devDependencies
+--link				only linked ones
+--unicode			use unicode chars. default: true
+-------------------------------------------------------------------------------
+npm ls					list locally installed packages (alias: list)
+npm ls --depth=0			don't show any dependencies
+npm ls --depth 0 -g			list globally installed packages
+npm ls --depth 0 -g --long 		provides the module descriptions and github links (--l, --long)

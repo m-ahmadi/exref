@@ -1,21 +1,32 @@
 // basic
 new Promise((resolve, reject) => resolve(10)).then(console.log)
 new Promise((resolve, reject) => reject(10)).then(console.log).catch(console.log)
-
+//===============================================
 // code after resolve still executes if not returned
-(async () => {
-	const x = await new Promise(resolve => {
-		if (2+2===4) {
-			resolve(4);
-			//return;
-		}
-		console.log('dude'); // still runs
-		resolve(5);
-	})
-	
-	alert(x); // always 4
-})()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+var x = await new Promise(resolve => {
+	if (2+2===4) {
+		resolve(4);
+		//return;
+	}
+	console.log('dude'); // still runs
+	resolve(5);
+})
+x // always 4
+//===============================================
+// pass callbacks around
+function finalWork(resolve) {
+	resolve(357);
+}
+function doSomething(resolve) {
+	setTimeout(finalWork, 2000, resolve);
+}
+async function longTask() {
+	return new Promise((resolve, reject) => {
+		doSomething(resolve);
+	});
+}
+longTask().then(console.log)
+//===============================================
 // verbose example
 const myPromise = new Promise(executorFunc);
 
@@ -41,8 +52,8 @@ myPromise
 		// always
 		alert('This always executes!');
 	});
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// error handling:
+//===============================================
+// error handling
 
 promise.then(onFulfilled, onRejected);
 
@@ -55,7 +66,7 @@ promise.then(onFulfilled).then(undefined, onRejected);
 function onFulfilled(value) {}
 function onRejected(error) {}
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//===============================================
 // example:
 function asyncTask(i) {
 	return new Promise(resolve => resolve(i + 1));
@@ -67,4 +78,4 @@ function runAsyncTasks() {
 		.then(res3 => { return 'Everything done'; });
 }
 runAsyncTasks().then(result => console.log(result));
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//===============================================

@@ -11,17 +11,18 @@ setTimeout(add, 500, 2, 3)   // 5
 
 var t = setTimeout(add, 500) // never runs
 clearTimeout(t)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // setTimeout in loop (closure)
-// Method 1:
+
 var i;
 for (i=1; i<3; i+=1) {
-	(function(index) {
-		setTimeout(function () { alert(index); }, 1000);
-	}(i));
+	(function (index) {
+		setTimeout(function () { console.log(index); }, 1000);
+	})(i);
 }
 
-// Method 2:
+// or
+
 function doSetTimeout(i) {
 	setTimeout(function () { alert(i); }, 1000);
 }
@@ -29,4 +30,9 @@ var i;
 for (i=1; i<=2; i+=1) {
 	doSetTimeout(i);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+// replicate await
+for (let i=0, j=0; i<10; i++, j+=500) {
+	setTimeout(console.log, j, i);
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

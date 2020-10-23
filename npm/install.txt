@@ -1,9 +1,9 @@
 npm install <pkg> | <folder> | <http_url> | <git_url> | <tarball>
 alias: i, add
--P, --save-prod		add to dependencies. default unless -D or -O
--D, --save-dev		add to devDependencies.
--O, --save-optional	add to optionalDependencies.
-     --no-save		don't add to dependencies.
+-P --save-prod		add to dependencies. default unless -D or -O
+-D --save-dev		add to devDependencies
+-O --save-optional	add to optionalDependencies
+     --no-save		don't add to dependencies
 
 npm i <pkg>				install locally and add to package.json (installs from filesystem if <pkg> matches a module dir)
 npm i <pkg> -g				install globally

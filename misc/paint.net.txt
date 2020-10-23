@@ -1,0 +1,22 @@
+b		brush
+x		swap primary & secondary colors
+c		switch active color
+ctrl d		deselect
+ctrl b		zoom to window
+space		pan
+oo		shapes
+[ ] 		brush width
+ctrl [ ]	... 5
+
+f5		tools
+f8		colors
+alt x		settings
+
+https://www.getpaint.net/doc/latest/KeyboardMouseCommands.html#15
+-------------------------------------------------
+settings
+
+Animations	off
+Color Scheme	Blue
+(overscroll)	off
+-------------------------------------------------

@@ -3,11 +3,6 @@ npm bugs|issues <pkg>			open github issues page of a package
 npm v <pkg> version			show latest version of a package (alias: view/show/info)
 npm v npm version			show latest version of npm itself
 
-npm ls					list locally installed packages (alias: list)
-npm ls --depth=0			don't show any dependencies
-npm ls --depth=0 -g			list globally installed packages
-npm ls --depth=0 -g --long 		provides the module descriptions and github links (--l, --long)
-
 npm update <pkg> --save-dev		update already installed package
 
 npm login				login  to   registry (adds user if not recognized username)
