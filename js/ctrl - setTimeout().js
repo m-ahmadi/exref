@@ -31,7 +31,7 @@ for (i=1; i<=2; i+=1) {
 	doSetTimeout(i);
 }
 
-// replicate await
+// cumulative delay
 for (let i=0, j=0; i<10; i++, j+=500) {
 	setTimeout(console.log, j, i);
 }
