@@ -1,6 +1,8 @@
 var StaticTreshholdData = [
-	[1, 22390.00, 20270.00],
-	[63129, 21570.00, 19530.00]
+//            max         min	        (yesterday)
+	[1,         22390.00,   20270.00],
+// time       max         min	
+	[63129,     21570.00,   19530.00]
 ];
 var ClosingPriceData = [
 	['1399/6/31 06:37:39', '-', '20270', '20550', '0', '20550', '0', '0', '0', '0', '0', '0', '63739'],
@@ -12,7 +14,7 @@ var IntraDayPriceData = [
 	['09:01', 19530, 19530, 19530, 19530, 1264943],
 	...
 	['12:16', 19530, 19530, 19530, 19530, 4994407]
-];
+	];
 var InstrumentStateData = [
 	[20200919, 1, 'A ']
 ];
@@ -24,6 +26,14 @@ var IntraTradeData = [
 ];
 var ShareHolderData = [];
 var ShareHolderDataYesterday = [];
+var ShareHolderDataYesterday = [
+//        CIsin          shares      % chg                 shareholder desc (NOT Intrument. Name | LSoc30)
+	[340,  'IRO1SSHR0000', 1061520653, 40.000, 'ArrowDown', 'شركت توسعه سرمايه وصنعت غدير-سهامي عام-'],
+	[555,  'IRO1SSHR0000', 304687524,  11.480, '',          'شركت سيمان سپاهان-سهامي عام-'],
+	[560,  'IRO1SSHR0000', 94418176,   3.550,  '',          'شركت سيمان فارس وخوزستان-سهامي عام-'],
+	[468,  'IRO1SSHR0000', 41935786,   1.580,  '',          'شركت سرمايه گذاري دي-سهامي خاص-'],
+	[21630,'IRO1SSHR0000', 29000000,   1.090,  '',          'شركت گروه توسعه مالي مهرآيندگان-سهامي عام-']
+];
 var ClientTypeData = [
 // bPc  bLc  sPc  sLc
 	4862, 13, 1255, 3,

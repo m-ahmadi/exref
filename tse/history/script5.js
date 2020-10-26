@@ -1,14 +1,14 @@
 var InstSimpleData = [
-	'فولاد مباركه اصفهان',        // LVal30
-	'فولاد',                  // LVal18AFC
-	'بازار بورس',             // 
+	'فولاد مباركه اصفهان',      // LVal30
+	'فولاد',             // LVal18AFC
+	'بازار بورس',          // 
 	'بازار اول (تابلوي اصلي) بورس', // FlowName
-	1,                      // Flow
-	'N1',                   // CgrValCot
-	'IRO1FOLD0009',         // CIsin
-	'IRO1FOLD0001',         // InstrumentID
-	209000000000,           // ZTitad
-	5839416                 // BaseVol
+	1,                // Flow
+	'N1',             // CgrValCot
+	'IRO1FOLD0009',   // CIsin
+	'IRO1FOLD0001',   // InstrumentID
+	209000000000,     // ZTitad
+	5839416           // BaseVol
 ];
 
 var LVal30       = InstSimpleData[0];
@@ -24,4 +24,3 @@ var CIsin        = '';
 var PdrCotVal    = '';
 var PClosing     = '';
 var DEven        = '20200921';
-

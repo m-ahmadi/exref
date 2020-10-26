@@ -19,19 +19,19 @@ var instrumentsObjArrayArray = instrumentsStrArray.map(i => {
 });
 
 function eachRow(row) {
-	var cell = row.split(',');
+	var row = row.split(',');
 	return {
-		InsCode        : cell[0], // int64
-		DEven          : cell[1], // int32 (the rest are all decimal)
-		PClosing       : cell[2],
-		PDrCotVal      : cell[3],
-		ZTotTran       : cell[4],
-		QTotTran5J     : cell[5],
-		QTotCap        : cell[6],
-		PriceMin       : cell[7],
-		PriceMax       : cell[8],
-		PriceYesterday : cell[9],
-		PriceFirst     : cell[10]
+		InsCode        : row[0], // int64
+		DEven          : row[1], // int32 (the rest are all decimal)
+		PClosing       : row[2],
+		PDrCotVal      : row[3],
+		ZTotTran       : row[4],
+		QTotTran5J     : row[5],
+		QTotCap        : row[6],
+		PriceMin       : row[7],
+		PriceMax       : row[8],
+		PriceYesterday : row[9],
+		PriceFirst     : row[10]
 	};
 }
 

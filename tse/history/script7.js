@@ -39,3 +39,13 @@ var BestLimitData = [
 ens('h', version);
 ii = InstHistoryInfo();
 ii.StartInstHistoryInfo();
+
+/* api
+BestLimitsAllIns
+	QTitMeDem: aV
+	ZOrdMeDem: aC
+	PMeDem:    aP
+	PMeOf:     bP
+	ZOrdMeOf:  bC
+	QTitMeOf:  bV
+*/
