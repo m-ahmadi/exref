@@ -29,3 +29,42 @@ BestLimitsAllIns
 	PMeOf      // قیمت عرضه
 	ZOrdMeOf   // تعداد عرضه
 	QTitMeOf   // حجم عرضه
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// all
+AdjPrice
+Board
+BestLimitsAllIns
+BestLimitOneIns
+Company
+FutureInformation
+InstTrade
+InstWithBestLimit
+Instrument
+InstrumentFilterByDate
+InstrumentDetailOneIns
+InstrumentDetailAllIns
+InstrumentStateDescOneIns
+InstrumentsStateDescAllIns
+InstrumentsState
+IndexB1LastDayLastData
+IndexB1LastDayOneInst
+IndexB2
+IndexInstrument
+InstAffect
+MarketActivityDaily
+Msg
+MarketActivityLast
+MarketValue
+MarketValueByDate
+NSCStart
+Sector
+SubSector
+StateType
+StaticThresholds
+ShareChange
+SectorState
+TOP
+TradeLastDay
+TradeOneDay
+TradeOneDayAll
