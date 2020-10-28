@@ -42,10 +42,21 @@ ii.StartInstHistoryInfo();
 
 /* api
 BestLimitsAllIns
-	QTitMeDem: aV
-	ZOrdMeDem: aC
-	PMeDem:    aP
-	PMeOf:     bP
-	ZOrdMeOf:  bC
-	QTitMeOf:  bV
+	QTitMeDem: aV		
+	ZOrdMeDem: aC		
+	PMeDem:    aP		
+	PMeOf:     bP		
+	ZOrdMeOf:  bC		
+	QTitMeOf:  bV		
 */
+
+r = BestLimitData[0]
+
+time       r[0]
+row        r[1]
+ask_count  r[2]
+ask_vol    r[3]
+ask_price  r[4]
+bid_price  r[5]
+bid_vol    r[6]
+bid_count  r[7]

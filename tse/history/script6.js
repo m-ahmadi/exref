@@ -6,18 +6,39 @@ var StaticTreshholdData = [
 //            PSGelStaMax PSGelStaMin
 ];
 var ClosingPriceData = [
-	['1399/6/31 06:37:39', '-', '20270', '20550', '0', '20550', '0', '0', '0', '0', '0', '0', '63739'],
-	// datetime                  last     close     open   yesterday high    low    count    volume      value       discarded time
+	// 0                   1     2        3         4      5          6        7        8        9           10             11          12
+	// datetime                  last     close     open   yesterday  high     low      count    volume      value          discarded   time
+	['1399/6/31 06:37:39', '-', '20270', '20550',  '0',    '20550',   '0',     '0',     '0',     '0',        '0',           '0',       '63739'],
 	...
-	['1399/6/31 09:01:06', '-', '19530', '19530', '19530', '20550', '19530', '19530', '458', '6523941', '127412567730', '0', '90106'],
+	['1399/6/31 09:01:06', '-', '19530', '19530', '19530', '20550',   '19530', '19530', '458',   '6523941', '127412567730', '0',       '90106'],
 ];
+c = ClosingPriceData[0]
+time       c[12]
+last       c[2]
+close      c[3]
+open       c[4]
+high       c[6]
+low        c[7]
+count      c[8]
+volume     c[9]
+value      c[10]
+discarded  c[11]
+
 var IntraDayPriceData = [
 	// ClosingPriceData snapshots (formatted)
 	// time   open   high   low    close   vol
 	['09:01', 19530, 19530, 19530, 19530, 1264943],
 	...
 	['12:16', 19530, 19530, 19530, 19530, 4994407]
-	];
+];
+t = IntraDayPriceData
+time   t[0]
+open   t[1]
+high   t[2]
+low    t[3]
+close  t[4]
+vol    t[5]
+
 var InstrumentStateData = [
 //              CEtaVal	
 	[20200919, 1, 'A ']
@@ -98,32 +119,32 @@ var ClientTypeData = [
 
 a = ClientTypeData
 
-person_buy_vol,       a[4]
-person_buy_count,     a[0]
-person_buy_val,       a[12]
-person_buy_price,     a[16]
-person_buy_vol_ptot,  a[8]
+person_buy_vol				a[4]
+person_buy_count			a[0]
+person_buy_val				a[12]
+person_buy_price			a[16]
+person_buy_vol_ptot		a[8]
 
-person_sell_vol,      a[6]
-person_sell_count,    a[2]
-person_sell_val,      a[14]
-person_sell_price,    a[18]
-person_sell_vol_ptot, a[10]
+person_sell_vol				a[6]
+person_sell_count			a[2]
+person_sell_val				a[14]
+person_sell_price			a[18]
+person_sell_vol_ptot	a[10]
 
-legal_buy_vol,        a[5]
-legal_buy_count,      a[1]
-legal_buy_val,        a[13]
-legal_buy_price,      a[17]
-legal_buy_vol_ptot,   a[9]
+legal_buy_vol					a[5]
+legal_buy_count				a[1]
+legal_buy_val					a[13]
+legal_buy_price				a[17]
+legal_buy_vol_ptot			a[9]
 
-legal_sell_vol,       a[7]
-legal_sell_count,     a[3]
-legal_sell_val,       a[15]
-legal_sell_price,     a[19]
-legal_sell_vol_ptot,  a[11]
+legal_sell_vol				a[7]
+legal_sell_count			a[3]
+legal_sell_val				a[15]
+legal_sell_price			a[19]
+legal_sell_vol_ptot		a[11]
 
-person_to_legal_chgو  a[20]
+person_to_legal_chg		a[20]
 
-instrument_state,     InstrumentState[0][2]
-day_range_min,        StaticTreshhold[1][2]
-day_range_max,        StaticTreshhold[1][1]
+instrument_state			InstrumentState[0][2]
+day_range_min					StaticTreshhold[1][2]
+day_range_max					StaticTreshhold[1][1]
