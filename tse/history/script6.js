@@ -5,6 +5,11 @@ var StaticTreshholdData = [
 	[63129,     21570.00,   19530.00]
 //            PSGelStaMax PSGelStaMin
 ];
+
+a = StaticTreshholdData
+day_range_min  a[1][2]
+day_range_max  a[1][1]
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var ClosingPriceData = [
 	// 0                   1     2        3         4      5          6        7        8        9           10             11          12
 	// datetime                  last     close     open   yesterday  high     low      count    volume      value          discarded   time
@@ -12,6 +17,7 @@ var ClosingPriceData = [
 	...
 	['1399/6/31 09:01:06', '-', '19530', '19530', '19530', '20550',   '19530', '19530', '458',   '6523941', '127412567730', '0',       '90106'],
 ];
+
 c = ClosingPriceData[0]
 time       c[12]
 last       c[2]
@@ -23,22 +29,24 @@ count      c[8]
 volume     c[9]
 value      c[10]
 discarded  c[11]
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// redundant (ClosingPriceData snapshots)
 
 var IntraDayPriceData = [
-	// ClosingPriceData snapshots (formatted)
 	// time   open   high   low    close   vol
 	['09:01', 19530, 19530, 19530, 19530, 1264943],
 	...
 	['12:16', 19530, 19530, 19530, 19530, 4994407]
 ];
-t = IntraDayPriceData
-time   t[0]
-open   t[1]
-high   t[2]
-low    t[3]
-close  t[4]
-vol    t[5]
 
+p = IntraDayPriceData
+time    p[0]
+open    p[1]
+high    p[2]
+low     p[3]
+close   p[4]
+volume  p[5]
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var InstrumentStateData = [
 //              CEtaVal	
 	[20200919, 1, 'A ']
@@ -53,12 +61,24 @@ var InstrumentStateData = [
 'IR': 'ممنوع-محفوظ'
 */
 ];
+
+a = InstrumentStateData
+instrument_state  a[0][2]
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var IntraTradeData = [
-//  count    time     volume  price   discarded
-	['754', '09:01:06', '500', '19530', 0],
+//  count    time         volume    price     discarded
+	['754',    '09:01:06',  '500',   '19530',   0],
 	...
-	['4498', '11:53:13', '1000', '19530', 0]
+	['4498',   '11:53:13',  '1000',  '19530',  0]
 ];
+
+t = IntraTradeData[0]
+time       t[1]
+count      t[0]
+volume     t[2]
+price      t[3]
+discarded  t[4]
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var ShareHolderData = [];
 var ShareHolderDataYesterday = [];
 var ShareHolderDataYesterday = [
@@ -84,8 +104,7 @@ var ShareHolderDataYesterday = [//another example
 	[2662,   'IRO1FOLD0009', 2566245185,  1.220,  'ArrowDown', 'شركت س اخوزستان س.خ-م ك م ف ع-'],
 	[1063,   'IRO1FOLD0009', 2310383952,  1.100,  'ArrowDown', 'شركت س ااصفهان س.خ-م ك م ف ع-']
 ];
-
-
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var ClientTypeData = [
 // bPc  bLc  sPc  sLc
 	4862, 13, 1255, 3,
@@ -119,32 +138,29 @@ var ClientTypeData = [
 
 a = ClientTypeData
 
-person_buy_vol				a[4]
-person_buy_count			a[0]
-person_buy_val				a[12]
-person_buy_price			a[16]
-person_buy_vol_ptot		a[8]
+person_buy_vol        a[4]     pbvol
+person_buy_count      a[0]     pbcount
+person_buy_val        a[12]    pbval
+person_buy_price      a[16]    pbprice
+person_buy_vol_ptot   a[8]     pbvolptot
 
-person_sell_vol				a[6]
-person_sell_count			a[2]
-person_sell_val				a[14]
-person_sell_price			a[18]
-person_sell_vol_ptot	a[10]
+person_sell_vol       a[6]     psvol
+person_sell_count     a[2]     pscount
+person_sell_val       a[14]    psval
+person_sell_price     a[18]    psprice 
+person_sell_vol_ptot  a[10]    psvolptot
 
-legal_buy_vol					a[5]
-legal_buy_count				a[1]
-legal_buy_val					a[13]
-legal_buy_price				a[17]
-legal_buy_vol_ptot			a[9]
+legal_buy_vol         a[5]     lbvol
+legal_buy_count       a[1]     lbcount
+legal_buy_val         a[13]    lbval
+legal_buy_price       a[17]    lbprice
+legal_buy_vol_ptot    a[9]     lbvolptot
 
-legal_sell_vol				a[7]
-legal_sell_count			a[3]
-legal_sell_val				a[15]
-legal_sell_price			a[19]
-legal_sell_vol_ptot		a[11]
+legal_sell_vol        a[7]     lsvol
+legal_sell_count      a[3]     lscount
+legal_sell_val        a[15]    lsval
+legal_sell_price      a[19]    lsprice
+legal_sell_vol_ptot   a[11]    lsvolptot
 
-person_to_legal_chg		a[20]
-
-instrument_state			InstrumentState[0][2]
-day_range_min					StaticTreshhold[1][2]
-day_range_max					StaticTreshhold[1][1]
+person_to_legal_chg   a[20]    ptlchg
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -92,7 +92,7 @@ const opts = {
 	
 	title: {
 		display:    false,
-		position:   'top | left | bottom | right',
+		position:   'top|left|bottom|right',
 		fontColor:  '#666',
 		fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
 		fontSize:   12,
@@ -106,8 +106,8 @@ const opts = {
 	
 	legend: {
 		display:          true,
-		position:         'top | left | bottom | right',
-		align:            'center | start | end',
+		position:         'top|left|bottom|right',
+		align:            'center|start|end',
 		fullWidth:        true,
 		reverse:          false,
 		weight:           1000,
@@ -148,14 +148,14 @@ const opts = {
 			{}, {}, ...
 			{
 				display:                    true | 'auto',
-				position:                   'left | right | top | bottom',
+				position:                   'left|right|top|bottom',
 				offset:                     false,
-				type:                       'linear | radialLinear | category' | '',
+				type:                       'linear|radialLinear|category' | '',
 				id:                         '',
 				weight:                     0,
 				callbacks:                  {}, // https://www.chartjs.org/docs/latest/axes/#callbacks
 				distribution:               'linear|series',
-				bounds:                     'data | ticks',
+				bounds:                     'data|ticks',
 				gridLines: {
 					display:                  true,
 					color:                    'rgba(0,0,0,0.1)',
@@ -202,7 +202,7 @@ const opts = {
 					precision:                0,
 					reverse:                  false,
 					sampleSize:               ticks.length,
-					source:                   'auto | data | labels',
+					source:                   'auto|data|labels',
 					stepSize:                 0,
 					suggestedMax:             0,
 					suggestedMin:             0,
@@ -214,7 +214,7 @@ const opts = {
 				parser:                     '' | ()=>,
 				round:                      '',
 				tooltipFormat:              '',
-				unit:                       '' | 'millisecond | second | minute | hour | day | week | month | quarter | year',
+				unit:                       '' | 'millisecond|second|minute|hour|day|week|month|quarter|year',
 				stepSize:                   1,
 				minUnit:                    'millisecond',
 			}
@@ -227,7 +227,7 @@ const opts = {
 		bodyFontFamily:     "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
 		bodyFontSize:       12,
 		bodyFontStyle:      'normal',
-		bodyAlign:          'left | right | center',
+		bodyAlign:          'left|right|center',
 		bodySpacing:        2,
 		borderColor:        'rgba(0,0,0,0)',
 		borderWidth:        0,
@@ -238,7 +238,7 @@ const opts = {
 		displayColors:      true,
 		enabled:            true,
 		filter:             (TooltipItem)=>,
-		footerAlign:        'left | right | center',
+		footerAlign:        'left|right|center',
 		footerFontColor:    '#fff',
 		footerFontFamily:   "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
 		footerFontSize:     12,
@@ -247,12 +247,12 @@ const opts = {
 		footerSpacing:      2,
 		itemSort:           (TooltipItem)=>
 		intersect:          true,
-		mode:               'nearest | point | index | dataset | x | y',
+		mode:               'nearest|point|index|dataset|x|y',
 		multiKeyBackground: '#fff',
-		position:           'average | nearest',
+		position:           'average|nearest',
 		rtl:                false
 		textDirection:      canvas.ltr | canvas.style.textDirection | '',
-		titleAlign:         'left | right | center',
+		titleAlign:         'left|right|center',
 		titleFontColor:     '#fff',
 		titleFontFamily:    "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
 		titleFontSize:      12
@@ -287,38 +287,38 @@ const opts = {
 	
 	elements: {
 		arc: {
-			backgroundColor: 'rgba(0,0,0,0.1)',
-			borderColor: '#fff',
-			borderWidth: 2,
-			borderAlign: 'center'
+			backgroundColor:  'rgba(0,0,0,0.1)',
+			borderColor:      '#fff',
+			borderWidth:      2,
+			borderAlign:      'center'
 		},
 		line: {
-			tension: 0.4,
-			backgroundColor: 'rgba(0,0,0,0.1)',
-			borderWidth: 3,
-			borderColor: 'rgba(0,0,0,0.1)',
-			borderCapStyle: 'butt',
-			borderDash: [],
+			tension:          0.4,
+			backgroundColor:  'rgba(0,0,0,0.1)',
+			borderWidth:      3,
+			borderColor:      'rgba(0,0,0,0.1)',
+			borderCapStyle:   'butt',
+			borderDash:       [],
 			borderDashOffset: 0,
-			borderJoinStyle: 'miter',
-			capBezierPoints: true,
-			fill: true
+			borderJoinStyle:  'miter',
+			capBezierPoints:  true,
+			fill:             true
 		},
 		point: {
-			radius: 3,
-			pointStyle: 'circle',
-			backgroundColor: 'rgba(0,0,0,0.1)',
-			borderColor: 'rgba(0,0,0,0.1)',
-			borderWidth: 1,
-			hitRadius: 1,
-			hoverRadius: 4,
+			radius:           3,
+			pointStyle:       'circle',
+			backgroundColor:  'rgba(0,0,0,0.1)',
+			borderColor:      'rgba(0,0,0,0.1)',
+			borderWidth:      1,
+			hitRadius:        1,
+			hoverRadius:      4,
 			hoverBorderWidth: 1
 		},
 		rectangle: {
-			backgroundColor: 'rgba(0,0,0,0.1)',
-			borderColor: 'rgba(0,0,0,0.1)',
-			borderSkipped: 'bottom',
-			borderWidth: 0
+			backgroundColor:  'rgba(0,0,0,0.1)',
+			borderColor:      'rgba(0,0,0,0.1)',
+			borderSkipped:    'bottom',
+			borderWidth:       0
 		}
 	},
 	

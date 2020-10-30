@@ -23,6 +23,8 @@ Heading 2
 A [link](http://example.com).  
 An image: ![Alt](https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_100kB.jpg)
 
+[A header link](#Foo)
+
 <a name="abcd"></a>
 [a page fragment link](#abcd)
 
@@ -36,6 +38,12 @@ Pipe     | $1
 | Column 1 | Column 2      |
 |:--------:| -------------:|
 | centered | right-aligned |
+
+table without headers (hacky)
+| | |
+|-|-|
+|**Bold Key**| Value1 |
+| Normal Key | Value2 |
 
 # code
 `inline code`
@@ -57,13 +65,52 @@ body { margin: 0 auto; }
 > Quoted text.  
 
 # list
-- Item
-  * Item
-    + Item
+- item
+  * item
+    + item
+- item
+  - item
+    - item
+* item
+  * item
+    * item
++ item
+  + item
+    + item
 
-1. Item 1
-2. Item 2
-3. Item 3
+1. item
+2. item
+	1. item
+	2. item
+		1. item
+		2. item
+			1. item
+			2. item
+3. item
+	1. item
+	2. item
+4. item
+
+- item
+- item
+	1. item
+	2. item
+		1. item
+		2. item
+			- item
+			- item
+				+ item
+				+ item
+
+1. Item
+2. Item
+	1. item
+	2. item
+		- item
+		- item
+			1. item
+			2. item
+3. Item
 
 - [ ] Incomplete item
 - [x] Complete item

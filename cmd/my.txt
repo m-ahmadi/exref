@@ -22,6 +22,7 @@ ctrl+alt shortcuts
 3 J:\dev
 4 paint
 5 notepad
+6 paint.net
 e cmd        admin, target: %comspec% /k pushd %h%
 r powershell admin, target: %pws% -NoExit -Command "pushd $env:h"
 -------------------------------------------------------------------------------
