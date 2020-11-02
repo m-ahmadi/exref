@@ -1,4 +1,7 @@
-map = new Map([ [], [], ... ])
+var map new Map(?iterable)
+var map = new Map([ [k,v], [k,v], ... ])
+// obj/primitive for key/value
+
 map.size
 map.clear()
 map.delete(key)
@@ -10,6 +13,22 @@ map.keys()
 map.set(key, value)
 map.values()
 
+// iterate
+
+map.forEach((value, key, map) => {
+	// key   foo  bar baz
+	// value 3    {}  undefined
+});
+
+for (const k of map.keys())         // iterate over keys
+for (const v of map.values())       // iterate over values
+for (const [k, v] of map.entries()) // iterate over key, value pairs
+for (const [k, v] of map)           // ... ↑
+	
+var arr = [...map.keys()]   // convert keys to array
+var arr = [...map.values()] // convert values to array
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// examples
 
 var map = new Map([ ['a', 'hello'], ['b', 'dear'], ['c', 'world'] ])
 
@@ -18,27 +37,31 @@ var map = new Map([
 	['bar', {}],
 	['baz', undefined]
 ]);
-map.forEach((value, key, map) => {
-	// key   foo  bar baz
-	// value 3    {}  undefined
-});
 
-var keyString = 'a string';
-var keyObj = {};
-var keyFunc = () => {};
+// another
+var keystr = 'a string';
+var keyobj = {};
+var keyfn = () => {};
 
-// setting the values
-map.set(keyString, 'value associated with 'a string'');
-map.set(keyObj, 'value associated with keyObj');
-map.set(keyFunc, 'value associated with keyFunc');
+map.set(keystr, 'foo')
+map.set(keyobj, 2)
+map.set(keyfn, true)
 
-map.size; // 3
+map.size // 3
 
-// getting the values
-map.get(keyString);    // 'value associated with 'a string''
-map.get(keyObj);       // 'value associated with keyObj'
-map.get(keyFunc);      // 'value associated with keyFunc'
+map.get(keystr) // 'foo'
+map.get(keyobj) // 2
+map.get(keyfn)  // true
 
-map.get('a string');   // 'value associated with 'a string''      because keyString === 'a string'
-map.get({});           // undefined, because keyObj !== {}
-map.get(function() {}) // undefined, because keyFunc !== function () {}
+map.get('a string')   // 'foo'             because keystr === 'a string'
+map.get({})           // undefined         because keyobj !== {}
+map.get(function(){}) // undefined         because keyfn !== function () {}
+
+// anomaly
+var m = new Map()
+m.set(NaN, 'foo')
+m.set(+0, 'bar')
+
+m.get(NaN) // 'foo'
+m.get(-0)  // 'bar'
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
