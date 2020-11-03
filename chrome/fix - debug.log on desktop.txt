@@ -1,0 +1,1 @@
+rmdir /s /q "%HOMEPATH%\AppData\Local\Google\Chrome\User Data\"

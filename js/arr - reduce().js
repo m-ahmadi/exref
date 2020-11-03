@@ -13,6 +13,10 @@ accumulator return shorthands
 	logical && ||         pro: no parens                       con: depends on operand return (only fits some cases)
 */
 
+// Map is great for accumulator return (since map methods return the map)
+['foo', 'bar'].reduce((m,k) => m.set(k, []), new Map()) // { 'foo' => [], 'bar' => [] }    better!
+['foo', 'bar'].reduce((o,k) => (o[k] = [], o), {})      // {  foo:    [],  bar:    [] }
+
 // sum of numbers
 var arr = [1, 2, 3, 4];
 var reducer = (accumulator, currentVal) => accumulator + currentVal;

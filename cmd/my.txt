@@ -1,5 +1,6 @@
 mklink /d C:\r "J:\...\exref"
 mklink /d C:\h D:\xampp\htdocs
+mklink /d C:\#htdocs D:\xampp\htdocs
 
 mklink /d C:\dev "J:\...\Dev"
 mklink /d C:\ac  "L:\...\accounts"
@@ -54,5 +55,3 @@ laptop:   83     21      676   360 (cmdleft=-4)
 
 (laptop alt: w100 h25)
 -------------------------------------------------------------------------------
-
-
