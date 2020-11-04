@@ -14,19 +14,18 @@ map.set(key, value)
 map.values()
 
 // iterate
-
-map.forEach((value, key, map) => {
-	// key   foo  bar baz
-	// value 3    {}  undefined
-});
+map.forEach((val, key, map) =>);
 
 for (const k of map.keys())         // iterate over keys
 for (const v of map.values())       // iterate over values
 for (const [k, v] of map.entries()) // iterate over key, value pairs
 for (const [k, v] of map)           // ... ↑
-	
+
 var arr = [...map.keys()]   // convert keys to array
 var arr = [...map.values()] // convert values to array
+
+// check for map
+Map.prototype.toString.call(map) === '[object Map]'
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
