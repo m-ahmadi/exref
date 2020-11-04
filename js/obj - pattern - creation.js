@@ -10,20 +10,20 @@ function constructor() {
 		goodness: reuse.goodness
 	});
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // factory
 function newGender(type) {
-	let inst = {};
-	inst.gender = type;
+	let instance = {};
+	instance.gender = type;
 	
-	inst.sayGender = function () {
-		log(inst.gender);
+	instance.sayGender = function () {
+		console.log(instance.gender);
 		return this;
 	};
 	
-	return inst;
+	return instance;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // constructor function
 var p = new p();
 function P() {
@@ -53,7 +53,19 @@ var b = new B();
 var inst = new function () {
 	this.foo = 'bar';
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// immediate init
+({
+	foo: 600,
+	bar: 400,
+	doit: function () {
+		return this.foo + 'x' + this.bar;
+	},
+	init: function () {
+		console.log(this.doit());
+	}
+}).init();
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // misc other forms (just for reference)
 var p = function() {};
 p.prototype = (function () {
@@ -70,3 +82,28 @@ p.prototype = (function () {
 	}());
 	return {el : el};
 }());
+
+// inspired from lightbox
+(function() {
+	var c;
+	c = (function() {
+		function b() {
+			this.firstname = 'mohammad';
+			this.lastname = 'ahmadi';
+		}
+		b.prototype.fullName = function() {
+			alert(this.firstname +' '+ this.lastname);
+		};
+		return b;
+	})();
+	d = (function() {
+		function c(b) {
+			this.p = 'f';
+		}
+		c.prototype.metod = function(arg) {
+			alert('metod :' + arg)
+		};
+		return c;
+	})();
+	return new c();
+}).call(this);

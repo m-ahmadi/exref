@@ -1,13 +1,13 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 instanceof
-/*
-	The instanceof operator tests:
-		
-		whether an object has in its prototype chain the prototype property of a constructor.
-		
-		presence of constructor.prototype in object's prototype chain.
-*/
-// defining constructors
+// checks
+	// if object has prototype property of a constructor in its prototype chain
+	// presence of constructor.prototype in object's prototype chain
+Object.prototype.isPrototypeOf()
+// checks
+	// if object exists in another object's prototype chain
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// instanceof
 function C() {}
 function D() {}
 
@@ -28,11 +28,10 @@ D.prototype = new C(); // use inheritance
 var o3 = new D();
 o3 instanceof D; // true
 o3 instanceof C; // true
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-Object.prototype.isPrototypeOf()
-/*
-	The isPrototypeOf() method checks if an object exists in another object's prototype chain.
-*/
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// isPrototypeOf
+
 function Foo() {}
 function Bar() {}
 function Baz() {}
