@@ -1,9 +1,9 @@
 // string from ascii code
-String.fromCharCode(67)     // "C"
+String.fromCharCode(67)     // 'C'
 String.fromCharCode(97 + n) // lowercase letters. 97: 'a'. (n > 25 == out of letters range)
 String.fromCharCode(65 + n) // uppercase letters. 65: 'A'
 // multiple
-String.fromCharCode.apply(null, [97,98,99,100]) // "abcd"
+String.fromCharCode.apply(null, [97,98,99,100]) // 'abcd'
 
 // ascii code from string
 'abcd'.charCodeAt(0) // 97

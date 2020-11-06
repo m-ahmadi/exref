@@ -1,1 +1,0 @@
-let contains = /\r|\n/.test('string')

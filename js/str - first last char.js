@@ -1,5 +1,7 @@
 // first character
 'abc'.charAt(0) // 'a'
+'abc'.charAt(1) // 'b'
+'abc'.charAt()  // first charater: 'a'
 
 // last character
 'abc'.slice(-1) // 'c'

@@ -38,6 +38,10 @@ Uint8Array.of('1', '2', '3') // Uint8Array [1, 2, 3]
 Uint8Array.of(1, 2, 3)       // Uint8Array [1, 2, 3]
 Uint8Array.of(undefined)     // Uint8Array [0]
 
+Int8Array.of(126, 127, 128, 129, 130)  // [126, 127, -128, -127, -126]
+Uint8Array.of(254, 255, 256, 257, 258) // [254, 255, 0, 1, 2]
+Uint16Array.of(65535, 65536)           // [65535, 0]
+
 // set
 var buffer = new ArrayBuffer(8)
 var uint8 = new Uint8Array(buffer)

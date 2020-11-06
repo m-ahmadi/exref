@@ -1,5 +1,7 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Monomorphism
+// https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// monomorphism
 /*
 	When declaring a function with 2 parameters the compiler takes your word for it,
 	and gets rough if the parameter types, parameter count or return type of the function changes.
@@ -12,24 +14,24 @@ function example(a, b) {
 	console.log(++a * ++b);
 };
 
-example();			// bad
-example(1);			// still bad
-example("1", 2);	// dammit meg
-example(1, 2); 		// good
+example();       // bad
+example(1);      // still bad
+example('1', 2); // dammit meg
+example(1, 2);   // good
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Unfolding
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// unfolding
 /*
 	The compiler can resolve a variable's value at compile time and unfold it (in best case),
 	so try to express as much as possible before the program actually executes.
 	
 	Constants as well as variables can be unfold as long as they don't make use of any runtime related computation.
 */
-const a = 42;					// we can easily unfold this
-const b = 1337 * 2;				// we can resolve this expression
-const c = a + b;				// still can be resolved
-const d = Math.random() * c;	// we can only unfold 'c'
-const e = "Hello " + "Medium";	// works for other types too
+const a = 42;                  // we can easily unfold this
+const b = 1337 * 2;            // we can resolve this expression
+const c = a + b;               // still can be resolved
+const d = Math.random() * c;   // we can only unfold 'c'
+const e = 'Hello ' + 'Medium'; // works for other types too
 
 // before unfolding
 a;
@@ -44,11 +46,9 @@ e;
 2674
 2716
 Math.random() * 2716
-"Hello Medium"
-
-
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Inlining
+'Hello Medium'
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// inlining
 /*
 	The JIT compiler can figure out, which part of your code gets commonly executed.
 	By splitting your functions into small chunks,
@@ -66,7 +66,7 @@ function isNumeric(n) {
 	return (n >= 48 && n <= 57);
 };
 
-let cc = "8".charCodeAt(0);
+let cc = '8'.charCodeAt(0);
 
 // before inlining
 if (isNumeric(cc)) {}
@@ -74,8 +74,8 @@ if (isNumeric(cc)) {}
 // after inlining
 if (cc >= 48 && cc <= 57) {}
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Declarations
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// declarations
 /*
 	Avoid declaring functions/closures and objects inside frequently called tasks.
 	Objects (functions are objects too) get pushed into the heap which is affected by the garbage collector,
@@ -109,8 +109,8 @@ function b() {
 	return doSomething();
 };
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Arguments
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// arguments
 /*
 	Function calls are expensive (if the compiler cannot inline them).
 	Try to use as less as possible arguments to make a call and don’t modify arguments inside a function.
@@ -125,8 +125,8 @@ function test(a, b) {
 	let tmp = a; // good
 	tmp *= 2; // we can now modify our fake 'a'
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Data types
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// data types
 /*
 	Try to make as much use as possible of Numbers and Booleans,
 	they are a lot faster in comparison to other primitives.
@@ -147,7 +147,7 @@ let E_TYPE = {
 
 // bad
 // avoid uncached strings in heavy tasks (or better in general)
-if (entity.type === "Robot") {
+if (entity.type === 'Robot') {
 	
 }
 
@@ -163,8 +163,8 @@ if (entity.type === E_TYPE.Robot) {
 if (entity.type === ROBOT) {
 	
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Strict and abstract operators
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// strict and abstract operators
 /*
 	Attempt to use triple equality operators like “===” (strict) over “==” (loosely, abstract).
 	Going strict guarantees the compiler to expect an specific value,
@@ -172,8 +172,8 @@ if (entity.type === ROBOT) {
 	which ends up in better performance scenarios at all.
 */
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Toxicity
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// toxicity
 /*
 	The following is a list of language features, which reduce or block the code optimization process.
 	eval
@@ -181,8 +181,8 @@ if (entity.type === ROBOT) {
 	try/catch
 */
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Objects
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// objects
 /*
 	Object instances usually try to share the same hidden classes,
 	be careful when adding a new member variable to an instantiated object since,
@@ -206,8 +206,8 @@ vec2.z = 0;
 
 // good, compiler knows this member
 vec2.x = 1;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// Loops
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// loops
 /*
 	Cache your array lengths and use arrays with monomorphic types.
 	Avoid usage of “for..in” and looping over objects in general because it’s especially slow.
@@ -238,4 +238,4 @@ let length = array.length;
 for (; i < length; ++i) {
 	key = array[i];
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

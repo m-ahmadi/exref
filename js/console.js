@@ -1,4 +1,28 @@
+console.assert()
+console.clear()
+console.count()
+console.countReset()
+console.debug()
+console.dir()
+console.dirxml()
+console.error()
+console.group()
+console.groupCollapsed()
+console.groupEnd()
+console.info()
 console.log(...data)
+console.profile()
+console.profileEnd()
+console.table(data={} | [], ?columns=['','',...])
+console.time(?label='default')
+console.timeEnd(?label='default')    // stop timer
+console.timeLog(?label='default')    // log timer
+console.timeStamp(?label='default')
+console.trace()                      // outputs stack trace
+console.warn()
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// examples
+
 // log
 var log = console.log;
 
@@ -18,13 +42,19 @@ log('foo %.2d', 1.1) // foo 01
 log('foo %.2f', 1.1) // foo 1.10
 for (let i=0; i<4; i++) console[i%2?'warn' :'error'](i)
 
-console.warn()
-console.info()
-console.table({} | [], columns=['','',...])
-console.dir()
-console.trace() // outputs stack trace
-console.clear()
+// time
 
+console.time('foo')
+for (let i=0; i<1e5; i++) {}
+console.timeEnd('foo')
+
+console.time()
+for (let i=0; i<1e5; i++) {}
+console.timeLog()
+for (let i=0; i<1e5; i++) {}
+console.timeEnd()
+
+// group
 console.group('a')
 	console.log('1')
 	console.group('a1')
@@ -34,7 +64,3 @@ console.group('a')
 		console.log('1')
 	console.groupEnd()
 console.groupEnd()
-
-console.time(label='default')
-for (let i=0; i<100000; i++) {}
-console.timeEnd(label='default')

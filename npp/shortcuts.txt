@@ -1,6 +1,7 @@
 light explorer			ctrl b
 space to tab (leading)		ctrl t
 show white space and tab	alt  ~
+show end of line		alt shift ~
 
 reindent file			shift alt   f			Indent By Fold
 format js			ctrl  alt   m			JSTool

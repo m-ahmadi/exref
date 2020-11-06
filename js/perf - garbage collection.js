@@ -1,4 +1,3 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // functions
 function foo() {
 	var bar = new LargeObject();
@@ -23,7 +22,7 @@ var b = foo();
 	we now have a reference to the object which survives the call and
 	persists until the caller assigns something else to b (or b goes out of scope).
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // closures
 function sum (x) {
 	function sumIt(y) {
@@ -59,7 +58,7 @@ var a = function () {
 	};
 }();
 //	We can’t access it anymore and it’s a candidate for garbage collection.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // timers
 /*
 	one of the worst places to leak is in a loop, or in setTimeout()/setInterval(),
@@ -80,12 +79,11 @@ myObj = null;
 // the timer will still fire
 
 /*
-	myObj won’t be garbage collected as the closure passed to setTimeout has to be kept alive in order to be executed.
+	myObj won't be garbage collected as the closure passed to setTimeout has to be kept alive in order to be executed.
 	in turn, it holds references to myObj as it captures myRef.
-	this would be the same if we’d passed the closure to any other function, keeping references to it.
+	this would be the same if we'd passed the closure to any other function, keeping references to it.
 	
 	rreferences inside a setTimeout/setInterval call, such as functions,
 	will need to execute and complete before they can be garbage collected.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 

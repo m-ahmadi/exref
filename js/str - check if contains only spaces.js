@@ -11,4 +11,3 @@ if ( str.replace(/\s/g, '').length ) {
 if ( !/\S/.test(str) ) {
 	// contains only spaces
 }
-

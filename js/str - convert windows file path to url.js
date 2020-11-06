@@ -9,5 +9,5 @@ function filePathToUrl(path) {
 	return result.replace(drive, 'file:///$1:/');
 }
 
-filePathToUrl("./algorithms & data structures/@math characters")
-"./algorithms%20&%20data%20structures/@math%20characters"
+filePathToUrl('./algorithms & data structures/@math characters')
+'./algorithms%20&%20data%20structures/@math%20characters'
