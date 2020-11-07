@@ -1,5 +1,0 @@
-highly abstract (not too much detail)
-square for entity, lines for relations
-abstract relationships
-no attributes for entities
-no software tool is required

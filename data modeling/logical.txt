@@ -1,7 +1,0 @@
-presence of attributes for each entity
-key attributes (those that define the uniqueness of the entity, eg: in time: date)
-non-key attributes (seperated below the line in entity's square)
-primary key - foreign key relationships
-user friendly attribute names
-database agnostic
-a bit more effort required to enhance, in comparison to conceptual model

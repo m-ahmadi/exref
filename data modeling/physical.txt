@@ -1,6 +1,0 @@
-entities referred to as tables
-attribute referred to as columns
-database compatible table names
-database compatible column names
-database specific data types
-significantly more effort required to enhance in comparison to logical model

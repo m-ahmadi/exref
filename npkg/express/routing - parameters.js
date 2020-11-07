@@ -1,5 +1,5 @@
-// route parameters are named url segments that capture values specified at their position in the url.
-// aptured values are in `req.params`, with name of route parameter specified in the path as their keys.
+// route parameters are named url segments that capture values specified at their position in the url
+// captured values are in `req.params`, with name of route parameter specified in the path as their keys
 
 app.get('/users/:userId/books/:bookId', function (req, res) {
   res.send(req.params)
