@@ -1,15 +1,39 @@
 b		brush
+s		select
+ctrl i		invert selection
+oo		shapes
+o		line/curve
+a		navigate shapes (shit a: backward)
 x		swap primary & secondary colors
 c		switch active color
+f		fill
+t		text
 ctrl d		deselect
+[ ] 		brush width
+ctrl [ ]	... change by 5
 ctrl b		zoom to window
 space		pan
-oo		shapes
-[ ] 		brush width
-ctrl [ ]	... 5
+
+leftclick	primary color
+rightclick	secondary color
+
+leyer
+ctrl shift n	add new
+ctrl shift del	delete
+ctrl shift d	duplicate
+ctrl shift c	copy from all layers
+ctrl shift z	rotate
+ctrl shift v	paste into new layer
+alt pgup	go to layer above
+alt pgdn	go to layer below
+ctrl alt pgup	go to top layer
+ctrl alt pgdn	go to bottom layer
+
 
 f5		tools
 f8		colors
+f7		layers
+f6		history
 alt x		settings
 
 https://www.getpaint.net/doc/latest/KeyboardMouseCommands.html#15
@@ -20,3 +44,6 @@ Animations	off
 Color Scheme	Blue
 (overscroll)	off
 -------------------------------------------------
+cli
+
+paintdotnet path/to/file.png
