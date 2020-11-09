@@ -1,0 +1,7 @@
+﻿select				m
+change brush properties		b
+swittch between 2 brushes	s
+decrease brush size		[
+increase brush size		]
+adjust brush angle		/
+prefences			ctrl ,

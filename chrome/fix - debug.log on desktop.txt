@@ -1,1 +1,1 @@
-rmdir /s /q "%HOMEPATH%\AppData\Local\Google\Chrome\User Data\"
+rmdir /s /q "%USERPROFILE%\AppData\Local\Google\Chrome\User Data\Crashpad"

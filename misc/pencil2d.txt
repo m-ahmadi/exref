@@ -1,0 +1,6 @@
+pencil			n
+erase			e
+select			v
+deselect		ctrl d
+frame add		f6
+frame duplicate		f7

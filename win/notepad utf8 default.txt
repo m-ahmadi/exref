@@ -1,0 +1,14 @@
+ctxmenu -> New -> Text Document
+open "New Text Document.txt" -> File > Save As "UTF-8" -> Yes (overwrite)
+rename "New Text Document.txt" TXTUTF-8.txt
+mkdir C:\WINDOWS\SHELLNEW
+move TXTUTF-8.txt C:\WINDOWS\SHELLNEW
+reg add HKCR\.txt\ShellNew /v FileName /d TXTUTF-8.txt
+
+done
+(applied to all files created with "ctxmenu > New > Text Document")
+
+
+undo
+reg delete HKCR\.txt\ShellNew /v FileName /f
+del C:\WINDOWS\SHELLNEW\TXTUTF-8.txt
