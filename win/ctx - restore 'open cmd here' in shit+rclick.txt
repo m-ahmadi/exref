@@ -1,6 +1,9 @@
 regjump HKCR\Directory\shell\cmd
 
-cmd.exe -> Properties -> Security -> Advanced -> Owner: Change to NYC -> check "Replace all child object..." -> Apply
+cmd.exe -> Properties -> Security -> Advanced ->
+	Owner: Change TrustedInstaller to NYC		undo: "NT SERVICE\TrustedInstaller"
+	check "Replace all child object..."
+	Apply
 
 rename HideBasedOnVelocityId to ShowBasedOnVelocityId
 

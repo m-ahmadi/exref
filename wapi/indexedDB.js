@@ -1,5 +1,20 @@
-// objectStore is like a table.
-// stroage up to 50% of free disk space.
+/*
+objectStore is like a table
+stroage up to 50-80% of free disk space
+
+---------------------------------------------------
+           total % of disk    allowed per domain
+---------------------------------------------------
+chrome:    80%                75% of total
+firefox    50% ?              2 GB
+safar:     50% ?              1 GB
+
+*/
+
+// check total and used space
+var quota = await navigator.storage.estimate();
+quota.quote // total space
+quote.used  // used  space
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // basic
 let db;
