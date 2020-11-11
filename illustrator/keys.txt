@@ -11,11 +11,4 @@ unlock object		ctrl alt 2
 
 shortcuts		ctrl alt shift k
 preferences		ctrl k
-smart guides		ctrl u
 quit			ctrl q
-
--------------------------------------------------
-custom
-
-ctrl e			window > swatches
-ctrl alt t		object > path > split into grid

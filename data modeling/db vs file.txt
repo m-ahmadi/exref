@@ -1,0 +1,18 @@
+﻿no generic answer (heavily dependent on situations)
+
+how data is consumed?
+	reading from start to end rows in the order entered?
+	searching for rows that match multiple criteria?
+
+how often data is accessed during program lifecycle?
+	once to get all books of an author?
+	several times to get different authors?
+	several times per author for different criteria?
+
+how often data is added?
+	append row to end is enough for retrieval?
+	specific rows need to be retrieved?
+
+how logical the code looks in future? (emphasized)
+	after six months, which way of storing and retrieving data makes more sense?
+	if db is 1% more efficient, but adds code complexity, have you really improved?
