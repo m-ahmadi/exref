@@ -1,6 +1,8 @@
 var newArray = arr.flat(?depth=1);
 
 [1,2,[3,4]].flat() // [1,2,3,4]
+// same as
+[1,2,[3,4]].reduce((a,c) => a.concat(c), [])
 
 var arr = [ 1,2,[3,4,[5,6]] ];
 arr.flat()         // [1,2,3,4,[5,6]]

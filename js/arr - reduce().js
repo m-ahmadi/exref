@@ -47,10 +47,10 @@ arr.reduce((a,c)=>({count: a.count+c.count})).count // 17
 // [ [key,val], ... ] to {key:val, ...}
 [ ['a',1], ['b',2], ['c',3] ].reduce((a,[k,v]) => (a[k] = v, a), {}) // {a: 1, b: 2, c: 3}
 
-// [ [a,b], [c,d], ...] to [a,b,c,d,...]
+// [ [a,b], [c,d], ...] to [a,b,c,d,...]  like arr.flat()
 var arr = [ [1,2], [3,4], [5,6] ];
+arr.reduce((a,c) => a.concat(c), [])       // [1, 2, 3, 4, 5, 6]    (cuz concat() returns new arr)
 arr.reduce((a,c) => a.push(...c) && a, []) // [1, 2, 3, 4, 5, 6]
-arr.reduce((a,c)=> a = a.concat(c), [])    // [1, 2, 3, 4, 5, 6]
 
 // 'a=b&c=d' to {a:'b', c:'d'}
 'name=abc&foo=bar'.split('&').reduce((a,c) => (a[ c.split('=')[0] ] = c.split('=')[1], a), {}) // {name: 'abc', foo: 'bar'}
