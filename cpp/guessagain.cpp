@@ -7,6 +7,7 @@ int main() {
 	string answer = "Mohammad", question = "Whose your daddy? ", useranswer, message;
 	int tcount = 0, maxtries = 10;
 	bool loop = true;
+	
 	while (loop) {
 		if (tcount < maxtries) {
 			cout << question;
@@ -28,6 +29,7 @@ int main() {
 			loop = false;
 		}
 	};
+	
 	cout << "\nPress Enter to exit.";
 	getchar();
 	return 0;
