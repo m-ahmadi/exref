@@ -1,8 +1,8 @@
-var timeoutID = scope.setTimeout(fn|str, ?delay=0, ?args...)
+var timeoutID = scope.setTimeout(fn|str, ?delay=0, ?args...) // not same in node.js
 clearTimeout(timeoutID)/*
 args... is passed to fn
 setTimeout() and setInterval() share the same pool of ids, and can technically be used interchangeably. (best not to ever do this for clarity of code)
-a timeout id is never reused by a subsequent call to setTimeout/setInterval on the same object (window/worker). (different objects use separate pools of IDs.) */
+a timeout id is never reused by a subsequent call to setTimeout/setInterval on the same object (window/worker). (different objects use separate pools of ids.) */
 
 function add(a,b) {console.log(a+b)}
 

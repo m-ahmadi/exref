@@ -1,6 +1,5 @@
 b		brush
 s		select
-ctrl i		invert selection
 oo		shapes
 o		line/curve
 a		navigate shapes (shit a: backward)
@@ -13,6 +12,9 @@ ctrl d		deselect
 ctrl [ ]	... change by 5
 ctrl b		zoom to window
 space		pan
+ctrl i		invert selection
+ctr n		new file (clear relative size: ctrl d c n)
+
 
 leftclick	primary color
 rightclick	secondary color

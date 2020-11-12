@@ -41,6 +41,10 @@ arr.reduce((a,c)=> a[c.root].push(c.id) && a, [[],[]]) // [ [7,4,9], [8,0] ] (re
 var arr = [ {count:2}, {count:7}, {count:5}, {count:3}, ];
 arr.reduce((a,c)=>({count: a.count+c.count})).count // 17
 
+// collect similar keys into array
+var arr = [ ['a',1], ['a',2], ['b',3], ['b',4], ['a',5], ['c',42] ];
+arr.reduce((o,[k,v]) => (!o[k] && (o[k]=[]), o[k].push(v), o), {}) // { a: [1,2,5], b: [3,4], c: [42] }
+
 // str[] to {str:str, ...}
 ['foo', 'bar', 'baz'].reduce((a,c)=> (a[c] = c, a), {}) // {foo: 'foo', bar: 'bar', baz: 'baz'}
 
