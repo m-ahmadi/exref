@@ -9,7 +9,8 @@ let a, b;
 ({a, b} = {a: 1, b: 2});
 a // 1
 b // 2
-// or omitting var/let/const
+
+// var/let/const can't be omitted
 var person = {name: 'foo', age: 12};
 {name, age} = person; // Uncaught SyntaxError: Unexpected token '='
 ({name, age} = person);
