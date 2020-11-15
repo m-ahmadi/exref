@@ -19,21 +19,20 @@ var o;
 	o = {};
 	console.time('a');
 	for (let id of ids) o[id] = await localforage.getItem(id);
-	console.timeEnd('a'); // 775 ms
+	console.timeEnd('a'); // 700 ms
 	
 	o = {};
 	console.time('b');
-	localforage.iterate((value, key) => o[key] = value);
-	console.timeEnd('b'); // 0.20
+	await localforage.iterate((value, key) => (o[key] = value, undefined));
+	console.timeEnd('b'); // 110
 	
 	o = {};
 	console.time('c');
-	localforage.iterate((value, key) => {
+	await localforage.iterate((value, key) => {
 		if (ids.indexOf(key) !== -1) o[key] = value;
 	});
-	console.timeEnd('c'); // 0.01
+	console.timeEnd('c'); // 140 ms
 })();
-
 
 // write
 (async () => {
@@ -57,13 +56,16 @@ var o;
 	var src = ids.reduce((o,k)=> (o[k] = {...v}, o), {});
 	await localforage.setItem('entire', src);
 	
-	var o = {};
-	
 	console.time('a');
-	localforage.iterate((value, key) => {
+	var o = {};
+	await localforage.iterate((value, key) => {
 		if (key === 'entire') {
 			for (let i of ids) o[i] = value[i];
 		}
 	});
-	console.timeEnd('a'); // 200 ms
+	console.timeEnd('a'); // 20 ms
+	
+	console.time('b');
+	var o = await localforage.getItem('entire');
+	console.timeEnd('b'); // 6 ms
 })();
