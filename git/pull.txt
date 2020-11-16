@@ -1,5 +1,7 @@
-git pull			combination of fetch and merge
+git pull			same as: "git fetch & git merge FETCH_HEAD"
 git pull origin master		pull from specific branch
 
-git fetch			download from another repository
+git fetch			pull without merge
+git pull --rebase		...
+
 git merge			join two or more development histories together

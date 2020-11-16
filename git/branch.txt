@@ -1,28 +1,33 @@
-git branch			show the branch you're on
-git status			show the branch you're on
-git branch --all		all the branches (including remote ones)
+git branch				show currently selected branch
+git status				...
+git branch --all			show all branches (including remote ones)
 
-git branch dev			create new branch
-git switch -c dev		... v2.23+
-git checkout dev		switch to another branch
-git switch dev			... v2.23+
-git checkout -b dev		create & siwtch. same as "git branch dev && git checkout dev"
-git checkout --orphan tmp	create new branch in a `git init`-like state on a non-new repository
-git branch -d dev		delete branch
-git branch -D dev		force delete branch. shortcut for: --delete --force
-git pull origin dev		pull from branch
-git push -u origin dev		push new branch to remote
+git branch dev				create new branch (from last     commit of currently selected branch)
+git branch dev <commit_hash>		...               (...  specific commit ...)
+git branch dev HEAD~3			... symolic ref   (...  3rd last commit ...)
+git checkout --orphan tmp		... "git init"-like state (on a non-new repository)
 
-git push -d origin <branch_name>			delete remote branch
-git branch -d <branch_name>				delete local branch
+git checkout -b dev			create new branch and switch
+git switch -c dev			... v2.23+
+git switch -c dev <commit>		... from specific commit
+
+git checkout dev			switch to another branch	
+git switch dev				... v2.23+
+
+git branch -d dev			delete branch
+git branch -D dev			... force (shortcut for: --delete --force)
+git push -d origin <branch_name>	delete remote branch
+
+git pull origin dev			pull from branch
+
+git push -u origin dev			push branch to remote
 
 git branch --set-upstream-to=origin/master master	set upstream
-
 -------------------------------------------------------------------------------
 basic branching
 
-git branch cooler
-git checkout cooler			moves current commit history to new branch (from master or already selected branch?)
+git branch cooler [<start-point>]	create new branch
+git switch cooler
 edit some files...			go wild in another direction...
 git add .
 git commit -m "cooler way"
