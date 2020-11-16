@@ -11,7 +11,7 @@ safar:     50% ?              1 GB
 
 */
 
-// check total and used space
+// check total and used space (only in https)
 var quota = await navigator.storage.estimate();
 quota.quote // total space
 quote.used  // used  space

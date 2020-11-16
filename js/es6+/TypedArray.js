@@ -13,8 +13,7 @@ Float64Array       5.0*10**324  1.8*10**308    8      //  ❌       64-bit  IEEE
 BigInt64Array     -2**63        2**63 - 1      8      //  ❌       64-bit  two's complement  signed    integer
 BigUint64Array     0            2**64 - 1      8      //  ❌       64-bit                    unsigned  integer
 
-new ArrayBuffer(length)
-new TypedArray()
+new TypedArray() // no actual constructor called TypedArray (just an "umbrella" term)
 new TypedArray(length)
 new TypedArray(typedArray)
 new TypedArray(object)
@@ -27,7 +26,7 @@ typedarray.set(array|typedarray, ?offset)
 typedarray.map(callbackfn, ?thisArg)
 typedarray.subarray(?begin, ?end)
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 Uint8Array.from('123')                 // Uint8Array [1, 2, 3]

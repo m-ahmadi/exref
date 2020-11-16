@@ -3,7 +3,7 @@ new SharedWorker() // shared    worker. can be accessed from multiple scripts
 
 worker.postMessage(message={}|[], ?transfer=[]);
 // you can't pass function, dom nodes and some other things to workers
-// more: https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
+// https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // main.js
 var myWorker = new Worker('js/worker.js');
