@@ -33,6 +33,33 @@ git add .
 git commit -m "cooler way"
 git push origin cooler
 -------------------------------------------------------------------------------
+rename branch
+
+git branch -m <newname>			if on the branch
+git branch -m <oldname> <newname>	if on another branch
+
+git push -d origin oldname		delete remote
+git push -u origin newname		make again + upstream
+					or
+git push origin :<oldname> <newname>	delete remote and make again
+git push origin -u <newname>		+ upstream
+-------------------------------------------------------------------------------
+change base
+
+git switch -c cool-feature
+git switch master
+
+if master contains new commits (otherwise no issue)
+
+option 1
+	git merge cool-feature		dummy commit "Merge branch ..."
+
+option 2 (if new master commits don't relate to feature)
+	git switch cool-feature
+	git rebase master		set tip of master as new base
+	git switch master
+	git merge cool-feature		no dummy commit
+-------------------------------------------------------------------------------
 move master to another branch and start new master
 
 git branch 1.x
