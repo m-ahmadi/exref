@@ -6,6 +6,8 @@ mklink /d C:\dev "J:\...\Dev"
 mklink /d C:\ac  "L:\...\accounts"
 mklink /d C:\usr C:\Users\NYC
 
+mklink .\gitx "C:\Program Files (x86)\GitExtensions\GitExtensions.exe"
+
 C:\node.lnk
 -------------------------------------------------------------------------------
 env vars

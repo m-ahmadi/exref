@@ -1,6 +1,6 @@
-git branch				show currently selected branch
-git status				...
-git branch --all			show all branches (including remote ones)
+git branch				show all branches (and currently selected)
+git branch --all			... show remote ones
+git branch -vv				... show upstream ("git status" also shows upstream)
 
 git branch dev				create new branch (from last     commit of currently selected branch)
 git branch dev <commit_hash>		...               (...  specific commit ...)
