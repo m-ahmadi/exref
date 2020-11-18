@@ -1,4 +1,4 @@
-git checkout			switch branches or restore working tree files
+﻿git checkout			switch branches or restore working tree files
 git checkout file.ext		only this file
 git checkout .			all from last commit
 git checkout HEAD -- **		...
@@ -8,3 +8,16 @@ git checkout <commit_hash>	all from a commit
 switch to a specific commit temporarily and switch back
 git checkout <commit_hash>	switch to state of the specifid commit
 git checkout mybranch		return to state of last commit
+
+-------------------------------------------------------------------------------
+undo checkout
+
+git checkout -			all same (supposably, not sure)
+git checkout master		...
+git reset --hard HEAD		...
+
+or
+
+git reflog
+git reset --hard <sha from reflog>
+-------------------------------------------------------------------------------

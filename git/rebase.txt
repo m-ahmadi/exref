@@ -1,0 +1,15 @@
+git rebase master			use state of some branch as new base of work
+git rebase --onto master
+git rebase --onto master~2
+
+git rebase --interactive HEAD~4		rebase previous 4 commits (opens editor)
+	p, pick   <commit>	use commit
+	r, reword <commit>	use commit, but edit commit message
+	e, edit   <commit>	use commit, but stop for amending
+	s, squash <commit>	use commit, but meld into previous commit
+	f, fixup  <commit>	like "squash", but discard this commit's log message
+	x, exec   <command>	run command (the rest of the line) using shell
+	b, break		stop here (continue rebase later with 'git rebase --continue')
+	d, drop   <commit>	remove commit
+	l, label  <label>	label current HEAD with a name
+	t, reset  <label>	reset HEAD to a label

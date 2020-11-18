@@ -3,20 +3,20 @@ clone a repository
 git clone https://github.com/repo			clone into a new folder named after the repo
 git clone git@github.com:username/repo.git foo		clone into a new folder named foo
 git clone git@github.com:username/repo.git .		clone into current directory (must be empty)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 clone specific branch
 
 git clone -b <branch_name> --single-branch git@github.com:user/repo.git
 git clone -b <branch_name> git@github.com:user/repo.git
 
 git pull origin [branch]
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 clone a specific commit
 
 git clone $URL
 cd $PROJECT_NAME
 git reset --hard $SHA
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 clone repo and its submodules
 
 git clone --recursive -j8 git://github.com/foo/bar.git		git 1.9+ download the submodules simultaneously
@@ -30,4 +30,4 @@ git submodule update --init --recursive
 	or
 git submodule init 
 git submodule update
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------

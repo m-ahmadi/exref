@@ -1,5 +1,6 @@
-git commit				creates new commit. opens editor for message
+git commit				creates new commit (opens editor)
 git commit -m "message"			message argument
+git commit -c ORIG_HEAD			message from last message (opens editor)
 git commit -F file.txt			read commit message from file
 git commit -a				stage already added files that have been modified and deleted (not new files you haven't added)
 git commit -am "message"		-a and commit with message in one command
@@ -14,17 +15,34 @@ git commit --amend
 	previous commit still exists but will die eventualiy. (git gc or automatically on github)
 	opens editor to edit the 2nd last commit message and use it as the new commit message.
 
-git commit --amend -m "message"		--ammend with message argument. (doesn't open editor)
+git commit --amend -m "message"		--ammend with message argument (doesn't open editor)
+-------------------------------------------------------------------------------
+delete commit and do again
 
-------------------------------------------------------------------------------------------------------------------------
+git commit -m "Something terribly misguided"
+git reset HEAD~
+git add .
+git commit -m "new message"
+git push -f
+
+-------------------------------------------------------------------------------
 50/72 commit message format
 first line 50 chars
 rest 72 chars
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 min chars to identify commit hash
 
 github needs at least 7
 git default is 7
 
 git rev-parse --short=4 <commit_hash>		ask for shortest and yet unique sha1
-------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+change past commit (avoid unless no commits inbetween)
+
+git rebase --interactive HEAD~4
+	edit b6ef812 2
+	pick 9b13034 3
+	pick 6cd95d2 4
+git commit --ammend
+git rebase --continue		(bail: rebase --abort)
+-------------------------------------------------------------------------------

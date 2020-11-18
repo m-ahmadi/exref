@@ -1,0 +1,6 @@
+mkdir myapp && cd myapp
+git init	
+git add .
+git commit -m "init"
+git remote add origin <url>
+git push -u origin master

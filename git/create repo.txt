@@ -1,6 +1,0 @@
-cd project_folder			go to proj folder
-git init				initializing git	
-git add .				adding files to be tracked (all files)
-git commit -m "message"			commit
-git remote add origin <URL>		remote setup
-git push -u origin master		push

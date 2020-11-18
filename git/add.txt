@@ -1,6 +1,13 @@
-git add file.ext	a specific file
+git add file.txt	a specific file
 git add *.c		all .c files
 git add --all|-A	all files
 git add .		same as above
 git add . -u		all files (update)
-git add file.ext -p	add chunk by chunk interactively
+git add file.txt -p	add chunk by chunk interactively
+
+-------------------------------------------------
+undo (unstage changes)
+
+git reset file.txt
+git reset .
+git rm -r --cached .

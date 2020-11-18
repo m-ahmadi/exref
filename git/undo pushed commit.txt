@@ -1,5 +1,0 @@
-git reset HEAD~
-git add .
-git commit -m "new message"	or	git commit -c ORIG_HEAD
-git push -f			or	--force
- 

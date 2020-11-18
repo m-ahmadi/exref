@@ -11,7 +11,7 @@ git config -l					list current configs
 git config -l --global				... global
 
 git config --get remote.origin.url		show remote url
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 credential helper (asking for user pass with https)
 
 git config --global credential.helper cache			Cache for 15 minutes
@@ -19,4 +19,4 @@ git config --global credential.helper "cache --timeout=3600"	Cache for specified
 git config --global credential.helper store			store permanently (globally)
 git config credential.helper store				store permanently (project directory)
 git config --unset credential.helper				resume asking
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------

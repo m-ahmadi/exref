@@ -4,7 +4,7 @@ git init
 git add .
 git commit -m "init"
 git remote add origin <url>
-git push -u --force origin master
+git push -u -f origin master
 
 #2 (works with submodules)
 git checkout --orphan tmp_branch # create branch

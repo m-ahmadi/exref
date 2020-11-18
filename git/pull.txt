@@ -1,5 +1,6 @@
 git pull			same as: "git fetch & git merge FETCH_HEAD"
 git pull origin master		pull from specific branch
+git pull --all			fetch all remotes
 
 git fetch			pull without merge
 git pull --rebase		...

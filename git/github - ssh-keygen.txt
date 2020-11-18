@@ -1,4 +1,4 @@
-in git-bash: (not cmder, not cmd, not conemu, ONLY GIT-BASH.exe)
+in git-bash: (not cmder, not cmd, not conemu, ONLY git-bash.exe)
 
 
 ssh-keygen -t rsa -b 4096 -C "mohammad.ahmadi1989@yahoo.com"

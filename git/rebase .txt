@@ -1,5 +1,0 @@
-git rebase master		use state of a branch as new base of work
-git rebase --onto master
-git rebase --onto master~2
-
-git rebase -i HEAD~4		squash 4 commits to 1 (opens editor)

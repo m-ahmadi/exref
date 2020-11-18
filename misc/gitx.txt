@@ -1,0 +1,10 @@
+﻿gitx help
+gitx openrepo path/to/dir
+
+orig command: gitex
+-------------------------------------------------------------------------------
+custom command setup
+
+mklink %windir%\gitx "C:\Program Files (x86)\GitExtensions\GitExtensions.exe"
+echo @start "" "C:\Program Files (x86)\GitExtensions\GitExtensions.exe" %* > %windir%\gitx.cmd
+-------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 git branch				show all branches (and currently selected)
-git branch --all			... show remote ones
+git branch -a				... show remote ones
 git branch -vv				... show upstream ("git status" also shows upstream)
 
 git branch dev				create new branch (from last     commit of currently selected branch)
@@ -59,6 +59,20 @@ option 2 (if new master commits don't relate to feature)
 	git rebase master		set tip of master as new base
 	git switch master
 	git merge cool-feature		no dummy commit
+-------------------------------------------------------------------------------
+clone all remote branches
+
+git clone <repo_url>
+git branch -a
+ *master
+  remotes/origin/HEAD
+  remotes/origin/master
+  remotes/origin/b1
+  remotes/origin/b2
+
+git checkout origin b1
+git checkout origin b2
+...
 -------------------------------------------------------------------------------
 move master to another branch and start new master
 
