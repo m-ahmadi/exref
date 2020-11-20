@@ -1,36 +1,28 @@
-const MongoClient = require('mongodb').MongoClient;
+var MongoClient = require('mongodb').MongoClient; // npm i mongodb
 
 // collations are like tables
 // documents are like rows in tables
 
 (async function() {
-  const client = new MongoClient('mongodb://localhost:27017');
-	await client.connect().catch( err => console.log(err.stack) );
+  var client = new MongoClient('mongodb://localhost:27017', {useUnifiedTopology: true});
+	await client.connect().catch(err => console.log(err));
+	console.log('connected');
 	
-	const db = client.db('mydb');      // creates the database   `mydb` if it doesn't exist?
-	const col = db.collection('find'); // creates the collection `find` if it doesn't exist.
+	var db = client.db('mydb'); // creates db if doesn't exist
 	
-	const r = await col.insertMany([{a:1}, {a:1}, {a:1}]);
-	const docs = await col.find({a:1}).limit(2).toArray();
+	var col = db.collection('find'); // creates collection if doesn't exist
+	var res = await col.insertMany([{a:1}, {a:1}, {a:1}]);
+	var found = await col.find({a:1}).limit(2).toArray();
 	
+	var col2 = db.collection('users');
+	await col2.insertOne({a:1, b:'2'});
+	await col2.insertMany([{a:43, b:56}, {a:32, b:42}]);
+	await col2.updateMany(/*where*/{a: 1}, {$set: {b: 3}});
 	
-	db.createCollection("users");	     // creates collection
+	var all = await col2.find({}).toArray();
+	var found = await col2.find({b: '2'}).toArray();
 	
-	db.users.insert({
-		a: 1,
-		b: '2'
-	});
-
-	db.users.update({
-		{a: 1}, // where
-		{$set: {b: 3}}
-	});
-
-	db.users.find();
-
-	db.users.find({b: '2'});
-
-	db.users.remove({a: 1});           // removes all with a===1
+	await col2.deleteMany({a: 1}); // removes all with a===1
 	
   client.close();
 })();

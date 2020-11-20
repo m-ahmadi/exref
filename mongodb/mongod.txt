@@ -1,6 +1,7 @@
 mongod --dbpath ./data				start server
 mongod --dbpath=./data				alternative syntax
 
+must manually add it to path
 ----------------------------------------------------------------------------------------------------------------------------------------------
 flags
 
@@ -22,10 +23,6 @@ flags
 --serviceDescription arg			windows service description
 --serviceUser arg				account for service execution
 --servicePassword arg				password used to authenticate serviceUser
-
-
-
-
 ----------------------------------------------------------------------------------------------------------------------------------------------
 install as service
 
@@ -42,7 +39,7 @@ a logfile is created each time the service starts.
 installed service is set to `Automatic` by default. (starts on windows startup, change through services.msc)
 
 
-mongod --install --dbpath E:\db --logpath "C:\Program Files\MongoDB Server 4.2\log\mongod.log" --serviceName mongo
+mongod --install --dbpath E:\db --logpath "C:\Program Files\MongoDB\Server\4.2\log\mongod.log" --serviceName mongo
 net start mongo
 mongo is running on: localhost:27017
 ----------------------------------------------------------------------------------------------------------------------------------------------

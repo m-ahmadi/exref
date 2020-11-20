@@ -1,4 +1,4 @@
-DB methods:
+// https://docs.mongodb.com/manual/reference/method/js-database/
 db.adminCommand(nameOrDocument)              // switches to 'admin' db, and runs command [just calls db.runCommand(...)]
 db.aggregate([pipeline], {options})          // performs a collectionless aggregation on this database; returns a cursor
 db.auth(username, password)
@@ -51,3 +51,21 @@ db.setVerboseShell(flag)                     // display extra information in she
 db.shutdownServer()
 db.stats()
 db.version()                                 // current version of the server
+
+
+
+// create user
+db.createUser({
+  user: '<name>',
+  pwd: '<cleartext password>',
+  customData: {},
+  roles: [
+    { role: '<role>', db: '<database>' } | '<role>',
+    ...
+  ]
+})
+db.createUser({
+  user: 'mohammad',
+  pwd: '123456',
+  rols: ['readWrite', 'dbAdmin']
+});

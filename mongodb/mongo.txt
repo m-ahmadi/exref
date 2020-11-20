@@ -20,3 +20,6 @@ help				show help
 db.help()			help on db methods
 db.mycoll.help()		help on collection methods
 help misc			misc things to know
+
+
+note: some methods are in shell and not in node driver
