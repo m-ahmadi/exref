@@ -3,7 +3,7 @@ var MongoClient = require('mongodb').MongoClient; // npm i mongodb
 // collations are like tables
 // documents are like rows in tables
 
-(async function() {
+(async () => {
   var client = new MongoClient('mongodb://localhost:27017', {useUnifiedTopology: true});
 	await client.connect().catch(err => console.log(err));
 	console.log('connected');

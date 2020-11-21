@@ -1,3 +1,1 @@
-postgres is the PostgreSQL server.
-
-postgres --help
+postgres --help			postgres is the PostgreSQL server

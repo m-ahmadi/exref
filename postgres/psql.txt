@@ -1,3 +1,13 @@
-psql is the PostgreSQL interactive terminal.
+psql --help				psql is the PostgreSQL interactive terminal
 
-psql --help
+psql -d dbname -U username		by default uses %USERNAME% on windows
+	-h, --host=HOSTNAME		database server host or socket directory (default: "local socket")
+	-p, --port=PORT			database server port (default: "5432")
+	-U, --username=USERNAME		database user name (default: "NYC")
+	-w, --no-password		never prompt for password
+	-W, --password			force password prompt (should happen automatically)
+	
+psql -c "ALTER USER postgres PASSWORD 'postgres';"
+
+\l	list databases
+\l+	... more info
