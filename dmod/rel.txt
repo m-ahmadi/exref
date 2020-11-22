@@ -1,0 +1,9 @@
+﻿how to deal with data of junction tables
+
+inserting
+	manual
+	trigger
+	sp
+
+deleting
+	handled by db using ON CASCADE DELETE
