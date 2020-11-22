@@ -1,0 +1,26 @@
+﻿normalization
+
+removing data redundancy, inconsistency, anomallies from database
+
+insertion anomaly
+	a record cannot be entered because some data is missing
+
+updating anomaly
+	same data stored in more than one place (every time update multiple places)
+	inconsistent data over time (multiple source of truth)
+	
+deletion anomaly
+	deleting a record accidently causes loss of other data
+
+normal forms: 1NF, 2NF, 3NF, 4NF
+
+-------------------------------------------------------------------------------
+normalized vs denormalized
+	space	query	memory	tables	integrity
+ norm:	low	slow	low	low	high
+dnorm:	high	fast	high	high	low
+
+best fit
+	norm:	non-expensive insert/update/delete and joins of tables
+	dnorm:	expensive joins and frequent quering of tables
+-------------------------------------------------------------------------------
