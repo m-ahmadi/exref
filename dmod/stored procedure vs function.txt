@@ -1,0 +1,12 @@
+functions follow the computer-sciency definition in that they MUST return a value and
+cannot alter the data they receive as parameters (the arguments)
+
+functions
+	not allowed to change anything
+	must have at least one parameter
+	must return a value
+
+stored procedures
+	do not have to have a parameter
+	can change database objects
+	do not have to return a value

@@ -1,7 +1,0 @@
-If a table in a database either has no natural key or the 
-natural key is so long that using it as the key would be 
-inefficient then we need to consider using a pseudokey instead.
-
-Pseudokeys are usually given the same name as the table they belong to with _id added to the end of the name.
-They usually are defined to contain a number and use  autoincrement in mySQL or the equivalent in other versions 
-of SQL to dynamically allocate a value when new rows are created.

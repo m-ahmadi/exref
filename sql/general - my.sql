@@ -11,3 +11,8 @@ SOURCE filename.sql
 
 SELECT VERSION();
 SHOW VARIABLES LIKE "%version%";
+
+
+-- turn off foreign key constraint (in emergencies you can turn it off for a second)
+SET FOREIGN_KEY_CHECKS = 0;
+SET FOREIGN_KEY_CHECKS = 1;

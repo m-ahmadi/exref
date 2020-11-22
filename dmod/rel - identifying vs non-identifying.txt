@@ -1,0 +1,39 @@
+identifying
+
+existence of child-table row depends on parent-table row
+child cannot exist without parent
+child's foreignkey is part of its primarykey
+
+bad:	pseudokey on child-table with no foreignkey to parent part of child-table primarykey
+good:	make foreignkey part of child-table primarykey
+
+
+example 1
+book has author
+author has books
+but book must have author (cannot exist without an author)
+
+example 2
+one person one phone_number (column of table)
+	person.phone_number
+one person many phone_numbers (separate table)
+	person.phone_number = phone_number.id
+	phone_number.person_id == person_id
+phone_number belongs to a person (even though modeled as attrs of separate table)
+-------------------------------------------------------------------------------
+non-identifying
+
+parent primarykey attribute must not become child primarykey attribute
+
+optional:  foreignkey column allows    NULL
+mandatory: foreignkey column disallows NULL
+
+
+example 1
+book has owner
+owner has book
+but book can exist without owner and it can change owner
+
+example 2
+state has many persons (person.state -fk-> states.state)
+but state is not part of person primarykey (person row not identified by its state)

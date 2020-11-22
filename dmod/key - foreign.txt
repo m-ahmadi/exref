@@ -1,0 +1,32 @@
+﻿attribute/col in one table that refers to primary key of another table (two tables are linked)
+
+TEAM.MEMBER_NAME	foreign key ->		PERSON.PERSON_NAME
+
+	any TEAM.MEMBER_NAME value must ALSO exist in PERSON.PERSON_NAME
+
+foreign key relationship involves a parent-table and a child-table
+	parent table holds central values
+	child  table holds identical values pointing back to parent
+
+memory trick
+	foreign key always exist on child table/entity (car->engine_fk)
+	table with foreign key is "many" side of "one-to-many" relationship
+	in sql, the FOREIGN KEY clause is specified on child table
+
+foreign key constraint
+	dbms rejects any INSERT/UPDATE to create fkcol value in child-table if matching candidatekey value not exist in parent-table
+-------------------------------------------------
+example
+
+person
+  job		(fk -> person pk)
+    location	(fk -> job    pk)
+    type	(fk -> job    pk)
+    salary	(fk -> job    pk)
+  eyes		(fk -> person pk)
+    color	(fk -> eyes   pk)
+    vision	(fk -> eyes   pk)
+  email		(fk -> person pk)
+  -------------------------------------------------
+		
+	

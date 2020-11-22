@@ -7,7 +7,7 @@ psql -d dbname -U username		by default uses %USERNAME% on windows
 	-w, --no-password		never prompt for password
 	-W, --password			force password prompt (should happen automatically)
 	
-psql -c "ALTER USER postgres PASSWORD 'postgres';"
+psql -c "SELECT datname FROM postgres;"
 
 \l	list databases
 \l+	... more info

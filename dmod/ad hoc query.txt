@@ -1,0 +1,11 @@
+ad hoc
+	latin: "for this purpose"
+	"on the fly" query
+	"just so"    query
+	a query you type out where you need it
+	a query that cannot be determined prior to execution moment
+	var newSqlQuery = `SELECT * FROM table WHERE id = ${myId};`; // could be different each time
+
+ad hoc opposite
+	predefined query (stored procedure)
+	a single query created for specific purpose (eg: select from table by some criteria)

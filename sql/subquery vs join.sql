@@ -10,7 +10,7 @@
 	self-joins are hard to visualize
 */
 
--- here's a simple subquery:
+-- a simple subquery:
 SELECT lastname, firstname
 FROM editor
 WHERE editor_id IN
@@ -23,8 +23,8 @@ FROM editor e1
 	JOIN editor e2 ON (e1.editor_id = e2.managing_editor_id)
 WHERE e1.editor_id = 3
 ORDER BY 1, 2;
-#------------------------------------------------
-# mysql
+-------------------------------------------------
+-- mysql
 /*
 	many subqueries could be written as JOINs.
 	it's often a judgement call on which one to use.

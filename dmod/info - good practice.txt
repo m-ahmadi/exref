@@ -1,6 +1,7 @@
 upping the max_connections
 tuning the sql
 properly closing the connections as soon as you are finished with them
+or never closing the connections
 
 having proper indexes on the db tables:
 	any WHERE clause should be indexed

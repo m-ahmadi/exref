@@ -1,4 +1,3 @@
-
 How many simultaneous users do you expect to have?
 	This is the root metric you need to figure out how much horizontal scaling you may need in your db world.
 	

@@ -23,3 +23,26 @@ physical
 	database compatible column names
 	database specific data types
 	significantly more effort required to enhance in comparison to logical model
+-------------------------------------------------------------------------------
+cardinality
+	one-to-one
+	one-to-many
+	many-to-many
+
+-------------------------------------------------------------------------------
+normalization
+
+removing anomalies from database
+
+insertion anomaly
+	a record cannot be entered because some data is missing
+updating anomaly
+	same data stored in more than one place
+	every time update multiple places
+	inconsistent data over time (multiple source of truth)
+	
+deletion anomaly
+	deleting a record accidently causes loss of other data
+
+normal forms: 1NF, 2NF, 3NF, 4NF
+-------------------------------------------------------------------------------

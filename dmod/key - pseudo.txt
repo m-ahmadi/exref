@@ -1,0 +1,7 @@
+used when
+	table has no natural key
+	table's natural key is so long that using it as key would be inefficient
+naming
+	tablename + _id
+
+usually defined to contain a number (for auto increment on new row)
