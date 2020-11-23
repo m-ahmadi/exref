@@ -1,4 +1,4 @@
-SELECT * FROM mysql.user;
+﻿SELECT * FROM mysql.user;
 SHOW GRANTS FOR CURRENT_USER();
 SET PASSWORD FOR 'user'@'host' = PASSWORD('rootpass');
 UPDATE mysql.user SET Password = PASSWORD('rootpass') WHERE User='root';

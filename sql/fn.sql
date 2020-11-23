@@ -1,7 +1,9 @@
--- mysql
-	--	functions calculate a value to be returned to the caller for use in expressions,
-	--	just like built-in functions such as COS() or HEX()
---	if you need to return more than one value, you cannot use a function
+/* 
+functions calculate a value to be returned to the caller for use in expressions,
+just like built-in functions such as COS() or HEX()
+if you need to return more than one value, you cannot use a function
+*/
+
 DELIMITER $
 CREATE FUNCTION inventory_in_stock(p_parameter INT)
 RETURNS tinyint(1)

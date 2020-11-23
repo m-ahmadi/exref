@@ -11,9 +11,3 @@ WHERE datname = current_database() AND pid <> pg_backend_pid();
 SELECT pg_terminate_backend(pg_stat_activity.pid)
 FROM pg_stat_activity
 WHERE pg_stat_activity.datname = 'TARGET_DB';
-
-
-DROP DATABASE foo;
-DROP DATABASE IF EXISTS foo;
-
-CREATE DATABASE foo;

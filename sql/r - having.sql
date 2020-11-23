@@ -1,7 +1,4 @@
-# mysql
-/*
-	The HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions.
-*/
+-- the HAVING clause was added to SQL because the WHERE keyword could not be used with aggregate functions
 SELECT column_name, aggregate_function(column_name)
 FROM table_name
 WHERE column_name operator value
@@ -14,7 +11,6 @@ FROM Orders INNER JOIN Employees
 GROUP BY LastName
 HAVING COUNT(Orders.OrderID) > 10;
 
--- postgres
 /*
 	The HAVING clause places conditions on groups created by the GROUP BY clause. (just like WHERE clause places conditions on the SELECT columns)
 	The HAVING clause must follow the GROUP BY clause in a query and must precede the ORDER BY clause if used.

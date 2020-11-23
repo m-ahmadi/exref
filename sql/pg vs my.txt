@@ -1,0 +1,38 @@
+﻿						mysql			postgres
+comment line					#			-
+quote values					' "			'
+qoute system identifiers			`			"
+case-sensitive string comparison		❌			✔
+case-sensitive db/tbl/field/col name		os-dependent		❌ (unless made with ")
+date handling					many diffs		many diffs
+logical operators				||=or &&=and		||=strconcat
+-------------------------------------------------------------------------------
+MySQL uses nonstandard '#' to begin a comment line; PostgreSQL doesn't.
+Instead, use '--' (double dash), as this is the ANSI standard, and both databases understand it.
+
+MySQL uses ' or " to quote values (i.e. WHERE name = "John").
+This is not the ANSI standard for databases.
+PostgreSQL uses only single quotes for this (i.e. WHERE name = 'John').
+Double quotes are used to quote system identifiers; field names, table names, etc. (i.e. WHERE "last name" = 'Smith').
+MySQL uses ` (accent mark or backtick) to quote system identifiers, which is decidedly non-standard.
+
+PostgreSQL is case-sensitive for string comparisons.
+The field "Smith" is not the same as the field "smith".
+This is a big change for many users from MySQL and other small database systems, like Microsoft Access.
+In PostgreSQL, you can either:
+Use the correct case in your query. (i.e. WHERE lname='Smith')
+Use a conversion function, like lower() to search. (i.e. WHERE lower(lname)='smith')
+Use a case-insensitive operator, like ILIKE or ~*
+
+Database, table, field and columns names in PostgreSQL are case-insensitive, unless created with double-quotes.
+In MySQL, table names can be case-sensitive or not, depending on which operating system you are using.
+
+PostgreSQL and MySQL seem to differ most in handling of dates, and the names of functions that handle dates.
+
+MySQL uses C-language operators for logic (i.e. 'foo' || 'bar' means 'foo' OR 'bar', 'foo' && 'bar' means 'foo' and 'bar').
+This might be marginally helpful for C programmers, but violates database standards and rules in a significant way.
+PostgreSQL, following the standard, uses || for string concatenation ('foo' || 'bar' = 'foobar').
+
+There are other differences between the two, such as the names of functions for finding the current user.
+MySQL has a tool, Crash-Me, which can be useful for digging this out.
+-------------------------------------------------------------------------------

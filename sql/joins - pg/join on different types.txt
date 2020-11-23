@@ -1,8 +1,0 @@
-if you try to join on columns of differing types you get errors like:
-	JOIN/USING types numeric and character varying cannot be matched (USING clause)
-	operator does not exist: character varying = numeric (ON clause)
-
-so the types of the columns should be the same (tested and worked)
-
-or you can cast one of them to match the other (tested and worked)
-	ON (zip = ytd_sales::varchar)
