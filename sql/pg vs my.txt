@@ -1,11 +1,11 @@
 ﻿						mysql			postgres
-comment line					#			-
+comment line					# --			--
 quote values					' "			'
 qoute system identifiers			`			"
 case-sensitive string comparison		❌			✔
 case-sensitive db/tbl/field/col name		os-dependent		❌ (unless made with ")
 date handling					many diffs		many diffs
-logical operators				||=or &&=and		||=strconcat
+logical operators				||=or &&=and		||=catstr
 -------------------------------------------------------------------------------
 MySQL uses nonstandard '#' to begin a comment line; PostgreSQL doesn't.
 Instead, use '--' (double dash), as this is the ANSI standard, and both databases understand it.
