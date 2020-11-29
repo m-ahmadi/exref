@@ -1,2 +1,2 @@
-enter pin mode			ctrl f11
-toggle active window		ctrl f12
+enter pin mode			ctrl f11 -> none
+toggle active window		ctrl f12 -> ctrl `

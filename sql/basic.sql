@@ -43,12 +43,22 @@ INSERT INTO tblname (col1, col2, col3) VALUES (val1, val2, val3); -- specific co
 INSERT INTO tblname (a,b,c) VALUES (1,2,3), (4,5,6), (7,8,9);     -- multiple rows
 INSERT INTO tblname VALUES (DEFAULT, 2, 3);                       -- auto increment col
 INSERT INTO tblname(id) SELECT * FROM generate_series(1, 1000);   -- insert in loop (pg)
+INSERT INTO tbl1 (SELECT * FROM tbl2 WHERE col = 'foo');          -- insert from another table (col types must match)
+INSERT INTO tbl1 (col1,col2) (SELECT col1,col2 FROM tbl2);        -- ...
+
+-- avoid inserting duplicates (mssql)
+INSERT INTO TABLE_2 (id, name)
+	SELECT t1.id, t1.name FROM TABLE_1 t1
+	WHERE NOT EXISTS(SELECT id FROM TABLE_2 t2 WHERE t2.id = t1.id);
+
+INSERT INTO TABLE_2 (id, name)
+	SELECT t1.id, t1.name FROM TABLE_1 t1 WHERE t1.id NOT IN (SELECT id FROM TABLE_2);
+
 
 DELETE FROM orders WHERE id_users = 1 AND id_product = 2 LIMIT 1;
 
 UPDATE tblname SET column1=value1, column2=value2 WHERE condition;
 UPDATE Customers SET ContactName='Alfred Schmidt', City='Frankfurt' WHERE CustomerID=1;
 UPDATE Customers SET ContactName='Juan' WHERE Country='Mexico';
-UPDATE Customers SET ContactName='Juan'; -- without WHERE all rows are updated
--- update a table with a value from another
-UPDATE tbl_1, tbl_2 SET tbl_1.col=tbl_2.col WHERE  tbl_1.col=tbl_2.col;
+UPDATE Customers SET ContactName='Juan';                                -- without WHERE all rows are updated
+UPDATE tbl_1, tbl_2 SET tbl_1.col=tbl_2.col WHERE  tbl_1.col=tbl_2.col; -- update a table with a value from another
