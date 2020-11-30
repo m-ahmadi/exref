@@ -2,6 +2,8 @@ light explorer			ctrl b
 space to tab (leading)		ctrl t
 show white space and tab	alt  ~
 show end of line		alt shift ~
+move to other view		alt e
+clone to other view		alt d
 
 reindent file			shift alt   f			Indent By Fold
 format js			ctrl  alt   m			JSTool
