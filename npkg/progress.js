@@ -1,12 +1,12 @@
 var Progress = require('progress');
 
-var bar = new Progress(':bar :current :current :total :elapsed :percent :eta :rate', {
+var bar = new Progress(':bar :current :total :elapsed :percent :eta :rate :<customToken>', {
 	curr:              0,
 	total:             0,
 	width:             this.total | 0,
 	stream:            stderr | inputStream,
 	head:              this.complete | '',
-	complete:          '=',
+	complete:          '=', // █ ▓ ▒ ░
 	incomplete:        '-',
 	renderThrottle:    16,
 	clear:             false,
@@ -14,12 +14,17 @@ var bar = new Progress(':bar :current :current :total :elapsed :percent :eta :ra
 	// https://www.npmjs.com/package/progress#options
 });
 
-bar.tick(customTokens={})
+bar.curr
+bar.complete
+bar.tick(?len=1, ?tokens={})
+bar.update(ratio, ?tokens={})
+bar.interrupt(message='')
+bar.terminate()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 // basic
-var bar = new ProgressBar(':bar', {total: 10}); // or
+var bar = new Progress(':bar', {total: 10}); // or
 var bar = new Progress('-> downloading [:bar] :percent :etas', {
 	width: 40,
 	complete: '=',
@@ -45,15 +50,12 @@ require('https').get('https://file-examples-com.github.io/uploads/2017/10/file_e
 });
 
 // custom tokens
-var bar = new Progress(':current: :token1 :token2', {total: 3})
-bar.tick({
-	'token1': "Hello",
-	'token2': "World!\n"
-});
-bar.tick(2, {
-	'token1': "Goodbye",
-	'token2': "World!"
-});
+var bar = new Progress(':bar :percent :task', {total:100, width:18, total:100, complete:'█', incomplete:'░', clear:true});
+var tasks = ['fucking','sucking','cumming','rubbing','shitting','farting'];
+var timer = setInterval(() => {
+	bar.tick({task: tasks[ Math.ceil(Math.random()*5) ] })
+	if (bar.complete) clearTimeout(timer);
+}, 100);
 
 // interrupt
 var bar = new Progress(':bar :current/:total', {total: 10});
