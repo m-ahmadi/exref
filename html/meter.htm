@@ -1,0 +1,21 @@
+﻿<meter id="fuel"
+	min="0" max="100"
+	low="33" high="66" optimum="80"
+	value="50">
+</meter>
+
+<br>
+
+<meter id="meter" style="width:40em; height:4em;"
+	min="0" max="600"
+	low="200" high="400" optimum="550"
+	value="0"></meter>
+
+<script>
+var r;
+var t = setInterval(() => (
+	r ? meter.value-- : meter.value++,
+	r = meter.value === meter.max || meter.value === meter.min ? !r : r
+), 10);
+setTimeout(()=>clearTimeout(t), 25000);
+</script>
