@@ -52,7 +52,7 @@ git switch master
 if master contains new commits (otherwise no issue)
 
 option 1
-	git merge cool-feature		dummy commit "Merge branch ..."
+	git merge cool-feature		dummy commit "Merge branch ..."		(not sure)
 
 option 2 (if new master commits don't relate to feature)
 	git switch cool-feature

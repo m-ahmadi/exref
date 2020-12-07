@@ -79,3 +79,20 @@ systemroot		C:\Windows
 homedrive		C:\
 allusersprofile		C:\ProgramData
 computername		DESKTOP-J3T9BJH
+------------------------------------------------------------------------------------------------------------
+shell:<dir>
+
+shell:Startup
+shell:Desktop
+shell:Downloads
+shell:ProgramFiles
+shell:ProgramFilesx86
+shell:Profile
+shell:My Music
+shell:My Pictures
+shell:My Video
+shell:Fonts
+shell:Windows
+...
+http://smallvoid.com/article/winnt-shell-keyword.html
+------------------------------------------------------------------------------------------------------------
