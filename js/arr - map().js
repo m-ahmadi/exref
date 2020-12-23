@@ -1,9 +1,9 @@
 var new_array = arr.map(callback(currentValue, ?index, ?array), ?thisArg) /*
-callback:      function to run against each item of array.
-currentValue:  current array element being processed.
-indexOptional: index of current array element being processed.
-array:         array map was called upon.
-thisArg:       value to use as this when executing callback. */
+callback:      function to run against each item of array
+currentValue:  current array element being processed
+indexOptional: index of current array element being processed
+array:         array map was called upon
+thisArg:       value to use as this when executing callback */
 
 //---------------------------------------------------------------------------------------
 // simple:
