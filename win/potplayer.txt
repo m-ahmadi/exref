@@ -1,0 +1,11 @@
+settings
+
+Playback -> Playback settings
+	Default window size: Maximize (to Desktop)
+
+Playback -> Jump (to) -> Time Jump Settings
+	Left/Right Arrow Keys: 3
+--------------------------------------------------
+cli
+
+PotPlayerMini64.exe path/to/file.mkv
