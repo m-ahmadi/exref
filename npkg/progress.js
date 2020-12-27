@@ -50,7 +50,7 @@ require('https').get('https://file-examples-com.github.io/uploads/2017/10/file_e
 });
 
 // custom tokens
-var bar = new Progress(':bar :percent :task', {total:100, width:18, total:100, complete:'█', incomplete:'░', clear:true});
+var bar = new Progress(':bar :percent :task', {total:100, width:18, complete:'█', incomplete:'░', clear:true});
 var tasks = ['fucking','sucking','cumming','rubbing','shitting','farting'];
 var timer = setInterval(() => {
 	bar.tick({task: tasks[ Math.ceil(Math.random()*5) ] })
