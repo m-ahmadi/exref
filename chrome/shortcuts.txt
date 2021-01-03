@@ -4,3 +4,8 @@ ctrl + h		history
 shift + enter		open url in new window
 ctrl + shift + j, f12	devtool
 ctrl + shift + c	element inspector
+
+-------------------------------------------------
+custom
+
+ctrl + space		allow cors
