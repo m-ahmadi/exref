@@ -28,6 +28,11 @@ if ( !str.trim() ) // contains only whitespaces
 Array(3).join('abc')  // 'abcabc'
 'abc'.repeat(2)       // 'abcabc'
 
-// replace all char occurrences
+// replace all char occurrences (or remove by replacing with '')
 'foobar'.replace(/foo/g, 'bar')
-'foofoobar'.split('bar').join('') // 'foofoo'  (slower)
+'fooBarFoobar'.replace(/foo/ig, 'bar')
+'foobar'.replaceAll('bar', 'foo') // new
+'foofoobar'.split('bar').join('') // 'foofoo' (slower)
+
+// replace first occurrence
+'foofoobar'.replace('foo', 'bar') // 'barfoobar'
