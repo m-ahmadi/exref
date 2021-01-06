@@ -1,0 +1,3 @@
+﻿fc a.js b.js		compare files for diff
+
+fc /?
