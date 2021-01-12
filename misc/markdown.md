@@ -19,6 +19,7 @@ Heading 2
 # link
 A [link](http://example.com).  
 An image: ![Alt](https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_100kB.jpg)
+An image ![Alt](/img/foo.png "title")
 
 [A header link](#Foo)
 
