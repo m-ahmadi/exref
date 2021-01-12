@@ -1,0 +1,21 @@
+﻿resize: 796 (required even if not changing the size, for normalizing all frames)
+
+drop every 2nd frame
+
+drop every 2nd frame
+
+speed @ -25%
+
+compression 80
+
+-------------------------------------------------------------------------------
+
+resize: 330 (original)
+
+optimize: remove duplicate frames: 3%
+
+frames: adjust last frame delay (see duration in "Cut" tab)
+
+optimize: remove duplicate frames: 75%
+
+optimize: optimize transparency: 3%
