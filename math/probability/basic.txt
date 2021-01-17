@@ -1,0 +1,12 @@
+﻿correlation does not imply causation
+	causation: a causal relationship between variables
+	correlation: variables reflect the same pattern,
+	changes in one won't affect the other
+
+curse of dimensionality
+	analyzing too many variables
+
+independent Events vs conditional probability
+
+bayes theory
+	P(A|B) = P(A) * P(B|A) / P(B)
