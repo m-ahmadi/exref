@@ -11,7 +11,7 @@ person
 	job
 		title           techlead
 		address         12 street
-		salary          17e6
+		salary          60e6
 	eyes
 		color            green
 		vision_strength  19
