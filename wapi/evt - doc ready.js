@@ -44,3 +44,15 @@ if (document.readyState !== 'loading') { // or === 'complete'
 	// or
 	window.addEventListener('load', fn);
 }
+
+// doc visibility
+document.visibilityState: 'visible|hidden'
+document.hidden:          boolean
+
+document.addEventListener('visibilitychange', function() {
+	if (document.visibilityState === 'visible') {
+		backgroundMusic.play();
+	} else {
+		backgroundMusic.pause();
+	}
+});
