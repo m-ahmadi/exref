@@ -42,19 +42,29 @@ const subs = new Set( cmd.commands.map(i=>[i.name(),i.alias()]).reduce((a,c)=>a=
 if ( cmd.rawArgs.find(i=> subs.has(i)) ) return;
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 program
+.addCommand()
+.addHelpText()
 .action()
+.allowExcessArguments()
 .allowUnknownOption()
+.enablePositionalOptions()
+.exitOverride()
 .command()
-.name()
+.configureOutput()
+.createOption()
 .help(cb)
 .helpInformation()
 .helpOption(flags, description)
+.name()
 .option()
 .opts()
 .outputHelp(cb): ''
 .parse()
 .parseAsync()
-.passCommandToAction()
+.parseOption()
+.passCommandToAction() // deprecated
+.passThroughOptions()
+.requiredOptions()
 .storeOptionsAsProperties()
 .usage()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
