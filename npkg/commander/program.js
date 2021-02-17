@@ -43,12 +43,13 @@ if ( cmd.rawArgs.find(i=> subs.has(i)) ) return;
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 program
 .addCommand()
-.addHelpText()
+.addHelpText(position='beforeAll|before|after|afterAll', text='' | ()='')
 .action()
 .allowExcessArguments()
 .allowUnknownOption()
 .enablePositionalOptions()
 .exitOverride()
+.combineFlagAndOptionalValue()
 .command()
 .configureOutput()
 .createOption()

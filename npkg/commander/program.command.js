@@ -5,10 +5,14 @@ program
 	.alias(name)
 	.description(desc)
 		// desc: description string that appears on help
-	.action(function (cmdArg1 [, cmdArg2, ..., ] options) {})
+	
+	
+	.action((cmdArg1 [, cmdArg2, ..., ] options) => )
 		// a callback to be invoked when command name is specified via ARGV
 		// cmdArg:      argument(s) of sub-command
 		// options:     options passed after the sub-command
+	
+	.action((args, opts, command) => ) // v7
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const program = require('commander');
 
@@ -22,7 +26,7 @@ program
 
 // required argument
 program
-  .command('cmd2 [val]')
+  .command('cmd2 <val>')
 	.description('command with required argument, error if omitted')
 	.action(function (val) {
 		console.log(val)
@@ -30,7 +34,7 @@ program
 
 // optional argument
 program
-	.command('cmd3 <val>')
+	.command('cmd3 [val]')
 	.description('command with optional argument')
 	.action(function (val) {
 		console.log(val)
