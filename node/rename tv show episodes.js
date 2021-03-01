@@ -20,7 +20,7 @@ Silicon Valley - 2x02 - Runaway Devaluation
 // ren.js
 var fs = require('fs');
 var { join } = require('path');
-var seasons = fs.readFileSync('./episodes.txt', 'utf8').split('@').map( i => i.split('\r\n').filter(i=>i) );
+var seasons = fs.readFileSync('./episodes.txt', 'utf8').split('\r\n\r\n').map( i => i.split('\r\n').filter(i=>i) );
 fs.readdirSync('./').filter(i=>fs.statSync(i).isDirectory()).forEach((folder,i) => {
 	var names = seasons[i];
 	var files = fs.readdirSync(folder).filter(i => i !=='sub');

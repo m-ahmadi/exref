@@ -1,5 +1,8 @@
-mkdir foo		create dir
-mkdr foo,bar,baz	... multiple dirs
-mkdir a/b/c/d		... nested dirs
+mkdir foo				create dir
+mkdr foo,bar,baz			... multiple dirs
+mkdir a/b/c/d				... nested dirs
 
 alias: md
+
+
+for /L %x in (1,1,24) do md %x		create multiple dirs programmatically

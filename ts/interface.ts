@@ -12,6 +12,7 @@ interface LabelledValue {
 	(source: string, subString: string): boolean;
 	(start: number): string;
 	setTime(d: Date): void;
+  validation?(flag: any) : boolean;
 	tick(): void;
 	new (hour: number, minute: number);
 	new (hour: number, minute: number): ClockInterface;
