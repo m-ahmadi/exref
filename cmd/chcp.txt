@@ -1,4 +1,5 @@
 changes character encoding
 
+chcp 437	default
 chcp 65001	utf8
 chcp 1256	arabic	

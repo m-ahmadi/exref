@@ -1,2 +1,4 @@
 ext:.jpg
 datemodified:last week
+
+kind:= -folder type:= -[] extension:= []			files with no extension
