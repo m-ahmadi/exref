@@ -1,0 +1,2 @@
+﻿choco install <pkg>
+choco install <pkg> --version 1.0 --allow-downgrade
