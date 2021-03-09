@@ -1,0 +1,5 @@
+﻿choco install zola
+
+zola init my_site
+cd my_site
+zola serve
