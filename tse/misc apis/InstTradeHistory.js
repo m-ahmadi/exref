@@ -3,6 +3,8 @@ http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?
 	i=InsCode   long
 	Top=999     int   only last N days. (max 190 if A=0)
 	A=0         bool  full history
+	
+	return: text/html
 */
 var str = await fetch('http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?i=46348559193224090&Top=999999&A=1').then(async r => await r.text());
 var rows = str.split(';'); // rows[0] == last day
