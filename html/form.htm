@@ -1,7 +1,15 @@
 <form action="" method=""></form>
-<input name disabled checked autofocus required multiple form="form_id" /> or <select>, <textarea>, ...
+<input name="" spellcheck="true|false|null" form="form-id" disabled checked autofocus required multiple /> or <select>, <textarea>, ...
 
-<input type="text" />
+<input type="text" 
+	list=       "null|<datalist>.id"
+	maxlength=  "-1|+int"
+	minlength=  "-1|+int"
+	pattern=    "RegExp"
+	placeholder=""
+	size=       "20|int"
+	readonly
+/>
 <input type="number" min="" max="" step="" value="" />
 <input type="checkbox" value="" />
 <input type="radio" name="sharedName" value="" />
@@ -21,7 +29,7 @@
 
 <input type="button" value="" />
 <input type="password" />
-<input type="search" list="" maxlength="" minlength="" pattern="" size="" readonly spellcheck />
+<input type="search" list="" maxlength="" minlength="" pattern="" size="" readonly />
 <input type="time" />
 <input type="range" min="0" max="10" />
 <input type="color" value="#ff0000" />

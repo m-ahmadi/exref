@@ -1,0 +1,4 @@
+chrome example.com				open url
+chrome  --auto-open-devtools-for-tabs		auto-open devtools for every tab (only if no Chrome already running)
+
+https://peter.sh/experiments/chromium-command-line-switches/
