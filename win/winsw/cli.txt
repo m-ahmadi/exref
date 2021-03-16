@@ -1,0 +1,17 @@
+winsw install myapp.xml [options]	install service
+winsw start myapp.xml			start service
+winsw status myapp.xml			see if service is up and running
+winsw refresh myapp.xml			reapply conf without reinstall
+
+commands:
+  install <conf>      Installs the service.
+  uninstall <conf>    Uninstalls the service.
+  start <conf>        Starts the service.
+  stop <conf>         Stops the service.
+  restart <conf>      Stops and then starts the service.
+  restart! <conf>     self-restart (can be called from child processes)
+  status <conf>       Checks the status of the service.
+  test <conf>         Checks if the service can be started and then stopped without installation.
+  refresh <conf>      Refreshes the service properties without reinstallation.
+  customize               Customizes the wrapper executable.
+  dev                     Experimental commands.

@@ -1,3 +1,11 @@
+<!-- basic -->
+<service>
+	<id>myapp</id>
+	<executable>node</executable>
+	<arguments>D:\xampp\htdocs\x</arguments>
+</service>
+
+<!-- another -->
 <service>
 	<id>jenkins</id>
 	<name>Jenkins</name>
