@@ -1,0 +1,30 @@
+stack
+	single page
+	.bat & .sh build
+stack2
+	single page
+	took stack and refined it
+	javascript build
+stack3
+	took stack2 and tried to make it multi page
+	not happy with build compile time
+	html confusion
+	uikit theme construction included
+
+stack4	rollup instead of requirejs
+stack4m	...multi page
+stack5	removed rollup and handlebars
+stack6
+	serving with php
+	removed .cmd shortcuts
+	removed single-task build.js
+	multi-task build.js
+
+stack7	native js templates
+
+stack8
+	webpack
+	removed html compiler
+stack9
+	build.js
+	no html compile

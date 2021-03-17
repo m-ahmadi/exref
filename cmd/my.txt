@@ -7,6 +7,7 @@ mklink /d C:\ac  "L:\...\accounts"
 mklink /d C:\usr C:\Users\NYC
 
 C:\node.lnk
+C:\net.lnk	(%windir%\system32\control.exe ncpa.cpl)
 -------------------------------------------------------------------------------
 env vars
 
@@ -14,7 +15,7 @@ r	J:\...\exref
 h	...\...\htdocs
 home	C:\Users\NYC
 desk	C:\Users\NYC\Desktop
-pws	%systemoot%\system32\WindowsPowerShell\v1.0\powershell.exe
+pws	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 -------------------------------------------------------------------------------
 ctrl+alt shortcuts
 
