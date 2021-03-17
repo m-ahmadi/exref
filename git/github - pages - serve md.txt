@@ -1,0 +1,10 @@
+README.md
+[docs](https://user.github.io/repo)
+
+docs/index.md
++ [foo](/API.md#foo)
++ [bar](/API.md#bar)
+
+docs/api.md
+# foo
+# bar

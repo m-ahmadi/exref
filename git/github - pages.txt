@@ -12,3 +12,6 @@ now:
 
 http://username.github.io		serves:  "github.com/username.github.io" files
 https://username.github.io/repo		serves:  "github.com/repo" /docs folder (repo->settings->gh pages must be enabled)
+
+
+note: it also can serve .md
