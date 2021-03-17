@@ -1,4 +1,4 @@
-﻿/*
+/*
 http://www.tsetmc.com/tsev2/data/search.aspx?
 	skey=<keyword>
 	

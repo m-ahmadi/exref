@@ -1,3 +1,3 @@
-﻿repo/img/foo.gif
+repo/img/foo.gif
 
 ![alt](img/foo.gif)

@@ -1,4 +1,4 @@
-﻿// http://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html
+// http://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html
 col.collectionName
 col.dbName
 col.hint

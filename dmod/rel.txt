@@ -1,4 +1,4 @@
-﻿how to deal with data of junction tables
+how to deal with data of junction tables
 
 inserting
 	manual

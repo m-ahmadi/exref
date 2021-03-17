@@ -1,4 +1,4 @@
-﻿var timeout   = setTimeout(callback, ?delay, ...?args)
+var timeout   = setTimeout(callback, ?delay, ...?args)
 var timeout   = setInterval(callback, ?delay, ...?args)
 var immediate = setImmediate(callback, ...?args)
 

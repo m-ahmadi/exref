@@ -1,4 +1,4 @@
-﻿Navicat -> New Role -> <name>
+Navicat -> New Role -> <name>
 
 for convenient:
 use %USERNAME% for role and db name (since psql uses that as default --username --dbname)

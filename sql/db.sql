@@ -1,4 +1,4 @@
-﻿CREATE DATABASE name
+CREATE DATABASE name
 	[ [ WITH ] [ OWNER [=] user_name ]
 		[ TEMPLATE [=] template ]
 		[ ENCODING [=] encoding ]

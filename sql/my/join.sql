@@ -1,4 +1,4 @@
-﻿--    left                           right
+--    left                           right
 	table_name    join_keywords    table_name
 
 -- USING() or ON column is usually placed at first

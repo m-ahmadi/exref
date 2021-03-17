@@ -1,4 +1,4 @@
-﻿const pg = require('pg'); // npm install pg
+const pg = require('pg'); // npm install pg
 const client = new pg.Client();
 
 const config = {

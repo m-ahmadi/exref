@@ -1,4 +1,4 @@
-﻿correlation does not imply causation
+correlation does not imply causation
 	causation: a causal relationship between variables
 	correlation: variables reflect the same pattern,
 	changes in one won't affect the other

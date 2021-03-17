@@ -1,4 +1,4 @@
-﻿const { Command } = require('commander');
+const { Command } = require('commander');
 const program = new Command();
 
 program

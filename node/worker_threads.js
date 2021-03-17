@@ -1,4 +1,4 @@
-﻿var worker_threads = require('worker_threads');
+var worker_threads = require('worker_threads');
 
 worker_threads.Worker
 worker_threads.isMainThread

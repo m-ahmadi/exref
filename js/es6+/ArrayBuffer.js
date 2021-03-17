@@ -1,4 +1,4 @@
-﻿var buffer = new ArrayBuffer(?length=0) /*
+var buffer = new ArrayBuffer(?length=0) /*
 allocates a fixed-length contiguous memory area
 buffer content cannot be modified directly, only with TypedArray | DataView
 

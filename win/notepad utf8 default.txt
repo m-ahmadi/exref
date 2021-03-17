@@ -1,5 +1,6 @@
 ctxmenu -> New -> Text Document
 open "New Text Document.txt" -> File > Save As "UTF-8" -> Yes (overwrite)
+change UTF8-8-BOM to UTF-8 with notepad++
 rename "New Text Document.txt" TXTUTF-8.txt
 mkdir C:\WINDOWS\SHELLNEW
 move TXTUTF-8.txt C:\WINDOWS\SHELLNEW

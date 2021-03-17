@@ -1,4 +1,4 @@
-﻿-- order of processing
+-- order of processing
 SELECT name, title, price, advance          -- 4
   FROM publisher JOIN book USING (pub_id)   -- 1
   WHERE price > 10 AND advance > 10000      -- 2

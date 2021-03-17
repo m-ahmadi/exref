@@ -1,4 +1,4 @@
-﻿attribute/col in one table that refers to primary key of another table (two tables are linked)
+attribute/col in one table that refers to primary key of another table (two tables are linked)
 
 TEAM.MEMBER_NAME	foreign key ->		PERSON.PERSON_NAME
 

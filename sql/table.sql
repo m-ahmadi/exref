@@ -1,4 +1,4 @@
-﻿CREATE TABLE table_name (
+CREATE TABLE table_name (
 	col1  SERIAL PRIMARY KEY,
 	col2  VARCHAR(40) NOT NULL,
 	col3  DATE

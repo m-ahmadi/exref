@@ -1,4 +1,4 @@
-﻿brush			b
+brush			b
 brush presets		f6
 darker brush color	k
 ligter brush color	l

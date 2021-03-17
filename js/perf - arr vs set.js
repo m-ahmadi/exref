@@ -1,4 +1,4 @@
-﻿let arr = [];
+let arr = [];
 let set = new Set();
 for (let i=0; i<1e6; i++) { set.add(i); arr.push(i); }
 

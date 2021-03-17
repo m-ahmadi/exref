@@ -1,4 +1,4 @@
-﻿						mysql			postgres
+						mysql			postgres
 comment line					# --			--
 quote values					' "			'
 qoute system identifiers			`			"

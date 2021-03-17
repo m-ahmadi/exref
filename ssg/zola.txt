@@ -1,4 +1,4 @@
-﻿choco install zola
+choco install zola
 
 zola init my_site
 cd my_site

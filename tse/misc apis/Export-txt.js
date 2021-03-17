@@ -1,4 +1,4 @@
-﻿/*
+/*
 http://tsetmc.com/tse/data/Export-txt.aspx?a=InsTrade&
 	InsCode=<InsCode>&
 	DateFrom=<DEven>&

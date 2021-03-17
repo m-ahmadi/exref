@@ -1,4 +1,4 @@
-﻿-- a stored program associated with a table
+-- a stored program associated with a table
 -- activates for INSERT/DELETE/UPDATE on that table
 -- can activate before/after each row processed by the statements
 

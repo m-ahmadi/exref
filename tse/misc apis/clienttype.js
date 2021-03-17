@@ -1,4 +1,4 @@
-﻿/*
+/*
 http://www.tsetmc.com/tsev2/data/clienttype.aspx?
 	i=InsCode
 	

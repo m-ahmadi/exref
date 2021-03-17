@@ -1,4 +1,4 @@
-﻿WeakMap(?iterable=[
+WeakMap(?iterable=[
 	[ {} | WeakMap, any ],
 	...
 ])

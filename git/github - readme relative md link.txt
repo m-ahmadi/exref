@@ -1,4 +1,4 @@
-﻿README.MD
+README.MD
 [go to api](API.MD)
 [go to api sec](API.MD#sec)
 

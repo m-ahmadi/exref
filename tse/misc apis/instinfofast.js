@@ -1,4 +1,4 @@
-﻿/*
+/*
 http://www.tsetmc.com/tsev2/data/instinfofast.aspx?
 	i=<InsCode>
 	c=57+          ???

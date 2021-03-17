@@ -1,4 +1,4 @@
-﻿no generic answer (heavily dependent on situations)
+no generic answer (heavily dependent on situations)
 
 how data is consumed?
 	reading from start to end rows in the order entered?

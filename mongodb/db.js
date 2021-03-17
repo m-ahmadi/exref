@@ -1,4 +1,4 @@
-﻿// http://mongodb.github.io/node-mongodb-native/3.6/api/Db.html
+// http://mongodb.github.io/node-mongodb-native/3.6/api/Db.html
 
 db.<method>(..., ?callback=(err,result)=>): <Promise> if !callback
 

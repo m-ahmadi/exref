@@ -1,4 +1,4 @@
-﻿resize: 796 (required even if not changing the size, for normalizing all frames)
+resize: 796 (required even if not changing the size, for normalizing all frames)
 
 drop every 2nd frame
 

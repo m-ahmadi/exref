@@ -1,4 +1,4 @@
-﻿var new_array = arr.flatMap(callback(currentValue, ?index, ?array), ?thisArg)
+var new_array = arr.flatMap(callback(currentValue, ?index, ?array), ?thisArg)
 
 
 var arr = [1, 2, 3, 4];

@@ -1,4 +1,4 @@
-﻿ALTER USER postgres PASSWORD 'newpass';                     -- change password of a role
+ALTER USER postgres PASSWORD 'newpass';                     -- change password of a role
 SELECT * FROM pg_stat_activity WHERE datname = 'TARGET_DB'; -- see active connections to a database
 REVOKE CONNECT ON DATABASE TARGET_DB FROM public;           -- prevent future connections on a database
 GRANT  CONNECT ON DATABASE TARGET_DB TO   public;           -- undo abouve

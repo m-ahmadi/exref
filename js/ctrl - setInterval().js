@@ -1,4 +1,4 @@
-﻿var intervalID = scope.setInterval(fn|str, ?delay=0, ?args...)
+var intervalID = scope.setInterval(fn|str, ?delay=0, ?args...)
 clearTimeout(intervalID)
 
 function add(a,b) {console.log(a+b)}

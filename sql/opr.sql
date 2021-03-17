@@ -1,4 +1,4 @@
-﻿-- logical
+-- logical
 SELECT lastname, firstname, city, state FROM author WHERE lastname = 'Hunter' AND firstname = 'Cindy';
 SELECT lastname, firstname, city, state FROM author WHERE state = 'CA' OR state = 'UT';
 SELECT lastname, firstname, city, state FROM author WHERE NOT (state = 'CA' OR state = 'UT');

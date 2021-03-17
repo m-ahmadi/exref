@@ -1,4 +1,4 @@
-﻿SELECT col1, col2, ... | *
+SELECT col1, col2, ... | *
 FROM tblname JOIN tblname USING(col)
 WHERE col = val OR ... AND ... IN ... BETWEEN ... LIKE
 ORDER BY col |  ORDER BY col DESC  |  ORDER BY col1 ASC, col2 DESC

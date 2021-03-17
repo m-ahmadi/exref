@@ -1,4 +1,4 @@
-﻿var dataView = new DataView(buffer=ArrayBuffer|SharedArrayBuffer, ?byteOffset=0, ?byteLength=0)
+var dataView = new DataView(buffer=ArrayBuffer|SharedArrayBuffer, ?byteOffset=0, ?byteLength=0)
 
 DataView {
 	buffer

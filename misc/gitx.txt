@@ -1,4 +1,4 @@
-﻿gitx help
+gitx help
 gitx openrepo path/to/dir
 
 orig command: gitex

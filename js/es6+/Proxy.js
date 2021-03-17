@@ -1,4 +1,4 @@
-﻿const target = {
+const target = {
 	message1: 'hello',
 	message2: 'everyone'
 };

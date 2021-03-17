@@ -1,4 +1,4 @@
-﻿normalization
+normalization
 
 removing data redundancy, inconsistency, anomallies from database
 

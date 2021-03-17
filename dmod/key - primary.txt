@@ -1,2 +1,2 @@
-﻿primary key is unique (two rows cannot be the same)
+primary key is unique (two rows cannot be the same)
 primary key is always indexed
