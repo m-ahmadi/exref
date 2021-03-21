@@ -1,9 +1,0 @@
-public/
-	css/
-	js/
-	index.html
-views/
-	blah.hbs
-
-
-if there's an index.html file in the public folder, the views will not render and that index.html file is served statically.

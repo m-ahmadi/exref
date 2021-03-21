@@ -1,6 +1,6 @@
 mklink /d C:\r "J:\...\exref"
 mklink /d C:\h D:\xampp\htdocs
-mklink /d C:\#htdocs D:\xampp\htdocs
+mklink /d C:\#htdocs d:\xampp\htdocs
 
 mklink /d C:\dev "J:\...\Dev"
 mklink /d C:\ac  "L:\...\accounts"
@@ -11,8 +11,8 @@ C:\net.lnk	(%windir%\system32\control.exe ncpa.cpl)
 -------------------------------------------------------------------------------
 env vars
 
-r	J:\...\exref
-h	...\...\htdocs
+r	C:\r
+h	C:\#htdocs
 home	C:\Users\NYC
 desk	C:\Users\NYC\Desktop
 pws	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
@@ -25,7 +25,8 @@ ctrl+alt shortcuts
 4 paint
 5 notepad
 6 paint.net
-e cmd        admin, target: %comspec% /k pushd %h%
+e cmd        admin, target: %comspec% /k pushd D:\xampp\htdocs && title cmd
+w ...
 r powershell admin, target: %pws% -NoExit -Command "pushd $env:h"
 -------------------------------------------------------------------------------
 alarm sound

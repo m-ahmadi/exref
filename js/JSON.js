@@ -1,4 +1,4 @@
-JSON.stringify(value[, replacer[, space]])
+JSON.stringify(value, ?replacer= (k,v)=> | [''|0,...], ?space=''|0)
 var o = {
 	a: 'a',
 	b: 'b'

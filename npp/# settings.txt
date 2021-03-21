@@ -36,7 +36,15 @@ XML Tools
 NewFileBrowser
 TextFX Characters
 Tidy2
-Compare
 JSON Viewer
+
+Compare
 JSLint
+-------------------------------------------------------------------------------
+js backtick (perl BACKTICKS)
+stylers.xml
+	<LexerType name="javascript"
+		<WordsStyle name="SINGLESTRING" ...
+		<WordsStyle name="BACKTICKS" styleID="20" fgColor="A31515" bgColor="F1F3F7" fontName="" fontStyle="0" fontSize="" />
+		...
 -------------------------------------------------------------------------------

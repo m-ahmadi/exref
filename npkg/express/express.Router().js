@@ -7,16 +7,6 @@ var options = {
 };
 var router = express.Router();
 
-/*
-	A router object is an isolated instance of middleware and routes.
-	You can think of it as a “mini-application,” capable only of performing middleware and routing functions.
-	Every Express application has a built-in app router.
-	A router behaves like middleware itself,
-	so you can use it as an argument to app.use() or as the argument to another router’s use() method.
-	Once you’ve created a router object with express.Router(),
-	you can add middleware and HTTP method routes (such as get, put, post, and so on) to it just like an application.
-*/
-
 // invoked for any requests passed to this router
 router.use(function (req, res, next) {
 	// .. some logic here .. like any other middleware

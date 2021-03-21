@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+view resolving (in express-generator)
+public/
+	css/
+	js/
+	index.html
+views/
+	blah.hbs
+if public/index.html exists, views won't render and index.html file is served statically
+-------------------------------------------------------------------------------
