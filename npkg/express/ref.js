@@ -1,5 +1,54 @@
 var express = require('express')
+
 var app = express()
+
+var router = express.Router(?options={
+	caseSensitive: false,
+	mergeParams:   false,
+	strict:        false
+})
+
+express.json(?options={
+	inflate:  true,
+	limit:    '100kb' | 0,
+	reviver:  null | ()=>, // JSON.parse(, reviver)
+	strict:   true,
+	type:     'application/json' | '' | ['',...] | (req)=>true,
+	verify:   undefined | (req, res, buf, encoding)=>,
+})
+express.raw(?options={
+	inflate:  ...,
+	limit:    ...,
+	type:     'application/octet-stream' | ...,
+	verify:   ...,
+})
+express.text(?options={
+	defaultCharset: 'utf-8',
+	inflate:        ...,
+	limit:          ...,
+	type:           'text/plain' | ...,
+	verify:         ...,
+})
+express.urlencoded(?options={
+	extended:       true,
+	inflate:        ...,
+	limit:          ...,
+	parameterLimit: 1000,
+	type:           'application/x-www-form-urlencoded' | ...
+	verify:         ...,
+})
+express.static(root='', ?options={
+	dotfiles:     'ignore|allow|deny',
+	etag:         '',
+	extensions:   '' | ['',...],
+	fallthrough:  true,
+	immutable:    false,
+	index:        'index.html' | false,
+	lastModified: true,
+	maxAge:       0,
+	redirect:     true,
+	setHeaders:   (res, path, stat)=>,
+})
 
 app.settings: {
 	'case sensitive routing': undefined | true,
@@ -44,31 +93,10 @@ app.get|post|put|delete|...METHOD(path='' | 'pattern' | RegExp | [], callback=(r
 app.listen === http.Server.listen === net.Server.listen
 app.listen(path='', ?callback)
 app.listen(?port=0, ?host='', ?backlog=511, ?callback)
-
 app.on('mount', callback=(parent)=>)
-
-
 app.use(path='/', callback=()=> | [], ?...callbacks)
-
-
-express.json(?options)
-express.raw(?options)
-express.Router(?options)
-express.static(root='', ?options={
-	dotfiles:     'ignore|allow|deny',
-	etag:         '',
-	extensions:   '' | ['',...],
-	fallthrough:  true,
-	immutable:    false,
-	index:        'index.html' | false,
-	lastModified: true,
-	maxAge:       0,
-	redirect:     true,
-	setHeaders:   (res, path, stat)=>,
-})
-express.urlencoded()
 
 
 
 res.redirect(?status=+int, path='')
-	
+res.render(view='rel|abs/file(.ext|view engine)', ?locals={}, ?callback=(err, html)=>)
