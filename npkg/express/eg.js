@@ -127,7 +127,7 @@ res.redirect('back')
 // render view
 res.render('index')
 res.render('index', (err, html) => res.send(html))
-res.render('user', { name: 'Tobi' }, (err, html)=> res.send(html)) // pass local variable to view
+res.render('user', {name: 'Tobi'}, (err,html)=> res.send(html)) // pass local variable to view
 
 
 

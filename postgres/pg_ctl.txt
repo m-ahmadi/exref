@@ -1,6 +1,6 @@
-pg_ctl start -D "E:\pgdb"				start server
-pg_ctl stop -D "E:\pgdb" 				stop  server
-pg_ctl restart -D "E:\pgdb" 				restart server
+pg_ctl start -D "D:\pgdb"				start server
+pg_ctl stop -D "D:\pgdb" 				stop  server
+pg_ctl restart -D "D:\pgdb" 				restart server
 pg_ctl register -N postgres -D "E:\pgdb" -S auto	install as service
 pg_ctl unregister -N postgres				uninstall service
 pg_ctl status -D D:\pgdb

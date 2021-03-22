@@ -9,6 +9,6 @@ start chrome local
 start chrome local/foo/bar
 
 start "title" cmd "/k command & ..."
-start "cmd" cmd "/k pushd D:\xampp\repo & code .
+start "cmd" cmd "/k pushd D:\xampp\htdocs\repo && code .
 
 npp
