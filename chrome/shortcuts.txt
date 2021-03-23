@@ -1,11 +1,11 @@
-ctrl + shift + o	bookmark manager
-ctrl + d		bookmark page
-ctrl + h		history
-shift + enter		open url in new window
-ctrl + shift + j, f12	devtool
-ctrl + shift + c	element inspector
-
+ctrl shift o		bookmark manager
+ctrl d			bookmark page
+ctrl h			history
+shift  enter		open url in new window
+ctrl shift j, f12	devtool
+ctrl shift c		element inspector
+ctrl shit r		hard refresh
 -------------------------------------------------
 custom
 
-ctrl + space		allow cors
+ctrl space		allow cors
