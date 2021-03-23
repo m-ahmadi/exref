@@ -1,0 +1,4 @@
+netstat -a -b
+netstat -a -n -p TCP | find "LISTENING"
+
+resmon.exe

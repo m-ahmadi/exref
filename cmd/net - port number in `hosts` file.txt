@@ -1,0 +1,15 @@
+you cannot put port numbers in hosts file, it's for host name resolution only (windows & unix-like os) 
+
+
+...drivers\etc\hotst:
+127.0.0.2	myapp
+
+netsh int portproxy add v4tov4 listenaddress=127.0.0.2 listenport=80 connectaddress=127.0.0.1 connectport=3000
+
+check:
+	netsh int portproxy show v4tov4
+	or
+	netstat -a -n -p TCP | find "LISTENING"
+
+undo:
+	netsh int portproxy delete v4tov4 listenaddress=127.0.0.2 listenport=80

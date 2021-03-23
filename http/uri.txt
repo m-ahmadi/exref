@@ -1,0 +1,20 @@
+http://		protocol
+//		protocol shortcut
+/		root
+./		current dir
+../		back dir
+
+
+
+foo://username:password@example.com:8080/over/there/index.dtb;type=animal?name=ferret#nose
+\ /   \________________/\_________/ \__/            \___/ \_/ \_________/ \_________/ \__/
+ |           |               |       |                |    |       |           |       |
+ |       userinfo         hostname  port              |    |   parameter     query   fragment
+ |    \_______________________________/ \_____________|____|____________/
+scheme                |                               | |  |
+ |                authority                           |path|
+ |                                                    |    |
+ |            path                                 filename
+ |   ___________|____________                              |
+/ \ /                        \                             |
+urn:example:animal:ferret:nose                          file extension
