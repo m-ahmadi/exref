@@ -102,26 +102,26 @@ router.route(...): Router
 router.use(...)
 
 
-req.app
-req.baseUrl
-req.body
-req.cookies
-req.fresh
-req.hostname
-req.ip
-req.ips
-req.method
-req.originalUrl
-req.params
-req.path
-req.protocol
-req.query
-req.route
-req.secure
-req.signedCookies
-req.stale
-req.subdomains
-req.xhr
+req.app           Application
+req.baseUrl       ''
+req.body          {}
+req.cookies       {}
+req.fresh         boolean
+req.hostname      ''
+req.ip            ''
+req.ips           ['',...]
+req.method        ''
+req.originalUrl   ''
+req.params        {}
+req.path          ''
+req.protocol      ''
+req.query         {}
+req.route         ''
+req.secure        boolean
+req.signedCookies {}
+req.stale         boolean
+req.subdomains    ['',...]
+req.xhr           boolean
 req.accepts(types)
 req.acceptsCharsets(charset, ?...rest)
 req.acceptsEncodings(encoding, ?...rest)
@@ -132,9 +132,9 @@ req.param(name, ?defaultValue) // depricated
 req.range(size, ?options)
 
 
-res.app
-res.headersSent
-res.locals
+res.app         Application
+res.headersSent boolean
+res.locals      {}
 res.append(field, ?value)
 res.attachment(?filename)
 res.cookie(name, value, ?options)

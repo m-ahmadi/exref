@@ -1,1 +1,0 @@
-!fs.lstatSync(dir).isDirectory() // if the directory or file does not exist, then you will get an error back

@@ -1,14 +1,5 @@
-const fs = require('fs');
+const { access, mkdir, stat, unlink, readdir, copyFile, rmdir, rename } = require('fs').promises;
 const { join } = require('path');
-const { promisify } = require('util');
-const access   = promisify(fs.access);
-const mkdir    = promisify(fs.mkdir);
-const stat     = promisify(fs.stat);
-const unlink   = promisify(fs.unlink);
-const readdir  = promisify(fs.readdir);
-const copyFile = promisify(fs.copyFile);
-const rmdir    = promisify(fs.rmdir);
-//const rename = promisify(fs.rename);
 
 // move dir and all files within one level
 // deletes newPath if it's an existing file
@@ -34,7 +25,7 @@ async function moveDir(oldPath, newPath) {
 
 moveDir('dir1', 'dir2')
 moveDir('dir1', 'E:\dir2')
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // recursive
 async function moveDir(oldPath, newPath) {
 	await access(newPath).catch(async err => {
@@ -82,4 +73,4 @@ function moveDirSync(src, dest) {
 	}
 	fs.rmdirSync(src);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

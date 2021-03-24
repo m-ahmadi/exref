@@ -1,1 +1,2 @@
-dir /b | find "something"
+dir /b | find "something"	find str in stdin
+find "foo" .\*			find "foo" in all files in dir
