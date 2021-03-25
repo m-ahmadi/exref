@@ -1,6 +1,8 @@
 @echo off
 
 :: file
+if exist file.js del file.js
+
 if exist myFile (
 	echo myFile exists
 ) else (

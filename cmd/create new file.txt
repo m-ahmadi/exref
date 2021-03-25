@@ -1,9 +1,8 @@
-copy NUL file.txt			 empty, echos newline
-copy /y NUL file.txt >NUL		 empty, no echos
+cd. > file				 empty, no echos
+call > file.txt				 empty, no echos
 type NUL > file.txt			 empty, echos newline
 echo NUL > file.txt			!empty, no echos
+
+copy NUL file.txt			 empty, echos newline
+copy /y NUL file.txt >NUL		 empty, no echos
 copy nul file.txt > nul			 empty, no echos
-cd. > file				 empty, no echos
-call>file.txt				 empty, no echos
---------------------------------------------------------------------
-echo NUL > .name			 extension-less file starting with . character
