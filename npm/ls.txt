@@ -12,5 +12,6 @@ npm ls <@scope>/<pkg>
 -------------------------------------------------------------------------------
 npm ls					list locally installed packages (alias: list)
 npm ls --depth=0			don't show any dependencies
-npm ls --depth 0 -g			list globally installed packages
-npm ls --depth 0 -g --long 		provides the module descriptions and github links (--l, --long)
+npm ls -g				list globally installed packages
+npm ls -g --depth 0			...
+npm ls -g --depth 0 --long 		provides the module descriptions and github links (--l, --long)
