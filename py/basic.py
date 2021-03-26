@@ -5,6 +5,7 @@ from foo.bar import baz    # foo.bar.baz imported and bound as baz
 from foo import attr       # foo imported and foo.attr bound as attr
 
 print("This line will be printed.")
+exit() # exit script
 myint = 7
 myfloat = 7.0
 mystr = 'hello'
@@ -41,6 +42,8 @@ if name == "John" and age == 23:
 
 def my_function():
 	print("Hello From My Function!")
+
+mylam = lambda: print("lambda function")
 
 def addition(n): 
 	return n + n 

@@ -8,7 +8,6 @@ cdn
 	https://unpkg.com/browse/brain.js/dist/
 	
 	https://cdn.jsdelivr.net/npm/brain.js/dist/brain-browser.min.js
-	
 */
 
 const config = {

@@ -1,0 +1,7 @@
+feed forward (ffnn)		0 cycles
+convolutional (cnn)		spatial-invariance, image
+recurrent (rnn)			context-critical, text
+generative adversarial (gan)	
+encoder-decoder			built from above nets
+autoencoder
+reinforcement

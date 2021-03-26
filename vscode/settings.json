@@ -37,7 +37,7 @@
 	// "git.enabled": false // disable git
 	
 	// git bash as integrated terminal (Features > Terminal > Integrated > Automation Shell: Windows)
-	"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+	// "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
 	
 	// change typescript version used by vscode
 	// "typescript.tsdk": "C:/Users/NYC/AppData/Roaming/npm/node_modules/typescript/lib",

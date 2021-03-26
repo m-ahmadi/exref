@@ -1,4 +1,1 @@
 pip install pandas			data manipulation
-pip install setuptools --upgrade	needed for tensorflow
-pip install pylint			linter
-pip install pyreadline			autocomplete in python shell

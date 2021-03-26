@@ -1,7 +1,7 @@
 /*
 for training with brain.NeuralNetwork() each training pattern should have:
-	an input:  array  of numbers from 0 to 1
-	an output  object of numbers from 0 to 1
+	an input:  arr/obj of numbers from 0 to 1
+	an output  object  of numbers from 0 to 1
 */
 let network = new brain.NeuralNetwork();
 

@@ -1,9 +1,27 @@
+a drink is wine or bear?
+
 data gathering
 	features
 
+	data collected from glasses of wine and bear (features)
+	color (nm: wavelength)
+	alchohol %
+	(there are many aspect of drinks that we can collect data on,
+	amount of foam, shape of the glass, ...)
+
 data preparation
+	labeling
 	randomize (not in time-series?)
 	deduplicaiton | normalazitaion | error correction
+	good time to see:
+		if there's any relevent relations between variables
+		is there any data imbalances:
+			if we collected more data about bear, the model will be biased toward bear
+	
+	color (nm)	alchohol %	bear/wine
+	610		5		bear
+	599		13		wine
+	693		14		wine
 
 choosing a model
 	linear model
@@ -13,9 +31,10 @@ choosing a model
 	text-based data
 
 training
-	80%
+	y      = m     * x     + b
 	output = slope * input + yIntercept
-	weightd = [ matrix ]
+	
+	weights = [ matrix ]
 	biases  = [ matrix ]
 
 evaluation

@@ -1,5 +1,1 @@
-needs python 3.5 or 3.6 (failed with 3.8)
-"python-3.6.8-amd64.exe"
-
-pip install setuptools --upgrade		due to: "tensorboard 2.3.0 requires setuptools>=41.0.0, but you'll have setuptools 40.6.2 which is incompatible."
-pip install tensorflow
+pip install tensorflow			needs python 3.5 or 3.6 (python-3.6.8-amd64.exe)

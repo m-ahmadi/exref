@@ -1,2 +1,7 @@
 py -m pip install --upgrade pip		upgrade pip
-py -V
+pip install pylint			linter
+pip install pyreadline			autocomplete in python shell
+
+py -V					version
+py					enter shell
+exit()					exit shell (or ctrl z)

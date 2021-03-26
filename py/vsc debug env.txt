@@ -1,0 +1,3 @@
+"RUN AND DEBUG" -> "create a launch.json file" -> Python -> "Python File ..."
+
+f5
