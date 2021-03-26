@@ -1,0 +1,26 @@
+data gathering
+	features
+
+data preparation
+	randomize (not in time-series?)
+	deduplicaiton | normalazitaion | error correction
+
+choosing a model
+	linear model
+	image data
+	sequences: text/music
+	numerical data
+	text-based data
+
+training
+	80%
+	output = slope * input + yIntercept
+	weightd = [ matrix ]
+	biases  = [ matrix ]
+
+evaluation
+	training 80% evaluation 20%
+
+parameter tuning
+
+prediction

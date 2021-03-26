@@ -1,0 +1,6 @@
+level:		baseline value for the series if it were a straight line
+trend:		optional and often linear increasing/decreasing behavior of the series over time
+seasonality:	optional repeating patterns or cycles of behavior over time
+noise:		optional variability in observations that cannot be explained by the model
+
+all time series have a level, most have noise, and the trend and seasonality are optional.
