@@ -27,6 +27,6 @@ net.train(data);
 // output closer to 1: team 4 wins
 l(  net.run([1,4])  ) // 0.49 (50% chance of winning for both teams)
 
-l(  net.run([2,4])  ) // 0.96 (weird right?)
+l(  net.run([2,4])  ) // 0.96 (96% chance of winnning for team 4)
 l(  net.run([3,4])  ) // 0.01
 l(  net.run([1,2])  ) // 0.48
