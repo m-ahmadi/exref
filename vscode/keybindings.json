@@ -16,4 +16,5 @@
 	{ "key": "ctrl+u",       "command": "editor.action.transformToLowercase", "when": "textInputFocus" },
 	{ "key": "ctrl+shift+u", "command": "editor.action.transformToUppercase", "when": "textInputFocus" },
 	{ "key": "ctrl+shift+b", "command": "workbench.action.toggleActivityBarVisibility" },
+	{ "key": "ctrl+l",       "command": "workbench.debug.panel.action.clearReplAction" },
 ]

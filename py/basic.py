@@ -36,6 +36,8 @@ even_numbers = [2,4,6,8]
 odd_numbers = [1,3,5,7]
 all_numbers = odd_numbers + even_numbers
 
+'a,b,c'.split() # ['a', 'b', 'c']
+
 if name == "John" and age == 23:
 	print("Your name is John, and you are also 23 years old.")
 
