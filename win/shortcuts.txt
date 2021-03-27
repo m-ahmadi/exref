@@ -8,9 +8,12 @@ win p			monitor modes
 win l			log off
 win i			settings
 win . or ;		emoji picker
+win f4			explorer: open address bar
 
 ctrl shift esc		task manager
 ctrl shift n		new folder
-ctxmenu w t		new text file
+ctx w t			new text file
+ctx w f			new folder
+ctx w s			new shortcut
 ctrl win left/right	switch desktops
 ctrl shift f10		context-menu

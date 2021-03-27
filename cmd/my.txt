@@ -6,8 +6,9 @@ mklink /d C:\dev "J:\...\Dev"
 mklink /d C:\ac  "L:\...\accounts"
 mklink /d C:\usr C:\Users\NYC
 
-C:\node.lnk
-C:\net.lnk	(%windir%\system32\control.exe ncpa.cpl)
+C:\node.lnk	...\node.exe
+C:\net.lnk	control ncpa.cpl
+C:\app.lnk	control appwiz.cpl
 -------------------------------------------------------------------------------
 env vars
 
@@ -17,17 +18,21 @@ home	C:\Users\NYC
 desk	C:\Users\NYC\Desktop
 pws	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 -------------------------------------------------------------------------------
-ctrl+alt shortcuts
+shortcut keys
 
-1 exref
-2 htdocs
-3 J:\dev
-4 paint
-5 notepad
-6 paint.net
-e cmd        admin, target: %comspec% /k pushd D:\xampp\htdocs && title cmd
-w ...
-r powershell admin, target: %pws% -NoExit -Command "pushd $env:h"
+ctrl alt
+	1 	exref
+	2 	htdocs
+	3 	J:\dev
+	4 	paint
+    	5 	notepad
+	6 	paint.net
+	e 	cmd        admin, target: %comspec% /k pushd D:\xampp\htdocs && title cmd
+	w 	...
+	r 	powershell admin, target: %pws% -NoExit -Command "pushd $env:h"
+	`	conemu
+ctrl `		deskpins
+ctrl shift `	everything
 -------------------------------------------------------------------------------
 alarm sound
 
