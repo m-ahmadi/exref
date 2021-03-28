@@ -1,0 +1,2 @@
+ln -s /target ~/link		symbolic dir link
+ln -s file.txt link.txt		symbolic file link

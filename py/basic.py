@@ -3,60 +3,111 @@ import foo.bar.baz         # foo.bar.baz imported, foo bound locally
 import foo.bar.baz as fbb  # foo.bar.baz imported and bound as fbb
 from foo.bar import baz    # foo.bar.baz imported and bound as baz
 from foo import attr       # foo imported and foo.attr bound as attr
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# variable assignment
+x = 2
+x, y, z = 'foo', 'bar', 'baz'   # multiple values
+x = y = z = 'foo'               # one value to multiple vars
+x, y, z = ['foo', 'bar', 'baz'] # unpack
+x = [1,2]
+x.append(3)
+x[4] # error
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# basic types
+x = 'hello' # str
+x = True    # bool
 
-print("This line will be printed.")
-exit() # exit script
-myint = 7
-myfloat = 7.0
-mystr = 'hello'
+x = 4   # int
+x = 2.5 # float
+x = 1j  # complex
 
-mylist = [1,2]
-mylist.append(3)
+x = [1,2,3]  # list
+x = (1,2,3)  # tuple
+x = range(4) # range
 
-for x in mylist:
-	print(x)
+x = {'a','b','c'}        # set
+x = frozenset({'a','b'}) # frozenset
 
-mylist[4] # error
+x = {'a': 'foo', 'b': 35} # dict
+x = b'hello'              # bytes
+x = bytearray(5)          # bytearray
+x = memoryview(bytes(5))  # memoryview
 
-x<range> = range(start, stop, step)
-x = range(1,10,2)
-print( list(x) ) # [1, 3, 5, 7, 9]
+# type fns
+str('Hello World')       # str
+int(20)                  # int
+float(20.5)              # float
+complex(1j)              # complex
+list(('a','b','c'))      # list
+tuple(('a','b','c'))     # tuple
+range(6)                 # range
+dict(name='John', age=36)# dict
+set(('a','b','c'))       # set
+frozenset(('a','b','c')) # frozenset
+bool(5)                  # bool
+bytes(5)                 # bytes
+bytearray(5)             # bytearray
+memoryview(bytes(5))     # memoryview
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# basic operations
+1+2*3/4 # arithmetic: 2.5
+9 % 2   # remainder: 1
+4 ** 2  # squared: 16
+4 ** 3  # cubed: 64
+'foo' +' '+ 'bar' # str concat: 'foo bar'
+'foo' * 2         # str repeat: 'foofoo'
+[1,2] + [3,4]     # list concat: [1,2,3,4]
 
-x = range(6)
-for n in x:
-	print(n)
-
-number = 1 + 2 * 3 / 4.0 # 2.5
-remainder = 11 % 3
-squared = 7 ** 2
-cubed = 2 ** 3
-helloworld = "hello" + " " + "world"
-lotsofhellos = "hello" * 10
-even_numbers = [2,4,6,8]
-odd_numbers = [1,3,5,7]
-all_numbers = odd_numbers + even_numbers
-
+{'a','b'}.issuperset({'a'}) # true
 'a,b,c'.split() # ['a', 'b', 'c']
 
-if name == "John" and age == 23:
-	print("Your name is John, and you are also 23 years old.")
+x<range> = range(?start=0, stop=int, ?step=1)
+x = range(1,10,2)
+list(x) # [1, 3, 5, 7, 9]
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# loop
+for i in list:
+	print(x)
 
+for i in range(6):
+	if i > 2:
+		break
+	print(i)
 
-def my_function():
-	print("Hello From My Function!")
+for i in list:
+	if i > 2:
+		continue
+	print(i)
 
-mylam = lambda: print("lambda function")
+for i in list:
+	print(i)
+else:
+	print('done') # not if loop breaks
 
-def addition(n): 
-	return n + n 
-numbers = [1,2,3]
-result = map(addition, numbers) 
-print( list(result) )  # [2, 4, 6]
+for i in list:
+	pass # empty loop
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# condition
+if name == 'John' and age == 23:
+	print('foo')
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# function
+def foo():
+	print('hi')
 
-# predicate
+def foo(n): 
+	return n*2
+
+f = lambda: print('hi')
+f = lambda a: a + 10
+f = lambda a, b: a * b
+
+def add(n): return n + n
+res = map(add, [1,2,3]) 
+list(res)                           # [2, 4, 6]
 list( map(lambda i: i*2, [1,2,3]) ) # [2, 4, 6]
-
-
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# class
 class Student:
 	def __init__(self, name, age, major):
 		self.name = name
@@ -70,4 +121,18 @@ s = Student('John', 88, None)
 s.name # 'John'
 s.age  # 88
 
-type(s) # determine type of variable 
+type(s) # determine type of variable
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# misc
+print('This line will be printed.')
+exit() # exit script
+
+import os
+os.listdir()
+os.mkdir()
+os.rmdir()
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# list comprehension
+nums = [1, 2, 3, 4]
+x = [x*x for x in nums]               # [1, 4, 9, 16]
+y = [x*x for x in nums if x % 2 == 0] # [4, 16]

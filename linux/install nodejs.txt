@@ -1,13 +1,29 @@
-curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
+download binary manually and add env variable
 
+sudo tar -xJvf node-v14.16.0-linux-x64.tar.xz
+sudo mkdir /usr/local/lib/node
+sudo mv node-v14.16.0-linux-x64 /usr/local/lib/node/nodejs
+
+vi ~/.bash_profile
+	export NODEJS_HOME=/usr/local/lib/node/nodejs
+	export PATH=$NODEJS_HOME/bin:$PATH
+. ~/.bash_profile
+
+ln -s /usr/local/lib/node/nodejs/bin/node /usr/bin/node
+ln -s /usr/local/lib/node/nodejs/bin/npm  /usr/bin/npm
+ln -s /usr/local/lib/node/nodejs/bin/npx  /usr/bin/npx
+
+node -v
+npm config set prefix /usr/local
+-------------------------------------------------
+using package managers
+
+curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
 yum install -y nodejs
 
-
------------------------------------------
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
-
-______________________________________________________________
+-------------------------------------------------
 on linux mint
 
 wget https://deb.nodesource.com/setup_12.x
@@ -17,4 +33,4 @@ add this line to end of "Linux Mint" definitions:
 chmod 755 setup_12.x
 sudo ./setup_12.x
 sudo apt-get install -y nodejs
-______________________________________________________________
+-------------------------------------------------
