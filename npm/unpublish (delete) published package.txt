@@ -1,6 +1,0 @@
-unpublish is only allowed with versions published in the last 72 hours
-
-npm unpublish <@scope>/]<pkg>[@<version>
-
-npm unpublish ma-pubsub --force
-npm unpublish util-ma --force

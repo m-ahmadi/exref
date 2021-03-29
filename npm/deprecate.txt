@@ -1,0 +1,9 @@
+by deprecating, you don't delete the package, rather you notify people.
+
+npm deprecate <pkg>[@<version>] <message>
+npm deprecate <pkg> "<message>"				deprecate entire package
+npm deprecate <pkg>@<version> "<message>"		deprecate specific version
+
+to remove package from your profile, transfer it to @npm account:
+	npm owner add npm <package>
+	npm owner rm <your_username> <package>

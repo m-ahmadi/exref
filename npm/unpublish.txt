@@ -1,0 +1,11 @@
+if pkg published less than 72 hours ago
+	no dependents
+else
+	no dependents
+	last week dls < 300
+	has single owner/maintainer
+
+npm unpublish [<@scope>/]<pkg>@<version>	delete specific version
+npm unpublish <pkg> -f				delete entire package
+
+(no need to be in repo)

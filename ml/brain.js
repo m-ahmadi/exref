@@ -114,11 +114,8 @@ net.run([0, 1]) // [1]
 net.run([1, 0]) // [1]
 net.run([1, 1]) // [0]
 
-// nn - 4 teams play football
+// nn - 4 teams play football (output: index of the winner team)
 const net = new brain.NeuralNetwork();
-const l = console.log
-
-// 4 footbal teams play with each other (output: index of the winner team)
 const data = [
 	{ input: [1,2], output: [1] }, // team 2 wins
 	{ input: [1,3], output: [1] }, // team 3 wins
