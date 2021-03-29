@@ -20,6 +20,7 @@ http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=<InsCode>&c=57+			9  col mi
 http://www.tsetmc.com/tsev2/data/search.aspx?skey=<keyword>				11 col symbol search         (text/html)
 http://tse.ir/archive/IndicesArchiveDate.json						indice info                  (application/json)
 http://www.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0				Instruments & ClientTypeAll? (text/csv)
+http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=<InsCode>				4 col IntraTrade             (text/xml)
 -------------------------------------------------------------------------------
 useful page
 
