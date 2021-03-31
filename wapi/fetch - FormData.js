@@ -1,34 +1,22 @@
-// upload file:
-// <input type="file" />
-var formData = new FormData();
-var fileField = document.querySelector('input[type="file"]');
-
-formData.append('username', 'abc123');
-formData.append('avatar', fileField.files[0]);
-
-fetch('https://example.com/profile/avatar', {
-  method: 'PUT',
-  body: formData
-})
-.then(response => response.json())
-.catch(error => console.error('Error:', error))
-.then(response => console.log('Success:', JSON.stringify(response)));
+// x-www-form-urlencoded
+var fd = new FormData()
+var data = {'name':'john', 'age':'46'}
+Object.keys(data).forEach(k => fd.append(k, data[k]))
+var res = await (await fetch('https://httpbin.org/post', {method:'POST', body:fd})).json()
+console.log(res.form)
 
 
-// upload multiple files:
-// <input type="file" multiple />
-var formData = new FormData();
-var photos = document.querySelector('input[type="file"][multiple]');
+// upload single file: <input type="file" />
+var fd = new FormData()
+var fileField = document.querySelector('input[type="file"]')
+fd.append('username', 'abc123')
+fd.append('avatar', fileField.files[0])
+await (await fetch('https://example.com/profile/avatar', {method:'PUT', body:fd})).json()
 
-formData.append('title', 'My Vegas Vacation');
-for (let i=0; i < photos.files.length; i++) {
-  formData.append('photos', photos.files[i]);
-}
 
-fetch('https://example.com/posts', {
-  method: 'POST',
-  body: formData
-})
-.then(response => response.json())
-.then(response => console.log('Success:', JSON.stringify(response)))
-.catch(error => console.error('Error:', error));
+// upload multiple files: <input type="file" multiple />
+var fd = new FormData()
+var photos = document.querySelector('input[type="file"][multiple]')
+fd.append('title', 'My Vegas Vacation')
+photos.files.forEach(i => fd.append('photos', i))
+await (await fetch('https://example.com/posts', {method:'POST', body:fd})).json()

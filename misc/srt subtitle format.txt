@@ -1,6 +1,6 @@
 [section number]
 
-[begin display timestamp] –> [end display timestamp]
+[begin display timestamp] –-> [end display timestamp]
 
 [subtitle text]
 
@@ -9,9 +9,9 @@ timestamp format
 	[hours]: [minutes]: [seconds], [milliseconds]
 -------------------------------------------------------------------------------
 1
-00:00:01,00 -> 00:00:09,00
+00:00:01,00 --> 00:00:09,00
 Hello world, this movie is about something cool.
 
 2
-00:00:09,03 -> 00:00:15,00
+00:00:09,03 --> 00:00:15,00
 Prepare to be amazed.

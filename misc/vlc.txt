@@ -1,2 +1,3 @@
 convert video to mp3:		Media -> "Convert / Save..."
 stream youtube:			Media -> "Open Network Stream..."
+reset:				Tools -> Preferences -> Reset Preferences
