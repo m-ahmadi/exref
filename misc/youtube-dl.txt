@@ -9,6 +9,7 @@ Invoke-WebRequest 'https://yt-dl.org/latest/youtube-dl.exe' -OutFile  $env:windi
 remove karaoke effects from  auto generated .vtt
 <[\d:.]+>
 </?c>
+ $\n
 
 translate sub
 https://translatesubtitles.co/index.php

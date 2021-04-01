@@ -10,4 +10,4 @@ of metronomes, the perfectly timed orbits of moons, the simultaneous flashes of 
 texts = str.split('\n').filter((v,i)=> i%2===1)
 times = str.split('\n').filter((v,i)=> i%2===0)
 times = times.map((v,i,a) => `00:${v} --> 00:${a[i+1]}`)
-text.map((v,i) => [ ''+(i+1), times[i], v, ''].join('\n') ).flat().join('\n')
+texts.map((v,i) => [ ''+(i+1), times[i], v, ''].join('\n') ).flat().join('\n')

@@ -26,3 +26,16 @@ for (let text of texts) {
 }
 
 out.join('\n')
+
+
+
+
+
+
+
+// do not translate each line separately (did not work)
+char='##';
+document.querySelector('textarea').value = str.split('\n').filter((v,i)=>i%2===1).slice(0,90).join(char);
+document.querySelector('textarea').dispatchEvent(new Event('input',{bubbles:true}));
+await new Promise(r=>setTimeout(r,3000));
+[...document.querySelectorAll('.dePhmb span[jsname="W297wb"]')].map(i=>i.innerText).join('').split('##')
