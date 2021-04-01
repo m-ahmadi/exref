@@ -1,3 +1,5 @@
+// https://translate.google.com/
+
 str = `00:00
 The second law of thermodynamics tells us that everything in the universe tends towards
 00:04

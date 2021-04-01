@@ -1,6 +1,6 @@
-youtube-dl <URL> --list-formats
-youtube-dl <URL> -f 18 --write-sub --sub-lang en
-youtube-dl <URL> -f 18 --write-auto-sub
+youtube-dl -F <URL>				list formats
+youtube-dl <URL> -f 18 --write-sub		write en subs
+youtube-dl <URL> -f 18 --write-auto-sub		auto generated subs
 
 
 install
