@@ -1,0 +1,17 @@
+ffmpeg -i input.mp4 output.avi
+
+ffmpeg -i video.mkv -vf subtitles=mysub.srt out.mp4		burn sibtitles
+ffmpeg -i video.mkv -vf subtitles=video.mkv out.avi		... if subtitle embeded in video file
+
+burn subtitle and change font
+ffmpeg -i i.mp4 -vf "subtitles=i.vtt:force_style='Fontname=Bahij Nazanin,Fontsize=38,PrimaryColour=&Hffffff&'" -c:a copy out.mp4
+https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo
+-------------------------------------------------------------------------------
+install
+
+https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.7z		release (use this)
+https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z		master branch
+
+https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z		release
+https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-full.7z			master branch
+-------------------------------------------------------------------------------
