@@ -28,6 +28,7 @@
 ¼	quarter			alt 0188
 ½	half			alt 0189
 ¾	three quarters		alt 0190
+—	like _ but middle	alt 0151
 
 superscript
 ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ

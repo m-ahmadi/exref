@@ -6,15 +6,42 @@ const tf = require('@tensorlowjs/tfjs'); // npm i @tensorflow/tfjs
 */
 
 tf.tensor(value=TypedArray|[], ?shape=[col=0,row=0], ?dtype='float32|int32|bool|complex64|string')
+tf.model({
+	inputs:  SymbolicTensor | [SymbolicTensor,...],
+	outputs: SymbolicTensor | [SymbolicTensor,...],
+	name:    ''
+})
+tf.layers.dense(arg={
+	units:               +int,
+	activation:          'elu|hardSigmoid|linear|relu|relu6|selu|sigmoid|softmax|softplus|softsign|tanh',
+	useBias:             false,
+	kernelInitializer:   'constant|glorotNormal|glorotUniform|heNormal|heUniform|identity|leCunNormal|leCunUniform|ones|orthogonal|randomNormal|randomUniform|truncatedNormal|varianceScaling|zeros' | '' | tf.initializers.Initializer,
+	biasInitializer:     ↑...,
+	inputDim:            0,
+	kernelConstraint:    'maxNorm|minMaxNorm|nonNeg|unitNorm' | '' | tf.constraints.Constraint,
+	biasConstraint:      ↑...,
+	kernelRegularizer:   'l1l2' | '' | Regularizer,
+	biasRegularizer:     ↑...,
+	activityRegularizer: ↑...,
+	inputShape:          [null|0, ...],
+	batchInputShape:     ↑...,
+	batchSize:           0,
+	dtype:               'float32|int32|bool|complex64' | '',
+	name:                '',
+	trainable:           true,
+	weights:             [tf.Tensor, ...],
+	inputDType:          'float32|int32|bool|complex64' | '', // deprecated
+})
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// examples
+
+// tensor creation
 tf.tensor(...).print()
-
 tf.tensor([ [1,2], [3,4] ])         // [ [1,2], [3,4] ]
 tf.tensor([1,2,3,4], [2,2])         // ...
 tf.tensor([1,2,3,4]).reshape([4,1]) // [ [1], [2], [3], [4] ]
-
 tf.tensor([1,2,3,4]).square()       // [1,4,9,16]
-
 
 // model creation
 const model = tf.sequential({
@@ -63,3 +90,18 @@ class SquaredSumLayer extends tf.layers.Layer {
 const t = tf.tensor([-2, 1, 0, 5]);
 const o = new SquaredSumLayer().apply(t);
 o.print(); // prints 30
+
+
+
+
+
+// ???
+const input            = tf.input({shape: [5]});
+const denseLayer       = tf.layers.dense({units: 1});
+const activationLayer  = tf.layers.activation({activation: 'relu6'});
+const denseOutput      = denseLayer.apply(input);
+const activationOutput = activationLayer.apply(denseOutput);
+const model = tf.model({inputs: input, outputs: [denseOutput, activationOutput]});
+const [denseOut, activationOut] = model.predict(tf.randomNormal([6, 5]));
+denseOut.print();
+activationOut.print();
