@@ -1,6 +1,6 @@
 simplifing fractions
 
-rewrite a fraction using the smallet top and bottom numbers possible
+rewrite a fraction using the smallest top and bottom numbers possible
 (without changing the value of fraction)
 
 short:
