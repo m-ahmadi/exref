@@ -1,0 +1,7 @@
+used to keep track of how os starts and which programs are opened
+
+at max 128 entries are kept (not true or maybe in older windows)
+
+cleans itself automatically
+
+used on subsequent boots to speed up the start process

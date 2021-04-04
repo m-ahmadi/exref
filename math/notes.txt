@@ -1,0 +1,7 @@
+.med files are created with the "Math Editor" software
+https://github.com/kashifimran/math-editor/releases
+
+separator:
+	char:  — (alt 0151)
+	short: 20
+	long:  30
