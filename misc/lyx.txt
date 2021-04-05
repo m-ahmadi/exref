@@ -1,0 +1,4 @@
+alt 0		zoom reset
+alt =		zoom in
+alt -		zoom out
+ctrl space	space

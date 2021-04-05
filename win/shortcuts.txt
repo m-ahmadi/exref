@@ -10,6 +10,7 @@ win i			settings
 win . or ;		emoji picker
 win f4			explorer: open address bar
 
+ctrl w			close window
 ctrl shift esc		task manager
 ctrl shift n		new folder
 ctx w t			new text file

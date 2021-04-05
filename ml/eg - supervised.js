@@ -15,7 +15,7 @@ for (email of emails) features.push(
 	englishDictionary.map(i => email.includes(i))
 )
 
-features // [  []2e4, []2e4, ..., ..., 9999, []2e4 ]
+features // [  []2e4, []2e4, ..., ..., ...9999, []2e4 ]
 
 data = features.map((v,i) => [ v, emails[i][1] ])
 
