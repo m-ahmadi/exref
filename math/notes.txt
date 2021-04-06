@@ -3,8 +3,9 @@ https://github.com/kashifimran/math-editor/releases
 -------------------------------------------------------------------------------
 char notes
 
-separator char		alt 0151 (short=20, long=30)
-word hyphen		alt 0150
+default font:		Times New Roman
+separator char:		alt 0151 (short=10, medium=20, long=30)
+word hyphen:		alt 0150
 -------------------------------------------------------------------------------
 about math notations
 
