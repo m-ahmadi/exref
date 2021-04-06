@@ -1,3 +1,5 @@
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.css" /> -->
+
 <div style="display: grid; grid-template-columns: auto auto auto;">
 	<div style="width:600; height:400"><canvas id="c1" width="600" height="400"></canvas></div>
 	<div style="width:600; height:400"><canvas id="c2" width="600" height="400"></canvas></div>
@@ -10,7 +12,7 @@
 	<div style="width:600; height:400"><canvas id="c9" width="600" height="400"></canvas></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 <script>
 var chart1 = new Chart(c1, {
 	type: 'line',
@@ -151,7 +153,7 @@ var chart7 = new Chart(c7, {
 	}
 });
 
-/*var chart8 = new Chart(c8, {
+var chart8 = new Chart(c8, {
 	type: 'horizontalBar',
 	data: {
 		labels: ['April', 'May', 'June', 'July'],
@@ -171,7 +173,7 @@ var chart7 = new Chart(c7, {
 	options: {
 		legend: { position: 'right' }
 	}
-});*/
+});
 
 var chart9 = new Chart(c9, {
 	type: 'bar',
@@ -199,16 +201,17 @@ var chart9 = new Chart(c9, {
 		responsive: true,
 		legend: { position: 'left' },
 		scales: {
-			x: {
+			xAxes: [{
 				gridLines: {display: false},
 				scaleLabel: {
 					display: true,
 					labelString: 'time',
 					fontSize: 20
 				}
-			},
-			y1: {
+			}],
+			yAxes: [{
 				position: 'right',
+				id: 'y1',
 				gridLines: {display: false},
 				scaleLabel: {
 					display: true,
@@ -216,16 +219,16 @@ var chart9 = new Chart(c9, {
 					fontSize: 20
 				},
 				ticks: { callback: n => n.toLocaleString() }
-			},
-			y2: {
+			}, {
 				position: 'left',
+				id: 'y2',
 				scaleLabel: {
 					display: true,
 					labelString: 'chg',
 					fontSize: 20
 				},
 				ticks: { callback: n => n.toLocaleString() }
-			}
+			}]
 		}
 	}
 });

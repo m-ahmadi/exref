@@ -1,0 +1,1 @@
+enable "Allow access to file URLs" in chrome extension
