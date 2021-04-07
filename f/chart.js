@@ -126,7 +126,7 @@ const opts = {
 		onClick:          () =>,
 		onHover:          null | () =>,
 		onLeave:          null | () =>,
-		labels:        {
+		labels: {
 			boxWidth:       40,
 			boxHeight:      font.size | 0,
 			color:          Chart.defaults.color | '',
@@ -157,15 +157,77 @@ const opts = {
 	
 	scales: {
 		'x | y | ...': {
-			display:                    true | 'auto',
-			position:                   'left|right|top|bottom',
-			offset:                     false,
-			type:                       'linear|radialLinear|category' | '',
-			id:                         '',
-			weight:                     0,
-			callbacks:                  {}, // https://www.chartjs.org/docs/latest/axes/#callbacks
-			distribution:               'linear|series',
-			bounds:                     'data|ticks',
+			// all axes
+			type:                   'linear|radialLinear|category|timeseries' | '',
+			alignToPixels:          false,
+			backgroundColor:        '',
+			display:                true | 'auto',
+			grid:                   {...},
+			min:                    0,
+			max:                    0,
+			reverse:                false,
+			stacked:                false | '',
+			suggestedMax:           0,
+			suggestedMin:           0,
+			ticks:                  {...},
+			weight:                 0,
+			
+			// cartesian axe
+			bounds:                 'ticks|data',
+			position:               'left|right|top|bottom',
+			axis:                   'x|y',
+			offset:                 false,
+			title:                  {...},
+			
+			// category axe
+			min:                    '' | 0,
+			max:                    '' | 0,
+			labels:                 ['',...] | [  ['',...], ...  ],
+			
+			// linear axe
+			beginAtZero:            false,
+			grace:                  0 | '',
+			
+			
+			// time cartesian axe
+			adapters.date
+			bounds:                 'data',
+			ticks:                  {source},
+			time: {
+				displayFormats:       {},
+				isoWeekday:           false,
+				parser:               '' | ()=>,
+				round:                '',
+				tooltipFormat:        '',
+				unit:                 '' | 'millisecond|second|minute|hour|day|week|month|quarter|year',
+				stepSize:             1,
+				minUnit:              'millisecond',
+			},
+			
+			// linear radial axe
+			animate:                true,
+			beginAtZero:            false,
+			startAngle:             0,
+			angleLines: {
+				display:              true,
+				color:                Chart.defaults.borderColor | '',
+				lineWidth:            1,
+				borderDash:           [0,...],
+				borderDashOffset:     0.0,
+			},
+			pointLabels: {
+				backdropColor:        '',
+				backdropPadding:      2,
+				display:              true,
+				callback:             ()=>,
+				color:                Chart.defaults.color | '',
+				font:                 Chart.defaults.font  | '',
+				padding:              5,
+			},
+			
+			
+			
+			
 			grid: {
 				borderColor:          '',
 				borderWidth:          0,
@@ -187,48 +249,59 @@ const opts = {
 				z:                    0,
 			},
 			title: {
-				display:                  false,
-				align:                    ,
-				text:                     '' | ['',...],
-				color:                    Chart.defaults.color | '',
-				font:                     Chart.defaults.font  | {},
-				padding:                  4 | {top: 4, bottom: 4}
+				display:              false,
+				align:                'center|start|end',
+				text:                 '' | ['',...],
+				color:                Chart.defaults.color | '',
+				font:                 Chart.defaults.font  | {},
+				padding:              4 | {top: 4, bottom: 4}
 			},
-			ticks: {		
-				autoSkip:                 true,
-				autoSkipPadding:          0,
-				beginAtZero:              false,
-				callback:                 (value, index, values)=> '',
-				display:                  true,
-				labelOffset:              0,
-				labels:                   ['',...],
-				major:                    {},
-				max:                      0 | '',
-				maxRotation:              50,
-				maxTicksLimit:            11
-				min:                      0 | '',
-				minor:                    {},
-				minRotation:              0,
-				mirror:                   false,
-				padding:                  0,
-				precision:                0,
-				reverse:                  false,
-				sampleSize:               ticks.length,
-				source:                   'auto|data|labels',
-				stepSize:                 0,
-				suggestedMax:             0,
-				suggestedMin:             0,
+			ticks: {
+				// all
+				callback:             (value,index,ticks)=>
+				display:              true,
+				color:                Chart.defaults.color | '',
+				font:                 Chart.defaults.font  | {},
+				major:                {},
+				padding:              3,
+				textStrokeColor:      '',
+				textStrokeWidth:      0,
+				z:                    0,
+				
+				// cartesian
+				align:                'center|start|end',
+				crossAlign:           'near|center|far',
+				sampleSize:           ticks.length | 0,
+				autoSkip:             true,
+				autoSkipPadding:      3,
+				labelOffset:          0,
+				maxRotation:          50,
+				minRotation:          0,
+				mirror:               false,
+				padding:              0,
+				
+				// linear
+				beginAtZero:          false,
+				callback:             (value, index, ticks)=> '',
+				
+				// logarithmic
+				format:               { ...Intl.NumberFormat(,opts) },
+				
+				
+				
+				labels:               ['',...],
+				max:                  0 | '',
+				maxTicksLimit:        11
+				min:                  0 | '',
+				minor:                {},
+				precision:            0,
+				reverse:              false,
+				sampleSize:           ticks.length,
+				source:               'auto|data|labels',
+				stepSize:             0,
+				suggestedMax:         0,
+				suggestedMin:         0,
 			}
-		},
-		'time': {
-			displayFormats:             {},
-			isoWeekday:                 false,
-			parser:                     '' | ()=>,
-			round:                      '',
-			tooltipFormat:              '',
-			unit:                       '' | 'millisecond|second|minute|hour|day|week|month|quarter|year',
-			stepSize:                   1,
-			minUnit:                    'millisecond',
 		}
 	},
 	
