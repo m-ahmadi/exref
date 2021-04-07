@@ -10,6 +10,7 @@
 	<div style="width:600; height:400"><canvas id="c9" width="600" height="400"></canvas></div>
 </div>
 
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 var chart1 = new Chart(c1, {
@@ -40,14 +41,9 @@ var chart2 = new Chart(c2, {
 		]
 	},
 	options: {
-		scales: {
-			yAxes: [{
-				ticks: {
-					beginAtZero: true
-				}
-			}]
-		},
-		legend: { display: false }
+		plugins: {
+			legend: { display: false }
+		}
 	}
 });
 
@@ -86,7 +82,11 @@ var chart4 = new Chart(c4, {
 		],
 		labels: ['January', 'February', 'March', 'April']
 	},
-	options: { legend: {position:'bottom'} }
+	options: {
+		plugins: {
+			legend: {position:'bottom'}
+		}
+	}
 });
 
 var chart5 = new Chart(c5, {
@@ -110,7 +110,11 @@ var chart5 = new Chart(c5, {
 			},
 		]
 	},
-	options: { legend: {position: 'bottom'} }
+	options: {
+		plugins: {
+			legend: {position: 'bottom'}
+		}
+	}
 });
 
 var chart6 = new Chart(c6, {
@@ -120,13 +124,16 @@ var chart6 = new Chart(c6, {
 		datasets: [
 			{
 				label: 'Pie',
-				data: [ 60, 10, 20, 5],
+				data: [60, 10, 20, 5],
 				backgroundColor: ['darkblue', 'greenyellow', 'teal', 'deeppink'],
-				
 			}
 		]
 	},
-	options: { legend: {position: 'right'} }
+	options: {
+		plugins: {
+			legend: {position: 'right'}
+		}
+	}
 });
 
 var chart7 = new Chart(c7, {
@@ -147,12 +154,14 @@ var chart7 = new Chart(c7, {
 		]
 	},
 	options: {
-		legend: { position: 'left' }
+		plugins: {
+			legend: { position: 'left' }
+		}
 	}
 });
 
-/*var chart8 = new Chart(c8, {
-	type: 'horizontalBar',
+var chart8 = new Chart(c8, {
+	type: 'bar',
 	data: {
 		labels: ['April', 'May', 'June', 'July'],
 		datasets: [
@@ -169,9 +178,12 @@ var chart7 = new Chart(c7, {
 		]
 	},
 	options: {
-		legend: { position: 'right' }
+		indexAxis: 'y',
+		plugins: {
+			legend: { position: 'right' }
+		}
 	}
-});*/
+});
 
 var chart9 = new Chart(c9, {
 	type: 'bar',
@@ -197,32 +209,34 @@ var chart9 = new Chart(c9, {
 	},
 	options: {
 		responsive: true,
-		legend: { position: 'left' },
+		plugins: {
+			legend: { position: 'left' },
+		},
 		scales: {
 			x: {
-				gridLines: {display: false},
-				scaleLabel: {
+				grid: {display: false},
+				title: {
 					display: true,
-					labelString: 'time',
-					fontSize: 20
+					text: 'time',
+					font: {size:20}
 				}
 			},
 			y1: {
 				position: 'right',
-				gridLines: {display: false},
-				scaleLabel: {
+				grid: {display: false},
+				title: {
 					display: true,
-					labelString: 'val',
-					fontSize: 20
+					text: 'val',
+					font: {size:20}
 				},
 				ticks: { callback: n => n.toLocaleString() }
 			},
 			y2: {
 				position: 'left',
-				scaleLabel: {
+				title: {
 					display: true,
-					labelString: 'chg',
-					fontSize: 20
+					text: 'chg',
+					font: {size:20}
 				},
 				ticks: { callback: n => n.toLocaleString() }
 			}

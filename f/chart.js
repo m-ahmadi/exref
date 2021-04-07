@@ -91,69 +91,28 @@ const chart = new Chart(ctx=HTMLCanvasElement | CanvasRenderingContext2D | $ctx 
 });
 
 const opts = {
-	maintainAspectRatio:         true,
-	responsive:                  true,
-	responsiveAnimationDuration: 0,
+	responsive:          true,
+	maintainAspectRatio: true,
+	aspectRatio:         2,
+	onResize:            ()=>,
+	resizeDelay:         0,
+	devicePixelRatio:    window.devicePixelRatio | 0,
+	locale:              '',
+	events:              ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
+	onHover:             ()=>,
+	onClick:             ()=>,
+	
+	interaction: {
+		mode:      'nearest|point|index|dataset|x|y',
+		intersect: true,
+		axis:      'x|y|xy',
+	},
+	
+	
 	
 	layout: {
 		padding:   0 | {top: 0, right: 0, bottom: 0,  left: 50}
 	}
-	
-	title: {
-		display:    false,
-		position:   'top|left|bottom|right',
-		fontColor:  '#666',
-		fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-		fontSize:   12,
-		fontStyle:  'bold',
-		padding:    10,
-		lineHeight: 1.2 | '',
-		text:       '',
-		fullWidth:  true,
-		weight:     2000
-	},
-	
-	legend: {
-		display:          true,
-		position:         'top|left|bottom|right',
-		align:            'center|start|end',
-		maxHeight:        0,
-		maxWidth:         0,
-		fullSize:         true,
-		reverse:          false,
-		rtl:              undefined,
-		textDirection:    canvas.ltr | canvas.style.textDirection | '',
-		onClick:          () =>,
-		onHover:          null | () =>,
-		onLeave:          null | () =>,
-		labels: {
-			boxWidth:       40,
-			boxHeight:      font.size | 0,
-			color:          Chart.defaults.color | '',
-			font:           Chart.defaults.font  | '',
-			padding:        10,
-			pointStyle:     '',
-			usePointStyle:  false,
-			generateLabels:	()=>,
-			filter:	        (LegendItem, Chart)=>,
-			sort:           (LegendItem, LegendItem, data)=>
-		},
-		
-		interface LegendItem {
-			text:           '',
-			datasetIndex:   0,
-			fillStyle:      '',
-			hidden:         false,
-			lineCap:        '',
-			lineDash:       [0,...],
-			lineDashOffset: 0,
-			lineJoin:       '',
-			lineWidth:      0,
-			strokeStyle:    '',
-			pointStyle:     '' | HTMLImageElement.href,
-			rotation:       0,
-		}
-	},
 	
 	scales: {
 		'x | y | ...': {
@@ -207,6 +166,7 @@ const opts = {
 			// linear radial axe
 			animate:                true,
 			beginAtZero:            false,
+			indexAxis:              'r|x|y|?',
 			startAngle:             0,
 			angleLines: {
 				display:              true,
@@ -305,68 +265,40 @@ const opts = {
 		}
 	},
 	
-	tooltips: {
-		backgroundColor:    'rgba(0,0,0,0.8)',
-		bodyFontColor:      '#fff',
-		bodyFontFamily:     "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-		bodyFontSize:       12,
-		bodyFontStyle:      'normal',
-		bodyAlign:          'left|right|center',
-		bodySpacing:        2,
-		borderColor:        'rgba(0,0,0,0)',
-		borderWidth:        0,
-		caretPadding:       2,
-		caretSize:          5,
-		cornerRadius:       6,
-		custom:             null | (tooltipModel)=>,
-		displayColors:      true,
-		enabled:            true,
-		filter:             (TooltipItem)=>,
-		footerAlign:        'left|right|center',
-		footerFontColor:    '#fff',
-		footerFontFamily:   "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-		footerFontSize:     12,
-		footerFontStyle:    'bold',
-		footerMarginTop:    6,
-		footerSpacing:      2,
-		itemSort:           (TooltipItem)=>
-		intersect:          true,
-		mode:               'nearest|point|index|dataset|x|y',
-		multiKeyBackground: '#fff',
-		position:           'average|nearest',
-		rtl:                false
-		textDirection:      canvas.ltr | canvas.style.textDirection | '',
-		titleAlign:         'left|right|center',
-		titleFontColor:     '#fff',
-		titleFontFamily:    "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
-		titleFontSize:      12
-		titleFontStyle:     'bold',
-		titleMarginBottom:  6,
-		titleSpacing:       2,
-		xPadding:           6,
-		yPadding:           6,
-		callbacks:          {
-			f: (TooltipItem|TooltipItem[], Chart|{})=>'',
-			label:                  (TooltipItem, {})=>'',
-			(before|after)Label:    ...,
-			title:                  (TooltipItem[], {})=>'',
-			footer:                 ...,
-			(before|after)Title:    ...,
-			(before|after)Body:     ...,
-			(before|after)Footer:   ...,
-			label(Color|TextColor): (TooltipItem, Chart)=>''
-		},
+	
+	
+	animation: {
+		duration: 1000,
+		easing:   'easeOutQuart',
+		delay:     0,
+		loop:     false,
 		
-		interface TooltipItem {
-			label:        '',
-			value:        '',
-			xLabel:       0 | '',
-			yLabel:       0 | '',
-			datasetIndex: 0,
-			index:        0,
-			x:            0,
-			y:            0,
+		
+		onProgress:         null | ani => ani.animationObject, // {chart, currentStep, numSteps, ...}
+		onComplete:         null | ani => ani.animationObject,
+		resize: {
+			duration: 0,
 		}
+	},
+	animations: {
+		properties: ['key'],
+		type:       'typeof property|number|color|boolean',
+		from:       0|''|true,
+		to:         0|''|true,
+		fn:         (from,to,factor)=>,
+	},
+	transitions: {???
+		'active':,
+		'resize':,
+		'show':,
+		'show':,
+		'hide':,
+		'hide':,
+	},
+	hover: {
+		onHover:   null,
+		mode:      'nearest',
+		intersect: true
 	},
 	
 	elements: {
@@ -407,19 +339,131 @@ const opts = {
 		}
 	},
 	
-	animation: {
-		duration:           1000,
-		easing:             'easeOutQuart',
-		onProgress:         null | ani => ani.animationObject, // {chart, currentStep, numSteps, ...}
-		onComplete:         null | ani => ani.animationObject
-	},
-	
-	hover: {
-		onHover:   null,
-		mode:      'nearest',
-		intersect: true
-	},
-	
+	plugins: {
+		legend: {
+			display:          true,
+			position:         'top|left|bottom|right',
+			align:            'center|start|end',
+			maxHeight:        0,
+			maxWidth:         0,
+			fullSize:         true,
+			reverse:          false,
+			rtl:              undefined,
+			textDirection:    canvas.ltr | canvas.style.textDirection | '',
+			onClick:          () =>,
+			onHover:          null | () =>,
+			onLeave:          null | () =>,
+			labels: {
+				boxWidth:       40,
+				boxHeight:      font.size | 0,
+				color:          Chart.defaults.color | '',
+				font:           Chart.defaults.font  | '',
+				padding:        10,
+				pointStyle:     '',
+				usePointStyle:  false,
+				generateLabels:	()=>,
+				filter:	        (LegendItem, Chart)=>,
+				sort:           (LegendItem, LegendItem, data)=>
+			},
+			
+			interface LegendItem {
+				text:           '',
+				datasetIndex:   0,
+				fillStyle:      '',
+				hidden:         false,
+				lineCap:        '',
+				lineDash:       [0,...],
+				lineDashOffset: 0,
+				lineJoin:       '',
+				lineWidth:      0,
+				strokeStyle:    '',
+				pointStyle:     '' | HTMLImageElement.href,
+				rotation:       0,
+			}
+		},
+		
+		title: {
+			display:    false,
+			position:   'top|left|bottom|right',
+			fontColor:  '#666',
+			fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+			fontSize:   12,
+			fontStyle:  'bold',
+			padding:    10,
+			lineHeight: 1.2 | '',
+			text:       '',
+			fullWidth:  true,
+			weight:     2000
+		},
+		
+		tooltip: {
+			backgroundColor:    'rgba(0,0,0,0.8)',
+			bodyFontColor:      '#fff',
+			bodyFontFamily:     "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+			bodyFontSize:       12,
+			bodyFontStyle:      'normal',
+			bodyAlign:          'left|right|center',
+			bodySpacing:        2,
+			borderColor:        'rgba(0,0,0,0)',
+			borderWidth:        0,
+			caretPadding:       2,
+			caretSize:          5,
+			cornerRadius:       6,
+			custom:             null | (tooltipModel)=>,
+			displayColors:      true,
+			enabled:            true,
+			filter:             (TooltipItem)=>,
+			footerAlign:        'left|right|center',
+			footerFontColor:    '#fff',
+			footerFontFamily:   "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+			footerFontSize:     12,
+			footerFontStyle:    'bold',
+			footerMarginTop:    6,
+			footerSpacing:      2,
+			itemSort:           (TooltipItem)=>
+			intersect:          true,
+			mode:               'nearest|point|index|dataset|x|y',
+			multiKeyBackground: '#fff',
+			position:           'average|nearest',
+			rtl:                false
+			textDirection:      canvas.ltr | canvas.style.textDirection | '',
+			titleAlign:         'left|right|center',
+			titleFontColor:     '#fff',
+			titleFontFamily:    "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
+			titleFontSize:      12
+			titleFontStyle:     'bold',
+			titleMarginBottom:  6,
+			titleSpacing:       2,
+			xPadding:           6,
+			yPadding:           6,
+			callbacks:          {
+				f: (TooltipItem|TooltipItem[], Chart|{})=>'',
+				label:                  (TooltipItem, {})=>'',
+				(before|after)Label:    ...,
+				title:                  (TooltipItem[], {})=>'',
+				footer:                 ...,
+				(before|after)Title:    ...,
+				(before|after)Body:     ...,
+				(before|after)Footer:   ...,
+				label(Color|TextColor): (TooltipItem, Chart)=>''
+			},
+			
+			interface TooltipItem {
+				label:        '',
+				value:        '',
+				xLabel:       0 | '',
+				yLabel:       0 | '',
+				datasetIndex: 0,
+				index:        0,
+				x:            0,
+				y:            0,
+			}
+		},
+		
+		decimation: {
+		
+		},
+	}
 };
 
 // methods

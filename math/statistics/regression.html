@@ -20,7 +20,7 @@
 <div style="width:1900; height:600"><canvas id="_chart" width="1900" height="600"></canvas></div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="./fn.js"></script>
 <script>
 var points = [ {x:1,y:2}, {x:2,y:4}, {x:3,y:5}, {x:4,y:4}, {x:5,y:5} ];
@@ -57,7 +57,11 @@ var chart = new Chart(_chart, {
 			},
 		]
 	},
-	options: { legend: {position: 'bottom'} }
+	options: {
+		plugins: {
+			legend: {position: 'bottom'}
+		}
+	}
 });
 
 updatePoints();
