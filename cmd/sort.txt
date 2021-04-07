@@ -1,0 +1,2 @@
+dir /b | sort			sort output
+dir /b | sort /r		...reverse

@@ -1,0 +1,14 @@
+%=C:%				current directory string on C: drive
+%=D:%				current directory string on D: drive if drive D: has been accessed in current CMD session
+%=ExitCode%			hex value of last return code set by EXIT /B
+%=ExitCodeAscii%		ASCII value of last return code set by EXIT /B only if return code >32 and <127 (33-126)
+%__APPDIR__%			requesting executable's (CMD.EXE for batch files) parent folder, always terminated with a trailing backslash
+%__CD__%			current directory string, always terminated with a trailing backslash
+%CD%				current directory string (no trailing backslash, unless the current directory is a root directory)
+%CMDCMDLINE%			original command line that invoked the Command Processor
+%CMDEXTVERSION%			current Command Processor Extensions version number
+%DATE%				current date using same format as DATE command
+%ERRORLEVEL%			current ERRORLEVEL value
+%HIGHESTNUMANODENUMBER%		highest NUMA node number on this machine
+%RANDOM%			a random decimal number between 0 and 32767
+%TIME%				current time using same format as TIME command

@@ -27,5 +27,5 @@
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 
-go to project root before executing these .bat scripts
+go to project root before executing these cripts
 use %comspec% shortcuts

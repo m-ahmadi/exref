@@ -1,6 +1,6 @@
 regjump HKCU\Environment	open regedit on specified key
 
-regjump one-liner install
+regjump oneliner install
 powershell -C "mkdir tmp;cd tmp;Invoke-WebRequest https://download.sysinternals.com/files/RegJump.zip -O x.zip;Expand-Archive x.zip -D .;mi regjump.exe -D $Env:windir;cd ../;ri tmp -R;"
 
 (curl and 7z)

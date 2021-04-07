@@ -1,13 +1,5 @@
 title windowtitle		change title of console window
 exit				exit the console
-echo %file%			show content of variable
-echo off | clip			clear clipboard
-dir /b | clip			copy to clipboard
-type file.txt | clip		copy file content to clipboard
-dir /b | sort			sort output
-dir /b | sort /r		...reverse
-echo Hello ^			continuation character. (prompts "More?" and reads user input)
-cd. > .name			extension-less file
 
 systeminfo			prints system information
 wmic os get caption		...

@@ -1,0 +1,2 @@
+echo %file%			show content of variable
+echo Hello ^			continuation character. (prompts "More?" and reads user input)

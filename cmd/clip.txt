@@ -1,0 +1,5 @@
+dir /b | clip			copy to clipboard
+echo off | clip			clear clipboard
+
+clip > file.txt			copy file content to clipboard
+type file.txt | clip		...

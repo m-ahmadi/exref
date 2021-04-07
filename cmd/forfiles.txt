@@ -1,0 +1,7 @@
+forfiles /p c:\mydir /c "cmd /c more @file"		run "more" command on each file in c:\mydir
+forfiles /m *.txt /c "cmd /c rename @file @fname.csv"	rename all .txt files to .csv (in cwd)
+
+/p	path
+/m	path mask
+/s	subdirs recursive
+/c	command

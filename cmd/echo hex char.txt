@@ -1,0 +1,3 @@
+set /a decimal=0x7e
+cmd /c exit /b %decimal%
+echo %=ExitCodeAscii%
