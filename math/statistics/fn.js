@@ -54,20 +54,20 @@ function iqr(_nums=[]) {
 }
 
 function regressionLinear(points=[]) {
-	const xs = points.map(point => point.x);
-	const ys = points.map(point => point.y);
-	const xsMean = sum(xs) / xs.length;
-	const ysMean = sum(ys) / ys.length;
+	const x = points.map(point => point.x);
+	const y = points.map(point => point.y);
+	const xMean = mean(x);
+	const yMean = mean(y);
 	
-	const xMeanDiff = xs.map(n => n - xsMean);
-	const yMeanDiff = ys.map(n => n - ysMean);
+	const xMeanDiff = x.map(n => n - xMean);
+	const yMeanDiff = y.map(n => n - yMean);
 	const xMeanDiffSquared        = xMeanDiff.map(n => n * n); // Math.pow(n, 2)
 	const xMeanDiffTimesYMeanDiff = xMeanDiff.map((n, i) => n * yMeanDiff[i]);
 	
 	const b1 = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
-	const b0 = ysMean - (b1 * xsMean);
+	const b0 = yMean - (b1 * xMean);
 	
-	const regresions = xs.map(x => b0 + (b1 * x));
+	const regresions = x.map(x => b0 + (b1 * x));
 	
 	return regresions;
 }
@@ -77,5 +77,5 @@ function mean(nums=[]) {
 }
 
 function sum(nums=[]) {
-	return nums.reduce((a,c) => a += c, 0);
+	return nums.reduce((a,c) => a += c, nums[0]);
 }
