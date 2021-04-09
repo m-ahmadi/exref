@@ -246,6 +246,14 @@ function $(selector='', ctx=document) {
 // custom error message for form element
 myinput.setCustomValidity('some custom message')
 
+
+// read input file
+await input.files[0].text() // or
+var reader = new FileReader();
+reader.readAsText(input.files[0], 'UTF-8')
+reader.onload = evt => console.log(evt.target.result)
+
+//-----------------------------------------------
 // ps
 A <- B, C, D // B,C,D implements A (implemented by)
 ! = non-standard

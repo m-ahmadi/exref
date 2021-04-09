@@ -34,7 +34,8 @@
 <input type="range" min="0" max="10" />
 <input type="color" value="#ff0000" />
 <input type="tel" pattern="\d{3}-\d{2}-\d{3}" />
-<input type="file" />
+<input type="file" onchange="this.files[0].text().then(console.log)" />
+<input type="file" multiple />
 
 <input type="hidden" name="" value="" />
 <input type="reset" />
