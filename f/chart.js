@@ -19,7 +19,7 @@ const chart = new Chart(ctx=HTMLCanvasElement | CanvasRenderingContext2D | $ctx 
 				prop: value | [ value, value, ... ]
 				
 				label:                     '',
-				data:                      [ 0|{},  ... ]  |  {},
+				data:                      [ 0|''|{},... ] | {},
 				type:                      'line|bar|pie|...', // for mixed charts (change the type of this dataset)
 				order:                     0,
 				xAxisID:                   'first x axis',
@@ -463,6 +463,10 @@ const opts = {
 		decimation: {
 		
 		},
+		
+		filler: {
+			
+		}
 	}
 };
 
