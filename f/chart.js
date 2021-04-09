@@ -437,7 +437,7 @@ const opts = {
 			xPadding:           6,
 			yPadding:           6,
 			callbacks:          {
-				f: (TooltipItem|TooltipItem[], Chart|{})=>'',
+				COMMON:                 (TooltipItem|TooltipItem[], Chart|{})=>'',
 				label:                  (TooltipItem, {})=>'',
 				(before|after)Label:    ...,
 				title:                  (TooltipItem[], {})=>'',

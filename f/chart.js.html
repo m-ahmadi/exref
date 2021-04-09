@@ -10,7 +10,6 @@
 	<div style="width:600; height:400"><canvas id="c9" width="600" height="400"></canvas></div>
 </div>
 
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 var chart1 = new Chart(c1, {
@@ -186,7 +185,6 @@ var chart8 = new Chart(c8, {
 });
 
 var chart9 = new Chart(c9, {
-	type: 'bar',
 	data: {
 		labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 		datasets: [
@@ -201,6 +199,7 @@ var chart9 = new Chart(c9, {
 			},
 			{
 				data: [10, 20, -40, -60, -15, 50, 5],
+				type: 'bar',
 				label: 'chg',
 				backgroundColor: [10, 20, -40, -60, -15, 50, 5].map(n => n > 0 ? 'green' : 'crimson'),
 				yAxisID: 'y2',
