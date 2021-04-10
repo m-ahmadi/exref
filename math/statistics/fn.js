@@ -67,7 +67,7 @@ function regressionLinear(points=[]) {
 	const b1 = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
 	const b0 = yMean - (b1 * xMean);
 	
-	const regresions = x.map(x => b0 + (b1 * x));
+	const regresions = x.map(x => (x*b1) + b0);
 	
 	return regresions;
 }
