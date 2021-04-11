@@ -1,0 +1,14 @@
+plot2d(plot, x_range, ... , options, ... )   // separate window
+wxplot2d(plot, x_range, ... , options, ... ) // inline plot
+
+plot2d(x^2, [x, -4, 4])
+wxplot2d(x^2, [x, -4, 4])
+wxplot2d(x+1, [x, -4, 4])
+wxplot2d(x^3, [x, -10, 10])
+wxplot2d(sin(x), [x, -10, 10])
+wxplot2d(((x^3)-(3*x^2)+1), [x, -1, 1])
+wxplot2d(((x^3)-(12*x)+1), [x, -2, 2])
+
+f(x):= if x>0 and x<1 then 1 else 0;
+wxplot2d(f(x), [x,-5,5], [y,-5,5]);
+

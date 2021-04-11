@@ -6,7 +6,7 @@
 %                 // most recent output
 2+5$              // hide immediate result
 
-a:4;              // define variable
+a:4               // define variable
 a:4; b:4          // define multiple variable
 f(x):=x^2         // define function
 f(4)              // call function
@@ -19,31 +19,25 @@ cos(%pi)
 factor(x^2+4*x+4) // (x+2)^2
 float(sqrt(2));	  // 1.414213562373095
 example(factor);  // show list of examples
-//-----------------------------------------------
+
 // if else statement
+f(x):=if x>0 and x<1 then 1 else 0
 
-f(x):if 0<x and x<1 then 1 else 0
-//-----------------------------------------------
 // no implicit multiplication
-2x      // incorrect syntax. (not same as 2*x)
-(3)(4)  // incorrect syntax. (not same as 3*4)
-//-----------------------------------------------
+2x      // incorrect syntax (not same as 2*x)
+(3)(4)  // incorrect syntax (not same as 3*4)
+
 // implicit simplification
-
 (x+2)^2/(x+2);    // x+2
-//-----------------------------------------------
-// explicit simplification
 
+// explicit simplification
 ratsimp( (x^2+4*x+4)/(x+2) )  // x+2
 trigsimp( cos(x)^2+sin(x)^2 ) // 1
-//-----------------------------------------------
-// denominators are rarely simplified
 
+// denominators are rarely simplified
 1/(sqrt(2)+3)        // => itself
 (sqrt(2)-3)/(-7)     // => itself
 is( equal(%o1,%o2) ) // true
-//-----------------------------------------------
-// answers are sometimes expressed in unsual way
 
-sqrt(125);  =>  5^(3/2)
-//-----------------------------------------------
+// answers are sometimes expressed in unsual way
+sqrt(125);           //  5^(3/2)

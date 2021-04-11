@@ -14,3 +14,5 @@ $	line end
 ( )	grouping. back reference with: \1 \2 ...
 [ ]	char set. range: [a-z]
 \	escape
+
+(?!)	negative lookahead

@@ -1,6 +1,8 @@
-(/^\d{4}\/\d{2}\/\d{2}$/)       // date string with forward slashes
-(/^[\d.,;-]*$/)                 // only digits, dot, comma, semicolon and hyphen (0 or more)
-(/^\s*(\b|\B)/)                 // leading whitespace characters
+(/^\d{4}\/\d{2}\/\d{2}$/) // date string with forward slashes
+(/^[\d.,;-]*$/)           // only digits, dot, comma, semicolon and hyphen (0 or more)
+(/^\s*(\b|\B)/)           // leading whitespace characters
+(/^(?!.*hello.*).+/)      // all lines except those with "hello" in them
+(/^\r/)                   // all empty lines
 
 
 // replace comma with dot

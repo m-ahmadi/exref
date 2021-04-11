@@ -97,7 +97,8 @@ assertion
 x(?=y)    x only if x is     followed by y (lookahead)
 x(?!y)    x only if x is not followed by y (negated lookahead)
 eg:
-	^(?!foo)       if doesn't start with foo
+	^(?!foo)          if does not start with foo
+	^(?!.*foo.*).*    if does not contain foo
 
 flags
 g    global match:  find all matches rather than stopping after the first match.

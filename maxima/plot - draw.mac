@@ -1,0 +1,76 @@
+draw2d() == draw(gr2d(...)) // pkg
+gr2d(options, ..., graphic_object, ...)
+bars ([x1,h1,w1], [x2,h2,w2, ...])
+ellipse (xc, yc, a, b, ang1, ang2)
+
+explicit(expr,var,minval,maxval)
+explicit(fcn,var,minval,maxval)
+explicit(expr,var1,minval1,maxval1,var2,minval2,maxval2)
+explicit(fcn,var1,minval1,maxval1,var2,minval2,maxval2)
+
+image(im,x0,y0,width,height)
+
+implicit(fcn,x,xmin,xmax,y,ymin,ymax)
+implicit(fcn,x,xmin,xmax,y,ymin,ymax,z,zmin,zmax)
+
+label [label, [string, x, y], …]
+
+parametric(xfun,yfun,par,parmin,parmax)
+parametric(xfun,yfun,zfun,par,parmin,parmax)
+
+points([[x1,y1], [x2,y2],...])
+points([x1,x2,...], [y1,y2,...])
+points([y1,y2,...])
+points([[x1,y1,z1], [x2,y2,z2],...])
+points([x1,x2,...], [y1,y2,...], [z1,z2,...])
+points(matrix)
+points(1d_y_array)
+points(1d_x_array, 1d_y_array)
+points(1d_x_array, 1d_y_array, 1d_z_array)
+points(2d_xy_array)
+points(2d_xyz_array)
+
+polar(radius,ang,minang,maxang)
+
+polygon([[x1, y1], [x2, y2], …])
+polygon([x1, x2, …], [y1, y2, …])
+
+quadrilateral(point_1, point_2, point_3, point_4)
+
+rectangle([x1,y1], [x2,y2])
+
+triangle(point_1, point_2, point_3)
+
+vector([x,y], [dx,dy])
+vector([x,y,z], [dx,dy,dz])
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+draw2d(line_width=3, color=blue, explicit(x^2,x,-3,3))
+
+draw2d(
+	fill_color=  red,
+	line_width=  6,
+	line_type=   dots,
+	transparent= false,
+	fill_color=  blue,
+	rectangle([-2,-2],[8,-1]),
+	transparent= true,
+	line_type=   solid,
+	line_width=  1,
+	rectangle([9,4],[2,-1.5]),
+	xrange=      [-3,10],
+	yrange=      [-3,4.5]
+)
+
+// 3d
+draw3d(explicit(x^2+y^2,x,-2,2,y,-2,2));
+wxdraw3d(explicit(x^2+y^2,x,-2,2,y,-2,2));
+
+draw3d(
+	enhanced3d=true,
+	title="Not-So Plain Jane Paraboloid",
+	xlabel="x",
+	ylabel="y",
+	zlabel="z",
+	key="f(x,y)=x^2+y^2",
+	explicit(x^2+y^2,x,-2,2,y,-2,2)
+);
