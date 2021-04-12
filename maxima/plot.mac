@@ -1,19 +1,25 @@
 // wxMETHOD makes inline plot (otherwise separate window)
+plot2d(plot, x_range, ..., options, ...)
+plot2d([plot_1, ..., plot_n], ..., options, ...)
+plot2d([plot_1, ..., plot_n], x_range, ..., options, ...)
 
-plot2d(plot, x_range, ... , options, ... )
-plot2d(plot, x_range, …, options, …)
-plot2d([plot_1, …, plot_n], …, options, …)
-plot2d([plot_1, …, plot_n], x_range, …, options, …)
+plot3d(expr, x_range, y_range, ..., options, ...)
+plot3d([expr_1, ..., expr_n], x_range, y_range, ..., options, ...)
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// examples
 
-wxplot2d(plot, x_range, ... , options, ... )
-
-plot2d(x^2, [x, -4, 4])
-wxplot2d(x^2, [x, -4, 4])
-wxplot2d(x+1, [x, -4, 4])
-wxplot2d(x^3, [x, -10, 10])
-wxplot2d(sin(x), [x, -10, 10])
-wxplot2d(((x^3)-(3*x^2)+1), [x, -1, 1])
-wxplot2d(((x^3)-(12*x)+1), [x, -2, 2])
+wxplot2d(x^2, [x,-4,4])
+wxplot2d(x^2, [x,-4,4])
+wxplot2d(x+1, [x,-4,4])
+wxplot2d(x^3, [x,-10,10])
+wxplot2d(sin(x), [x,-10,10])
+wxplot2d((x^3)-(3*x^2)+1, [x,-1,1])
+wxplot2d((x^3)-(12*x)+1, [x,-2,2])
 
 f(x):= if x>0 and x<1 then 1 else 0;
 wxplot2d(f(x), [x,-5,5], [y,-5,5]);
+
+f(x,y):=cos(x)*sin(y);
+plot3d(f(x,y), [x,-5,5], [y,-5,5]);
+
+plot3d(u^2-v^2, [u,-2,2], [v,-3,3], [grid,100,100], [mesh_lines_color,false])

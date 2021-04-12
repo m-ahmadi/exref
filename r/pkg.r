@@ -1,5 +1,5 @@
 search()    # show currently loaded pkgs
-library()   # show all installed pkg
+library()   # show all installed pkgs
 .libPaths() # show library location
 
 install.packages('QuantTools')         # install pkg

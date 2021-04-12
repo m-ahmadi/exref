@@ -1,0 +1,2 @@
+if cannot delete from ncpa.cpl
+delete from dev.mgmt, under "Network adapters"

@@ -1,0 +1,33 @@
+draw2d(line_width=3, color=blue, explicit(x^2,x,-3,3))
+
+draw2d(
+	fill_color=  red,
+	line_width=  6,
+	line_type=   dots,
+	transparent= false,
+	fill_color=  blue,
+	rectangle([-2,-2],[8,-1]),
+	transparent= true,
+	line_type=   solid,
+	line_width=  1,
+	rectangle([9,4],[2,-1.5]),
+	xrange=      [-3,10],
+	yrange=      [-3,4.5]
+)
+
+// 3d
+draw3d(explicit(x^2+y^2,x,-2,2,y,-2,2));
+
+f(x,y):=cos(x)*sin(y);
+draw3d(explicit(f(x,y), x,-5,5, y,-5,5)); 
+
+
+draw3d(
+	enhanced3d=true,
+	title="Not-So Plain Jane Paraboloid",
+	xlabel="x",
+	ylabel="y",
+	zlabel="z",
+	key="f(x,y)=x^2+y^2",
+	explicit(x^2+y^2,x,-2,2,y,-2,2)
+);
