@@ -1,12 +1,15 @@
 draw2d() == draw(gr2d(...)) // pkg
 gr2d(options, ..., graphic_object, ...)
-bars ([x1,h1,w1], [x2,h2,w2, ...])
-ellipse (xc, yc, a, b, ang1, ang2)
+
+
+bars([x1,h1,w1], [x2,h2,w2, ...]) fill_color, fill_density, key, line_width
+ellipse(xc,yc,a,b,ang1,ang2) border, color, fill_color, key, line_type, line_width, nticks, transparent
 
 explicit(expr,var,minval,maxval)
 explicit(fcn,var,minval,maxval)
 explicit(expr,var1,minval1,maxval1,var2,minval2,maxval2)
 explicit(fcn,var1,minval1,maxval1,var2,minval2,maxval2)
+options=adapt_depth, draw_realpart, color, filled_func, fill_color, key, line_width, line_type, nticks
 
 image(im,x0,y0,width,height)
 

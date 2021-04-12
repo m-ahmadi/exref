@@ -41,3 +41,7 @@ is( equal(%o1,%o2) ) // true
 
 // answers are sometimes expressed in unsual way
 sqrt(125);           //  5^(3/2)
+
+// execute formula in variable
+f:2*x^2+3*x-y^2;
+sublis([x=2,y=-3], f);
