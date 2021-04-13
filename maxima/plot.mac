@@ -16,10 +16,13 @@ wxplot2d(sin(x), [x,-10,10])
 wxplot2d((x^3)-(3*x^2)+1, [x,-1,1])
 wxplot2d((x^3)-(12*x)+1, [x,-2,2])
 
-f(x):= if x>0 and x<1 then 1 else 0;
-wxplot2d(f(x), [x,-5,5], [y,-5,5]);
+f(x) := if x>0 and x<1 then 1 else 0;
+plot2d(f(x), [x,-5,5], [y,-5,5]);
+
+f(x) := [x*cos(x), x*sin(x)]
+plot2d(f(x), [x,-10,10], [y,-10,10])
 
 f(x,y):=cos(x)*sin(y);
-plot3d(f(x,y), [x,-5,5], [y,-5,5]);
+plot3d(f(x,y), [x,-5,5], [y,-5,5])
 
 plot3d(u^2-v^2, [u,-2,2], [v,-3,3], [grid,100,100], [mesh_lines_color,false])

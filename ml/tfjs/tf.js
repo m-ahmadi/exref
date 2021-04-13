@@ -1,9 +1,7 @@
 const tf = require('@tensorlowjs/tfjs'); // npm i @tensorflow/tfjs
-/*
-	https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/
-	
-	https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js
-*/
+// https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/
+// https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js
+
 
 tf.tensor(value=TypedArray|[], ?shape=[col=0,row=0], ?dtype='float32|int32|bool|complex64|string')
 tf.model({
