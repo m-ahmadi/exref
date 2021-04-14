@@ -31,6 +31,13 @@ tf.layers.dense(arg={
 	inputDType:          'float32|int32|bool|complex64' | '', // deprecated
 })
 
+
+tf.backend()
+tf.getBackend()
+tf.ready()
+tf.registerBackend(name='', factory=()=>, ?priority=1)
+tf.removeBackend(name='')
+tf.setBackend(?backendName='webgl|cpu')
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
@@ -75,12 +82,9 @@ o.print(); // [0, 1, 0, 5]
 const saveResult = await model.save('localstorage://my-model-1');
 const model = await tf.loadLayersModel('localstorage://my-model-1');
 
-
 // custom layers
 class SquaredSumLayer extends tf.layers.Layer {
-	constructor() {
-		super({});
-	}
+	constructor() { super({}); }
 	computeOutputShape(inputShape) { return []; }       // in this case, output is a scalar
 	call(input, kwargs) { return input.square().sum();} // call() is where we do the computation
 	getClassName() { return 'SquaredSum'; }             // every layer needs a unique name
@@ -88,10 +92,6 @@ class SquaredSumLayer extends tf.layers.Layer {
 const t = tf.tensor([-2, 1, 0, 5]);
 const o = new SquaredSumLayer().apply(t);
 o.print(); // prints 30
-
-
-
-
 
 // ???
 const input            = tf.input({shape: [5]});
@@ -103,3 +103,12 @@ const model = tf.model({inputs: input, outputs: [denseOutput, activationOutput]}
 const [denseOut, activationOut] = model.predict(tf.randomNormal([6, 5]));
 denseOut.print();
 activationOut.print();
+
+// linear regression model
+const model = tf.sequential();
+model.add(tf.layers.dense({units: 1, inputShape: [1]}));
+model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
+const xs = tf.tensor2d([1, 2, 3, 4], [4, 1]);
+const ys = tf.tensor2d([1, 3, 5, 7], [4, 1]);
+await model.fit(xs, ys);
+model.predict(tf.tensor2d([5], [1, 1])).print();

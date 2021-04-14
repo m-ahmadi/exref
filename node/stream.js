@@ -3,6 +3,7 @@ var streamR = fs.createReadStream('file1.txt');
 var streamW = fs.createWriteStream('file2.txt');
 
 streamR.setEncoding('utf8')
+streamR.readableFlowing === null|false|true
 
 // a stream is nothing but an EventEmitter.
 var data = '';

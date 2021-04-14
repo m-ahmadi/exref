@@ -76,10 +76,23 @@ fs.renameSync('oldFile.txt', 'newFile.txt')
 
 
 
-// read from stdin (works on posix and windows)
+// read form stdin (windows issue: https://github.com/nodejs/node/issues/35997)
 var buffer = fs.readFileSync(0) // STDIN_FILENO = 0
 fs.readFileSync(0).toString() // or:
 fs.readFileSync(0, 'utf8')
+
+// read from stdin (better, but still not sure)
+let stdin = await new Promise(resolve => {
+	const rs = process.stdin;
+	let str = '';
+	if (process.stdin.isTTY) resolve(str); // called without pipe: https://nodejs.org/api/process.html#process_a_note_on_process_i_o
+	rs.setEncoding('utf8');
+	rs.on('readable', () => {
+		let chunk;
+		while ((chunk = rs.read()) !== null) str += chunk;
+	});
+	rs.on('end', () => resolve(str));
+});
 
 
 
