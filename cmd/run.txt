@@ -47,7 +47,7 @@ dcomcnfg		Component Services
 resmon			Resource Monitor
 
 calc notepad taskmgr fonts charmap logoff mspaint wmplayer write
-chrome excel winword powerpnt access ccleaner winrar
+chrome excel winword powerpnt access ccleaner winrar mpc-hc64
 
 sndvol			Volume mixer
 osk			On-Screen Keyboard
@@ -65,7 +65,7 @@ control /name Microsoft.PowerOptions		same as: powercfg.cpl
 control /name Microsoft.FolderOptions		same as: control folders
 control /name Microsoft.NetworkAndSharingCenter
 control /name Microsoft.NetworkAndSharingCenter /page Advanced
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 some env variables
 compsec			C:\Windows\system32\cmd.exe
 appdata			C:\Users\NYC\AppData\Roaming
@@ -79,7 +79,7 @@ systemroot		C:\Windows
 homedrive		C:\
 allusersprofile		C:\ProgramData
 computername		DESKTOP-J3T9BJH
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 shell:<dir>
 
 shell:Startup
@@ -95,4 +95,4 @@ shell:Fonts
 shell:Windows
 ...
 http://smallvoid.com/article/winnt-shell-keyword.html
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
