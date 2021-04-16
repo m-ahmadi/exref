@@ -4,3 +4,5 @@ set /p secs=<secs.tmp.txt
 del secs.tmp.txt
 shutdown /s /f /t %secs%
 pause
+
+REM shutdown with auto timeout until 7 am
