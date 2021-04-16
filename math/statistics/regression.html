@@ -3,8 +3,6 @@
 <button onclick="updatePoints(), _auto.checked && updateLine(), chart.update()">
 	randomPoints(
 		count=<input id="_count" type="number" value="3" min="2" />,
-		xmin= <input id="_xmin"  type="number" value="0" />,
-		xmax= <input id="_xmax"  type="number" value="10" />,
 		ymin= <input id="_ymin"  type="number" value="0" />,
 		ymax= <input id="_ymax"  type="number" value="10" />
 	)
@@ -17,17 +15,17 @@
 
 <br><br>
 
-<div style="width:1900; height:600"><canvas id="_chart" width="1900" height="600"></canvas></div>
+<div style="width:600; height:300"><canvas id="_chart" width="600" height="300"></canvas></div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="./fn.js"></script>
 <script>
-var points = [ {x:1,y:2}, {x:2,y:4}, {x:3,y:5}, {x:4,y:4}, {x:5,y:5} ];
+var points = [];
 var line = [];
 
 function updatePoints() {
-	points = randomPoints(+_count.value, +_xmin.value, +_xmax.value, +_ymin.value, +_ymax.value);
+	points = randomPoints(+_count.value, +_ymin.value, +_ymax.value);
 	chart.data.datasets[0].data = points;
 }
 function updateLine() {
@@ -68,9 +66,9 @@ updatePoints();
 updateLine();
 chart.update();
 
-function randomPoints(count=3, xmin=0, xmax=10, ymin=0, ymax=10) {
-	return [...Array(count)].map(() => ({
-		x: randInt(xmin, xmax),
+function randomPoints(count=3, ymin=0, ymax=10) {
+	return [...Array(count).keys()].map(x => ({
+		x,
 		y: randInt(ymin, ymax)
 	}));
 }
