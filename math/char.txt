@@ -1,50 +1,13 @@
-﻿∧ ˄	and			---
-∨ ˅	or			---
-¬	negation (not)		---
-→ ⇒	implies			alt 26
-∀	for all			---
-∃	exists			---
-Σ	sum			alt 228	*
-∋ s.t.	such that		---
-×	multiplication		alt 0215
-÷	division		alt 0247
-≡	exactly identical	alt 240
-≈	approximately equal	alt 247
-Δ	delta			---
-˂ <	less than		---
-˃ >	greater than		---
-!	factorial		---
-°	degree 			alt 248
-∞	infinity		alt 236	*
-µ	micro			alt 230
-√	square root		alt 251
-ⁿ	power n			alt 252
-¹	to the power of 1	alt 0185
-²	squared			alt 0178
-³	cubed			alt 0179
-Θ	theta			alt 233
-θ	theta			alt 952 (in charmap)
-Ω	omega			alt 234
-¼	quarter			alt 0188
-½	half			alt 0189
-¾	three quarters		alt 0190
-–	dash alternative	alt 0150
+﻿–	dash alternative	alt 0150
 —	like _ but middle	alt 0151
 
 superscript
-⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ⁱ ʲ
+⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ⁱ ʲ ᴰ ᴱ ᴳ ᴴ ᴵ ᴶ ᴷ ᴸ ᴹ ᴺ ᴼ ᴾ ᴿ ᵀ ᵁ ᵂ
 
 subscript
-₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ ᵢ ₐ ₑ ₒ ₓ ₔ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ ᵢ
+₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ ᵢ ₐ ₑ ₒ ₓ ₔ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ
 
-combining chars: U+0305
---------------------------------------------------------------------------------
-other theta characters:
 
-chr			in charmap
-
-θ			alt 952
-ϴ			alt 1012
-Θ			alt 920 
-é			alt 233
-ϑ			alt 977
+sup uppercase letter	1D43
+sup lowercase letter	1D2C
+combining chars		0305

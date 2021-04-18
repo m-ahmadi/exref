@@ -18,8 +18,7 @@ good example:
 bining (bucketing)
 
 convert numerical feature to categorical
-binning (aka bucketing)
-	converting a continuous feature into multiple binary features called bins or buckets typically based on value range
+converting a continuous feature into multiple binary features called bins or buckets typically based on value range
 
 example
 instead of representing age as a single real-valued feature, put age ranges into discrete bins:
@@ -39,8 +38,8 @@ feature range:		350 to 1450
 normalize to 0-1:	subtract 350 from all & divide by 1100
 
 formula:
-		      x⁽ⁱ⁾ - min⁽ⁱ⁾
-	norm(x⁽ⁱ⁾) = ———————————————
+		       x⁽ⁱ⁾ - min⁽ⁱ⁾
+	norm(x⁽ⁱ⁾) = —————————————————
 		      max⁽ⁱ⁾ - min⁽ⁱ⁾
 
 not a strict requirement
@@ -55,9 +54,64 @@ why?
 
 	inputs roughly in same relatively small range, avoids problems of computers regarding very small/big numbers (numerical overflows)
 --------------------------------------------------------------------------------
+standardization (aka z-score normalization)
+
+rescaling feature values so that they have properties of a standard normal distribution with μ = 0 and σ = 1
+	μ: mean (averaged over all dataset examples)
+	σ: stdv
+beneficial but not necessary since modern libraries are robust to features lying in different ranges
+
+standard scores (z-scores) formula:
+
+	        x⁽ⁱ⁾ - μ⁽ⁱ⁾
+	x̂⁽ⁱ⁾ = —————————————
+	           σ⁽ⁱ⁾
+normalization vs standardization (not definitive, try both if you have time or small dataset)
 standardization
+	unsupervised
+	feature values distributed close to a normal distribution (bell curve)
+	feature with outliers (some extremely high/low values) (since normalization squeezes normal values into very small range)
+normalization
+	all other cases
 --------------------------------------------------------------------------------
-missing feature
+missing value of feature
+
+remove examples with missing features (large dataset that can sacrifice some examples)
+use a learning algorithm that can deal with missing feature values (depends on library, specific algorithm implementation)
+use data imputation techniques
 --------------------------------------------------------------------------------
-data imputation
+data imputation techniques
+
+which technique works best depends on the learning problem
+use the same technique in prediction as the one used in training to fill-in missing values
+
+1. replace missing value with feature's average in dataset
+	        1
+	x̂⁽ⁱ⁾ = ——— x⁽ⁱ⁾
+	        N
+
+2. replace missing value with a value outside the normal range of values
+	if normal range is [0,1]
+	set missing value to 2 or -1
+why: let alg learns what to do when feature has a value significantly different from other values
+
+
+3. replace missing value with midrange value
+	if range is [-1, 1]
+	set missing value to 0
+why: due to being a midrange value, it will not significantly affect the prediction
+
+4. use missing value as a target variable for a regression model
+	x̂ᵢ = [ xᵢ⁽¹⁾, xᵢ⁽¹⁾, ..., xᵢ⁽ʲ⁻¹⁾, xᵢ⁽ʲ⁺¹⁾, ..., xᵢ⁽ᴰ⁾ ]
+	x̂ᵢ = vector containig all xᵢ values except the missing ones
+	ŷᵢ = predict missing value using regression
+
+5. (DIDN'T GET IT) add binary indicator for each missing value (increase feature vector dimensionality)
+	only if large dataset and a few features with missing values
+	j = 12		feature with missing values (in D-dimensional dataset)
+	for each feature x,
+	add feature j = D + 1
+		1 if value 12 exists in x
+		0 otherwise
+	missing value can be replaced by 0 or any number of your choice
 --------------------------------------------------------------------------------

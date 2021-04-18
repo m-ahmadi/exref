@@ -12,5 +12,5 @@ about math notations
 there is no one "math notation" that is useful for every purpose
 certain notations used only when it makes communication easier
 most mathematics is conveyed in natural language (english, french, ...) rather than symbolically
-there is not any special "mathematics" notation for pseudocode
+there isn't any special "mathematics" notation for pseudocode
 --------------------------------------------------------------------------------
