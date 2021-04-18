@@ -5,7 +5,7 @@ git add .		same as above
 git add . -u		all files (update)
 git add file.txt -p	add chunk by chunk interactively
 
--------------------------------------------------
+--------------------------------------------------
 undo (unstage changes)
 
 git reset file.txt

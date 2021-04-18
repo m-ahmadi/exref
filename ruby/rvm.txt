@@ -8,7 +8,7 @@ curl -sSL https://get.rvm.io | bash
 add to path:
 %USERPROFILE%\.rvm\bin
 
--------------------------------------------------
+--------------------------------------------------
 run rvm by `sh rvm` (only in cmder)
 
 sh rvm -v

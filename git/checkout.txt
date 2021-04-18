@@ -9,7 +9,7 @@ switch to a specific commit temporarily and switch back
 git checkout <commit_hash>	switch to state of the specifid commit
 git checkout mybranch		return to state of last commit
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 undo checkout
 
 git checkout -			all same (supposably, not sure)
@@ -20,4 +20,4 @@ or
 
 git reflog
 git reset --hard <sha from reflog>
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

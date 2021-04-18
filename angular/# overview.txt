@@ -10,16 +10,16 @@ decorators that mark a class
 decorators that mark a class field
 @Inpt		mark as input
 @Output		mark as output
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 types of ng modules
 	Domain
 	Routed
 	Routing
 	Service
 	Widget
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 directives
 	component  (has template)
 	structural (ngIf, ngFor)
 	attribute  (used as attributes of elements: NgStyle)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

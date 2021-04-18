@@ -9,7 +9,7 @@ npm ls <@scope>/<pkg>
 --dev  | --only "dev"		only devDependencies
 --link				only linked ones
 --unicode			use unicode chars. default: true
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 npm ls					list locally installed packages (alias: list)
 npm ls --depth=0			don't show any dependencies
 npm ls -g				list globally installed packages

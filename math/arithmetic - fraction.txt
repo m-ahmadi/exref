@@ -7,14 +7,14 @@ short:
 1. convert top & bottom to prime factors
 2. cancel out common factor pairs
 3. remultiply top & bottom factors
--------------------------------------------------
+--------------------------------------------------
 multiplying fractions
 
 1. multiply top    numbers
 2. multiply bottom numbers
 
 done
--------------------------------------------------
+--------------------------------------------------
 numerator and denominator
 
 numerator:    top    part of fraction
@@ -30,4 +30,4 @@ remembering tick
 (n)orth
 ————————
 (d)own
--------------------------------------------------
+--------------------------------------------------

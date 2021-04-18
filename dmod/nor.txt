@@ -14,7 +14,7 @@ deletion anomaly
 
 normal forms: 1NF, 2NF, 3NF, 4NF
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 normalized vs denormalized
 	space	query	memory	tables	integrity
  norm:	low	slow	low	low	high
@@ -23,4 +23,4 @@ dnorm:	high	fast	high	high	low
 best fit
 	norm:	non-expensive insert/update/delete and joins of tables
 	dnorm:	expensive joins and frequent quering of tables
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

@@ -1,18 +1,18 @@
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 what is the meaning of "xtype: 'madeupName'" when defining a class
 is it for later so that we can instantciate from the thing that we defined?
 YES
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 is initComponent and constructor the same thing?
 netsais use constructor
 col sais use initComponent
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 what is this store: store
 is it a xtype, but it's not a xtype
 Ext.data.StoreView	store: store
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 when we require
 we're saying these classes have to be loaded before instantiating this class
 ok, loaded: definition or instantciation
 definition
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

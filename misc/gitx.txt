@@ -2,14 +2,14 @@ gitx help
 gitx openrepo path/to/dir
 
 orig command: gitex
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 remove shell extension
 
 pushd "C:\Program Files (x86)\GitExtensions"
 regsvr32 /u GitExtensionsShellEx64.dll
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 custom command setup
 
 mklink %windir%\gitx "C:\Program Files (x86)\GitExtensions\GitExtensions.exe"
 echo @start "" "C:\Program Files (x86)\GitExtensions\GitExtensions.exe" %* > %windir%\gitx.cmd
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

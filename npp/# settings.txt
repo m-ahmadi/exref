@@ -4,13 +4,13 @@ copy /b stylers\#* %target%\stylers.xml
 copy userDefinedLangs %target%\userDefinedLangs\
 cd autoCompletion
 copy /b javascript.xml myJSX.xml
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Settings -> Preferences
   Language        -> Tab size -> default: 2 normal: 8
   Highlighting    -> Use Find dialog settings
   Auto-Completion -> html/xml close tag
   MISC.           -> Update silently (enable), Document Switcher (disable)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Settings -> Style Configurator
   Global Styles -> Global override
           Font size: 11
@@ -23,7 +23,7 @@ Settings -> Style Configurator
   HTML -> User ext: vue svelte handlebars hbs tmpl
 
 remove <Language name="json"> tag from %appdata%\notepad++\langs.xml
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Plugins -> Plugins Admin
 
 Customize Toolbar
@@ -40,11 +40,11 @@ JSON Viewer
 
 Compare
 JSLint
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 js backtick (perl BACKTICKS)
 stylers.xml
 	<LexerType name="javascript"
 		<WordsStyle name="SINGLESTRING" ...
 		<WordsStyle name="BACKTICKS" styleID="20" fgColor="A31515" bgColor="F1F3F7" fontName="" fontStyle="0" fontSize="" />
 		...
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

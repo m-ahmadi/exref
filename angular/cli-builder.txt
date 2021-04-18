@@ -6,7 +6,7 @@ angular.json
 				build
 				test
 				...
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 builder project structure
 
 src/my-builder.ts		main source file for the builder definition

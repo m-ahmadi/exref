@@ -14,7 +14,7 @@ preferences		ctrl k
 smart guides		ctrl u
 quit			ctrl q
 
--------------------------------------------------
+--------------------------------------------------
 custom
 
 ctrl e			window > swatches

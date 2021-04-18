@@ -1,6 +1,6 @@
 yarn compile			whole thing
 yarn compile-rtl		rtl css (including custom/)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 custom icons
 
 cp -r my/icons uikit/custom/icons/
@@ -13,7 +13,7 @@ output:
 
 uikit/dist/js/uikit-icons.js
 uikit/dist/js/uikit-icons-mytheme.js
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 custom prefix
 
 yarn prefix -- -p xyz
@@ -23,7 +23,7 @@ yarn prefix (prompt for prefix)
 result:
 uk-grid -> xyz-grid
 UIkit   -> xyzUIkit
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 scoped mode
 
 yarn scope			scope with uk-scope
@@ -35,6 +35,6 @@ note:
 wrap markups in <div class="uk-scope"></div>
 set in js:
 UIkit.container = '.uk-scope' | document.getElementById('id-of-scope-el');
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 note
 'uikit-util': './src/js/util/index'

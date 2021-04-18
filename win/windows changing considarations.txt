@@ -19,7 +19,7 @@ optional
 powercfg /export %home%\mypowerplan.pow <GUID>
 export HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
 then import folders.reg
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 new install:
 control folders, taskbar, disable realtime protec, power options, ...
 chrome winrar idm vpn
@@ -28,4 +28,4 @@ deskrestore
 vscode npp 7z curl apache node yarn
 cmder .gitconfig .npmrc git-ssh-key
 npm i -g
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

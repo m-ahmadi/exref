@@ -15,7 +15,7 @@ ln -s /usr/local/lib/node/nodejs/bin/npx  /usr/bin/npx
 
 node -v
 npm config set prefix /usr/local
--------------------------------------------------
+--------------------------------------------------
 using package managers
 
 curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
@@ -23,7 +23,7 @@ yum install -y nodejs
 
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
--------------------------------------------------
+--------------------------------------------------
 on linux mint
 
 wget https://deb.nodesource.com/setup_12.x
@@ -33,4 +33,4 @@ add this line to end of "Linux Mint" definitions:
 chmod 755 setup_12.x
 sudo ./setup_12.x
 sudo apt-get install -y nodejs
--------------------------------------------------
+--------------------------------------------------

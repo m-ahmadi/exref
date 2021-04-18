@@ -6,7 +6,7 @@ https://youtu.be/WOk4Nyq4sNM#t=0m20s
 
 https://www.youtube.com/watch?v=WOk4Nyq4sNM&t=0m20s
 https://www.youtube.com/watch?v=WOk4Nyq4sNM#t=0m20s
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 sort param
 
 youtube.com/chnl/videos
@@ -14,4 +14,4 @@ youtube.com/chnl/videos?sort=
 	p	"Most popular"
 	da	"Date added (oldest)"		(date ascending)
 	dd	"Date added (newst)"		(date descending)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

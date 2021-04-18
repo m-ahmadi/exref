@@ -39,13 +39,13 @@ f6		history
 alt x		settings
 
 https://www.getpaint.net/doc/latest/KeyboardMouseCommands.html#15
--------------------------------------------------
+--------------------------------------------------
 settings
 
 Animations	off
 Color Scheme	Blue
 (overscroll)	off
--------------------------------------------------
+--------------------------------------------------
 cli
 
 paintdotnet path/to/file.png

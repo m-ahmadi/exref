@@ -6,7 +6,7 @@ http://service.tsetmc.com/WebService/TsePublicV2.asmx			paid api
 
 http://cdn.tsetmc.com/Site.aspx?ParTree=11141111			paid api help (very useful info)
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 other
 
 http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?i=<InsCode>&Top=99&A=0				10 col ClosingPrices (text/html)
@@ -21,10 +21,10 @@ http://www.tsetmc.com/tsev2/data/search.aspx?skey=<keyword>				11 col symbol sea
 http://tse.ir/archive/IndicesArchiveDate.json						indice info                  (application/json)
 http://www.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0				Instruments & ClientTypeAll? (text/csv)
 http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=<InsCode>				4 col IntraTrade             (text/xml)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 useful page
 
 http://www.tsetmc.com/Loader.aspx?ParTree=111C1417		instruments
 http://www.tsetmc.com/Loader.aspx?ParTree=151313&Flow=0		messages
 http://www.tsetmc.com/Loader.aspx?ParTree=15131I&t=0		shareholders
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

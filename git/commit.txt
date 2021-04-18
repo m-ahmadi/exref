@@ -16,7 +16,7 @@ git commit --amend
 	opens editor to edit the 2nd last commit message and use it as the new commit message.
 
 git commit --amend -m "message"		--ammend with message argument (doesn't open editor)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 delete commit and do again
 
 git commit -m "Something terribly misguided"
@@ -25,18 +25,18 @@ git add .
 git commit -m "new message"
 git push -f
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 50/72 commit message format
 first line 50 chars
 rest 72 chars
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 min chars to identify commit hash
 
 github needs at least 7
 git default is 7
 
 git rev-parse --short=4 <commit_hash>		ask for shortest and yet unique sha1
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 change past commit (avoid unless no commits inbetween)
 
 git rebase --interactive HEAD~4
@@ -45,4 +45,4 @@ git rebase --interactive HEAD~4
 	pick 6cd95d2 4
 git commit --ammend
 git rebase --continue		(bail: rebase --abort)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

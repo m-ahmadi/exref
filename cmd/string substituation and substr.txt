@@ -1,12 +1,12 @@
 substitution
 
 echo %PATH:str1=str2%	replace all str1 with str2
--------------------------------------------------
+--------------------------------------------------
 substring
 
 echo %PATH:~10,5%	from index 10, only return 5 chars
 echo %PATH:~-10%	last 10 chars
 echo %PATH:~0,-2%	from index 0 to last-2
--------------------------------------------------
+--------------------------------------------------
 for example:
 set PATH=the lord of the rings the return of the king

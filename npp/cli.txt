@@ -27,7 +27,7 @@ ghost typing
 -systemtray	lunch in system tray
 -openFoldersAsWorkspace
 		open dir path(s) as workspace
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 command setup
 
 mklink %windir%\npp "D:\Program Files\Notepad++\notepad++.exe"				for win+r
@@ -48,4 +48,4 @@ npp file.txt
 
 3. cmd alias (session-based)
 doskey npp=notepad++.exe $*
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

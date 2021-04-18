@@ -5,7 +5,7 @@ ng new myapp --style=scss --routing -S
 ng new myapp --style=scss --routing -S -g --minimal --skip-install
 
 note: if a symlink is in path of the proj, ng throws erros and can't compile.
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 ng n|new
 	--directory=myapp
 	--style=scss		
@@ -21,7 +21,7 @@ ng n|new
 	-s, --inline-style
 	-t, --inline-template
 	-v, --verbose		log more details
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 ng s|serve
 	-o, --open		open browser
 	--port=4200		specify port
@@ -30,7 +30,7 @@ ng s|serve
 	--liveReload=true
 	--optimization=false
 	--watch=true
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 ng g|generate <schematic> [options]
 
 ng g component myComponent
@@ -74,6 +74,6 @@ m	module				eneric NgModule definition
 s	service				generic service definition
 	serviceWorker
 	webWorker
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 ng help
 ng [command name] --help

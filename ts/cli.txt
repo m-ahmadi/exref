@@ -8,7 +8,7 @@ tsc -init						create config file
 tsc -w file.ts						watch file
 tsc -w							watch directory (dir must contain tsconfig.json)
 tsc -w main.ts --outFile main.js --sourceMap true	
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags
 
 -w, --watch				Watch input files.
@@ -40,4 +40,4 @@ flags
     --noUnusedParameters		Report errors on unused parameters.
     --noImplicitReturns			Report error when not all code paths in function return a value.
     --noFallthroughCasesInSwitch	Report errors for fallthrough cases in switch statement.
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

@@ -20,7 +20,7 @@ one person many phone_numbers (separate table)
 	person.phone_number = phone_number.id
 	phone_number.person_id == person_id
 phone_number belongs to a person (even though modeled as attrs of separate table)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 non-identifying
 
 parent primarykey attribute must not become child primarykey attribute

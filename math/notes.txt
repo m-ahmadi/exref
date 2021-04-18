@@ -1,16 +1,16 @@
 .med files are created with the "Math Editor" software
 https://github.com/kashifimran/math-editor/releases
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 char notes
 
 default font:		Times New Roman
 separator char:		alt 0151 (short=10, medium=20, long=30)
 word hyphen:		alt 0150
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 about math notations
 
 there is no one "math notation" that is useful for every purpose
 certain notations used only when it makes communication easier
 most mathematics is conveyed in natural language (english, french, ...) rather than symbolically
 there is not any special "mathematics" notation for pseudocode
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

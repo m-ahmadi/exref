@@ -1,6 +1,6 @@
 smudge: on checkout.
 clean:  on stage.
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 proj/.gitattributes	or	proj/.git/info/attributes
 	*.js    filter=tabspace
 	*.json  filter=tabspace
@@ -16,7 +16,7 @@ git config filter.tabspace.smudge "script_to_make_tabs"
 git config filter.tabspace.clean  "script_to_make_spaces"
 git config --global filter.tabspace.smudge "unexpand --tabs=2 --first-only"
 git config --global filter.tabspace.clean  "sh -c 'expand --tabs=2 --initial'"
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 gnu utils
 smudge = unexpand --tabs=2 --first-only
 clean  = sh -c "expand --tabs=2 --initial"
@@ -25,4 +25,4 @@ my script
 npm install ./tabspace -g
 smudge = tabspace --from '  ' --to '\t' --leading
 clean  = tabspace --from '\t' --to '  ' --leading
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

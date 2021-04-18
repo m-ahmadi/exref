@@ -19,29 +19,29 @@ DDL and lock-related statements commit implicitly because they can't be part of 
 SHOW VARIABLES LIKE "autocommit";
 SET autocommit = 0;
 
--------------------------------------------------
+--------------------------------------------------
 START|BEGIN TRANSACTION -- suspends autocommit mode
 	-- transaction body
 	-- ...
 COMMIT | ROLLBACK       -- autocommit changes to what it was before START TRANSACTION
 
--------------------------------------------------
+--------------------------------------------------
 SET autocommit = 0;
 	-- statements
 COMMIT
 SET autocommit = 1;
--------------------------------------------------
+--------------------------------------------------
 START TRANSACTION;
 	-- statements
 	START TRANSACTION -- commits outer transaction implicitly
 COMMIT;
--------------------------------------------------
+--------------------------------------------------
 START TRANSACTION;
 	INSERT INTO tbl SET col = 'Mohammad';
 	INSERT INTO tbl SET col = 'Ahmadi';
 COMMIT;   -- changes inside transaction is not visible to other mysql instances until COMMIT/ROLLBACK
 ROLLBACK; -- rolls back 1 step
--------------------------------------------------
+--------------------------------------------------
 START TRANSACTION;
 	INSERT INTO tbl SET col = 'Mohammad';
 	SAVEPOINT ding;
@@ -49,4 +49,4 @@ START TRANSACTION;
 	ROLLBACK TO SAVEPOINT ding;
 COMMIT; 
 ROLLBACK;
--------------------------------------------------
+--------------------------------------------------

@@ -23,7 +23,7 @@ FROM editor e1
 	JOIN editor e2 ON (e1.editor_id = e2.managing_editor_id)
 WHERE e1.editor_id = 3
 ORDER BY 1, 2;
--------------------------------------------------
+--------------------------------------------------
 -- mysql
 /*
 	many subqueries could be written as JOINs.

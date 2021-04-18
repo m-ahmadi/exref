@@ -1,5 +1,5 @@
 chkdsk c: /f /r			run check disk for a drive (needs restart afterwards)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 fix system files
 
 sfc /scannow			scan & repair system files
@@ -8,7 +8,7 @@ sfc /scanfile shell32.dll	... scan one file
 dism /Online /Cleanup-Wim	similar to `sfc /scannow` (takes 5 to 10 mins)
 dism /Online /Cleanup-image /Restorehealth
 dism /Online /Cleanup-Image /RestoreHealth /Source:C:\RepairSource\Windows /LimitAccess
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 re-register dlls
 for %i in (%windir%\system32\*.dll) do regsvr32.exe /s %i
 for %i in (%windir%\system32\*.ocx) do regsvr32.exe /s %i

@@ -23,10 +23,10 @@ physical
 	database compatible column names
 	database specific data types
 	significantly more effort required to enhance in comparison to logical model
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 cardinality
 	one-to-one
 	one-to-many
 	many-to-many
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

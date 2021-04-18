@@ -5,7 +5,7 @@ youtube-dl <URL> -f 18 --write-auto-sub		auto generated subs
 
 install
 Invoke-WebRequest 'https://yt-dl.org/latest/youtube-dl.exe' -OutFile  $env:windir\youtube-dl.exe
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 remove karaoke effects from  auto generated .vtt
 <[\d:.]+>
 </?c>
@@ -13,4 +13,4 @@ remove karaoke effects from  auto generated .vtt
 
 translate sub
 https://translatesubtitles.co/index.php
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

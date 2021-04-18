@@ -3,7 +3,7 @@ graph is a data structure and is made up of vertices and edges.
 vertex:		node or point. (plural: vertices or vertexes. singular: vertex instead of vertice)
 edge:		link or line, that connects two vertices.
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 types of graphs
 
 undirected graph
@@ -12,7 +12,7 @@ directed graph
 	edges point in one direction.
 weighted grap
 	when nodes have additional data about their relationship
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 algorithms
 
 breadth-first search
@@ -29,7 +29,7 @@ depth-first search
   \
 
 shortest path
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 data structure representation
 
 adjacency matrix (2d array)
@@ -43,4 +43,4 @@ adjacency list
 collection of nodes
 each node has its own array of its neighbors
 faster to iterate over nodes edges
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

@@ -1,7 +1,7 @@
 0     - 1023		well-known ports (reserved for privileged services)
 1024  - 49151		registered ports
 49152 - 65535		dynamic ports (aka private ports)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 1	TCP Port Service Multiplexer (TCPMUX)
 5	Remote Job Entry (RJE)
 7	ECHO

@@ -15,7 +15,7 @@ memory trick
 
 foreign key constraint
 	dbms rejects any INSERT/UPDATE to create fkcol value in child-table if matching candidatekey value not exist in parent-table
--------------------------------------------------
+--------------------------------------------------
 example
 
 person
@@ -27,6 +27,6 @@ person
     color	(fk -> eyes   pk)
     vision	(fk -> eyes   pk)
   email		(fk -> person pk)
-  -------------------------------------------------
+  --------------------------------------------------
 		
 	

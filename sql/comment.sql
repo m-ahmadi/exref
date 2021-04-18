@@ -9,7 +9,7 @@ SELECT name /* inline */ FROM book
 	lines
 */
 
--------------------------------------------------
+--------------------------------------------------
 -- mysql
 -- a white space after the second dash is neccesary
 

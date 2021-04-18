@@ -12,7 +12,7 @@ yarn				install all
 yarn install			install all
 
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 yarn self-update		not available yet
 npm install yarn -g		didn't work
 

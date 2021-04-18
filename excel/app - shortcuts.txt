@@ -4,7 +4,7 @@ f9		evaluate formula
 
 ctrl + d	duplicate shape
 alt + ↓		open dropdown
--------------------------------------------------
+--------------------------------------------------
 enter			enter and move down
 shitf    enter		enter and move up
 tab      enter		enter and move right
@@ -19,9 +19,9 @@ ctrl '			copy formula from cell above
 ctrl shift "		copy value   from cell above
 ctrk k			add hyperlink
 Alt ↓			display autocomplete list
--------------------------------------------------
+--------------------------------------------------
 2 ways for shortcuts:
 
 step by step shortcuts
 recording a macro
--------------------------------------------------
+--------------------------------------------------

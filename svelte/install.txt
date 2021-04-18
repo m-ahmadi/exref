@@ -3,7 +3,7 @@ cd myapp
 npm i
 npm run dev
 
--------------------------------------------------
+--------------------------------------------------
 sapper
 
 npx degit "sveltejs/sapper-template#rollup" myapp

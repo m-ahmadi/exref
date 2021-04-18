@@ -5,7 +5,7 @@ select text > f1 >"Join Lines"		format multiline code to single line
 %appdata%\Code\User\
 	settings.json
 	keybindings.json
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 custom theme:
 
 <install_dir>\resources\app\extensions\theme-defaults\themes
@@ -14,7 +14,7 @@ light_plus.json
 light_vs.json
 	regex: 8000ff
 (grammer files: <install_dir>\*.tmLanguage.json)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 extensions
 code --list-extensions | xargs -L 1 echo code --install-extension
 
@@ -31,4 +31,4 @@ ionutvmi.reg
 Keno.uikit-3-snippets
 octref.vetur
 Leopotam.csharpfixformat
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

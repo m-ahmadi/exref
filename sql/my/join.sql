@@ -2,7 +2,7 @@
 	table_name    join_keywords    table_name
 
 -- USING() or ON column is usually placed at first
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 -- right join:
 -- return all rows from right table with the matching rows in left table
 -- NULL in left side when no match

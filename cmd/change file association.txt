@@ -12,7 +12,7 @@ reg add HKCR\.my\ /t REG_SZ /d MyFile /f
 reg add HKLM\SOFTWARE\Classes\MyFile\DefaultIcon\ /t REG_SZ /d My.exe,0 /f
 ftype MyFile=C:\My.exe "%1" %*
 assoc .my=MyFile
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 some related reg keys:
 regjump HKCR\.css\							ftype location (eg: css)
 regjump HKLM\SOFTWARE\Classes\CSSFile\DefaultIcon\			icon of an assoc (eg: css)

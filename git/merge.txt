@@ -2,7 +2,7 @@ git merge origin/master		merge the remote branch with local branch
 
 git merge --abort		abort current conflict resolution process (can only be run after the merge has resulted in conflicts)
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 merge two repos
 merge test2 into test1
 
@@ -11,4 +11,4 @@ git remote add test2 git@github.com:m-ahmadi/test2.git
 git fetch test2 --tags
 git merge --allow-unrelated-histories test2/master
 git remote remove test2
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

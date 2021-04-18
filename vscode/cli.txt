@@ -3,7 +3,7 @@ code .
 code --install-extension <extension_name>
 code --list-extensions
 
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 win+r command setup
 
 mklink %windir%\code "D:\Program Files\VSCode\Code.exe"

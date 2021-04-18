@@ -1,7 +1,7 @@
 npm i typescript -D		prefered
 npm i -g typescript
 
--------------------------------------------------
+--------------------------------------------------
 install type definintions
 
 npm i @types/jquery -D
@@ -13,4 +13,4 @@ npm i @types/jquery -D
 @types/glob
 @types/body-parser
 ...
--------------------------------------------------
+--------------------------------------------------

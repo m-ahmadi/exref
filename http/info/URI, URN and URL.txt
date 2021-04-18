@@ -5,7 +5,7 @@ The server resource name is called "Uniform Resource Identifier", or URI.
 URIs come in two flavors: (types of resource identifiers)
 	URL
 	URN
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 URL
 
 The "Uniform Resource Locator" (URL) is the most common form of resource identifier.
@@ -24,7 +24,7 @@ Most URLs follow a standardized format of three main parts:
 	
 	The rest names a resource on the web server. (/specials/saw-blade.gif )
 	Today, almost every URI is a URL.
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 URN
 
 The second flavor of URI is the "Uniform Resource Name", or URN.

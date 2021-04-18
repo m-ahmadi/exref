@@ -5,7 +5,7 @@ shift  enter		open url in new window
 ctrl shift j, f12	devtool
 ctrl shift c		element inspector
 ctrl shit r		hard refresh
--------------------------------------------------
+--------------------------------------------------
 custom
 
 ctrl space		allow cors

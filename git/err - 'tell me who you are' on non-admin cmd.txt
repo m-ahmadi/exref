@@ -1,8 +1,8 @@
 caused by using variable expansion inside environment variables
 eg: desk=%userprofile%\desk
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 failed attempt
 
 change order of path, eg: put git\bin before openssh in path (order isn't important)
 won't persist after restart
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

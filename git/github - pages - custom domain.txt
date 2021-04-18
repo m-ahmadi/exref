@@ -15,9 +15,9 @@ www		CNAME		user.github.io
 done. test:
 
 dig foo.com +nostats +nocomments +nocmd
--------------------------------------------------
+--------------------------------------------------
 note about A record name
 
 . after foo.com important
 in some hostings it can be @ char (in some it can't)
--------------------------------------------------
+--------------------------------------------------
