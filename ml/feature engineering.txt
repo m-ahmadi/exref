@@ -85,7 +85,7 @@ data imputation techniques
 which technique works best depends on the learning problem
 use the same technique in prediction as the one used in training to fill-in missing values
 
-1. replace missing value with feature's average in dataset
+1. replace missing value with feature's average
 	        1
 	x̂⁽ⁱ⁾ = ——— x⁽ⁱ⁾
 	        N
@@ -101,17 +101,13 @@ why: let alg learns what to do when feature has a value significantly different 
 	set missing value to 0
 why: due to being a midrange value, it will not significantly affect the prediction
 
-4. use missing value as a target variable for a regression model
+4. predict missing values with regression (based on present values of feature)
 	x̂ᵢ = [ xᵢ⁽¹⁾, xᵢ⁽¹⁾, ..., xᵢ⁽ʲ⁻¹⁾, xᵢ⁽ʲ⁺¹⁾, ..., xᵢ⁽ᴰ⁾ ]
 	x̂ᵢ = vector containig all xᵢ values except the missing ones
 	ŷᵢ = predict missing value using regression
 
-5. (DIDN'T GET IT) add binary indicator for each missing value (increase feature vector dimensionality)
+5. add 1 dimension to every feature vector which indicates whether feature has missing value (binary indicator)
 	only if large dataset and a few features with missing values
-	j = 12		feature with missing values (in D-dimensional dataset)
-	for each feature x,
-	add feature j = D + 1
-		1 if value 12 exists in x
-		0 otherwise
-	missing value can be replaced by 0 or any number of your choice
+	for each feature xᵢ, xᵢ⁽ᴺ⁺¹⁾ = 1 if has missing value or 0 otherwise
+	then missing value can be replaced by 0 or any number of your choice
 --------------------------------------------------------------------------------
