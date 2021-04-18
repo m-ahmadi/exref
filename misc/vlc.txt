@@ -5,3 +5,20 @@ reset:				Tools -> Preferences -> Reset Preferences
 convert file: (haven't tried)
 vlc -I dummy -vvv "MyVid.mkv"
 --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:standard{access=file,mux=ts,dst=MyVid.mp4}
+
+don't show in taskbar
+right-click on tray icon -> "Hide VLC media player in taskbar"
+
+systray right-click menu shortcuts
+h	hide
+w	show
+m	mute
+i	increase volume
+q	quit
+s	stop
+p	play
+p	previous
+x	next
+
+my settings
+Continue playback		never

@@ -1,0 +1,63 @@
+﻿one-hot encoding
+
+convert categorical feature to binary vector
+"colors" feature with possible values: red|yellow|green
+red    = [1,0,0]
+yellow = [0,1,0]
+green  = [0,0,1]
+
+if order of feature's values is not important, using ordered numbers will confuse the learning algorithm
+bad example:
+	red    = 1
+	yellow = 2
+	green  = 3
+good example:
+	"quality" feature with possible values: poor|decent|good|excellent
+	quality = 1|2|3|4
+--------------------------------------------------------------------------------
+bining (bucketing)
+
+convert numerical feature to categorical
+binning (aka bucketing)
+	converting a continuous feature into multiple binary features called bins or buckets typically based on value range
+
+example
+instead of representing age as a single real-valued feature, put age ranges into discrete bins:
+	bin1: 0-15 years old
+	bin2: 6-10 ...
+	bin3: 1-15 ...
+
+well designed binning can help the learning algorithm to learn using fewer examples
+because it's a hint that if value falls within a range, the exact value does not matter
+--------------------------------------------------------------------------------
+normalization
+
+convert feature's numerical range of values to standard range between [-1,1] or [0,1]
+
+example
+feature range:		350 to 1450
+normalize to 0-1:	subtract 350 from all & divide by 1100
+
+formula:
+		      x⁽ⁱ⁾ - min⁽ⁱ⁾
+	norm(x⁽ⁱ⁾) = ———————————————
+		      max⁽ⁱ⁾ - min⁽ⁱ⁾
+
+not a strict requirement
+leads to faster learning
+
+why?
+	in gradient descent of two-dimensional feature vector,
+	when params of w⁽¹⁾ and w⁽²⁾ are updated,
+	partial derivatives of average squared error is used,
+	if x⁽¹⁾ is in range [0, 1000] and x⁽²⁾ in range [0, 0.0001],
+	derivative with respect to a larger feature will dominate the update
+
+	inputs roughly in same relatively small range, avoids problems of computers regarding very small/big numbers (numerical overflows)
+--------------------------------------------------------------------------------
+standardization
+--------------------------------------------------------------------------------
+missing feature
+--------------------------------------------------------------------------------
+data imputation
+--------------------------------------------------------------------------------

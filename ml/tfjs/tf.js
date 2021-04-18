@@ -2,8 +2,13 @@ const tf = require('@tensorlowjs/tfjs'); // npm i @tensorflow/tfjs
 // https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/
 // https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js
 
-
-tf.tensor(value=TypedArray|[], ?shape=[col=0,row=0], ?dtype='float32|int32|bool|complex64|string')
+tf.tensor(values=TypedArray|[], ?shape=[row=0,col=0], ?dtype='float32|int32|bool|complex64|string')
+tf.tensor1d(values=.., ?dtype=..)
+tf.tensor2d(values=.., ?shape=.., ?dtype=..)
+tf.tensor3d(...)
+tf.tensor4d(...)
+tf.tensor5d(...)
+tf.tensor6d(...)
 tf.model({
 	inputs:  SymbolicTensor | [SymbolicTensor,...],
 	outputs: SymbolicTensor | [SymbolicTensor,...],
