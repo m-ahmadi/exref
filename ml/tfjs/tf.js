@@ -36,6 +36,18 @@ tf.layers.dense(arg={
 	inputDType:          'float32|int32|bool|complex64' | '', // deprecated
 })
 
+tf.LayersModel.summary(?lineLength=0, ?positions=[0,...], ?printFn=(?message,?optioanlParams)=>)
+tf.LayersModel.compile(args)
+tf.LayersModel.evaluate(x, y, args?)
+tf.LayersModel.evaluateDataset(dataset, args?)
+tf.LayersModel.predict(x, args?)
+tf.LayersModel.predictOnBatch(x)
+tf.LayersModel.fit(x, y, args?)
+tf.LayersModel.fitDataset(dataset, args)
+tf.LayersModel.trainOnBatch(x, y)
+tf.LayersModel.save(handlerOrURL, config?)
+tf.LayersModel.getLayer(name?, index?)
+
 
 tf.backend()
 tf.getBackend()
