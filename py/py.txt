@@ -5,3 +5,4 @@ pip install pyreadline			autocomplete in python shell
 py -V					version
 py					enter shell
 exit()					exit shell (or ctrl z)
+import this				summary of principles
