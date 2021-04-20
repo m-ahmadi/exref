@@ -19,7 +19,7 @@ tf.model({
 })
 tf.layers.dense(arg={
 	units:               +int,
-	activation:          'elu|hardSigmoid|linear|relu|relu6|selu|sigmoid|softmax|softplus|softsign|tanh',
+	activation:          undefined|'elu|hardSigmoid|linear|relu|relu6|selu|sigmoid|softmax|softplus|softsign|tanh',
 	useBias:             false,
 	kernelInitializer:   'constant|glorotNormal|glorotUniform|heNormal|heUniform|identity|leCunNormal|leCunUniform|ones|orthogonal|randomNormal|randomUniform|truncatedNormal|varianceScaling|zeros' | '' | tf.initializers.Initializer,
 	biasInitializer:     ↑...,

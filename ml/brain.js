@@ -9,8 +9,8 @@ cdn
 */
 var net = new brain.NeuralNetwork(?opts={
 	binaryThresh:   0.5,
-	hiddenLayers:   [3],       // int arr for sizes of the network's hidden layers
-	activation:     'sigmoid | relu | leaky-relu | tanh', // activation type
+	hiddenLayers:   [3],                            // int arr for sizes of the network's hidden layers
+	activation:     'sigmoid|relu|leaky-relu|tanh', // activation type
 	leakyReluAlpha: 0.01 if activation=='leaky-relu'
 })
 var net = new brain.NeuralNetworkGPU(?opts=↑...)
@@ -76,10 +76,10 @@ RNNTimeStep | LSTMTimeStep | GRUTimeStep
 
 // xor
 const data = [
-	{ input: [0, 0], output: [0] },
-	{ input: [0, 1], output: [1] },
-	{ input: [1, 0], output: [1] },
-	{ input: [1, 1], output: [0] }
+	{ input: [0,0], output: [0] },
+	{ input: [0,1], output: [1] },
+	{ input: [1,0], output: [1] },
+	{ input: [1,1], output: [0] }
 ];
 const net = new brain.NeuralNetwork();
 net.train(data);
@@ -103,16 +103,16 @@ net.run([1,1,1]) // 0.91
 // rnn
 const net = new brain.recurrent.RNN();
 const data = [
-	{ input: [0, 0], output: [0] },
-	{ input: [0, 1], output: [1] },
-	{ input: [1, 0], output: [1] },
-	{ input: [1, 1], output: [0] }
+	{ input: [0,0], output: [0] },
+	{ input: [0,1], output: [1] },
+	{ input: [1,0], output: [1] },
+	{ input: [1,1], output: [0] }
 ];
 net.train(data);
-net.run([0, 0]) // [0]
-net.run([0, 1]) // [1]
-net.run([1, 0]) // [1]
-net.run([1, 1]) // [0]
+net.run([0,0]) // [0]
+net.run([0,1]) // [1]
+net.run([1,0]) // [1]
+net.run([1,1]) // [0]
 
 // nn - 4 teams play football (output: index of the winner team)
 const net = new brain.NeuralNetwork();
