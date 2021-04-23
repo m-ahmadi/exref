@@ -1,0 +1,126 @@
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis/dist/tfjs-vis.umd.min.js"></script>
+<script src="./tut.js"></script>
+<a href="https://www.tensorflow.org/js/tutorials/training/linear_regression">Fit a curve to 2d data</a>
+<script>
+(async () => {
+	// load data and plot it
+	data = data
+		.map(i => ({mpg: i.Miles_per_Gallon, horsepower: i.Horsepower}))
+		.filter(i => i.mpg !== null && i.horsepower !== null);
+	
+	const values = data.map(i => ({x: i.horsepower, y: i.mpg}));
+	
+	tfvis.render.scatterplot(
+		{name: 'Horsepower v MPG'},
+		{values}, 
+		{
+			xLabel: 'Horsepower',
+			yLabel: 'MPG',
+			height: 300
+		}
+	);
+	
+	
+	
+	
+	// create model
+	const model = tf.sequential({
+		layers: [
+			tf.layers.dense({inputShape: [1], units: 1, useBias: true}), // input layer
+			tf.layers.dense({units: 1, useBias: true})                   // output layer
+		]
+	});
+	tfvis.show.modelSummary({name: 'Model Summary'}, model);
+	
+	
+	
+	
+	// data prep (tidy disposes any intermediate tensors)
+	const tensorData = tf.tidy(() => {
+		// 1: shuffle data  
+		tf.util.shuffle(data);
+		
+		// 2: convert data to Tensor
+		const inputs = data.map(d => d.horsepower)
+		const labels = data.map(d => d.mpg);
+
+		const inputTensor = tf.tensor2d(inputs, [inputs.length, 1]);
+		const labelTensor = tf.tensor2d(labels, [labels.length, 1]);
+
+		// 3: normalize data to 0-1 range using min-max scaling
+		const inputMax = inputTensor.max();
+		const inputMin = inputTensor.min();  
+		const labelMax = labelTensor.max();
+		const labelMin = labelTensor.min();
+
+		const normalizedInputs = inputTensor.sub(inputMin).div(inputMax.sub(inputMin));
+		const normalizedLabels = labelTensor.sub(labelMin).div(labelMax.sub(labelMin));
+
+		return {
+			inputs: normalizedInputs,
+			labels: normalizedLabels,
+			inputMax, inputMin, labelMax, labelMin, // return min/max bounds for later use
+		}
+	});
+	const {inputs, labels} = tensorData;
+	
+	
+	
+	
+	// train model 
+	model.compile({
+		optimizer: tf.train.adam(),
+		loss: tf.losses.meanSquaredError,
+		metrics: ['mse'],
+	});
+	
+	await model.fit(inputs, labels, {
+		batchSize: 32,
+		epochs: 50,
+		shuffle: true,
+		callbacks: tfvis.show.fitCallbacks(
+			{ name: 'Training Performance' },
+			['loss', 'mse'], 
+			{ height: 200, callbacks: ['onEpochEnd'] }
+		)
+	});
+	console.log('Done Training');
+	
+	
+	
+	
+	// predict and compare to original data
+	const inputData = data; 
+	const normalizationData = tensorData; 
+	const {inputMax, inputMin, labelMin, labelMax} = normalizationData;  
+	
+	// generate predictions for a uniform range of numbers between 0 and 1
+	// un-normalize the data using inverse of min-max scaling
+	const [xs, preds] = tf.tidy(() => {
+		const xs = tf.linspace(0, 1, 100);
+		const preds = model.predict(xs.reshape([100, 1]));
+		
+		const unNormXs = xs.mul(inputMax.sub(inputMin)).add(inputMin);
+		const unNormPreds = preds.mul(labelMax.sub(labelMin)).add(labelMin);
+		
+		// un-normalize the data
+		return [unNormXs.dataSync(), unNormPreds.dataSync()];
+	});
+	
+	const predictedPoints = Array.from(xs).map((val, i) => ({x: val, y: preds[i]}));
+	const originalPoints = inputData.map(d => ({x: d.horsepower, y: d.mpg}));
+	
+	tfvis.render.scatterplot(
+		{name: 'Model Predictions vs Original Data'}, 
+		{values: [originalPoints, predictedPoints], series: ['original', 'predicted']}, 
+		{
+			xLabel: 'Horsepower',
+			yLabel: 'MPG',
+			height: 300
+		}
+	);
+
+})()
+</script>
+</body>

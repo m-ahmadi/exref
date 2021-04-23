@@ -1,4 +1,4 @@
-time:		sampling information at fixed time intervals (once every minute/hour/day)
-tick:		sample is extracted each time a pre-defined number of transactions takes place (eg: 1000 ticks)
-volume:		sampling every time a pre-defined amount of the security's units (eg: shares) have been exchanged
-dollar:		sampling an observation every time a pre-defined market value is exchanged (dollar means currency of security)
+time:		sample at fixed time intervals (once every minute/hour/day)
+tick:		sample each time a pre-defined number of trades takes place (eg: 1000 trades)
+volume:		sample each time a pre-defined amount of shares have been exchanged
+dollar:		sample each time a pre-defined market value is exchanged (dollar means currency of security)

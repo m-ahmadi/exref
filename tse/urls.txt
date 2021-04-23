@@ -14,13 +14,16 @@ http://tsetmc.com/tsev2/chart/data/Financial.aspx?i=InsCode&t=ph&a=1						7  col
 http://tsetmc.com/tsev2/data/Export-txt.aspx?t=i&a=1&b=0&i=<InsCode>						12 col ClosingPrices (text/plain)
 http://tsetmc.com/tse/data/Export-txt.aspx?a=InsTrade&InsCode=<InsCode>&DateFrom=<DEven>&DateTo=<DEven>&b=0	11 col ClosingPrices (text/plain)
 
-http://tsetmc.com/tsev2/data/clienttype.aspx?i=<InsCode>				13 col ClientType            (text/csv)
+http://www.tsetmc.com/tsev2/data/clienttype.aspx?i=<InsCode>				13 col ClientType            (text/csv)
 http://www.tsetmc.com/tsev2/data/ClientTypeAll.aspx					8  col ClientType of all?    (text/csv)
 http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=<InsCode>&c=57+			9  col misc data             (text/html)
 http://www.tsetmc.com/tsev2/data/search.aspx?skey=<keyword>				11 col symbol search         (text/html)
 http://tse.ir/archive/IndicesArchiveDate.json						indice info                  (application/json)
 http://www.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0				Instruments & ClientTypeAll? (text/csv)
 http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=<InsCode>				4 col IntraTrade             (text/xml)
+http://www.tsetmc.com/Loader.aspx?Partree=15131H&i=<InsCode>				capital increase page
+http://www.tsetmc.com/tsev2/data/ShareHolder.aspx?i=<HolderCode>,<HeldCIsin>		share holder history         (text/html)
+http://www.tsetmc.com/Loader.aspx?Partree=15131T&c=<CIsin>				share holders page
 --------------------------------------------------------------------------------
 useful page
 

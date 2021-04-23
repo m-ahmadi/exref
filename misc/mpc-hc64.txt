@@ -1,0 +1,2 @@
+View -> Options... -> Player -> Open options
+	"Open a new player for each media file played"

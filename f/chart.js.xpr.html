@@ -1,0 +1,95 @@
+<style>
+input[type=text]{width:120px;}
+input[type=number]{width:60px;}
+</style>
+
+<input id="ff" type="file" onchange="this.files[0].text().then(console.log)" />
+
+<div style="width:600; height:400"><canvas id="c1" width="600" height="400"></canvas></div>
+
+<select onchange="chart.config.type = this.selectedOptions[0].value, chart.update()" style="height:140" multiple>
+	<option>line</option>
+	<option>bar</option>
+	<option>pie</option>
+	<option>doughnut</option>
+	<option>scatter</option>
+	<option>bubble</option>
+	<option>radar</option>
+	<option>polarArea</option>
+</select> <br>
+
+<fieldset style="width:600"><legend>style</legend>
+
+backgroundColor&nbsp;
+<input id="a1" type="text" onchange="chart.data.datasets[0].backgroundColor=this.value, chart.update()" />
+<input type="color" oninput="a1.value=this.value, a1.dispatchEvent(new Event('change'))" /> <br>
+
+borderCapStyle&ensp;&ensp;
+<select onchange="chart.data.datasets[0].borderCapStyle=this.value, chart.update()" >
+	<option>butt</option>
+	<option>round</option>
+	<option>square</option>
+</select> <br>
+
+borderColor&emsp;&emsp;&ensp;
+<input id="a3" type="text" onchange="chart.data.datasets[0].borderColor=this.value, chart.update()" />
+<input type="color" oninput="a3.value=this.value, a3.dispatchEvent(new Event('change'))" /> <br>
+
+borderDash&emsp;&emsp;&ensp;&nbsp;
+<span onchange="chart.data.datasets[0].borderDash=JSON.parse(`[${a4a.value}, ${a4b.value}]`), chart.update()">
+	<input id="a4a" type="number" value="0" min="0" style="width:42" />
+	<input id="a4b" type="number" value="0" min="0" style="width:42" />
+</span> <br>
+
+borderDashOffset&nbsp;
+<input type="number" value="0" onchange="chart.data.datasets[0].borderDashOffset=+this.value, chart.update()" /> <br>
+
+
+borderJoinStyle&emsp;
+<select onchange="chart.data.datasets[0].borderJoinStyle=this.value, chart.update()" >
+	<option>miter</option>
+	<option>bevel</option>
+	<option>round</option>
+</select> <br>
+  
+
+borderWidth&emsp;&emsp;&nbsp;
+<input type="number" value="3" onchange="chart.data.datasets[0].borderWidth=+this.value, chart.update()" /> <br>
+
+clip:&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;
+<input type="number" style="width:42" />or
+left<input type="number" style="width:42" />
+top<input type="number" style="width:42" />
+bottom<input type="number" style="width:42" />
+right<input type="number" style="width:42" /> <br>
+
+data<br>
+cubicInterpolationMode
+<input value="default" />
+<br>
+
+</fieldset>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+var chart = new Chart(c1, {
+	type: 'line',
+	data: {
+		labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+		
+		datasets: [
+			{
+				data: [0, 10, 5, 2, 20, 30, 45],
+				label: 'My First dataset',
+				backgroundColor: 'rgba(255,0,0,0.9)',
+				borderColor: 'red',
+			},
+			/*{
+				data: [5,6,7,5,9,53,1],
+				backgroundColor: 'rgba(255,0,0,0.9)',
+				borderColor: 'blue',
+			}*/
+		]
+	}
+});
+</script>

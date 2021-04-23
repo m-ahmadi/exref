@@ -1,11 +1,8 @@
-/* install
-node
-	npm i brain.js
-	needs python2 and "Common Tools for Visual C++ 2015" from vs2015 iso (cl.exe)
-cdn
-	https://cdn.jsdelivr.net/npm/brain.js/dist/
-	https://unpkg.com/browse/brain.js/dist/
-	https://cdn.jsdelivr.net/npm/brain.js/dist/brain-browser.min.js
+/*
+npm i brain.js        needs python2 and "Common Tools for Visual C++ 2015" from vs2015 iso (cl.exe)
+https://cdn.jsdelivr.net/npm/brain.js/dist/
+https://unpkg.com/browse/brain.js/dist/
+https://cdn.jsdelivr.net/npm/brain.js/dist/brain-browser.min.js
 */
 var net = new brain.NeuralNetwork(?opts={
 	binaryThresh:   0.5,

@@ -1,4 +1,5 @@
 chrome example.com				open url
-chrome  --auto-open-devtools-for-tabs		auto-open devtools for every tab (only if no Chrome already running)
+chrome --auto-open-devtools-for-tabs		auto-open devtools for every tab (only if no Chrome already running)
+chrome --allow-file-access-from-files		allow file:// uris to read other file:// uris
 
 https://peter.sh/experiments/chromium-command-line-switches/

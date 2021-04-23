@@ -1,6 +1,12 @@
 const tf = require('@tensorlowjs/tfjs'); // npm i @tensorflow/tfjs
-// https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/
-// https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js
+/*
+https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/
+https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js
+
+@tensorflow/tfjs             pure js version (slowest option performance wise)
+@tensorflow/tfjs-node	       native c++ bindings
+@tensorflow/tfjs-node-gpu    higher performance if your system has a nvidia gpu with cuda support
+*/
 
 tf.tensor(values=TypedArray|[], ?shape=[row=0,col=0], ?dtype='float32|int32|bool|complex64|string')
 tf.tensor1d(values=.., ?dtype=..)

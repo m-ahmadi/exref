@@ -80,14 +80,13 @@ price      t[3]
 discarded  t[4]
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var ShareHolderData = [];
-var ShareHolderDataYesterday = [];
 var ShareHolderDataYesterday = [
-// ???    CIsin          shares      % chg                 shareholder desc (NOT Intrument. Name | LSoc30)
-	[340,  'IRO1SSHR0000', 1061520653, 40.000, 'ArrowDown', 'شركت توسعه سرمايه وصنعت غدير-سهامي عام-'],
-	[555,  'IRO1SSHR0000', 304687524,  11.480, '',          'شركت سيمان سپاهان-سهامي عام-'],
-	[560,  'IRO1SSHR0000', 94418176,   3.550,  '',          'شركت سيمان فارس وخوزستان-سهامي عام-'],
-	[468,  'IRO1SSHR0000', 41935786,   1.580,  '',          'شركت سرمايه گذاري دي-سهامي خاص-'],
-	[21630,'IRO1SSHR0000', 29000000,   1.090,  '',          'شركت گروه توسعه مالي مهرآيندگان-سهامي عام-']
+// ???    CIsin          current shares  % of total shares  inc/dec/same   shareholder desc (NOT Intrument.Name | LSoc30)
+	[340,  'IRO1SSHR0000', 1061520653,     40.000,            'ArrowDown',   'شركت توسعه سرمايه وصنعت غدير-سهامي عام-'],
+	[555,  'IRO1SSHR0000', 304687524,      11.480,            '',            'شركت سيمان سپاهان-سهامي عام-'],
+	[560,  'IRO1SSHR0000', 94418176,       3.550,             '',            'شركت سيمان فارس وخوزستان-سهامي عام-'],
+	[468,  'IRO1SSHR0000', 41935786,       1.580,             '',            'شركت سرمايه گذاري دي-سهامي خاص-'],
+	[21630,'IRO1SSHR0000', 29000000,       1.090,             '',            'شركت گروه توسعه مالي مهرآيندگان-سهامي عام-']
 ];
 var ShareHolderDataYesterday = [//another example
 	[104,    'IRO1FOLD0009', 35943344339, 17.190, '',          'سازمان توسعه ونوسازي معادن وصنايع معدني ايران'],
@@ -120,7 +119,7 @@ var ClientTypeData = [
 // bPp   bLp     sPp   sLp
 	19530, 19530, 19530, 19530,
 
-// PtoL change
+// LtoP change
 	-31123777
 	
 /*
@@ -162,5 +161,5 @@ legal_sell_val        a[15]    lsval
 legal_sell_price      a[19]    lsprice
 legal_sell_vol_ptot   a[11]    lsvolptot
 
-person_to_legal_chg   a[20]    ptlchg
+legal_to_person_chg   a[20]    lpchg
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

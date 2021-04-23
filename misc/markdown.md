@@ -132,6 +132,7 @@ ___
 
 ` escapes: `
 ```
+`` var a = `foo ${2+2}` ``
 
 # inline html
 entity chars &emsp;  like `&nbsp;` `&emsp;`  

@@ -14,11 +14,12 @@ function compareFn(firstEl, secondEl) {
 ints.sort((a, b) => a - b)       // ascending
 ints.sort((a, b) => b - a)       // descending
 
-[4, 2, 5, 1, 3].sort(ascending)  // [1, 2, 3, 4, 5]
-[4, 2, 5, 1, 3].sort(descending) // [5, 4, 3, 2, 1]
+[4, 2, 5, 1, 3].sort((a,b)=>a-b) // [1, 2, 3, 4, 5]
+[4, 2, 5, 1, 3].sort((a,b)=>b-a) // [5, 4, 3, 2, 1]
 
-function ascending(a, b)  { return a - b }
-function descending(a, b) { return b - a }
+// integers are sorted alphabetically by default
+[...Array(50).keys()].sort()           // [0, 1, 10, 11, 12, ...]
+[...Array(50).keys()].sort((a,b)=>a-b) // [0, 1, 2, 3, 4, ...]
 
 // sort alphabetically
 ['b','a','c'].sort( (a,b) => a.localeCompare(b) ) // ['a', 'b', 'c']
