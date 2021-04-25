@@ -21,14 +21,17 @@ Silicon Valley - 2x02 - Runaway Devaluation
 var fs = require('fs');
 var { join } = require('path');
 var seasons = fs.readFileSync('./episodes.txt', 'utf8').split('\r\n\r\n').map( i => i.split('\r\n').filter(i=>i) );
-fs.readdirSync('./').filter(i=>fs.statSync(i).isDirectory()).forEach((folder,i) => {
-	var names = seasons[i];
-	var files = fs.readdirSync(folder).filter(i => i !=='sub');
-	files.forEach((file, j) => {
-		// console.log(join(folder,file), ' ===> ', join(folder, names[j]+'.mkv'));
-		fs.renameSync(join(folder,file), join(folder, names[j]+'.mkv'))
+fs.readdirSync('./')
+	.filter(i=>fs.statSync(i).isDirectory())
+	.map(i=>[i, +i.match(/\d+$/)[0]]).sort((a,b)=>a[1]-b[1]).map(i=>i[0])
+	.forEach((folder,i) => {
+		var names = seasons[i];
+		var files = fs.readdirSync(folder).filter(i => i !=='sub');
+		files.forEach((file, j) => {
+			console.log(join(folder,file), ' ===> ', join(folder, names[j]+'.mkv'));
+			//fs.renameSync(join(folder,file), join(folder, names[j]+'.mkv'))
+		});
 	});
-});
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // genBulkRenamePairs
 const { readFileSync, writeFileSync } = require('fs');

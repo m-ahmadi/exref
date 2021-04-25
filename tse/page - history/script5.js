@@ -1,7 +1,7 @@
 var InstSimpleData = [
 	'فولاد مباركه اصفهان',   // LVal30
 	'فولاد',             // LVal18AFC
-	'بازار بورس',        // 
+	'بازار بورس',        // (FlowNameSimple)
 	'بازار اول (تابلوي اصلي) بورس', // FlowName
 	1,                // Flow
 	'N1',             // CgrValCot
