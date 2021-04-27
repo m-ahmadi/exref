@@ -1,13 +1,17 @@
 function safeWinFilename(str) {
+  return str.replace(/[\\\/:*?"<>|]/g, ' ')
+}
+
+// or custom replacements
+function safeWinFilename(str) {
   return str
-    .replace('\\', ' ')
-    .replace('/', ' ')
-    .replace('*', ' ')
-    .replace(':', ' ')
-    .replace('>', ' ')
-    .replace('<', ' ')
-    .replace('?', ' ')
-    .replace('|', ' ')
-    .replace('^', ' ')
-    .replace('"', ' ');
+    .replace(/\\/g, ' ')
+    .replace(/\//g, ' ')
+    .replace(/[*]/g, ' ')
+    .replace(/:/g, ' ')
+    .replace(/>/g, ' ')
+    .replace(/</g, ' ')
+    .replace(/?/g, ' ')
+    .replace(/|/g, ' ')
+    .replace(/"/g, ' ');
 }

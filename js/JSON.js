@@ -34,9 +34,9 @@ JSON.stringify({ [Symbol('foo')]: 'foo' });
 JSON.stringify({ [Symbol.for('foo')]: 'foo' }, [Symbol.for('foo')]);
 // '{}'
 JSON.stringify({ [Symbol.for('foo')]: 'foo' }, function(k, v) {
-  if (typeof k === 'symbol') {
-    return 'a symbol';
-  }
+	if (typeof k === 'symbol') {
+		return 'a symbol';
+	}
 });
 // '{}'
 
