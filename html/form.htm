@@ -13,6 +13,7 @@
 <input type="number" min="" max="" step="" value="" />
 <input type="checkbox" value="" />
 <input type="radio" name="sharedName" value="" />
+<input type="file" accept=".csv" onchange="this.files[0].text().then(console.log)" multiple />
 
 <input inputmode="none|text|url|email|numeric|search|tel|decimal" /> mobile keyboard types
 
@@ -34,8 +35,6 @@
 <input type="range" min="0" max="10" />
 <input type="color" value="#ff0000" />
 <input type="tel" pattern="\d{3}-\d{2}-\d{3}" />
-<input type="file" onchange="this.files[0].text().then(console.log)" />
-<input type="file" multiple />
 
 <input type="hidden" name="" value="" />
 <input type="reset" />

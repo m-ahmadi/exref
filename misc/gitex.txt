@@ -1,7 +1,6 @@
-gitx help
-gitx openrepo path/to/dir
+gitex help
+gitex openrepo path/to/dir
 
-orig command: gitex
 --------------------------------------------------------------------------------
 remove shell extension
 

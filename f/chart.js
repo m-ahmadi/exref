@@ -3,8 +3,8 @@ Chart.defaults = {
 	font: {
 		family:      "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif" | '',
 		size:        12,
-		style:       'normal|italic|oblique|revert|unset|initial|inherit | bold',
-		weight:      '',
+		style:       'normal|italic|oblique|inherit|initial',
+		weight:      'normal|bold|lighter|bolder|<number>|inherit|initial|unset',
 		lineHeight:  1.2 | ''
 	}
 }

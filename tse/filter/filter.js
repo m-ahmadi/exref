@@ -84,3 +84,26 @@
 		}
 	}
 }()
+
+// send http request
+!!function () {
+	const code = {sym:'9989', power:'128165'};
+	
+	const c = (((ct).Buy_I_Volume / (ct).Buy_CountI) / ((ct).Sell_I_Volume / (ct).Sell_CountI)).toFixed(2);
+
+	if (c > 200) {
+		const text = `${emoji(code.sym)} نماد: ${(l18) + emoji(code.sym)}\n${emoji(code.power)} قدرت خرید به فروش: ${c + emoji(code.power)}`;
+		send( encodeURI(text) );
+		return true;
+	}
+	
+	function send(post) {
+		const token = '***';
+		const id = '**';
+		fetch(`https://api.telegram.org/bot${token}/sendMessage?text=${post}&chat_id=${id}`);
+	}
+	
+	function emoji() {
+		return String.fromCodePoint(ecode)
+	}
+}()
