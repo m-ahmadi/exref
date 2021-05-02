@@ -1,1 +1,16 @@
 "D:\path\to\ConEmu\folder\ConEmu64.exe" -Dir "E:\start\path"
+
+General
+	Choose your startup task:	{Shells::cmd}
+	Choose color scheme:		Monokai
+	Tab bar
+		Tabs on bottom
+	Confirm
+		! Show `... brought ConEmu OnTop. Revert?` confirmation box
+Features
+	Status bar
+		! Show status bar
+Keys & Macro
+	Paste
+		! Multi-line paste...
+		! Long text paste...

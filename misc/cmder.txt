@@ -1,7 +1,7 @@
-Settings -> General -> Size & Pos -> Console buffer height -> Long console output 32766 (max)
-Settings -> General -> Appearance -> Scrollbar -> Show (check)
-Settings-> Features -> Colors     -> Fade when inactive (uncheck)
-Settings-> Features -> Transparency
+Settings -> General  -> Size & Pos -> Console buffer height -> Long console output 32766 (max)
+Settings -> General  -> Appearance -> Scrollbar -> Show (check)
+Settings -> Features -> Colors     -> Fade when inactive (uncheck)
+Settings -> Features -> Transparency
 	Activate window transparency (uncheck)
 	Use seperate transparency value for inactive window (uncheck)
 ---------------------------------------------------------------------------------
