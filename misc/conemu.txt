@@ -8,6 +8,8 @@ General
 	Confirm
 		! Show `... brought ConEmu OnTop. Revert?` confirmation box
 Features
+	Colors
+		! Fade when inactive
 	Status bar
 		! Show status bar
 Keys & Macro
