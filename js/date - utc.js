@@ -1,5 +1,5 @@
-Date.UTC(year[, month[, day[, hour[, minute[, second[, millisecond]]]]]]) // es7
-Date.UTC(year, month[, day[, hour[, minute[, second[, millisecond]]]]])   // before es7 (month required)
+Date.UTC(year, ?month=0-11, ?day=1-31, ?hour=0-23, ?minute=0-59, ?second=0-59, ?millisecond=0-999) // es7
+Date.UTC(year, month, ?day, ?hour, ?minute, ?second, ?millisecond)                                 // before es7 (month required)
 // accepts parameters similar to the Date constructor, but treats them as UTC.
 // returns timestamp of milliseconds
 
