@@ -133,7 +133,7 @@ jap.getBars = function (symbolInfo, resolution, from, to, onHistoryCallback, onE
 		// when true: you can ignore `to` argument and return bars up to the latest bar.
 	
 	const bars = [
-		{ time, close, open, high, low, volume },
+		{ time, open, high, low, close, volume },
 		{}, ...
 		// time of a bar must be a utc timestamp, otherwise library tries to realign the timestamps and messes everything up.
 		// examples:

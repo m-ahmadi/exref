@@ -23,6 +23,12 @@ const JSAPI = {
 	},
 	async getBars(symbolInfo, resolution, from, to, onHistoryCallback, onErrorCallback, firstDataRequest) {
 		if (!bars) bars = await fetch('api/').catch(err => onErrorCallback(err));
+		
+		if (firstDataRequest) {
+			onHistoryCallback(bars, {noData: true});
+			return;
+		}
+		
 		if (chart) chart.setVisibleRange({ from: bars[0].time, to: bars[bars.length-1].time });
 		
 		const subset = bars

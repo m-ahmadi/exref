@@ -18,10 +18,8 @@ fetch('http://example.com/movies.json')
 
 
 // upload json:
-var url = 'https://example.com/profile';
 var data = {username: 'example'};
-
-fetch(url, {
+fetch('https://example.com/api/foo', {
   method: 'POST', // or 'PUT'
   body: JSON.stringify(data), // data can be `string` or {object}!
   headers:{

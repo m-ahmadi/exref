@@ -15,6 +15,15 @@ function link(height=50, color='red', url='http://azat.co') {
 	
 }
 
+// vs obj-destruct default values
+function foo({a=2,b=4}={}) {console.log(a,b)}    // obj-destruct default value (better)
+foo()  // 2 4
+foo(0) // 2 4
+function foo({a,b}={a:2,b:4}) {console.log(a,b)} // alternative
+foo()  // 2 4
+foo(0) // undefined undefined
+
+
 // args can't have same name as in-scope labels
 var foo = 7;
 var bar = 8;
