@@ -1,11 +1,11 @@
-totalScrolls = 10;
+totalScrolls = 50;
 eachScrollHeight = 850;
-wait = 1000;
+wait = 500;
 makeHTML = true;
-makeCSV = true;
+makeCSV = false;
 UTF8_BOM_CSV = true;
 
-
+window.scrollTo(0,0);
 r = [];
 for (let i of [...Array(totalScrolls).keys()]) {
     window.scrollBy(0,eachScrollHeight);
@@ -54,7 +54,7 @@ if (makeHTML) {
 
 function download(filename, text) {
   var el = document.createElement('a');
-	el.setAttribute('href', 'data:text/plain;charset=utf-8,' + (UTF8_BOM_CSV ? '\ufeff' : '')+encodeURIComponent(text));
+	el.setAttribute('href', 'data:text/plain;charset=utf-8,' + (makeCSV && UTF8_BOM_CSV ? '\ufeff' : '')+encodeURIComponent(text));
   el.setAttribute('download', filename);
   el.style.display = 'none';
   document.body.appendChild(el);
