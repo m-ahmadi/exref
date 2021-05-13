@@ -13,7 +13,7 @@ ctrl [ ]	... change by 5
 ctrl b		zoom to window
 space		pan
 ctrl i		invert selection
-ctr n		new file (clear relative size: ctrl d c n)
+ctr n		new file (clear relative size: ctrl shift d, c, n)
 
 
 leftclick	primary color

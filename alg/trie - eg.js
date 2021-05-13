@@ -66,10 +66,7 @@ function walk(word='', letterIdx=0, row=0, col=0) {
 }
 
 
-
-
-//sol?
-
+// sol
 const findWords = (board, words) => {
   const dirs = [[-1, 0], [0, 1], [1, 0], [0, -1]];
   let res = [];
