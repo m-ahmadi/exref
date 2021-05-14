@@ -1,0 +1,12 @@
+reg export HKCR\Directory\Background\shellex\ContextMenuHandlers\igfxcui file1.txt
+reg export HKCR\Directory\Background\shellex\ContextMenuHandlers\igfxDTCM file2.txt
+
+reg delete HKCR\Directory\Background\shellex\ContextMenuHandlers\igfxcui /f
+reg delete HKCR\Directory\Background\shellex\ContextMenuHandlers\igfxDTCM /f
+
+undo
+reg import file1.txt && reg import file2.txt
+
+alt undo
+reg add HKCR\Directory\Background\shellex\ContextMenuHandlers\igfxcui /ve /d "{3AB1675A-CCFF-11D2-8B20-00A0C93CB1F4}"
+reg add HKCR\Directory\Background\shellex\ContextMenuHandlers\igfxDTCM /ve /d "{9B5F5829-A529-4B12-814A-E81BCB8D93FC}"
