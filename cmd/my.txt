@@ -27,6 +27,7 @@ ctrl alt
 	4 	paint
     	5 	notepad
 	6 	paint.net
+	7	KeyboardLocker
 	e 	cmd        admin, target: %comspec% /k pushd D:\xampp\htdocs && title cmd
 	w 	...
 	r 	powershell admin, target: %pws% -NoExit -Command "pushd $env:h"
