@@ -17,3 +17,8 @@ done
 
 note: `inside` is a dir that's added to path, `outside` is not.
 -----------------------------------------------------------------------------------------
+another way (run like \app)
+
+mklink %windir%\app "path\to\app.exe"				for win+r
+echo @start "" "path\to\app.exe" %* > %windir%\app.cmd		for within cmd (alt to adding to path)
+win+r -> \app

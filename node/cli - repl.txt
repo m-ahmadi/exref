@@ -1,0 +1,12 @@
+.break		break multi-line expression (ctrl c)
+.clear		reset repl context
+.exit		exit repl
+.save file.js	save to file
+.load file.js	load from file
+.editor		enter editor mode
+.help		show this help
+
+_		last expression's result
+_error		last seen error
+
+https://nodejs.org/api/repl.html
