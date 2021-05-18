@@ -13,7 +13,7 @@ program
 		// options:     options passed after the sub-command
 	
 	.action((args, opts, command) => ) // v7
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const program = require('commander');
 
 // basic, no argument
@@ -68,7 +68,7 @@ program
 	});
 
 program.parse(process.argv);
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // commands must be separated (and not chained)
 program.command('a').action(console.log)
 program.command('b').action(console.log)
@@ -77,7 +77,7 @@ program.command('b').action(console.log)
 program
 	.command('a').action(console.log)
 	.command('b').action(console.log)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // specify arguments for the top-level command
 var cmdValue;
 var envValue;
@@ -92,7 +92,7 @@ if (cmdValue === undefined) {
   console.error('no command given!');
   process.exit(1);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // separate files for sub-commands
 program.command(name, description, options); // options should be handled in the separate file
 
@@ -103,4 +103,4 @@ program
   .command('update', 'update installed packages', {executableFile: 'myUpdateSubCommand'})
   .command('list', 'list packages installed', {isDefault: true})
   .parse(process.argv);
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,4 +1,4 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*															Containers
 	An Ext JS application UI is made up of Components.
 	A Container is a special type of Component that can contain other Components.
@@ -30,7 +30,7 @@ Ext.create('Ext.panel.Panel', {
 	We just created a Panel that renders itself to the document body,
 	and we used the items config to add two child Panels to our Container Panel.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*															Layouts
 	Every container has a layout that manages the sizing and positioning of its child Components.
 	In this section we’re going to discuss how to configure a Container to use a specific type of Layout,
@@ -65,7 +65,7 @@ Ext.create('Ext.panel.Panel', {
     ]
 });
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*													How the layout system works
 
 	A Container’s Layout is responsible for the initial positioning and sizing of all of the Container’s children.
@@ -115,4 +115,4 @@ containerPanel.add({
 containerPanel.suspendLayout = false;
 // Trigger a layout.
 containerPanel.updateLayout();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

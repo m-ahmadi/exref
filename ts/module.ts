@@ -1,7 +1,7 @@
 /*
 	In TypeScript, just as in ECMAScript 2015, any file containing a top-level import or export is considered a module.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*	exporting a declaration
 	
 	any declaration (such as a variable, function, class, type alias, or interface),
@@ -20,7 +20,7 @@ export class ZipCodeValidator implements StringValidator {
         return s.length === 5 && numberRegexp.test(s);
     }
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	Export statements
 	use export statements when exports need to be renamed for consumers:
@@ -32,7 +32,7 @@ class ZipCodeValidator implements StringValidator {
 }
 export { ZipCodeValidator };
 export { ZipCodeValidator as mainValidator };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // Import
 import { ZipCodeValidator } from './ZipCodeValidator';
 

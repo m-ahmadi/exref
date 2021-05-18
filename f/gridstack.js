@@ -14,7 +14,7 @@ for touch: (optional)
 	core-js/client/shim.js
 	jquery.ui.touch-punch.js
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 $('#el').gridstack();
 
 /*
@@ -36,7 +36,7 @@ $('#el').gridstack({
 // 
 grid-stack-N
 // <div class="grid-stack grid-stack-N"></div>
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
 $('#el').gridstack({
 	acceptWidgets:          false,
@@ -88,7 +88,7 @@ $('#el').on('added', function (event, items) {})
 'removed'      (event, items)
 'resizestart'  (event, ui)
 'gsresizestop' (event, ui)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // html data attrs
 
 // grid attributes
@@ -115,4 +115,4 @@ data-gs-locked           /* the widget will be locked.
 	it means another widget wouldn't be able to move it during dragging or resizing.
 	the widget can still be dragged or resized.
 	you need to add data-gs-no-resize and data-gs-no-move attributes to completely lock the widget. */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

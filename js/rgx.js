@@ -30,7 +30,7 @@ str.replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&') // other variations: add \/ or remov
 // named capturing groups
 var res = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/.exec('2015-01-02')
 res.groups // {year: '2015', month: '01', day: '02'}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // methods
 //                         return:
 str.match(regex)           // array of matches|firstMatch (depending on g flag)
@@ -50,4 +50,4 @@ res[1] res[2] ... // groups
 
 var res = str.matchAll(regex.global=true);
 for (const i of res) console.log(i)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

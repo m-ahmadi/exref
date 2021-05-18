@@ -1,4 +1,4 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // basic
 requirejs.config({
     baseUrl: 'js/lib',
@@ -11,7 +11,7 @@ requirejs.config({
         jquery: 'jquery-1.9.0'
     }
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	baseUrl
 	
@@ -22,7 +22,7 @@ requirejs.config({
 	If data-main is not used and there's no explicit config,
 	baseUrl is set to the directory that contains the HTML page running RequireJS.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	module resolution
 	
@@ -40,7 +40,7 @@ requirejs.config({
 
 // in current file dir:
 './core'	// js/test/core.js
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*	Relative module names are relative to other names, not paths:
 	
 	The loader stores modules by their name and not by their path internally.
@@ -64,7 +64,7 @@ require(['compute']);
 // lib/compute/main.js will have the module name of 'compute'
 // when main.js asks for './extras' it's resolved relative to 'compute'
 // so it looks for lib/extras.js, which is incorrect.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // path config
 requirejs.config({
     // By default load any module IDs from js/lib
@@ -85,7 +85,7 @@ requirejs(['jquery', 'canvas', 'app/sub'],
 function   ($,        canvas,   sub) {
     // jQuery, canvas and the app/sub module are all loaded and can be used here now.
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 require.config({
 	baseUrl: "/another/path",
 	paths: {
@@ -102,7 +102,7 @@ require(["some/module", "my/module", "a.js", "b.js"], function (someModule, myMo
 */
 });
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // reference a script directly
 /*
 	If a module ID has one of the following characteristics,
@@ -112,4 +112,4 @@ require(["some/module", "my/module", "a.js", "b.js"], function (someModule, myMo
 	Starts with a "/".
 	Contains an URL protocol, like "http:" or "https:".
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

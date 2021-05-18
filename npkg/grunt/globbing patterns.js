@@ -20,7 +20,7 @@
 	Patterns are processed in-order, with !-prefixed matches excluding matched files from the result set.
 	The result set is uniqued.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // Official Examples:
 
 'foo/this.js'                                                           // You can specify single files
@@ -34,7 +34,7 @@
 ['foo/*.js', '!foo/bar.js', 'foo/bar.js']                               // All files in alpha order, but with bar.js at the end
 {src: ['src/<%= basename %>.js'], dest: 'build/<%= basename %>.min.js'} // Templates may be used in filepaths or glob patterns
 ['foo/*.js', '<%= jshint.all.src %>']                                   // But they may also reference file lists defined elsewhere in the config
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // My Examples aka: Special Selectors in Grunt (Wildcards)
 //	*          any file
 //	**/*       any file in this folder and all of its subfolders

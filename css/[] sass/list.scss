@@ -11,14 +11,14 @@ px, padding-bottom 137, padding-top 10
 ( px, (padding-bottom 137), (padding-top 10) )
 
 $list: Tahoma Yekan Fantezy;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 length($list)
 // return the length of a list.
 // this can return the number of pairs in a map as well.
 length(10px)                        // 1
 length(10px 20px 30px)              // 3
 length((width: 10px, height: 20px)) // 2
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 nth($list, 3)
 // gets the nth item in a list. (sass lists are one-indexed: 1,2,...)
 // can also return nth pair of a map.
@@ -26,7 +26,7 @@ nth($list, 3)
 nth(10px 20px 30px, 1)                 // 10px
 nth((Helvetica, Arial, sans-serif), 3) // sans-serif
 nth((width: 10px, length: 20px), 2)    // length, 20px
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 join($list1, $list2, $separator:auto)
 // joins together two lists into one.
 // unless $separator is passed, if one list is comma-separated and one is space-separated, the first parameter’s separator is used for the resulting list.
@@ -36,7 +36,7 @@ join((blue, red), (#abc, #def))        // blue, red, #abc, #def
 join(10px, 20px)                       // 10px 20px
 join(10px, 20px, comma)                // 10px, 20px
 join((blue, red), (#abc, #def), space) // blue red #abc #def
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 append($list, $val, $separator:auto)
 // appends a single value to end of list.
 // unless the $separator argument is passed, if the list had only one item, the resulting list will be space-separated.
@@ -46,4 +46,4 @@ append((blue, red), green)        // blue, red, green
 append(10px 20px, 30px 40px)      // 10px 20px (30px 40px)
 append(10px, 20px, comma)         // 10px, 20px
 append((blue, red), green, space) // blue red green
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

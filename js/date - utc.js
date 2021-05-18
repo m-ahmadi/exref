@@ -17,11 +17,11 @@ date.getUTCMinutes()        // minutes (0-59)
 date.getUTCSeconds()        // seconds (0-59)
 date.getUTCMilliseconds()   // milliseconds (0-999)
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // why getDay() and getUTCDay() have different results
 
 new Date('2019-10-7').getUTCDay() // 0
 new Date('2019-10-7').getDay()    // 1
 // because UTC does not follow daylight savings time
 // during daylight savings time, midnight local time is the same as 11pm
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

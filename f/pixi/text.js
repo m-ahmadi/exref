@@ -24,7 +24,7 @@ var richText = new PIXI.Text(
 text.interactive = true;
 text.buttonMode = true;
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // Default values, types and description:
 var style = {
 	font:               'bold 20px Arial',  // String          The style and size of the font.

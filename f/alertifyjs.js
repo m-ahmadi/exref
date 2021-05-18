@@ -7,7 +7,7 @@ this is the library from "alertifyjs.org"
 there's another library called "alertify",
 but its website is "alertifyjs.com"
 very confusing! */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // dialogs
 
 // alert
@@ -102,7 +102,7 @@ alertify.confirm('Confirm?').then(function (resolvedValue) {
 	resolvedValue.event.preventDefault();
 	alertify.alert('You clicked the ' + resolvedValue.buttonClicked + ' button!');
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // log messages
 
 // setting the Position
@@ -213,7 +213,7 @@ setTimeout(function() {
 	alertify.log('The second message will force the first to close.');
 }, 1000);
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // other Options
 // resetting default values
 // when you change values like the button labels, delays, default prompt values or placeholders, etc., you can easily reset the defaults.

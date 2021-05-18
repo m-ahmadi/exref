@@ -1,4 +1,4 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	Consider the following code snippet:
 for (var i = 0; i < 5; i++) {
 	var btn = document.createElement('button');
@@ -10,7 +10,7 @@ for (var i = 0; i < 5; i++) {
 	(a) What gets logged to the console when the user clicks on “Button 4” and why?
 	(b) Provide one or more alternate implementations that will work as expected.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	(a) No matter what button the user clicks the number 5 will always be logged to the console.
 	This is because, at the point that the onclick method is invoked (for any of the buttons),

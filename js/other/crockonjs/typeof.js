@@ -17,7 +17,7 @@ typeof '';             // 'string'
 typeof true;           // 'boolean'
 typeof null;           // 'object'
 typeof undefined;      // 'undefined'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Array.isArray **/
 alert(Array.isArray([]);); // true
 if (typeof Array.isArray !== 'function') {
@@ -25,4 +25,4 @@ if (typeof Array.isArray !== 'function') {
 		return Array.prototype.toString.apply(value) === 'object Array';
 	};
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

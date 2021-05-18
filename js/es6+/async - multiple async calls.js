@@ -1,7 +1,7 @@
 function read(n=1) {
   return fetch('http://jsonplaceholder.typicode.com/posts/'+n)
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // Promise.all solution (parallel requests)
 // NOTE: all requests are fired at the same time 
 
@@ -30,7 +30,7 @@ http://jsonplaceholder.typicode.com/posts/3
 http://jsonplaceholder.typicode.com/posts/4
 http://jsonplaceholder.typicode.com/posts/5
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // for of solution (sequential requests)
 // NOTE: next request is fired when previous one is done
 
@@ -64,7 +64,7 @@ for (let i of urls) {
 	let t = await r.text();
 	console.log(t);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // forEach()
 // callbacks are not executed in sequence.
 // (order of execution is not sequential)
@@ -83,4 +83,4 @@ http://jsonplaceholder.typicode.com/posts/2
 http://jsonplaceholder.typicode.com/posts/4
 http://jsonplaceholder.typicode.com/posts/5
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

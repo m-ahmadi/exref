@@ -6,7 +6,7 @@
 	Ext JS provides a wide range of useful Components out of the box,
 	and any Component can easily be extended to create a customized Component.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*													The Component Hierarchy
 	A Container is a special type of Component that can contain other Components.
 	A typical application is made up of many nested Components in a
@@ -41,7 +41,7 @@ Ext.create('Ext.container.Viewport', {
 	Containers use Layout Managers to size and position their child Components.
 	For more information on Layouts and Containers please refer to the Layouts and Containers Guide.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*													XTypes and Lazy Instantiation
 	Every Component has a symbolic name called an xtype.
 	For example Ext.panel.Panel has an xtype of ‘panel’.
@@ -91,7 +91,7 @@ Ext.create('Ext.tab.Panel', {
 	The alert for the second tab does not get displayed until the tab is clicked on.
 	This shows that the tab was not rendered until needed, since the render event did not fire until the tab was activated.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Showing and Hiding
 	All Components have built in show and hide methods.
 	The default CSS method used to hide the Component is “display: none”,
@@ -126,4 +126,4 @@ var panel = Ext.create('Ext.panel.Panel', {
 	Floating Components are automatically rendered to the document body the first time their show method is called:
 */
 panel.show(); // render and show the floating panel
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

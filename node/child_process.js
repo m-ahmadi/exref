@@ -1,7 +1,7 @@
 const child_process = require('child_process');
 const { promisify } = require('util');
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // spawning .bat .cmd files
 const { spawn, execSync } = require('child_process');
 
@@ -9,7 +9,7 @@ const { spawn, execSync } = require('child_process');
 const child = spawn('cmd.exe', ['/c', 'my.bat']);
 const child = spawn('my', {shell:true});
 execSync('my.bat');
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // exec
 child_process.execSync('node --version').toString() // v10.16.3
 
@@ -30,7 +30,7 @@ child_process.exec('ls -la', (error, stdout, stderr) => {
 	}
 	console.log(`stdout: ${stdout}`);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // execFile
 child_process.execFileSync('node', ['--version']).toString() // v10.16.3
 
@@ -40,7 +40,7 @@ const execFile = promisify(child_process.execFile);
 	console.log(result) // { stdout: 'v10.16.3\r\n', stderr: '' }
   console.log(stdout);
 })()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // spawn
 const child = child_process.spawn('ls', ['-a', '-l']);
 const child = spawn('sass style.scss:style.css', {stdio: 'inherit'}); // preserve colors
@@ -73,7 +73,7 @@ child.on('disconnect', () => {
 	// subprocess.disconnect() in parent
 	// process.disconnect()    in child
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const child = child_process.fork('./worker');
 
 child.on('message', function (m) {
@@ -90,4 +90,4 @@ process.on('message', function(m) {
   // pass results back to parent process
   process.send( m.toUpperCase(m) );
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

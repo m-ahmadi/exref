@@ -1,4 +1,4 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Basics
 	A pointer is a variable that contains the address of a variable.
 	Pointers and arrays are closely related.
@@ -27,7 +27,7 @@ ip = &z[0]; // ip now points to z[0]
 	There is one exception:
 	A "pointer to void" is used to hold any type of pointer but cannot be dereferenced itself.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*													Pointers and Function Arguments
 	Since C passes arguments to functions by value,
 	there is no direct way for the called function to alter a variable in the calling function.
@@ -60,7 +60,7 @@ swap(&a, &b);
 	
 	Pointer arguments enable a function to access and change objects in the function that called it
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*														Pointers and Arrays
 	Any operation that can be achieved by array subscripting can also be done with pointers.
 	The pointer version will in general be faster but harder to understand.

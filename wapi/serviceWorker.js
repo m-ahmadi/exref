@@ -30,7 +30,7 @@ navigator.serviceWorker.register('./path/to/service-worker.js', {scope: './'})
 
 if (navigator.serviceWorker) throw new Error('not supported')
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // service-worker.js
 self.addEventListener('install', function (event) {
 	

@@ -23,7 +23,7 @@ if (shell.exec('git commit -am "Auto-commit"').code !== 0) {
 	shell.echo("Error: Git commit failed");
 	shell.exit(1);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	path problem
 // process.env.Path += ";./node_modules/.bin";
 shell.env.Path += ";./node_modules/.bin";
@@ -31,7 +31,7 @@ shell.env.Path += ";./node_modules/.bin";
 if ( shell.exec("node build/libs css --color").code !== 0 ) {
 	console.log("failed");
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*	How to preserve colors in the output:
 	
 	Append:
@@ -45,7 +45,7 @@ if ( shell.exec("node build/libs css --color").code !== 0 ) {
 	proccess.env.FORCE_COLOR=1
 */
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // Async exec
 var version = exec('node --version', {silent:true}).stdout;
  

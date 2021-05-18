@@ -7,7 +7,7 @@ a buffer is:
 
 Buffer.concat(list=Buffer[] | Uint8Array[], ?totalLength=int): Buffer
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Buffer.alloc(size [, fill=0[, encoding='utf8']]) /*
 size:      integer
 	the desired length of the new buffer.
@@ -37,7 +37,7 @@ Buffer.alloc(0)                 // [] zero-length
 Buffer.alloc(MAX_LENGTH + 1)    // ERR_INVALID_OPT_VALUE
 Buffer.alloc(-1)                // ERR_INVALID_OPT_VALUE
 Buffer.alloc(''|true)           // TypeError
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 buf.fill(value [, offset=0[, end=buf.length]] [, encoding='utf8'])
 buf.write(string [, offset=0[, length=buf.length - offset]][, encoding='utf8'])
 
@@ -53,7 +53,7 @@ buf.fill('a')           // [97, 97, 97]
 
 buf.write('\u00bd + \u00bc = \u00be', 0) // 3
 buf // [194, 189, 32]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Buffer.from(string[, encoding])
 Buffer.from(array)
 Buffer.from(buffer)
@@ -82,7 +82,7 @@ var buf = Buffer.from( new String('obj') ); // [111, 98, 106]
 var arr = new Uint16Array([5000, 4000]);
 var buf = Buffer.from(arr.buffer); // shares memory with `arr`.
 arr[1] = 6000; // changing the original Uint16Array changes the Buffer also.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 Buffer.allocUnsafe(size) /*
 created buffer is uninitialized.
 created buffer data are unknown and may contain sensitive data.
@@ -96,7 +96,7 @@ Buffer.allocUnsafe(0)              // [] zero-length Buffer
 Buffer.allocUnsafe('')             // TypeError
 Buffer.allocUnsafe( -1 )           // ERR_INVALID_OPT_VALUE
 Buffer.allocUnsafe(MAX_LENGTH + 1) // ERR_INVALID_OPT_VALUE
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // buffer constants
 var buffer = require('buffer');
 buffer.constants // not on the Buffer global or a Buffer instance.

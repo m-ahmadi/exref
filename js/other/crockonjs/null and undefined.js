@@ -1,13 +1,13 @@
 // All values are objects, Except null and undefined.
 // They are nothing, they have no methods, They are their own things.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** null **/
 // A value that isn't anything.
 // null is the value you give something when you don' t have anything else to say about it.
 // Sometimes used as terminators on lists.
 // Sometimes used as empty values or non-of-the-above values.
 // Use null to indicate nothing.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** undefined **/
 // A value that isn't even that.
 // The default value for variables and parameters.
@@ -17,4 +17,4 @@
 // and if non of the objects that it inherits from has that property either,
 // then it doesn't throw an exception you don't get a compile-time warning,
 // it just returns the undefined value.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

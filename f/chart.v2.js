@@ -349,7 +349,7 @@ chart.getDatasetMeta(index)
 // update chart example
 chart.data.datasets[0].data[2] = 50;
 chart.update();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function plotPie(series=[], w=600, h=400) {
 	var div = document.createElement('div');
 	div.style.width = w;
@@ -372,7 +372,7 @@ function plotPie(series=[], w=600, h=400) {
 		options: { legend: {position:'bottom'} }
 	});
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // defaults ref
 Chart.defaults = {
 	global: {

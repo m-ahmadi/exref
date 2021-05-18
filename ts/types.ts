@@ -11,7 +11,7 @@
 	tuple
 	never
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	basic syntax:
 var name: string;
 var age: number;
@@ -25,7 +25,7 @@ job = 'King';
 var name: string = 'mohammad';
 var age: number = 22;
 let job: boolean = true;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // arrays
 // array types can be written in 2 ways:
 
@@ -44,7 +44,7 @@ let two: number[][] = [ [1,2], [1,2], [1,2] ];
 let some: string[][] = [ ['name','value'], ['name','value'] ];
 
 let three: number[][][] = [  [ [1,2], [1, 2] ], [ [1,2], [1,2] ], [ [1,2], [1,2] ]  ];
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	any
 
 // any vs Object:
@@ -59,7 +59,7 @@ age.toFixed();   // Error: Property 'toFixed' doesn't exist on type 'Object'.
 
 // array of mix types:
 let list: any[] = [1, true, 'free'];
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	void
 function warnUser(): void {
 	alert('this function dosn't return anything dude!');
@@ -68,7 +68,7 @@ function warnUser(): void {
 let unusable: void = undefined;
 // variables declared with void type, can only contain undefined or null.
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // null and undefined
 // undefined and null have their own types named undefined and null.
 
@@ -90,7 +90,7 @@ let n: null = null;
 	as a note: we encourage the use of --strictNullChecks when possible,
 	but we will assume it's turned off.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // never
 /*
 	the never type represents the type of values that never occur.
@@ -131,7 +131,7 @@ function infiniteLoop(): never {
 	which means that a function with this return type can never return normally at all.
 	This means either throwing an exception or failing to terminate.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // type assertions
 
 // two froms:
@@ -145,7 +145,7 @@ let someValue: any = 'this is a string';
 let strLength: number = (someValue as string).length;
 
 // when using typescript with JSX, only as-style assertions are allowed.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // tuple
 // tuple types allow you to express an array, with fixed number of elements, but with mixed element types.
 
@@ -154,7 +154,7 @@ x = ['hello', 10]; // OK
 x = [10, 'hello']; // Error
 x[3] = 'world';    // OK, 'string' can be assigned to 'string | number'
 x[6] = true;       // Error, 'boolean' isn't 'string | number'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // enum
 // an enum is a way of giving more friendly names to sets of numeric values.
 // an enum associates a human-readable name for a specific number.
@@ -192,7 +192,7 @@ const enum DoorStateConst {
 	Closed,
 	Ajar
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	duck-typing
 // typescript uses a method called Duck-Typing for more complex variable types.
 // duck-typing means that if it looks like a duck, and quacks like a duck, then it probably is a duck.
@@ -217,7 +217,7 @@ complexType = { address: 'address' };
 
 var complexType = { name: 'myName', id: 1 };
 complexType = { name: 'name', id: 2, address: 'address' };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // explicit casting
 // an object can be cast to the type of another by using the < > syntax.
 

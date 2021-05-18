@@ -2,7 +2,7 @@
 
 searchWithTrail(nestedData, 9)    // { found: {id: 9}, path: "3/5/8/9" } ( for using the sample data structre: prev.push(obj.id) )
 searchWithoutTrail(nestedData, 9) // {id: 9}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // number of iterations: nested vs linked list style
 // number of iterations necessary to find an item in nested array and linked list style are similar.
 var c;
@@ -11,7 +11,7 @@ c=0
 searchWithTrail(nestedData, 9) // c: 13
 c=0
 searchWithTrail(linkedlistData, 9) // c: 10
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // with trailing:
 function searchWithTrail(arr, id, prev=[]) {
 	c+=1;
@@ -41,7 +41,7 @@ function searchWithTrail(arr, id, prev=[]) {
 		return found;
 	}
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // using for loop:
 // works fine.
 function searchWithoutTrail(arr, id) {
@@ -63,7 +63,7 @@ function searchWithoutTrail(arr, id) {
 	}
 	return found;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // using arr.find method:
 // it's not working correctly.
 // it returns the top-most parent that contains the object searched for. (target.parent.parent.parent)
@@ -77,7 +77,7 @@ function search(arr, id) {
 		}
 	});
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // data
 var nestedData = [
 	{ id: 1 },

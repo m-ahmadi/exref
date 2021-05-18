@@ -13,7 +13,7 @@
 'pointerlockerror'
 'select'
 'wheel'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pointer position
 e.pageX,   e.pageY		// relative to document (html element)  unit: css pixels    (    changed on page scroll)
 e.clientX, e.clientY	// relative to viewport (window)        unit: css pixels    (not changed on page scroll)
@@ -31,7 +31,7 @@ document.addEventListener('mousemove', function(e) {
 		`screen(${e.screenX},${e.screenY})`
 	);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // which mouse key was pressed
 elem.addEventListener('mousedown', function (e) {
 	e.buttons === 1  // left
@@ -51,7 +51,7 @@ elem.addEventListener('mouseup', function (e) {
 	// not available in:
 	'mouseenter', 'mouseleave', 'mouseover', 'mouseout', 'mousemove'
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // detect drag direction
 var initX;
 var initY;
@@ -73,7 +73,7 @@ document.addEventListener('mousemove', function (e) {
 document.addEventListener('mouseup', function () {
 	this.dragging = false;
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // detect scroll direction
 // on document
 var prev = document.documentElement.scrollTop;
@@ -102,7 +102,7 @@ window.addEventListener('scroll', function () {
 		scrollPos = top;
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // detect wheel direction
 elem.addEventListener('wheel', function (e) {
 	const { deltaY } = e;
@@ -112,7 +112,7 @@ elem.addEventListener('wheel', function (e) {
 		console.log('down');
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // e.relatedTarget 
 e.relatedTarget // for mouseout: element being entered; for mouseover: element being exited
 -               e.target       e.relatedTarget
@@ -122,4 +122,4 @@ e.relatedTarget // for mouseout: element being entered; for mouseover: element b
 'mouseout'   // exited from    entered to
 'mouseleave' // exited from    entered to
 'dragexit'   // exited from    entered to
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

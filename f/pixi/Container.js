@@ -19,7 +19,7 @@ container.buttonMode = true;
 */
 container.hitArea = new PIXI.Rectangle( 0, 0, width, height );
 container.hitArea = new PIXI.Rectangle( 0, 0, renderer.width / renderer.resolution, renderer.height / renderer.resolution );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*													Useful Information
 	
 	There are events when an object is added/removed to/from containers.
@@ -28,7 +28,7 @@ container.hitArea = new PIXI.Rectangle( 0, 0, renderer.width / renderer.resoluti
 
 	Rendering a different container doesn't add/remove any children so no events are emitted.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*													Sprite-Based Stage (not completely tested)
 	We can treat a sprite as a container, and make it act as a container.
 	One benefit of doing this is, now our container have an anchor. (which is useful and easier to work with than pivot)
@@ -51,4 +51,4 @@ spriteContainer.anchor.set(0.5, 0.5);
 */
 //spriteContainer.width = width;
 //spriteContainer.height = height;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

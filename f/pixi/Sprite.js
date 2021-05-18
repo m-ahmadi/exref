@@ -21,7 +21,7 @@ sprite.x		// position of displayObject on x axis relative to local coordinates o
 sprite.y		// position of displayObject on y axis relative to local coordinates of parent. An alias to position.y
 
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	Creation
 PIXI.loader
 	.add('images/anyImage.png')
@@ -42,7 +42,7 @@ var sprite = new PIXI.Sprite(texture);
 
 var sprite = new PIXI.Sprite.fromImage('images/cat.png');
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	Properties
 
 sprite.interactive = true;
@@ -54,7 +54,7 @@ sprite.position.x = 200;
 sprite.position.y = 20;
 sprite.x = 200;   // alias (getter) for position.x
 sprite.y = 20;    // alias (getter) for position.y
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	Events
 sprite
 	.on('mousedown', dragstart)

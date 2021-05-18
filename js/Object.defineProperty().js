@@ -25,7 +25,7 @@ Object.defineProperty(obj, 'prop', {
 		// and the assigned value is passed to this function as argument
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // defaults
 var o = {};
 o.a = 1;
@@ -46,7 +46,7 @@ Object.defineProperty(o, 'a', {
 	configurable: false,
 	enumerable: false
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // getter setter
 var o = {};
 
@@ -72,7 +72,7 @@ Object.defineProperty(o, 'conflict', {
 	}
 });
 // Uncaught TypeError: Invalid property.  
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // writable
 var o = {}; 
 
@@ -84,7 +84,7 @@ Object.defineProperty(o, 'a', {
 console.log(o.a); // logs 37
 o.a = 25;         // no error thrown (it would throw in strict mode, even if the value had been the same)
 console.log(o.a); // logs 37. The assignment didn't work.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // enumerable
 var o = {};
 
@@ -114,7 +114,7 @@ Object.keys(o); // ['a', 'd']
 o.propertyIsEnumerable('a'); // true
 o.propertyIsEnumerable('b'); // false
 o.propertyIsEnumerable('c'); // false
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // configurable
 var o = {};
 Object.defineProperty(o, 'a', {
@@ -131,7 +131,7 @@ Object.defineProperty(o, 'a', { value: 12 });                     // throws a Ty
 console.log(o.a); // logs 1
 delete o.a;       // nothing happens
 console.log(o.a); // logs 1
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function Archiver() {
 	var temperature = null;
 	var archive = [];
@@ -155,4 +155,4 @@ arc.temperature; // 'get!'
 arc.temperature = 11;
 arc.temperature = 13;
 arc.getArchive(); // [{ val: 11 }, { val: 13 }]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

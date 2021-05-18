@@ -18,7 +18,7 @@ $('#container').find('div.robotarm') // super fast (uses getElementById)
 :password
 :submit
 :reset
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // only for older browsers (ie8 and below)
 
 // be specific on right-hand side of selector, and less specific on the left.
@@ -33,4 +33,4 @@ $('.buttons').children() // much better
 $(':radio')              // implied universal selection
 $('*:radio')             // same thing, explicit now
 $('input:radio')         // much better
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

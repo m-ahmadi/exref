@@ -4,14 +4,14 @@
 // String are immutable.
 // Similar strings are equal (===).
 // String literals can use single or double quotes with \ escapement.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Surrogate Characters **/
 // UCS-2, not quite UTF-16.
 // No awareness of surrogate pairs.
 // JavaScript tolerate surrogate characters but has no knowledge of them.
 // If you have a string containing 1 surrogate character, JavaScript thinks it's a string with 2 characters on it,
 // the count will be wrong, sub-string operation should be done carefully.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Multiline string literals **/
 // Do not use it.
 var long_line_1 = "This is a \
@@ -20,7 +20,7 @@ long line";
 var long_line_2 = "This is a \any character here
 long line";
 // syntax error
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Convert a number to a string **/
 // Use number method (toString).
 // Use String function.
@@ -28,7 +28,7 @@ str = number.toString();
 str = String(number);
 // For things that do not have "toString" (null, undefined):
 // "String(number)" will work, "number.toString" will throw an exception.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Convert a string to a number **/
 // Use the Number function.
 // Use the + prefix operator.
@@ -46,14 +46,14 @@ parseInt('08', 10) === 8
 // When it sees the first 0 it assumes base-8, then it sees the 8,
 // 8 is not a based-8 digit, so it stops, so the result is 0.
 // Solution: The radix (10) should always be used.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** String length **/
 // Strings are object.
 // Object can have properties.
 // One of the properties of the string is its length.
 // It will tell you the number of 16-bit characters in a string.
 // Extended characters are counted as 2.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** String methods **/
 charAt
 charCodeAt
@@ -80,7 +80,7 @@ if (String.prototype.trim !== 'function') {
 		return this.replace(/^\s*(\S*(\s+\S+)*)\s*$/, '$1');
 	};
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** supplant **/
 // Didn't get into ES5.
 if (typeof String.prototype.supplant !== 'function') {
@@ -108,4 +108,4 @@ var data = {
 	border: 2
 };
 mydiv.innerHTML = template.supplant(data);
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

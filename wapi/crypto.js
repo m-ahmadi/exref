@@ -19,7 +19,7 @@ a common bug is to use it to create html attributes such as href='MyUrl', which 
 if you are constructing html from strings, either use " instead of ' for attribute quotes, or add an extra layer of encoding.
 (' can be encoded as %27).
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // base64 encoding (absent in node.js)
 var encodedData = window.btoa(stringToEncode);
 var decodedData = window.atob(encodedData);
@@ -40,7 +40,7 @@ atob("SGVsbG8sIHdvcmxk") // "Hello, world"
 
 "Hello" // [72, 101, 108, 108, 111] below 255
 "ÿĀāĂ"  // [32, 255, 256, 257, 258] above 255
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // encodeURI() vs encodeURIComponent()
 /*
 encodeURIComponent() encodes 11 characters that are not encoded by encodeURI()

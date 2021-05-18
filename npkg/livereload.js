@@ -11,7 +11,7 @@ server.watch(
 	['/public', '/js', '/css'].map( i => join(__dirname, i) )
 );
 console.log('livereload started...');
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
 const server = livereload.createServer({
 	https:        http.createServer | {},

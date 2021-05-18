@@ -16,7 +16,7 @@
 'lib/*'        // mathes  all      files in  specified  folder
 'lib/**/*.js'  // mathes  all  js  files in  specified  folder and its subfolders
 'lib/*.js'     // mathes  all  js  files in  specified  folder
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // some examples
 ['foo/*.js']                              // all .js files in foo/ in alpha order
 ['foo/bar.js', 'foo/*.js']                // bar.js is first, followed by the remaining files, in alpha order:

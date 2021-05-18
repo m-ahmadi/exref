@@ -19,7 +19,7 @@ const setVisibilityFilter = {
   type: 'SET_VISIBILITY_FILTER',
   filter: 'SHOW_COMPLETED'
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // action creators
 // functions that create actions by returning an action object.
 function addTodo(text) {
@@ -50,7 +50,7 @@ boundCompleteTodo(index);
 store.dispatch()
 connect()
 bindActionCreators()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* actions in redux vs flux
 in redux, the structure of action objects is up to you. (whatever you want)
 in flux which is redux's father, structure of action objects is specified in a certain way.

@@ -5,7 +5,7 @@ import { Output } from '@angular/core';
 @Output(
 	bindingPropertyName?: string // specify name of the dom prop (otherwise same name as class prop)
 )
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // example
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component, Output, EventEmitter } from '@angular/core';
@@ -33,7 +33,7 @@ class AppComponent {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // another example
 @Component({selector: 'foo', template: `
 	<label>Add an item: <input #newItem></label>
@@ -54,4 +54,4 @@ class AppComponent {
   items = ['item1', 'item2', 'item3', 'item4'];
   addItem(newItem) { this.items.push(newItem) }
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

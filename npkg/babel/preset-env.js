@@ -16,7 +16,7 @@ const presetEntry = ['@babel/env', {
 	useBuiltIns: 'usage',
 	modules: 'amd'
 }];
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
 const presetEntry = ['@babel/env', {
 	targets: {}, // default.         or:
@@ -58,7 +58,7 @@ const presetEntry = ['@babel/env', {
 	ignoreBrowserslistConfig: false,
 	shippedProposals: false
 }];
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // browserslist reference:
 'last 2 versions'            // the last 2 versions for each browser.
 'last 2 Chrome versions'     // the last 2 versions of Chrome browser.
@@ -91,4 +91,4 @@ const presetEntry = ['@babel/env', {
 'not'                        // negate any query
 'not ie <= 8'                // exclude browsers selected by previous queries.
 'extends browserslist-config-mycompany' // take queries from browserslist-config-mycompany npm package.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

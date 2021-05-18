@@ -1,4 +1,4 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // current version
 // off / unsubscribe
 // once / publishOnce
@@ -135,7 +135,7 @@ function newPubSub() {
 	
 	return inst;
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //															prev version
 function instantiatePubsub() {
 	"use strict";
@@ -207,7 +207,7 @@ function instantiatePubsub() {
 	
 	return inst;
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //													this referred to window (fixed in next version)
 var instantiatePubsub = function () {
 	if ( this instanceof instantiatePubsub ) { throw new Error('Don\'t call with new.'); }
@@ -279,7 +279,7 @@ t.publish('click')
 t.publish('change')
 t.publish('foo')
 t.publish('crap')
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //													different subscribe method (more mature)
 var instantiatePubsub = function () {
 	var subscribers = {},
@@ -348,7 +348,7 @@ t.on({
 t.publish('click');
 t.publish('poop');
 t.publish('come');
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //															basic
 var profile = (function () {
 	var subscribers = {},
@@ -380,7 +380,7 @@ profile.subscribe('change', function (o) {alert('customer2'); console.log(o); } 
 profile.subscribe('change', function () {alert('customer3');} )
 profile.subscribe('come', function () {alert('semen1');} )
 profile.subscribe('come', function (o) {alert('semen2'); console.log(o); }, {x: 'x', y: 'y'} )
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //															usage example
 var instantiatePubsub = function () {
 	var subscribers = {},
@@ -441,7 +441,7 @@ var tab = extend(instantiatePubsub(), (function () {
 tab.subscribe('abc', function (o) {alert('a');})
 tab.subscribe('xyz', function (o) {alert('x');})
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function isObject(v) {
 	return (
 		v &&
