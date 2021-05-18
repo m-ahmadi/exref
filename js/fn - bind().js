@@ -46,3 +46,11 @@ var obj = {
 		}.bind(this), 1000);
 	}
 };
+
+// context of a bound function is unchangable
+function foo() {return this.a}
+var bar = foo.bind({a:32});
+bar()              // 32
+bar.call({a:2})    // 32
+bar.apply({a:2})   // 32
+bar.bind({a:56})() // 32

@@ -1,7 +1,7 @@
 var a = (function () {
-	//'user strict';
+	//'use strict';
 	var foo = function () {
-		a.bar();	// bar context: a ojbect (this === a)
+		a.bar();	// bar context: `a` ojbect (this === a)
 		bar();		// bar context: this === global || undefined (ES5 strict mode)
 	};
 	
@@ -13,8 +13,8 @@ var a = (function () {
 		foo: foo,
 		bar: bar
 	};
-}());
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+})();
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var myObject = {
 	foo: 'bar',
 	func: function () {
