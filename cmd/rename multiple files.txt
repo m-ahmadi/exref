@@ -1,7 +1,8 @@
 cd path/to/dir
 
-for /R %x IN (*.js) DO ren "%x" *.ts		cwd and all subdirs
+for /r %x in (*.js) do ren "%x" *.ts				rename all .js to .ts (cwd and all subdirs)
+for /f "tokens=1,2" %i in ('dir /b') do ren "%i %j" %j		remove first token of file names
 
-xcopy *.js *.ts					copy and rename	(only cwd)
-rename *.js *.ts				rename and replace files (only cwd)
-move hope.txt hope.html				rename and replace file (only cwd)
+xcopy *.js *.ts			copy and rename	(only cwd)
+rename *.js *.ts		rename and replace files (only cwd)
+move hope.txt hope.html		rename and replace file (only cwd)
