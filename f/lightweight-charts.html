@@ -1,0 +1,71 @@
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+<a href="https://www.tradingview.com/lightweight-charts/" target="_blank">demos</a>
+
+<script>
+var chart1 = LightweightCharts.createChart(document.body, {width:400, height:300});
+var lineSeries = chart1.addLineSeries();
+lineSeries.setData([
+    { time: '2019-04-11', value: 80.01 },
+    { time: '2019-04-12', value: 96.63 },
+    { time: '2019-04-13', value: 76.64 },
+    { time: '2019-04-14', value: 81.89 },
+    { time: '2019-04-15', value: 74.43 },
+    { time: '2019-04-16', value: 80.01 },
+    { time: '2019-04-17', value: 96.63 },
+    { time: '2019-04-18', value: 76.64 },
+    { time: '2019-04-19', value: 81.89 },
+    { time: '2019-04-20', value: 74.43 },
+]);
+
+
+
+var chart2 = LightweightCharts.createChart(document.body, {
+	width: 600,
+  height: 300,
+	crosshair: {
+		mode: LightweightCharts.CrosshairMode.Normal,
+	},
+});
+var candleSeries = chart2.addCandlestickSeries();
+var data = [
+	{ time: '2018-10-19', open: 54.62, high: 55.50, low: 54.52, close: 54.90 },
+	{ time: '2018-10-22', open: 55.08, high: 55.27, low: 54.61, close: 54.98 },
+	{ time: '2018-10-23', open: 56.09, high: 57.47, low: 56.09, close: 57.21 },
+	{ time: '2018-10-24', open: 57.00, high: 58.44, low: 56.41, close: 57.42 },
+	{ time: '2018-10-25', open: 57.46, high: 57.63, low: 56.17, close: 56.43 },
+];
+candleSeries.setData(data);
+
+
+
+var chart3 = LightweightCharts.createChart(document.body, {
+	width: 600,
+  height: 300,
+	layout: {
+		backgroundColor: '#ffffff',
+		textColor: 'rgba(33, 56, 77, 1)',
+	},
+	crosshair: {
+		mode: LightweightCharts.CrosshairMode.Normal,
+	},
+	rightPriceScale: {
+		borderColor: 'rgba(197, 203, 206, 1)',
+	},
+	timeScale: {
+		borderColor: 'rgba(197, 203, 206, 1)',
+	},
+});
+var barSeries = chart3.addBarSeries({
+  thinBars: true,
+  downColor: '#000',
+  upColor: '#000',
+});
+barSeries.setData([
+	{ time: '2018-10-19', open: 180.34, high: 180.99, low: 178.57, close: 179.85 },
+	{ time: '2018-10-22', open: 180.82, high: 181.40, low: 177.56, close: 178.75 },
+	{ time: '2018-10-23', open: 175.77, high: 179.49, low: 175.44, close: 178.53 },
+	{ time: '2018-10-24', open: 178.58, high: 182.37, low: 176.31, close: 176.97 },
+	{ time: '2018-10-25', open: 177.52, high: 180.50, low: 176.83, close: 179.07 },
+]);
+</script>
