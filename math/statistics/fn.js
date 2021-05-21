@@ -1,3 +1,11 @@
+function mean(nums=[]) {
+	return sum(nums) / nums.length;
+}
+
+function sum(nums=[]) {
+	return nums.reduce((a,c) => a += c, 0);
+}
+
 function range(nums=[]) {
 	return Math.max(...nums) - Math.min(...nums);
 }
@@ -28,8 +36,8 @@ function stdv(nums=[]) {
 }
 
 function variance(nums=[]) {
-	const _mean = mean(nums);
-	const sqrDiffs = nums.map(n => Math.pow(n - _mean, 2));
+	const avg = mean(nums);
+	const sqrDiffs = nums.map(n => Math.pow(n - avg, 2));
 	return mean(sqrDiffs);
 }
 
@@ -72,10 +80,7 @@ function regressionLinear(points=[]) {
 	return regresions;
 }
 
-function mean(nums=[]) {
-	return sum(nums) / nums.length;
-}
-
-function sum(nums=[]) {
-	return nums.reduce((a,c) => a += c, nums[0]);
+function cusum(nums=[]) {
+	let sum = 0;
+	return nums.map(i => sum += i);
 }

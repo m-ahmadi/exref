@@ -1,0 +1,114 @@
+<div style="width:800; height:400"><canvas id="_chart1" width="800" height="400"></canvas></div>
+<div style="width:800; height:400"><canvas id="_chart2" width="800" height="400"></canvas></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./fn.js"></script>
+<script>
+var data = [
+	5.245, 5.372, 5.270, 5.095, 5.023,
+	5.118, 5.162, 5.363, 5.204, 5.077,
+	5.278, 5.267, 5.219, 5.165, 5.052,
+	5.158, 5.220, 5.349, 5.263, 5.165,
+	5.175, 5.393, 5.423, 5.217, 5.299,
+	5.362, 5.382, 5.389, 5.115, 5.184,
+];
+
+var ucl = mean(data) + (stdv(data)*3);
+var lcl = mean(data) - (stdv(data)*3);
+
+var chart1 = new Chart(_chart1, {
+	type: 'line',
+	data: {
+		labels: [...data.keys()].map(i=>i+1),
+		datasets: [
+			{
+				data,
+				label: 'Individual Value',
+				borderColor: 'black',
+				borderWidth: 1,
+				pointBackgroundColor: 'black',
+				pointBorderWidth: 3,
+			},
+			{
+				data: [...Array(data.length)].map(i=> mean(data) ),
+				label: 'X̅',
+				borderColor: 'lime',
+				borderWidth: 2,
+				pointBackgroundColor: 'lime',
+				pointRadius: 0,
+			},
+			{
+				data: [...Array(data.length)].map(i=>ucl),
+				label: 'UCL',
+				borderColor: 'blue',
+				borderWidth: 2,
+				pointBackgroundColor: 'blue',
+				pointRadius: 0,
+			},
+			{
+				data: [...Array(data.length)].map(i=>lcl),
+				label: 'LCL',
+				borderColor: 'red',
+				borderWidth: 2,
+				pointBackgroundColor: 'red',
+				pointRadius: 0,
+			}
+		]
+	},
+	options: {
+		
+		scales: {
+			'x': {
+				title: { display:true, text:'Observation', font:{weight:'bold'} },
+				grid: {display:false},
+			},
+			'y': {
+				title: { display:true, text:'Individual Value', font:{weight:'bold'} },
+			}
+		},
+		plugins: {
+			legend: { position:'right', labels:{usePointStyle:true} },
+			
+		}
+	}
+});
+
+var chart2 = new Chart(_chart2, {
+	type: 'line',
+	data: {
+		labels: [...data.keys()].map(i=>i+1),
+		datasets: [
+			{
+				data: data.map(i=> (i = i-mean(data), i<0?0:i)),
+				label: '+ cusum',
+				borderColor: 'darkgreen',
+				borderWidth: 1,
+				pointBackgroundColor: 'darkgreen',
+				pointRadius: 4,
+			},
+			{
+				data: data.map(i=> (i = i-mean(data), i>0?0:i)),
+				label: '- cusum',
+				borderColor: 'crimson',
+				borderWidth: 1,
+				pointBackgroundColor: 'crimson',
+				pointRadius: 4,
+			},
+		]
+	},
+	options: {
+		scales: {
+			'x': {
+				title: { display:true, text:'Sample', font:{weight:'bold'} },
+				grid: {display:false},
+			},
+			'y': {
+				title: { display:true, text:'Cumulative Sum', font:{weight:'bold'} },
+			}
+		},
+		plugins: {
+			legend: { position:'right', labels:{usePointStyle:true} }
+		}
+	}
+});
+</script>
