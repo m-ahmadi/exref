@@ -81,17 +81,17 @@ var chart2 = new Chart(_chart2, {
 			{
 				data: data.map(i=> (i = i-mean(data), i<0?0:i)),
 				label: '+ cusum',
-				borderColor: 'darkgreen',
+				borderColor: 'lime',
 				borderWidth: 1,
-				pointBackgroundColor: 'darkgreen',
+				pointBackgroundColor: 'lime',
 				pointRadius: 4,
 			},
 			{
 				data: data.map(i=> (i = i-mean(data), i>0?0:i)),
 				label: '- cusum',
-				borderColor: 'crimson',
+				borderColor: 'red',
 				borderWidth: 1,
-				pointBackgroundColor: 'crimson',
+				pointBackgroundColor: 'red',
 				pointRadius: 4,
 			},
 		]
