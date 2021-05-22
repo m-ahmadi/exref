@@ -84,3 +84,29 @@ function cusum(nums=[]) {
 	let sum = 0;
 	return nums.map(i => sum += i);
 }
+
+function ema(nums=[], period=5) {
+	let out = [];
+	let pi = period - 1;
+	
+	for (let i=0; i<nums.length; i++) {
+		if (i < pi) {
+			out.push(undefined);
+			continue;
+		}
+		
+		if (i === pi) {
+			let r = nums.slice(0,i+1);
+			r = r.reduce((r,i)=> r+=i,0) / r.length;
+			out.push(r);
+			continue;
+		}
+		
+		let m = 2 / (period+1);
+		let v = (nums[i] * m) + (out[i-1] * (1-m) );
+		
+		out.push(v);
+	}
+	
+	return out;
+}
