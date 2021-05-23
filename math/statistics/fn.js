@@ -85,28 +85,56 @@ function cusum(nums=[]) {
 	return nums.map(i => sum += i);
 }
 
+function sma(nums=[], period=5) {
+	let pi = period - 1;
+	let res = [...Array(pi)];
+	
+	for (let i=pi, len=nums.length; i<len; i++) res.push(
+		mean( nums.slice(i-pi, i+1) )
+	);
+	
+	return res;
+}
+
 function ema(nums=[], period=5) {
-	let out = [];
+	let res = [...Array(period-1)];
+	
+	res.push(
+		mean( nums.slice(0,period) )
+	);
+	
+	let m = 2 / (period+1);
+	
+	for (let i=period, len=nums.length; i<len; i++) {
+		let n = (nums[i] * m) + (res[i-1] * (1-m) );
+		res.push(n);
+	}
+	
+	return res;
+}
+
+function ema2(nums=[], period=5) {
+	let res = [];
 	let pi = period - 1;
 	
-	for (let i=0; i<nums.length; i++) {
+	for (let i=0, len=nums.length; i<len; i++) {
 		if (i < pi) {
-			out.push(undefined);
+			res.push(undefined);
 			continue;
 		}
 		
 		if (i === pi) {
 			let r = nums.slice(0,i+1);
 			r = r.reduce((r,i)=> r+=i,0) / r.length;
-			out.push(r);
+			res.push(r);
 			continue;
 		}
 		
 		let m = 2 / (period+1);
-		let v = (nums[i] * m) + (out[i-1] * (1-m) );
+		let v = (nums[i] * m) + (res[i-1] * (1-m) );
 		
-		out.push(v);
+		res.push(v);
 	}
 	
-	return out;
+	return res;
 }
