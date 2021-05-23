@@ -5,7 +5,6 @@ Playback -> Playback settings
 
 Playback -> Jump (to) -> Time Jump Settings
 	Left/Right Arrow Keys:		3
-	Ctrl + Left/Right Arrow Keys:	1
 --------------------------------------------------
 cli
 

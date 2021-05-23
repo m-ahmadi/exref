@@ -64,6 +64,24 @@ memoryview(bytes(5))     # memoryview
 x<range> = range(?start=0, stop=int, ?step=1)
 x = range(1,10,2)
 list(x) # [1, 3, 5, 7, 9]
+
+# list index access
+a = [1,2,3,4]
+a[0]  # 5
+a[-1] # 8
+# range slice
+arr[?start=0: ?stop=-1: ?step=0]
+a[0:2]   # [1,2]
+a[:2]    # [1,2]
+a[2:]    # [3,4]
+a[-3:-1] # [2,3]
+a[:]     # copy of arr
+[1,2,3,4,5,6][::2] # [1,3,5]
+
+# list comprehension
+nums = [1,2,3,4]
+x = [x*x for x in nums]               # [1,4,9,16]
+y = [x*x for x in nums if x % 2 == 0] # [4,16]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # loop
 for i in list:
@@ -132,7 +150,3 @@ os.listdir()
 os.mkdir()
 os.rmdir()
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# list comprehension
-nums = [1, 2, 3, 4]
-x = [x*x for x in nums]               # [1, 4, 9, 16]
-y = [x*x for x in nums if x % 2 == 0] # [4, 16]
