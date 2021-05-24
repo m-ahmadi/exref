@@ -85,9 +85,9 @@ function cusum(nums=[]) {
 	return nums.map(i => sum += i);
 }
 
-function sma(nums=[], period=5) {
+function sma(nums=[], period=5, fill) {
 	let pi = period - 1;
-	let res = [...Array(pi)];
+	let res = Array(pi).fill(fill);
 	
 	for (let i=pi, len=nums.length; i<len; i++) res.push(
 		mean( nums.slice(i-pi, i+1) )
@@ -96,8 +96,8 @@ function sma(nums=[], period=5) {
 	return res;
 }
 
-function ema(nums=[], period=5) {
-	let res = [...Array(period-1)];
+function ema(nums=[], period=5, fill) {
+	let res = Array(period-1).fill(fill);
 	
 	res.push(
 		mean( nums.slice(0,period) )

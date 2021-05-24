@@ -62,6 +62,12 @@ var { bars: [one] } = foo;
 var { cars: [,four] } = foo;
 one  // 1
 four // 4
+
+// another example
+var o = { a: [{foo:5}, {bar:7}] };
+var { a: [{foo}, {bar}] } = o;
+foo // 5
+bar // 7
 //--------------------------------------------------------------------------------------
 // with rest operator (stage 4 proposal)
 let { a, b, ...rest } = { a: 1, b: 2, c: 3, d: 4 }

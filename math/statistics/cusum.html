@@ -13,8 +13,9 @@ var data = [
 	5.362, 5.382, 5.389, 5.115, 5.184,
 ];
 
-var ucl = mean(data) + (stdv(data)*3);
-var lcl = mean(data) - (stdv(data)*3);
+var _mean = mean(data);
+var ucl = _mean + (stdv(data)*3);
+var lcl = _mean - (stdv(data)*3);
 
 var chart1 = new Chart(_chart1, {
 	type: 'line',
@@ -30,7 +31,7 @@ var chart1 = new Chart(_chart1, {
 				pointBorderWidth: 3,
 			},
 			{
-				data: [...Array(data.length)].map(i=> mean(data) ),
+				data: data.map(()=>_mean),
 				label: 'X̅',
 				borderColor: 'lime',
 				borderWidth: 2,
@@ -38,7 +39,7 @@ var chart1 = new Chart(_chart1, {
 				pointRadius: 0,
 			},
 			{
-				data: [...Array(data.length)].map(i=>ucl),
+				data: data.map(()=>ucl),
 				label: 'UCL',
 				borderColor: 'blue',
 				borderWidth: 2,
@@ -46,7 +47,7 @@ var chart1 = new Chart(_chart1, {
 				pointRadius: 0,
 			},
 			{
-				data: [...Array(data.length)].map(i=>lcl),
+				data: data.map(()=>lcl),
 				label: 'LCL',
 				borderColor: 'red',
 				borderWidth: 2,
@@ -79,7 +80,7 @@ var chart2 = new Chart(_chart2, {
 		labels: [...data.keys()].map(i=>i+1),
 		datasets: [
 			{
-				data: data.map(i=> (i = i-mean(data), i<0?0:i)),
+				data: data.map(i=> (i = i-_mean, i<0?0:i)),
 				label: '+ cusum',
 				borderColor: 'lime',
 				borderWidth: 1,
@@ -87,7 +88,7 @@ var chart2 = new Chart(_chart2, {
 				pointRadius: 4,
 			},
 			{
-				data: data.map(i=> (i = i-mean(data), i>0?0:i)),
+				data: data.map(i=> (i = i-_mean, i>0?0:i)),
 				label: '- cusum',
 				borderColor: 'red',
 				borderWidth: 1,
