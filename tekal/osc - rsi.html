@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot@1.2.2/dist/uPlot.min.css">
-<script src="https://cdn.jsdelivr.net/npm/uplot@1.2.2/dist/uPlot.iife.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css">
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/technicalindicators/dist/browser.es6.js"></script>
 
 <style>
@@ -26,20 +26,20 @@ const cursorOpts = { lock: true, sync:{key:'foo'} };
 randomBars();
 
 const graph = new uPlot({
-	width: 1850, height: 500,
-	series: [ {}, {}, {}],
+	width:1850, height:500,
+	series: [ {}, {stroke:'black'}],
 	legend: {show: false},
 	cursor: cursorOpts,
 	class: 'box'
 }, graphData, _graph);
 
 const osc = new uPlot({
-	width: 1850, height: 300,
-	series: [ {}, {}, {stroke:'red'}, {stroke:'red'}, {stroke:'purple'} ],
-	legend: {show: false},
-	axes: [ {time: false} ],
+	width:1850, height:300,
+	series: [ {}, {stroke:'red'}, {stroke:'red'}, {stroke:'purple'} ],
+	legend: {show:false},
+	axes: [ {show:false} ],
 	cursor: cursorOpts,
-	scales: { y: {auto:false,min:0, max:100} },
+	scales: { y:{/*auto:false,*/min:0,max:100} },
 	class: 'box'
 }, oscData, _osc);
 
@@ -51,7 +51,7 @@ function setOsc() {
 	const oscArr = Array(+_rsi.value).fill(null).concat( rsi({period: +_rsi.value, values: bars}) );
 	const upper = Array(oscArr.length).fill(+_upper.value);
 	const lower = Array(oscArr.length).fill(+_lower.value);
-	oscData = [ xAxis, [], upper, lower, oscArr ];
+	oscData = [ xAxis, upper, lower, oscArr ];
 	osc.setData(oscData);
 }
 
@@ -72,6 +72,6 @@ function randomBars(len=+gnr.value) {
 		bars.push(value);
 	}
 	xAxis = bars.map(i=> randInt(1200300400,1600500400)).sort();
-	graphData = [ xAxis, bars, [] ];
+	graphData = [ xAxis, bars ];
 }
 </script>

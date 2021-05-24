@@ -1,39 +1,39 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css">
 <script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
 
-<a href="https://leeoniya.github.io/uPlot/demos/index.html">demos</a>
-<div id="x"></div>
-<div id="y"></div>
+<a href="https://leeoniya.github.io/uPlot/demos/index.html" target="_blank">demos</a>
+<a href="https://github.com/leeoniya/uPlot/blob/master/dist/uPlot.d.ts" target="_blank">types</a>
+<div id="charts" style="display: grid; grid-template-columns: auto auto auto;"></div>
 
 <script>
 const data = [
-	[1546300800, 1546387200],
-	[35, 71],
-	[90, 15],
+	[...Array(10)].map((v,i)=>(v=new Date, v.setDate(v.getDate()*(i+1)), +v)),// [1546300800, 1546387200, 1546397200],
+	[1,2,3,2,4,1,7,2,6,7],
+	[4,5,7,8,5,6,9,7,7,8],
 ];
 
-const chart1 = new uPlot({width:600,height:400,series:[{},{},{}]}, data, document.body);
+new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}]}, data, charts);
 
-const chart2 = new uPlot({
+new uPlot({
 	width:600, height:400,
 	//cursor: {show: false},
 	//select: {show: false},
 	legend: {show: false},
 	//scales: { x: {time: false} },
-	series: [ {}, {}, {} ],
-}, data, document.body);
+	series: [ {}, {stroke:'cyan'}, {stroke:'magenta'} ],
+}, data, charts);
 
-const chart3 = new uPlot({
+new uPlot({
 	width:600,height:400,
 	cursor: {show: false},
 	select: {show: false},
 	legend: {show: false},
 	scales: { x: {time: false} },
 	axes: [ {show: false}, {show: false} ],
-	series: [ {}, {}, {} ],
-}, data, document.body);
+	series: [ {}, {stroke:'lime'}, {stroke:'crimson'} ],
+}, data, charts);
 
-const chart4 = new uPlot({
+new uPlot({
 	title: 'My Chart',
 	width: 600,
 	height: 400,
@@ -51,5 +51,13 @@ const chart4 = new uPlot({
 		},
 		{ show: true }
 	],
-}, data, document.body);
+}, data, charts);
+
+var chart = new uPlot({ width:600, height:400, series:[{},{stroke:'blue'},{stroke:'red'}], scales:{x:{time:false}} }, [
+	[1,2,3,4,5,6],
+	[25,32,42,65,44,32],
+	[65,60,55,70,75,60],
+], charts);
+
+
 </script>

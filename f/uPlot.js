@@ -1,14 +1,6 @@
-/*
-uPlot.css
-uPlot.iife.js
-
-cdn
-https://cdn.jsdelivr.net/npm/uplot
-https://cdn.jsdelivr.net/npm/uplot@latest/dist/uPlot.esm.js <script type=module>
-*/
-
+// https://cdn.jsdelivr.net/npm/uplot/
+// https://cdn.jsdelivr.net/npm/uplot@latest/dist/uPlot.esm.js <script type=module>
 var chart = new uPlot(options={}, data=[], container=document.body);
-
 
 const data = [
 	[1546300800, 1546387200],		 // x-values (timestamps) must be: numbers & unique & in ascending order
@@ -26,8 +18,7 @@ const opts = {
 	class: '',   // ...
 	
 	series: [   // series only rendered if specified here (only being in `data` is not enough)
-		{ /*all props optional*/ }, {},
-		{
+		{ /*all props optional*/
 			show:      true,      // initial toggled state
 			spanGaps:  false,     // true: connect null data points
 			
@@ -41,6 +32,7 @@ const opts = {
 			fill:      'black',   // .fillStyle
 			dash:      [],        // .setLineDash()
 		},
+		...
 	],
 	
 	cursor: {
