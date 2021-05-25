@@ -11,3 +11,4 @@ subscript
 sup uppercase letter	1D43
 sup lowercase letter	1D2C
 combining chars		0305
+other hyphens		2010, 2011
