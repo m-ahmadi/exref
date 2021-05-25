@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot@1.6.9/dist/uPlot.min.css">
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<div id="charts"></div>
+
+<script src="./fn.js"></script>
+<script>
+var data = [
+ -0.60207, -0.85543,  0.4084,   0.60292,
+	0.14554, -0.11812, -0.22425, -0.25985,
+ -0.26579,  0.70213,  0.32766,  0.55666,
+	0.50528,  0.62256,  0.21262,  0.36577,
+	0.85273,  1.0159,   0.53494,  1.4023,
+];
+var rn = (n,x) => Math.random()*(x-n)+n;
+var rn = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
+
+//data = [...Array(20)].map(()=>rn(-250,250))
+data = [1];
+for (let i=1; i<100; i++) {
+	var p=data[i-1], d=p*0.05, v=rn(p-d, p+d), k=2;
+	while (v===p) {v=rn(p-d, p+d*k); k*=2;}
+	data.push(v);
+}
+
+var _mean = mean(data);
+var ucl = _mean + (stdv(data)*3);
+var lcl = _mean - (stdv(data)*3);
+var tilmean = data.map((v,i,a)=> mean(a.slice(0,i+1)) );
+
+var o = {points:{show:false},width:2,};
+
+new uPlot({
+	width:800, height:400,
+	series: [
+		{label:'i'},
+		{label:'x', stroke:'black',points:{size:8,fill:'black'}},
+		{label:'X̅', stroke:'lime',...o},
+		{label:'UCL', stroke:'blue',...o},
+		{label:'LCL', stroke:'red',...o},
+		{label:'X̅ᵢ', stroke:'magenta',width:2,points:{size:6,fill:'magenta'}},
+	],
+	scales: {x:{time:false}},
+	axes: [{grid:{show:false}}]
+}, [
+	[...data.keys()].map(i=>i+1),
+	data,
+	data.map(()=>_mean),
+	data.map(()=>ucl),
+	data.map(()=>lcl),
+	tilmean,
+	//cusum(tilmean.map((v,i,a)=> i>0?v-a[i-1]:v)),
+], charts);
+
+
+new uPlot({
+	width:800, height:400,
+	series: [
+		{label:'i'},
+		{label:'x',stroke:'black',width:2,points:{show:false}},
+		{label:'☝', stroke:'lime',points:{size:7,fill:'lime'}},
+		{label:'👇', stroke:'red',points:{size:7,fill:'red'}},
+	],
+	scales: {x:{time:false}},
+	axes: [{grid:{show:false}}]
+}, [
+	[...data.keys()].map(i=>i+1),
+	data,
+	data.map(i=> (i = i-_mean, i<0?0:i)),
+	data.map(i=> (i = i-_mean, i>0?0:i)),
+], charts);
+
+</script>

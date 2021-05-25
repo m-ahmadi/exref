@@ -57,7 +57,7 @@ function setOsc() {
 
 
 function randomBars(len=+gnr.value) {
-	const randInt = (min, max) => Math.floor( Math.random() * (Math.floor(max)-Math.ceil(min)) ) + Math.ceil(min);
+	const randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
 	bars = [100];
 	for (let i=1; i<len; i+=1) {
 		const prev = bars[i-1];
