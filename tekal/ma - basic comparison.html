@@ -56,7 +56,7 @@ function setIndicator() {
 
 function randomBars(len=+a.value) {
 	bars = [100];
-	const randInt = (n, x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
+	const randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
 	for (let i=1; i<len; i+=1) {
 		const prev = bars[i-1];
 		const r = prev * 0.05;
