@@ -1,0 +1,5 @@
+in combination, order does not matter
+
+possible = n^r
+  n = total  items
+  r = subset items
