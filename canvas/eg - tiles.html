@@ -1,0 +1,31 @@
+<style>canvas{border:1px dashed black;}input[type=number]{width:60px;}</style>
+
+<canvas id="cn" width="800" height="400"></canvas> <br><br>
+
+<button onclick="draw(+_w.value, +_h.value)">draw
+<input id="_w" type="number" value="20" min="5" step="5">w
+<input id="_h" type="number" value="20" min="5" step="5">h
+</button>
+<br><br>
+<button onclick="cn.width=+bw.value, cn.height=+bh.value">box:</button>
+<input id="bw" type="number" value="800" min="0" step="100">
+<input id="bh" type="number" value="400" min="0" step="100">
+
+<script>
+c = cn.getContext('2d');
+randColor = () => '#' + Math.random().toString(16).substr(-6);
+
+draw();
+
+function draw(w=+_w.value, h=+_h.value) {
+	let { width, height } = cn;
+	if ( [w,h].some(i=>!i) ) return;
+	
+	for (let i=0; i<width; i+=w) {
+		for (let j=0; j<height; j+=h) {
+			c.fillStyle = randColor();
+			c.fillRect(i,j,w,h);
+		}
+	}
+}
+</script>
