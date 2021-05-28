@@ -8,8 +8,11 @@
 	color: rgb[a](R G B[ / A]);
 	
 	color: hsl[a](H, S, L[, A]);
-	color: hsl[a](H S L[ / A]);
-	
+	color: hsl[a](H S L[ / A]); /*
+		H    0 360     0|360:red  120:green  240:blue
+		S    0 100%    0:gray     100:full
+		L    0 100%    0:black    50:normal  100:white
+	*/
 	
 	/* prop val calc */
 	width: calc(10px + 100px);
