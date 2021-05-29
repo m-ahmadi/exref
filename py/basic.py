@@ -55,11 +55,21 @@ memoryview(bytes(5))     # memoryview
 4 ** 2  # squared: 16
 4 ** 3  # cubed: 64
 'foo' +' '+ 'bar' # str concat: 'foo bar'
+('foo' 'bar')     # ...
 'foo' * 2         # str repeat: 'foofoo'
 [1,2] + [3,4]     # list concat: [1,2,3,4]
 
+# multiline string
+"""foo
+bar"""
+
+'''foo
+bar
+'''
+
 {'a','b'}.issuperset({'a'}) # true
-'a,b,c'.split() # ['a', 'b', 'c']
+'a,b,c'.split()             # ['a', 'b', 'c']
+', '.join(['a','b','c'])    # 'a, b, c'
 
 x<range> = range(?start=0, stop=int, ?step=1)
 x = range(1,10,2)
