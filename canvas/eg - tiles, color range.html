@@ -1,4 +1,4 @@
-<style>input[type=number]{width:60px;}</style>
+<style>canvas{border:1px dashed black;}input[type=number]{width:60px;}</style>
 
 <button onclick="go()">draw(
 	w=<input  id="_w"  type="number" value="100" min="0" step="10">,
@@ -36,11 +36,12 @@ function draw(w=20, h=20, bw=200, bh=200, colors=[]) {
 	if ( [w,h].some(i=>!i) ) return;
 	cn.width = bw;
 	cn.height = bh;
+	let dcolr = _c.value;
 	
 	let [x,y,xb,yb,i] = [0,0,bw-w,bh-h,0];
 	while (y <= yb) {
 		while (x <= xb) {
-			c.fillStyle = colors[i] || 'white';
+			c.fillStyle = colors[i] || dcolr;
 			c.fillRect(x, y, w, h);
 			x += w;
 			i++;
