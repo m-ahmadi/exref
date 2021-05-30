@@ -11,19 +11,19 @@ function range(nums=[]) {
 }
 
 function mode(list=[]) {
-	const tmp = {};
-	for (const i of list) {
+	let tmp = {};
+	for (let i of list) {
 		if (!tmp[i]) tmp[i] = 0;
 		tmp[i]++;
 	}
-	const counts = list.map(i => tmp[i]);
-	const maxCount = Math.max(...counts);
-	const maxIndex = counts.indexOf(maxCount);
+	let counts = list.map(i => tmp[i]);
+	let maxCount = Math.max(...counts);
+	let maxIndex = counts.indexOf(maxCount);
 	return list[maxIndex];
 }
 
 function median(nums=[]) {
-	const len = nums.length;
+	let len = nums.length;
 	if (len % 2 === 0) {
 		return (nums[(len/2)-1] + nums[len/2]) / 2;
 	} else {
@@ -36,24 +36,24 @@ function stdv(nums=[]) {
 }
 
 function variance(nums=[]) {
-	const avg = mean(nums);
-	const sqrDiffs = nums.map(n => Math.pow(n - avg, 2));
+	let avg = mean(nums);
+	let sqrDiffs = nums.map(n => Math.pow(n - avg, 2));
 	return mean(sqrDiffs);
 }
 
 function iqr(_nums=[]) {
-	const nums = [..._nums];
+	let nums = [..._nums];
 	nums.sort((a,b) => a-b)
 	
 	let firstHalf, secondHalf;
 	
-	const len = nums.length;
+	let len = nums.length;
 	if (len % 2 === 0) {
-		const idx = len / 2;
+		let idx = len / 2;
 		firstHalf  = nums.slice(0, idx);
 		secondHalf = nums.slice(idx, nums.length);
 	} else {
-		const idx = (len - 1) / 2;
+		let idx = (len - 1) / 2;
 		firstHalf  = nums.slice(0, idx);
 		secondHalf = nums.slice(idx+1, nums.length);
 	}
@@ -62,20 +62,20 @@ function iqr(_nums=[]) {
 }
 
 function regressionLinear(points=[]) {
-	const x = points.map(point => point.x);
-	const y = points.map(point => point.y);
-	const xMean = mean(x);
-	const yMean = mean(y);
+	let x = points.map(point => point.x);
+	let y = points.map(point => point.y);
+	let xMean = mean(x);
+	let yMean = mean(y);
 	
-	const xMeanDiff = x.map(n => n - xMean);
-	const yMeanDiff = y.map(n => n - yMean);
-	const xMeanDiffSquared        = xMeanDiff.map(n => n * n); // Math.pow(n, 2)
-	const xMeanDiffTimesYMeanDiff = xMeanDiff.map((n, i) => n * yMeanDiff[i]);
+	let xMeanDiff = x.map(n => n - xMean);
+	let yMeanDiff = y.map(n => n - yMean);
+	let xMeanDiffSquared        = xMeanDiff.map(n => n * n); // Math.pow(n, 2)
+	let xMeanDiffTimesYMeanDiff = xMeanDiff.map((n, i) => n * yMeanDiff[i]);
 	
-	const b1 = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
-	const b0 = yMean - (b1 * xMean);
+	let b1 = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
+	let b0 = yMean - (b1 * xMean);
 	
-	const regresions = x.map(x => (x*b1) + b0);
+	let regresions = x.map(x => (x*b1) + b0);
 	
 	return regresions;
 }
@@ -99,14 +99,12 @@ function sma(nums=[], period=5, fill) {
 function ema(nums=[], period=5, fill) {
 	let res = Array(period-1).fill(fill);
 	
-	res.push(
-		mean( nums.slice(0,period) )
-	);
+	res.push( mean(nums.slice(0,period)) );
 	
 	let m = 2 / (period+1);
 	
 	for (let i=period, len=nums.length; i<len; i++) {
-		let n = (nums[i] * m) + (res[i-1] * (1-m) );
+		let n = (nums[i] * m) + (res[i-1] * (1-m));
 		res.push(n);
 	}
 	

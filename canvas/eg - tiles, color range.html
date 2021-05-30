@@ -1,0 +1,76 @@
+<style>input[type=number]{width:60px;}</style>
+
+<button onclick="go()">draw(
+	w=<input  id="_w"  type="number" value="100" min="0" step="10">,
+	h=<input  id="_h"  type="number" value="100" min="0" step="10">,
+	bw=<input id="_bw" type="number" value="600" min="0" step="100">,
+	bh=<input id="_bh" type="number" value="600" min="0" step="100">
+)</button>
+color:<input id="_c" type="color" value="#ff0040" oninput="go()">
+total:<input id="_t" type="number" value="1000" min="0" step="100" oninput="go()">
+
+<br><br>
+
+<canvas id="cn" width="800" height="400"></canvas>
+
+<script>
+c = cn.getContext('2d');
+
+go();
+
+function go() {
+	let t = +_t.value;
+	let x = [...Array(t)].map(()=>Math.floor(Math.random()*t));
+	let [h,s] = hex2hsl(_c.value);
+	
+	draw(
+		+_w.value,
+		+_h.value,
+		+_bw.value,
+		+_bh.value,
+		scale(x,[0,100]).map(i=>'hsl('+h+','+s+'%,'+i+'%)')
+	);
+}
+
+function draw(w=20, h=20, bw=200, bh=200, colors=[]) {
+	if ( [w,h].some(i=>!i) ) return;
+	cn.width = bw;
+	cn.height = bh;
+	
+	let [x,y,xb,yb,i] = [0,0,bw-w,bh-h,0];
+	while (y <= yb) {
+		while (x <= xb) {
+			c.fillStyle = colors[i] || 'white';
+			c.fillRect(x, y, w, h);
+			x += w;
+			i++;
+		}
+		if (x > xb) x = 0;
+		y += h;
+	}
+}
+
+function scale(nums=[], newbound=[0,1]) {
+	let [a,b] = [Math.min(...nums), Math.max(...nums)];
+	let [c,d] = newbound;
+	return nums.map(x => (x-a) * (d-c) / (b-a) + c);
+}
+
+function hex2hsl(c='#ffffff') {
+	let [r,g,b] = [c.slice(1,3), c.slice(3,5), c.slice(5,8)].map(i=>parseInt(i,16)/255);
+	let [n,x] = [Math.min(r,g,b), Math.max(r,g,b)];
+	let [h,s,l] = [0, 0, (x+n)/2];
+	
+	if (x !== n) {
+		let d = x-n;
+		s = l > 0.5 ? d/(2-x-n) : d/(x+n);
+		h =
+			x === r ? (g-b) / d+(g<b?6:0) :
+			x === g ? (b-r) / d+2 :
+			x === b ? (r-g) / d+4 : h;
+		h /= 6;
+	}
+	
+	return [h*360, s*100, l*100];
+}
+</script>
