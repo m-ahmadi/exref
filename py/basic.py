@@ -3,6 +3,7 @@ import foo.bar.baz         # foo.bar.baz imported, foo bound locally
 import foo.bar.baz as fbb  # foo.bar.baz imported and bound as fbb
 from foo.bar import baz    # foo.bar.baz imported and bound as baz
 from foo import attr       # foo imported and foo.attr bound as attr
+from foo import bar, baz
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # variable assignment
 x = 2
@@ -132,8 +133,13 @@ f = lambda a, b: a * b
 
 def add(n): return n + n
 res = map(add, [1,2,3]) 
-list(res)                           # [2, 4, 6]
-list( map(lambda i: i*2, [1,2,3]) ) # [2, 4, 6]
+list(res)                              # [2, 4, 6]
+list(map(lambda i: i*2, [1,2,3]))      # [2, 4, 6]
+list(filter(lambda i: i>2, [1,2,3,4])) # [3, 4]
+
+from functools import reduce
+reduce(lambda r,i: r+i, [1,2,3,4])    # 10
+reduce(lambda r,i: r+i, [1,2,3,4], 5) # 15
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # class
 class Student:

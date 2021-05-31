@@ -54,7 +54,8 @@ function draw(w=20, h=20, bw=200, bh=200, colors=[]) {
 function scale(nums=[], newbound=[0,1]) {
 	let [a,b] = [Math.min(...nums), Math.max(...nums)];
 	let [c,d] = newbound;
-	return nums.map(x => (x-a) * (d-c) / (b-a) + c);
+	let [ba,dc] = [b-a, d-c];
+	return nums.map(x => (x-a) * dc / ba + c);
 }
 
 function hex2hsl(c='#ffffff') {
