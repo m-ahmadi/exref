@@ -80,6 +80,17 @@ function regressionLinear(points=[]) {
 	return regresions;
 }
 
+function pearsonr(x=[], y=[]) {
+	let { sqrt } = Math;
+	let sqr = n => Math.pow(n,2);
+	let n = y.length;
+	
+	let numerator   = sum(x.map((v,i)=>v*y[i])) - (sum(x) * sum(y) / n);
+	let denominator = sqrt(sum(x.map(sqr)) - (sqr(sum(x)) / n)) * sqrt(sum(y.map(sqr)) - (sqr(sum(y)) / n));
+	
+	return numerator / denominator;
+}
+
 function cusum(nums=[]) {
 	let sum = 0;
 	return nums.map(i => sum += i);

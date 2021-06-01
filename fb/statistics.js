@@ -13,4 +13,4 @@ var stats = new Statistics([
 	{x:63,y:1.65}, {x:64,y:1.67}, {x:74,y:1.80}, {x:79,y:1.82}, {x:82,y:1.86},
 	{x:66,y:1.70}, {x:91,y:1.83}, {x:72,y:1.76}, {x:85,y:1.89}, {x:68,y:1.68}
 ], {x:'metric', y:'metric'});
-stats.correlationCoefficient('x', 'y') // {correlationCoefficient: 0.91, missings: 0}
+stats.correlationCoefficient('x', 'y') // {correlationCoefficient: 0.913, missings: 0}
