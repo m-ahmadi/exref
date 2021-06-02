@@ -1,9 +1,9 @@
-function mean(nums=[]) {
-	return sum(nums) / nums.length;
-}
-
 function sum(nums=[]) {
 	return nums.reduce((a,c) => a += c, 0);
+}
+
+function mean(nums=[]) {
+	return sum(nums) / nums.length;
 }
 
 function range(nums=[]) {
@@ -46,8 +46,8 @@ function iqr(_nums=[]) {
 	nums.sort((a,b) => a-b)
 	
 	let firstHalf, secondHalf;
-	
 	let len = nums.length;
+	
 	if (len % 2 === 0) {
 		let idx = len / 2;
 		firstHalf  = nums.slice(0, idx);
