@@ -83,11 +83,9 @@ function regressionLinear(x=[], y=[]) {
 
 function pearsonr(x=[], y=[]) {
 	let { sqrt } = Math;
-	let n = y.length;
-	
+	let n = x.length;
 	let numerator   = sum(x.map((v,i)=>v*y[i])) - (sum(x) * sum(y) / n);
 	let denominator = sqrt(sum(x.map(sqr)) - (sqr(sum(x)) / n)) * sqrt(sum(y.map(sqr)) - (sqr(sum(y)) / n));
-	
 	return numerator / denominator;
 }
 
