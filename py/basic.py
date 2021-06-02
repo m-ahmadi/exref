@@ -67,7 +67,8 @@ bar
 # list
 x = [1,2]
 x.append(3)
-x[4] # error
+x[4]   # error
+len(x) # 2
 
 x<range> = range(?start=0, stop=int, ?step=1)
 x = range(1,10,2)

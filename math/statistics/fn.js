@@ -1,3 +1,7 @@
+function sqr(n=0) {
+	return Math.pow(n, 2);
+}
+
 function sum(nums=[]) {
 	return nums.reduce((a,c) => a += c, 0);
 }
@@ -37,7 +41,7 @@ function stdv(nums=[]) {
 
 function variance(nums=[]) {
 	let avg = mean(nums);
-	let sqrDiffs = nums.map(n => Math.pow(n - avg, 2));
+	let sqrDiffs = nums.map(n => sqr(n - avg));
 	return mean(sqrDiffs);
 }
 
@@ -61,15 +65,12 @@ function iqr(_nums=[]) {
 	return median(secondHalf) - median(firstHalf);
 }
 
-function regressionLinear(points=[]) {
-	let x = points.map(point => point.x);
-	let y = points.map(point => point.y);
-	let xMean = mean(x);
-	let yMean = mean(y);
+function regressionLinear(x=[], y=[]) {
+	let [xMean, yMean] = [x,y].map(mean);
 	
 	let xMeanDiff = x.map(n => n - xMean);
 	let yMeanDiff = y.map(n => n - yMean);
-	let xMeanDiffSquared        = xMeanDiff.map(n => n * n); // Math.pow(n, 2)
+	let xMeanDiffSquared        = xMeanDiff.map(sqr);
 	let xMeanDiffTimesYMeanDiff = xMeanDiff.map((n, i) => n * yMeanDiff[i]);
 	
 	let b1 = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
@@ -82,13 +83,17 @@ function regressionLinear(points=[]) {
 
 function pearsonr(x=[], y=[]) {
 	let { sqrt } = Math;
-	let sqr = n => Math.pow(n,2);
 	let n = y.length;
 	
 	let numerator   = sum(x.map((v,i)=>v*y[i])) - (sum(x) * sum(y) / n);
 	let denominator = sqrt(sum(x.map(sqr)) - (sqr(sum(x)) / n)) * sqrt(sum(y.map(sqr)) - (sqr(sum(y)) / n));
 	
 	return numerator / denominator;
+}
+
+function durbinWatson(x=[], y=[]) {
+	let e = regressionLinear(x,y).map((v,i)=> y[i]-v);
+	return sum(x.map((v,t)=> t>0 ? sqr(e[t] - e[t-1]) : 0)) / sum(e.map(sqr));
 }
 
 function cusum(nums=[]) {

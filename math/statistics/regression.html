@@ -29,7 +29,8 @@ function updatePoints() {
 	chart.data.datasets[0].data = points;
 }
 function updateLine() {
-	line = regressionLinear(points).map((n, i) => ({ x: points[i].x, y: n }));
+	var [x,y] = [points.map(i=>i.x), points.map(i=>i.y)];
+	line = regressionLinear(x,y).map((n, i) => ({ x: points[i].x, y: n }));
 	chart.data.datasets[1].data = line;
 }
 
