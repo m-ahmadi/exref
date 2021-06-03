@@ -90,7 +90,7 @@ function covariance(x=[], y=[]) {
 	return mean(x.map((v,i)=> (v - xm) * (y[i] - ym)), true);
 }
 
-function pearsonr(x=[], y=[]) {
+function pearsonR(x=[], y=[]) {
 	let { sqrt } = Math;
 	let n = x.length;
 	let numerator   = sum(x.map((v,i)=>v*y[i])) - (sum(x) * sum(y) / n);
@@ -101,6 +101,17 @@ function pearsonr(x=[], y=[]) {
 function durbinWatson(x=[], y=[]) {
 	let e = regressionLinear(x,y).map((v,i)=> y[i]-v);
 	return sum(x.map((v,t)=> t>0 ? sqr(e[t] - e[t-1]) : 0)) / sum(e.map(sqr));
+}
+
+function jarqueBera(x=[]) {
+	let { pow } = Math;
+	let [n, xm] = [x.length, mean(x)];
+	let [dif, cube, quad] = [i=>i-xm, n=>pow(n,3), n=>pow(n,4)];
+	let xd = x.map(dif);
+	let xdsqrd = xd.map(sqr);
+	let s = (1/n) * sum(xd.map(cube)) / pow((1/n) * sum(xdsqrd), 3/2);
+	let k = (1/n) * sum(xd.map(quad)) / sqr( (1/n) * sum(xdsqrd) );
+	return (n/6) * ( sqr(s) + ((1/4) * sqr(k-3)) );
 }
 
 function cusum(nums=[]) {
