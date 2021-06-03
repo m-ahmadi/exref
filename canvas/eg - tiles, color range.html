@@ -52,7 +52,7 @@ function draw(w=20, h=20, bw=200, bh=200, colors=[]) {
 }
 
 function scale(nums=[], newbound=[0,1]) {
-	let [a,b] = [Math.min(...nums), Math.max(...nums)];
+	let [a,b] = minmax(nums);
 	let [c,d] = newbound;
 	let [ba,dc] = [b-a, d-c];
 	return nums.map(x => (x-a) * dc / ba + c);
@@ -74,5 +74,10 @@ function hex2hsl(c='#ffffff') {
 	}
 	
 	return [h*360, s*100, l*100];
+}
+
+function minmax(nums=[]) {
+	let {min,max} = Math;
+	return nums.reduce(([n,x],i)=> [min(n,i), max(x,i)], [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]);
 }
 </script>
