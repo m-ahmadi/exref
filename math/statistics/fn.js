@@ -86,8 +86,15 @@ function regressionLinear(x=[], y=[]) {
 }
 
 function covariance(x=[], y=[]) {
-	let [xm, ym] = [x,y].map(mean);
+	let [xm, ym] = [x, y].map(mean);
 	return mean(x.map((v,i)=> (v - xm) * (y[i] - ym)), true);
+}
+
+function covarianceMatrix(matrix=[]) {
+	let cols = [...Array(matrix.length)];
+	return matrix.map(row =>
+		cols.map((v,col) => covariance(row, matrix[col]) )
+	);
 }
 
 function pearsonR(x=[], y=[]) {
