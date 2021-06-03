@@ -10,7 +10,6 @@ Math.min(2, 10)   // 2
 
 Math.trunc(0.223) // 0
 Math.trunc(1.999) // 1
-// trunc has no IE support
 
 Math.sign(3);     //  1
 Math.sign(-3);    // -1
@@ -63,14 +62,14 @@ Math.exp(x)                // Returns x, where x is the argument, and E is Euler
 Math.expm1(x)              // Returns subtracting 1 from exp(x)
 Math.floor(x)              // largest integer less than or equal to a number
 Math.fround(x)             // nearest single precision float representation of a number
-Math.hypot([x[, y[, …]]])  // square root of the sum of squares of its arguments
+Math.hypot(x, y, ...)      // square root of the sum of squares of its arguments
 Math.imul(x, y)            // result of a 32-bit integer multiplication
 Math.log(x)                // natural logarithm (loge, also ln) of a number
 Math.log1p(x)              // natural logarithm (loge, also ln) of 1 + x for a number x
 Math.log10(x)              // base 10 logarithm of a number
 Math.log2(x)               // base 2 logarithm of a number
-Math.max([x[, y[, …]]])    // largest of zero or more numbers
-Math.min([x[, y[, …]]])    // smallest of zero or more numbers
+Math.max(x, y, ...)        // largest  of zero or more numbers (maximum 125525 numbers)
+Math.min(x, y, ...)        // smallest of zero or more numbers (maximum 125525 numbers)
 Math.pow(x, y)             // base to the exponent power: x^y
 Math.random()              // a pseudo-random number between 0 and 1
 Math.round(x)              // value of a number rounded to the nearest integer

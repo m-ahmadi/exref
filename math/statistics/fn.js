@@ -15,7 +15,7 @@ function mean(nums=[], sample=false) {
 }
 
 function range(nums=[]) {
-	return Math.max(...nums) - Math.min(...nums);
+	return max(nums) - min(nums);
 }
 
 function mode(list=[]) {
@@ -25,7 +25,7 @@ function mode(list=[]) {
 		tmp[i]++;
 	}
 	let counts = list.map(i => tmp[i]);
-	let maxCount = Math.max(...counts);
+	let maxCount = max(counts);
 	let maxIndex = counts.indexOf(maxCount);
 	return list[maxIndex];
 }
@@ -169,4 +169,12 @@ function ema2(nums=[], period=5) {
 	}
 	
 	return res;
+}
+
+function min(nums=[]) {
+	return nums.reduce((n,i)=> Math.min(n,i), Number.POSITIVE_INFINITY);
+}
+
+function max(nums=[]) {
+	return nums.reduce((x,i)=> Math.max(x,i), Number.NEGATIVE_INFINITY);
 }
