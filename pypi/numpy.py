@@ -11,3 +11,8 @@ np.mean([[2,4], [3,5]])   # 3.5 (3.5 + 4.5/ 2)
 a = [1,2,3,4,5,6]
 b = np.array(a)
 list(map(lambda i: i*2, a)) == list(b*2) # True
+
+# covariance
+x=[1,2,3,4]
+y=[2,3,2,1]
+print(np.cov([x,y])[0][1])

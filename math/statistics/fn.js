@@ -3,11 +3,15 @@ function sqr(n=0) {
 }
 
 function sum(nums=[]) {
-	return nums.reduce((a,c) => a += c, 0);
+	return nums.reduce((r,i) => r += i, 0);
 }
 
-function mean(nums=[]) {
-	return sum(nums) / nums.length;
+function product(nums=[]) {
+	return nums.reduce((r,i) => r *= i, 1);
+}
+
+function mean(nums=[], sample=false) {
+	return sum(nums) / (nums.length - (sample?1:0));
 }
 
 function range(nums=[]) {
@@ -40,8 +44,8 @@ function stdv(nums=[]) {
 }
 
 function variance(nums=[]) {
-	let avg = mean(nums);
-	let sqrDiffs = nums.map(n => sqr(n - avg));
+	let _mean = mean(nums);
+	let sqrDiffs = nums.map(n => sqr(n - _mean));
 	return mean(sqrDiffs);
 }
 
@@ -79,6 +83,11 @@ function regressionLinear(x=[], y=[]) {
 	let regresions = x.map(x => (x*b1) + b0);
 	
 	return regresions;
+}
+
+function covariance(x=[], y=[]) {
+	let [xm, ym] = [x,y].map(mean);
+	return mean(x.map((v,i)=> (v - xm) * (y[i] - ym)), true);
 }
 
 function pearsonr(x=[], y=[]) {
