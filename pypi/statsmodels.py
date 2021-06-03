@@ -25,3 +25,8 @@ rline = list(res.intercept + res.slope * x)
 df = pd.DataFrame({'x': x, 'y': y})
 model = ols('y ~ x', data=df).fit()
 print(list(model.resid)) # [-0.6, 0.79, 0.19, -0.4]
+
+# jarque_bera
+from statsmodels.stats.stattools import jarque_bera
+res = jarque_bera([2,4,3,2,4])
+print(res)
