@@ -121,18 +121,29 @@ function jarqueBera(x=[]) {
 	return (n/6) * ( sqr(s) + ((1/4) * sqr(k-3)) );
 }
 
+function matrixSqr(matrix=[]) {
+	let cols = [...Array(matrix.length)].map((v,col) => matrix.map(row => row[col]) );
+	return matrix.map(row =>
+		cols.map(col => sum(
+			row.map((v,i)=> v * col[i])
+		))
+	);
+}
+
 function cusum(nums=[]) {
 	let sum = 0;
 	return nums.map(i => sum += i);
 }
 
-function sma(nums=[], period=5, fill) {
-	let pi = period - 1;
+function sma(nums=[], period=2, fill) {
+	let pi = period > 0 ? period - 1 : 0;
 	let res = Array(pi).fill(fill);
 	
-	for (let i=pi, len=nums.length; i<len; i++) res.push(
-		mean( nums.slice(i-pi, i+1) )
-	);
+	if (period > 0) {
+		for (let i=pi, len=nums.length; i<len; i++) res.push( mean(nums.slice(i-pi,i+1)) );
+	} else {
+		res = nums.map((v,i,a)=> mean(a.slice(0,i+1)) );
+	}
 	
 	return res;
 }
