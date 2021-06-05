@@ -1,1 +1,9 @@
-chmod perm filename
+chmod perm file.txt
+
+chmod =rwx file.txt	set
+chmod +rwx file.txt	add
+chmod -rwx file.txt	remove
+
+r	read		4
+w	write		2
+x	execute		1

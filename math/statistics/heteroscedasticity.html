@@ -8,11 +8,8 @@ var x =  [1,   2,   3,     4,     5,     6,     7,     8,     9,     10,     11,
 var y1 = [2,   4,   3.2,   1.9,   3.5,   4.6,   2.4,   4,     4.9,   3.3,    4.05,    4.9,    3.2,    4.8];
 var y2 = [3,   1,   4,     2,     5,     2,     6,     1.5,   7,     8,      1,       9,      0.5,    10];
 
-var d1 = ()=> x.map((x,i)=> ({ x, y:y1[i] }));
-var d2 = ()=> x.map((x,i)=> ({ x, y:y2[i] }));
-
-var r1 = regressionLinear(d1());
-var r2 = regressionLinear(d2());
+var r1 = regressionLinear(x,y1);
+var r2 = regressionLinear(x,y2);
 
 
 var o = {legend:{display:false}};
@@ -21,7 +18,7 @@ new Chart(c1, {
 	type: 'scatter',
 	data: {
 		datasets: [
-			{data:d1(), backgroundColor:'blue',radius:5},
+			{data:x.map((x,i)=>({x,y:y1[i]})), backgroundColor:'blue',radius:5},
 			{data:x.map((x,i)=>({x,y:r1[i]})), type:'line',borderColor:'red',pointRadius:0},
 		]
 	},
@@ -32,7 +29,7 @@ new Chart(c2, {
 	type: 'scatter',
 	data: {
 		datasets: [
-			{data:d2(), backgroundColor:'blue',radius:5},
+			{data:x.map((x,i)=>({x,y:y2[i]})), backgroundColor:'blue',radius:5},
 			{data:x.map((x,i)=>({x,y:r2[i]})), type:'line',borderColor:'red',pointRadius:0},
 		]
 	},
