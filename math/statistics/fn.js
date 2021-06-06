@@ -121,13 +121,28 @@ function jarqueBera(x=[]) {
 	return (n/6) * ( sqr(s) + ((1/4) * sqr(k-3)) );
 }
 
-function matrixSqr(matrix=[]) {
-	let cols = [...Array(matrix.length)].map((v,col) => matrix.map(row => row[col]) );
-	return matrix.map(row =>
-		cols.map(col => sum(
+function matMul(a=[], b=[]) {
+	let bcols = [...Array(b.length)].map((v,col)=> b.map(row=> row[col]));
+	return a.map(row =>
+		bcols.map(col => sum(
 			row.map((v,i)=> v * col[i])
 		))
 	);
+}
+
+function matPow(mat=[], n=2) {
+	let orig = [...mat.map(i=>[...i])];
+	let res = [...mat.map(i=>[...i])];
+	for (let i=1; i<n; i++) res = matMul(res, orig);
+	return res;
+}
+
+function matAdd(a=[], b=[]) {
+	return a.map((v,i)=> v.map((vv,j)=> vv + b[i][j] ));
+}
+
+function matSubtract(a=[], b=[]) {
+	return a.map((v,i)=> v.map((vv,j)=> vv - b[i][j] ));
 }
 
 function cusum(nums=[]) {
