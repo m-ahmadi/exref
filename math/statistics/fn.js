@@ -99,9 +99,10 @@ function covarianceMatrix(matrix=[]) {
 
 function pearsonR(x=[], y=[]) {
 	let { sqrt } = Math;
+	let [xsum, ysum] = [sum(x), sum(y)];
 	let n = x.length;
-	let numerator   = sum(x.map((v,i)=>v*y[i])) - (sum(x) * sum(y) / n);
-	let denominator = sqrt(sum(x.map(sqr)) - (sqr(sum(x)) / n)) * sqrt(sum(y.map(sqr)) - (sqr(sum(y)) / n));
+	let numerator   = sum(x.map((v,i)=>v*y[i])) - (xsum * ysum / n);
+	let denominator = sqrt(sum(x.map(sqr)) - (sqr(xsum) / n)) * sqrt(sum(y.map(sqr)) - (sqr(ysum) / n));
 	return numerator / denominator;
 }
 
