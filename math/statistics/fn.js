@@ -138,6 +138,13 @@ function matPow(mat=[], n=2) {
 	return res;
 }
 
+function matTranspose(mat=[]) {
+	let [n,m] = [mat.length, mat[0].length];
+	let res = mat[0].map(()=> Array(n));
+	for (let i=0; i<n; i++) for (let j=0; j<m; j++) res[j][i] = mat[i][j];
+	return res;
+}
+
 function matAdd(a=[], b=[]) {
 	return a.map((v,i)=> v.map((vv,j)=> vv + b[i][j] ));
 }
