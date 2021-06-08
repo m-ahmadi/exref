@@ -131,9 +131,24 @@ function matMul(a=[], b=[]) {
 	);
 }
 
+function matvecMul(mat=[], vec=[]) {
+	if ( mat.some(i=>i.length !== vec.length) ) return;
+	return mat.map(row => sum(
+		row.map((v,i)=> v * vec[i])
+	));
+}
+
+function vecmatMul(vec=[], mat=[]) {
+	if (vec.length !== mat.length) return;
+	let cols = [...Array(mat[0].length)].map((v,j)=> mat.map(i=> i[j]));
+	return cols.map((col,i) => sum(
+		col.map((v,i)=> vec[i] * v)
+	));
+}
+
 function matPow(mat=[], n=2) {
-	let orig = [...mat.map(i=>[...i])];
-	let res = [...mat.map(i=>[...i])];
+	let orig = mat.map(i=>[...i]);
+	let res = mat.map(i=>[...i]);
 	for (let i=1; i<n; i++) res = matMul(res, orig);
 	return res;
 }
@@ -151,6 +166,23 @@ function matAdd(a=[], b=[]) {
 
 function matSubtract(a=[], b=[]) {
 	return a.map((v,i)=> v.map((vv,j)=> vv - b[i][j] ));
+}
+
+function vecPow(a=[], n=2) {
+	let pow = i => Math.pow(i,n);
+	if ( Array.isArray(a[0]) ) {
+		return a.map(i=> i.map(pow))
+	} else {
+		return a.map(pow);
+	}
+}
+
+function vecMul(a=[], b=[]) {
+	if ( Array.isArray(a[0]) ) {
+		return a.map((v,i)=> v.map((w,j)=> w * b[i][j]) )
+	} else {
+		return a.map((v,i)=> v * b[i]);
+	}
 }
 
 function cusum(nums=[]) {
