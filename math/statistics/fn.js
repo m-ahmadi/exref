@@ -131,14 +131,14 @@ function matMul(a=[], b=[]) {
 	);
 }
 
-function matvecMul(mat=[], vec=[]) {
+function matVecMul(mat=[], vec=[]) {
 	if ( mat.some(i=>i.length !== vec.length) ) return;
 	return mat.map(row => sum(
 		row.map((v,i)=> v * vec[i])
 	));
 }
 
-function vecmatMul(vec=[], mat=[]) {
+function vecMatMul(vec=[], mat=[]) {
 	if (vec.length !== mat.length) return;
 	let cols = [...Array(mat[0].length)].map((v,j)=> mat.map(i=> i[j]));
 	return cols.map((col,i) => sum(
@@ -146,7 +146,12 @@ function vecmatMul(vec=[], mat=[]) {
 	));
 }
 
+function matScaMul(mat=[], s=1) {
+	return mat.map(row => row.map(cell=> cell * s));
+}
+
 function matPow(mat=[], n=2) {
+	n = Math.abs(n);
 	let orig = mat.map(i=>[...i]);
 	let res = mat.map(i=>[...i]);
 	for (let i=1; i<n; i++) res = matMul(res, orig);

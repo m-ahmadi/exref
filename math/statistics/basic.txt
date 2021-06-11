@@ -13,3 +13,12 @@ iqr		difference betwwen median of first and second half of list (if list is odd,
 types of statistics
 descriptive		making information that describes the data in some manner
 inferential		making conclusions about the data, using only some part of it
+
+
+correlation does not imply causation
+	causation:	a causal relationship between variables
+	correlation:	variables reflect the same pattern,
+	changes in one won't affect the other
+
+curse of dimensionality
+	analyzing too many variables
