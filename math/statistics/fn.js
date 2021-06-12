@@ -43,9 +43,9 @@ function stdv(nums=[]) {
 	return Math.sqrt( variance(nums) );
 }
 
-function variance(nums=[]) {
-	let _mean = mean(nums);
-	let sqrDiffs = nums.map(n => sqr(n - _mean));
+function variance(x=[]) {
+	let m = mean(x);
+	let sqrDiffs = x.map(i=> sqr(i-m));
 	return mean(sqrDiffs);
 }
 
@@ -109,6 +109,21 @@ function pearsonR(x=[], y=[]) {
 function durbinWatson(x=[], y=[]) {
 	let e = regressionLinear(x,y).map((v,i)=> y[i]-v);
 	return sum(x.map((v,t)=> t>0 ? sqr(e[t] - e[t-1]) : 0)) / sum(e.map(sqr));
+}
+
+function kurtosis(x=[]) {
+	return stdMoment(x, 4) - 3;
+}
+
+function skewness(x=[]) {
+	return stdMoment(x, 3);
+}
+
+function stdMoment(x=[], ith=1) {
+	let [m, s, n] = [mean(x), stdv(x), x.length];
+	let sum = 0;
+	for (let i=0; i<n; i++) sum += Math.pow((x[i] - m) / s, ith);
+  return sum / n;
 }
 
 function jarqueBera(x=[]) {

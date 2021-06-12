@@ -40,3 +40,4 @@ load('myvars.mat')
 	multiline comment
 %}
 
+class(x) % type of variable
