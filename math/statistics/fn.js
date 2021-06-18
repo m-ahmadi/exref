@@ -111,8 +111,8 @@ function durbinWatson(x=[], y=[]) {
 	return sum(x.map((v,t)=> t>0 ? sqr(e[t] - e[t-1]) : 0)) / sum(e.map(sqr));
 }
 
-function kurtosis(x=[]) {
-	return stdMoment(x, 4) - 3;
+function kurtosis(x=[], pearson=false) {
+	return stdMoment(x, 4) - (pearson ? 0 : 3);
 }
 
 function skewness(x=[]) {
@@ -135,6 +135,73 @@ function jarqueBera(x=[]) {
 	let s = (1/n) * sum(xd.map(cube)) / pow((1/n) * sum(xdsqrd), 3/2);
 	let k = (1/n) * sum(xd.map(quad)) / sqr( (1/n) * sum(xdsqrd) );
 	return (n/6) * ( sqr(s) + ((1/4) * sqr(k-3)) );
+}
+
+function shapiroWilk(_x=[]) {
+	let x = [..._x].sort((a,b)=>a-b);
+	let n = x.length;
+	if (n < 3) throw new Error('Sample vector must have at least 3 valid observations.');
+	if (n > 5000) console.warning('Shapiro-Wilk statistic might be inaccurate due to large sample size ( > 5000).');
+	
+	let t = mkrange(1,n).map(i=>(i-3/8) / (n+0.25));
+	let m = t.map(i=> norminv(i));
+	let w = Array(n).fill(0);
+	let W;
+	
+	let {sqrt} = Math;
+	
+	if (kurtosis(x,1) > 3) {
+		let _t = 1 / sqrt( matMul([m], matTranspose([m]))[0][0] );
+		w = m.map(i=> _t * i);
+		
+		let mu = mean(x);
+		let xd = x.map(i=> i-mu);
+		
+		W = sqr(sum(vecMul(w,x))) / matMul([xd], matTranspose([xd]))[0][0];
+	} else {
+		let c = m.map(i=> i * (1 / sqrt(matMul([m], matTranspose([m]))[0][0])) );
+		let u = 1 / sqrt(n);
+		
+		let p1 = [-2.706056,4.434685,-2.071190,-0.147981,0.221157,c[c.length-1]];
+		let p2 = [-3.582633,5.682633,-1.752461,-0.293762,0.042981,c[c.length-2]];
+		
+		let l = w.length - 1;
+		
+		w[l] = polyval(p1, u);
+		w[0] = -w[l];
+		
+		let phi, ct;
+		
+		if (n === 3) {
+			w[0] = 0.707106781;
+			w[l] = -w[0];
+			phi = 1;
+		}
+		
+		if (n >= 6) {
+			w[l-1] = polyval(p2, u);
+			w[1] = -w[l-1];
+			
+			ct = 3 -1;
+			phi = ( matMul([m], matTranspose([m]))[0][0] - 2 * sqr(m[m.length-1]) - 2 * sqr(m[m.length-2]) ) /
+				(1 - 2 * sqr(w[l]) - 2 * sqr(w[l-1]) );
+			
+		} else {
+			ct = 2 -1;
+			phi = ( matMul([m], matTranspose([m]))[0][0] - 2 * sqr(m[m.length-1]) ) / (1 - 2 * sqr(w[l]));
+		}
+		
+		mkrange(ct,(n-2)-ct+1).map(i=> w[i] = m[i] / sqrt(phi));
+		
+		let mu = mean(x);
+		let xd = x.map(i=> i-mu);
+		
+		W = sqr(sum(vecMul(w,x))) / matMul([xd], matTranspose([xd]))[0][0];
+	}
+
+	return W;
+	
+	function mkrange(b,e,s=1){let r=[];for(let i=b;i<=e;i+=s){r.push(i);}return r;}
 }
 
 function norminv(p, mean=0, stdv=1) {
