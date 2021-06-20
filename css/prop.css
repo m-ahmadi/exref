@@ -8,8 +8,6 @@
 	border-color: color|transparent;
 	border:	width *style color; /* shorthand */
 	
-	
-	
 	font-family:  family-name|generic-family;
 	font-size:    medium|xx-small|x-small|small|large|x-large|xx-large|smaller|larger|length unit;
 	font-weight:  normal|bold|bolder|lighter|number;

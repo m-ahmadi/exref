@@ -20,4 +20,19 @@
 	width: calc(2em * 5);
 	width: calc(10% - (3px - 2em));
 	width: calc(var(--variable-width) + 20px);
+	
+	/* gradient */
+	background: linear-gradient(sideOrCorner, angle, linearColorStop, colorHint);/*
+		sideOrCorner:     to bottom|top left|right
+		angle:            0deg
+		linearColorStop:  color ?stop ?stop  (stop: percentage|length)
+		colorHint:        length */
+	background: linear-gradient(45deg, blue, red);
+	background: linear-gradient(to left top, blue, red);
+	background: linear-gradient(0deg, blue, green 40%, red);
+	background: linear-gradient(.25turn, red, 10%, blue);
+	background: linear-gradient(45deg, red 0 50%, blue 50% 100%);
+	background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+							linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+							linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
 }

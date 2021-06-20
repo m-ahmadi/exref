@@ -8,22 +8,38 @@ gradient.addColorStop(stop=0, color='')
 
 <p>linear</p>
 <canvas></canvas>
+<canvas></canvas>
+<canvas></canvas>
 
 <p>radial</p>
 <canvas></canvas>
 
 <script>
-[c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+[c1,c2,c3,c4] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
 
 var grd = c1.createLinearGradient(0,0,200,0);
 grd.addColorStop(0, 'red');
-grd.addColorStop(1, 'white');
+grd.addColorStop(1, 'blue');
 c1.fillStyle = grd;
 c1.fillRect(10,10,150,80);
 
-var grd = c2.createRadialGradient(75,50,5,90,60,100);
+var grd = c2.createLinearGradient(0,0,300,0);
+grd.addColorStop(0, 'red');
+grd.addColorStop(.5, 'white');
+grd.addColorStop(1, 'blue');
+c2.fillStyle = grd;
+c2.fillRect(0,0,300,150);
+
+var grd = c3.createLinearGradient(0,0,0,150);
+grd.addColorStop(0, 'red');
+grd.addColorStop(.5, 'white');
+grd.addColorStop(1, 'blue');
+c3.fillStyle = grd;
+c3.fillRect(0,0,300,150);
+
+var grd = c4.createRadialGradient(75,50,5,90,60,100);
 grd.addColorStop(0,'red');
 grd.addColorStop(1,'white');
-c2.fillStyle = grd;
-c2.fillRect(10,10,150,80);
+c4.fillStyle = grd;
+c4.fillRect(10,10,150,80);
 </script>

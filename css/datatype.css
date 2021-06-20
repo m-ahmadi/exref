@@ -1,0 +1,3 @@
+length        n?unit
+percentage    ?(+|-)n%
+color         keyword #nnnnnn rgb?a|hsl?a|lch|lab|color()

@@ -38,8 +38,8 @@ Number.isSafeInteger()   // between -9007199254740991 and 9007199254740991
 Number.toInteger() 
 Number.parseFloat()
 Number.parseInt()
-number.toFixed(?digits=0>n<101)
-number.toPrecision(?precision=0>n<101)
+number.toFixed(?digits=0-100)
+number.toPrecision(?precision=1-100)
 
 (16).toExponential()     // '1.6e+1'
 

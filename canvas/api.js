@@ -49,9 +49,11 @@ CanvasRenderingContext2D
 .strokeStyle  = '#000' color|gradient|pattern
 
 // gradient & pattern
-.createLinearGradient(x0, y0, x1, y1)
-.createRadialGradient(x0, y0, r0, x1, y1, r1)
+.createLinearGradient(x0, y0, x1, y1): CanvasGradient
+.createRadialGradient(x0, y0, r0, x1, y1, r1) : CanvasGradient
 .createPattern(image, repetition)
+
+	CanvasGradient.addColorStop(offset=0-1, color='')
 
 // shadow
 .shadowBlur    = 0
