@@ -1,0 +1,84 @@
+<style>canvas{border:1px solid black;}input[type=number]{width:60px;}</style>
+
+<button onclick="go()">
+	w=<input  id="_w"  type="number" value="50" min="0" step="5">
+	h=<input  id="_h"  type="number" value="50" min="0" step="5">
+	bw=<input id="_bw" type="number" value="600" min="0" step="100">
+	bh=<input id="_bh" type="number" value="600" min="0" step="100">
+</button>
+count:<input id="_t" type="number" value="120" min="0" step="10" oninput="go()">
+colors:<input id="_c1" type="color" value="#ff0000" oninput="go()">
+			 <input id="_c2" type="color" value="#ffffff" oninput="go()">
+			 <input id="_c3" type="color" value="#0000ff" oninput="go()">
+
+
+<br><br>
+
+<canvas id="cn1" width="800" height="400"></canvas>
+<canvas id="cn2" width="40" height="600"></canvas>
+
+<script>
+[c,d] = [...document.querySelectorAll('canvas')].map(i=> i.getContext('2d'));
+
+go();
+
+function go() {
+	t = +_t.value;
+	x = [...Array(t)].map(()=>Math.floor(Math.random()*t));
+	
+	draw(
+		+_w.value,
+		+_h.value,
+		+_bw.value,
+		+_bh.value,
+		[
+			colorRange(_c1.value,_c2.value,x.length*.5),
+			colorRange(_c2.value,_c3.value,x.length*.5)
+		].flat().map(a=>
+			'#'+a.map(i=>(i=i.toString(16),i.length<2?'0'+i:i)).join('')
+		)
+	);
+	
+	var h = +_bh.value;
+	cn2.height = h;
+	var grd = d.createLinearGradient(0,0,0,h);
+	grd.addColorStop(0, _c1.value);
+	grd.addColorStop(.5, _c2.value);
+	grd.addColorStop(1, _c3.value);
+	d.fillStyle = grd;
+	d.fillRect(0,0,40,h);
+}
+
+function draw(w=20, h=20, bw=200, bh=200, colors=[]) {
+	if ( [w,h].some(i=>!i) ) return;
+	cn1.width = bw;
+	cn1.height = bh;
+	
+	let [x,y,xb,yb,i] = [0,0,bw-w,bh-h,0];
+	while (y <= yb) {
+		while (x <= xb) {
+			c.fillStyle = colors[i] || 'white';
+			c.fillRect(x, y, w, h);
+			x += w;
+			i++;
+		}
+		if (x > xb) x = 0;
+		y += h;
+	}
+}
+
+function colorRange(a='ff0000', b='0000ff', steps=3) {
+	[a,b] = [a,b].map(h=>  h.match(/[0-9a-fA-F]{2}/g).map(i=>parseInt(i,16)) );
+	let stepFactor = 1 / (steps - 1);
+	let { round } = Math;
+	let res = [];
+	
+	for (let i=0; i<steps; i++) {
+		let factor = stepFactor * i;
+		let step = a.map((n,j)=> round( n+factor * (b[j]-n) ));
+		res.push(step);
+	}
+	
+	return res;
+}
+</script>
