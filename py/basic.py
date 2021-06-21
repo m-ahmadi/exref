@@ -62,7 +62,16 @@ bar
 # some methods
 {'a','b'}.issuperset({'a'}) # true
 'a,b,c'.split()             # ['a', 'b', 'c']
+'AA\nBB\nCC\n'.splitlines() # ['AA', 'BB', 'CC']
 ', '.join(['a','b','c'])    # 'a, b, c'
+int('25')      # 25
+float('12.34') # 12.34
+str(25)        # '25'
+
+format(12.3456, '.2f')   # '12.35'
+f'{12.345:.2f}'
+'{:.2f}'.format(12.3456) # '12.35'
+round(12.3456, 2)        # 12.35
 
 # list
 x = [1,2]
@@ -91,6 +100,8 @@ a[:]     # copy of arr
 nums = [1,2,3,4]
 x = [x*x for x in nums]               # [1,4,9,16]
 y = [x*x for x in nums if x % 2 == 0] # [4,16]
+arr = [ [1,2], [3,4] ]
+[[j*2 for j in i] for i in arr]       # [ [2,4], [6,8] ]
 
 # variable assignment
 x = 2
@@ -192,4 +203,7 @@ import os
 os.listdir()
 os.mkdir()
 os.rmdir()
+
+file = open('myfile.txt')
+str = file.read()
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

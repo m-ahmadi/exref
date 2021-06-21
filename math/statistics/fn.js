@@ -403,3 +403,47 @@ function min(nums=[]) {
 function max(nums=[]) {
 	return nums.reduce((x,i)=> Math.max(x,i), Number.NEGATIVE_INFINITY);
 }
+
+// tmp
+function polyval2(x=[], y=[], order=3) {
+	if (x.length <= order) console.warn('Warning: Polyfit may be poorly conditioned.');
+
+	let xMatrix = []
+	let yMatrix = numeric.transpose([y])
+
+	for (let i=0; i<x.length; i++) {
+		let temp = []
+		for (let j=0; j<=order; j++) temp.push(Math.pow(x[i], j))
+		xMatrix.push(temp)
+	}
+	
+	let xMatrixT = numeric.transpose(xMatrix);
+
+	let dot1 = numeric.dot(xMatrixT, xMatrix);
+	let dot2 = numeric.dot(xMatrixT, yMatrix);
+
+	let dotInv = numeric.inv(dot1);
+
+	let coefficients = numeric.dot(dotInv, dot2);
+	
+	return coefficients;
+}
+function polyval3(x=[], y=[], order=3) {
+	let xMatrix = [];
+	let xTemp = [];
+	let yMatrix = numeric.transpose([y]);
+
+	for (let i=0; i<x.length; i++) {
+		xTemp = [];
+		for(let j=0; j<=order; j++) xTemp.push(1*Math.pow(x[i],j));
+		xMatrix.push(xTemp);
+	}
+	
+	let xMatrixT = numeric.transpose(xMatrix);
+	let dot1 = numeric.dot(xMatrixT,xMatrix);
+	let dotInv = numeric.inv(dot1);
+	let dot2 = numeric.dot(xMatrixT,yMatrix);
+	let solution = numeric.dot(dotInv,dot2);
+	
+	return solution;
+}
