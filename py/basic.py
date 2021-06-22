@@ -131,25 +131,26 @@ a, = [1,2] # ValueError
 # dict unpacking (v3.5+)
 a = {'x':1, 'y':2}
 b = {**a, 'x':7} # {'x':7, 'y':1}
+
+# some dict operations
+x = {'foo':2, 'bar':7}
+for k in x: print(x[k])
+[k for k in x]    # ['foo','bar']
+[x[k] for k in x] # [2,7]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # loop
-for i in list:
-	print(x)
-
-for i in range(6):
-	if i > 2:
+for i in range(10):
+	if i == 9:
 		break
-	print(i)
-
-for i in list:
-	if i > 2:
+	if i % 2 == 0:
+		print(i)
+	else:
 		continue
-	print(i)
 
-for i in list:
+for i in range(10):
 	print(i)
 else:
-	print('done') # not if loop breaks
+	print('done') # after loop (not if loop breaks)
 
 for i in list:
 	pass # empty loop
@@ -157,6 +158,11 @@ for i in list:
 # condition
 if name == 'John' and age == 23:
 	print('foo')
+
+# ternary
+foo = 'allow' if condition else 'deny'
+('false','true')[condition]
+(2,3)[True] # 3
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # function
 def foo():
@@ -189,6 +195,13 @@ class Student:
 	def is_old(self):
 		return self.age > 100
 
+class Employee(Person):
+	def __init__(self):
+		super(Employee, self).__init__()
+	
+	def method(self):
+		return 2
+
 s = Student('John', 88, None)
 s.name # 'John'
 s.age  # 88
@@ -204,6 +217,12 @@ os.listdir()
 os.mkdir()
 os.rmdir()
 
-file = open('myfile.txt')
-str = file.read()
+f = open('myfile.txt')
+str = f.read()
+
+# iterable
+itr = iter((1,2,3))
+next(itr) # 1
+next(itr) # 2
+next(itr) # 3
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

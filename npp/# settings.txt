@@ -17,10 +17,11 @@ Settings -> Style Configurator
           Enable global font
           Enable global font size
   JavaScript ->
-          KEYWORD -> User-defined keywords
+          KEYWORD -> User-defined keywords: as NaN Infinity string number from
           User ext: json mjs jsx
   CSS  -> TAG -> Font name: none
   HTML -> User ext: vue svelte handlebars hbs tmpl
+  Python -> KEYWORD -> User-defined keywords: True False
 
 remove <Language name="json"> tag from %appdata%\notepad++\langs.xml
 --------------------------------------------------------------------------------
