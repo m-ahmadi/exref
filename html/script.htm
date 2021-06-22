@@ -1,28 +1,28 @@
 <script type="text/javascript" src="main.js"></script>
 script is fetched and executed immediately, before the browser continues parsing the page.
 parsing start, parsing stops, script is downloaded, script is executed, parsing resumes.
-__________________________________________________________
+—————————————————————————————————————————————————
 <script src="main.js" defer></script>
 same as puting scripts before </body>
 parsing starts, parser reaches script tag, script is downloaded, parsing finishes, script executed.
 defer scripts guarantee the order of execution in which they appear in the page.
 (boolean attr, for external scripts only)
 not supported in ie9 and below
-__________________________________________________________
+—————————————————————————————————————————————————
 <script src="main.js" async></script>
 parsing starts, parser reaches script tag, script is downloaded, parsing stops, script is executed, parsing resumes.
 async scripts don't guarantee the order of execution since they're executed as soon as the script is downloaded.
 (a script you included at the end may execute before the first script file)
 (boolean attr, for external scripts only.)
 not supported in ie9 and below
-__________________________________________________________
+—————————————————————————————————————————————————
 <script type="text/javascript"        src="main.js"></script> html 4 and xhtml 1 (kinda obsolete)
 <script type="application/javascript" src="main.js"></script> default. new official mime type (not supported in ie 8 and below)
 type attr is not really necessary
-__________________________________________________________
+—————————————————————————————————————————————————
 <script src="main.js" charset="utf-8"></script>
 for external scripts only (scripts with src attr)
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 native es6 modules
 import statement can only be used in script tags with type="module"
 dynamic import() doesn't require     script tags with type="module"
@@ -39,4 +39,4 @@ modulepreload
 <link rel="modulepreload" href="/modules/npm.pkg-two.mjs" />
 <link rel="modulepreload" href="/modules/npm.pkg-three.mjs" />
 <script type="module" src="/modules/main.mjs"></script>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

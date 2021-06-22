@@ -1,7 +1,7 @@
 all html is valid except:
 <script/>               forbidden
 <html/> <body/> <base/> valid but doesn't make sense to use
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 template expression
 {{ anything inside here }}
 
@@ -22,7 +22,7 @@ new typeof instanceof ...       these operators
 | &                             bitwise operators
 some es6+ operators
 | ?. !                          new template expression operators (!boolean negation is valid)
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 template statement
 <p (eventname)="template statement"></p>
 <p (click)="deleteHero()"></p>
@@ -45,7 +45,7 @@ invalid:
 	+= -= *= /=
 	| &             bitwise
 	|               angular pipe
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 interpolation
 default: {{ }} otherwise: @Component({interpolation: ['%','%']})
 converted to property binding
@@ -53,18 +53,18 @@ converted to property binding
 <p>{{ expression }}</p>
 <p>{{ classProp }}</p>                          html is changed when prop changes
 <p>2+2 equals {{2 + 2}}</p>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 attr binding
 <input [disabled]="condition ? true : false">
 <input [attr.disabled]="condition ? 'disabled' : null">
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 property binding
 
 {{expression}}                                              src-to-target (interpolate,prop,attr,class,style)
 <p [target]="expression"   | bind-target="expression" />    ↑ ...
 <p (target)="statement"    | on-target="statement" />       target-to-src (event)
 <p [(target)]="expression" | bindon-target="expression" />  target-to-src-to-target (two-way)
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 possible binding targets: (something in the dom)
 
 1. property of htmlelement|component|directive
@@ -82,7 +82,7 @@ possible binding targets: (something in the dom)
 5. class property          <div [class.special]="isSpecial">Special</div>
 6. style property          <button [style.color]="isSpecial ? 'red' : 'green'">
 7. "unknown directive"
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
 
 note:
 the binding is to the property of htmlelement,component,directive and not html attributes.
@@ -99,7 +99,7 @@ examples:
 <p *ngFor="let i of arr" />          loop through a class property, output this p for each iteration
 <li *ngFor="let i of arr">{{i}}</li>
 <p *ngIf="condition"></p>            output p if class propery exist
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 event binding
 <p (eventname)="template statement"></p>  parens notation
 <p on-eventname="template statement"></p> on- prefix
@@ -108,4 +108,4 @@ event binding
 
 <input [value]="currentItem.name"
        (input)="currentItem.name=$event.target.value" >
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
