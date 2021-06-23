@@ -10,15 +10,15 @@
 <button onclick="randomBars(+a.value), setChart()">randomBars(<input type="number"value="500"id="a">)</button>
 
 <label>
-	<input id="b1"type="checkbox"onchange="setIndicator()">sma<input id="b2"type="number"value="5"onchange="setIndicator()">
+	<input id="b1"type="checkbox"onchange="setIndicator()"/>sma<input id="b2"type="number"value="5"min="1"oninput="setIndicator()"/>
 </label>
 
 <label>
-	<input id="c1"type="checkbox"onchange="setIndicator()">wma<input id="c2"type="number"value="5"onchange="setIndicator()">
+	<input id="c1"type="checkbox"onchange="setIndicator()"/>wma<input id="c2"type="number"value="5"min="1"oninput="setIndicator()"/>
 </label>
 
 <label>
-	<input id="d1"type="checkbox"onchange="setIndicator()">ema<input id="d2"type="number"value="5"onchange="setIndicator()">
+	<input id="d1"type="checkbox"onchange="setIndicator()"/>ema<input id="d2"type="number"value="5"min="1"oninput="setIndicator()"/>
 </label>
 
 <div id="charts"></div>

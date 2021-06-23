@@ -1,6 +1,6 @@
-function randomBars(len=400) {
-	const bars = [100];
-	const randInt = (min, max) => Math.floor( Math.random() * (Math.floor(max)-Math.ceil(min)) ) + Math.ceil(min);
+function randomBars(len=400, seed=100) {
+	const bars = [seed];
+	const randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
 	for (let i=1; i<len; i+=1) {
 		const prev = bars[i-1];
 		const r = prev * 0.05;
