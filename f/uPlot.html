@@ -59,5 +59,10 @@ var chart = new uPlot({ width:600, height:400, series:[{},{stroke:'blue'},{strok
 	[65,60,55,70,75,60],
 ], charts);
 
-
+var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}], legend:{show:true}}, [], charts);
+var n = 50;
+chart.setData([
+	[...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i), +d/1000)),
+	[...Array(n)].map(()=> Math.floor(Math.random()*250) )
+]);
 </script>
