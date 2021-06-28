@@ -4,6 +4,8 @@ async function foo(sleep=0) {
 	var arr = [];
 
 	for (const i of [...Array(10).keys()]) {
+		// arr.push((await (await fetch('https://jsonplaceholder.typicode.com/users/'+(i+1))).json()).name); // correct way
+		
 		fetch('https://jsonplaceholder.typicode.com/users/'+(i+1)).then(async r => {
 			var user = await r.json();
 			arr.push(user.name);
