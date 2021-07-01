@@ -81,7 +81,7 @@ function iqr(_nums=[]) {
 }
 
 function regressionLinear(x=[], y=[]) {
-	let [xMean, yMean] = [x,y].map(mean);
+	let [xMean, yMean] = [mean(x), mean(y)];
 	
 	let xMeanDiff = x.map(n => n - xMean);
 	let yMeanDiff = y.map(n => n - yMean);
@@ -97,7 +97,7 @@ function regressionLinear(x=[], y=[]) {
 }
 
 function covariance(x=[], y=[]) {
-	let [xm, ym] = [x, y].map(mean);
+	let [xm, ym] = [mean(x), mean(y)];
 	return mean(x.map((v,i)=> (v - xm) * (y[i] - ym)), 0, true);
 }
 
