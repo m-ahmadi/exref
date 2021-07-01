@@ -51,6 +51,16 @@ function variance(x=[]) {
 	return mean(sqrDiffs);
 }
 
+function meandv(nums=[]) {
+	let m = mean(nums);
+	return mean( nums.map(i => Math.abs(i-m)) );
+}
+
+function meddv(nums=[]) {
+	let m = median(nums);
+	return median( nums.map(i=> Math.abs(i-m)) );
+}
+
 function iqr(_nums=[]) {
 	let nums = [..._nums].sort((a,b) => a-b);
 	
