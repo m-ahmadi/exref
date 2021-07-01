@@ -10,13 +10,9 @@ function product(nums=[]) {
 	return nums.reduce((r,i) => r *= i, 1);
 }
 
-function mean(nums=[], sample=false) {
+function mean(nums=[], trim=0, sample=false) {
+	if (trim) nums = [...nums].sort((a,b)=> a-b).slice(+trim, -trim);
 	return sum(nums) / (nums.length - (sample?1:0));
-}
-
-function meanTrim(_nums=[], n=0) {
-	let nums = [..._nums].sort((a,b)=> a-b);
-	return mean( nums.slice(n,-n) );
 }
 
 function range(nums=[]) {
@@ -92,7 +88,7 @@ function regressionLinear(x=[], y=[]) {
 
 function covariance(x=[], y=[]) {
 	let [xm, ym] = [x, y].map(mean);
-	return mean(x.map((v,i)=> (v - xm) * (y[i] - ym)), true);
+	return mean(x.map((v,i)=> (v - xm) * (y[i] - ym)), 0, true);
 }
 
 function covarianceMatrix(matrix=[]) {
