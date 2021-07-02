@@ -1,4 +1,4 @@
-moving average:
+﻿moving average:
 	is an average of a certain body of data.
 	identifies if a new trend has begun or an old trend has ended or reversed.
 	is a follower, not a leader.
@@ -21,7 +21,7 @@ which prices to use
 -----------------------------------------------------------------------------------------------------------------------
 types of moving averages:
 
-basic types: simple weighted exponential
+basic types: simple, weighted, exponential
 
 simple moving average
 	average of last N days

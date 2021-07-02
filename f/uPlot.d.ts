@@ -225,10 +225,10 @@ namespace Cursor {
 	}
 	interface Drag {
 		setScale?: boolean; // true
-		x?: boolean; // true
-		y?: boolean; // false
-		dist?: number; // 0
-		uni?: number; // null
+		x?: boolean;        // true
+		y?: boolean;        // false
+		dist?: number;      // 0
+		uni?: number;       // null
 	}
 	namespace Sync {
 		type Scales = [xScaleKey: string, yScaleKey: string];
