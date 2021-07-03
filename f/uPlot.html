@@ -14,49 +14,32 @@ const data = [
 
 new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}]}, data, charts);
 
-new uPlot({
-	width:600, height:400,
-	//cursor: {show: false},
-	//select: {show: false},
-	legend: {show: false},
-	//scales: { x: {time: false} },
-	series: [ {}, {stroke:'cyan'}, {stroke:'magenta'} ],
-}, data, charts);
+new uPlot({width:600, height:400, legend:{show:false}, series:[{},{stroke:'cyan'},{stroke:'magenta'}]}, data, charts);
 
-new uPlot({
-	width:600,height:400,
-	cursor: {show: false},
-	select: {show: false},
-	legend: {show: false},
+new uPlot({width:600, height:400,
+	cursor: {show:false},
+	select: {show:false},
+	legend: {show:false},
 	scales: { x: {time: false} },
 	axes: [ {show: false}, {show: false} ],
 	series: [ {}, {stroke:'lime'}, {stroke:'crimson'} ],
 }, data, charts);
 
-new uPlot({
-	title: 'My Chart',
-	width: 600,
-	height: 400,
-	series: [
-		{},
-		{
-			show: true,
-			spanGaps: false,
-			label: 'RAM',
-			value: (self, rawValue) => '$' + rawValue.toFixed(2),
-			stroke: 'red',
-			width: 1,
-			fill: 'rgba(255,0,0,0.3)',
-			dash: [10, 5],
-		},
-		{ show: true }
-	],
-}, data, charts);
+new uPlot({width:600, height:400, title:'My Chart', series:[
+	{},
+	{label:'RAM', value:(s,rawValue)=>'$'+rawValue.toFixed(2), stroke:'red', fill:'rgba(255,0,0,0.3)', dash:[10,5]},
+	{}]}, data, charts);
 
-var chart = new uPlot({ width:600, height:400, series:[{},{stroke:'blue'},{stroke:'red'}], scales:{x:{time:false}} }, [
+new uPlot({width:600, height:400, series:[{},{stroke:'blue'},{stroke:'red'}], scales:{x:{time:false}} }, [
 	[1,2,3,4,5,6],
 	[25,32,42,65,44,32],
 	[65,60,55,70,75,60],
+], charts);
+
+new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2},{stroke:'red',width:3,points:{size:15,space:0}}] }, [
+	[...Array(6)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-6+i), +d/1000)),
+	[1,4,2,6,3,7],
+	[null,4,2,null,3,7],
 ], charts);
 
 var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}], legend:{show:true}}, [], charts);
