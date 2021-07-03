@@ -37,15 +37,23 @@ new uPlot({width:600, height:400, series:[{},{stroke:'blue'},{stroke:'red'}], sc
 ], charts);
 
 new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2},{stroke:'red',width:3,points:{size:15,space:0}}] }, [
-	[...Array(6)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-6+i), +d/1000)),
+	ts(6),
 	[1,4,2,6,3,7],
 	[null,4,2,null,3,7],
 ], charts);
 
+new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2},{stroke:'red',width:4,points:{size:30,space:0,fill:'red'}}] }, [
+	ts(6),
+	[1,4,2,6,3,7],
+	[null,null,1.5,null,2.5,null],
+], charts);
+
 var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}], legend:{show:true}}, [], charts);
-var n = 50;
 chart.setData([
-	[...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i), +d/1000)),
-	[...Array(n)].map(()=> Math.floor(Math.random()*250) )
+	ts(50),
+	[...Array(50)].map(()=> Math.floor(Math.random()*250) )
 ]);
+
+
+function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i), +d/1000)) }
 </script>
