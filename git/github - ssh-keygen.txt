@@ -1,18 +1,26 @@
 in git-bash: (not cmder, not cmd, not conemu, ONLY git-bash.exe)
 
 
-ssh-keygen -t rsa -b 4096 -C "mohammad.ahmadi1989@yahoo.com"
-enter... (no passphrase)
+ssh-keygen -t rsa -b 4096 -C "ahmdee18@gmail.com"
+	enter... (no passphrase)
 eval $(ssh-agent -s)
 ssh-add ~/.ssh/id_rsa
 clip < ~/.ssh/id_rsa.pub
 
 github account -> settings -> ssh and gpg keys -> add key
-key name: something
-content: paste
-----------------------------------------------------------------------------------------
+	key name: something
+	content: paste
+--------------------------------------------------------------------------------
 note:
 
 add the ssh key in your github account (github->settings->ssh and gpg keys)
 
 do not add the key for a single repository! (repo->settings->deploy keys)
+
+on gitlab -> preferences -> ssh keys
+
+on android using "Termux" app
+	pkg install git
+	pkg install openssh
+	... rest the same
+
