@@ -6,41 +6,16 @@
 .clip              (path|winding, ?winding='nonzero|evenodd')
 .isPointInPath     (path|x, x, y, ?winding='nonzero|evenodd')
 .isPointInStroke   (path|x, x, y)
-
-new Path2D(?path|?d='')
-Path2D.addPath()
-Path2D.closePath()
-Path2D.moveTo()
-Path2D.lineTo()
-Path2D.bezierCurveTo()
-Path2D.quadraticCurveTo()
-Path2D.arc()
-Path2D.arcTo()
-Path2D.ellipse()
-Path2D.rect()
 </p><br>
 
-<div style="display: grid; grid-template-columns: auto auto auto auto;">
+<p>clip() clip an area, then draw afterward</p>
+<canvas></canvas>
 
-<div><p>clip() clip an area, then draw afterward</p>
-<canvas></canvas></div>
-
-<div><p>isPointInPath()</p>
-<canvas></canvas></div>
-
-<div><p>Path2D</p>
-<canvas></canvas></div>
-
-<div><p>triangle</p>
-<canvas></canvas></div>
-
-<div><p>star</p>
-<canvas></canvas></div>
-
-</div>
+<p>isPointInPath()</p>
+<canvas></canvas>
 
 <script>
-[c1,c2,c3,c4,c5] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+[c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
 
 c1.rect(50,20,200,120);
 c1.stroke();
@@ -48,56 +23,6 @@ c1.clip();
 c1.fillStyle='red';
 c1.fillRect(0,0,150,100);
 
-
-
 c2.rect(20,20,150,100);
 if ( c2.isPointInPath(20,50) ) c2.stroke();
-
-
-
-var path1 = new Path2D();
-path1.rect(10,10,100,100);
-var path2 = new Path2D(path1);
-path2.moveTo(220,60);
-path2.arc(170,60,50,0,2*Math.PI);
-c3.stroke(path2);
-
-
-
-c4.beginPath();
-c4.moveTo(100,75);
-c4.lineTo(75,50);
-c4.lineTo(100,25);
-c4.fill();
-
-c4.beginPath(); // up
-var [x,y,w,h] = [150,10,50,50];
-[...Array(3)].map((_,i)=> [x+(i>0?i%2?-w:w:0), y+(i>0?h:0)]).forEach(([x,y],i)=> i<1? c4.moveTo(x,y) : c4.lineTo(x,y));
-c4.fill();
-
-c4.beginPath(); // down
-var [x,y,w,h] = [150,80,50,50];
-[...Array(3)].map((_,i)=> [x+(i>0?i%2?w:-w:0), y+(i>0?0:h)]).forEach(([x,y],i)=> i<1? c4.moveTo(x,y) : c4.lineTo(x,y));
-c4.fill();
-
-
-
-var [spikes, innerRadius, outerRadius] = [12,32,64];
-var {PI, cos, sin} = Math;
-var [cx, cy] = [150, 75];
-var [rot, x, y, step] = [PI/2*3, cx, cy, PI/spikes];
-c5.fillStyle = 'red';
-c5.beginPath();
-c5.moveTo(cx, cy-outerRadius);
-for (let i=0; i<spikes; i++) {
-	[x,y] = [cx+cos(rot)*outerRadius, cy+sin(rot)*outerRadius];
-	c5.lineTo(x,y);
-	rot += step;
-	[x,y] = [cx+cos(rot)*innerRadius, cy+sin(rot)*innerRadius];
-	c5.lineTo(x,y);
-	rot += step;
-}
-c5.lineTo(cx, cy-outerRadius);
-c5.closePath();
-c5.fill();
 </script>

@@ -1,0 +1,48 @@
+<link rel=stylesheet href=_g.css />
+
+<p>triangle</p>
+<canvas></canvas>
+
+<p>star</p>
+<canvas></canvas>
+
+<script>
+[c1,c2] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
+
+c1.beginPath();
+c1.moveTo(100,75);
+c1.lineTo(75,50);
+c1.lineTo(100,25);
+c1.fill();
+
+c1.beginPath(); // up
+var [x,y,w,h] = [150,10,50,50];
+[...Array(3)].map((_,i)=> [x+(i>0?i%2?-w:w:0), y+(i>0?h:0)]).forEach(([x,y],i)=> i<1? c1.moveTo(x,y) : c1.lineTo(x,y));
+c1.fill();
+
+c1.beginPath(); // down
+var [x,y,w,h] = [150,80,50,50];
+[...Array(3)].map((_,i)=> [x+(i>0?i%2?w:-w:0), y+(i>0?0:h)]).forEach(([x,y],i)=> i<1? c1.moveTo(x,y) : c1.lineTo(x,y));
+c1.fill();
+
+
+
+var [spikes, innerRadius, outerRadius] = [12,32,64];
+var {PI, cos, sin} = Math;
+var [cx, cy] = [150, 75];
+var [rot, x, y, step] = [PI/2*3, cx, cy, PI/spikes];
+c2.fillStyle = 'red';
+c2.beginPath();
+c2.moveTo(cx, cy-outerRadius);
+for (let i=0; i<spikes; i++) {
+	[x,y] = [cx+cos(rot)*outerRadius, cy+sin(rot)*outerRadius];
+	c2.lineTo(x,y);
+	rot += step;
+	[x,y] = [cx+cos(rot)*innerRadius, cy+sin(rot)*innerRadius];
+	c2.lineTo(x,y);
+	rot += step;
+}
+c2.lineTo(cx, cy-outerRadius);
+c2.closePath();
+c2.fill();
+</script>
