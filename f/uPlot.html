@@ -49,8 +49,8 @@ new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2},{stroke:'r
 
 var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}], legend:{show:true}}, [], charts);
 chart.setData([
-	ts(50),
-	[...Array(50)].map(()=> Math.floor(Math.random()*250) )
+	ts(20),
+	[...Array(20)].map(()=> Math.floor(Math.random()*250) )
 ]);
 
 new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2}], plugins:[{opts:(u,opts)=> opts.series.forEach((s,i)=> i>0 && uPlot.assign(s,{points:{show:drawStars}}))}]}, [
