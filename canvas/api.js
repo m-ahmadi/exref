@@ -1,7 +1,7 @@
 HTMLCanvasElement extends HTMLElement
 HTMLCanvasElement.height
 HTMLCanvasElement.width
-HTMLCanvasElement.getContext(contextType='2d|webgl|webgl2|bitmaprenderer', contextAttributes={alpha: true, desynchronized: false})
+HTMLCanvasElement.getContext(contextType='2d|webgl|webgl2|bitmaprenderer', contextAttributes={alpha:true, desynchronized:false})
 HTMLCanvasElement.toDataURL()
 HTMLCanvasElement.toBlob()
 

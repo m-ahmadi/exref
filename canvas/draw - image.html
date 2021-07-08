@@ -4,7 +4,7 @@
 .drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
 </p><br>
 
-<img src="https://via.placeholder.com/150" />
+<img src="https://via.placeholder.com/150" hidden />
 
 <canvas></canvas>
 
@@ -12,5 +12,5 @@
 [c1] = [...document.querySelectorAll('canvas')].map(i=>i.getContext('2d'));
 
 var img = document.querySelector('img');
-c1.drawImage(img, 10, 10);
+img.onload = ()=> c1.drawImage(img, 10, 10);
 </script>

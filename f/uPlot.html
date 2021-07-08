@@ -2,7 +2,6 @@
 <script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
 
 <a href="https://leeoniya.github.io/uPlot/demos/index.html" target="_blank">demos</a>
-<a href="https://github.com/leeoniya/uPlot/blob/master/dist/uPlot.d.ts" target="_blank">types</a>
 <div id="charts" style="display: grid; grid-template-columns: auto auto auto;"></div>
 
 <script>
@@ -54,6 +53,66 @@ chart.setData([
 	[...Array(50)].map(()=> Math.floor(Math.random()*250) )
 ]);
 
+new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2}], plugins:[{opts:(u,opts)=> opts.series.forEach((s,i)=> i>0 && uPlot.assign(s,{points:{show:drawStars}}))}]}, [
+	ts(6),
+	[1,2,1,3,2,4],
+], charts);
+function drawStar(ctx, cx, cy) {
+	let [spikes, outerRadius, innerRadius] = [6,16,8];//4,8,4
+	let {PI, cos, sin} = Math;
+	let [rot, x, y, step] = [PI/2*3, cx, cy, PI/spikes];
+	ctx.beginPath();
+	ctx.moveTo(cx, cy-outerRadius);
+	for (let i=0; i<spikes; i++) {
+		[x, y] = [cx+cos(rot)*outerRadius, cy+sin(rot)*outerRadius];
+		ctx.lineTo(x, y);
+		rot += step;
+		[x, y] = [cx+cos(rot)*innerRadius, cy+sin(rot)*innerRadius];
+		ctx.lineTo(x, y);
+		rot += step;
+	}
+	ctx.lineTo(cx, cy-outerRadius);
+	ctx.closePath();
+}
+function drawStars(u, i, i0, i1) {
+	let {ctx} = u;
+	let {_stroke, scale} = u.series[i];
+	ctx.fillStyle = 'red';//_stroke;
+	let j = i0;
+	while (j <= i1) {
+		let val = u.data[i][j];
+		let cx = Math.round(u.valToPos(u.data[0][j], 'x', true));
+		let cy = Math.round(u.valToPos(val, scale, true));
+		drawStar(ctx, cx, cy);
+		ctx.fill();
+		j++;
+	};
+}
+
+new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2}], plugins:[{opts:(u,opts)=> opts.series.forEach((s,i)=> i>0 && uPlot.assign(s,{points:{show:drawTriangles}}))}]}, [
+	ts(6),
+	[1,2,1,3,2,4],
+], charts);
+function drawTriangles(u, i, i0, i1) {
+	let {ctx} = u;
+	let {scale} = u.series[i];
+	let j = i0;
+	while (j <= i1) {
+		let val = u.data[i][j];
+		let x = Math.round(u.valToPos(u.data[0][j], 'x', true));
+		let y = Math.round(u.valToPos(val, scale, true));
+		ctx.beginPath();
+		let [w,h] = [10,20];
+		y = j%2 ? y-h-5 : y+h-(h-5);
+		let cords = j%2
+			? [...Array(3)].map((_,i)=> [x+(i>0?i%2?w:-w:0), y+(i>0?0:h)])  // downward triangle
+			: [...Array(3)].map((_,i)=> [x+(i>0?i%2?-w:w:0), y+(i>0?h:0)]); // upward   triangle
+		cords.forEach(([x,y],i)=> i<1? ctx.moveTo(x,y) : ctx.lineTo(x,y));
+		ctx.fillStyle = j%2 ? 'red' : 'green';
+		ctx.fill();
+		j++;
+	};
+}
 
 function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i), +d/1000)) }
 </script>

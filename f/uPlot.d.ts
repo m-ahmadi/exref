@@ -1,3 +1,4 @@
+// https://github.com/leeoniya/uPlot/blob/master/dist/uPlot.d.ts
 class uPlot {
 	constructor(
 		opts: Options,
