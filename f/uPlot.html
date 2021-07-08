@@ -86,7 +86,7 @@ function drawStars(u, i, i0, i1) {
 		drawStar(ctx, cx, cy);
 		ctx.fill();
 		j++;
-	};
+	}
 }
 
 new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2}], plugins:[{opts:(u,opts)=> opts.series.forEach((s,i)=> i>0 && uPlot.assign(s,{points:{show:drawTriangles}}))}]}, [
@@ -111,7 +111,43 @@ function drawTriangles(u, i, i0, i1) {
 		ctx.fillStyle = j%2 ? 'red' : 'green';
 		ctx.fill();
 		j++;
-	};
+	}
+}
+
+new uPlot({width:600, height:400,
+	series: [
+		{},
+		{ stroke:'green', width:0, points:{show:tri} },
+		{ stroke:'red',   width:0, points:{show:tri} },
+		{ stroke:'black', width:2, },
+	],
+}, [
+	ts(6),
+	[null,null,2,null,null,null],
+	[null,null,null,4,null,null],
+	[1,3,2,4,3,6]
+], charts);
+function tri({ctx,series,data,valToPos},i,i0,i1) {
+	let {scale, _stroke} = series[i];
+	let j = i0;
+	ctx.fillStyle = _stroke;
+	for (let j=i0; j<=i1; j++) {
+		let val = data[i][j];
+		
+		if ( Number.isNaN(val) ) continue;
+		
+		let x = Math.round(valToPos(data[0][j], 'x', true));
+		let y = Math.round(valToPos(val, scale, true));
+		let [w,h] = [10,20];
+		y = _stroke === 'green' ? y-h-5 : y+h-(h-5);
+		let cords = _stroke === 'green'
+			? [...Array(3)].map((_,i)=> [x+(i>0?i%2?w:-w:0), y+(i>0?0:h)])  // dw
+			: [...Array(3)].map((_,i)=> [x+(i>0?i%2?-w:w:0), y+(i>0?h:0)]); // up
+		
+		ctx.beginPath();
+		cords.forEach(([x,y],i)=> i<1? ctx.moveTo(x,y) : ctx.lineTo(x,y)); //ctx.arc(x,y,4,0,2*Math.PI);
+		ctx.fill();
+	}
 }
 
 function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i), +d/1000)) }
