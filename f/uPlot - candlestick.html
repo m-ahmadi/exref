@@ -1,3 +1,8 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css">
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<h1>Candlestick Chart</h1>
+
+<script>
 // gold prices from https://www.investing.com/commodities/gold-historical-data
 // Date,Open,High,Low,Close
 const data = [
@@ -14,7 +19,7 @@ const fmtDate = uPlot.fmtDate('{YYYY}-{MM}-{DD}');
 const tzDate = ts => uPlot.tzDate(new Date(ts * 1e3), 'Etc/UTC');
 
 const opts = {
-	width: 900,
+	width: 1850,
 	height: 600,
 	title: 'Gold',
 	tzDate,
@@ -285,3 +290,4 @@ function candlestickPlugin({gap=2, shadowColor='#000000', bearishColor='#e54245'
 		}
 	};
 }
+</script>
