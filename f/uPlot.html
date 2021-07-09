@@ -134,7 +134,7 @@ function tri({ctx,series,data,valToPos},i,i0,i1) {
 	for (let j=i0; j<=i1; j++) {
 		let val = data[i][j];
 		
-		if ( Number.isNaN(val) ) continue;
+		if (val === null) continue;
 		
 		let x = Math.round(valToPos(data[0][j], 'x', true));
 		let y = Math.round(valToPos(val, scale, true));
@@ -150,5 +150,5 @@ function tri({ctx,series,data,valToPos},i,i0,i1) {
 	}
 }
 
-function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i), +d/1000)) }
+function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i)/1000)) }
 </script>
