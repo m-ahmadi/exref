@@ -146,10 +146,15 @@ const opts = {
 	],
 	
 	plugins: [
-		()=>,
-		()=>,
+		()=>{},
+		()=>{},
 		...
-	]
+	],
+	
+	hooks: {
+		draw: (u)=>;
+		...
+	}
 };
 
 const chart = new uPlot(opts, data, document.body);

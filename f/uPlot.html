@@ -150,5 +150,24 @@ function tri({ctx,series,data,valToPos},i,i0,i1) {
 	}
 }
 
+new uPlot({width:600, height:400,
+	series: [
+		{},
+		{ stroke:'black' },
+	],
+	hooks: {
+		draw: [
+			({ ctx, bbox: {left,top} }) => {
+				ctx.font = '20px Arial';
+				ctx.fillStyle = 'blue';
+				ctx.textAlign = 'left';
+				ctx.textBaseline = 'top';
+				ctx.fillText('Hello dummy', left+10, top+10);
+				ctx.fillText('How are you dummy', left+10, top+30);
+			}
+		]
+	},
+}, [ts(6), [1,3,2,4,3,6]], charts);
+
 function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i)/1000)) }
 </script>
