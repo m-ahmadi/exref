@@ -41,6 +41,20 @@ function median(_nums=[]) {
 	}
 }
 
+function percentile(_nums=[], n=0, exclusive=false) {
+	let nums = [..._nums].sort((a,b)=>a-b);
+	// return nums[Math.floor(nums.length*n)];
+	let len = nums.length;
+	let realIndex = n * (len + (exclusive?1:-1)) + (exclusive?0:1);
+  let index = parseInt(realIndex);
+  let frac = realIndex - index;
+  if (index+1 < len) {
+    return nums[index-1] + frac * (nums[index] - nums[index-1]);
+  } else {
+    return nums[index-1];
+  }
+}
+
 function stdv(nums=[]) {
 	return Math.sqrt( variance(nums) );
 }

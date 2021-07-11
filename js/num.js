@@ -5,7 +5,7 @@
 0b11111111 // 255    binary
 0o377      // 255    octal
 255e-1     // 25.5   scientific
-255e-2     // 25500  scientific
+25e-4      // 0.0025 scientific
 
 // more scientific notations:
 .01024e4   // 102.4
