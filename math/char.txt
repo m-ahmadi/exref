@@ -2,14 +2,14 @@
 –	dash alternative	alt 0150
 —	like _ but middle	alt 0151
 
-superscript
-⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁿ ⁱ ʲ ᴰ ᴱ ᴳ ᴴ ᴵ ᴶ ᴷ ᴸ ᴹ ᴺ ᴼ ᴾ ᴿ ᵀ ᵁ ᵂ
+suP
+⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾ ⁱ ʲ ⁿ ᴰ ᴱ ᴳ ᴴ ᴵ ᴶ ᴷ ᴸ ᴹ ᴺ ᴼ ᴾ ᴿ ᵀ ᵁ ᵂ
+suB
+₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ ₐ ₑ ᵢ ₒ ₓ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ
 
-subscript
-₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎ ᵢ ₐ ₑ ₒ ₓ ₔ ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ
-
-
-sup uppercase letter	1D2C
-sup lowercase letter	1D43
+suP digit		2070
+suB digit 		2080
+suP uppercase letter	1D2C
+suB lowercase letter	1D43
 combining chars		0305
 other hyphens		2010, 2011
