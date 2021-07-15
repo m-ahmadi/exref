@@ -11,18 +11,14 @@
 
 	model = tf.sequential({
 		layers: [
-			tf.layers.dense({inputShape: [2], units: 2, useBias: true}),
-			tf.layers.dense({units: 1, useBias: true})
+			tf.layers.dense({inputShape: [2], units: 2,}),
+			tf.layers.dense({units: 1,  activation: 'sigmoid'})
 		]
 	});
 
-	model.compile({
-		optimizer: 'sgd',
-		loss: 'meanSquaredError',
-		metrics: ['mse'],
-	});
+	model.compile({optimizer:'sgd', loss:'meanSquaredError', metrics:['mse']});
 
-	await model.fit(inputs, labels, {epochs: 50, shuffle: true});
+	await model.fit(inputs, labels, {epochs: 50});
 
 	console.log(
 		model.predict(  tf.tensor([ [0,0], [0,1], [1,0], [1,1] ])  ).print()

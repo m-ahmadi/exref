@@ -10,6 +10,11 @@ localStorage.removeItem('myCat');
 
 // clear all items
 localStorage.clear();
+
+// alt way
+Object.keys(localStorage)
+localStorage.foo = 'hello';
+localStorage.foo // 'hello'
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* sessionStorage
 	data stored in sessionStorage gets cleared when the page session ends.

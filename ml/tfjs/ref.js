@@ -47,9 +47,9 @@ tf.layers.dense(arg={
 
 tf.LayersModel.summary(?lineLength=0, ?positions=[0,...], ?printFn=(?message,?optioanlParams)=>)
 tf.LayersModel.compile(args={
-	optimizer: ''| Optimizer,
-	loss:      '' | ['',...] | {name:''} | ()=>,
-	metrics:   '' | ()=> | [] | {name:''|()=>},
+	optimizer: 'sgd|momentum|adagrad|adadelta|adam|adamax|rmsprop'| Optimizer,
+	loss:      'absoluteDifference|computeWeightedLoss|cosineDistance|hingeLoss|huberLoss|logLoss|sigmoidCrossEntropy|softmaxCrossEntropy' | ['',...] | {name:''} | ()=>, 
+	metrics:   'binaryAccuracy|binaryCrossentropy|categoricalAccuracy|categoricalCrossentropy|cosineProximity|meanAbsoluteError|meanAbsolutePercentageError|meanSquaredError|precision|recall|sparseCategoricalAccuracy' | ()=> | [] | {name:''|()=>},
 })
 tf.LayersModel.evaluate(x, y, ?args)
 tf.LayersModel.evaluateDataset(dataset, ?args)

@@ -8,8 +8,9 @@ tf.tensor([1,2,3,4]).square()       // [1,4,9,16]
 // model creation
 const model = tf.sequential({
 	layers: [
-		tf.layers.dense({inputShape: [784], units: 32, activation: 'relu'}),
-		tf.layers.dense({units: 10, activation: 'softmax'}),
+		tf.layers.dense({inputShape: [784], units: 32, activation: 'relu'}), // input layer (must define input shape)
+		// hidden layers (shape is auto-infered after first layer)
+		tf.layers.dense({units: 10, activation: 'softmax'}),                 // output layer
 	]
 });
 // or
