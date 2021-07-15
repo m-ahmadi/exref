@@ -1,0 +1,3 @@
+binary		label is 1 of 2 classes				label = 0|1
+multiclass	label is 1 of 3 or more classes			label = 0|1|2 or -1|0|1 or 1|2|3|4|5
+multilabel	multiple (binary/multiclass) labels assigned	label = (0|1, -1|0|1) or (-1|1, 1|2|3, 0|50|100)

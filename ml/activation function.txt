@@ -1,0 +1,20 @@
+which activation function?
+
+sigmoid		outputs value in [0,1] range
+tanh		outputs value in [-1,1] range
+relu		outputs (val < 0 ? 0 : val) in [0,1] range (heNormal|heUniform)
+leaky-relu	
+linear		
+softmax		outputs vector that sum to 1 (probabilities of class membership)
+
+
+hidden layers
+	relu|leaky-relu|sigmoid|tang
+
+output layer
+	classification
+		binary		sigmoid		1 node
+		multiclass	softmax		1 node per class
+		multilabel	sigmoid		...
+
+	regression		linear

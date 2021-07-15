@@ -1,7 +1,0 @@
-which activation function?
-
-hidden layers
-	ReLU or Leaky ReLU
-output layer
-	Softmax for classification: 
-	Linear  for regression:	

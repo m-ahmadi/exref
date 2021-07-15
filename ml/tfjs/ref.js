@@ -49,7 +49,18 @@ tf.LayersModel.summary(?lineLength=0, ?positions=[0,...], ?printFn=(?message,?op
 tf.LayersModel.compile(args={
 	optimizer: 'sgd|momentum|adagrad|adadelta|adam|adamax|rmsprop'| Optimizer,
 	loss:      'absoluteDifference|computeWeightedLoss|cosineDistance|hingeLoss|huberLoss|logLoss|sigmoidCrossEntropy|softmaxCrossEntropy' | ['',...] | {name:''} | ()=>, 
-	metrics:   'binaryAccuracy|binaryCrossentropy|categoricalAccuracy|categoricalCrossentropy|cosineProximity|meanAbsoluteError|meanAbsolutePercentageError|meanSquaredError|precision|recall|sparseCategoricalAccuracy' | ()=> | [] | {name:''|()=>},
+	metrics:   ['accuracy'] | '' | ()=> | [] | {name:''|()=>},
+		'binaryAccuracy'
+		'binaryCrossentropy'      // binary classification
+		'categoricalAccuracy'
+		'categoricalCrossentropy' // multiclass classification
+		'cosineProximity'
+		'meanAbsoluteError'
+		'meanAbsolutePercentageError'
+		'meanSquaredError'
+		'precision'
+		'recall'
+		'sparseCategoricalAccuracy'
 })
 tf.LayersModel.evaluate(x, y, ?args)
 tf.LayersModel.evaluateDataset(dataset, ?args)
