@@ -42,15 +42,40 @@ bytes(5)                 # bytes
 bytearray(5)             # bytearray
 memoryview(bytes(5))     # memoryview
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# opr
++ - * / %        # arithmeic
+**               # ... exponentiation
+//               # ... floor division
+@                # ... matrix multiplication
+= : :=           # assignment
++= -= *= /= %=   # ...
+//= **= @=       # ...
+&= |= ^= >>= <<= # ...
+== != > < >= <=  # comparison
+and or not       # logical
+in is            # containment & identity
+& | ^ ~ << >>    # bitwise
+
+[]  # index/literal
+{}  # 
+()  # 
+-   # arithmetic negation
++   # arithmetic positive
+:=  # walrus
+del # deletion
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # basic operations
 1+2*3/4 # arithmetic: 2.5
 9 % 2   # remainder: 1
 4 ** 2  # squared: 16
 4 ** 3  # cubed: 64
-'foo' +' '+ 'bar' # str concat: 'foo bar'
 ('foo' 'bar')     # ...
-'foo' * 2         # str repeat: 'foofoo'
-[1,2] + [3,4]     # list concat: [1,2,3,4]
+
+3 is 3            # instanceof: True
+[3] is [3]        # ...: False
+2 in [1,2,3]      # containment: True
+1 in {1,2}        # ...: true
+1 in (1,2)        # ...: true
 
 # multiline string
 """foo
@@ -62,12 +87,25 @@ bar
 
 # some methods
 {'a','b'}.issuperset({'a'}) # true
-'a,b,c'.split()             # ['a', 'b', 'c']
-'AA\nBB\nCC\n'.splitlines() # ['AA', 'BB', 'CC']
-', '.join(['a','b','c'])    # 'a, b, c'
 int('25')      # 25
 float('12.34') # 12.34
 str(25)        # '25'
+
+# str
+'foo' +' '+ 'bar' # str concat: 'foo bar'
+'foo' * 2         # str repeat: 'foofoo'
+'a,b,c'.split()             # ['a', 'b', 'c']
+'AA\nBB\nCC\n'.splitlines() # ['AA', 'BB', 'CC']
+', '.join(['a','b','c'])    # 'a, b, c'
+' foo '.strip()             # 'foo'
+'Foo'.lower()               # 'foo'
+'foo'.upper()               # 'FOO'
+'foo'.startswith('fo')      # True
+'foo'.endswith('oo')        # True
+'foo'.find('oo')            # match index: 2
+'foo'.replace('oo', 'ar')   # 'far'
+len('foo')                  # 5
+'foo' in 'football'         # containment: True
 
 format(12.3456, '.2f')   # '12.35'
 f'{12.345:.2f}'
@@ -79,6 +117,19 @@ x = [1,2]
 x.append(3)
 x[4]   # error
 len(x) # 2
+[1,2] + [3,4]        # list concat: [1,2,3,4]
+[1,2].append(3)      # [1,2,3]
+[1,2,3].insert(2, 4) # [1,2,4,3]
+[1,2,3].remove(1)    # [2,3]
+[1,2,3].reverse()    # [3,2,1]
+[3,1,2].sort()       # [1,2,3]
+[1,2].index(2)       # 1
+[1,2].index(3)       # err
+[1,1,2].index(1,1)   # 1
+a = [3]
+a.append(4) # [3,4]
+a.pop()     # 4    a: [3]
+a.pop()     # 3    a: [] 
 
 x<range> = range(?start=0, stop=int, ?step=1)
 x = range(1,10,2)
@@ -103,6 +154,12 @@ x = [x*x for x in nums]               # [1,4,9,16]
 y = [x*x for x in nums if x % 2 == 0] # [4,16]
 arr = [ [1,2], [3,4] ]
 [[j*2 for j in i] for i in arr]       # [ [2,4], [6,8] ]
+
+# set
+{1,2,3} == set([1,2,3]) # True
+
+# set comprehension
+squares = {x** 2 for x in [0,2,4] if x < 4} # {0, 4}
 
 # variable assignment
 x = 2
@@ -141,6 +198,10 @@ x = {'foo':2, 'bar':7}
 for k in x: print(x[k])
 [k for k in x]    # ['foo','bar']
 [x[k] for k in x] # [2,7]
+
+# type coercion
+if None or 0 or 0.0 or '' or [] or {} or set():
+	print('dead code') # not reached
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # loop
 for i in range(10):
@@ -158,6 +219,11 @@ else:
 
 for i in list:
 	pass # empty loop
+
+i = 0
+while i < 3 :
+	print(j)
+	j = j + 1
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # condition
 if name == 'John' and age == 23:
@@ -210,6 +276,7 @@ f(**{'a':3})       # err (missing 1 required positional argument)
 f = lambda: print('hi')
 f = lambda a: a + 10
 f = lambda a, b: a * b
+(lambda x: x+3)(3) # 6
 
 # some operations
 def add(n): return n + n
