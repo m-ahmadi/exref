@@ -195,6 +195,8 @@ b = {**a, 'x':7} # {'x':7, 'y':1}
 
 # some dict operations
 x = {'foo':2, 'bar':7}
+x.foo    # 2
+x['foo'] # 2
 for k in x: print(x[k])
 [k for k in x]    # ['foo','bar']
 [x[k] for k in x] # [2,7]
