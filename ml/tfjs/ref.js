@@ -48,7 +48,24 @@ tf.layers.dense(arg={
 tf.LayersModel.summary(?lineLength=0, ?positions=[0,...], ?printFn=(?message,?optioanlParams)=>)
 tf.LayersModel.compile(args={
 	optimizer: 'sgd|momentum|adagrad|adadelta|adam|adamax|rmsprop'| Optimizer,
-	loss:      'absoluteDifference|computeWeightedLoss|cosineDistance|hingeLoss|huberLoss|logLoss|sigmoidCrossEntropy|softmaxCrossEntropy' | ['',...] | {name:''} | ()=>, 
+	loss:      '' | ['',...] | {name:''} | ()=>,
+		// tfjs-layers/src/losses.ts:
+		'binaryCrossentropy'
+		'categoricalCrossentropy'
+		'categoricalHinge'
+		'cosineProximity'
+		'hinge'
+		'kullbackLeiblerDivergence'
+		'l2Normalize'
+		'logcosh'
+		'meanAbsoluteError'
+		'meanAbsolutePercentageError'
+		'meanSquaredError'
+		'meanSquaredLogarithmicError'
+		'poisson'
+		'sigmoidCrossEntropyWithLogits'
+		'sparseCategoricalCrossentropy'
+		'squaredHinge'
 	metrics:   ['accuracy'] | '' | ()=> | [] | {name:''|()=>},
 		'binaryAccuracy'
 		'binaryCrossentropy'      // binary classification
@@ -88,8 +105,10 @@ tf.LayersModel.fit(
 
 tf.LayersModel.fitDataset(dataset, args)
 tf.LayersModel.trainOnBatch(x, y)
-tf.LayersModel.save(handlerOrURL, ?config)
+tf.LayersModel.save(handlerOrURL=''|IOHandler, ?config={trainableOnly:false, includeOptimizer:false})
 tf.LayersModel.getLayer(?name, ?index)
+
+tf.loadLayersModel(pathOrIOHandler=''|IOHandler, ?options={...})
 
 tf.tidy(nameOrFn=''|()=>, ?fn)
 

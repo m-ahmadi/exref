@@ -1,1 +1,1 @@
-pip install pandas			data manipulation
+pip install pandas		data manipulation

@@ -1,15 +1,15 @@
 var model = tf.sequential({layers: [
-	tf.layers.dense({units: 100, inputShape: [2], activation: 'sigmoid'}),
+	tf.layers.dense({units: 100, activation: 'sigmoid', inputShape: [2]}),
 	tf.layers.dense({units: 100, activation: 'sigmoid'},
-	tf.layers.dense({units: 1, activation: 'sigmoid'}),
+	tf.layers.dense({units: 1,   activation: 'sigmoid'}),
 ]});
 model.compile({optimizer: 'adam', loss: 'binaryCrossentropy', metrics: ['accuracy']});
 
 
 
 var model = tf.sequential({layers: [
-	tf.layers.dense({units: 100, inputShape: [2], activation: 'relu'}),
-	tf.layers.dense({units: 1, activation: 'sigmoid'}),
+	tf.layers.dense({units: 100, activation: 'relu', inputShape: [2]}),
+	tf.layers.dense({units: 1,   activation: 'sigmoid'}),
 ]});
 model.compile({optimizer: 'adam', loss: 'binaryCrossentropy', metrics: ['accuracy']});
 

@@ -37,8 +37,10 @@ var o = tf.layers.activation({activation: 'relu'}).apply(t);
 o.print(); // [0, 1, 0, 5]
 
 // load/save
-var saveResult = await model.save('localstorage://my-model-1');
-var model = await tf.loadLayersModel('localstorage://my-model-1');
+var saveResult  = await model.save('localstorage://my-model-1');
+var model       = await tf.loadLayersModel('localstorage://my-model-1');
+var saveResults = await model.save('indexeddb://my-model-1');
+var loadedModel = await tf.loadLayersModel('indexeddb://my-model-1');
 
 // custom layers
 class SquaredSumLayer extends tf.layers.Layer {
@@ -51,7 +53,7 @@ var t = tf.tensor([-2, 1, 0, 5]);
 var o = new SquaredSumLayer().apply(t);
 o.print(); // prints 30
 
-// ???
+// functional api?
 var input            = tf.input({shape: [5]});
 var denseLayer       = tf.layers.dense({units: 1});
 var activationLayer  = tf.layers.activation({activation: 'relu6'});
@@ -61,12 +63,3 @@ var model = tf.model({inputs: input, outputs: [denseOutput, activationOutput]});
 var [denseOut, activationOut] = model.predict(tf.randomNormal([6, 5]));
 denseOut.print();
 activationOut.print();
-
-// linear regression model
-var model = tf.sequential();
-model.add(tf.layers.dense({units: 1, inputShape: [1]}));
-model.compile({loss: 'meanSquaredError', optimizer: 'sgd'});
-var xs = tf.tensor2d([1, 2, 3, 4], [4, 1]);
-var ys = tf.tensor2d([1, 3, 5, 7], [4, 1]);
-await model.fit(xs, ys);
-model.predict(tf.tensor2d([5], [1, 1])).print();

@@ -1,4 +1,6 @@
 netstat -a -b
-netstat -a -n -p TCP | find "LISTENING"
+netstat -a -n -o -p TCP | find "LISTENING"
 
 resmon.exe
+
+taskkill /pid 12345 /f

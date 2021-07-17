@@ -1,0 +1,13 @@
+pip install notebook		notebook
+pip install jupyterlab		lab
+pip install jupyter-console	terminal-based frontend
+pip install voila		make standalone app
+pip install qtconsole		needs qt
+
+commands:
+
+jupyter notebook		launch notebook
+jupyter console			launch console
+jupyter-lab			launch lab
+voila file.ipynb		run voila
+voila file.ipynb --strip-sources=False --theme=dark
