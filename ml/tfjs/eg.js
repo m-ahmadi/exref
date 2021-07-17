@@ -63,3 +63,6 @@ var model = tf.model({inputs: input, outputs: [denseOutput, activationOutput]});
 var [denseOut, activationOut] = model.predict(tf.randomNormal([6, 5]));
 denseOut.print();
 activationOut.print();
+
+// tensorboard in node
+await model.fit(x, y, {epochs: 100, callbacks: tf.node.tensorBoard('/tmp/fit_logs_1')});

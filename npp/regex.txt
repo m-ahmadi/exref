@@ -16,3 +16,5 @@ $	line end
 \	escape
 
 (?!)	negative lookahead
+
+.*	matches whole file if ". matches newline" 
