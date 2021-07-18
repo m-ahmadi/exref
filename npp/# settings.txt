@@ -21,7 +21,7 @@ Settings -> Style Configurator
           User ext: json mjs jsx
   CSS  -> TAG -> Font name: none
   HTML -> User ext: vue svelte handlebars hbs tmpl
-  Python -> KEYWORD -> User-defined keywords: True False
+  Python -> KEYWORD -> User-defined keywords: True False None
 
 remove <Language name="json"> tag from %appdata%\notepad++\langs.xml
 --------------------------------------------------------------------------------
