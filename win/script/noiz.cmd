@@ -1,21 +1,27 @@
 @echo off
 start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\noise-brown-3.mp3"
 start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\noise-white.mp3"
-start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\wave-alpha.mp4"
+start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\wave-1.mp3"
+start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\wave-2.mp3"
+start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\muz-2.mp3"
 
-timeout 2
+REM max=4  top=620
+REM max=6  top=410
 
-setlocal EnableDelayedExpansion
+timeout 1
 set count=0
-set top=620
+set max=6
+set top=410
 set left=1430
 set step=105
+
+setlocal EnableDelayedExpansion
 for /f %%i in ('cmdow /t') do (
 	cmdow %%i /siz 400 100
 	cmdow %%i /mov !left! !top!
 	set /a "top=!top!+!step!"
 	set /a "count=!count!+1"
-	if "!count!" == "4" goto :done
+	if "!count!" == "!max!" goto :done
 )
 :done
 setlocal DisableDelayedExpansion

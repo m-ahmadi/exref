@@ -6,25 +6,26 @@ from foo import attr       # foo imported and foo.attr bound as attr
 from foo import bar, baz
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # basic types
-x = 'hello' # str
-x = True    # bool
-x = None    # null
+'hello' # str
+True    # bool
+None    # null
 
-x = 4   # int
-x = 2.5 # float
-x = 1j  # complex
+4   # int
+2.5 # float
+0.  # ...
+1j  # complex
 
-x = [1,2,3]  # list
-x = (1,2,3)  # tuple
-x = range(4) # range
+[1,2,3]  # list
+(1,2,3)  # tuple
+range(4) # range
 
-x = {'a','b','c'}        # set
-x = frozenset({'a','b'}) # frozenset
+{'a','b','c'}        # set
+frozenset({'a','b'}) # frozenset
 
-x = {'a': 'foo', 'b': 35} # dict
-x = b'hello'              # bytes
-x = bytearray(5)          # bytearray
-x = memoryview(bytes(5))  # memoryview
+{'a': 'foo', 'b': 4} # dict
+b'hello'             # bytes
+bytearray(5)         # bytearray
+memoryview(bytes(5)) # memoryview
 
 # type fns
 str('Hello World')       # str
@@ -69,7 +70,7 @@ del # deletion
 9 % 2   # remainder: 1
 4 ** 2  # squared: 16
 4 ** 3  # cubed: 64
-('foo' 'bar')     # ...
+
 
 3 is 3            # instanceof: True
 [3] is [3]        # ...: False
@@ -93,6 +94,7 @@ str(25)        # '25'
 
 # str
 'foo' +' '+ 'bar' # str concat: 'foo bar'
+('foo' 'bar')     # ...: 'foobar'
 'foo' * 2         # str repeat: 'foofoo'
 'a,b,c'.split()             # ['a', 'b', 'c']
 'AA\nBB\nCC\n'.splitlines() # ['AA', 'BB', 'CC']
@@ -117,7 +119,10 @@ x = [1,2]
 x.append(3)
 x[4]   # error
 len(x) # 2
+[*x]                 # list unpack (spread)
 [1,2] + [3,4]        # list concat: [1,2,3,4]
+[*a, *b]             # ...
+[1,2] * 2            # list repeat: [1,2,1,2]
 [1,2].append(3)      # [1,2,3]
 [1,2,3].insert(2, 4) # [1,2,4,3]
 [1,2,3].remove(1)    # [2,3]
@@ -214,6 +219,10 @@ for i in range(10):
 	else:
 		continue
 
+# access index
+for i,v in enumerate(range(5)): print(i,v)
+for i,v in enumerate(range(5),2): print(i,v)
+
 for i in range(10):
 	print(i)
 else:
@@ -230,6 +239,18 @@ while i < 3 :
 # condition
 if name == 'John' and age == 23:
 	print('foo')
+
+if 4 > 2:
+  print(1)
+else:
+  print(2)
+
+if 2 > 4:
+  print(1)
+elif 3 > 4
+  print(2)
+else:
+  print(3)
 
 # ternary
 foo = 'allow' if condition else 'deny'

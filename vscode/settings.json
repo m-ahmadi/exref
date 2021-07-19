@@ -7,21 +7,23 @@
 	"editor.mouseWheelZoom": true,
 	"editor.minimap.enabled": false,
 	
-	// tab size and spaces
+	/** tab size and spaces */
 	"editor.tabSize": 2,
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	
-	// intellisense
+	/** intellisense */
 	// "editor.quickSuggestions": false,           // when typing
 	// "editor.suggestOnTriggerCharacters": false, // when on .
 	// "editor.hover.enabled": false,              // popups
 	
-	"editor.renderWhitespace": "none",       // show whitespace & tab (all|none)
-	"workbench.startupEditor": "none",       // don't show welcome screen
+	/** misc */
+	"editor.renderWhitespace": "none",          // show whitespace & tab (all|none)
+	"diffEditor.ignoreTrimWhitespace": true,    // ignore whitespace char diffs
+	"workbench.startupEditor": "none",          // don't show welcome screen
+	"vsicons.dontShowNewVersionMessage": true,  // dont' show new version message
 	// "window.openFilesInNewWindow": "off",    // open files in new window (not sure what it does)
 	// "workbench.editor.enablePreview": false, // open files on single click (if true: 1-click=preview, 2-click=open)
-	
 	"workbench.colorCustomizations": {
 		// "editor.background": "#fbfbfb",                   // background color
 		// "editor.wordHighlightBackground": "#75D975",      // change word highlight color ("#d2c8ff" for matching html tag highlight color, but not the right solution)
@@ -30,20 +32,22 @@
 		"editorBracketMatch.border": "#ff0000",
 	},
 	
-	// treat hbs as html
+	/** treat hbs as html */
 	"files.associations": {
 		"*.hbs": "html",
 	},
 	
-	// "git.enabled": false // disable git
+	/** disable git */
+	// "git.enabled": false,
 	
-	// git bash as integrated terminal (Features > Terminal > Integrated > Automation Shell: Windows)
-	// "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+	/** git bash as integrated terminal (Features > Terminal > Integrated > Automation Shell: Windows) */
+	// "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe", // deprecated
+	"terminal.integrated.defaultProfile.windows": "Git Bash", // "PowerShell" | "Command Prompt"
 	
-	// change typescript version used by vscode
+	/** change typescript version used by vscode */
 	// "typescript.tsdk": "C:/Users/NYC/AppData/Roaming/npm/node_modules/typescript/lib",
 	
-	// extension: highlight-matching-tag 
+	/** extension: highlight-matching-tag  */
 	"highlight-matching-tag.noDefaultEmptyElements": true,
 	"highlight-matching-tag.highlightSelfClosing": true,
 	"highlight-matching-tag.styles": {
@@ -58,9 +62,9 @@
 			"right": {"highlight": "#BF8DFF"},
 		}
 	},
-	"vsicons.dontShowNewVersionMessage": true,
-	"diffEditor.ignoreTrimWhitespace": true, // ignore whitespace char diffs
 	
-	// for py debug
+	/** for py debug */
 	"debug.openDebug": "neverOpen",
+	"debug.inlineValues": true,
+	"debug.terminal.clearBeforeReusing": true,
 }
