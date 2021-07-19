@@ -50,6 +50,7 @@ calc notepad taskmgr fonts charmap logoff mspaint wmplayer write
 chrome excel winword powerpnt access ccleaner winrar mpc-hc64
 
 sndvol			Volume mixer
+sndvol -f		...
 osk			On-Screen Keyboard
 winver			About Windows
 msinfo32		System Information
