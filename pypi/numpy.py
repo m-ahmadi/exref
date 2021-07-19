@@ -22,15 +22,28 @@ np.quantile()
 np.amin()
 np.amax()
 
+np.concatenate( ([1,2], [3,4]) ) # [1,2,3,4]
+np.split(ary, indices_or_sections, axis=0)
+np.split_array(↑..)
 
-# * does element-wise product
-a = [1,2,3,4,5,6]
-b = np.array(a)
-list(map(lambda i: i*2, a)) == list(b*2) # True
+np.random.uniform(?low=0.0, ?high=1.0, ?size=None|int|(int..))
+numpy.round_(a=[], ?decimals=0, ?out=None)
+
+# as operand
+a = np.array([1,2,3,4])
+a*2 # element-wise product: [2,4,6,8]
+	list(map(lambda i: i*2, [1,2,3,4])) == list(a*2) # True
+a + 2  # [3,4,5,6]
+a - 2  # [-1,0,1,2]
+a / 2  # [.5,1,1.5,2]
+a // 2 # [0,1,1,2]
+a ** 2 # [1,4,9,16]
 
 # creation
-np.arange(?start, stop, ?step, ...)
+np.arange(?start, stop, ?step, ..)
 np.arange(2.7, 3.2, 0.1) # [2.7, 2.8, 2.9, 3. , 3.1, 3.2]
+np.zeros(shape=int|(int..), dtype=float, ..)
+np.ones(↑..)
 
 # map
 a = np.array([1,2,3,4,5])
@@ -57,11 +70,15 @@ a = np.array([ [1,2], [3,4], [5,6] ])
 a.shape     # (3,2)
 np.shape(a) # ...
 
-np.concatenate( ([1,2], [3,4]) ) # [1,2,3,4]
-
 # sol - % diff
 a = [1,2,3,4,5]
 np.diff(a) / a[1:]       # [.5, .33, .25, .2]
 np.diff(a) / a[1:] * 100 # [50, 33.33, 25, 20]
 b = np.array([ [1,2,3], [1,2,3] ])
 np.diff(b) / b[:,1:] * 100 # [ [.5, .33], [.5, .33] ]
+
+# random
+np.random.uniform()      # 0.78
+np.random.uniform(2,4)   # 3.40
+np.random.uniform(1,5,5) # [2.752647, 1.19705214, 3.33665323, 1.93819238, 3.36881953]
+np.round(np.random.uniform(1,5,5), 2) # [4.87, 3.47, 1.61, 4.99, 3.85]

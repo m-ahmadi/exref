@@ -120,6 +120,7 @@ x.append(3)
 x[4]   # error
 len(x) # 2
 [*x]                 # list unpack (spread)
+[*range(4)]          # ...: [1,2,3,4]
 [1,2] + [3,4]        # list concat: [1,2,3,4]
 [*a, *b]             # ...
 [1,2] * 2            # list repeat: [1,2,1,2]
@@ -256,6 +257,10 @@ else:
 foo = 'allow' if condition else 'deny'
 ('false','true')[condition]
 (2,3)[True] # 3
+
+# keywordy
+list(map(lambda i: i is not 2, [1,2,3])) # [True, False, True]
+list(map(lambda i: i != 2, [1,2,3]))     # [True, False, True]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # function
 

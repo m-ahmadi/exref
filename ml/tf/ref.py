@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-model = tf.keras.Sequential(layers=None, name=None)
+model = tf.keras.Sequential(layers=None|[], name=None)
 model.compile(
 	optimizer='rmsprop', loss=None, metrics=None, loss_weights=None,
 	weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs
