@@ -6,5 +6,8 @@ install
 	robocopy src\lib dest /e
 	robocopy src\libexec dest /e
 
+run
+	c:\msys64\usr\bin\mlterm.exe
+
 uninstall:
 	src\uninstall.sh
