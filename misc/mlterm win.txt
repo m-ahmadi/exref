@@ -1,0 +1,10 @@
+install
+	set src=mlterm-msys2-YYYYMMDD
+	set dest=c:\msys64\usr
+	robocopy src\bin dest /e
+	robocopy src\etc dest /e
+	robocopy src\lib dest /e
+	robocopy src\libexec dest /e
+
+uninstall:
+	src\uninstall.sh

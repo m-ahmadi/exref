@@ -12,6 +12,7 @@ copy src dest /y		say yes to all prompts
 
 robocopy src dest /e		copy subdirs including empty ones
 robocopy src dest file.txt	copy one file
+robocopy src dest /ns /nc /nfl /ndl /np /njh /njs	don't log anything
 
-don't log anything
-robocopy src dest /ns /nc /nfl /ndl /np /njh /njs
+
+xcopy src dest /e		...
