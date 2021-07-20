@@ -21,7 +21,7 @@ marker
 line style
 	- -- -. :    solid dashed dash-dot dotted
 color
-	r g b        red green blue yellow
+	r g b        red green blue
 	k w          black white
 	c m y        cyan magenta yellow
 '''

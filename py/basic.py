@@ -210,6 +210,11 @@ for k in x: print(x[k])
 # type coercion
 if None or 0 or 0.0 or '' or [] or {} or set():
 	print('dead code') # not reached
+
+# date
+import datetime as dt
+d = dt.datetime(2021,1,1)
+d.timestamp() # 1609446600.0
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # loop
 for i in range(10):
