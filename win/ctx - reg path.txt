@@ -1,1 +1,6 @@
+HKCR\*\shell
 HKCR\*\shellex\ContextMenuHandlers
+HKCR\AllFileSystemObjects\ShellEx
+
+HKCR\Directory\shell
+HKCR\Directory\shellex\ContextMenuHandlers

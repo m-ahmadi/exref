@@ -1,0 +1,17 @@
+conda info					display info
+conda update -n base -c defaults conda		update conda itself
+
+change python version
+	conda search python
+	conda install python=3.6.10
+
+
+create env
+	conda create -n spyder-env -y
+	conda activate spyder-env
+	conda install spyder-kernels scikit-learn -y
+
+	conda deactivate
+
+
+	

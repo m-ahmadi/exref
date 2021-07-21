@@ -2,9 +2,10 @@ reg add HKLM\bar				add key
 reg add HKLM\foo /v Foo /d bar			add foo if doesn't exist, otherwise change its value. REG_SZ by defualt
 reg add HKLM\foo /v Bar /t REG_DWORD /d 1	DWORD value type (Bar: 1)
 reg add HKLM\for /ve /d bar			empty value name (Default: bar)
-reg delete HKCU\Environment /v foo /f		delete the key and don't prompt
-reg delete HKCU\Environment\foo /f		...
+reg delete HKCU\Environment /v foo /f		delete key (don't prompt)
+reg delete HKCU\Environment\foo /f		delete key & all subkeys
 reg import file.reg				import
+reg export HKLM\foo file.reg			export
 reg query HKCR\.css /ve				show value of (Default)
 
 key abbreviations:

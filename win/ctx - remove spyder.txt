@@ -1,0 +1,6 @@
+backup:
+	reg export HKCR\*\shell\edit_with_Spyder b.reg
+delete:
+	reg delete HKCR\*\shell\edit_with_Spyder /f
+undo:
+	reg import b.reg

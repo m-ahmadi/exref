@@ -11,8 +11,8 @@ data = {
 
 def make_request():
 	while True:
-	response = requests.post(url, data=data).text
-	print(response)
+		response = requests.post(url, data=data).text
+		print(response)
 
 threads = []
 

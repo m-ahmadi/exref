@@ -353,6 +353,7 @@ print('This line will be printed.')
 exit() # exit script
 
 import os
+os.system('cls') # clear console
 os.listdir()
 os.mkdir()
 os.rmdir()

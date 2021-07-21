@@ -1,0 +1,1 @@
+pip install spyder-kernels==2.0.*		for spyder ide to detect current pip pkgs
