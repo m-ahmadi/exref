@@ -1,3 +1,4 @@
+# https://docs.python.org/3/library/functions.html
 abs(x)
 all(iterable)
 any(iterable)
@@ -45,7 +46,14 @@ min(iterable, *, ?key, ?default) | min(arg1, arg2, *args, ?key)
 next(iterator, ?default)
 object()
 oct(x)
-open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+open(file, mode='r|w|x|a|b|t|+', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
+	'r' # open for reading (default)
+	'w' # open for writing, truncating the file first
+	'x' # open for exclusive creation, failing if the file already exists
+	'a' # open for writing, appending to the end of the file if it exists
+	'b' # binary mode
+	't' # text mode (default)
+	'+' # open for updating (reading and writing)
 ord(c)
 pow(base, exp, ?mod)
 print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)

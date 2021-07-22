@@ -64,6 +64,11 @@ in is            # containment & identity
 +   # arithmetic positive
 :=  # walrus
 del # deletion
+
+# keword
+def del class with if elif else and or not in is for while pass break continue return lambda
+async await assert except finally global nonlocal raise try yield
+import from as
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # basic operations
 1+2*3/4 # arithmetic: 2.5
@@ -375,12 +380,20 @@ os.listdir()
 os.mkdir()
 os.rmdir()
 
-f = open('myfile.txt')
+f = open('file.txt')
 str = f.read()
+
+f = open('file.txt', 'w', encoding='utf-8')
+f.write('foo bar')
+f.close()
 
 # iterable
 itr = iter((1,2,3))
 next(itr) # 1
 next(itr) # 2
 next(itr) # 3
+
+import json
+with open('data.json', 'w', encoding='utf-8') as f: # `with` ensures resource is "cleaned up" when code finishes running
+	json.dump(data, f, ensure_ascii=False, indent=4)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
