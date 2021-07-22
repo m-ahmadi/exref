@@ -71,12 +71,14 @@ del # deletion
 4 ** 2  # squared: 16
 4 ** 3  # cubed: 64
 
-
-3 is 3            # instanceof: True
-[3] is [3]        # ...: False
-2 in [1,2,3]      # containment: True
-1 in {1,2}        # ...: true
-1 in (1,2)        # ...: true
+3 is 3             # points to same obj: True
+[3] is [3]         # ...: False
+None is type(None) # ...: False (if var/prop contains NonType, use `is` instead of `==`)
+2 in [1,2,3] # containment: True
+1 in {1,2}   # ...: true
+1 in (1,2)   # ...: true
+isinstance(3, type(3))     # instanceof: True
+isinstance([3], type([3])) # ...: True
 
 # multiline string
 """foo
@@ -91,6 +93,8 @@ bar
 int('25')      # 25
 float('12.34') # 12.34
 str(25)        # '25'
+import math
+float('inf') == math.inf # True
 
 # str
 'foo' +' '+ 'bar' # str concat: 'foo bar'
@@ -109,16 +113,27 @@ str(25)        # '25'
 len('foo')                  # 5
 'foo' in 'football'         # containment: True
 
+# str format using % opr
+'hello, %s' % 101        # 'hello, 101'
+'a %s b %x c' % (1, 2)   # 'a 1 b 2 c'
+'a %(x) a %(y) a' % {'x':1,'y':2} # 'a 1 2' (wtf)
+
+# modern str format (v3.6+)
+f'foo {23}!'             # 'foo 23!'
 format(12.3456, '.2f')   # '12.35'
-f'{12.345:.2f}'
-'{:.2f}'.format(12.3456) # '12.35'
+f'{12.345:.2f}'          # ...
+'{:.2f}'.format(12.3456) # ...
 round(12.3456, 2)        # 12.35
+
+from string import Template
+Template('foo, $name!').substitute(name=23) # 'foo, 23!'
 
 # list
 x = [1,2]
 x.append(3)
-x[4]   # error
+x[4]   # err
 len(x) # 2
+[1,2] == [1,2]       # val equal: True
 [*x]                 # list unpack (spread)
 [*range(4)]          # ...: [1,2,3,4]
 [1,2] + [3,4]        # list concat: [1,2,3,4]
@@ -132,6 +147,7 @@ len(x) # 2
 [1,2].index(2)       # 1
 [1,2].index(3)       # err
 [1,1,2].index(1,1)   # 1
+['a','b'].index('a') # 0
 a = [3]
 a.append(4) # [3,4]
 a.pop()     # 4    a: [3]
@@ -200,12 +216,13 @@ a = {'x':1, 'y':2}
 b = {**a, 'x':7} # {'x':7, 'y':1}
 
 # some dict operations
-x = {'foo':2, 'bar':7}
-x.foo    # 2
-x['foo'] # 2
+x = {'foo':2, 'bar':7, 'baz':lambda i:i*2}
+x.foo       # AttributeError: 'dict' object has no attribute 'foo'
+x['foo']    # 2
+x['baz'](2) # 4
 for k in x: print(x[k])
-[k for k in x]    # ['foo','bar']
-[x[k] for k in x] # [2,7]
+[k for k in x]    # ['foo','bar','baz']
+[x[k] for k in x] # [2,7,<function...>]
 
 # type coercion
 if None or 0 or 0.0 or '' or [] or {} or set():

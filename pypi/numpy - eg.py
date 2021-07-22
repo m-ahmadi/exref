@@ -67,3 +67,9 @@ np.random.uniform()      # 0.78
 np.random.uniform(2,4)   # 3.40
 np.random.uniform(1,5,5) # [2.752647, 1.19705214, 3.33665323, 1.93819238, 3.36881953]
 np.round(np.random.uniform(1,5,5), 2) # [4.87, 3.47, 1.61, 4.99, 3.85]
+
+# trim mean
+def avgtrim(arr, percent):
+	n = len(arr)
+	k = int(round( n*(float(percent)/100)/2 ))
+	return np.mean(arr[k+1:n-k])
