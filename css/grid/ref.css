@@ -44,3 +44,30 @@
 	align-self:;
 	place-self:;
 }
+
+
+{
+	grid-template-columns | grid-template-rows:
+
+	none | trackList | autoTrackList | subgrid lineNameList?
+	where 
+		trackList     = [ lineNames? [trackSize|trackRepeat] ]+ lineNames?
+		autoTrackList = [ lineNames? [fixedSize|fixedRepeat] ]* lineNames? autoRepeat [ lineNames? [fixed_size|fixedRepeat] ]* lineNames?
+		lineNameList  = [lineNames|nameRepeat]+
+
+		where 
+			lineNames   = '[' customIdent* ']'
+			trackSize   = trackBreadth | minmax(inflexibleBreadth , trackBreadth) | fit-content( [length|percentage] )
+			trackRepeat = repeat( (0>n<∞)?, [lineNames? trackSize]+ lineNames? )
+			fixedSize   = fixedBreadth | minmax(fixedBreadth , trackBreadth) | minmax(inflexibleBreadth, fixedBreadth)
+			fixedRepeat = repeat( (0>n<∞)? , [ lineNames? fixed_size ]+ lineNames? )
+			autoRepeat  = repeat( [auto-fill|auto-fit] , [lineNames? fixed_size]+ lineNames? )
+
+			where 
+			trackBreadth      = lengthPercentage | flex | min-content | max-content | auto
+			inflexibleBreadth = length | percentage | min-content | max-content | auto
+			fixedBreadth      = lengthPercentage
+
+				where 
+				lengthPercentage = length|percentage
+}

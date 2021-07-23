@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<h1>high/low</h1>
+
+<script>
+y = randomBars(100);
+
+new uPlot({
+	width: 1600,
+	height: 600,
+	series: [
+		{},
+		{stroke:'black', label: 'Price'},
+		{width:0, points:{size:10,space:0,fill:'green'},  label:'High'},
+		{width:0, points:{size:10,space:0,fill:'red'},    label:'Low'},
+		{width:0, points:{size:10,space:0,fill:'yellow'}, label:'Equal'},
+	],
+}, [
+	ts(y.length),
+	y,
+	y.map((v,i,a)=> i>0 && v > a[i-1]   ? y[i]+1 : null),
+	y.map((v,i,a)=> i>0 && v < a[i-1]   ? y[i]-1 : null),
+	y.map((v,i,a)=> i>0 && v === a[i-1] ? y[i]   : null),
+], document.body)
+
+
+function randomBars(len=100, seed=100) {
+	let bars = [seed];
+	for (let i=1; i<len; i++) {
+		let prev = bars[i-1];
+		let r = prev * 0.05;
+		let val = rnd(prev-r, prev+r);
+		let k = 2;
+		while ((val-prev) / val < -0.05) { val = rnd(prev-r, prev+r*k); k *=2; }
+		bars.push(val);
+	}
+	return bars;
+}
+
+function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i)/1000)) }
+function rnd(n,x) { return n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n }
+</script>

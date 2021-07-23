@@ -57,13 +57,12 @@ function setOsc() {
 
 
 function randomBars(len=+gnr.value) {
-	const randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
+	let randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
 	bars = [100];
 	for (let i=1; i<len; i+=1) {
-		const prev = bars[i-1];
-		const r = prev * 0.05;
+		let prev = bars[i-1];
+		let r = prev * 0.05;
 		let value = randInt(prev-r, prev+r);
-		
 		let k = 2;
 		while (value === prev) {
 			value = randInt(prev-r, prev+r*k);

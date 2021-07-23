@@ -1,0 +1,42 @@
+1050 training samples
+batch_size = 100
+
+algorithm does:
+	train network with first  100 samples (from 1   to 100)
+	train network with second 100 samples (from 101 to 200)
+	... (from 901  to 1000)
+	last set of samples ... (from 1001 to 1050)
+
+batch_size < number of all samples
+pros
+	training needs less memory (since you train the network using fewer samples)
+	no other way if whole dataset cannot fit in memory
+
+	smaller batch_size  =  faster training (since weights update after each propagation)
+		explanation:
+		11 batches were propagated (10 had 100 samples, 1 had 50 samples)
+		11 times network parameters were updated
+		batch_size  =  all samples  =  1 batch propagated  =  1 time netwoprk params updated
+
+cons
+	smaller batch_size = less accurate gradient estimate
+	=============================================
+	batch_size	how much gradient fluctuates (changes its direction, lower is better)
+	=============================================
+	full 		a little (good)	
+	small 		a lot    (bad)
+	1		highest  (worse)
+--------------------------------------------------------------------------------
+1 epoch               =  1 forward pass & 1 backward pass of all training examples
+batch_size            =  number of training examples in 1 forward/backward pass (higher batch size = more memory space)
+number of iterations  =  number of passes, each pass using [batch_size] number of examples (1 pass = 1 forward pass + 1 backward pass)
+
+example:
+	1000 training examples
+	batch_size = 500
+	
+	1 epoch takes 2 iterations
+
+	1 epoch     includes all                         training examples
+	1 iteration includes only [batch_size] number of training examples
+--------------------------------------------------------------------------------
