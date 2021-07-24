@@ -78,7 +78,7 @@ import from as
 
 3 is 3             # points to same obj: True
 [3] is [3]         # ...: False
-None is type(None) # ...: False (if var/prop contains NonType, use `is` instead of `==`)
+None is type(None) # ...: False (if var/prop contains NoneType, use `is` instead of `==`)
 2 in [1,2,3] # containment: True
 1 in {1,2}   # ...: true
 1 in (1,2)   # ...: true
@@ -94,7 +94,6 @@ bar
 '''
 
 # some methods
-{'a','b'}.issuperset({'a'}) # true
 int('25')      # 25
 float('12.34') # 12.34
 str(25)        # '25'
@@ -184,9 +183,32 @@ arr = [ [1,2], [3,4] ]
 
 # set
 {1,2,3} == set([1,2,3]) # True
+s = {1,2,3}
+2 in s # True
+s.add('foo')        # {1,2,3,'foo'}
+s.update({'bar',4}) # {1,2,3,4,'foo','bar'}
+s.update([5,6])     # {1,2,3,4,5,'foo',6,'bar'}
+s.remove(5)         # {1,2,3,4,'foo',6,'bar'}
+s.remove(5)         # err
+s.discard(4)        # {1,2,3,'foo',6,'bar'}
+s.discard(4)        # no err
+s.pop()             # {2,3,'foo',6,'bar'} note: can't know which item gets poped (since sets are unordered)
+s.clear()           # {}
+del s
+{1,2}.copy()              # {1,2}
+{1,2}.difference({1,3})   # {3}
+difference_update()
+{1,2}.intersection({2,3}) # {2}
+intersection_update()
+isdisjoint()
+{1,2}.issubset({1,2,3})     # True
+{'a','b'}.issuperset({'a'}) # True
+symmetric_difference()
+symmetric_difference_update()
+{1,2}.union({3,4})          # {1,2,3,4}
 
 # set comprehension
-squares = {x** 2 for x in [0,2,4] if x < 4} # {0, 4}
+squares = {x**2 for x in [0,2,4] if x < 4} # {0, 4}
 
 # variable assignment
 x = 2
@@ -396,4 +418,17 @@ next(itr) # 3
 import json
 with open('data.json', 'w', encoding='utf-8') as f: # `with` ensures resource is "cleaned up" when code finishes running
 	json.dump(data, f, ensure_ascii=False, indent=4)
+
+# args passed to script
+import sys
+sys.argv # ['script.py', 'arg1', 'arg2']
+
+import sys, getopt
+getopt.getopt(args, shortopts='', ?longopts=['',..])
+	#	short | long
+		'o:'  | 'o='  # opt with required value
+		'o'   | 'opt' # boolean opt 
+opts, args = getopt.getopt(sys.argv[1:], 'hi:o:', ['help','input=','output='])
+	
+([('--help', ''), ('--input', '2'), ('-o', '3')], ['foo', 'bar']) # py t.py --help --input 2 -o 3 foo bar
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
