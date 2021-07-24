@@ -24,7 +24,7 @@
 <div id="charts"></div>
 
 <script>
-let bars, chartData, chart, xAxis;
+let serie, chartData, chart, xAxis;
 
 randomBars();
 makeChart(chartData);
@@ -46,29 +46,26 @@ function setChart() { chart.setData(chartData) }
 function setIndicator() {
 	chartData = [
 		xAxis,
-		bars,
-		b1.checked ? Array(+b2.value).fill(null).concat( sma({period: +b2.value, values: bars}) ) : [],
-		c1.checked ? Array(+c2.value).fill(null).concat( wma({period: +c2.value, values: bars}) ) : [],
-		d1.checked ? Array(+d2.value).fill(null).concat( ema({period: +d2.value, values: bars}) ) : []
+		serie,
+		b1.checked ? Array(+b2.value).fill(null).concat( sma({period: +b2.value, values: serie}) ) : [],
+		c1.checked ? Array(+c2.value).fill(null).concat( wma({period: +c2.value, values: serie}) ) : [],
+		d1.checked ? Array(+d2.value).fill(null).concat( ema({period: +d2.value, values: serie}) ) : []
 	],
 	chart.setData(chartData);
 }
 
 function randomBars(len=+a.value) {
-	bars = [100];
+	serie = [100];
 	let randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
 	for (let i=1; i<len; i+=1) {
-		let prev = bars[i-1];
-		let r = prev * 0.05;
-		let value = randInt(prev-r, prev+r);
+		let prev = serie[i-1];
+		let p = prev * 0.05;
+		let n = randInt(prev-p, prev+p);
 		let k = 2;
-		while (value === prev) {
-			value = randInt(prev-r, prev+r*k);
-			k *=2;
-		}
-		bars.push(value);
+		while (n===prev) {n = randInt(prev-p, prev+p*k); k*=2;}
+		serie.push(n);
 	}
-	xAxis = bars.map(i=> randInt(1200300400,1600500400)).sort();
-	chartData = [ xAxis,bars,[],[],[] ];
+	xAxis = serie.map(i=> randInt(1200300400,1600500400)).sort();
+	chartData = [ xAxis,serie,[],[],[] ];
 }
 </script>

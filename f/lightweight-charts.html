@@ -1,71 +1,57 @@
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
 
 <a href="https://www.tradingview.com/lightweight-charts/" target="_blank">demos</a>
+<div id="charts" style="display: grid; grid-template-columns: auto "></div>
 
-<script>
-var chart1 = LightweightCharts.createChart(document.body, {width:400, height:300});
+<script>width=1850; height=300; tot=300;
+	
+var chart1 = LightweightCharts.createChart(charts, {width,height});
 var lineSeries = chart1.addLineSeries();
-lineSeries.setData([
-    { time: '2019-04-11', value: 80.01 },
-    { time: '2019-04-12', value: 96.63 },
-    { time: '2019-04-13', value: 76.64 },
-    { time: '2019-04-14', value: 81.89 },
-    { time: '2019-04-15', value: 74.43 },
-    { time: '2019-04-16', value: 80.01 },
-    { time: '2019-04-17', value: 96.63 },
-    { time: '2019-04-18', value: 76.64 },
-    { time: '2019-04-19', value: 81.89 },
-    { time: '2019-04-20', value: 74.43 },
-]);
+lineSeries.setData(randLines(tot));
 
 
-
-var chart2 = LightweightCharts.createChart(document.body, {
-	width: 600,
-  height: 300,
-	crosshair: {
-		mode: LightweightCharts.CrosshairMode.Normal,
-	},
+var chart2 = LightweightCharts.createChart(charts, {width,height,
+	crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
 });
 var candleSeries = chart2.addCandlestickSeries();
-var data = [
-	{ time: '2018-10-19', open: 54.62, high: 55.50, low: 54.52, close: 54.90 },
-	{ time: '2018-10-22', open: 55.08, high: 55.27, low: 54.61, close: 54.98 },
-	{ time: '2018-10-23', open: 56.09, high: 57.47, low: 56.09, close: 57.21 },
-	{ time: '2018-10-24', open: 57.00, high: 58.44, low: 56.41, close: 57.42 },
-	{ time: '2018-10-25', open: 57.46, high: 57.63, low: 56.17, close: 56.43 },
-];
-candleSeries.setData(data);
+candleSeries.setData(randCandles(tot));
 
 
-
-var chart3 = LightweightCharts.createChart(document.body, {
-	width: 600,
-  height: 300,
-	layout: {
-		backgroundColor: '#ffffff',
-		textColor: 'rgba(33, 56, 77, 1)',
-	},
-	crosshair: {
-		mode: LightweightCharts.CrosshairMode.Normal,
-	},
-	rightPriceScale: {
-		borderColor: 'rgba(197, 203, 206, 1)',
-	},
-	timeScale: {
-		borderColor: 'rgba(197, 203, 206, 1)',
-	},
+var chart3 = LightweightCharts.createChart(charts, {width,height,
+	layout: {backgroundColor:'#fff', textColor:'black'},
+	crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
+	rightPriceScale: {borderColor:'grey'},
+	timeScale: {borderColor:'grey'},
 });
-var barSeries = chart3.addBarSeries({
-  thinBars: true,
-  downColor: '#000',
-  upColor: '#000',
-});
-barSeries.setData([
-	{ time: '2018-10-19', open: 180.34, high: 180.99, low: 178.57, close: 179.85 },
-	{ time: '2018-10-22', open: 180.82, high: 181.40, low: 177.56, close: 178.75 },
-	{ time: '2018-10-23', open: 175.77, high: 179.49, low: 175.44, close: 178.53 },
-	{ time: '2018-10-24', open: 178.58, high: 182.37, low: 176.31, close: 176.97 },
-	{ time: '2018-10-25', open: 177.52, high: 180.50, low: 176.83, close: 179.07 },
-]);
+var barSeries = chart3.addBarSeries({thinBars:false});
+barSeries.setData(randCandles(tot));
+
+
+
+
+function randLines(n) { return [...Array(n)].map((d,i)=> (d=new Date, d=d.setDate(d.getDate()-n+i), {time: d/1000, value: randInt(n*-i*.1,n*i*.1) })) }
+function randCandles(len=100, {open=70,high=120,low=80,close=100}={}) {
+	let r = [{open,high,low,close}];
+	let f = (n,p) => n*p+n; 
+	for (let i=0; i<len; i++) {
+		let d = new Date();
+		d.setDate(d.getDate()-len+i);
+		let time = [d.getFullYear(), d.getMonth()+1, d.getDate()].map(i=>(i=''+i, i.length>1?i:'0'+i)).join('-');
+		if (i===0) { r[i].time = time; continue; }
+		let prev = r[i-1].close;
+		let [min, max] = [f(prev,-.05), f(prev,.05)];
+		let n = randInt(min, max);
+		let k = 2;
+		while (n===prev) {n = randInt(min, max+k); k*=2;}
+		r.push({
+			time,
+			open:  randInt(f(n,-.1), f(n,.1)),
+			high:  randInt(f(n,-.01), f(n,.1)),
+			low:   randInt(f(n,-.1), f(n,-.01)),
+			close: n,
+		});
+	}
+	return r;
+}
+function randInt(n,x) { return n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n }
 </script>

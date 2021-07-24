@@ -1,66 +1,205 @@
 // https://cdn.jsdelivr.net/npm/lightweight-charts/
 
-var chart = LightweightCharts.createChart(document.body, {
-	width: 400,
-	height: 300
+LightweightCharts.
+	LineType.         Simple  | WithSteps   |            |              |
+	LineStyle.        Dashed  | Solid       | Dotted     | LargeDashed  | SparseDotted
+	PriceScaleMode.   Normal  | Logarithmic | Percentage | IndexedTo100 |
+	CrosshairMode.    Magnet  | Normal      |            |              |
+	PriceLineSource.  LastBar | LastVisible |            |              |
+	TickMarkType.     Year    | Month       | DayOfMonth | Time         | TimeWithSeconds
+	
+	.isBusinessDay(t)
+	.isUTCTimestamp(t)
+
+Time = UTCTimestamp | BusinessDay
+	UTCTimestamp = 0
+	BusinessDay  = 'YYYY-MM-DD' | {year:0, month:0, day:0}
+
+var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, {
+	width:  0,
+	height: 0,
+	timeScale: {
+		rightOffset:                  0,
+		barSpacing:                   6,
+		minBarSpacing:                0.5,
+		fixLeftEdge:                  false,
+		fixRightEdge:                 false,
+		lockVisibleTimeRangeOnResize: false,
+		rightBarStaysOnScroll:        false,
+		borderVisible:                true,
+		borderColor:                  '#2b2b43',
+		visible:                      true,	
+		timeVisible:                  false,
+		secondsVisible:               true,
+		shiftVisibleRangeOnNewBar:    true,
+		tickMarkFormatter:            (time, tickMarkType, locale)=>'' | undefined,
+	},
+	priceScale: {
+		position:       'right|left|none', // deprecated
+		mode:           PriceScaleMode.Normal,
+		autoScale:      true,
+		invertScale:    false,
+		alignLabels:    true,
+		borderVisible:  true,
+		borderColor:    '#2b2b43',
+		scaleMargins:   {top:0.2, bottom:0.1},
+		entireTextOnly: false,
+		drawTicks:      true,
+	}, 
+	leftPriceScale:  {↑...},
+	rightPriceScale: {↑...},
+  crosshair: {
+		vertLine | horzLine: {
+			color:                '#758696',
+			width:                1,
+			style:                LineStyle.Dashed,
+			visible:              true,
+			labelVisible:         true,
+			labelBackgroundColor: '#4c525e',
+			mode:                 CrosshairMode.Magnet,
+		},
+  },
+	grid: {
+		vertLines | horzLines: {
+			color:   '#d6dcde',
+			style:   LineStyle.Solid,
+			visible: true,
+		}
+	},
+	localization: {
+		dateFormat:     'yyyy/MM/dd',
+			'yyyy' // full    year:  2020
+			'yy'   // short   year:  20
+			'MMMM' // long    month: July
+			'MMM'  // short   month: Feb
+			'MM'   // numeric month: 03  (with leading zero if needed)
+			'dd'   // day of  month: 15  (with leading zero if needed)
+		locale:         'en-US',
+		timeFormatter:  (time=0|'')=>'',
+		priceFormatter: (price=0)=>'',
+	},
+	layout: {
+		backgroundColor: '#ffffff',
+		textColor:       '#191919',
+		fontSize:        11,
+		fontFamily:      "'Trebuchet MS', Roboto, Ubuntu, sans-serif",
+	},
+	handleScroll: true | {
+		mouseWheel:       true,
+		pressedMouseMove: true,
+		horzTouchDrag:    true,
+		vertTouchDrag:    true,
+	},
+	handleScale: true | {
+		axisPressedMouseMove: true | {time:true, price:true},
+		axisDoubleClickReset: true,
+		mouseWheel:           true,
+		pinch:                true,
+	},
+	watermark: {
+		color:      'rgba(0,0,0,0)',
+		visible:    false,
+		text:       '',
+		fontSize:   48,
+		fontFamily: "'Trebuchet MS', Roboto, Ubuntu, sans-serif",
+		fontStyle:  '',
+		horzAlign:  'center|left|right',
+		vertAlign:  'center|left|right',
+	},
 })
 
+chart.resize(width, height)
+chart.applyOptions(opts={})
+chart.subscribeCrosshairMove()
+chart.subscribeClick((param={time:Time, point:{x:0,y:0}, seriesPrices:Map<ISeriesApi,number|OHLC>}) => void)
+chart.unsubscribeClick(↑...)
+chart.subscribeCrosshairMove(↑...)
+chart.unsubscribeCrosshairMove(↑...)
 
-var lineSeries = chart.addLineSeries()
-lineSeries.setData([
-	{time:'2019-04-11', value:80.01},
-	{time:'2019-04-12', value:96.63},
-	...
-])
+var timeScale = chart.timeScale()
+timeScale.scrollPosition()
+timeScale.scrollToPosition(position=0, animated=true)
+timeScale.scrollToRealTime()
+timeScale.getVisibleRange()
+timeScale.setVisibleRange(range={from:0, to:0})
+timeScale.getVisibleLogicalRange()
+timeScale.setVisibleLogicalRange(range={from:0, to:0})
+timeScale.resetTimeScale()
+timeScale.fitContent()
+timeScale.timeToCoordinate(time: Time)
+timeScale.coordinateToTime(coordinate=0)
+timeScale.logicalToCoordinate(logicalIndex=0)
+timeScale.coordinateToLogical(coordinate=0)
+timeScale.applyOptions(opts={})
+timeScale.options()
+timeScale.subscribeVisibleTimeRangeChange(callback=(range)=>)
+timeScale.unsubscribeVisibleTimeRangeChange(callback)
+timeScale.subscribeVisibleLogicalRangeChange(callback=(range)=>)
+timeScale.unsubscribeVisibleLogicalRangeChange(callback)
+
+var lineSeries = chart.addLineSeries({
+	color:                          '#2196f3',
+	lineStyle:                      LineStyle.Solid,
+	lineWidth:                      3,
+	crosshairMarkerVisible:         true,
+	crosshairMarkerRadius:          4,
+	crosshairMarkerBorderColor:     '',
+	crosshairMarkerBackgroundColor: '',
+	lineType:                       LineType.Simple,
+	// ↓...??
+	priceScaleId: 'left|right',
+	title:        '',
+	scaleMargins: {top:0, bottom:0},
+	visible:      true,
+})
+lineSeries.setData([{time:Time, value:0}, ...])
 
 
 var areaSeries = chart.addAreaSeries({
-	topColor:    'rgba(21, 146, 230, 0.4)',
-	bottomColor: 'rgba(21, 146, 230, 0)',
-	lineColor:   'rgba(21, 146, 230, 1)',
-	lineStyle:    0,
-	lineWidth:    3,
-	crosshairMarkerVisible:     false,
-	crosshairMarkerRadius:      3,
-	crosshairMarkerBorderColor: 'rgb(255, 255, 255, 1)',
-	crosshairMarkerBackgroundColor: 'rgb(34, 150, 243, 1)',
+	topColor:                      'rgba(46, 220, 135, 0.4)',
+	bottomColor:                   'rgba(40, 221, 100, 0)',
+	lineColor:                     '#33D778',
+	lineStyle:                      LineStyle.Solid,
+	lineWidth:                      3,
+	crosshairMarkerVisible:         true,
+	crosshairMarkerRadius:          4,
+	crosshairMarkerBorderColor:     '',
+	crosshairMarkerBackgroundColor: '',
 })
-areaSeries.setData({
-	{time:'2018-12-22', value:32.51},
-	{time:'2018-12-23', value:31.11},
-	...
-})
+areaSeries.setData([{time:Time, value:0}, ...])
 
 
 var barSeries = chart.addBarSeries({
-	thinBars:    false,
-	upColor:     'rgba(37, 148, 51, 0.2)',
-	downColor:   'rgba(191, 55, 48, 0.2)',
+	thinBars:    true,
+	upColor:     '#26a69a',
+	downColor:   '#ef5350',
 	openVisible: true,
 })
-barSeries.setData([
-	{time:'2018-12-19', open:141.77, high:170.39, low:120.25, close:145.72},
-	{time:'2018-12-20', open:145.72, high:147.99, low:100.11, close:108.19},
-	...
-])
+barSeries.setData([{time:Time, open:0, high:0, low:0, close:0,}, ...])
 
 
 var candlestickSeries = chart.addCandlestickSeries({
-	upColor:         '#6495ED',
-	downColor:       '#FF6347',
-	borderVisible:   false,
+	upColor:         '#26a69a',
+	downColor:       '#ef5350',
+	borderVisible:   true,
 	wickVisible:     true,
-	borderColor:     '#000000',
-	wickColor:       '#000000',
-	borderUpColor:   '#4682B4',
-	borderDownColor: '#A52A2A',
-	wickUpColor:     '#4682B4',
-	wickDownColor:   '#A52A2A',
+	borderColor:     '#378658',
+	wickColor:       '#737375',
+	borderUpColor:   '#26a69a',
+	borderDownColor: '#ef5350',
+	wickUpColor:     '#26a69a',
+	wickDownColor:   '#ef5350',
 });
-candlestickSeries.applyOptions({↑...})
+candlestickSeries.applyOptions(opts={↑...})
+candlestickSeries.setData([{time:Time, open:0, high:0, low:0, close:0,}, ...])
 
-candlestickSeries.setData([
-	{time:'2018-12-22', open:75.16, high:82.84, low:36.16, close:45.72},
-	{time:'2018-12-23', open:45.12, high:53.90, low:45.12, close:48.09},
-	...
-])
+
+var histSeries = chart.addHistogramSeries({
+	color: '#26a69a',
+	base:  0,
+	// ↓...??
+	priceScaleId: '',
+	priceFormat:  {type:'volume'},
+	scaleMargins: {top:0, bottom:0},
+});
+histSeries.setData([{time:Time, value:0, color:''}, ...])

@@ -20,7 +20,7 @@
 
 
 <script>
-let bars, graphData, oscData, xAxis;
+let serie, graphData, oscData, xAxis;
 const cursorOpts = { lock: true, sync:{key:'foo'} };
 
 randomBars();
@@ -48,7 +48,7 @@ setOsc();
 function setGraph() { graph.setData(graphData) }
 
 function setOsc() {
-	const oscArr = Array(+_rsi.value).fill(null).concat( rsi({period: +_rsi.value, values: bars}) );
+	const oscArr = Array(+_rsi.value).fill(null).concat( rsi({period: +_rsi.value, values: serie}) );
 	const upper = Array(oscArr.length).fill(+_upper.value);
 	const lower = Array(oscArr.length).fill(+_lower.value);
 	oscData = [ xAxis, upper, lower, oscArr ];
@@ -58,19 +58,16 @@ function setOsc() {
 
 function randomBars(len=+gnr.value) {
 	let randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
-	bars = [100];
+	serie = [100];
 	for (let i=1; i<len; i+=1) {
-		let prev = bars[i-1];
-		let r = prev * 0.05;
-		let value = randInt(prev-r, prev+r);
+		let prev = serie[i-1];
+		let p = prev * 0.05;
+		let n = randInt(prev-p, prev+p);
 		let k = 2;
-		while (value === prev) {
-			value = randInt(prev-r, prev+r*k);
-			k *=2;
-		}
-		bars.push(value);
+		while (n===prev) {n = randInt(prev-p, prev+p*k); k*=2;}
+		serie.push(n);
 	}
-	xAxis = bars.map(i=> randInt(1200300400,1600500400)).sort();
-	graphData = [ xAxis, bars ];
+	xAxis = serie.map(i=> randInt(1200300400,1600500400)).sort();
+	graphData = [ xAxis, serie ];
 }
 </script>

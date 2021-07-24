@@ -3,6 +3,7 @@
 (/^\s*(\b|\B)/)           // leading whitespace characters
 (/^(?!.*hello.*).*/)      // all lines except those with "hello" in them
 (/^\n/)                   // all empty lines
+(\/\*\*\s*\n([^\*]|\*[^\/])*\*\/) // jsdoc comments
 
 
 // replace comma with dot

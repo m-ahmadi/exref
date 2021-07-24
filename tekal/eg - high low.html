@@ -25,16 +25,16 @@ new uPlot({
 
 
 function randomBars(len=100, seed=100) {
-	let bars = [seed];
+	let serie = [seed];
 	for (let i=1; i<len; i++) {
-		let prev = bars[i-1];
-		let r = prev * 0.05;
-		let val = rnd(prev-r, prev+r);
+		let prev = serie[i-1];
+		let p = prev * 0.05;
+		let n = rnd(prev-p, prev+p);
 		let k = 2;
-		while ((val-prev) / val < -0.05) { val = rnd(prev-r, prev+r*k); k *=2; }
-		bars.push(val);
+		while ((n-prev) / n < -0.05) {n = rnd(prev-p, prev+p*k); k*=2;}
+		serie.push(n);
 	}
-	return bars;
+	return serie;
 }
 
 function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i)/1000)) }

@@ -24,7 +24,7 @@ var o;
 	o = {};
 	console.time('b');
 	await localforage.iterate((value, key) => (o[key] = value, undefined));
-	console.timeEnd('b'); // 110
+	console.timeEnd('b'); // 110 ms
 	
 	o = {};
 	console.time('c');

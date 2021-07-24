@@ -12,4 +12,6 @@ function randInt(min=0, max=1, inclusiveMax=false) {
 	return Math.floor( Math.random() * (max - min + (inclusiveMax?1:0)) ) + min;
 }
 
+let randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
+
 // using Math.round() for rounding instead of ceil and floor, will give you a non-uniform distribution
