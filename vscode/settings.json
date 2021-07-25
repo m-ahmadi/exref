@@ -67,4 +67,5 @@
 	"debug.openDebug": "neverOpen",
 	"debug.inlineValues": true,
 	"debug.terminal.clearBeforeReusing": true,
+	"python.showStartPage": false,
 }

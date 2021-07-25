@@ -47,18 +47,20 @@ next(iterator, ?default)
 object()
 oct(x)
 open(file, mode='r|w|x|a|b|t|+', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
-	'r' # open for reading (default)
-	'w' # open for writing, truncating the file first
-	'x' # open for exclusive creation, failing if the file already exists
-	'a' # open for writing, appending to the end of the file if it exists
-	'b' # binary mode
-	't' # text mode (default)
-	'+' # open for updating (reading and writing)
+	mode=
+		'r' # open for reading (default)
+		'w' # open for writing, truncating the file first
+		'x' # open for exclusive creation, failing if the file already exists
+		'a' # open for writing, appending to the end of the file if it exists
+		'b' # binary mode
+		't' # text mode (default)
+		'+' # open for updating (reading and writing)
+	encoding= locale.getpreferredencoding(False) # default encoding (platform-dependent): 'cp1252'
 ord(c)
 pow(base, exp, ?mod)
 print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
 property(fget=None, fset=None, fdel=None, doc=None)
-range(stop) | range(start, stop, ?step)
+range(stop=0) | range(start=0, stop=0, ?step=1)
 repr(object)
 reversed(seq)
 round(number, ?ndigits)

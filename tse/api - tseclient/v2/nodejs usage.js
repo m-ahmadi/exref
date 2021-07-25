@@ -37,15 +37,17 @@ function makeRequest(params) {
 }
 
 (async function () {
-	let axiosRes;
+//const axiosRes = await LastPossibleDeven().catch(console.log);
+//const axiosRes = await InstrumentAndShare(0, 0).catch(console.log);
 	
-	axiosRes = await rq.LastPossibleDeven().catch(console.log);
-	axiosRes = await rq.InstrumentAndShare(0, 0).catch(console.log);
-	axiosRes = await rq.ClosingPrices(insCodes).catch(console.log);
+	const insCodes = '46348559193224090,20030123,0'; // فولاد
+//const insCodes = '46348559193224090,20030123,0;9211775239375291,20030123,0'; // فولاد  ذوب
+	const axiosRes = await ClosingPrices(insCodes).catch(console.log);
 	
 	const data = axiosRes.data;
 	
 	// data aready
+	console.log(data);
 })();
 
 module.exports = {

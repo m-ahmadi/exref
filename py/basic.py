@@ -133,31 +133,36 @@ from string import Template
 Template('foo, $name!').substitute(name=23) # 'foo, 23!'
 
 # list
-x = [1,2]
-x.append(3)
-x[4]   # err
-len(x) # 2
+a = [1,2]
+a.append(3)
+a[4]                 # err
+len(a)               # 2
 [1,2] == [1,2]       # val equal: True
-[*x]                 # list unpack (spread)
+[1,2] * 2            # list repeat: [1,2,1,2]
+[*a]                 # list unpack: [1,2]
 [*range(4)]          # ...: [1,2,3,4]
 [1,2] + [3,4]        # list concat: [1,2,3,4]
-[*a, *b]             # ...
-[1,2] * 2            # list repeat: [1,2,1,2]
-[1,2].append(3)      # [1,2,3]
-[1,2,3].insert(2, 4) # [1,2,4,3]
-[1,2,3].remove(1)    # [2,3]
-[1,2,3].reverse()    # [3,2,1]
-[3,1,2].sort()       # [1,2,3]
+[ *[1,2], *[3,4] ]   # ...
+[1,2].append(3)      # NoneType,  a: [1,2,3]
+[1,2,3].insert(2, 4) # NoneType,  a: [1,2,4,3]
+[1,2].extend([3,4])  # NoneType,  a: [1,2,3,4]
+[7,8,9].remove(8)    # NoneType,  a: [7,8]
+[1,2,3].reverse()    # NoneType,  a: [3,2,1]
+[3,1,2].sort()       # NoneType,  a: [1,2,3]
+[1,2,3,3].count(3)   # 2
 [1,2].index(2)       # 1
 [1,2].index(3)       # err
 [1,1,2].index(1,1)   # 1
 ['a','b'].index('a') # 0
 a = [3]
 a.append(4) # [3,4]
-a.pop()     # 4    a: [3]
-a.pop()     # 3    a: [] 
+a.pop()     # 4,  a: [3]
+a.pop()     # 3,  a: [] 
+a.clear()   # []
+a.copy()
+# https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 
-x<range> = range(?start=0, stop=int, ?step=1)
+
 x = range(1,10,2)
 list(x) # [1, 3, 5, 7, 9]
 
@@ -238,18 +243,32 @@ a, = 1,
 a, = [1]
 a, = 1     # TypeError: cannot unpack non-iterable int object
 a, = [1,2] # ValueError
-# dict unpacking (v3.5+)
-a = {'x':1, 'y':2}
-b = {**a, 'x':7} # {'x':7, 'y':1}
 
-# some dict operations
-x = {'foo':2, 'bar':7, 'baz':lambda i:i*2}
-x.foo       # AttributeError: 'dict' object has no attribute 'foo'
-x['foo']    # 2
-x['baz'](2) # 4
-for k in x: print(x[k])
-[k for k in x]    # ['foo','bar','baz']
-[x[k] for k in x] # [2,7,<function...>]
+# dict
+d = {'foo': 2, 'bar': 7, 'baz': lambda i: i*2}
+d.foo                  # AttributeError: 'dict' object has no attribute 'foo'
+d['foo']               # 2
+d['baz'](2)            # 4
+d.keys()               # ['foo','bar','baz']
+[*d]                   # ...
+[k for k in d]         # ...
+d.values()             # [2, 7, <function>]
+[d[k] for k in d]      # ...
+d.items()              # [ ('foo',2), ('bar',7), ('baz',<function>) ]
+for k in d: print(d[k])
+del d['baz']           # {'foo':2, 'bar':7}
+d.get('foo')           # 2
+d.setdefault('baz',8)  # 8,  d: {'foo':2, 'bar':7, 'baz':8}
+d.update({'foo':97})   # {'foo':97, 'bar':7, 'baz':8}
+{**d, 'foo':97}        # ... (v3.5+)
+d.popitem()            # {'baz':8},  d: {'foo':97, 'bar':7}
+d.pop('bar')           # 7,  d: {'foo':97}
+d.pop('bar',3)         # 3,  d: {'foo':97}
+d.copy()               # make copy
+{**d}                  # ...
+d.fromkeys(['foo'],32) # {'foo': 32}
+d.clear()              # {}
+# https://docs.python.org/3/library/stdtypes.html?#mapping-types-dict
 
 # type coercion
 if None or 0 or 0.0 or '' or [] or {} or set():
