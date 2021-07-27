@@ -69,4 +69,9 @@ control keyboard
 	Repeat delay:		Short
 	Repeat rate:		Fast
 --------------------------------------------------------------------------------
-	
+volumouse options
+	Use the wheel when:			Steps:
+	===============================================
+	Alt key is down				4000
+	Mouse cursor is over the taskbar	4000
+--------------------------------------------------------------------------------

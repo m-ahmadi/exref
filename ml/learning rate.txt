@@ -1,0 +1,8 @@
+controls how quickly the model is adapted to the problem (may be the most important hyperparameter)
+
+smaller   lr	needs more  training epochs (cuz smaller changes made to weights each update)
+larger    lr	needs fewer training epochs (cuz rapid   changes ...)
+
+too large lr	causes model to converge too quickly to a suboptimal solution
+too small lr	cause the process to get stuck
+

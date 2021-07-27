@@ -52,8 +52,8 @@ net.toFunction()
 
 // format of training data
 NeuralNetwork
-	input  = [0>n<1,...] | {k:0>n<1, ...} // input objs don't have to be similar
-	output = {k:0>n<1, ...}
+	input  = [0<n<1,...] | {k:0>n<1, ...} // input objs don't have to be similar
+	output = {k:0<n<1, ...}
 	data = [ [input, output], ...]
 
 RNN | LSTM | GRU
