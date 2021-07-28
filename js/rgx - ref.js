@@ -1,31 +1,36 @@
-'the lord of the rings'.match(/the/ig)       ['the', 'the']            // literal
-'you make my day'      .match(/.y/ig)        ['my', 'ay']              // .     any
-'only 20'              .match(/\d/ig)        ['2', '0']                // \d    digit
-'B2 is'                .match(/\D/ig)        ['B', ' ', 'i', 's']      // \D    not digit
-'p: $5.28'             .match(/\w/ig)        ['p', '5', '2', '8']      // \w    word
-'javad_g :12=<50%'     .match(/\W/ig)        [' ', ':', '=', '<', '%'] // \W    not a word
-'foo bar s'            .match(/\s/ig)        [' ', ' ']                // \s    white space
-'foo s'                .match(/\S/ig)        ['f', 'o', 'o', 's']      // \S    not white space
-'lord of rings'        .match(/[gr]/ig)      ['r', 'r', 'g']           // []    character set
-'abcd ef'              .match(/[a-c]/ig)     ['a', 'b', 'c']           // [a-c] ... range
-'abcd ef'              .match(/[^abc]/ig)    ['d', ' ', 'e', 'f']      // [^]   ... negate
-'lord of the rings'    .match(/lord|ring/ig) ['lord', 'ring']          // |     or
-'the lord of the rings'.match(/^the/ig)      ['the']                   // ^     beginning of line
-'the lord of the rings'.match(/ings$/ig)     ['ings']                  // $     end of line
-'possibly dudlya'      .match(/ly\b/ig)      ['ly']                    // \b    zero-width word boundary
-'at noon ono'          .match(/\bno/ig)      ['no']                    // ...
-'possiblye yesterday'  .match(/ye\B/ig)      ['ye']                    // \B    zero-width non-word boundary
-'abc'                  .match(/ab(c)/)       ['abc', 'c']              // ()    capturing group
-'abc'                  .match(/a(b)(c)/)     ['abc', 'b', 'c']         // ...
-'abc'                  .match(/(a)(c)/)      ['abc', 'a', 'c']         // ...
-'abc'                .replace(/(abc)/, '$1def') 'abcdef'               // ...   back reference
-'x x'                .replace(/(x)/g, '$1y')    'xy xy'                // ...
-'x y'                .replace(/(x) y/g, 'L$&')  'Lx y'                 // ...   whole match backref
+'the lord of the rings'.match(/the/ig)       ['the', 'the']              // literal
+'you make my day'      .match(/.y/ig)        ['my', 'ay']                // .     any
+'only 20'              .match(/\d/ig)        ['2', '0']                  // \d    digit
+'B2 is'                .match(/\D/ig)        ['B', ' ', 'i', 's']        // \D    not digit
+'p: $5.28'             .match(/\w/ig)        ['p', '5', '2', '8']        // \w    word
+'javad_g :12=<50%'     .match(/\W/ig)        [' ', ':', '=', '<', '%']   // \W    not a word
+'foo bar s'            .match(/\s/ig)        [' ', ' ']                  // \s    white space
+'foo s'                .match(/\S/ig)        ['f', 'o', 'o', 's']        // \S    not white space
+'lord of rings'        .match(/[gr]/ig)      ['r', 'r', 'g']             // []    character set
+'abcd ef'              .match(/[a-c]/ig)     ['a', 'b', 'c']             // [a-c] ... range
+'abcd ef'              .match(/[^abc]/ig)    ['d', ' ', 'e', 'f']        // [^]   ... negate
+'lord of the rings'    .match(/lord|ring/ig) ['lord', 'ring']            // |     or
+'the lord of the rings'.match(/^the/ig)      ['the']                     // ^     beginning of line
+'the lord of the rings'.match(/ings$/ig)     ['ings']                    // $     end of line
+'possibly dudlya'      .match(/ly\b/ig)      ['ly']                      // \b    zero-width word boundary
+'at noon ono'          .match(/\bno/ig)      ['no']                      // ...
+'possiblye yesterday'  .match(/ye\B/ig)      ['ye']                      // \B    zero-width non-word boundary
+'abc'                  .match(/ab(c)/)       ['abc', 'c']                // ()    capturing group
+'abc'                  .match(/a(b)(c)/)     ['abc', 'b', 'c']           // ...
+'abc'                  .match(/(a)(c)/)      ['abc', 'a', 'c']           // ...
+'abc2'                 .match(/(?<x>\d{1})/) ['2', '2', groups: {x:'2'}] // ...   named
+'abc'                .replace(/(abc)/, '$1def') 'abcdef'                 // ...   back reference
+'x x'                .replace(/(x)/g, '$1y')    'xy xy'                  // ...
+'x y'                .replace(/(x) y/g, 'L$&')  'Lx y'                   // ...   whole match backref
 
 // emulating and
 var str = 'all the leaves are brown and the sky is grey';
 str.match(/the(=?.*and)/ig)   ['the leaves are brown and']
 str.match(/brown(=?.*sky)/ig) ['brown and the sky']
+
+// capture & deconstruct
+var [match, year, month, day] = '2021-04-26'.match(/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/);
+var { year, month, day }      = '2021-04-26'.match(/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/).groups;
 
 /*
 character
