@@ -362,6 +362,14 @@ function vecMul(a=[], b=[]) {
 	}
 }
 
+function vecDiv(a=[], b=[]) {
+	if ( Array.isArray(a[0]) ) {
+		return a.map((v,i)=> v.map((w,j)=> w / b[i][j]) )
+	} else {
+		return a.map((v,i)=> v / b[i]);
+	}
+}
+
 function cusum(nums=[]) {
 	let sum = 0;
 	return nums.map(i => sum += i);
