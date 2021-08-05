@@ -36,7 +36,7 @@ close(); // closing the worker from the worker thread
 var worker = new Worker('path/to/worker.js');
 var result = await new Promise(resolve => {
 	worker.onmessage = function (e) {
-		worker.onmessage = null;
+		worker.onmessage = null; // this basically means you only care about the first message (like `once` events)
 		resolve(e.data);
 	};
 	worker.postMessage('do it dear worker');
