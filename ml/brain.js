@@ -68,6 +68,14 @@ RNNTimeStep | LSTMTimeStep | GRUTimeStep
 		number[] | Array<number[]>,
 		...
 	]
+
+// train async
+var net = new brain.NeuralNetwork();
+var res = await net.trainAsync(data, opts);
+
+var net1 = new brain.NeuralNetwork();
+var net2 = new brain.NeuralNetwork();
+var [res1, res2] = await Promise.all( [net1.trainAsync(data, opts), net2.trainAsync(data, opts)] );
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
