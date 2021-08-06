@@ -12,8 +12,8 @@ localforage.clear()
 localforage.length()                         : int
 localforage.key(keyIndex) // 👎
 localforage.keys()                           : ['',...]
-localforage.iterate(iterator=(value,key,i)=>): []
-localforage.setDriver(driverName) // force usage of driver(s) if available
+localforage.iterate(iterator=(value,key,i)=>): [] // keeps iterating if iterator returns undefined (or returns what iterator's return)
+localforage.setDriver(driverName)                 // force usage of driver(s) if available
 localforage.setDriver([driverName, nextDriverName])
 localforage.config(options={
 	driver:      [localforage.INDEXEDDB, localforage.WEBSQL, localforage.LOCALSTORAGE],
@@ -45,10 +45,10 @@ localforage.setItem('key', 'value').then(value =>)  // set item
 localforage.setItem('key', 'value', (err, value)=>) // set item with callback
 localforage.setItem('arr', [1, 'a']).then(value =>) // store non-strings (impossible in localStorage)
 localforage.removeItem('key').then(doSomething)     // remove item
-localforage.clear().then(doSomething)                // removes every key from database
-localforage.length().then(numberOfKeys => )          // get the number of keys in the store
-localforage.key(2).then(keyName => )                 // get name of a key from its id
-localforage.keys().then(keys => )                    // get the list of all keys in the store
+localforage.clear().then(doSomething)               // removes every key from database
+localforage.length().then(numberOfKeys => )         // get the number of keys in the store
+localforage.key(2).then(keyName => )                // get name of a key from its id
+localforage.keys().then(keys => )                   // get the list of all keys in the store
 
 // iterate:
 localforage.iterate(function (value, key, iterationNumber) {
