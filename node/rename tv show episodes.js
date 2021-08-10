@@ -1,4 +1,20 @@
-// imdb query
+// imdb automatic
+name = document.querySelector('.subpage_title_block__right-column a').innerText;
+r = [];
+for (let [i] of [...bySeason.options].entries()) {
+	bySeason.options[i].selected = true;
+	bySeason.dispatchEvent(new Event('change',{bubble:true}));
+	await new Promise(r => setTimeout(r, 4000));
+	var season = [...document.querySelectorAll('#episodes_content strong a')].map((v,i) => {
+		var n = i+1;
+		var sn = n<10 ? '0'+n : n;
+		return `${name} - ${document.querySelector('#bySeason').selectedOptions[0].value}x${sn} - ` + v.innerText;
+	}).join(';');
+	r.push(season);
+}
+r.join('@')
+
+// imdb manual
 [...document.querySelectorAll('#episodes_content strong a')].map((v,i) => {
 	var n = i+1;
 	var sn = n<10 ? '0'+n : n;
