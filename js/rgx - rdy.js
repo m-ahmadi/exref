@@ -3,6 +3,7 @@
 (/^\s*(\b|\B)/)           // leading whitespace characters
 (/^(?!.*hello.*).*/)      // all lines except those with "hello" in them
 (/^\n/)                   // all empty lines
+(/^(\d+\s?)+$/)           // space-separated string of positive integers
 (\/\*\*\s*\n([^\*]|\*[^\/])*\*\/) // jsdoc comments
 
 
