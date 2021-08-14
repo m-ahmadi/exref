@@ -1,0 +1,30 @@
+screen flicker in game
+
+do not update to latest "Intel HD Graphics" driver
+
+works fine with:
+	VGA(v15.40.7.64.4279).zip
+	(Driver Version: 10.18.15.4279)
+
+has issue with:
+	(Driver Version: 20.x)
+--------------------------------------------------
+monitor out of range
+
+alt+enter
+--------------------------------------------------
+screen resolution problem
+
+go to:
+/League of Legends/Config/game.cfg
+
+change:
+
+	Height=768
+	Width=1024
+--------------------------------------------------
+best DNS for playing
+
+4.2.2.2
+4.2.2.3
+--------------------------------------------------
