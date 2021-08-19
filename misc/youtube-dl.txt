@@ -13,4 +13,7 @@ remove karaoke effects from  auto generated .vtt
 
 translate sub
 https://translatesubtitles.co/index.php
+
+dl sub
+https://downsub.com
 --------------------------------------------------------------------------------
