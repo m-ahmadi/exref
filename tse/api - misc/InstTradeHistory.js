@@ -2,7 +2,7 @@
 http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?
 	i=InsCode   long
 	Top=999     int   only last N days. (max 190 if A=0)
-	A=0         bool  full history
+	A=0         bool  full history (including days with no trades)
 	
 	return: text/html
 */
