@@ -93,11 +93,19 @@ const opts = {
 	},
 	
 	select: {
-		show: false,
+		show: true,
 	},
 	
 	legend: {
-		show: false,
+		show:    true,
+		live:    true,
+		isolate: false,
+		width:   0 | (u, seriesIdx=0)=> 0;,
+		stroke:  '' | (u, seriesIdx=0)=> '',
+		dash:    ...↑,
+		fill:    ...↑,
+		idx:     0,
+		values:  [ {'': ''|0}, ...],
 	},
 	
 	scales: {

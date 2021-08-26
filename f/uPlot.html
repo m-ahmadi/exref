@@ -29,7 +29,7 @@ new uPlot({width:600, height:400, title:'My Chart', series:[
 	{label:'RAM', value:(s,rawValue)=>'$'+rawValue.toFixed(2), stroke:'red', fill:'rgba(255,0,0,0.3)', dash:[10,5]},
 	{}]}, data, charts);
 
-new uPlot({width:600, height:400, series:[{},{stroke:'blue'},{stroke:'red'}], scales:{x:{time:false}} }, [
+new uPlot({width:600, height:400, series:[{label:'x'},{stroke:'blue'},{stroke:'red'}], scales:{x:{time:false}} }, [
 	[1,2,3,4,5,6],
 	[25,32,42,65,44,32],
 	[65,60,55,70,75,60],
@@ -200,7 +200,7 @@ function txt({ctx,series,data,valToPos},i,i0,i1) {
 }
 
 var opts = {
-	width:600, height:400, pxAlign:false,
+	width:220, height:80, pxAlign:false,
 	cursor: {show:false},
 	select: {show:false},
 	legend: {show:false},
