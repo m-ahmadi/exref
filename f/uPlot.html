@@ -199,7 +199,26 @@ function txt({ctx,series,data,valToPos},i,i0,i1) {
 	}
 }
 
-
+var opts = {
+	width:600, height:400, pxAlign:false,
+	cursor: {show:false},
+	select: {show:false},
+	legend: {show:false},
+	scales: {x:{time:false}},
+	axes: [{show:false}, {show:false}],
+	series: [{}, {stroke:'#0000ff', fill:'#ff0080'}],
+};
+var div = document.createElement('div');
+Object.assign(div.style, {display: 'grid', gridTemplateColumns: 'auto auto'});
+div.innerText = 'sparklines';
+[...Array(9)].forEach((_,i) => {
+	var canv = new uPlot(opts, [ts(6), i%2 ? [1,3,2,1,4,2] : [5,2,1,4,3,6]]).ctx.canvas;
+	canv.style.width = 220;
+	canv.style.height = 80;
+	Object.assign(canv.style, {display: 'block', background: i%2 ? 'pink' : '#efbfff'});
+	div.append(canv);
+});
+charts.append(div);
 
 
 function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i)/1000)) }
