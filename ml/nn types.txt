@@ -1,6 +1,6 @@
 feed forward (ffnn)		0 cycles
 convolutional (cnn)		spatial-invariance, image
-recurrent (rnn)			context-critical, text
+recurrent (rnn, lstm, gru)	context-critical, sequential data, text, time-series
 generative adversarial (gan)	2 networks fight each other
 encoder-decoder			built from above nets
 autoencoder
