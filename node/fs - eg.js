@@ -76,7 +76,7 @@ fs.renameSync('oldFile.txt', 'newFile.txt')
 
 
 
-// read form stdin (windows issue: https://github.com/nodejs/node/issues/35997)
+// read from stdin (windows issue: https://github.com/nodejs/node/issues/35997)
 var buffer = fs.readFileSync(0) // STDIN_FILENO = 0
 fs.readFileSync(0).toString() // or:
 fs.readFileSync(0, 'utf8')
@@ -96,7 +96,13 @@ let stdin = await new Promise(resolve => {
 
 
 
-// reads contents of directory
+// print progress (write to stdout)
+process.stdout.write('\r' + 'new info');
+for (let i of [...Array(100).keys()]) process.stdout.write('\r'+(i+1)+'/'+100), await new Promise(r=>setTimeout(r,500))
+
+
+
+// read contents of directory
 var files = await fs.promises.readdir('mydir') // array of filenames  '.' and '..'
 var files = await fs.promises.readdir('mydir', {withFileTypes: true})
 files[0] instanceof fs.Dirent // true
