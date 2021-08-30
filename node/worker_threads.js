@@ -75,6 +75,20 @@ parentPort.on('message', val => {
 	console.log('boss says: '+ val);
 });
 //===============================================
+// promise example
+
+// manual once (browser style)
+var result = await new Promise(r => {
+	var onmessage = v => (worker.removeListener('message', onmessage), r(v));
+	worker.on('message', onmessage);
+	worker.postMessage('do it dear worker');
+});
+
+var result = await new Promise(r => {
+	worker.once('message', v => r(v));
+	worker.postMessage('do it dear worker');
+});
+//===============================================
 // context detection
 var { isMainThread, parentPort } = require('worker_threads');
 
