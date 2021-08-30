@@ -67,6 +67,7 @@ worker.on('error', () => {
 worker.on('exit', code => {
 	if (code !== 0) consolw.log('worker exited with non-zero exit code');
 });
+await worker.terminate()
 
 // myworker.js
 var { parentPort } = require('worker_threads');
