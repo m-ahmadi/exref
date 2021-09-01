@@ -21,13 +21,13 @@ stats.isFile()
 var data = await fs.promises.readFile('file.txt', 'utf8')
 var data = await fs.promises.readFile('file.txt', {encoding:'ascii', flag:'w+'})
 var data = fs.readFileSync('temp.txt', 'utf8')
+var json = JSON.parse(fs.readFileSync('file.json')) // pass buffer directly (no need for encoding arg)
 
 
 
 // copy file 
 await fs.promises.copyFile('src.txt', 'dest.txt')
 await fs.promises.copyFile('src.txt', 'dest.txt', fs.COPYFILE_EXCL)
-
 // using streams
 fs.createReadStream('source.txt').pipe(
 	fs.createWriteStream('destination.txt')

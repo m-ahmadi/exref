@@ -81,6 +81,10 @@ a() // [1, 2, 3, 3] wrong. expected: [1, 3]
 b() // [1, 2, 3, 3] wrong. expected: [1]
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // change lookup paths before require
-module.paths.push("/somePath", "anotherPath") // before any require() call
+module.paths.push('/somePath', 'anotherPath') // before any require() call
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// delete require cache
+delete require.cache[ require.resolve('./a.js') ]
+Object.keys(require.cache).forEach(key => delete require.cache[key])
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
