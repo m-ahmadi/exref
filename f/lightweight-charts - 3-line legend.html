@@ -1,0 +1,84 @@
+<style>
+html, body {
+	font-family: 'Trebuchet MS', Roboto, Ubuntu, sans-serif;
+	background: #f9fafb;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.three-line-legend {
+	width: 96px;
+	height: 70px;
+	position: absolute;
+	padding: 8px;
+	font-size: 12px;
+	color: '#20262E';
+	background-color: rgba(255, 255, 255, 0.23);
+	text-align: left;
+	z-index: 1000;
+	pointer-events: none;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+<script src="lightweight-charts - zgen.js"></script>
+
+<h1>3-line legend</h1>
+<div id="wrap"></div>
+
+<script>
+wrap.style.position = 'relative';
+
+var container = document.createElement('div');
+wrap.append(container);
+
+var width = 600;
+var height = 300;
+var data = gen(300);
+
+var chart = window.tvchart = LightweightCharts.createChart(container, {
+	width, height,
+	rightPriceScale: {scaleMargins: {top:0.35,bottom:0.2}, borderVisible: false},
+	timeScale: {borderVisible:false},
+	grid: { horzLines:{color:'#eee',visible:false}, vertLines:{color:'#ffffff'} },
+	crosshair: {
+			horzLine: {visible:false, labelVisible:false},
+			vertLine: {visible:true, style:0, width:2, color:'rgba(32, 38, 46, 0.1)', labelVisible: false}
+	},
+});
+
+var series = chart.addAreaSeries({	
+	topColor: 'rgba(19, 68, 193, 0.4)',	
+	bottomColor: 'rgba(0, 120, 255, 0.0)',
+	lineColor: 'rgba(19, 40, 153, 1.0)',
+	lineWidth: 3
+});
+series.setData(data);
+
+var toolTip = document.createElement('div');
+toolTip.className = 'three-line-legend';
+Object.assign(toolTip.style, {display:'block',left:3,top:3});//px
+container.append(toolTip);
+
+function setLastBarText() {
+	var last = data[data.length-1];
+	var dateStr = [last.time.year, last.time.month, last.time.day].join(' - ');
+	 toolTip.innerHTML = ''+
+		'<div style="font-size: 24px; margin: 4px 0px; color: #20262E"> AEROSPACE</div>'+
+		'<div style="font-size: 22px; margin: 4px 0px; color: #20262E">'+ last.value +'</div>' +
+		'<div>'+ dateStr +'</div>';
+}
+setLastBarText(); 
+
+chart.subscribeCrosshairMove(param => {
+	if (param === undefined || param.time === undefined || param.point.x < 0 || param.point.x > width || param.point.y < 0 || param.point.y > height) {
+		setLastBarText();   
+	} else {
+		var dateStr =[ param.time.year, param.time.month, param.time.day].join(' - ');
+		var price = param.seriesPrices.get(series);
+	toolTip.innerHTML = ''+
+		'<div style="font-size: 24px; margin: 4px 0px; color: #20262E"> AEROSPACE</div>'+
+		'<div style="font-size: 22px; margin: 4px 0px; color: #20262E">' + (Math.round(price * 100) / 100).toFixed(2) + '</div>' +
+		'<div>'+ dateStr +'</div>';
+	}
+});
+</script>

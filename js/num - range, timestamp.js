@@ -11,3 +11,9 @@ d.getHours()        // hour
 d.getMinutes()      // minutes
 d.getSeconds()      // seconds
 d.getMilliseconds() // milliseconds
+
+// date strs
+[...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i), [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-') ))
+
+// date strs (consistent form)
+[...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i), d=d.getFullYear()*10000 + (d.getMonth()+1)*100 + d.getDate() + '', [d.slice(0,4),d.slice(4,6),d.slice(6,8)].join('-') ))
