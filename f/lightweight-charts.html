@@ -39,7 +39,7 @@ function randCandles(len=100, {open=70,high=120,low=80,close=100}={}) {
 		let time = [d.getFullYear(), d.getMonth()+1, d.getDate()].map(i=>(i=''+i, i.length>1?i:'0'+i)).join('-');
 		if (i===0) { r[i].time = time; continue; }
 		let prev = r[i-1].close;
-		let [min, max] = [f(prev,-.05), f(prev,.05)];
+		let [min, max] = [f(prev,-.03), f(prev,.03)];
 		let n = randInt(min, max);
 		let k = 2;
 		while (n===prev) {n = randInt(min, max+k); k*=2;}

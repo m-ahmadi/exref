@@ -21,6 +21,5 @@ svg.setAttribute('width', '400')
 svg.setAttribute('height', '400')
 
 // parse svg string
-var parser = new DOMParser()
-var doc = parser.parseFromString(str, 'image/svg+xml')
+var doc = new DOMParser().parseFromString(str, 'image/svg+xml')
 doc.children[0]

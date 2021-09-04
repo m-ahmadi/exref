@@ -9,19 +9,18 @@ http://cdn.tsetmc.com/Site.aspx?ParTree=11141111			paid api help (very useful in
 --------------------------------------------------------------------------------
 other
 
-http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?i=<InsCode>&Top=99&A=0				10 col ClosingPrices (text/html)
-http://tsetmc.com/tsev2/chart/data/Financial.aspx?i=InsCode&t=ph&a=1						7  col ClosingPrices (text/csv)
-http://tsetmc.com/tsev2/data/Export-txt.aspx?t=i&a=1&b=0&i=<InsCode>						12 col ClosingPrices (text/plain)
-http://tsetmc.com/tse/data/Export-txt.aspx?a=InsTrade&InsCode=<InsCode>&DateFrom=<DEven>&DateTo=<DEven>&b=0	11 col ClosingPrices (text/plain)
+http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?i=<InsCode>&Top=99&A=0					10 col ClosingPrices (text/html)
+http://www.tsetmc.com/tsev2/chart/data/Financial.aspx?i=InsCode&t=ph&a=1						7  col ClosingPrices (text/csv)
+http://www.tsetmc.com/tsev2/data/Export-txt.aspx?t=i&a=1&b=0&i=<InsCode>						12 col ClosingPrices (text/plain)
+http://www.tsetmc.com/tse/data/Export-txt.aspx?a=InsTrade&InsCode=<InsCode>&DateFrom=<DEven>&DateTo=<DEven>&b=0		11 col ClosingPrices (text/plain)
 
 http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=<InsCode>&c=57+			9 groups live data		(text/html)
-
+http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=<InsCode>				4  col IntraTrade of last day	(text/xml)
 http://www.tsetmc.com/tsev2/data/clienttype.aspx?i=<InsCode>				13 col ClientType		(text/csv)
 http://www.tsetmc.com/tsev2/data/ClientTypeAll.aspx					8  col ClientType of all?	(text/csv)
 http://www.tsetmc.com/tsev2/data/search.aspx?skey=<keyword>				11 col symbol search		(text/html)
 http://tse.ir/archive/IndicesArchiveDate.json						indice info			(application/json)
 http://www.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0				Instruments & ClientTypeAll?	(text/csv)
-http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=<InsCode>				4 col IntraTrade		(text/xml)
 http://www.tsetmc.com/Loader.aspx?Partree=15131H&i=<InsCode>				capital increase page
 http://www.tsetmc.com/tsev2/data/ShareHolder.aspx?i=<HolderCode>,<HeldCIsin>		share holder history		(text/html)
 http://www.tsetmc.com/Loader.aspx?Partree=15131T&c=<CIsin>				share holders page

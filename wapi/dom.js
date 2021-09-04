@@ -181,12 +181,25 @@ fragment.append(elemA)
 fragment.append(elemB)
 elemC.append(fragment)
 
-function parseHTML(str) {
-	var el = document.createElement('div');
-	el.innerHTML = str;
-	return el.children;
-}
+DOMParser
+DOMParser.parseFromString(stringXMLSource, mimeType=''): HTMLDocument | XMLDocument
+	// mimeType             return
+	'text/html'             HTMLDocument
+	'text/xml'	            XMLDocument
+	'application/xml'	      XMLDocument
+	'application/xhtml+xml'	XMLDocument
+	'image/svg+xml'         SVGDocument // ?
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// parse html
+var el = document.createElement('div');
+el.innerHTML = '<p>hi</p>';
+var p = el.children[0]; // or:
+var p = new DOMParser().parseFromString('<p>hi</p>', mimeType='text/html').body.children[0]
 
+// parse xml
+var rows = new DOMParser().parseFromString('<rows> <row></row> </rows>', mimeType='text/xml').children[0]
+
+// detect dom el
 if (x instanceof HTMLElement) // dom el
 
 // direct child

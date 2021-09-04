@@ -35,14 +35,3 @@ SVGRect.x
 SVGRect.y
 SVGRect.width
 SVGRect.height
-
-DOMParser
-var domparser = new DOMParser()​​
-var doc = domparser.parseFromString(stringXMLSource, mimeType='')
-doc: Document | XMLDocument
-// mimeType             return
-'text/html'             HTMLDocument
-'text/xml'	            XMLDocument
-'application/xml'	      XMLDocument
-'application/xhtml+xml'	XMLDocument
-'image/svg+xml'         SVGDocument

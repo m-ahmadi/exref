@@ -24,18 +24,18 @@ const opts = {
 			scale:    '',
 			auto:     true,
 			sorted:   0 | 1 | -1,
-			spanGaps: false,      // true: connect null data points
+			spanGaps: false,   // true: connect null data points
 			pxAlign:  0 | false,
-			label:    'Value',    // in-legend display
+			label:    'Value', // in-legend display
 			value:    '' | (u, rawValue=0, seriesIdx=0, idx=0)=> '' | 0,
 			values:   (u, seriesIdx=0, idx=0)=> {},
 			paths:    (u, seriesIdx=0, idx0=0, idx1=0)=> {stroke,fill,clip} | null,
-			points:   {show:true|(u,seriesIdx,idx0,idx1)=>false, size:0, space:size*2, width:0, stroke:, dash:↓.., cap:↓.., fill:↓..},
-			width:    1,          // ctx.lineWidth (css pixels)
+			points:   {show:true|(u,seriesIdx,idx0,idx1)=>false, size:0, space:size*2, width:0, stroke:↓.., dash:↓.., cap:↓.., fill:↓..},
+			width:    1,       // ctx.lineWidth (css pixels)
 			stroke:   CanvasRenderingContext2D.strokeStyle=''    | (u, seriesIdx=0)=> CanvasRenderingContext2D.strokeStyle,
 			fill:     CanvasRenderingContext2D.fillStyle='black' | (u, seriesIdx=0)=> CanvasRenderingContext2D.fillStyle,,
-			fillTo:   Series.FillTo,
-			dash:     [0,..],     // ctx.setLineDash()
+			fillTo:   0 | (u, seriesIdx=0, dataMin=0, dataMax=0)=> 0,
+			dash:     [0,..],  // ctx.setLineDash()
 			cap:      CanvasRenderingContext2D.lineCap,
 			alpha:    0,
 			idxs:     Series.MinMaxIdxs,
@@ -109,48 +109,53 @@ const opts = {
 	},
 	
 	scales: {
-		x: {
-			time: false,
-		},
-		y: {
+		'x|y': {
+			time:  false,
+			auto:  true | (u, resetScales=true)=>true,
+			range: [0,0] | (u, initMin=0, initMax=0, scaleKey='')=>[0,0] | { min:{pad:0.1,soft:0,mode:3,hard:0}, max:{←...} },
+			from:  '',
+			distr: 1|2|3|4, // linear|ordinal|logarithmic|arcsing
+			log:   10|2,
+			clamp: 0 | (u, val=0, scaleMin=0, scaleMax=0, scaleKey='')=>0,
+			asinh: 1,
 			min:   0,
 			max:   0,
-			distr: 0, // log scale?
+			dir:   1|-1 ,
+			ori:   0|1,
 		},
-		'': {
-			auto: false,
-			range: [0,0] | ()=>[0,0],
-			from: '',
-		}
+		'': {...}
 	},
 	
 	axes: [
 		{
-			show:       true,
-			label:     'Population',
-			labelSize: 30,
-			labelFont: 'bold 12px Arial',
-			font:      '12px Arial',
-			gap:       5,
-			side:      1,
-			size:      50,
-			space:     15,
-			stroke:    'red',
-			class:     'css-class',
+			show:      true,
+			scale:     '',
+			side:      0|1|2|3, // top|right|bottom|left
+			size:      0 | (u, values=['',..], axisIdx=0, cycleNum=0)=>0,
+			gap:       0, // css pixels
+			font:      CanvasRenderingContext2D.font,
+			stroke:    CanvasRenderingContext2D.strokeStyle | (u, axisIdx=0)=>CanvasRenderingContext2D.strokeStyle,
+			label:     '',
+			labelSize: 0,
+			labelFont: CanvasRenderingContext2D.font,
+			space:     0 | (u, axisIdx=0, scaleMin=0, scaleMax=0, plotDim=0)=> 0,
+			incrs:     [0,..] | (u, axisIdx=0, scaleMin=0, scaleMax=0, fullDim=0, minSpace=0)=> [0,..],
+			splits:    [0,..] | (u, axisIdx=0, scaleMin=0, scaleMax=0, foundIncr=0, foundSpace=0)=> [0,..],
+			filter:    (u, splits=[0,..], axisIdx=0, foundSpace=0, foundIncr=0)=> [0|null,..],
+			values:    [''|0|null,..]    |    (u, splits=[0,..], axisIdx=0, foundSpace=0, foundIncr=0)=> [''|0|null,..]    |    ''    |    [[''|0|null,],...],
+			rotate:    0 | (u, values=[''|0,..], axisIdx=0, foundSpace=0)=> 0,
+			align:     1|2, // left|right
 			grid: {
 				show:    true,
-				stroke:  '#eee',
-				width:   2,
-				dash:    [5,5],
-			},
-			ticks: {
-				show:    true,
-				stroke:  '#eee',
-				width:   2,
-				dash:    [5,5],
-				size:    10,
+				filter:  ...↑,
+				stroke:  ...↑,
+				width:   0,
+				dash:    [0,..],
+				cap:     CanvasRenderingContext2D.lineCap,
 			}
-		}
+			ticks:     {↑...grid, size:0},
+		},
+		...
 	],
 	
 	plugins: [

@@ -70,7 +70,7 @@ var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, {
 		dateFormat:     'yyyy/MM/dd',
 			'yyyy' // full    year:  2020
 			'yy'   // short   year:  20
-			'MMMM' // long    month: July
+			'MMMM' // long    month: February
 			'MMM'  // short   month: Feb
 			'MM'   // numeric month: 03  (with leading zero if needed)
 			'dd'   // day of  month: 15  (with leading zero if needed)
