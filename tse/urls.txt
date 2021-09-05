@@ -31,3 +31,20 @@ http://www.tsetmc.com/Loader.aspx?ParTree=111C1417		instruments
 http://www.tsetmc.com/Loader.aspx?ParTree=151313&Flow=0		messages
 http://www.tsetmc.com/Loader.aspx?ParTree=15131I&t=0		shareholders
 --------------------------------------------------------------------------------
+rest api
+
+... = :inscode/:deven
+
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/...		InstSimpleData
+
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/...	ClosingPriceData
+http://cdn.tsetmc.com/api/BestLimits/...				BestLimitData
+http://cdn.tsetmc.com/api/Trade/GetTradeHistory/.../:bool		IntraTradeData
+
+http://cdn.tsetmc.com/api/ClientType/GetClientTypeHistory/...		ClientTypeData
+http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/...		StaticTreshholdData
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/...		InstrumentStateData
+http://cdn.tsetmc.com/api/Shareholder/...				ShareHolderData
+
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily...		some info
+--------------------------------------------------------------------------------
