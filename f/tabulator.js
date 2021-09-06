@@ -116,7 +116,11 @@ table.getColumn(t)
 table.getColumnDefinitions()
 table.getColumnLayout()
 table.getColumns(t)
-table.getData(t)
+table.getData(rowRangeLookup='all|visible|active|selected')
+	'all'      // all rows in the table (regardless of filters)
+	'visible'  // rows currently visible in the table viewport
+	'active'   // rows currently in the table that pass current filters
+	'selected' // rows currently selected by the selection module (this includes not currently active rows)
 table.getDataCount(t)
 table.getEditedCells()
 table.getFilters(t)
@@ -325,3 +329,5 @@ table.setSort([
 	{column:'age', dir:'asc'},
 	{column:'height', dir:'desc'},
 ])
+
+table.getData('active')

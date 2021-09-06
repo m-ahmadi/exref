@@ -29,8 +29,8 @@ zo1     // count
 qo1     // volume
 
 // misc
-i18     // symbol
-i30     // name
+l18     // symbol
+l30     // name
 bvol    // base volume
 eps     // eps
 pe      // p / e ratio
