@@ -6,7 +6,7 @@
 
 <script>
 const data = [
-	[...Array(10)].map((v,i)=>(v=new Date, v.setDate(v.getDate()*(i+1)), +v)),// [1546300800, 1546387200, 1546397200],
+	ts(10),
 	[1,2,3,2,4,1,7,2,6,7],
 	[4,5,7,8,5,6,9,7,7,8],
 ];
@@ -29,6 +29,16 @@ new uPlot({width:600, height:400, title:'My Chart', series:[
 	{label:'RAM', value:(s,rawValue)=>'$'+rawValue.toFixed(2), stroke:'red', fill:'rgba(255,0,0,0.3)', dash:[10,5]},
 	{}]}, data, charts);
 
+new uPlot({width:600, height:400, title:'Seconds',
+	tzDate: ts => uPlot.tzDate(new Date(ts*1e3), 'Asia/Tehran'),
+	series:[
+		{value:'{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}'}, // HH = 12hour
+		{stroke:'blue'},
+	]}, [
+		ts(60, 'Seconds'),
+		[...Array(60).keys()]
+	], charts);
+
 new uPlot({width:600, height:400, series:[{label:'x'},{stroke:'blue'},{stroke:'red'}], scales:{x:{time:false}} }, [
 	[1,2,3,4,5,6],
 	[25,32,42,65,44,32],
@@ -47,7 +57,7 @@ new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2},{stroke:'r
 	[null,null,1.5,null,2.5,null],
 ], charts);
 
-var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}], legend:{show:true}}, [], charts);
+var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}]}, [], charts);
 chart.setData([
 	ts(20),
 	[...Array(20)].map(()=> Math.floor(Math.random()*250) )
@@ -221,5 +231,5 @@ div.innerText = 'sparklines';
 charts.append(div);
 
 
-function ts(n) { return [...Array(n)].map((d,i)=> (d=new Date, d.setDate(d.getDate()-n+i)/1000)) }
+function ts(n,k='Date') { return [...Array(n)].map((d,i)=> (d=new Date, d['set'+k](d['get'+k]()-n+i)/1000)) }
 </script>

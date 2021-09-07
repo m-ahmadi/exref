@@ -17,6 +17,15 @@ const opts = {
 	id:    '',   // optional. attrs to set on chart's container <div>
 	class: '',   // ...
 	
+	data:  ↓..., // data for chart, if none is provided as argument to constructor
+	
+	tzDate: (date=Date, tzName=IANATimezoneName)=>Date,
+	fmtDate: (tpl='')=> (date)=>'',
+	
+	ms:        1e-3 | 1,
+	drawOrder: ['axes|series', ...],
+	pxAlign:   true | 0,
+	
 	series: [   // series only rendered if specified here (only being in `data` is not enough)
 		{
 			show:     true,
@@ -27,9 +36,9 @@ const opts = {
 			spanGaps: false,   // true: connect null data points
 			pxAlign:  0 | false,
 			label:    'Value', // in-legend display
-			value:    '' | (u, rawValue=0, seriesIdx=0, idx=0)=> '' | 0,
-			values:   (u, seriesIdx=0, idx=0)=> {},
-			paths:    (u, seriesIdx=0, idx0=0, idx1=0)=> {stroke,fill,clip} | null,
+			value:    '' | (u, rawValue=0, seriesIdx=0, idx=0)=>''|0, // https://github.com/leeoniya/uPlot/blob/master/src/fmtDate.js#L66-L107
+			values:   (u, seriesIdx=0, idx=0)=>{},
+			paths:    (u, seriesIdx=0, idx0=0, idx1=0)=>{stroke,fill,clip} | null,
 			points:   {show:true|(u,seriesIdx,idx0,idx1)=>false, size:0, space:size*2, width:0, stroke:↓.., dash:↓.., cap:↓.., fill:↓..},
 			width:    1,       // ctx.lineWidth (css pixels)
 			stroke:   CanvasRenderingContext2D.strokeStyle=''    | (u, seriesIdx=0)=> CanvasRenderingContext2D.strokeStyle,
@@ -45,68 +54,13 @@ const opts = {
 		...
 	],
 	
-	cursor: {
-		show:         true,
-		x:            false,
-		y:            false,
-		left:         0,
-		top:          0,
-		idx:          0,
-		lock:         false,
-		dataIdx:      (u, seriesIdx=0, closestIdx=0, xValue=0)=> 0,
-		move:         (u, mouseLeft=0, mouseTop=0) => {left:0,top:0},
-		points: {
-			show:       false | (u, seriesIdx=0)=> HTMLElement,
-			size:       0 | (u, seriesIdx=0)=> 0,
-			width:      0 | (u, seriesIdx=0, size=0)=> 0,
-			stroke:     CanvasRenderingContext2D.strokeStyle | (u, seriesIdx=0)=> CanvasRenderingContext2D.strokeStyle,
-			fill:   	  CanvasRenderingContext2D.fillStyle   | (u, seriesIdx=0)=> CanvasRenderingContext2D.fillStyle,
+	bands: [
+		{
+			series: [0,0],
+			fill: CanvasRenderingContext2D.fillStyle | (u, bandIdx=0, highSeriesFill)=> ..fillStyle
 		},
-		bind: {
-			mousedown:  (u, targ=HTMLElement, handler=e=>)=> ()=> | null,
-			mouseup:    ...,
-			click:      ...,
-			dblclick:   ...,
-			mouseover:  ...,
-			mouseleave: ...,
-			mouseenter: ...,
-		},
-		drag: {
-			setScale:   false,
-			x:          true,
-			y:          true,
-			dist:       0,
-			uni:        0
-		},
-		sync: {
-			key:        '',
-			setSeries:  true,
-			scales:     ['',''],
-			match:      {},
-			filters:    {pub: (type='', client, x, y, w, h, i)=>false, sub: (←...)=>false},
-			values:     [0,0],
-			
-		},
-		focus: {
-			prox:       16,
-		},
-	},
-	
-	select: {
-		show: true,
-	},
-	
-	legend: {
-		show:    true,
-		live:    true,
-		isolate: false,
-		width:   0 | (u, seriesIdx=0)=> 0;,
-		stroke:  '' | (u, seriesIdx=0)=> '',
-		dash:    ...↑,
-		fill:    ...↑,
-		idx:     0,
-		values:  [ {'': ''|0}, ...],
-	},
+		...
+	],
 	
 	scales: {
 		'x|y': {
@@ -158,16 +112,87 @@ const opts = {
 		...
 	],
 	
+	padding: [
+		top:    0 | null | (u, side=0|1|2|3, sidesWithAxes=[], cycleNum=0) => 0,
+		right:  ↑...,
+		bottom: ↑...,
+		left:   ↑...,
+	],
+	
+	select: {
+		show: true,
+	},
+	
+	legend: {
+		show:    true,
+		live:    true,
+		isolate: false,
+		width:   0 | (u, seriesIdx=0)=> 0;,
+		stroke:  '' | (u, seriesIdx=0)=> '',
+		dash:    ...↑,
+		fill:    ...↑,
+		idx:     0,
+		values:  [ {'': ''|0}, ...],
+	},
+	
+	cursor: {
+		show:         true,
+		x:            false,
+		y:            false,
+		left:         0,
+		top:          0,
+		idx:          0,
+		lock:         false,
+		dataIdx:      (u, seriesIdx=0, closestIdx=0, xValue=0)=> 0,
+		move:         (u, mouseLeft=0, mouseTop=0) => {left:0,top:0},
+		points: {
+			show:       false | (u, seriesIdx=0)=> HTMLElement,
+			size:       0 | (u, seriesIdx=0)=> 0,
+			width:      0 | (u, seriesIdx=0, size=0)=> 0,
+			stroke:     CanvasRenderingContext2D.strokeStyle | (u, seriesIdx=0)=> CanvasRenderingContext2D.strokeStyle,
+			fill:   	  CanvasRenderingContext2D.fillStyle   | (u, seriesIdx=0)=> CanvasRenderingContext2D.fillStyle,
+		},
+		bind: {
+			mousedown:  (u, targ=HTMLElement, handler=e=>)=> ()=> | null,
+			mouseup:    ...,
+			click:      ...,
+			dblclick:   ...,
+			mouseover:  ...,
+			mouseleave: ...,
+			mouseenter: ...,
+		},
+		drag: {
+			setScale:   false,
+			x:          true,
+			y:          true,
+			dist:       0,
+			uni:        0
+		},
+		sync: {
+			key:        '',
+			setSeries:  true,
+			scales:     ['',''],
+			match:      {},
+			filters:    {pub: (type='', client, x, y, w, h, i)=>false, sub: (←...)=>false},
+			values:     [0,0],
+			
+		},
+		focus: {
+			prox:       16,
+		},
+	},
+	
+	hooks: {
+		draw: (u)=>;
+		...
+	},
+	
 	plugins: [
 		()=>{},
 		()=>{},
 		...
 	],
 	
-	hooks: {
-		draw: (u)=>;
-		...
-	}
 };
 
 const chart = new uPlot(opts, data, document.body);
