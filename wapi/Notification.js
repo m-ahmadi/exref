@@ -40,7 +40,7 @@ notification.onshow
 notification.close()
 
 // static
-Notification.permission 'default|granted|denied'
+Notification.permission = 'default|granted|denied'
 Notification.maxActions
 Notification.requestPermission()
 

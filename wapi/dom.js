@@ -65,6 +65,7 @@ Document.body
 Document.hidden
 Document.documentElement
 Document.readyState = 'loading'|'interactive'|'complete'
+Document.designMode = 'off|on'
 Document.querySelector()
 Document.querySelectorAll()
 Document.getElementById()
