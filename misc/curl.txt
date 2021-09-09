@@ -7,32 +7,45 @@ curl http://example.com -d "a=b&c=d"			sending data with the request
 curl http://user:password@example.com/users/1		performing basic authentication
 
 curl http://user:password@example.com/users/1 -X PUT -d "screen_name=batman"
-____________________________________________________________________________________________________________________________________________________________
+--------------------------------------------------------------------------------
 json, get
 
 curl http://hostname/resource -X GET -H "Accept: application/json" -H "Content-Type: application/json" -i
-____________________________________________________________________________________________________________________________________________________________
+--------------------------------------------------------------------------------
 xml, get
 
 curl http://hostname/resource -X GET -H "Accept: application/xml" -H "Content-Type: application/xml"
-____________________________________________________________________________________________________________________________________________________________
+--------------------------------------------------------------------------------
 file upload, post
 
 curl http://hostname/resource --form "fileupload=@filename.txt"
-____________________________________________________________________________________________________________________________________________________________
+--------------------------------------------------------------------------------
 posting data, post
 
 curl http://hostname/resource -d "param1=value1&param2=value2"
-____________________________________________________________________________________________________________________________________________________________
+--------------------------------------------------------------------------------
 rest, post
 
 curl http://hostname/resource -X POST -d @filename
-____________________________________________________________________________________________________________________________________________________________
+--------------------------------------------------------------------------------
 logging into a site (auth)
 
 curl http://localhost/Login -d "username=admin&password=admin&submit=Login" --dump-header headers
 curl http://localhost/ -L -b cookies.txt
-____________________________________________________________________________________________________________________________________________________________
+--------------------------------------------------------------------------------
+soap request
+curl -X POST -H "Content-Type: text/xml;charset=UTF-8" -H "Content-Length: 294" -H 'SOAPAction: "http://tsetmc.com/LastPossibleDeven"' -d @request.xml http://service.tsetmc.com/WebService/TseClient.asmx
+
+
+request.xml file:
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <LastPossibleDeven xmlns="http://tsetmc.com/" />
+  </soap:Body>
+</soap:Envelope>
+--------------------------------------------------------------------------------
 Usage: curl [options...] <url>
 
 flags
