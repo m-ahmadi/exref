@@ -1,7 +1,7 @@
 N natural	positive integers (not zero)
 Z integer	no fractional component
 Q rational	possible as quotient or fraction of 2 integers (non-zero denominator)
-R real		continuous(fractions, rational, irrational, not infinty or imaginary)
+R real		continuous (fractions, rational, irrational, not infinty or imaginary)
     irrational	real, with infinite decimals (pi, e, sqrt2)
 C complex	number and symbol
     imaginary	complex, possible as real * imaginary unit

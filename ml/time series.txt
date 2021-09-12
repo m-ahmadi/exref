@@ -4,3 +4,16 @@ seasonality:	optional repeating patterns or cycles of behavior over time
 noise:		optional variability in observations that cannot be explained by the model
 
 all time series have a level, most have noise, and the trend and seasonality are optional.
+
+
+classification types
+	distance-based		knn & dwt
+	interval-based		forest classifier
+	dictionary-based	bag of sfa symbols (boss)
+	frequency-based		random interval spectral ensemble (rise)
+	shapelet-based		shapelet transform classifier
+	ensemble		hive-cote
+
+
+dynamic time warping (dwt)	measuring similarity between two temporal sequences, which may vary in speed.
+longest common subsequence
