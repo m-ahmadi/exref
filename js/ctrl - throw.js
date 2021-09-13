@@ -1,7 +1,4 @@
-// instances of Error object are thrown when runtime errors occur
 new Error() // can be used as a base object for user-defined exceptions
-
-// standard built-in error types:
 new EvalError()      // indicates an error regarding the global eval() function (non-standard)
 new InternalError()  // indicates an error that occurred internally in the JavaScript engine
 new RangeError()     // indicates an error when a value is not in the set or range of allowed values
@@ -10,17 +7,28 @@ new ReferenceError() // represents an error when a non-existent variable is refe
 new TypeError()      // represents an error when a value is not of the expected type
 new URIError()       // represents an error when a global URI handling function was used in a wrong way
 
-
-// You do not need to put a "return" statement after "throw",
-// the return line will never be reached as throwing an exception immediately hands control back to the caller.
-
+// statements after throw won't execute and control is passed to first catch block if any otherwise program terminates
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//	show the stack trace
+// examples
+
+// simple vales (no trace captured about where error happened)
+throw 42
+throw 'hi'
+throw new Date()
+throw true
+throw {foo:'bar'}
+throw [1,2,3]
+try{ throw 42 }catch(e){console.log(e)} // 42 (nothing captured)
+
+// using constructors (captures some stuff about the place where error happened)
+throw new Error('hi')
+throw Error('hi') // same as above (due to native guarded constructor, like Number() for example)
+try{ throw Error(42) }catch(e){console.log(e)} // Error: 42 (somethings captured)
+
+// show the stack trace
 var err = new Error('Message!');
-throw err;
-console.log(err.stack); // IE10+ and Error.prototype.stack is a Non-standard feature 
-// Use dev-tools/firebug isntead.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+console.log(err.stack)
+
 // throw an object
 function UserException(message) {
 	this.message = message;
@@ -32,4 +40,3 @@ try {
 	e.message // InvalidMonthNo 
 	e.name    // UserException
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
