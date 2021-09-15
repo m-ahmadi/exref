@@ -7,12 +7,15 @@ all time series have a level, most have noise, and the trend and seasonality are
 
 
 classification types
+	prefix-based		learn mpl/mrl (min prediction/required length)
+	shapelet-based		shapelet transform classifier
 	distance-based		knn & dwt
 	interval-based		forest classifier
 	dictionary-based	bag of sfa symbols (boss)
 	frequency-based		random interval spectral ensemble (rise)
-	shapelet-based		shapelet transform classifier
-	ensemble		hive-cote
+	feature-based		catch22 classifier
+	kernel-based		rocket transformer
+	hybrid			hive-cote
 
 
 dynamic time warping (dwt)	measuring similarity between two temporal sequences, which may vary in speed.
