@@ -1,5 +1,7 @@
-forfiles /p c:\mydir /c "cmd /c more @file"		run "more" command on each file in c:\mydir
-forfiles /m *.txt /c "cmd /c rename @file @fname.csv"	rename all .txt files to .csv (in cwd)
+forfiles /p c:\mydir /c "cmd /c more @file"				run "more" command on each file in c:\mydir
+forfiles /m *.txt /c "cmd /c rename @file @fname.csv"			rename all .txt files to .csv (in cwd)
+
+dir /b/s | findstr "foo.txt" | forfiles /c "cmd /c del @file /q"	equal to "del foo.txt" /s/q
 
 /p	path
 /m	path mask

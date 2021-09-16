@@ -2,7 +2,7 @@ dir			current dir
 dir node_modules	specified dir
 dir *.js		all js files
 dir /b			bare format (no heading/information/summary)
-dir /s			plus all subdirs
+dir /s			all subdirs (recursive)
 dir /a:d		only files with specified attributes. d: dir, h: hidden, r: readonly, s: system
 dir /a:-d 		only files
 dir /a:d /b		only dirs

@@ -20,7 +20,7 @@ rename *.txt *.jpg
 
 del comp*.txt
 
------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 find and replace (word, excel, etc)
 
 comp*r		basic: computer compiler "computer your"
@@ -39,4 +39,4 @@ se{2}d		nth number of the character preceding the curly: seed but not sed
 
 (er)>		any word ending with what's in parens
 
------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
