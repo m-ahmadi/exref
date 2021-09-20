@@ -1,7 +1,7 @@
 // all the same:
 var a = {
-	...(condition && {b: 5})
 	...condition && {b: 5}
+	...(condition && {b: 5})
 	...(condition) && {b: 5}
 	...(condition? {b: 5}: {} )
 }
