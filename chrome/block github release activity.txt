@@ -1,0 +1,6 @@
+adblock -> customize
+	github.com###dashboard > div.news .release
+
+or
+
+https://github.com/gautamkrishnar/refined-github-feeds
