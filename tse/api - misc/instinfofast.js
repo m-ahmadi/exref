@@ -2,6 +2,8 @@
 http://www.tsetmc.com/tsev2/data/instinfofast.aspx?
 	i=<InsCode>
 	c=<CSecVal>    eg: c="37 " | c="57 " | c="57+"
+	
+	return: text/html
 */
 
 var str = await fetch('http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=46348559193224090&c=57+').then(async r => await r.text());

@@ -15,7 +15,8 @@ http://www.tsetmc.com/tsev2/data/Export-txt.aspx?t=i&a=1&b=0&i=<InsCode>						12
 http://www.tsetmc.com/tse/data/Export-txt.aspx?a=InsTrade&InsCode=<InsCode>&DateFrom=<DEven>&DateTo=<DEven>&b=0		11 col ClosingPrices (text/plain)
 
 http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=<InsCode>&c=57+			9 groups live data		(text/html)
-http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=<InsCode>				4  col IntraTrade of last day	(text/xml)
+http://www.tsetmc.com/tsev2/chart/data/IntraDayPrice.aspx?i=<InsCode>			6  col Intraday last day	(text/csv)
+http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=<InsCode>				4  col IntraTrade last day	(text/xml)
 http://www.tsetmc.com/tsev2/data/clienttype.aspx?i=<InsCode>				13 col ClientType		(text/csv)
 http://www.tsetmc.com/tsev2/data/ClientTypeAll.aspx					8  col ClientType of all?	(text/csv)
 http://www.tsetmc.com/tsev2/data/search.aspx?skey=<keyword>				11 col symbol search		(text/html)
