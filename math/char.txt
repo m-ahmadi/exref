@@ -4,7 +4,7 @@
 
 suP
 ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾
-ᵃ ᵇ ᶜ ᵈ ᵉ ᶠ ᶢ - ⁱ ʲ ᵏ - ᵐ ⁿ ᵒ ᵖ - - - ᵗ ᵘ ᵛ - ᵡ - ᶻ
+ᵃ ᵇ ᶜ ᵈ ᵉ ᶠ ᶢ - ⁱ ʲ ᵏ ᶪ ᵐ ⁿ ᵒ ᵖ - - - ᵗ ᵘ ᵛ - ᵡ - ᶻ
 ᴬ ᴮ - ᴰ ᴱ - ᴳ ᴴ ᴵ ᴶ ᴷ ᴸ ᴹ ᴺ ᴼ ᴾ - ᴿ - ᵀ ᵁ - ᵂ - - -
 suB
 ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎
@@ -20,4 +20,3 @@ other hyphens		2010, 2011
 
 
 https://unicode-table.com/en/sets/superscript-and-subscript-letters
-https://unicode-table.com/en/sets/superscript-and-subscript-numbers
