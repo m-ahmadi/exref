@@ -44,7 +44,7 @@ var status = net.train(data=[], ?options={
 	// https://github.com/BrainJS/brain.js#training-options
 }, ?KFolds): {errorr:0, iterations:0}
 net.trainAsync(↑...)
-net.run(input):
+net.run(input): {error:0,iterations:0}
 net.forecast(input, count)
 net.toJSON()
 net.fromJSON(json)
