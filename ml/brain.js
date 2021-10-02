@@ -1,5 +1,5 @@
+var { brain } = require('brain.js'); // npm i brain.js
 /*
-npm i brain.js        needs python2 and "Common Tools for Visual C++ 2015" from vs2015 iso (cl.exe)
 https://cdn.jsdelivr.net/npm/brain.js/dist/
 https://unpkg.com/browse/brain.js/dist/
 https://cdn.jsdelivr.net/npm/brain.js/dist/brain-browser.min.js
@@ -76,6 +76,15 @@ var res = await net.trainAsync(data, opts);
 var net1 = new brain.NeuralNetwork();
 var net2 = new brain.NeuralNetwork();
 var [res1, res2] = await Promise.all( [net1.trainAsync(data, opts), net2.trainAsync(data, opts)] );
+
+/* build from source
+needs python2
+needs "Microsoft Visual Studio Build Tools 2015"  https://www.microsoft.com/en-us/download/details.aspx?id=48159
+	also available in "Common Tools for Visual C++ 2015" from vs2015 iso (cl.exe)
+
+npm config set msvs_version 2015
+npm config set python python2.7
+npm rebuild */
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
