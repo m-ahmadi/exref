@@ -1,0 +1,16 @@
+npm i nexe -g
+
+nexe index.js			basic
+type index.js | nexe		stdin
+
+nexe index.js -t 14.5.0		from pre-builts
+next index.js -b		build from source
+
+--------------------------------------------------------------------------------
+prerequisites
+
+python39	
+vsbuildtools2019
+git-for-windows
+nasm
+--------------------------------------------------------------------------------
