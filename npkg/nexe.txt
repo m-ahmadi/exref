@@ -1,16 +1,24 @@
-npm i nexe -g
-
 nexe index.js			basic
 type index.js | nexe		stdin
 
-nexe index.js -t 14.5.0		from pre-builts
-next index.js -b		build from source
+nexe index.js -t windows-x64-14.5.0	specify target (some pre-built available, otherwise must use -b)
+nexe index.js -t linux-x64-14.5.0	...
+nexe index.js -t mac-x64-14.5.0		...
 
+nexe index.js -b			build from source (infers -t from your env)
+nexe index.js -t linux-x64-14.18.0	...
+
+nexe index.js -r file.js	include asset in binary
+nexe index.js -o mybin		outfile name
 --------------------------------------------------------------------------------
-prerequisites
+install
 
+npm i nexe -g
 python39	
 vsbuildtools2019
 git-for-windows
 nasm
+
+npm config set msvs_version 2019
+npm config set python python2.7
 --------------------------------------------------------------------------------
