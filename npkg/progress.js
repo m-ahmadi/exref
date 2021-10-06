@@ -15,6 +15,8 @@ var bar = new Progress(':bar :current :total :elapsed :percent :eta :rate :<cust
 });
 
 bar.curr
+bar.total
+...
 bar.complete
 bar.tick(?len=1, ?tokens={})
 bar.update(ratio, ?tokens={})
