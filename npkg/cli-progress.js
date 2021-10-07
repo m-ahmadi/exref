@@ -28,14 +28,46 @@ const options = {
 	// https://www.npmjs.com/package/cli-progress#options-1
 };
 
-var bar = cliProgress.SingleBar | MultiBar(options, cliProgress.Presets['legacy|shades_classic|shades_grey|rect'])
+preset = cliProgress.Presets['legacy|shades_classic|shades_grey|rect']
+
+var bar = new cliProgress.SingleBar(options, ?preset=preset | {})
+
+bar.value                  0
+bar.terminal               null
+bar.clearOnComplete        false
+bar.stopOnComplete         false
+bar.barsize                0
+bar.align                  ''
+bar.hideCursor             false
+bar.linewrap               false
+bar.barCompleteString      ''
+bar.barIncompleteString    ''
+bar.barGlue                ''
+bar.format                 ''
+bar.formatTime             null
+bar.formatValue            null
+bar.formatBar              null
+bar.etaBufferLength        0
+bar.etaAsynchronousUpdate  false
+bar.synchronousUpdate      true
+bar.noTTYOutput            false
+bar.notTTYSchedule         0
+bar.emptyOnZero            false
+bar.forceRedraw            false
+bar.autopadding            false
+bar.autopaddingChar        ''
 
 bar.start(totalValue=0, startValue=0, ?payload={})
-bar.update(currentValue=0, ?payload={})
+bar.update(?currentValue=0, ?payload={}) // update progress without altering value if `currentValue` not provided
 bar.increment(?delta=1, ?payload={})
-bar.setTotal(n=0)
+bar.setTotal(totalValue=0)
 bar.stop()
 bar.updateETA()
+
+var multiBarContainer = new cliProgress.MultiBar(options, ?preset=preset | {})
+var bar = multiBarContainer.create(totalValue=0, startValue=0, ?payload={})
+multiBarContainer.remove(bar)
+multiBarContainer.stop()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 

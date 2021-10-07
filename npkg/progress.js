@@ -14,14 +14,24 @@ var bar = new Progress(':bar :current :total :elapsed :percent :eta :rate :<cust
 	// https://www.npmjs.com/package/progress#options
 });
 
-bar.curr
-bar.total
-...
-bar.complete
+bar.curr            0
+bar.total           0
+bar.chars           {complete:'', incomplete:'', head:''}
+bar.fmt             ''
+bar.renderThrottle  0
+bar.tokens          {}
+bar.lastDraw        ''
+bar.lastRender      0
+bar.stream          WriteStream
+bar.width           0
+bar.complete        ''
+bar.clear           boolean
+bar.callback        ()=>
+bar.interrupt(message='')
+bar.render()
+bar.terminate()
 bar.tick(?len=1, ?tokens={})
 bar.update(ratio, ?tokens={})
-bar.interrupt(message='')
-bar.terminate()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
