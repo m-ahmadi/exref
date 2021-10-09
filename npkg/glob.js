@@ -39,6 +39,7 @@ glob('**/*.js', options, function (err, files) {
 *(a|b|c)                    0 or more of patterns
 @(pattern|pat*|pat?erN)     1         of patterns
 **                          if a 'globstar' is alone in a path portion, then it matches 0 or more dirs and subdirs searching for matches. (won't crawl symlinked directories)
+{section,section,...}       braced sections (expanded into a set)
 */
 '*'               // any file
 '**/*'            // any file in this folder and all of its subfolders
@@ -53,4 +54,10 @@ glob('**/*.js', options, function (err, files) {
 'lib/**/*.js'     // mathes  all  js  files in  specified  folder and its subfolders
 'lib/*.js'        // mathes  all  js  files in  specified  folder
 '**/lib/**/*.js'  // all lib/**/*.js within root
+
+'a{/b/c,bcd}' /*expands to*/ 'a/b/c' 'abcd'
+
+'**/*.{js,json}'
+'**/*.+(js|json)'
+'**/*.@(js|json)'
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
