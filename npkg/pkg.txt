@@ -1,5 +1,17 @@
 npm i pkg -g
 
-pkg index.js		linux, mac, win
+pkg index.js		linux mac win
 
 pkg --targets node14-linux-x64,node14-macos-x64,node14-win-x64 -o myfile index.js
+
+pkg package.json
+{
+  "name": "foo",
+  "bin": "foo.js",
+  "pkg": {
+    "scripts": "build/**/*.js",
+    "assets": "views/**/*"  |  [ "assets/**/*", "images/**/*" ],
+    "targets": [ "node14-linux-arm64" ],
+    "outputPath": "dist"
+  }
+}

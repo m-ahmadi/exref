@@ -1,0 +1,14 @@
+winrar a -afzip -m5 output.zip input.csv
+
+winrar a -afzip -m5 output.zip inputdir
+
+-m1 fastest
+-m2 fast
+-m3 normal default
+-m4 good
+-m5 best
+
+winrar x archive.zip *			extract here
+winrar x archive.zip * foo\		extract to foo dir
+
+Help -> Help topics -> Command line mode

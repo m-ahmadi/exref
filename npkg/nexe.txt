@@ -1,17 +1,19 @@
 nexe index.js			basic
 type index.js | nexe		stdin
 
-nexe index.js -t windows-x64-14.5.0	specify target (some pre-built available, otherwise must use -b)
-nexe index.js -t linux-x64-14.5.0	...
-nexe index.js -t mac-x64-14.5.0		...
+nexe index.js -t windows-x64-14.15.3	target in "platform-arch-version" format (some pre-built available, otherwise must use -b)
+nexe index.js -t linux-x64-14.15.3	...
+nexe index.js -t mac-x64-14.15.3	...
 
-nexe index.js -b			build from source (infers -t from your env)
+nexe index.js -b			build from source (infers -t from your env, ignores "platform" portion of -t)
 nexe index.js -t linux-x64-14.18.0	...
 nexe index.js --clean -b --clean	... WARNING: removes previously built files
 
 nexe index.js -r file.js	include asset in binary
 nexe index.js -r *.{js,json}	...
 nexe index.js -o mybin		outfile name
+
+https://github.com/nexe/nexe/releases/tag/v3.3.3
 --------------------------------------------------------------------------------
 install
 
