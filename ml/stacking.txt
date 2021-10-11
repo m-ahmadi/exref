@@ -1,0 +1,6 @@
+limitation:	each model contributes the same amount regardless of how well it performed
+solution:	weigh contribution of each model based on its performance
+
+results in:
+	well-performing      models to contribute more
+	less-well-performing models to contribute less
