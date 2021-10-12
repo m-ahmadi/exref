@@ -83,7 +83,7 @@ needs "Microsoft Visual Studio Build Tools 2015"  https://www.microsoft.com/en-u
 	also available in "Common Tools for Visual C++ 2015" from vs2015 iso (cl.exe)
 	or "Build Tools 2017"  https://download.visualstudio.microsoft.com/download/pr/3e542575-929e-4297-b6c6-bef34d0ee648/639c868e1219c651793aff537a1d3b77/vs_buildtools.exe
 npm config set msvs_version 2015
-npm config set python python2.7
+npm config set python python2.7    or?    npm config set python "C:\path\to\python.exe"
 npm rebuild */
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples

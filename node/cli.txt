@@ -5,7 +5,7 @@ node -e "fs.mkdirSync('x')"		...
 node -p "2+3"				run js string and print result
 node -p "console.log(path.sep)"		...
 node . -r fs -r path			preload module(s)
---------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 debugging
 
 node --inspect-brk index.js			break on the first statement, node v7+
@@ -24,7 +24,7 @@ node debug app.js				deprecated
 	next  n		step
 	step  s		step in 
 	out   o		step out
---------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags
 
 -v, --version			print Node.js version
@@ -33,4 +33,18 @@ flags
 -c, --check			syntax check script without executing
 -i, --interactive		always enter the REPL even if stdin does not appear to be a terminal
 -r, --require			module to preload (option can be repeated)
---------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+version managers
+
+nvm 				only on linux & mac
+nvm install node		"node" is alias for latest version
+nvm install 14.7.0
+install:
+	curl -o- httpsraw.githubusercontent.comnvm-shnvmv0.39.0install.sh  bash
+
+others
+
+nvm-windows
+choco install nodist
+choco install nvs
+--------------------------------------------------------------------------------

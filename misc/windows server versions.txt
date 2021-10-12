@@ -1,0 +1,9 @@
+Windows Server 2003			Windows XP
+Windows Server 2008 (last 32bit)	Windows Vista 
+Windows Server 2008 R2			Windows 7
+Windows Server 2012			Windows 8
+Windows Server 2012 R2			Windows 8.1
+Windows Server 2016			Windows 10 Anniversary Update
+Windows Server 2019			Windows 10 1809
+Windows Server 2021			-
+Windows Server 2022			Windows 11

@@ -1,5 +1,0 @@
-install (linux)
-curl -o- httpsraw.githubusercontent.comnvm-shnvmv0.39.0install.sh  bash
-
-nvm install node		"node" is alias for latest version
-nvm install 14.7.0

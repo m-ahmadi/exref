@@ -1,0 +1,26 @@
+a native module is a package that compiles upon install (using c++)
+--------------------------------------------------------------------------------
+env setup
+
+by hand:
+	1. install (don't change pre-checked items)
+		"Desktop development with C++"	from	"visual studio build tools 2019"
+		or
+		"Visual C++ build tools"	from	"visual studio build tools 2017"
+	2. install "c:\python27" (v3.x.x is not supported)
+	3. npm config set python python2.7
+	4. npm config set msvs_version 2017
+
+automatic:
+	npm install -g windows-build-tools		(from admin powershell)
+
+verify working env
+	npm i bson bufferutil kerberos node-sass sqlite3 phantomjs utf-8-validate
+--------------------------------------------------------------------------------
+detect if package is a native module?
+
+if the pkg has the following dependencies:
+	nan
+	node-gyp
+	node-pre-gyp
+--------------------------------------------------------------------------------
