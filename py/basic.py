@@ -450,4 +450,9 @@ getopt.getopt(args, shortopts='', ?longopts=['',..])
 opts, args = getopt.getopt(sys.argv[1:], 'hi:o:', ['help','input=','output='])
 	
 ([('--help', ''), ('--input', '2'), ('-o', '3')], ['foo', 'bar']) # py t.py --help --input 2 -o 3 foo bar
+
+# python version
+import sys
+sys.version      # string:  '3.8.10 ...'
+sys.version_info # array:   (major=3, minor=8, micro=10, ...)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

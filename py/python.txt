@@ -1,0 +1,16 @@
+python -m pip install --upgrade pip	upgrade pip
+pip install pylint			linter
+pip install pyreadline			autocomplete in python shell
+
+python -V				version
+python					enter shell
+exit()					exit shell (or ctrl z)
+import this				summary of principles
+--------------------------------------------------------------------------------
+fix "Failed calling sys.__interactivehook__"
+
+C:\python\lib\site-packages\pyreadline\lineeditor\history.py
+def read_history_file(...):
+	...
+	for line in open(filename, 'r', encoding='utf-8'):
+--------------------------------------------------------------------------------

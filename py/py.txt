@@ -1,16 +1,27 @@
-py -m pip install --upgrade pip		upgrade pip
-pip install pylint			linter
-pip install pyreadline			autocomplete in python shell
+py		launch default
+py -0		list all python installations
+py -0p		... with paths
 
-py -V					version
-py					enter shell
-exit()					exit shell (or ctrl z)
-import this				summary of principles
+py -2		launch latest 2.x
+py -3		launch latest 2.x
+
+py -3.6		launch specified version
+py -3.6-64	... 64bit
+py -3.6-32	... 32bit
+
+py -X-64	launch latest 64bit
+py -X-32	... 32bit
 --------------------------------------------------------------------------------
-fix "Failed calling sys.__interactivehook__"
+change default (py launcher defaults to latest version of installations)
 
-C:\python\lib\site-packages\pyreadline\lineeditor\history.py
-def read_history_file(...):
-	...
-	for line in open(filename, 'r', encoding='utf-8'):
+setx PY_PYTHON "3.8"		for `py`
+setx PY_PYTHON3 "3.9"		for `py -3`
+setx PY_PYTHON2 "2.6"		for `py -2`
+
+or to set & undo
+	reg add HKCU\Environment /v PY_PYTHON /d "3.8"
+	reg delete HKCU\Environment /f /v PY_PYTHON
+
+alternative
+#!C:/python2/python.exe		at first line of script
 --------------------------------------------------------------------------------
