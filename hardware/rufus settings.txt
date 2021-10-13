@@ -12,8 +12,8 @@ MBR
   Win 7 & lower
 
 if previous install is MBR, next install will have MBR option only. (after complete format of c drive)
-to change to GPT the whole HDD have to formatted and reconfigured. (causes loss of all data)
------------------------------------------------------------------------------------------------------------------
+to change to GPT the whole HDD have to be formatted and reconfigured. (causes loss of all data)
+--------------------------------------------------------------------------------
 Check currently installed windows boot mode
 
 method 1
@@ -29,10 +29,10 @@ UEFI Boot: Not Present
 method 3
 msinfo32.exe
 BIOS Mode (might not be there)
------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 FAT32 or NTTFS
 
 depends on size of .iso
 < 4 GB   FAT32
 > 4 GB   NTFS
------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

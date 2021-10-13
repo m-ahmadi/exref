@@ -1,3 +1,5 @@
 fc a.js b.js		compare files for diff
 
+fc dir1\* dir2\*	compare all files in two dirs
+
 fc /?

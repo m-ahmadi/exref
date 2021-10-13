@@ -1,0 +1,4 @@
+not tested
+
+bios -> ???
+	Charger Behavior:	Disabled

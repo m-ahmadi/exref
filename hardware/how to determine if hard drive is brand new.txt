@@ -3,7 +3,7 @@ SMART Data:
 Power On Hours Count         how many hours it's been on
 Start/Stop Count             how many time it's been pluged to a port
 
------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Access SMART Data by using any of these softwares:
 HWiNFO (best choice)
@@ -11,7 +11,7 @@ CrystalDiscInfo
 DiskCheckup (Passmark)
 HD Tune Pro (it dosn't show the details)
 
------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 
 S.M.A.R.T. = Self-Monitoring, Analysis and Reporting Technology
