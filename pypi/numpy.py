@@ -4,7 +4,7 @@ np.Inf | Infinity | PINF | infty
 np.NAN
 np.pi
 
-np.array()
+np.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0, like=None)
 np.arange(?start, stop, ?step, ?dtype=None, *, ?like=None)
 np.zeros(shape=int|(int..), ?dtype=np.float64, *, ?like='C|F')
 np.ones(↑..)

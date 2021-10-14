@@ -34,5 +34,5 @@ tf.keras.layers.Dense(
 )
 tf.keras.layers.Dense(8, input_shape=(16,))
 
-tf.keras.layers.Flatten(input_shape=[0,0])
+tf.keras.layers.Flatten(data_format=None, **kwargs)
 tf.keras.layers.InputLayer(input_shape=[0,0])
