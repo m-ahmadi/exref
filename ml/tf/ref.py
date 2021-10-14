@@ -32,7 +32,11 @@ tf.keras.layers.Dense(
 	bias_regularizer=None, activity_regularizer=None, kernel_constraint=None,
 	bias_constraint=None, **kwargs
 )
-tf.keras.layers.Dense(8, input_shape=(16,))
+tf.keras.layers.Dense(8, input_shape=(16,)) # kwarg `input_shape` implicitly creates an input layer to insert before the current layer (same as explicitly define `InputLayer`)
 
 tf.keras.layers.Flatten(data_format=None, **kwargs)
-tf.keras.layers.InputLayer(input_shape=[0,0])
+
+tf.keras.layers.InputLayer(
+    input_shape=(col,row), batch_size=None, dtype=None, ?input_tensor=None, sparse=False,
+    ?name='', ragged=False, type_spec=None, **kwargs
+)
