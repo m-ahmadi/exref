@@ -1,0 +1,17 @@
+freezing:
+	convert variables stored in a checkpoint file of savedmodel into constants stored directly in model graph,
+	this reduces the overall model size
+
+pruning:
+	strip unused nodes in prediction path and outputs of graph
+	merging duplicate nodes
+	cleaning other node ops like summary, identity, etc
+
+constant folding:
+	look for any sub-graphs within the model that always evaluate to constant expressions, and replace them with those constants
+
+folding batch norms:
+	fold multiplications introduced in batch normalization into weight multiplications of previous layer
+
+quantization:
+	convert weights from floating point to lower precision (such as 16 or 8 bits)
