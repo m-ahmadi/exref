@@ -40,3 +40,12 @@ tf.keras.layers.InputLayer(
     input_shape=(col,row), batch_size=None, dtype=None, ?input_tensor=None, sparse=False,
     ?name='', ragged=False, type_spec=None, **kwargs
 )
+
+
+tf.function(
+    func=None, input_signature=None, autograph=True, jit_compile=None,
+    experimental_implements=None, experimental_autograph_options=None,
+    experimental_relax_shapes=False, experimental_follow_type_hints=None
+) -> tf.types.experimental.GenericFunction
+tf.TensorSpec(shape=TensorShape, dtype=tf.dtypes.float32, name=None)
+tf.TensorShape(dims=[None|int,...])

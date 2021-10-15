@@ -12,6 +12,7 @@ win f4			explorer: open address bar
 win +			magnifier
 win esc			magnifier exit
 win v			clipboard history (win+i -> System -> Clipboard)
+win printscreen		screenshot saved to %userprofile%\Pictures\Screenshots
 
 ctrl w			close window
 ctrl shift esc		task manager
