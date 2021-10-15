@@ -1,5 +1,14 @@
 import numpy as np # pip install numpy
 
+∂ = array_like = array<numpy> | scalar<numpy | python> | object<PEP 3118 buffer interface>
+	object<__array_struct__ | __array_interface__> | object<__array__ function>
+	object<list of lists> | zero_dimensional_array< object<dtype> >
+	
+	zero_dimensional_array = scalar
+		zda = np.array(1)
+		zda.shape # ()
+		zda.ndim  # 0
+
 np.Inf | Infinity | PINF | infty
 np.NAN
 np.pi
@@ -9,14 +18,15 @@ np.arange(?start, stop, ?step, ?dtype=None, *, ?like=None)
 np.zeros(shape=int|(int..), ?dtype=np.float64, *, ?like='C|F')
 np.ones(↑..)
 np.empty(↑..)
-np.reshape(a, newshape=int|(int..), order='C|F|A')
+np.reshape(a=∂, newshape=int|(int..), order='C|F|A')
 np.split(ary, indices_or_sections, axis=0)
 np.split_array(↑..)
-np.concatenate()
-np.diff()
+np.concatenate((a1, a2, ...), ?axis=0, ?out=None|ndarray, ?dtype=None|''|dtype, ?casting='same_kind|no|equiv|safe|unsafe')
+np.diff(a=∂, ?n=1, ?axis=-1, ?prepend=∂, ?append=∂)
 np.where()
 np.shape()
 np.flatten(?c='C|F|A|K')
+np.append(arr=∂, values=∂, ?axis=None|int)
 
 np.random.uniform(?low=0.0, ?high=1.0, ?size=None|int|(int..))
 np.round_(a=[], ?decimals=0, ?out=None)

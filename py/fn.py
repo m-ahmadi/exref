@@ -38,6 +38,7 @@ f(**{'a':3})       # err (missing 1 required positional argument)
 f = lambda: print('hi')
 f = lambda a: a + 10
 f = lambda a, b: a * b
+f = lambda a=2, b=4: a * b
 (lambda x: x+3)(3) # 6
 
 # some operations
