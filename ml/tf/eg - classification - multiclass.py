@@ -5,12 +5,13 @@ import numpy as np
 
 
 'sparse_categorical_crossentropy'
-# label:           a target class index from 0 to 9 (to represent exclusive classes)
+# label:           an integer representing the index of a target class (exclusive classes)
+#                  array of integers for inclusive classes? (like [ft,[7,4]], [ft,[2]], [ft,[3,8,5]], ...)
 # output layer:    softmax
 
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2,)),
-    tf.keras.layers.Dense(units=3, activation='softmax')
+	tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2,)),
+	tf.keras.layers.Dense(units=3, activation='softmax')
 ])
 model.compile(optimizer='sgd', loss='sparse_categorical_crossentropy')
 model.fit(
@@ -29,12 +30,12 @@ print(
 
 
 'categorical_crossentropy'
-# label:           one target probability per class (one-hot vector [0,0,1] to represent class 3)
+# label:           one_hot vector, eg: [0,0,1] to represent class 3 (one target probability per class)
 # output layer:    softmax
 
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2,)),
-    tf.keras.layers.Dense(units=3, activation='softmax')
+	tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2,)),
+	tf.keras.layers.Dense(units=3, activation='softmax')
 ])
 model.compile(optimizer='sgd', loss='categorical_crossentropy')
 model.fit(
