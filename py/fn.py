@@ -54,3 +54,21 @@ reduce(lambda r,i: r+i, [1,2,3,4], 5) # 15
 
 # only to avoid error since functions can't be empty
 def f(): pass
+
+
+# global vs local variable
+a = 32
+def foo():
+	global a
+	a = 44
+a # 32
+foo()
+a # 44
+
+def foo():
+	g = globals()
+	g['a'] = 64
+	a = 2
+	return a * g['a']
+
+foo() # 128

@@ -11,7 +11,7 @@ features = [i[0] for i in data]
 labels = [i[1] for i in data]
 
 model = tf.keras.Sequential([
-	tf.keras.layers.Dense(units=8, input_shape=[2], activation='tanh'),
+	tf.keras.layers.Dense(units=8, input_shape=(2,), activation='tanh'),
 	tf.keras.layers.Dense(units=1, activation='sigmoid')
 ])
 model.compile(optimizer=tf.keras.optimizers.SGD(0.6), loss='mean_squared_error')
