@@ -9,7 +9,7 @@ import numpy as np
 # output layer:    softmax
 
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=[2]),
+    tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2,)),
     tf.keras.layers.Dense(units=3, activation='softmax')
 ])
 model.compile(optimizer='sgd', loss='sparse_categorical_crossentropy')
@@ -33,7 +33,7 @@ print(
 # output layer:    softmax
 
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=[2]),
+    tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2,)),
     tf.keras.layers.Dense(units=3, activation='softmax')
 ])
 model.compile(optimizer='sgd', loss='categorical_crossentropy')

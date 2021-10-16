@@ -44,9 +44,13 @@ f = lambda a=2, b=4: a * b
 # some operations
 def add(n): return n + n
 res = map(add, [1,2,3]) 
-list(res)                              # [2, 4, 6]
-list(map(lambda i: i*2, [1,2,3]))      # [2, 4, 6]
-list(filter(lambda i: i>2, [1,2,3,4])) # [3, 4]
+list(res)                              # [2,4,6]
+list(map(lambda i: i*2, [1,2,3]))      # [2,4,6]
+list(filter(lambda i: i>2, [1,2,3,4])) # [3,4]
+
+# iterate over (index,value) tuples
+list( map(lambda i: i[0], enumerate([4,5,6])) )    # [0,1,2]
+list( map(lambda i: i[0], enumerate([4,5,6], 7)) ) # [7,8,9]
 
 from functools import reduce
 reduce(lambda r,i: r+i, [1,2,3,4])    # 10
