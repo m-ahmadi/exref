@@ -42,7 +42,6 @@ var status = net.train(data=[], ?options={
 	callbackPeriod: 10 | n>0,                                // iterations through data between callback calls
 	timeout:        Infinity | n>0,                          // max milliseconds to train for
 	praxis:         null | 'adam',
-	
 	// https://github.com/BrainJS/brain.js#training-options
 }, ?KFolds): {errorr:0, iterations:0}
 net.trainAsync(↑...)
@@ -210,7 +209,7 @@ net.run([0,0]) // [0.95,  0.09,  0.01]
 net.run([1,0]) // [0.07,  0.87,  0.05]
 net.run([0,1]) // [0.06,  0.89,  0.05]
 
-// resume training (append new training data to old data)
+// resume training (append new training data to old one)
 var data = [
   { input: [0,0], output: [0] },
   { input: [1,0], output: [1] },
