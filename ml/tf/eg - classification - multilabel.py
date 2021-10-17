@@ -1,10 +1,12 @@
 import tensorflow as tf
 import numpy as np
 
-'binary_crossentropy'
-# label:           array of 0 or 1 (each index of array representing a different label)
-# output layer:    sigmoid
-
+''' binary_crossentropy
+label:           array of 0 or 1 (each index of array represents a different label)
+output layer
+	activation:    sigmoid
+	units:         represent possible labels
+'''
 model = tf.keras.Sequential([
 	tf.keras.layers.Dense(units=3, activation='sigmoid', input_shape=(2,)),
 	tf.keras.layers.Dense(units=3, activation='sigmoid')

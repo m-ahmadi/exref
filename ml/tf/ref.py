@@ -40,7 +40,7 @@ tf.keras.layers.Dense(8, input_shape=(16,)) # kwarg `input_shape` implicitly cre
 tf.keras.layers.Flatten(data_format=None, **kwargs)
 
 tf.keras.layers.InputLayer(
-    input_shape=(col,row)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False,
+    input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False,
     ?name='', ragged=False, type_spec=None, **kwargs
 )
 
@@ -50,6 +50,10 @@ tf.function(
     experimental_implements=None, experimental_autograph_options=None,
     experimental_relax_shapes=False, experimental_follow_type_hints=None
 ) -> tf.types.experimental.GenericFunction
-tf.TensorSpec(shape=TensorShape, dtype=tf.dtypes.float32, name=None)
-tf.TensorShape(dims=[None|int,...])
+
+tf.int32 is tf.dtypes.int32 # True
+
+tf.TensorSpec(shape=TensorShape, dtype=tf.float32, name=None)
+tf.TensorShape(dims=[int,..]|None)
 tf.constant(value=num|[], dtype=None|''|tf.float32..., shape=None|(int,..), name='Const')
+tf.zeros(shape=list<int> | tuple<int> | Tensor1D<int32>, dtype=tf.float32, ?name=None|'')
