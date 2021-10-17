@@ -32,15 +32,17 @@ var stream = new brain.TrainStream(?opts={
 })
 
 var status = net.train(data=[], ?options={
-	iterations:     20000 | +int,   // max iterate of data
-	errorThresh:    0.005 | 0>n<1,  // acceptable error % from data 
-	log:            false | ()=>,   // use console.log?
-	logPeriod:      10 | int>0,     // iterations between logging out
-	learningRate:   0.3 | 0>n<1,    // scales with delta to effect training rate
-	momentum:       0.1 | 0>n<,     // scales with next layer's change value
-	callback:       null | ()=>,    // fn periodically called while training
-	callbackPeriod: 10 | n>0,       // iterations through data between callback calls
-	timeout:        Infinity | n>0, // max milliseconds to train for
+	iterations:     20000 | +int,                            // max iterate of data
+	errorThresh:    0.005 | 0>n<1,                           // acceptable error % from data 
+	log:            false | (state=↓...)=>,                  // use console.log?
+	logPeriod:      10 | int>0,                              // iterations between logging out
+	learningRate:   0.3 | 0>n<1,                             // scales with delta to effect training rate
+	momentum:       0.1 | 0>n<,                              // scales with next layer's change value
+	callback:       null | (state={iterations:0,error:0})=>, // fn periodically called while training
+	callbackPeriod: 10 | n>0,                                // iterations through data between callback calls
+	timeout:        Infinity | n>0,                          // max milliseconds to train for
+	praxis:         null | 'adam',
+	
 	// https://github.com/BrainJS/brain.js#training-options
 }, ?KFolds): {errorr:0, iterations:0}
 net.trainAsync(↑...)
@@ -128,13 +130,13 @@ net.run([1,1]) // [0]
 // nn - 4 teams play football (output: index of the winner team)
 var net = new brain.NeuralNetwork();
 net.train([
-	{ input: [1,2], output: [1] }, // team 2 wins
-	{ input: [1,3], output: [1] }, // team 3 wins
-	{ input: [2,3], output: [0] }, // team 2 wins
-	{ input: [2,4], output: [1] }, // team 4 wins
-	{ input: [1,2], output: [0] }, // team 1 wins
-	{ input: [1,3], output: [0] }, // team 1 wins
-	{ input: [3,4], output: [0] }  // team 3 wins
+	{ input: [1,2], output: [1] }, // team 2 won
+	{ input: [1,3], output: [1] }, // team 3 won
+	{ input: [2,3], output: [0] }, // team 2 won
+	{ input: [2,4], output: [1] }, // team 4 won
+	{ input: [1,2], output: [0] }, // team 1 won
+	{ input: [1,3], output: [0] }, // team 1 won
+	{ input: [3,4], output: [0] }  // team 3 won
 ]);
 /* stats: G=games, W=win, L=loss, D=draw, S=score
 .        G W L D  S
@@ -148,6 +150,22 @@ net.run([1,4]) // 0.49 (50% chance of winning for both teams)
 net.run([2,4]) // 0.96 (96% chance of winnning for team 4)
 net.run([3,4]) // 0.01
 net.run([1,2]) // 0.48
+
+// nn - 4 teams play football (alternative)
+var net = new brain.NeuralNetwork();
+net.train([
+	{ input: [1,1,0,0], output: [0,1,0,0] },
+	{ input: [1,0,1,0], output: [0,0,1,0] },
+	{ input: [0,1,1,0], output: [0,1,0,0] },
+	{ input: [0,1,0,1], output: [0,0,0,1] },
+	{ input: [1,1,0,0], output: [1,0,0,0] },
+	{ input: [1,0,1,0], output: [1,0,0,0] },
+	{ input: [0,0,1,1], output: [0,0,1,0] }
+]);
+net.run([1,0,0,1]) // [0.03, 0.00, 0.96, 0.00]
+net.run([0,1,0,1]) // [0.00, 0.01, 0.02, 0.98]
+net.run([0,0,1,1]) // [0.01, 0.00, 0.98, 0.01]
+net.run([1,1,0,0]) // [0.52, 0.48, 0.00, 0.00]
 
 // color
 var net = new brain.NeuralNetwork();
@@ -169,25 +187,43 @@ net.run({ r:1, g:0.4, b:0 });  // { white: 0.81, black: 0.18 }
 // one-hot vector
 var net = new brain.NeuralNetwork();
 net.train([
-  {input: [1,1], output: [0,0,1]},
-  {input: [1,1], output: [0,0,1]},
-  {input: [1,1], output: [0,0,1]},
-  {input: [1,1], output: [0,0,1]},
-  {input: [1,1], output: [0,0,1]},
+  { input: [1,1], output: [0,0,1] },
+  { input: [1,1], output: [0,0,1] },
+  { input: [1,1], output: [0,0,1] },
+  { input: [1,1], output: [0,0,1] },
+  { input: [1,1], output: [0,0,1] },
   
-  {input: [0,0], output: [1,0,0]},
-  {input: [0,0], output: [1,0,0]},
-  {input: [0,0], output: [1,0,0]},
-  {input: [0,0], output: [1,0,0]},
-  {input: [0,0], output: [1,0,0]},
+  { input: [0,0], output: [1,0,0] },
+  { input: [0,0], output: [1,0,0] },
+  { input: [0,0], output: [1,0,0] },
+  { input: [0,0], output: [1,0,0] },
+  { input: [0,0], output: [1,0,0] },
 	
-  {input: [1,0], output: [0,1,0]},
-  {input: [1,0], output: [0,1,0]},
-  {input: [0,1], output: [0,1,0]},
-  {input: [0,1], output: [0,1,0]},
-  {input: [0,1], output: [0,1,0]},
+  { input: [1,0], output: [0,1,0] },
+  { input: [1,0], output: [0,1,0] },
+  { input: [0,1], output: [0,1,0] },
+  { input: [0,1], output: [0,1,0] },
+  { input: [0,1], output: [0,1,0] },
 ]);
 net.run([1,1]) // [0.01,  0.10,  0.95]
 net.run([0,0]) // [0.95,  0.09,  0.01]
 net.run([1,0]) // [0.07,  0.87,  0.05]
 net.run([0,1]) // [0.06,  0.89,  0.05]
+
+// resume training (append new training data to old data)
+var data = [
+  { input: [0,0], output: [0] },
+  { input: [1,0], output: [1] },
+  { input: [0,1], output: [1] },
+  { input: [1,1], output: [0] },
+];
+var net1 = new brain.NeuralNetwork();
+net1.train(data);                             // {error: 0.004995448353642434, iterations: 4182}
+
+var net2 = new brain.NeuralNetwork();
+net2.fromJSON( net1.toJSON() );
+net2.train( Array(9000).fill(data).flat() );  // {error: 0.0011238689274707106, iterations: 1}
+
+var net3 = new brain.NeuralNetwork();
+net3.fromJSON( net2.toJSON() );
+net3.train( Array(90000).fill(data).flat() ); // {error: 0.00008881063109540651, iterations: 1}
