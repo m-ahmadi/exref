@@ -2,7 +2,7 @@ import tensorflow as tf
 
 model = tf.keras.Sequential(layers=None|[], name=None)
 
-model.compile(optimizer='rmsprop', loss=None, metrics=None, loss_weights=None, weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs)
+model.compile(optimizer='rmsprop', loss=None|fn|''|Loss, metrics=None, loss_weights=None, weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs)
 model.compile(optimizer='sgd', loss='mse')
 
 model.fit(
@@ -43,6 +43,24 @@ tf.keras.layers.InputLayer(
     input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False,
     ?name='', ragged=False, type_spec=None, **kwargs
 )
+
+tf.keras.losses.
+	BinaryCrossentropy(from_logits=False, label_smoothing=0, axis=-1, reduction=losses_utils.ReductionV2.AUTO, name='binary_crossentropy')
+	CategoricalCrossentropy(from_logits=False, label_smoothing=0, axis=-1, reduction=losses_utils.ReductionV2.AUTO, name='categorical_crossentropy')
+	CategoricalHinge(reduction=losses_utils.ReductionV2.AUTO, name='categorical_hinge')
+	CosineSimilarity(axis=-1, reduction=losses_utils.ReductionV2.AUTO, name='cosine_similarity')
+	Hinge(reduction=losses_utils.ReductionV2.AUTO, name='hinge')
+	Huber(delta=1.0, reduction=losses_utils.ReductionV2.AUTO, name='huber_loss')
+	KLDivergence(reduction=losses_utils.ReductionV2.AUTO, name='kl_divergence')
+	LogCosh(reduction=losses_utils.ReductionV2.AUTO, name='log_cosh')
+	Loss(reduction=losses_utils.ReductionV2.AUTO, name=None)
+	MeanAbsoluteError(reduction=losses_utils.ReductionV2.AUTO, name='mean_absolute_error')
+	MeanAbsolutePercentageError(reduction=losses_utils.ReductionV2.AUTO, name='mean_absolute_percentage_error')
+	MeanSquaredError(reduction=losses_utils.ReductionV2.AUTO, name='mean_squared_error')
+	MeanSquaredLogarithmicError(reduction=losses_utils.ReductionV2.AUTO, name='mean_squared_logarithmic_error')
+	Poisson(reduction=losses_utils.ReductionV2.AUTO, name='poisson')
+	SparseCategoricalCrossentropy(from_logits=False, reduction=losses_utils.ReductionV2.AUTO, name='sparse_categorical_crossentropy')
+	SquaredHinge(reduction=losses_utils.ReductionV2.AUTO, name='squared_hinge')
 
 
 tf.function(

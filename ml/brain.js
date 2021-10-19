@@ -226,3 +226,15 @@ net2.train( Array(9000).fill(data).flat() );  // {error: 0.0011238689274707106, 
 var net3 = new brain.NeuralNetwork();
 net3.fromJSON( net2.toJSON() );
 net3.train( Array(90000).fill(data).flat() ); // {error: 0.00008881063109540651, iterations: 1}
+
+// fromJSON(src) mutates src object (clone to avoid)
+var net1 = new brain.NeuralNetwork();
+localStorage['saved'] = JSON.Stringify(net.toJSON());
+var net2 = new brain.NeuralNetwork();
+
+var src = JSON.parse(localStorage['saved']);
+net2.fromJSON(src);                           // DOES     change src object
+
+var src = JSON.parse(localStorage['saved']);
+var clone = JSON.parse(JSON.stringify(src));
+net2.fromJSON(clone);                         // DOES NOT change src object
