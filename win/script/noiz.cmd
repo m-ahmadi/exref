@@ -9,9 +9,9 @@ REM max=4  top=620
 REM max=6  top=410
 
 timeout 1
-set count=0
 set max=6
 set top=410
+set count=0
 set left=1430
 set step=105
 

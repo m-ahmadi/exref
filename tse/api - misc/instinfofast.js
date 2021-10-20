@@ -20,13 +20,13 @@ groups[7].split('@')
 groups[8]
 
 var cols = [
-	[ 'price',      ['time_formatted', 'state_raw', 'last', 'close', 'open', 'high', 'low', 'count', 'volume', 'value', 'state_parsed?', 'date', 'time_int'] ]
-	[ 'index',      ['datetime','state','n','html','n','n','n','n','state','n','n','n','state','n','n','n']                                                  ]
-	[ 'askbid',     [ ['askcount','askvol','askprice','bidprice','bidvol','bidcount'],   [], [], [], []                                                      ],
-	[ '???',        ['n','n','n']                                                                                                                            ],
-	[ 'clienttype', ['pbvol','lbvol','','psvol','lsvol','pbcount','lbcount','','pscount','lscount']                                                          ],
-	[ '',           ''                                                                                                                                       ],
-	[ '',           ''                                                                                                                                       ],
-	[ '',           '1@0'                                                                                                                                    ],
-	[ '',           ''                                                                                                                                       ],
+	[ 'price',      ['time_formatted', 'state_raw', 'last', 'close', 'open', 'yesterday', 'high', 'low', 'count', 'volume', 'value', 'state_parsed?', 'date', 'time_of_last'] ]
+	[ 'index',      ['datetime','state','n','html','n','n','n','n','state','n','n','n','state','n','n','n']                                                                   ]
+	[ 'askbid',     [ ['askcount','askvol','askprice','bidprice','bidvol','bidcount'],   [], [], [], []                                                                       ],
+	[ '???',        ['n','n','n']                                                                                                                                             ],
+	[ 'clienttype', ['pbvol','lbvol','','psvol','lsvol','pbcount','lbcount','','pscount','lscount']                                                                           ],
+	[ '',           ''                                                                                                                                                        ],
+	[ '',           ''                                                                                                                                                        ],
+	[ '',           '1@0'                                                                                                                                                     ],
+	[ '',           ''                                                                                                                                                        ],
 ];
