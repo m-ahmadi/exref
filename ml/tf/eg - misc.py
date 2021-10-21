@@ -29,3 +29,12 @@ hidden2 = keras.layers.Dense(30, activation='relu')(hidden1)
 concat = keras.layers.concatenate([input_A, hidden2])
 output = keras.layers.Dense(1, name='output')(concat)
 model = keras.Model(inputs=[input_A, input_B], outputs=[output])
+
+# get learning curves (metrics measured at end of each epoch)
+import pandas as pd
+import matplotlib.pyplot as plt
+history = model.fit(...)
+pd.DataFrame(history.history).plot(figsize=(8, 5))
+plt.grid(True)
+plt.gca().set_ylim(0,1) # set the vertical range to [0-1]
+plt.show()

@@ -22,6 +22,12 @@ json_string = model.to_json(**kwargs)
 
 model.summary()
 
+model.evaluate(
+	x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None,
+	callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False,
+	return_dict=False, **kwargs
+)
+
 tf.keras.models.model_from_json(json_string='', custom_objects=None)
 tf.keras.models.load_model(filepath='', custom_objects=None, compile=True, options=None)
 tf.keras.models.save_model(model, filepath, overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None, save_traces=True)
@@ -62,6 +68,18 @@ tf.keras.losses.
 	SparseCategoricalCrossentropy(from_logits=False, reduction=losses_utils.ReductionV2.AUTO, name='sparse_categorical_crossentropy')
 	SquaredHinge(reduction=losses_utils.ReductionV2.AUTO, name='squared_hinge')
 
+tf.keras.optimizers.
+	Adadelta(learning_rate=0.001, rho=0.95, epsilon=1e-07, name='Adadelta', **kwargs)
+	Adagrad(learning_rate=0.001, initial_accumulator_value=0.1, epsilon=1e-07, name='Adagrad', **kwargs)
+	Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, amsgrad=False, name='Adam', **kwargs)
+	Adamax(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, name='Adamax', **kwargs )
+	Ftrl(learning_rate=0.001, learning_rate_power=-0.5, initial_accumulator_value=0.1,
+		l1_regularization_strength=0.0, l2_regularization_strength=0.0,
+		name='Ftrl', l2_shrinkage_regularization_strength=0.0, beta=0.0, **kwargs)
+	Nadam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, name='Nadam', **kwargs)
+	Optimizer(name, gradient_aggregator=None, gradient_transformers=None, **kwargs)
+	RMSprop(learning_rate=0.001, rho=0.9, momentum=0.0, epsilon=1e-07, centered=False, name='RMSprop', **kwargs)
+	SGD(learning_rate=0.01, momentum=0.0, nesterov=False, name='SGD', **kwargs)
 
 tf.function(
     func=None, input_signature=None, autograph=True, jit_compile=None,
