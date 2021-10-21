@@ -1,0 +1,7 @@
+*		any number of any chars (including none)
+?		any single char
+[abc]		one of charset
+[a-z]		one of range
+
+[!abc]		one of not in charset
+[!a-z]		one of not in range
