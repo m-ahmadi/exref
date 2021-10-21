@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/css/tabulator.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
 
 <div id="t1"></div>
 
-<!-- needs html_table_import -->
+<!-- needs HtmlTableImportModule -->
 <table id="t2">
 	<thead>
 		<tr><th>Name</th><th>Age</th><th>Color</th></tr>
@@ -21,18 +21,11 @@
 
 <div id="t4"></div>
 
-<!-- 69.9 kB -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/tabulator.min.js"></script> -->
+<script type="module">
+import { Tabulator, SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule } from 'https://cdn.jsdelivr.net/npm/tabulator-tables@5.0.3/dist/js/tabulator_esm.min.js';
 
-<!-- 38.7 kB -->
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/tabulator_core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/sort.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/format.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/resize_columns.js"></script>
+Tabulator.registerModule([SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule]);
 
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
-
-<script>
 var tabledata = [
 	{id: 1, name: 'Oli Bob',            age: '12',  col: 'red',    dob: ''},
 	{id: 2, name: 'Mary May',           age: '1',   col: 'blue',   dob: '14/05/1982'},

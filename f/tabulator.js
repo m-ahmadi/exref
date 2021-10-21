@@ -331,3 +331,6 @@ table.setSort([
 ])
 
 table.getData('active')
+
+table.setFilter('age', '>', 10)
+table.setFilter('tags', 'keywords', 'red green blue', {matchAll:true})
