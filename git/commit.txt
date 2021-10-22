@@ -4,6 +4,7 @@ git commit -c ORIG_HEAD			message from last message (opens editor)
 git commit -F file.txt			read commit message from file
 git commit -a				stage already added files that have been modified and deleted (not new files you haven't added)
 git commit -am "message"		-a and commit with message in one command
+git commit -m "foo" --no-verify		skip pre-commit and commit-msg hooks
 
 git commit -c <commit_hash>
 	creates new commit.
