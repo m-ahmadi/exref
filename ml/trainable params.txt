@@ -1,0 +1,5 @@
+high amount of parameters:
+	
+	model has flexibility to fit the training data
+	
+	model is at risk of overfitting (especially when there's not a lot of training data)
