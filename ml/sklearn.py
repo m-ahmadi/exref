@@ -17,4 +17,13 @@ print(
 # preprocessing
 # https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing
 
-sklearn.preprocessing.minmax_scale(X, feature_range=(0,1), *, axis=0, copy=True)
+# two-point transform
+from sklearn.preprocessing import minmax_scale
+minmax_scale(X, feature_range=(0,1), *, axis=0, copy=True)
+
+# whole range
+minmax_scale([0,10,4,5], (0,1)) # [0, 1, .4, .5]
+
+# single number
+y = minmax_scale([x,a,b], (c,d))[0] # transform x in range [a,b] to y in [c,d]
+minmax_scale([5,1,10], (10,100))[0] # 50
