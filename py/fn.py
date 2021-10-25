@@ -56,9 +56,15 @@ from functools import reduce
 reduce(lambda r,i: r+i, [1,2,3,4])    # 10
 reduce(lambda r,i: r+i, [1,2,3,4], 5) # 15
 
+# bind args to func
+from functools import partial
+def f(a): print(a)
+f() # err
+newfn = partial(f,7)
+newfn() # 7
+
 # only to avoid error since functions can't be empty
 def f(): pass
-
 
 # global vs local variable
 a = 32
@@ -76,3 +82,8 @@ def foo():
 	return a * g['a']
 
 foo() # 128
+
+# generator function
+def foo():
+	yield 2
+fn = foo()
