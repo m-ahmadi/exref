@@ -1,6 +1,6 @@
 ![alt-text-1](foo.png "title-1") ![alt-text-2](bar.png "title-2")
 
-note: 	only if total width <= 788px (in preview: 962px)	latest
+note: 	only if total width <= 801px (in preview: 962px)	latest
 	only if total width <= 833px (in preview: 1007px)	prev
 --------------------------------------------------
 
