@@ -5,7 +5,7 @@ model = tf.keras.Sequential(layers=None|[], name=None)
 model.compile(optimizer='rmsprop', loss=None|fn|''|Loss, metrics=None, loss_weights=None, weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs)
 model.compile(optimizer='sgd', loss='mse')
 
-model.fit(
+h = model.fit(
 	x=None | arr<numpy> | list< arr<numpy> > | {'input':[]|Tensor} | tf.data | Sequence | DatasetCreator | ParameterServerStrategy,
 	y=None | ...,
 	batch_size=None, epochs=1, verbose=1|0|2|'auto',
@@ -14,6 +14,7 @@ model.fit(
 	validation_steps=None, validation_batch_size=None, validation_freq=1,
 	max_queue_size=10, workers=1, use_multiprocessing=False
 )
+h.history['loss'][-1] # last loss
 
 model.predict(x, batch_size=None, verbose=0, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False)
 
