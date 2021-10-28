@@ -1,4 +1,4 @@
-# caused by changing shape of input (probably, just predict at once instead)
+# caused by changing shape of input (probably, just predict at once instead to avoid this)
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
