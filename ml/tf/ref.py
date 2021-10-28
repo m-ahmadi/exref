@@ -5,6 +5,8 @@ model = tf.keras.Sequential(layers=None|[], name=None)
 model.compile(optimizer='rmsprop', loss=None|fn|''|Loss, metrics=None, loss_weights=None, weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs)
 model.compile(optimizer='sgd', loss='mse')
 
+model.layers[0].input.shape
+
 h = model.fit(
 	x=None | arr<numpy> | list< arr<numpy> > | {'input':[]|Tensor} | tf.data | Sequence | DatasetCreator | ParameterServerStrategy,
 	y=None | ...,

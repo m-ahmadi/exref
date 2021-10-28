@@ -72,6 +72,14 @@ np.diff(b) / b[:,1:] * 100 # [ [.5, .33], [.5, .33] ]
 np.random.uniform()      # 0.78
 np.random.uniform(2,4)   # 3.40
 np.random.uniform(1,5,5) # [2.752647, 1.19705214, 3.33665323, 1.93819238, 3.36881953]
+
+np.random.randint(5)     # 4
+np.random.randint(15,20) # 17
+
+np.random.rand()    # 0.04
+np.random.rand(3,2) # [ [0.51, 0.58], [0.32, 0.68], [0.43, 0.05] ]
+
+# round
 np.round(np.random.uniform(1,5,5), 2) # [4.87, 3.47, 1.61, 4.99, 3.85]
 
 # trim mean

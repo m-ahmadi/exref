@@ -87,3 +87,25 @@ foo() # 128
 def foo():
 	yield 2
 fn = foo()
+
+# return fn
+def foo():
+	def bar():
+		return 'hi'
+	return bar
+
+foo()() # 'hi'
+
+# decorator
+def my_decorator(func):
+	def wrapper():
+		print('==')
+		func()
+		print('==')
+	return wrapper
+
+@my_decorator
+def foo():
+	print('a')
+
+foo() # == a ==

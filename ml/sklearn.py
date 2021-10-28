@@ -1,4 +1,4 @@
-import sklearn
+import sklearn # pip install scikit-learn
 import numpy as np
 
 X = np.array([[1, 1], [1, 2], [2, 2], [2, 3]]) # y = 1 * x_0 + 2 * x_1 + 3

@@ -16,7 +16,7 @@ labels   = [i[1] for i in data]
 
 if resume == 0:
 	model = tf.keras.Sequential([
-		tf.keras.layers.Dense(units=8, activation='tanh', input_shape=(2,)),
+		tf.keras.layers.Dense(units=8, activation='sigmoid', input_shape=(2,)),
 		tf.keras.layers.Dense(units=1, activation='sigmoid')
 	])
 	model.compile(optimizer=tf.keras.optimizers.SGD(0.6), loss='mean_squared_error')

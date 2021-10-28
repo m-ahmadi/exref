@@ -15,7 +15,7 @@ Y = [i[1] for i in data]
 
 if train == 1:
 	model = tf.keras.Sequential([
-		tf.keras.layers.Dense(units=8, input_shape=(2,), activation='tanh'),
+		tf.keras.layers.Dense(units=8, activation='sigmoid', input_shape=(2,)),
 		tf.keras.layers.Dense(units=1, activation='sigmoid')
 	])
 	model.compile(optimizer=tf.keras.optimizers.SGD(0.6), loss='mean_squared_error')

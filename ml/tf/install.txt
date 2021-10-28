@@ -1,1 +1,1 @@
-pip install tensorflow			needs python 3.5 or 3.6 (python-3.6.8-amd64.exe)
+pip install tensorflow			needs python 3.6–3.9 64-bit

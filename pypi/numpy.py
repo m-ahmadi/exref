@@ -15,10 +15,10 @@ np.pi
 
 np.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0, like=None)
 np.arange(?start, stop, ?step, ?dtype=None, *, ?like=None)
-np.zeros(shape=int|(int..), ?dtype=np.float64, *, ?like='C|F')
+np.zeros(shape=0|(0,..), ?dtype=np.float64, *, ?like='C|F')
 np.ones(↑..)
 np.empty(↑..)
-np.reshape(a=∂, newshape=int|(int..), order='C|F|A')
+np.reshape(a=∂, newshape=0|(0,..), order='C|F|A')
 np.split(ary, indices_or_sections, axis=0)
 np.split_array(↑..)
 np.concatenate((a1, a2, ...), ?axis=0, ?out=None|ndarray, ?dtype=None|''|dtype, ?casting='same_kind|no|equiv|safe|unsafe')
@@ -27,9 +27,13 @@ np.where()
 np.allclose(a=∂, b=∂, rtol=1e-05, atol=1e-08, equal_nan=False)
 np.shape()
 np.flatten(?c='C|F|A|K')
-np.append(arr=∂, values=∂, ?axis=None|int)
+np.append(arr=∂, values=∂, ?axis=None|0)
 
-np.random.uniform(?low=0.0, ?high=1.0, ?size=None|int|(int..))
+np.random.uniform(?low=0.0, ?high=1.0, ?size=None|0|(0,..))
+np.random.random(size=None)  |  random_sample()
+np.random.rand(?d0=0, ?d1=0, ..., ?dn=0) 
+np.random.randint(low=0, ?high=None|0, ?size=None|0|(0,..), ?dtype=np.int)  |  random_integers() # low: inclusive, high: exclusive
+
 np.round_(a=[], ?decimals=0, ?out=None)
 
 np.multiply()
@@ -57,12 +61,12 @@ a.flags
 a.flat        []
 a.imag
 a.itemset
-a.itemsize    int # byte-size
+a.itemsize    0 # byte-size
 a.nbytes
-a.ndim        int
+a.ndim        0
 a.real
-a.shape       (int,..)
-a.size        int
+a.shape       (0,..)
+a.size        0
 a.T           []
 
 a.all()
