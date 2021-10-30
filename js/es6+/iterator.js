@@ -30,6 +30,19 @@ var range = {
 	}
 };
 for (let num of range) console.log(num) // 1 2 3 4 5
+
+class Foo {
+	[Symbol.iterator]() {
+		let count = 0
+		return {
+			next() {
+				return { value: count++, done: count > 5 };
+			}
+		}
+	}
+}
+var foo = new Foo();
+for (let i of foo) console.log(i) // 1 2 3 4 5
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // async
 
