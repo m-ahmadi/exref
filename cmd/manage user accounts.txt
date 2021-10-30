@@ -3,7 +3,6 @@ net user /del myuser					delete ...
 net localgroup administrators /add myuser		make user admin
 
 net user Administrator /active:yes			lusrmgr.msc > Users > Administrator > Account is disabled (logon using built-in administrator account)
-net user DefaultAccount /active:yes			... DefaultAccount
 --------------------------------------------------------------------------------
 powershell
 
