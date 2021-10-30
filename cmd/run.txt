@@ -20,7 +20,9 @@ ncpa.cpl		Network Connections
 powercfg.cpl		Power Options
 control powercfg.cpl,,0	... Advanced settings
 control schedtasks	Task Scheduler
-control userpasswords	User Accounts
+control userpasswords	User Accounts (control panel page)
+control userpasswords2	User Accounts
+netplwiz		...
 control appwiz.cpl,,2	Windows Features
 control admintools	Administrative Tools
 control desktop		Personalization
@@ -42,7 +44,6 @@ secpol.msc		Local Security Policy
 wf.msc			Windows Defender Firewall with Advanced Security
 eventvwr.msc		Event Viewer
 fsmgmt.msc		Shared Folders
-netplwiz		User Accounts
 dcomcnfg		Component Services
 resmon			Resource Monitor
 

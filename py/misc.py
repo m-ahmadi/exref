@@ -1,28 +1,11 @@
 print('This line will be printed.')
 exit() # exit script
 
-import os
-os.system('cls') # clear console
-os.listdir()
-os.mkdir()
-os.rmdir()
-
-f = open('file.txt')
-str = f.read()
-
-f = open('file.txt', 'w', encoding='utf-8')
-f.write('foo bar')
-f.close()
-
 # iterable
 itr = iter((1,2,3))
 next(itr) # 1
 next(itr) # 2
 next(itr) # 3
-
-import json
-with open('data.json', 'w', encoding='utf-8') as f: # `with` ensures resource is "cleaned up" when code finishes running
-	json.dump(data, f, ensure_ascii=False, indent=4)
 
 # args passed to script
 import sys

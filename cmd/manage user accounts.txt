@@ -1,0 +1,12 @@
+net user /add myuser PASSWORD 				add user account
+net user /del myuser					delete ...
+net localgroup administrators /add myuser		make user admin
+
+net user Administrator /active:yes			lusrmgr.msc > Users > Administrator > Account is disabled (logon using built-in administrator account)
+net user DefaultAccount /active:yes			... DefaultAccount
+--------------------------------------------------------------------------------
+powershell
+
+Add-LocalGroupMember -Group Administrators -Member myuser				make user admin
+New-LocalUser myuser -Password PASSWORD -FullName "..." -Description "..."		create user
+Remove-LocalUser -Name myuser								delete user

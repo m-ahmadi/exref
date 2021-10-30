@@ -1,0 +1,3 @@
+win+i -> Update & Security -> Recovery -> Advanced startup -> Restart now
+
+	Troubleshoot -> Advanced options -> Startup Settings
