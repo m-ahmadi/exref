@@ -5,16 +5,13 @@ any network has
 input  layer nodes  ==  number of input variables in the data
 output layer nodes  ==  number of outputs associated with each input
 
-number of hidden layers and their neurons?
-
 use hidden layers only if
 	data must be separated non-linearly (instances cannot be separated with a single line)
 
-
 how many hidden layers and nodes per layer? (in a classification problem)
 
-1. draw decision boundary to separate classes
-2. express boundary as a set of lines (combination of lines must result in boundary)
-3. number of selected lines  ==  number of nodes in first hidden layer
-4. add new hidden layer to connect the lines created in previous layer (repeat each time you want to connect to lines of previous hidden layer)
-5. number of nodes in each new hidden layer  =  number of connections to be made
+	1. draw decision boundary to separate classes
+	2. express boundary as a set of lines (combination of lines must result in boundary)
+	3. number of selected lines  ==  number of nodes in first hidden layer
+	4. add new hidden layer to connect the lines created in previous layer (repeat each time you want to connect to lines of previous hidden layer)
+	5. number of nodes in each new hidden layer  =  number of connections to be made
