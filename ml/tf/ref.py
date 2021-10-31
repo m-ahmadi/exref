@@ -25,11 +25,7 @@ json_string = model.to_json(**kwargs)
 
 model.summary()
 
-model.evaluate(
-	x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None,
-	callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False,
-	return_dict=False, **kwargs
-)
+loss_and_metrics = model.evaluate(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, return_dict=False, **kwargs)
 
 tf.keras.models.model_from_json(json_string='', custom_objects=None)
 tf.keras.models.load_model(filepath='', custom_objects=None, compile=True, options=None)

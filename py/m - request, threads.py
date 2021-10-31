@@ -17,8 +17,8 @@ def make_request():
 threads = []
 
 for i in range(50):
-		t = threading.Thread(target=make_request)
-		t.daemon = True
-		threads.append(t)
-		threads[i].start()
-		threads[i].join()
+	t = threading.Thread(target=make_request)
+	t.daemon = True
+	threads.append(t)
+	threads[i].start()
+	threads[i].join()
