@@ -54,3 +54,38 @@ x = [x*x for x in nums]               # [1,4,9,16]
 y = [x*x for x in nums if x % 2 == 0] # [4,16]
 arr = [ [1,2], [3,4] ]
 [[j*2 for j in i] for i in arr]       # [ [2,4], [6,8] ]
+
+# map
+def add(n): return n + n
+res = map(add, [1,2,3]) 
+list(res)                              # [2,4,6]
+list(map(lambda i: i*2, [1,2,3]))      # [2,4,6]
+
+# map - mutable
+a = map(lambda i: i*2, [2,3])
+list(a) # [4,6]  (src obj gone)
+list(a) # []
+
+# map - over index & value
+list( map(lambda i: i[0], enumerate([4,5,6])) )    # [0,1,2]
+list( map(lambda i: i[0], enumerate([4,5,6], 7)) ) # [7,8,9]
+
+# filter
+list(filter(lambda i: i>2, [1,2,3,4])) # [3,4]
+
+# reduce
+from functools import reduce
+reduce(lambda r,i: r+i, [1,2,3,4])    # 10
+reduce(lambda r,i: r+i, [1,2,3,4], 5) # 15
+
+# flat
+from itertools import chain
+a = [ [1,2], [3,4] ]
+list(chain(*a))              # [1,2,3,4]
+list(chain.from_iterable(a)) # ...
+reduce(lambda x, y: x+y, a)  # ...
+
+a = map(lambda i: [i]*4, [1,2])
+list(chain(*a))              # [1,1,1,1,2,2,2,2]
+a = ...
+list(chain.from_iterable(a)) # ...
