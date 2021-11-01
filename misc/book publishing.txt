@@ -1,4 +1,4 @@
-sizes are inch
+﻿page size (inch)
 
 fiction:	4.25×6.87, 5×8, 5.25×8, 5.5×8.5, 6×9
 novella:	5×8
@@ -7,3 +7,11 @@ textbooks:	6×9, 7×10, 8.5×11
 non-fiction:	5.5×8.5, 6×9, 7×10
 memoir:		5.25×8, 5.5×8.5
 photography:	any
+
+--------------------------------------------------
+common fonts
+
+Garamond
+Jenson
+Minion
+Palatino
