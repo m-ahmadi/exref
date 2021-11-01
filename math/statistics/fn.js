@@ -15,8 +15,9 @@ function mean(nums=[], trim=0, sample=false) {
 	return sum(nums) / (nums.length - (sample?1:0));
 }
 
-function range(nums=[]) {
-	return max(nums) - min(nums);
+function statRange(nums=[]) {
+	let [_min, _max] = minmax(nums);
+	return _max - _min;
 }
 
 function mode(list=[]) {
@@ -168,7 +169,7 @@ function shapiroWilk(_x=[]) {
 	if (n < 3) throw new Error('Sample vector must have at least 3 valid observations.');
 	if (n > 5000) console.warning('Shapiro-Wilk statistic might be inaccurate due to large sample size ( > 5000).');
 	
-	let t = mkrange(1,n).map(i=>(i-3/8) / (n+0.25));
+	let t = range(1,n).map(i=>(i-3/8) / (n+0.25));
 	let m = t.map(i=> norminv(i));
 	let w = Array(n).fill(0);
 	let W;
@@ -216,7 +217,7 @@ function shapiroWilk(_x=[]) {
 			phi = ( matMul([m], matTranspose([m]))[0][0] - 2 * sqr(m[m.length-1]) ) / (1 - 2 * sqr(w[l]));
 		}
 		
-		mkrange(ct,(n-2)-ct+1).map(i=> w[i] = m[i] / sqrt(phi));
+		range(ct,(n-2)-ct+1).map(i=> w[i] = m[i] / sqrt(phi));
 		
 		let mu = mean(x);
 		let xd = x.map(i=> i-mu);
@@ -226,7 +227,7 @@ function shapiroWilk(_x=[]) {
 
 	return W;
 	
-	function mkrange(b,e,s=1){let r=[];for(let i=b;i<=e;i+=s){r.push(i);}return r;}
+	function range(b,e,s=1){let r=[];for(let i=b;i<=e;i+=s){r.push(i);}return r;}
 }
 
 function norminv(p, mean=0, stdv=1) {
@@ -427,6 +428,11 @@ function ema2(nums=[], period=5) {
 	}
 	
 	return res;
+}
+
+function minmax(nums=[]) {
+	let {min,max} = Math;
+	return nums.reduce(([n,x],i)=> [min(n,i), max(x,i)], [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]);
 }
 
 function min(nums=[]) {
