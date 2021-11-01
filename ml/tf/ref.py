@@ -7,6 +7,8 @@ model.compile(optimizer='sgd', loss='mse')
 
 model.layers[0].input.shape
 
+model.summary()
+
 h = model.fit(
 	x=None | arr<numpy> | list< arr<numpy> > | {'input':[]|Tensor} | tf.data | Sequence | DatasetCreator | ParameterServerStrategy,
 	y=None | ...,
@@ -16,16 +18,15 @@ h = model.fit(
 	validation_steps=None, validation_batch_size=None, validation_freq=1,
 	max_queue_size=10, workers=1, use_multiprocessing=False
 )
+
+loss_and_metrics = model.evaluate(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, return_dict=False, **kwargs)
+
 h.history['loss'][-1] # last loss
 
 model.predict(x, batch_size=None, verbose=0, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False)
 
 model.save(filepath='', overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None, save_traces=True)
 json_string = model.to_json(**kwargs)
-
-model.summary()
-
-loss_and_metrics = model.evaluate(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, return_dict=False, **kwargs)
 
 tf.keras.models.model_from_json(json_string='', custom_objects=None)
 tf.keras.models.load_model(filepath='', custom_objects=None, compile=True, options=None)
