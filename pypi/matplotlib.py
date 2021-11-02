@@ -111,3 +111,30 @@ plt.show()
 # scatter
 plt.scatter(x=[1,2,3], y=[2,3,2], s=[7e4,3e4,1e4], c=['red','green','blue'], alpha=0.5)
 plt.show()
+
+# multiple figures
+x1 = [1,2,3]
+y1 = [4,5,6]
+x2 = [1,3,5]
+y2 = [6,5,4]
+plot1 = plt.figure(1)
+plt.plot(x1, y1)
+plot2 = plt.figure(2)
+plt.plot(x2, y2)
+plt.show()
+
+# multiple figures - interactive
+from matplotlib import interactive
+plt.figure(1)
+x1 = [1,2,3]
+y1 = [4,5,6]
+plt.plot(x1, y1)
+interactive(True)
+plt.show()
+plt.figure(2)
+x2 = [1,3,5]
+y2 = [6,5,4]
+plt.plot(x2, y2)
+plt.show()
+interactive(False)
+plt.show()
