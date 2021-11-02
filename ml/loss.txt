@@ -1,0 +1,9 @@
+high:	bad
+low:	good
+
+
+high:
+	network can't make sense of training data
+	training data is too noisy
+	network doesn't have enough hidden layers or nodes
+	network hasn't been trained for enough iterations

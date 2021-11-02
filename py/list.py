@@ -34,10 +34,11 @@ a.copy()
 x = range(1,10,2)
 list(x) # [1, 3, 5, 7, 9]
 
-# list index access
+# index access
 a = [1,2,3,4]
 a[0]  # 5
 a[-1] # 8
+
 # range slice
 arr[?start=0: ?stop=-1: ?step=0]
 a[0:2]   # [1,2]

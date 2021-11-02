@@ -45,10 +45,7 @@ tf.keras.layers.Dense(8, input_shape=(16,)) # kwarg `input_shape` implicitly cre
 
 tf.keras.layers.Flatten(data_format=None, **kwargs)
 
-tf.keras.layers.InputLayer(
-    input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False,
-    ?name='', ragged=False, type_spec=None, **kwargs
-)
+tf.keras.layers.InputLayer(input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False, ?name='', ragged=False, type_spec=None, **kwargs)
 
 tf.keras.losses.
 	BinaryCrossentropy(from_logits=False, label_smoothing=0, axis=-1, reduction=losses_utils.ReductionV2.AUTO, name='binary_crossentropy')

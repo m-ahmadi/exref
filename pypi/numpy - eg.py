@@ -37,7 +37,19 @@ np.where(a<4, a+10, a*2) # [11,12,13,8,10]
 
 a = np.array([1,2,3,4])
 b = np.array([0,0,0,0])
-np.where(a % 2 == 0, a, b) # [0,2,0,4]
+np.where(a % 2 == 0, a, b)     # [0,    2, 0,    4]
+np.where(a % 2 == 0, a, None)  # [None, 2, None, 4]
+np.where(a % 2 == 0, a, False) # [0,    2, 0,    4]
+np.where(a % 2 == 0, a, True)  # [1,    2, 1,    4]
+
+a = np.array([1,2,3,None,4,5,None,6])
+b = np.array([9,9,9,9,9,9,9,9])
+np.where(a == None) # [3,6]  index of match
+np.where(a is None) # []     bad
+np.where(a == None, a, b)     # [9, 9, 9, None, 9, 9, None, 9]
+np.where(a != None, a, b)     # [1, 2, 3, 9,    4, 5, 9,    6]
+np.where(a is None, a, b)     # [9, 9, 9, 9,    9, 9, 9,    9]  bad
+np.where(a is not None, a, b) # [1, 2, 3, None, 4, 5, None, 6]  bad
 
 # filter
 a = np.arange(10)
@@ -47,6 +59,12 @@ a = np.array([ [1,2,3,4], [5,6,7,8], [9,10,11,12] ])
 b = np.array([0,1,0])
 a[:, :2][b == 0] # [ [1,2], [9,10] ]
 a[:, :2][b == 1] # [ [5,6] ]
+
+a = np.array([1,2,None,4])
+a[a == None]     # [None]
+a[a != None]     # [1,2,4]
+a[a is None]     # []                    bad
+a[a is not None] # [[[1, 2, None, 4]]    bad
 
 # 2d arr slicing
 a = np.array([ [1,2,3,4], [5,6,7,8], [9,10,11,12] ])
