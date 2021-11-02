@@ -1,5 +1,5 @@
 import numpy as np
-from scipy import stats
+from scipy import stats # pip install numpy scipy    (depends on numpy)
 
 # trim mean
 stats.trim_mean([1,2,3,4,5,6,7,8,9], .1) # 5

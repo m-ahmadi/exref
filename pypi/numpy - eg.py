@@ -35,6 +35,10 @@ np.concatenate( ([1,2], [3,4]) ) # [1,2,3,4]
 a = np.array([1,2,3,4,5])
 np.where(a<4, a+10, a*2) # [11,12,13,8,10]
 
+a = np.array([1,2,3,4])
+b = np.array([0,0,0,0])
+np.where(a % 2 == 0, a, b) # [0,2,0,4]
+
 # filter
 a = np.arange(10)
 a[a%2==0] # [0,2,4,6,8]
