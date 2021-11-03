@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
 # serie
 plt.plot([1,2,3],[5,6,7])
 plt.xlabel('x - axis') 
@@ -12,29 +15,29 @@ plt.legend()
 plt.show()
 
 # multi series
+_, (p1, p2, p3, p4) = plt.subplots(4, constrained_layout=True)
+
 t = np.arange(25)
-plt.plot(t,t,'r--', t,t**2,'bs', t,t**2.2,'g^')
-plt.show()
+p1.plot(t,t,'r--', t,t**2,'bs', t,t**2.2,'g^')
 
 a = np.round(np.random.uniform(1,10,20))
 b = np.where(a%2==0, a, None)
 c = np.where(a%2==0, None, a)
 x = range(len(a))
-plt.plot(x, a,'b', b,'go', c,'ro')
-plt.show()
+p2.plot(x, a,'b', b,'go', c,'ro')
 
 a = np.round(np.random.uniform(1,10,20))
 b = np.where(a%2==0, a+.3, None)
 c = np.where(a%2==0, None, a-.3)
 x = range(len(a))
-plt.plot(x, a,'b', b,'rv', c,'g^')
-plt.show()
+p3.plot(x, a,'b', b,'rv', c,'g^')
 
 y1 = [1, 3, 3, None, None, 5, 8, 9]
 y2 = [2, None, 5, None, 4, None, 3, 2]
 x = range(len(y1))
-plt.plot(x, y1, '-go')
-plt.plot(x, y2, '-ro')
+p4.plot(x, y1, '-go')
+p4.plot(x, y2, '-ro')
+
 plt.show()
 
 # scatter

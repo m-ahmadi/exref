@@ -114,5 +114,15 @@ fig.tight_layout()
 
 
 
+# resize axes
+fig, axs = plt.subplots(2, 2, constrained_layout=True) # False
+for ax in axs.flat:
+	ax.plot([1,2])
+	ax.set_xlabel('x-label', fontsize=12)
+	ax.set_ylabel('y-label', fontsize=12)
+	ax.set_title('Title', fontsize=14)
+
+
+
 
 plt.show()
