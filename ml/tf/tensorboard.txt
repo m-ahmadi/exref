@@ -1,10 +1,13 @@
 pip install -U tensorboard
 
-tensorboard --logdir <PATH>	launch app (dir to look for tensorflow event files to display)
+tensorboard --logdir <PATH>		launch app (dir to look for tensorflow event files to display)
+	
+	--port=6006
 
+tensorboard --help
 --------------------------------------------------
 stop server
 
 netstat -a -o | find "6006"
-taskkill /f /pid 3250
+taskkill /f /pid <NUMBER>
 --------------------------------------------------

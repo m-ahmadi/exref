@@ -1,22 +1,16 @@
 import tensorflow as tf
 from tensorflow import keras
 
-data = [
-	[ [0,0], [0] ],
-	[ [0,1], [1] ],
-	[ [1,0], [1] ],
-	[ [1,1], [0] ],
-]
-x_train = [i[0] for i in data]
-y_train = [i[1] for i in data]
-
 model = keras.Sequential([
 	keras.layers.Dense(units=8, activation='sigmoid', input_shape=(2,)),
 	keras.layers.Dense(units=1, activation='sigmoid')
 ])
+
 model.compile(optimizer=keras.optimizers.SGD(0.6), loss='mean_squared_error')
+
 cb = keras.callbacks.EarlyStopping(monitor='loss', patience=10, restore_best_weights=True)
-history = model.fit(x_train, y_train, batch_size=1, epochs=500, callbacks=[cb], verbose=1)
+
+history = model.fit([ [0,0], [0,1], [1,0], [1,1] ], [0,1,1,0], batch_size=1, epochs=500, callbacks=[cb], verbose=1)
 
 print(
 	'total epochs:', len(history.history['loss'])

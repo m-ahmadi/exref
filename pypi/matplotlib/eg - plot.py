@@ -96,3 +96,14 @@ plt.plot([1,2],[3,4])
 mng = plt.get_current_fig_manager()
 mng.resize(*mng.window.maxsize())
 plt.show()
+
+# time series
+plt.plot(['2021-10-01','2021-10-02','2021-10-03'], [1,2,3])
+plt.show()
+
+fig = plt.figure()
+x = [date(2021,10,1) - timedelta(days=i) for i in range(1,3001)]
+y = np.random.uniform(0,1,3000)
+plt.plot(x, y)
+fig.autofmt_xdate() # fig.xaxis.set_major_formatter(lambda x, pos=None: '')
+plt.show()

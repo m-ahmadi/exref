@@ -98,8 +98,20 @@ tf.keras.optimizers.
 	SGD(learning_rate=0.01, momentum=0.0, nesterov=False, name='SGD', **kwargs)
 
 tf.keras.callbacks.
+	BaseLogger(stateful_metrics=None)
+	CSVLogger(filename='', separator=',', append=False)
+	Callback()	
+	CallbackList(callbacks=None, add_history=False, add_progbar=False, model=None, **params)
 	EarlyStopping(monitor='val_loss', min_delta=0, patience=0, verbose=0, mode='auto|min|max', baseline=None, restore_best_weights=False)
+	History()
+	LambdaCallback(on_epoch_begin=None, on_epoch_end=None, on_batch_begin=None, on_batch_end=None, on_train_begin=None, on_train_end=None, **kwargs)
+	LearningRateScheduler(schedule=lambda epoch_idx=0, curr_lr=0.: 0., verbose=0)
 	ModelCheckpoint(filepath=''|PathLike, monitor='val_loss', verbose=0|1, save_best_only=False, save_weights_only=False, mode='auto|min|max', save_freq='epoch', options=None, **kwargs)
+	ProgbarLogger(count_mode='samples', stateful_metrics=None)
+	ReduceLROnPlateau(monitor='val_loss', factor=0.1, patience=10, verbose=0, mode='auto', min_delta=0.0001, cooldown=0, min_lr=0, **kwargs)
+	RemoteMonitor(root='http://localhost:9000', path='/publish/epoch/end/', field='data', headers=None, send_as_json=False)
+	TensorBoard(log_dir='logs', histogram_freq=0, write_graph=True, write_images=False, write_steps_per_second=False, update_freq='epoch', profile_batch=2, embeddings_freq=0, embeddings_metadata=None, **kwargs)
+	TerminateOnNaN()
 
 tf.keras.initializers.
 	Constant(value=0)

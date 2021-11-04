@@ -4,22 +4,13 @@ import numpy as np
 
 train = 1
 
-data = [
-	[ [0,0], [0] ],
-	[ [0,1], [1] ],
-	[ [1,0], [1] ],
-	[ [1,1], [0] ],
-]
-X = [i[0] for i in data]
-Y = [i[1] for i in data]
-
 if train == 1:
 	model = tf.keras.Sequential([
 		tf.keras.layers.Dense(units=8, activation='sigmoid', input_shape=(2,)),
 		tf.keras.layers.Dense(units=1, activation='sigmoid')
 	])
 	model.compile(optimizer=tf.keras.optimizers.SGD(0.6), loss='mean_squared_error')
-	model.fit(X, Y, epochs=1000)
+	model.fit([ [0,0], [0,1], [1,0], [1,1] ], [0,1,1,0], epochs=1000)
 	model.save('./model')
 else:
 	model = tf.keras.models.load_model('./model')
