@@ -24,6 +24,12 @@ fig.suptitle('Horizontally stacked subplots')
 ax1.plot(x, y)
 ax2.plot(x, -y)
 
+# ... hight ratio
+fig, (ax1, ax2) = plt.subplots(3, 1, gridspec_kw={'height_ratios':[3,1]})
+ax1.plot(x, y)
+ax2.plot(x, -y)
+
+
 
 # stack two directions
 fig, axs = plt.subplots(2, 2)

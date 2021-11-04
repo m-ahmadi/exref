@@ -28,6 +28,7 @@ np.allclose(a=∂, b=∂, rtol=1e-05, atol=1e-08, equal_nan=False)
 np.shape()
 np.flatten(?c='C|F|A|K')
 np.append(arr=∂, values=∂, ?axis=None|0)
+np.insert(arr=∂, obj=0|[0,..], values=∂, axis=None|0)
 
 np.random.uniform(?low=0.0, ?high=1.0, ?size=None|0|(0,..))
 np.random.random(size=None)  |  random_sample()

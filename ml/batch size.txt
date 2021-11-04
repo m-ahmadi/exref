@@ -1,3 +1,18 @@
+
+side1:	batch_size = largest (that fit in memory)
+		
+	gpus can process them efficiently
+	training instabilities (especially at beginning of training)
+	model may not generalize good
+	possible with "learning rate warmup" technique (start with low, then increase)
+	
+side2: batch_siz = between 2 and 32
+
+	leads to better models in less training time
+	
+solution
+	try large first (but with warmup), then, if bad model, then use small
+--------------------------------------------------------------------------------
 1050 training samples
 batch_size = 100
 

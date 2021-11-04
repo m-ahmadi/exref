@@ -70,3 +70,29 @@ plt.plot(x2, y2)
 plt.show()
 interactive(False)
 plt.show()
+
+# figure size
+plt.figure(figsize=(10,5), tight_layout=True)
+plt.plot([1,2],[3,4])
+plt.show()
+
+fig = plt.figure()
+fig.set_size_inches(10,5)
+plt.plot([1,2],[3,4])
+plt.show()
+
+fig = plt.figure()
+fig.set_figheight(10)
+fig.set_figwidth(5)
+plt.plot([1,2],[3,4])
+plt.show()
+
+plt.rcParams['figure.figsize'] = (5,8)
+plt.rcParams['figure.autolayout'] = True
+plt.plot([1,2],[3,4])
+plt.show()
+
+plt.plot([1,2],[3,4])
+mng = plt.get_current_fig_manager()
+mng.resize(*mng.window.maxsize())
+plt.show()

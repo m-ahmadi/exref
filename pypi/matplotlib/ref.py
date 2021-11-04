@@ -6,19 +6,19 @@ import matplotlib.pyplot as plt # pip install matplotlib
 plot(?x=range(len(y)), y=[], ?fmt='', *, ?data=None, **kwargs)
 plot(x, y, fmt, x2, y2, fmt2, ..., **kwargs)
 	kwargs:
-	agg_filter=                (m,n,3)float
+	agg_filter=                lambda i=(m,n,3): (m,n,3)
 	alpha=                     scalar|None
 	animated=                  bool
 	antialiased|aa=            bool
 	clip_box=                  Bbox
 	clip_on=                   bool
-	clip_path=                 Patch|(Path, Transform)|None
-	color|c=                   color
+	clip_path=                 Patch | (Path,Transform) | None
+	color|c=                   ''
 	contains=                  unknown
-	dash_capstyle=             CapStyle|{'butt', 'projecting', 'round'}
-	dash_joinstyle=            JoinStyle|{'miter', 'round', 'bevel'}
-	dashes=                    sequence of floats (on/off ink in points)|(None, None)
-	data=                      (2, N) array|two 1D arrays
+	dash_capstyle=             CapStyle | 'butt|projecting|round'
+	dash_joinstyle=            JoinStyle | 'miter|round|evel'
+	dashes=                    [0.,..] | (None, None)
+	data=                      (2, N) array | two 1D arrays
 	drawstyle|ds=              'default|steps|steps-pre|steps-mid|steps-post'
 	figure=                    Figure
 	fillstyle=                 'full|left|right|bottom|top|none'
@@ -26,30 +26,31 @@ plot(x, y, fmt, x2, y2, fmt2, ..., **kwargs)
 	in_layout=                 bool
 	label=                     object|''?
 	linestyle|ls=              '-|--|-.|:' | (offset, on-off-seq),
-	linewidth|lw=              float
-	marker=                    ''|Path|MarkerStyle
-	markeredgecolor|mec=       color
-	markeredgewidth|mew=       float
-	markerfacecolor|mfc=       color
-	markerfacecoloralt|mfcalt= color
-	markersize|ms=             float
-	markevery=                 None | int | (int,int) | slice | list<int> | float | (float,float) | list<bool>
+	linewidth|lw=              rcParams['lines.linewidth']=1.5
+	marker=                    '' | Path | MarkerStyle
+	markeredgecolor|mec=       ''
+	markeredgewidth|mew=       0.
+	markerfacecolor|mfc=       ''
+	markerfacecoloralt|mfcalt= ''
+	markersize|ms=             rcParams['lines.markersize']=6.0
+	markevery=                 None | 0 | (0,0) | slice | [0,..] | 0. | (0.,0.) | list<bool>
 	path_effects=              AbstractPathEffect
-	picker=                    float|callable[[Artist, Event], tuple[bool, dict]]
-	pickradius=                float
+	picker=                    0. | callable[[Artist, Event], tuple[bool, dict]]
+	pickradius=                0.
 	rasterized=                bool
-	sketch_params=             (scale: float, length: float, randomness: float)
+	sketch_params=             (scale: 0., length: 0., randomness: 0.)
 	snap=                      bool|None
-	solid_capstyle=            CapStyle|{'butt', 'projecting', 'round'}
-	solid_joinstyle=           JoinStyle|{'miter', 'round', 'bevel'}
+	solid_capstyle=            CapStyle | 'butt|projecting|round'
+	solid_joinstyle=           JoinStyle | 'miter|round|evel'
 	transform=                 matplotlib.transforms.Transform
 	url=                       ''
 	visible=                   bool
 	xdata=                     1D array
 	ydata=                     1D array
-	zorder=                    float
+	zorder=                    0.
 
 legend(*args, ?handles=[Artist,..], ?labels=['',..], **kwargs)
+	loc=                       rcParams['legend.loc']='best' | 'upper|lower|center left|right|center' | (0.,0.)
 
 subplots(nrows=1, ncols=1, *, ?sharex=False, ?sharey=False, ?squeeze=True, ?subplot_kw=None|{}, ?gridspec_kw=None|{}, **fig_kw={'constrained_layout':False,..})
 
@@ -58,7 +59,10 @@ subplot(pos=000, **kwargs)
 subplot(**kwargs)
 subplot(ax)
 
-figure(num=1|''|Figure, figsize=(0.,0.), dpi=100.0, facecolor='white', edgecolor='white', frameon=True, ?FigureClass, clear=False, tight_layout=False|{}, constrained_layout=False, **kwargs)
+figure(num=1|''|Figure, figsize=(6.4,4.8), dpi=100.0, facecolor='white', edgecolor='white', frameon=True, ?FigureClass, clear=False, tight_layout=False|{}, constrained_layout=False, **kwargs)
+	# defaults: plt.rcParams['figure.*']
+
+text(x=0., y=0., s='', fontdict=None, **kwargs)
 
 fmt= '''
 marker
@@ -69,7 +73,15 @@ marker
 	* D d        star diamond diamondthin
 	+ P x X      plus plusfill x xfill
 	| _          vline hline
-	$✅$         custom char?
+	$\...$       custom char
+		\\alpha  \\beta  \gamma  \sigma  \infty
+		\spadesuit  \heartsuit  \diamondsuit  \clubsuit
+		\\bigodot  \\bigotimes  \\bigoplus  \imath  \\bowtie
+		\\bigtriangleup  \\bigtriangledown  \oslash
+		\ast  \\times  \circ  \\bullet  \star  +
+		\Theta  \Xi  \Phi
+		\$   \#   \%  \S
+		mathrm{M}    remove italic of M
 
 line style
 	- -- -. :    solid dashed dash-dot dotted
@@ -77,4 +89,13 @@ color
 	r g b        red green blue
 	k w          black white
 	c m y        cyan magenta yellow
+'''
+
+# shortcuts (in ui)
+'''
+h       home
+o       zoom
+x       .. x only
+y       .. y only
+ctrl    .. fix aspect ratio
 '''

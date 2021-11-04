@@ -9,7 +9,7 @@ model.layers[0].input.shape
 
 model.summary()
 
-h = model.fit(
+history = model.fit(
 	x=None | arr<numpy> | list< arr<numpy> > | {'input':[]|Tensor} | tf.data | Sequence | DatasetCreator | ParameterServerStrategy,
 	y=None | ...,
 	batch_size=None, epochs=1, verbose=1|0|2|'auto',
@@ -18,34 +18,53 @@ h = model.fit(
 	validation_steps=None, validation_batch_size=None, validation_freq=1,
 	max_queue_size=10, workers=1, use_multiprocessing=False
 )
+history.history['loss'][-1] # last loss
 
 loss_and_metrics = model.evaluate(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, return_dict=False, **kwargs)
-
-h.history['loss'][-1] # last loss
 
 model.predict(x, batch_size=None, verbose=0, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False)
 
 model.save(filepath='', overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None, save_traces=True)
 json_string = model.to_json(**kwargs)
 
-tf.keras.models.model_from_json(json_string='', custom_objects=None)
-tf.keras.models.load_model(filepath='', custom_objects=None, compile=True, options=None)
-tf.keras.models.save_model(model, filepath, overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None, save_traces=True)
+tf.keras.models.
+	load_model(filepath='', custom_objects=None, compile=True, options=None)
+	save_model(model, filepath, overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None, save_traces=True)
+	model_from_json(json_string='', custom_objects=None)
 
 tf.saved_model.save(obj=tf.Module|tf.train.Checkpoint, export_dir='', signatures=None, options=None)
 
-tf.keras.layers.Dense(
-	units=positive_integer, activation=None, use_bias=True,
-	kernel_initializer='glorot_uniform',
-	bias_initializer='zeros', kernel_regularizer=None,
-	bias_regularizer=None, activity_regularizer=None, kernel_constraint=None,
-	bias_constraint=None, **kwargs
-)
-tf.keras.layers.Dense(8, input_shape=(16,)) # kwarg `input_shape` implicitly creates an input layer to insert before the current layer (same as explicitly define `InputLayer`)
+tf.keras.layers.
+	Dense(
+		units=positive_integer, activation=None, use_bias=True,
+		kernel_initializer='glorot_uniform', bias_initializer='zeros',
+		kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None,
+		kernel_constraint=None, bias_constraint=None, **kwargs
+	)
+	Dense(8, input_shape=(16,)) # kwarg `input_shape` implicitly creates an input layer to insert before the current layer (same as explicitly define `InputLayer`)
 
-tf.keras.layers.Flatten(data_format=None, **kwargs)
+	Flatten(data_format=None, **kwargs)
+	InputLayer(input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False, ?name='', ragged=False, type_spec=None, **kwargs)
 
-tf.keras.layers.InputLayer(input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False, ?name='', ragged=False, type_spec=None, **kwargs)
+tf.keras.activations.
+	elu(x, alpha=1.0)
+	exponential(x)
+	gelu(x, approximate=False)
+	hard_sigmoid(x)
+	linear(x)
+	relu(x, alpha=0.0, max_value=None, threshold=0)
+	selu(x)
+	sigmoid(x)
+	softmax(x, axis=-1)
+	softplus(x)
+	softsign(x)
+	swish(x)
+	tanh(x)
+	
+	serialize(activation=fn)
+	deserialize(name='', custom_objects=None|{'name': fn})
+	get(identifier=fn|'')
+
 
 tf.keras.losses.
 	BinaryCrossentropy(from_logits=False, label_smoothing=0, axis=-1, reduction=losses_utils.ReductionV2.AUTO, name='binary_crossentropy')
@@ -78,10 +97,36 @@ tf.keras.optimizers.
 	RMSprop(learning_rate=0.001, rho=0.9, momentum=0.0, epsilon=1e-07, centered=False, name='RMSprop', **kwargs)
 	SGD(learning_rate=0.01, momentum=0.0, nesterov=False, name='SGD', **kwargs)
 
+tf.keras.callbacks.
+	EarlyStopping(monitor='val_loss', min_delta=0, patience=0, verbose=0, mode='auto|min|max', baseline=None, restore_best_weights=False)
+	ModelCheckpoint(filepath=''|PathLike, monitor='val_loss', verbose=0|1, save_best_only=False, save_weights_only=False, mode='auto|min|max', save_freq='epoch', options=None, **kwargs)
+
+tf.keras.initializers.
+	Constant(value=0)
+	GlorotNormal(seed=None)
+	GlorotUniform(seed=None)
+	HeNormal(seed=None)
+	HeUniform(seed=None)
+	Identity(gain=1.0)
+	Initializer()
+	LecunNormal(seed=None)
+	LecunUniform(seed=None)
+	Ones()
+	Orthogonal(gain=1.0, seed=None)
+	RandomNormal(mean=0.0, stddev=0.05, seed=None)
+	RandomUniform(minval=-0.05, maxval=0.05, seed=None)
+	TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+	VarianceScaling(scale=1.0, mode='fan_in', distribution='truncated_normal', seed=None)
+	Zeros()
+	
+	serialize(initializer)
+	deserialize(config, custom_objects=None)
+	get(identifier)
+
 tf.function(
-    func=None, input_signature=None, autograph=True, jit_compile=None,
-    experimental_implements=None, experimental_autograph_options=None,
-    experimental_relax_shapes=False, experimental_follow_type_hints=None
+	func=None, input_signature=None, autograph=True, jit_compile=None,
+	experimental_implements=None, experimental_autograph_options=None,
+	experimental_relax_shapes=False, experimental_follow_type_hints=None
 ) -> tf.types.experimental.GenericFunction
 
 tf.int32 is tf.dtypes.int32 # True
