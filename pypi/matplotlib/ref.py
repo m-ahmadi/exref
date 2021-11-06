@@ -94,8 +94,11 @@ color
 # shortcuts (in ui)
 '''
 h       home
+c       back
+v       forward
 o       zoom
 x       .. x only
 y       .. y only
 ctrl    .. fix aspect ratio
+f       full screen
 '''

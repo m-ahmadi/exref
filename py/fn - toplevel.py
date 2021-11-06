@@ -56,6 +56,7 @@ open(file, mode='r|w|x|a|b|t|+', buffering=-1, encoding=None, errors=None, newli
 		't' # text mode (default)
 		'+' # open for updating (reading and writing)
 	encoding= locale.getpreferredencoding(False) # default encoding (platform-dependent): 'cp1252'
+		'utf8'|'utf-8'|'u8'|'utf'|'U8'|'UTF'|'utf8_ucs2'|'utf8_ucs4' # all same
 ord(c)
 pow(base, exp, ?mod)
 print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
