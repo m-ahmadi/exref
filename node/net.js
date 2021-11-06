@@ -66,9 +66,9 @@ socket.readyState
 socket.timeout
 socket.address()
 socket.connect()
-socket.connect(options, ?connectListener)
-socket.connect(path, ?connectListener)
-socket.connect(port, ?host, ?connectListener)
+	connect(options, ?connectListener)
+	connect(path, ?connectListener)
+	connect(port, ?host, ?connectListener)
 socket.destroy([error])
 socket.end(?data, ?encoding, ?callback)
 socket.pause()
