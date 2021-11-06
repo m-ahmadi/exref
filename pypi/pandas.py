@@ -2,9 +2,12 @@ import pandas as pd # pip install pandas
 
 pd.read_csv('file.csv', header=None, nrows=5)
 
-DataFrame.filter(items=None, like=None|'', regex=None|'', axis=None|0|'')
+DataFrame.filter(items=None, like=None|'', regex=None|'', axis=None|0|''|'columns')
 
 DataFrame.sort_values(by=''|['',..], axis=0, ascending=True|[True,..], inplace=False, kind='quicksort|mergesort|heapsort|stable', na_position='last|first', ignore_index=False, ?key=None)
+
+L = '' | 0 | [''|0,..]
+DataFrame.drop(labels=None|L, axis=0, index=None|L, columns=None|L, level=None, inplace=False, errors='raise|ignore')
 
 DataFrameGroupBy.filter(func, dropna=True, *args, **kwargs)
 
@@ -21,3 +24,8 @@ df = pd.DataFrame([[1,2,3], [4,5,6]], index=['mouse','rabbit'], columns=['one','
 df.filter(items=['one', 'three'])
 df.filter(regex='e$', axis=1)
 df.filter(like='bbi', axis=0)
+
+# drop
+df = pd.DateFrame([ [1,2], [3,4], [5,6], [7,8] ])
+df = df.drop([2,3])
+df # [ [1,2], [3,4] ]
