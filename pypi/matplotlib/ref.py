@@ -97,6 +97,7 @@ h       home
 c       back
 v       forward
 o       zoom
+p       pan
 x       .. x only
 y       .. y only
 ctrl    .. fix aspect ratio
