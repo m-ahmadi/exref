@@ -15,3 +15,30 @@ how many hidden layers and nodes per layer? (in a classification problem)
 	3. number of selected lines  ==  number of nodes in first hidden layer
 	4. add new hidden layer to connect the lines created in previous layer (repeat each time you want to connect to lines of previous hidden layer)
 	5. number of nodes in each new hidden layer  =  number of connections to be made
+
+--------------------------------------------------------------------------------
+some rough approximations
+
+note: optimal hidden layer size is between the size of input and output layers
+
+I = input neurons
+O = output neurons
+
+per layer neurons (3 layer network) =  sqrt(I * O)		(geometric pyramid rule)
+
+per layer neurons (1 layer network) =  mean([I, O])
+--------------------------------------------------------------------------------
+another way
+
+prevent overfitting by keeping number of neurons below:
+
+H  =  S / a * (I + O)  =  number of hidden neurons
+	
+	I = number of input neurons
+	O = number of output neurons
+	S = number of samples in training data
+	A = arbitrary scaling factor between 2-10 (a way to indicate how general the model should be or how much to prevent overfitting)
+
+limit model's number of free params (nonzero weights) to a small portion of Q
+	where Q  =  S * (I + O)		"degrees of freedom in data"
+--------------------------------------------------------------------------------

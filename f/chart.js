@@ -385,10 +385,7 @@ const opts = {
 		title: {
 			display:    false,
 			position:   'top|left|bottom|right',
-			fontColor:  '#666',
-			fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-			fontSize:   12,
-			fontStyle:  'bold',
+			font:       {...Chart.defaults.font, weight:'bold'}  | {},
 			padding:    10,
 			lineHeight: 1.2 | '',
 			text:       '',
@@ -398,10 +395,7 @@ const opts = {
 		
 		tooltip: {
 			backgroundColor:    'rgba(0,0,0,0.8)',
-			bodyFontColor:      '#fff',
-			bodyFontFamily:     "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-			bodyFontSize:       12,
-			bodyFontStyle:      'normal',
+			bodyFont:           Chart.defaults.font | {},
 			bodyAlign:          'left|right|center',
 			bodySpacing:        2,
 			borderColor:        'rgba(0,0,0,0)',
@@ -414,10 +408,7 @@ const opts = {
 			enabled:            true,
 			filter:             (TooltipItem)=>,
 			footerAlign:        'left|right|center',
-			footerFontColor:    '#fff',
-			footerFontFamily:   "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-			footerFontSize:     12,
-			footerFontStyle:    'bold',
+			footerFont:         {...Chart.defaults.font, weight:'bold'}  | {},
 			footerMarginTop:    6,
 			footerSpacing:      2,
 			itemSort:           (TooltipItem)=>
@@ -428,10 +419,7 @@ const opts = {
 			rtl:                false
 			textDirection:      canvas.ltr | canvas.style.textDirection | '',
 			titleAlign:         'left|right|center',
-			titleFontColor:     '#fff',
-			titleFontFamily:    "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif"
-			titleFontSize:      12
-			titleFontStyle:     'bold',
+			titleFont:          {...Chart.defaults.font, weight:'bold'}  | {},
 			titleMarginBottom:  6,
 			titleSpacing:       2,
 			xPadding:           6,

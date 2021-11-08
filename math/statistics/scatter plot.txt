@@ -1,0 +1,15 @@
+relationship between 2 numeric variables (each on 1 axis)
+
+Y = dependent   variable (y-axis)
+X = independent variable (x-axis)
+
+relationship between X and Y
+
+	Y's value depends on value of X
+	Y has multiple values for each value of X
+
+
+example:
+y = "examp score"	(depends on x)
+x = "hours studying"
+
