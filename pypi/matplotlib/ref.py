@@ -64,6 +64,23 @@ figure(num=1|''|Figure, figsize=(6.4,4.8), dpi=100.0, facecolor='white', edgecol
 
 text(x=0., y=0., s='', fontdict=None, **kwargs)
 
+scatter(
+	x=0.|[0,..],
+	y=0.|[0.,..],
+	s=None | 0. | [rcParams['lines.markersize']**2,..],
+	c=None | 0 | '' | [0|''|[0,0,0],..],
+	marker=None | rcParams['scatter.marker']='o',
+	cmap='viridis' | Colormap,
+	norm=colors.Normalize,
+	vmin=None | 0.,
+	vmax=None | 0.,
+	alpha=None | 0>=int<=1,
+	linewidths=rcParams['lines.linewidth']=1.5,
+	*,
+	edgecolors=rcParams['scatter.edgecolors']='face|none' | None | '' | ['',..],
+	plotnonfinite=False, data=None, **kwargs
+)
+
 fmt= '''
 marker
 	. , o        point pixel circle

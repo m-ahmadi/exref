@@ -37,7 +37,15 @@ bar"""
 	bar
 '''
 
+# string flags
+
 # bytes
 b = b'abc'
 type(b)          # <class 'bytes'>
 b.decode('utf8') # 'abc'
+
+# raw string
+r'\\' # '\\\\'
+
+# unicode
+u'dude'
