@@ -2,6 +2,7 @@ git push -u origin master		on first push, upstream must be set (git branch --set
 git push origin master			normal push
 git push origin <branch_name>		push branch
 git push -f				force push
+git push --force-with-lease		... but only if no further work been done on remote
 git push -u -f origin master		force push and set upstream
 
 git push origin :master			shorthand for: git push <repository> <refspec> (pushing empty <refspec> deletes remote branch)

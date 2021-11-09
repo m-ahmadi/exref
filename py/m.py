@@ -40,7 +40,17 @@ else:
 # package (a dir that contains multiple modules)
 
 # __init__.py (if exists in a dir, that dir is treated as package)
-__all__ = ["echo", "surround", "reverse"]
+__all__ = ['echo', 'surround', 'reverse']
 
 
 # implicit namespace packages
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# name with spaces (avoid)
+
+foo_bar = __import__('foo bar')
+
+exec(open('foo bar.py', 'r').read()) # from foo_bar import *
+
+import importlib
+foo_bar = importlib.import_module('foo bar') # wrapper around __import__()
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

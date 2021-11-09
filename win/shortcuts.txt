@@ -13,6 +13,7 @@ win +			magnifier
 win esc			magnifier exit
 win v			clipboard history (win+i -> System -> Clipboard)
 win printscreen		screenshot saved to %userprofile%\Pictures\Screenshots
+win < v > ^		window snapping
 
 ctrl w			close window
 ctrl shift esc		task manager
