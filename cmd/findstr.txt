@@ -7,7 +7,7 @@ findstr "hello" .\ /s			...
 findstr /B /C:"OS Name"			match only if pattern is at the begining of a line
 
 find /?
-------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 findstr [/B] [/E] [/L] [/R] [/S] [/I] [/X] [/V] [/N] [/M] [/O] [/P] [/F:file]
    [/C:string] [/G:file] [/D:dir list] [/A:color attributes] [/OFF[LINE]]
    strings [[drive:][path]filename[ ...]]
@@ -33,4 +33,4 @@ strings				Text to be searched for.
 /C:string 	Uses specified string as a literal search string. 
 /G:file		Gets search strings from the specified file(/ stands for console).  
 /D:dir		Search a semicolon delimited list of directories.
-------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
