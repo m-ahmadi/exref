@@ -34,3 +34,19 @@ a, = 1,
 a, = [1]
 a, = 1     # TypeError: cannot unpack non-iterable int object
 a, = [1,2] # ValueError
+
+# pass by reference: list, dict, ...?
+a = b = []
+a.append(2)
+a # [2]
+b # [2]
+
+a = b = {}
+a['q'] = 2
+a # {'q':2}
+b # {'q':2}
+
+a = [[]] * 3
+a # [[], [], []]
+a[0].append(3)
+a # [[3], [3], [3]]
