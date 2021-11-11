@@ -1,0 +1,34 @@
+none worked on 1809 17763
+
+--------------------------------------------------------------------------------
+solutions:
+
+1. services.msc
+	"Background Intelligent Transfer Service"
+	"Windows Update"
+		Start & Automatic
+
+2. win+i -> Update & Security -> Troubleshoot -> Windows Store Apps
+	enable UAC
+	sign-in with microsoft account
+	
+3. wsreset.exe
+
+4. re-register all store apps
+	Get-AppXPackage -AllUsers | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml"}
+
+5. uninstall & reinstall store
+	Get-AppxPackage -allusers *WindowsStore* | Remove-AppxPackage
+	Get-AppxPackage -allusers *WindowsStore* | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\AppXManifest.xml”}
+	reboot
+--------------------------------------------------------------------------------
+unblock
+
+gpedit.msc -> Computer Configuration -> Administrative Templates -> Windows Components -> Store
+	"Turn off the Store application":	Disabled
+or
+
+reg add HKLM\SOFTWARE\Policies\Microsoft\WindowsStore /v RemoveWindowsStore /t REG_DWORD /d 0
+undo:
+reg delete HKLM\SOFTWARE\Policies\Microsoft\WindowsStore /f
+--------------------------------------------------------------------------------

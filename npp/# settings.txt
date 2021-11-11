@@ -18,7 +18,7 @@ Settings -> Style Configurator
           Enable global font size
   JavaScript ->
           KEYWORD -> User-defined keywords: as NaN Infinity string number from
-          User ext: json mjs jsx
+          User ext: json mjs jsx cjs
   CSS  -> TAG -> Font name: none
   HTML -> User ext: vue svelte handlebars hbs tmpl
   Python -> KEYWORD -> User-defined keywords: True False None

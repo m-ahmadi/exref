@@ -59,6 +59,7 @@ msiexec			Windows Installer (about)
 cleanmgr		Disk Cleanup
 dxdiag			DirectX Diagnostic Tool
 verifier		Driver Verifier Manager
+ms-windows-store:	Windows Store
 
 shutdown ping ipconfig sfc chkdsk net netsh ... %windir%\system32\en-US
 

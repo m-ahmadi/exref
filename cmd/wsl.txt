@@ -1,9 +1,7 @@
-windows 10 build 18900+
+needs windows 10 build 18900+
 
 control appwiz.cpl,,2
-	"Virual Machine Platform"
 	"Windows Subsystem for Linux"
 
 or powershell:
 	Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-	Enable-WindowsOptionalFeature -Online -FeatureName Virtual-Machine-Platform
