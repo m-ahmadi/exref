@@ -1,0 +1,9 @@
+Windows 11
+
+Windows 10
+	21H1	May	 2021
+	20H2	October  2020
+	20H1	May      2020
+	1909	November 2019
+	1903	May      2019
+	1809	October  2018
