@@ -1,0 +1,34 @@
+set PROMPT=$P$G			default
+
+set PROMPT=%computername%$t$g
+
+set PROMPT=$E[92m$P$E[0m$G
+
+set PROMPT=$E[32m$E[107m$P$G$E[0m
+
+change persistently
+	reg add HKCU\Environment /v PROMPT /d $$$S
+	undo:
+	reg delete HKCU\Environment /v PROMPT /f
+
+prompt /?
+
+$A	&
+$B	|
+$C	(
+$D	current date
+$E	escape code (ascii code 27)
+$F	)
+$G	>
+$H	backspace (erases previous character)
+$L	<
+$N	current drive
+$P	current drive and path
+$Q	=
+$S	" " (space)
+$T	current time
+$V	windows version number
+$_	carriage return and linefeed
+$$	$
+$+	zero or more + chars depending on depth of PUSHD directory stack, one char for each level pushed
+$M	remote name associated with current drive letter or empty string if current drive is not a network drive

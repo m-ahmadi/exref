@@ -6,5 +6,6 @@ wmic os get caption		...
 wmic os get osarchitecture	...
 date /t				show current date
 time /t				show current time
+help cd				show help on command (only available for some commands)
 
 runas /user:administrator cmd	run cmd as admin (won't work unless account has password)

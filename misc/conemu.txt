@@ -16,3 +16,12 @@ Keys & Macro
 	Paste
 		! Multi-line paste...
 		! Long text paste...
+--------------------------------------------------------------------------------
+prompt related
+
+Startup
+	Tasks -> {Shells::cmd}
+		cmd.exe /k "%ConEmuBaseDir%\CmdInit.cmd" -git		show git status
+	Environment
+		set ConEmuPromptNames=NO				omit user@pc
+--------------------------------------------------------------------------------
