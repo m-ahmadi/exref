@@ -1,0 +1,17 @@
+https://github.com/JanDeDobbeleer/oh-my-posh/releases
+	
+	download "posh-windows-amd64.exe" and place in c:\windows\posh.exe
+	download "themes.zip" and extract to ~/.poshthemes
+	~/.bash_profile:
+		eval "$(posh --init --shell bash --config ~/.poshthemes/powerlevel10k_rainbow.omp.json)"
+
+https://github.com/ryanoasis/nerd-fonts/releases
+
+	download Meslo.zip
+	install "Meslo LG M Regular Nerd Font Complete Windows Compatible.ttf"
+	ConEmu -> Settings -> General -> Fonts -> Main console font: "MesloLGM NF", Size: 12
+--------------------------------------------------------------------------------
+view all themes
+
+forfiles /p %userprofile%\.poshthemes /m *.omp.json /c "cmd /c echo @file & posh --config @file --shell universal & echo. & echo."
+
