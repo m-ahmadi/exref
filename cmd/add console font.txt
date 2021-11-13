@@ -1,0 +1,5 @@
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont" /v 01 /d "My Font Name" /f
+
+note:
+/v must be unique
+font must be mono spaced

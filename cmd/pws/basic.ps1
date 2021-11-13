@@ -4,6 +4,7 @@ Start-Transcript -Path C:\tmp.txt  # ... different location
 Stop-Transcript                    # ... stop writing
 $PSVersionTable                    # show powershell version info
 $PSVersionTable.PSVersion          # powershell version
+(Get-Host).Version                 # ...
 $env:path                          # same as echo %path% in cmd
 
 Get-ExecutionPolicy                # see current policy
