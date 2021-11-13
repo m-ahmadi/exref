@@ -11,14 +11,14 @@ Export-PoshTheme -FilePath ~/my.omp.json -Format json	write current theme
 --------------------------------------------------------------------------------
 setup powershell
 
-Install-Module oh-my-posh -Scope CurrentUser		install
-ni $PROFILE -ItemType File -Value "Set-PoshPrompt -Theme powerlevel10k_rainbow"		make powershell profile
+Install-Module oh-my-posh -Scope CurrentUser
+ni $PROFILE -ItemType File -Value "Set-PoshPrompt -Theme powerlevel10k_rainbow"
 
 https://github.com/ryanoasis/nerd-fonts/releases
 	install "Meslo LG M Regular Nerd Font Complete Mono Windows Compatible.ttf"
 	reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont" /v 01 /d "MesloLGM NF" /f
 
-powershell window Properties (not Defaults)
+powershell window "Properties" (not "Defaults")
 	colors: text=204 204 204  bg=12 12 12
 	font=17
 	width  height  left  top
