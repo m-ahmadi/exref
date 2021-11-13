@@ -1,0 +1,5 @@
+utility to register/unregister OLE (DLLs, ActiveX) controls in registry
+	64 bit version:		%windir%\System32\regsvr32.exe		
+	32 bit version:		%windir%\SysWoW64\regsvr32.exe		
+
+regsvr32 /u file.dll		unregister
