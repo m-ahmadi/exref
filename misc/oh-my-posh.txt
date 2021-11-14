@@ -9,6 +9,16 @@ Set-PoshPrompt -Theme jandedobbeleer			set prompt to a theme
 
 Export-PoshTheme -FilePath ~/my.omp.json -Format json	write current theme
 --------------------------------------------------------------------------------
+custom theme
+
+%userprofile%\Documents\WindowsPowerShell\Modules\oh-my-posh\6.2.5\themes\
+	powerlevel10k_rainbow.omp.json
+		console_title: false
+	.mytheme.omp.json
+$PROFILE:
+	$Host.ui.RawUI.WindowTitle = 'pws'
+	Set-PoshPrompt -Theme .mytheme
+--------------------------------------------------------------------------------
 setup powershell
 
 Install-Module oh-my-posh -Scope CurrentUser
