@@ -88,6 +88,8 @@ scatter(
 fig  = plt.gcf() # get current figure
 axes = plt.gca() # ... axes
 
+plt.savefig(fname='', *, dpi='figure'|0., format=None|'png|pdf|svg|eps', metadata=None, bbox_inches=None|'tight|...'|Bbox, pad_inches=0.1, facecolor='auto', edgecolor='auto', ?backend=None, **kwargs)
+
 fmt= '''
 marker
 	. , o        point pixel circle

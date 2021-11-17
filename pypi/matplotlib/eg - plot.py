@@ -122,3 +122,10 @@ y = np.random.uniform(0,1,3000)
 plt.plot(x, y)
 fig.autofmt_xdate() # fig.xaxis.set_major_formatter(lambda x, pos=None: '')
 plt.show()
+
+# save as file
+plt.plot([1,2,3],[5,6,7])
+plt.savefig('foo.png')
+
+plt.plot([1,2,3],[2,3,2])
+plt.savefig('bar.png', bbox_inches='tight')
