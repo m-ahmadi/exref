@@ -46,8 +46,10 @@ eventvwr.msc		Event Viewer
 fsmgmt.msc		Shared Folders
 dcomcnfg		Component Services
 resmon			Resource Monitor
+taskmgr			Task Manager
+taskmgr /7 /startup	... Startup tab (no other option exists)
 
-calc notepad taskmgr fonts charmap logoff mspaint wmplayer write
+calc notepad fonts charmap logoff mspaint wmplayer write
 chrome excel winword powerpnt access ccleaner winrar mpc-hc64
 
 sndvol			Volume mixer
