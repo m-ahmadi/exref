@@ -4,4 +4,5 @@
 4 ** 3  # cubed: 64
 
 import math
-float('inf') == math.inf # True
+float('inf')  == math.inf  # True
+float('-inf') == -math.inf # True

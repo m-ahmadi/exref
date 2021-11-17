@@ -9,7 +9,8 @@ import numpy as np # pip install numpy
 		zda.shape # ()
 		zda.ndim  # 0
 
-np.Inf | Infinity | PINF | infty
+np.Inf | np.inf |  np.Infinity | np.PINF | np.infty
+np.NINF | -np.inf 
 np.NAN
 np.pi
 
