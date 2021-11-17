@@ -63,6 +63,10 @@ figure(num=1|''|Figure, figsize=(6.4,4.8), dpi=100.0, facecolor='white', edgecol
 	# defaults: plt.rcParams['figure.*']
 
 text(x=0., y=0., s='', fontdict=None, **kwargs)
+	fontsize|size=0.|'xx-small|x-small|small|medium|large|x-large|xx-large'
+	horizontalalignment|ha='center|right|left'
+	verticalalignment|va='center|top|bottom|baseline|center_baseline'
+	transform=Transform
 
 scatter(
 	x=0.|[0,..],
@@ -80,6 +84,9 @@ scatter(
 	edgecolors=rcParams['scatter.edgecolors']='face|none' | None | '' | ['',..],
 	plotnonfinite=False, data=None, **kwargs
 )
+
+fig  = plt.gcf() # get current figure
+axes = plt.gca() # ... axes
 
 fmt= '''
 marker

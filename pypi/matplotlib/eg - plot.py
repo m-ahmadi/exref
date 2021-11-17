@@ -97,6 +97,21 @@ mng = plt.get_current_fig_manager()
 mng.resize(*mng.window.maxsize())
 plt.show()
 
+# text
+plt.plot([1,2,3],[5,6,7])
+plt.text(2, 6, 'hello')
+plt.show()
+
+plt.plot([1,2,3],[5,6,7])
+axes = plt.gca()
+plt.text(0, 1, 'hello', va='bottom', ha='left', transform=axes.transAxes)
+plt.show()
+
+fix, ax = plt.subplots()
+ax.plot([1,2,3],[5,6,7])
+ax.text(1, 1, 'hello', size='x-large', va='top', ha='right', transform=ax.transAxes)
+plt.show()
+
 # time series
 plt.plot(['2021-10-01','2021-10-02','2021-10-03'], [1,2,3])
 plt.show()
