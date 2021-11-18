@@ -16,6 +16,23 @@ class MyCallback(Callback):
 		if logs.get('loss') <= 0.005:
 			self.model.stop_training = True
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# restore best weights
+class EarlyStoppingByLoss(keras.callbacks.Callback):
+	def on_train_begin(self, logs=None):
+		self.best = np.Inf
+		self.best_weights = None
+	def on_epoch_end(self, epoch, logs={}):
+		current = logs.get('loss')
+		if current < self.best:
+			self.best = current
+			self.best_weights = self.model.get_weights()
+		if self.best <= 0.05:
+			self.model.stop_training = True
+			self.model.set_weights(self.best_weights)
+	def on_train_end(self, logs={}):
+		if logs.get('loss') > self.best:
+			self.model.set_weights(self.best_weights)
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # another
 class MyCallback(Callback):
 	def __init__(self, monitor='loss', value=0.005):

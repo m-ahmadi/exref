@@ -3,7 +3,7 @@
 class EarlyStopping(Callback):
 	def __init__(self, monitor='val_loss', min_delta=0, patience=0, verbose=0, mode='auto', baseline=None, restore_best_weights=False):
 		super(EarlyStopping, self).__init__()
-		
+
 		self.monitor = monitor
 		self.patience = patience
 		self.verbose = verbose
@@ -15,7 +15,8 @@ class EarlyStopping(Callback):
 		self.best_weights = None
 
 		if mode not in ['auto', 'min', 'max']:
-			logging.warning('EarlyStopping mode %s is unknown, fallback to auto mode.', mode)
+			logging.warning('EarlyStopping mode %s is unknown, '
+											'fallback to auto mode.', mode)
 			mode = 'auto'
 
 		if mode == 'min':
@@ -23,7 +24,8 @@ class EarlyStopping(Callback):
 		elif mode == 'max':
 			self.monitor_op = np.greater
 		else:
-			if (self.monitor.endswith('acc') or self.monitor.endswith('accuracy') or self.monitor.endswith('auc')):
+			if (self.monitor.endswith('acc') or self.monitor.endswith('accuracy') or
+					self.monitor.endswith('auc')):
 				self.monitor_op = np.greater
 			else:
 				self.monitor_op = np.less
@@ -46,7 +48,8 @@ class EarlyStopping(Callback):
 		if current is None:
 			return
 		if self.restore_best_weights and self.best_weights is None:
-			self.best_weights = self.model.get_weights() # Restore the weights after first epoch if no progress is ever made.
+			# Restore the weights after first epoch if no progress is ever made.
+			self.best_weights = self.model.get_weights()
 
 		self.wait += 1
 		if self._is_improvement(current, self.best):
@@ -64,18 +67,23 @@ class EarlyStopping(Callback):
 			self.model.stop_training = True
 			if self.restore_best_weights and self.best_weights is not None:
 				if self.verbose > 0:
-					io_utils.print_msg('Restoring model weights from the end of the best epoch: ' + f'{self.best_epoch + 1}.')
+					io_utils.print_msg(
+							'Restoring model weights from the end of the best epoch: '
+							f'{self.best_epoch + 1}.')
 				self.model.set_weights(self.best_weights)
 
 	def on_train_end(self, logs=None):
 		if self.stopped_epoch > 0 and self.verbose > 0:
-			io_utils.print_msg(f'Epoch {self.stopped_epoch + 1}: early stopping')
+			io_utils.print_msg(
+					f'Epoch {self.stopped_epoch + 1}: early stopping')
 
 	def get_monitor_value(self, logs):
 		logs = logs or {}
 		monitor_value = logs.get(self.monitor)
 		if monitor_value is None:
-			logging.warning('Early stopping conditioned on metric `%s` ' + 'which is not available. Available metrics are: %s', self.monitor, ','.join(list(logs.keys())))
+			logging.warning('Early stopping conditioned on metric `%s` '
+											'which is not available. Available metrics are: %s',
+											self.monitor, ','.join(list(logs.keys())))
 		return monitor_value
 
 	def _is_improvement(self, monitor_value, reference_value):
