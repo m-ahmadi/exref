@@ -1,0 +1,4 @@
+good on training set, bad on validation set
+
+	overfitting
+	unrepresentative data samples
