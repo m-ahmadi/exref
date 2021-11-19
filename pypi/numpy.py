@@ -33,8 +33,9 @@ np.insert(arr=∂, obj=0|[0,..], values=∂, axis=None|0)
 
 np.random.uniform(?low=0.0, ?high=1.0, ?size=None|0|(0,..))
 np.random.random(size=None)  |  random_sample()
-np.random.rand(?d0=0, ?d1=0, ..., ?dn=0) 
+np.random.rand(?d0=0, ?d1=0, ..., ?dn=0)
 np.random.randint(low=0, ?high=None|0, ?size=None|0|(0,..), ?dtype=np.int)  |  random_integers() # low: inclusive, high: exclusive
+np.random.permutation(x=0|∂)
 
 np.round_(a=[], ?decimals=0, ?out=None)
 
