@@ -30,9 +30,9 @@ a.clear()   # []
 a.copy()
 # https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 
-
-x = range(1,10,2)
-list(x) # [1, 3, 5, 7, 9]
+# creation
+a = range(1,10,2)
+list(a) # [1,3,5,7,9]
 
 # index access
 a = [1,2,3,4]
@@ -90,3 +90,12 @@ a = map(lambda i: [i]*4, [1,2])
 list(chain(*a))              # [1,1,1,1,2,2,2,2]
 a = ...
 list(chain.from_iterable(a)) # ...
+
+# pass by reference
+a = [1,2,3,4]
+b = a
+b[0] = True
+a[0] # True
+b = [*a] # or a[:]
+b[0] = False
+a[0] # True
