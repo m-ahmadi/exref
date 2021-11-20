@@ -3,6 +3,7 @@ pip install pylint			linter
 pip install pyreadline			autocomplete in python shell
 
 python -V				version
+python -c "print(2+2)"			execute program as string
 python					enter shell
 exit()					exit shell (or ctrl z)
 import this				summary of principles

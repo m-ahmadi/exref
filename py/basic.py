@@ -6,3 +6,10 @@ None is type(None) # ...: False (if var/prop contains NoneType, use `is` instead
 1 in (1,2)   # ...: true
 isinstance(3, type(3))     # instanceof: True
 isinstance([3], type([3])) # ...: True
+
+# semicolon only separates (for multiple statements on same line)
+2+2; 3+3;
+# 4
+# 6
+a=2; a*2      # 4
+a=4; b=5; a*b # 20

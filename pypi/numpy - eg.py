@@ -1,3 +1,9 @@
+# help
+np.info(np.sum) # prints to stdout
+# py -c "import numpy as np; np.info(np.sum)"
+
+# 100 solutions: https://github.com/rougier/numpy-100/blob/master/100_Numpy_exercises_with_solutions.md
+
 # math
 np.multiply([2,2], [2,4]) # [4,8]
 np.ceil(2.9)              # 3

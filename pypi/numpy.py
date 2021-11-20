@@ -9,6 +9,8 @@ import numpy as np # pip install numpy
 		zda.shape # ()
 		zda.ndim  # 0
 
+np.info(object=None|'', maxwidth=76, output=<_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>, toplevel='numpy')
+
 np.Inf | np.inf |  np.Infinity | np.PINF | np.infty
 np.NINF | -np.inf 
 np.NAN

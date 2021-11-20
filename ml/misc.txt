@@ -2,3 +2,7 @@ good on training set, bad on validation set
 
 	overfitting
 	unrepresentative data samples
+
+validation set vs test set
+	validation:	not trained on, but used in model adjustment
+	test		not trained, model never seen them before
