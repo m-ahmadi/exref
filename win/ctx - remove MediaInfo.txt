@@ -1,3 +1,5 @@
 reg delete HKCR\SystemFileAssociations\.ts\Shell\MediaInfo /f
 
 reg delete HKCR\SystemFileAssociations\.mp3\Shell\MediaInfo /f
+
+reg delete HKCR\SystemFileAssociations\.jpg\Shell\MediaInfo /f
