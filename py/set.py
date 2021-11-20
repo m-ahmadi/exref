@@ -1,6 +1,6 @@
 {1,2,3} == set([1,2,3]) # True
 s = {1,2,3}
-2 in s # True
+2 in s # True  O(1)
 s.add('foo')        # {1,2,3,'foo'}
 s.update({'bar',4}) # {1,2,3,4,'foo','bar'}
 s.update([5,6])     # {1,2,3,4,5,'foo',6,'bar'}

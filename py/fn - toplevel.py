@@ -1,7 +1,11 @@
 # https://docs.python.org/3/library/functions.html
 abs(x)
 all(iterable)
+	all([1,1,1]) # True
+	all([1,1,0]) # False
 any(iterable)
+	any([0,0,1]) # True
+	any([0,0,0]) # False
 ascii(object)
 bin(x)
 bool(?x)
