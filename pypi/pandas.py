@@ -11,6 +11,10 @@ DataFrame.drop(labels=None|L, axis=0, index=None|L, columns=None|L, level=None, 
 
 DataFrameGroupBy.filter(func, dropna=True, *args, **kwargs)
 
+DataFrame.to_csv(path_or_buf=None|''|file_handle, sep=',', na_rep='', float_format=None|'', columns=None|[], header=True|['',..],
+	index=True, index_label=None|''|[], mode='w', ?encoding='utf-8', compression='infer'|{}, quoting=csv.QUOTE_MINIMAL,
+	quotechar='"', line_terminator=os.linesep, chunksize=None|0, date_format=None|'', doublequote=True, escapechar=None|'',
+	decimal='.', errors='strict', storage_options=None|{})
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
@@ -29,3 +33,7 @@ df.filter(like='bbi', axis=0)
 df = pd.DateFrame([ [1,2], [3,4], [5,6], [7,8] ])
 df = df.drop([2,3])
 df # [ [1,2], [3,4] ]
+
+# to csv
+pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=None) # '1,2\r\n3,4\r\n5,6\r\n'
+pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.csv', index=False, header=None)

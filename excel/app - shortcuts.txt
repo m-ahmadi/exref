@@ -20,8 +20,9 @@ ctrl shift "		copy value   from cell above
 ctrk k			add hyperlink
 Alt ↓			display autocomplete list
 --------------------------------------------------
-2 ways for shortcuts:
+3 ways for shortcuts:
 
 step by step shortcuts
-recording a macro
+recording a macro (editor only)
+alt+num using "Quick Access Toolbar"
 --------------------------------------------------
