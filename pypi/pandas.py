@@ -15,6 +15,8 @@ DataFrame.to_csv(path_or_buf=None|''|file_handle, sep=',', na_rep='', float_form
 	index=True, index_label=None|''|[], mode='w', ?encoding='utf-8', compression='infer'|{}, quoting=csv.QUOTE_MINIMAL,
 	quotechar='"', line_terminator=os.linesep, chunksize=None|0, date_format=None|'', doublequote=True, escapechar=None|'',
 	decimal='.', errors='strict', storage_options=None|{})
+
+DataFrame.copy(deep=True)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
