@@ -63,6 +63,7 @@ figure(num=1|''|Figure, figsize=(6.4,4.8), dpi=100.0, facecolor='white', edgecol
 	# defaults: plt.rcParams['figure.*']
 
 text(x=0., y=0., s='', fontdict=None, **kwargs)
+	fontfamily|family='serif|sans-serif|cursive|fantasy|monospace|...'
 	fontsize|size=0.|'xx-small|x-small|small|medium|large|x-large|xx-large'
 	horizontalalignment|ha='center|right|left'
 	verticalalignment|va='center|top|bottom|baseline|center_baseline'
@@ -89,6 +90,9 @@ fig  = plt.gcf() # get current figure
 axes = plt.gca() # ... axes
 
 plt.savefig(fname='', *, dpi='figure'|0., format=None|'png|pdf|svg|eps', metadata=None, bbox_inches=None|'tight|...'|Bbox, pad_inches=0.1, facecolor='auto', edgecolor='auto', ?backend=None, **kwargs)
+
+ax.tick_params(labelbottom=False, labelleft=False)
+ax.set_xticklabels([])
 
 fmt= '''
 marker

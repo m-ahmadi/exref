@@ -73,6 +73,10 @@ def foo():
 	yield 2
 fn = foo()
 
+gen = (i*2 for i in [1,2,3])
+for i in gen:
+	print(i) # 2 4 6
+
 # return fn
 def foo():
 	def bar():

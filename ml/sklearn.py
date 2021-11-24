@@ -32,7 +32,7 @@ minmax_scale([5,1,10], (10,100))[0] # 50
 # model_selection
 # https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection
 
-# K-Folds cross-validator
+# K-Fold cross-validator
 sklearn.model_selection.KFold(n_splits=5, *, shuffle=False, random_state=None|0)
 
 import numpy as np
