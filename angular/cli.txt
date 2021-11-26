@@ -1,4 +1,4 @@
-npm install @angular/cli -g
+npm i @angular/cli -g
 
 ng new myapp
 ng new myapp --style=scss --routing -S
