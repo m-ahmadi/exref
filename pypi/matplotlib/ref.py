@@ -93,6 +93,8 @@ plt.savefig(fname='', *, dpi='figure'|0., format=None|'png|pdf|svg|eps', metadat
 
 ax.tick_params(labelbottom=False, labelleft=False)
 ax.set_xticklabels([])
+ax.xticks([])
+ax.yticks([])
 
 fmt= '''
 marker

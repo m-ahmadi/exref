@@ -1,6 +1,6 @@
 good on training set, bad on validation set
-
-	overfitting
+	
+	model is probably overfitting the training set
 	unrepresentative data samples
 
 validation set vs test set

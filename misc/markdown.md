@@ -56,6 +56,14 @@ var foo = 'bar'; // highlighted code block
 body { margin: 0 auto; }
 ```
 
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
+
 # writer
 *Emphasize* _emphasize_  
 **Strong** __strong__  

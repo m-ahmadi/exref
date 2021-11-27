@@ -1,1 +1,10 @@
-pip install tensorflow			needs python 3.6–3.9 64-bit
+pip install tensorflow			needs python 3.6-3.9 64-bit
+
+--------------------------------------------------------------------------------
+local docs
+
+pip install git+https://github.com/tensorflow/docs
+
+git clone https://github.com/tensorflow/tensorflow
+python tensorflow/tensorflow/tools/docs/generate2.py --output_dir=/tmp/out
+--------------------------------------------------------------------------------
