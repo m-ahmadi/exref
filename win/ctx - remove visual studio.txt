@@ -1,0 +1,2 @@
+reg delete HKCR\Directory\Background\shell\AnyCode /f
+reg delete HKCR\Directory\shell\AnyCode /f

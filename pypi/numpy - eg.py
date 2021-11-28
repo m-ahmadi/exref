@@ -106,6 +106,9 @@ b = np.array([ [1,2,3], [1,2,3] ])
 np.diff(b) / b[:,1:] * 100 # [ [.5, .33], [.5, .33] ]
 
 # random
+np.random.random()       # 0.14
+np.random.random(3)      # [0.08, 0.62, 0.74]
+
 np.random.uniform()      # 0.78
 np.random.uniform(2,4)   # 3.40
 np.random.uniform(1,5,5) # [2.752647, 1.19705214, 3.33665323, 1.93819238, 3.36881953]

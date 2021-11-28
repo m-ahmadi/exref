@@ -1,6 +1,7 @@
 python -m pip install --upgrade pip	upgrade pip
 pip install pylint			linter
 pip install pyreadline			autocomplete in python shell
+pip install black			formatter
 
 python -V				version
 python -c "print(2+2)"			execute program as string

@@ -5,7 +5,7 @@ else
 	last week dls < 300
 	has single owner/maintainer
 
-npm unpublish [<@scope>/]<pkg>@<version>	delete specific version
-npm unpublish <pkg> -f				delete entire package
+npm unpublish [<@scope>/]<pkg>@<version>	delete specific version (this specific version can never be reused)
+npm unpublish <pkg> -f				delete entire package (cannot publish new versions until 24 hours have passed)
 
 (no need to be in repo)
