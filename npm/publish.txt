@@ -13,3 +13,13 @@ and you publish at 1.1.5, then it only publishes 1.1.5, and version history beco
 	1.1.5
 	1.1.2
 --------------------------------------------------------------------------------
+version number has no effect in version history
+
+history is appended with each publish (regardless of version number)
+
+for example,
+if you publish 1.1.4, then 1.1.2, then history becomes
+	1.1.2
+	1.1.4
+with 1.1.2 being the default (so be careful)
+--------------------------------------------------------------------------------
