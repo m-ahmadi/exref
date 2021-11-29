@@ -30,3 +30,10 @@ employee = Employee('Jim', 47, 80000)
 employee.name   # 'Jim'
 employee.age    # 47
 employee.salary # 80000
+
+# iterate through own props
+vars(student)    # {'name': 'John', 'age': 88, 'major': None}
+student.__dict__ # ...
+
+# keys of own & inherited members
+dir(student) # [..., 'age', 'is_old', 'major', 'name']

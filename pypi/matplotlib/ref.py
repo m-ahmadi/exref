@@ -1,10 +1,22 @@
+import matplotlib as mpl
 import matplotlib.pyplot as plt # pip install matplotlib
 
 # https://matplotlib.org/stable/api/index.html#modules
 # https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#functions
 
-plot(?x=range(len(y)), y=[], ?fmt='', *, ?data=None, **kwargs)
-plot(x, y, fmt, x2, y2, fmt2, ..., **kwargs)
+fig = plt.figure(num=1|''|Figure, figsize=(6.4,4.8), dpi=100.0, facecolor='white', edgecolor='white', frameon=True, ?FigureClass, clear=False, tight_layout=False|{}, constrained_layout=False, **kwargs)
+	# defaults: plt.rcParams['figure.*']
+
+fig, axes = plt.subplots(nrows=1, ncols=1, *, ?sharex=False, ?sharey=False, ?squeeze=True, ?subplot_kw=None|{}, ?gridspec_kw=None|{}, **fig_kw={'constrained_layout':False,..})
+
+fig.subplot | add_subplot(nrows=1, ncols=1, index=1, **kwargs)
+		subplot(pos=000, **kwargs)
+		subplot(**kwargs)
+		subplot(ax)
+fig.savefig(fname='', *, dpi='figure'|0., format=None|'png|pdf|svg|eps', metadata=None, bbox_inches=None|'tight|...'|Bbox, pad_inches=0.1, facecolor='auto', edgecolor='auto', ?backend=None, **kwargs)
+
+axes.plot(?x=range(len(y)), y=[], ?fmt='', *, ?data=None, **kwargs)
+axes.plot(x, y, fmt, x2, y2, fmt2, ..., **kwargs)
 	kwargs:
 	agg_filter=                lambda i=(m,n,3): (m,n,3)
 	alpha=                     scalar|None
@@ -49,27 +61,7 @@ plot(x, y, fmt, x2, y2, fmt2, ..., **kwargs)
 	ydata=                     1D array
 	zorder=                    0.
 
-legend(*args, ?handles=[Artist,..], ?labels=['',..], **kwargs)
-	loc=                       rcParams['legend.loc']='best' | 'upper|lower|center left|right|center' | (0.,0.)
-
-subplots(nrows=1, ncols=1, *, ?sharex=False, ?sharey=False, ?squeeze=True, ?subplot_kw=None|{}, ?gridspec_kw=None|{}, **fig_kw={'constrained_layout':False,..})
-
-subplot(nrows=1, ncols=1, index=1, **kwargs)
-subplot(pos=000, **kwargs)
-subplot(**kwargs)
-subplot(ax)
-
-figure(num=1|''|Figure, figsize=(6.4,4.8), dpi=100.0, facecolor='white', edgecolor='white', frameon=True, ?FigureClass, clear=False, tight_layout=False|{}, constrained_layout=False, **kwargs)
-	# defaults: plt.rcParams['figure.*']
-
-text(x=0., y=0., s='', fontdict=None, **kwargs)
-	fontfamily|family='serif|sans-serif|cursive|fantasy|monospace|...'
-	fontsize|size=0.|'xx-small|x-small|small|medium|large|x-large|xx-large'
-	horizontalalignment|ha='center|right|left'
-	verticalalignment|va='center|top|bottom|baseline|center_baseline'
-	transform=Transform
-
-scatter(
+axes.scatter(
 	x=0.|[0,..],
 	y=0.|[0.,..],
 	s=None | 0. | [rcParams['lines.markersize']**2,..],
@@ -86,15 +78,26 @@ scatter(
 	plotnonfinite=False, data=None, **kwargs
 )
 
-fig  = plt.gcf() # get current figure
-axes = plt.gca() # ... axes
+axes.text(x=0., y=0., s='', fontdict=None, **kwargs)
+	fontfamily|family='serif|sans-serif|cursive|fantasy|monospace|...'
+	fontsize|size=0.|'xx-small|x-small|small|medium|large|x-large|xx-large'
+	horizontalalignment|ha='center|right|left'
+	verticalalignment|va='center|top|bottom|baseline|center_baseline'
+	transform=Transform
+axes.grid()
+axes.xlabel()
 
-plt.savefig(fname='', *, dpi='figure'|0., format=None|'png|pdf|svg|eps', metadata=None, bbox_inches=None|'tight|...'|Bbox, pad_inches=0.1, facecolor='auto', edgecolor='auto', ?backend=None, **kwargs)
-
+ax.legend(*args, ?handles=[Artist,..], ?labels=['',..], **kwargs)
+	loc=rcParams['legend.loc']='best' | 'upper|lower|center left|right|center' | (0.,0.)
 ax.tick_params(labelbottom=False, labelleft=False)
 ax.set_xticklabels([])
 ax.xticks([])
 ax.yticks([])
+ax.grid()
+ax.imshow()
+
+fig  = plt.gcf() # get current figure
+axes = plt.gca() # ... axes
 
 fmt= '''
 marker

@@ -21,6 +21,8 @@ np.min([1,2])  # 1
 np.max([1,2])  # 2
 np.amin([1,2]) # 1
 np.amax([1,2]) # 2
+np.argmax([1,2,3,4]) # index of max: 3
+np.argmax([4,3,2,1]) # index of min: 3
 
 # as operand
 a = np.array([1,2,3,4])
