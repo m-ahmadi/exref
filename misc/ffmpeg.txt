@@ -4,7 +4,8 @@ ffmpeg -i video.mkv -vf subtitles=mysub.srt out.mp4		burn sibtitles
 ffmpeg -i video.mkv -vf subtitles=video.mkv out.avi		... if subtitle embeded in video file
 
 burn subtitle and change font
-ffmpeg -i i.mp4 -vf "subtitles=i.vtt:force_style='Fontname=Bahij Nazanin,Fontsize=38,PrimaryColour=&Hffffff&'" -c:a copy out.mp4
+ffmpeg -i i.mp4 -vf "subtitles=i.vtt:force_style='Fontname=Bahij Nazanin,Fontsize=38,PrimaryColour=&H00ffff&'" -c:a copy out.mp4
+	note: hex colors are in BGR (yellow=00ffff)
 https://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo
 
 cut part of video
