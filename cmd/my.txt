@@ -35,7 +35,8 @@ ctrl alt
 	`	conemu
 ctrl `		deskpins
 ctrl shift `	everything
-ctrl alt `	conemu
+ctrl  alt `	conemu
+shift alt `	cmder
 --------------------------------------------------------------------------------
 alarm sound
 

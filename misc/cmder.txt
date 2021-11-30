@@ -1,9 +1,17 @@
-Settings -> General  -> Size & Pos -> Console buffer height -> Long console output 32766 (max)
-Settings -> General  -> Appearance -> Scrollbar -> Show (check)
-Settings -> Features -> Colors     -> Fade when inactive (uncheck)
-Settings -> Features -> Transparency
-	Activate window transparency (uncheck)
-	Use seperate transparency value for inactive window (uncheck)
+General
+	Choose your startup task:	{bash::bash}
+	Size & Pos
+		Long console output: 32766 (max)
+	Appearance
+		Scrollbar: Show
+	Confirm
+		! Show `... brought ConEmu OnTop. Revert?` confirmation box
+Features
+	Colors
+		! Fade when inactive
+	Transparency
+		! Activate window transparency
+		! Use seperate transparency value for inactive window
 ---------------------------------------------------------------------------------
 context menu
 
