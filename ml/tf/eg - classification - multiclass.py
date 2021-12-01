@@ -1,4 +1,5 @@
-import tensorflow as tf
+from tensorflow import keras
+from keras.layers import InputLayer, Dense
 import numpy as np
 
 
@@ -15,9 +16,10 @@ output layer
 
 note: exclusive classes means feature cannot belong to two classes
 '''
-model = tf.keras.Sequential([
-	tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2,)),
-	tf.keras.layers.Dense(units=3, activation='softmax')
+model = keras.Sequential([
+	InputLayer(2),
+	Dense(units=4, activation='sigmoid'),
+	Dense(units=3, activation='softmax'),
 ])
 model.compile(optimizer='sgd', loss='sparse_categorical_crossentropy')
 model.fit(
@@ -43,8 +45,9 @@ output layer
 	units:         must equal length of the "one-hot" vector
 '''
 model = tf.keras.Sequential([
-	tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2,)),
-	tf.keras.layers.Dense(units=3, activation='softmax')
+	InputLayer(2),
+	Dense(units=4, activation='sigmoid'),
+	Dense(units=3, activation='softmax'),
 ])
 model.compile(optimizer='sgd', loss='categorical_crossentropy')
 model.fit(

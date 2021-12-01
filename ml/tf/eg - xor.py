@@ -1,4 +1,5 @@
-import tensorflow as tf
+from tensorflow import keras
+from keras.layers import InputLayer, Dense
 
 data = [
 	[ [0,0], [0] ],
@@ -6,16 +7,17 @@ data = [
 	[ [1,0], [1] ],
 	[ [1,1], [0] ],
 ]
-features = [i[0] for i in data]
-labels   = [i[1] for i in data]
+x_train = [i[0] for i in data]
+y_train = [i[1] for i in data]
 
-model = tf.keras.Sequential([
-	tf.keras.layers.Dense(units=8, activation='sigmoid', input_shape=(2,)),
-	tf.keras.layers.Dense(units=1, activation='sigmoid')
+model = keras.Sequential([
+	InputLayer(2),
+	Dense(units=8, activation='sigmoid'),
+	Dense(units=1, activation='sigmoid'),
 ])
-model.compile(optimizer=tf.keras.optimizers.SGD(0.6), loss='mean_squared_error')
+model.compile(optimizer=keras.optimizers.SGD(0.6), loss='mean_squared_error')
 
-model.fit(features, labels, batch_size=1, epochs=5000)
+model.fit(x_train, y_train, batch_size=1, epochs=500)
 
 print(
 	model.predict(  [ [0,0], [0,1], [1,0], [1,1] ]  )

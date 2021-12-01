@@ -4,7 +4,7 @@ sigmoid		outputs value in [0,1] range
 tanh		outputs value in [-1,1] range
 relu		outputs (val < 0 ? 0 : val) in [0,1] range (heNormal|heUniform)
 leaky-relu	
-linear		
+linear		means no activation on output layer
 softmax		outputs vector that sums to 1 (probabilities of class membership)
 
 

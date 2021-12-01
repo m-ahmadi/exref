@@ -1,16 +1,16 @@
 # two ways of defining activation (both equal)
 model = keras.Sequential([
-	keras.layers.Dense(1024, activation='relu', input_dim=64))
-	keras.layers.Dense(256, activation='relu')
-	keras.layers.Dense(10, activation='softmax')
+	keras.layers.Dense(1024, activation='relu', input_dim=64)),
+	keras.layers.Dense(256, activation='relu'),
+	keras.layers.Dense(10, activation='softmax'),
 ])
 model = keras.Sequential([
-	keras.layers.Dense(1024, input_dim=64)
-	keras.layers.Activation(relu)
-	keras.layers.Dense(256)
-	keras.layers.Activation('relu')
-	keras.layers.Dense(10)
-	keras.layers.Activation('softmax')
+	keras.layers.Dense(1024, input_dim=64),
+	keras.layers.Activation(relu),
+	keras.layers.Dense(256),
+	keras.layers.Activation('relu'),
+	keras.layers.Dense(10),
+	keras.layers.Activation('softmax'),
 ])
 
 # functional api

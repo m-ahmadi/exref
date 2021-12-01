@@ -48,3 +48,12 @@ train: [4 5 6 7 8 9] test: [1 2 3]
 train: [1 2 3 7 8 9] test: [4 5 6]
 train: [1 2 3 4 5 6] test: [7 8 9]
 '''
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# util
+# https://scikit-learn.org/stable/modules/classes.html#module-sklearn.utils
+
+sklearn.utils.class_weight.compute_class_weight(class_weight={}|'balanced'|None, *, classes=[], y=[])
+
+from sklearn.utils.class_weight import compute_class_weight
+weights = compute_class_weight('balanced', classes=np.unique(y_train), y=y_org)
