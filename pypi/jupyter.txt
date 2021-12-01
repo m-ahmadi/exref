@@ -11,3 +11,19 @@ jupyter console  | jupyter-console		launch console
 jupyter lab      | jupyter-lab			launch lab
 voila file.ipynb				run voila
 voila file.ipynb --strip-sources=False --theme=dark
+
+--------------------------------------------------
+shortcuts
+
+h		help
+o		toggle output of cell
+
+shift enter	run cell, select below
+ctrl  enter	run selected cells
+alt   enter	run cell and insert below
+
+0, 0		restart the kernel (with dialog)
+
+shift space	scroll notebook up
+space		scroll notebook down
+--------------------------------------------------
