@@ -27,10 +27,9 @@ ctrl alt
 	4 	paint
     	5 	notepad
 	6	kidkeylock (exit:qq, setup:kk, no key lock)
-	7	keyboardlocker
+	7	keyboardlocker (lock: ctrl alt L, unlock: unlock)
 	8 	paint.net
-	e 	cmd        admin, target: %comspec% /k pushd D:\xampp\htdocs && title cmd
-	w 	...
+	e 	cmd	target: %comspec% /c start "cmd" /d D:\xampp\htdocs /i
 	r 	powershell admin, target: %pws% -NoExit -Command "pushd $env:h"
 	`	conemu
 ctrl `		deskpins

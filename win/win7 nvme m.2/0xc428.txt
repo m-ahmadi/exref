@@ -3,7 +3,7 @@ error
 File:	\Windows\system32\winload.exe
 Status:	0xc0000428
 Info:	The digital signature for this file couldn't be ferified.
-_____________________________________________________________________________________________
+————————————————————————————————————————————————————————————————————————————————
 fix 1 (fail)
 
 bootrec /rebuildbcd
@@ -24,7 +24,7 @@ if "Access is denied." then:
 bcdboot C:\Windows /s D:\
 	C:\Windows   windows installation folder
 	D:\          active boot partition (usb drive)
-_____________________________________________________________________________________________
+————————————————————————————————————————————————————————————————————————————————
 fix 2 (fail)
 
 diskpart
@@ -49,7 +49,7 @@ restart
 if failed, repeat prev steps but with:
 	bcdboot C:\windows /s Z: /f UEFI
 
-_____________________________________________________________________________________________
+————————————————————————————————————————————————————————————————————————————————
 =============
 = other fixes
 =============
@@ -57,10 +57,10 @@ ________________________________________________________________________________
 disable driver signature enforcementd
 bcdedit /set testsigning off
 fail: "The system cannot find the file specified"
-------------------------------------------------------------------------
+--------------------------------------------------
 bcdedit /set nointegritychecks on
 fail: "The system cannot find the file specified"
-------------------------------------------------------------------------
+--------------------------------------------------
 config boot on another pc (haven't tried)
 diskpart
 list disk
@@ -73,7 +73,7 @@ bcdboot C:\Windows /s S:
 
 copies BCD files from C:\Windows to a system partition on a secondary hard drive that will be booted on another computer.
 letter S: system partition of the secondary drive
-------------------------------------------------------------------------
+--------------------------------------------------
 (haven't tried)
 
 diskpart
@@ -89,6 +89,6 @@ bootrec /FixBoot
 	bootrec /rebuildbcd
 ren BCD BCD.old
 bcdboot c:\Windows /l en-us /s <boot letter>: All
-------------------------------------------------------------------------
+--------------------------------------------------
 bootsect/nt60 sys
 sfc /scannow
