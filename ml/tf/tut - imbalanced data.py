@@ -1,3 +1,4 @@
+# https://www.tensorflow.org/tutorials/structured_data/imbalanced_data
 import tensorflow as tf
 from tensorflow import keras
 
@@ -24,7 +25,7 @@ colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 # Download the Kaggle Credit Card Fraud data set
 file = tf.keras.utils
 raw_df = pd.read_csv('creditcard.csv') # https://storage.googleapis.com/download.tensorflow.org/data/creditcard.csv
-raw_df.head()
+print(raw_df.head())
 raw_df[['Time', 'V1', 'V2', 'V3', 'V4', 'V5', 'V26', 'V27', 'V28', 'Amount', 'Class']].describe()
 #=================================================
 # Examine the class label imbalance

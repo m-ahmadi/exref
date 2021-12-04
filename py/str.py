@@ -20,11 +20,10 @@ len('foo')                  # 5
 'a %(x) a %(y) a' % {'x':1,'y':2} # 'a 1 2' (wtf)
 
 # modern str format (v3.6+)
-f'foo {23}!'             # 'foo 23!'
+# https://docs.python.org/3/library/string.html#format-specification-mini-language
+'why {} plus {} equals {}?'.format(2, 2, 4) # 'why 2 plus 2 equals 4?'
+'{:.2f}'.format(12.3456) # '12.35'
 format(12.3456, '.2f')   # '12.35'
-f'{12.345:.2f}'          # ...
-'{:.2f}'.format(12.3456) # ...
-round(12.3456, 2)        # 12.35
 
 from string import Template
 Template('foo, $name!').substitute(name=23) # 'foo, 23!'
@@ -51,8 +50,13 @@ r'\\' # '\\\\'
 u'dude'
 
 # format string
+f'{12.345:.2f}' # ...
+f'foo {23}!'    # 'foo 23!'
+
+age = 32
+f'hello {age}' # 'hello 32'
+
 import datetime
-name = 'Fred'
-age = 50
-anniversary = datetime.date(1991, 10, 12)
-f'My name is {name}, my age next year is {age+1}, my anniversary is {anniversary:%A, %B %d, %Y}.'
+bday = datetime.date(1970, 10, 12)
+'your were born: {bday:%A, %B %d, %Y}'                      # 'your were born: Monday, October 12, 1970'
+'your were born: {}'.format(bday.strftime('%A, %B %d, %Y')) # ...

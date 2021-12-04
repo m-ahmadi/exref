@@ -1,4 +1,4 @@
-# Time series forecasting
+# https://www.tensorflow.org/tutorials/structured_data/time_series
 
 # This tutorial is an introduction to time series forecasting using TensorFlow.
 # It builds a few different styles of models including Convolutional and Recurrent Neural Networks (CNNs and RNNs).

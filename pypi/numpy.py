@@ -87,7 +87,7 @@ np.AxisError
 np.bartlett
 np.base_repr
 np.binary_repr
-np.bincount
+np.bincount(x=[+0,..], ?weights=None|[], ?minlength=0)
 np.bitwise_and
 np.bitwise_not
 np.bitwise_or

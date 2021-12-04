@@ -17,8 +17,15 @@ DataFrame.to_csv(path_or_buf=None|''|file_handle, sep=',', na_rep='', float_form
 	decimal='.', errors='strict', storage_options=None|{})
 
 DataFrame.copy(deep=True)
+DataFrame.head(n=5)
+DataFrame.describe(percentiles=None|[], include=None|'all'|[dtype,..], exclude=None|[dtype,..], datetime_is_numeric=False)
+DataFrame.pop(item='')
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
+
+df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
+df['a']
+df[ ['a','b'] ]
 
 # filter by content
 df = pd.DataFrame({'foo':[1,2,3,4,5,6], 'bar':[9,8,7,6,5,4]})

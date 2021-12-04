@@ -28,6 +28,23 @@ minmax_scale([0,10,4,5], (0,1)) # [0, 1, .4, .5]
 y = minmax_scale([x,a,b], (c,d))[0] # transform x in range [a,b] to y in [c,d]
 minmax_scale([5,1,10], (10,100))[0] # 50
 
+#————————————————————————————————————————————————
+# alt (mean removal and variance scaling)
+from sklearn.preprocessing import StandardScaler
+StandardScaler(*, copy=True, with_mean=True, with_std=True)
+
+X_train = np.array([
+	[1, -1,  2],
+	[2,  0,  0],
+	[0,  1, -1]
+])
+scaler.mean_  # [1.        , 0.        , 0.33333333]
+scaler.scale_ # [0.81649658, 0.81649658, 1.24721913]
+X_scaled = scaler.transform(X_train)
+X_scaled 
+	# [[ 0.        , -1.22474487,  1.33630621],
+	#  [ 1.22474487,  0.        , -0.26726124],
+	#  [-1.22474487,  1.22474487, -1.06904497]])
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # model_selection
 # https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection
@@ -49,6 +66,18 @@ train: [1 2 3 7 8 9] test: [4 5 6]
 train: [1 2 3 4 5 6] test: [7 8 9]
 '''
 
+# random train,test splitter
+sklearn.model_selection.train_test_split(*arrays, test_size=None, train_size=None, random_state=None, shuffle=True, stratify=None)
+
+train_test_split([0,1,2,3,4], shuffle=False) # [ [0,1,2], [3,4] ]
+
+X = [ [0,1], [2,3], [4,5], [6,7], [8,9] ]
+y = [  0,     1,     2,     3,     4    ]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+X_train # [ [4,5], [0,1], [6,7] ]
+y_train # [  2,     0,     3    ]
+X_test  # [ [2,3], [8,9] ]
+y_test  # [  1,     4    ]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # util
 # https://scikit-learn.org/stable/modules/classes.html#module-sklearn.utils

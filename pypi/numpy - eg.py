@@ -17,12 +17,6 @@ np.matmul([ [1,2],[3,4] ], [ [4,5],[6,7] ]) # [[16, 19],[36, 43]]
 np.cov([ [1,2,3,4], [2,3,2,1] ])[0][1]
 np.percentile([1,2,3,4], 50) # 2.5
 np.quantile()
-np.min([1,2])  # 1
-np.max([1,2])  # 2
-np.amin([1,2]) # 1
-np.amax([1,2]) # 2
-np.argmax([1,2,3,4]) # index of max: 3
-np.argmax([4,3,2,1]) # index of min: 3
 
 # as operand
 a = np.array([1,2,3,4])
@@ -132,3 +126,15 @@ def avgtrim(arr, percent):
 	n = len(arr)
 	k = int(round( n*(float(percent)/100)/2 ))
 	return np.mean(arr[k+1:n-k])
+
+
+# misc
+np.min([1,2])  # 1
+np.max([1,2])  # 2
+np.amin([1,2]) # 1
+np.amax([1,2]) # 2
+np.argmax([1,2,3,4]) # index of max: 3
+np.argmax([4,3,2,1]) # index of min: 3
+
+np.bincount([1,1,1])       # count occurrence: [0,3]
+np.bincount([1,1,1,4,4,4]) # ...               [0,3,0,0,3]

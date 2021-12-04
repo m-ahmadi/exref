@@ -3,6 +3,8 @@
 4 ** 2  # squared: 16
 4 ** 3  # cubed: 64
 
+round(12.3456, 2) # 12.35
+
 import math
 float('inf')  == math.inf  # True
 float('-inf') == -math.inf # True
