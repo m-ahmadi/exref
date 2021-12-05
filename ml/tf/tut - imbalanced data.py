@@ -191,7 +191,7 @@ print("Loss: {:0.4f}".format(results[0]))
 # $$ b_0 = -log_e(1/p_0 - 1) $$
 # $$ b_0 = log_e(pos/neg)$$
 initial_bias = np.log([pos/neg])
-initial_bias
+print(initial_bias)
 
 # Set that as the initial bias, and the model will give much more reasonable initial guesses. 
 # It should be near: `pos/total = 0.0018`

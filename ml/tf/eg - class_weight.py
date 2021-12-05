@@ -31,14 +31,20 @@ data = [
 x_train = [i[0] for i in data]
 y_train = [i[1] for i in data]
 
+use_output_bias = 0
+
+if use_output_bias:
+	neg, pos = np.bincount(y_org)
+	initial_bias = np.log([pos/neg])
+
 model = keras.Sequential([
 	InputLayer(2),
 	Dense(units=8, activation='sigmoid'),
-	Dense(units=1, activation='sigmoid'),
+	Dense(units=1, activation='sigmoid', bias_initializer=keras.initializers.Constant(initial_bias) if use_output_bias else 'zeros')
 ])
 model.compile(optimizer=keras.optimizers.SGD(0.8), loss='binary_crossentropy')
 
-use  = 1
+use = 1
 type = 1
 
 if type == 0:
@@ -49,6 +55,14 @@ else:
 	y_org = np.array(y_train).reshape(len(y_train))
 	weights = compute_class_weight('balanced', classes=np.unique(y_train), y=y_org)
 	weights = dict(enumerate(weights))
+	
+	'''same as:
+	neg, pos = np.bincount(y_org)
+	total = neg + pos
+	weight_for_0 = (1 / neg) * (total / 2.0)
+	weight_for_1 = (1 / pos) * (total / 2.0)
+	_weights = {0: weight_for_0, 1: weight_for_1}
+	weights == _weights # True'''
 
 model.fit(x_train, y_train, batch_size=1, verbose=0, epochs=100, class_weight=weights if use else None)
 
