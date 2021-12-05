@@ -3,3 +3,6 @@ fc a.js b.js		compare files for diff
 fc dir1\* dir2\*	compare all files in two dirs
 
 fc /?
+
+forfiles /p a /c "cmd /c fc @file ..\b\@file"
+forfiles ... | find "FC: "

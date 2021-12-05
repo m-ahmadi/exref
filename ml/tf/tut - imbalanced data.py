@@ -23,7 +23,7 @@ colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
 
 #=================================================
 # Download the Kaggle Credit Card Fraud data set
-file = tf.keras.utils
+file = keras.utils
 raw_df = pd.read_csv('creditcard.csv') # https://storage.googleapis.com/download.tensorflow.org/data/creditcard.csv
 print(raw_df.head())
 raw_df[['Time', 'V1', 'V2', 'V3', 'V4', 'V5', 'V26', 'V27', 'V28', 'Amount', 'Class']].describe()
@@ -128,7 +128,7 @@ METRICS = [
 
 def make_model(metrics=METRICS, output_bias=None):
 	if output_bias is not None:
-		output_bias = tf.keras.initializers.Constant(output_bias)
+		output_bias = keras.initializers.Constant(output_bias)
 	
 	model = keras.Sequential([
 		keras.layers.Dense(16, activation='relu', input_shape=(train_features.shape[-1],)),
@@ -170,7 +170,7 @@ def make_model(metrics=METRICS, output_bias=None):
 # Note: this model will not handle the class imbalance well. You will improve it later in this tutorial.
 EPOCHS = 100
 BATCH_SIZE = 2048
-early_stopping = tf.keras.callbacks.EarlyStopping(monitor='val_prc',  verbose=1, patience=10, mode='max', restore_best_weights=True)
+early_stopping = keras.callbacks.EarlyStopping(monitor='val_prc',  verbose=1, patience=10, mode='max', restore_best_weights=True)
 
 model = make_model()
 model.summary()
@@ -374,8 +374,8 @@ print('Weight for class 1: {:.2f}'.format(weight_for_1))
 # Train a model with class weights
 # Now try re-training and evaluating the model with class weights to see how that affects the predictions.
 # Note: Using `class_weights` changes the range of the loss. This may affect the stability of the training depending on the optimizer.
-# Optimizers whose step size is dependent on the magnitude of the gradient, like `tf.keras.optimizers.SGD`, may fail.
-# The optimizer used here, `tf.keras.optimizers.Adam`, is unaffected by the scaling change. Also note that because of the weighting, the total losses are not comparable between the two models.
+# Optimizers whose step size is dependent on the magnitude of the gradient, like `keras.optimizers.SGD`, may fail.
+# The optimizer used here, `keras.optimizers.Adam`, is unaffected by the scaling change. Also note that because of the weighting, the total losses are not comparable between the two models.
 weighted_model = make_model()
 weighted_model.load_weights(initial_weights)
 
@@ -532,7 +532,7 @@ plt.show()
 #=================================================
 # Re-train
 # Because training is easier on the balanced data, the above training procedure may overfit quickly. 
-# So break up the epochs to give the `tf.keras.callbacks.EarlyStopping` finer control over when to stop training.
+# So break up the epochs to give the `keras.callbacks.EarlyStopping` finer control over when to stop training.
 resampled_model = make_model()
 resampled_model.load_weights(initial_weights)
 

@@ -144,8 +144,8 @@ tf.keras.metrics.
 	CategoricalCrossentropy(name='categorical_crossentropy', dtype=None, from_logits=False, label_smoothing=0)
 	CategoricalHinge(name='categorical_hinge', dtype=None)
 	CosineSimilarity(name='cosine_similarity', dtype=None, axis=-1)
-	FalseNegatives(thresholds=None, name=None, dtype=None)
-	FalsePositives(thresholds=None, name=None, dtype=None)
+	FalseNegatives(thresholds=0.5|[0.,..], name=None|'', dtype=None)
+	FalsePositives(thresholds=0.5|[0.,..], name=None|'', dtype=None)
 	Hinge(name='hinge', dtype=None)
 	KLDivergence(name='kullback_leibler_divergence', dtype=None)
 	LogCoshError(name='logcosh', dtype=None)
@@ -173,8 +173,8 @@ tf.keras.metrics.
 	SquaredHinge(name='squared_hinge', dtype=None)
 	Sum(name='sum', dtype=None)
 	TopKCategoricalAccuracy(k=5, name='top_k_categorical_accuracy', dtype=None)
-	TrueNegatives(thresholds=None, name=None, dtype=None)
-	TruePositives(thresholds=None, name=None, dtype=None)
+	TrueNegatives(thresholds=0.5|[0.,..], name=None|'', dtype=None)
+	TruePositives(thresholds=0.5|[0.,..], name=None|'', dtype=None)
 	
 	# fn
 	KLD(y_true, y_pred)
