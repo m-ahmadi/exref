@@ -36,13 +36,60 @@ tf.saved_model.save(obj=tf.Module|tf.train.Checkpoint, export_dir='', signatures
 
 tf.keras.layers.
 	Dense(
-		units=positive_integer, activation=None, use_bias=True,
+		units=+0, activation=None, use_bias=True,
 		kernel_initializer='glorot_uniform', bias_initializer='zeros',
 		kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None,
-		kernel_constraint=None, bias_constraint=None, **kwargs
-	)
+		kernel_constraint=None, bias_constraint=None, **kwargs)
 	Dense(8, input_shape=(16,)) # kwarg `input_shape` implicitly creates an input layer to insert before the current layer (same as explicitly define `InputLayer`)
-
+	
+	Conv1D(
+		filters=0, kernel_size=0|(0,0), strides=1, padding='valid',
+		data_format='channels_last', dilation_rate=1, groups=1,
+		activation=None, use_bias=True, kernel_initializer='glorot_uniform',
+		bias_initializer='zeros', kernel_regularizer=None,
+		bias_regularizer=None, activity_regularizer=None, kernel_constraint=None,
+		bias_constraint=None, **kwargs)
+	Conv2D(
+		filters=0, kernel_size=0|(0,0), strides=(1,1), padding='valid',
+		data_format=None, dilation_rate=(1,1), groups=1, activation=None,
+		use_bias=True, kernel_initializer='glorot_uniform',
+		bias_initializer='zeros', kernel_regularizer=None,
+		bias_regularizer=None, activity_regularizer=None, kernel_constraint=None,
+		bias_constraint=None, **kwargs)
+	
+	RNN(
+		cell, return_sequences=False, return_state=False, go_backwards=False,
+		stateful=False, unroll=False, time_major=False, **kwargs)
+	SimpleRNN(
+		units=+0, activation='tanh', use_bias=True,
+		kernel_initializer='glorot_uniform',
+		recurrent_initializer='orthogonal',
+		bias_initializer='zeros', kernel_regularizer=None,
+		recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None,
+		kernel_constraint=None, recurrent_constraint=None, bias_constraint=None,
+		dropout=0.0, recurrent_dropout=0.0, return_sequences=False, return_state=False,
+		go_backwards=False, stateful=False, unroll=False, **kwargs)
+	LSTM(
+		units=+0, activation='tanh', recurrent_activation='sigmoid',
+		use_bias=True, kernel_initializer='glorot_uniform',
+		recurrent_initializer='orthogonal',
+		bias_initializer='zeros', unit_forget_bias=True,
+		kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None,
+		activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None,
+		bias_constraint=None, dropout=0.0, recurrent_dropout=0.0,
+		return_sequences=False, return_state=False, go_backwards=False, stateful=False,
+		time_major=False, unroll=False, **kwargs)
+	GRU(
+		units=+0, activation='tanh', recurrent_activation='sigmoid',
+		use_bias=True, kernel_initializer='glorot_uniform',
+		recurrent_initializer='orthogonal',
+		bias_initializer='zeros', kernel_regularizer=None,
+		recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None,
+		kernel_constraint=None, recurrent_constraint=None, bias_constraint=None,
+		dropout=0.0, recurrent_dropout=0.0, return_sequences=False, return_state=False,
+		go_backwards=False, stateful=False, unroll=False, time_major=False,
+		reset_after=True, **kwargs)
+	
 	Flatten(data_format=None, **kwargs)
 	InputLayer(input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False, ?name='', ragged=False, type_spec=None, **kwargs)
 
