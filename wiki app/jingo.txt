@@ -1,4 +1,4 @@
-npm install jingo -g
+npm i jingo -g
 
 create a git repo
 copy .md files into the repo

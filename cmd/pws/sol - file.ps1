@@ -51,3 +51,6 @@ if (Test-Path $path) {
 	-replace '(\d+),(\d{1,})', '$1.$2' `
 	-replace 'second regex', 'second replacement' |
 		Out-File file.txt
+
+# replace string in multiple files
+dir -File -Rec | %{ $f=$_; (gc $f.PSPath) | %{$_ -replace '\\', '/'} | sc $f.PSPath }
