@@ -1,0 +1,6 @@
+fart file.txt \r\n \n
+fart file.txt "hello world" "Hello world"
+
+
+install
+powershell -C "wget https://altushost-swe.dl.sourceforge.net/project/fart-it/fart-it/1.99b/fart199b_win32.zip -O x.zip; Expand-Archive x.zip -D .; mi fart.exe -D $Env:windir; ri x.zip;"

@@ -5,6 +5,7 @@ ni a1,'a 2',a3 -ItemType Directory # create multiple dirs
 rni a.txt -NewName b.txt           # rename file
 ri foo.txt                         # delete file
 ri 'f o'                           # delete dir
+ri mydir -Force -Recurse           # ... & all subdirs
 mi a.txt -Destination E:\          # move file or dir
 mi a.txt,b.txt -D E:\              # ... multiple
 cpi C:\file.txt -Destination E:\   # copy file
@@ -55,8 +56,8 @@ if (Test-Path $path) {
 # prepend text to file
 ac -Path b.txt -Value ('hello'+(gc a.txt)) # or: gc a.txt -Raw
 
-# multiple files:
 
+# multiple files:
 # prepend text
 dir -File -Rec | %{ sc -Path $_.name -Value ("hello`n`n"+(gc $_.name)) }
 

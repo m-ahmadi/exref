@@ -1,0 +1,4 @@
+
+
+install
+powershell -C "wget http://findandreplace.io/downloads/fnr.zip -O x.zip; Expand-Archive x.zip -D .; mi fnr.exe -D $Env:windir; ri x.zip;"
