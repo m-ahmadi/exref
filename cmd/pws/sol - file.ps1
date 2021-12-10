@@ -52,5 +52,16 @@ if (Test-Path $path) {
 	-replace 'second regex', 'second replacement' |
 		Out-File file.txt
 
-# replace string in multiple files
+# prepend text to file
+ac -Path b.txt -Value ('hello'+(gc a.txt)) # or: gc a.txt -Raw
+
+# multiple files:
+
+# prepend text
+dir -File -Rec | %{ sc -Path $_.name -Value ("hello`n`n"+(gc $_.name)) }
+
+# replace text
 dir -File -Rec | %{ $f=$_; (gc $f.PSPath) | %{$_ -replace '\\', '/'} | sc $f.PSPath }
+
+# rename
+dir -File | ri -NewName { 'Prefix_' + $_.Name }

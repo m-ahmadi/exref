@@ -1,10 +1,12 @@
 pip install tensorflow			needs python 3.6-3.9 64-bit
 
+pip install keras_tuner
 --------------------------------------------------------------------------------
 local docs
 
 pip install git+https://github.com/tensorflow/docs
 
 git clone https://github.com/tensorflow/tensorflow
-python tensorflow/tensorflow/tools/docs/generate2.py --output_dir=/tmp/out
+cd tensorflow/tensorflow/tools/docs/
+python generate2.py --output_dir=/tmp/out
 --------------------------------------------------------------------------------

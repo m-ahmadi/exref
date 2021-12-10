@@ -1,0 +1,10 @@
+not tested
+
+windows "Format" from context menu only shows:
+	FAT32:	drives smaller than 32 GB
+	exFAT:	drives larger  than 32 GB
+
+but you can format drives larger than 32 GB as FAT32 using:
+	compmgmt.msc
+	format /?
+	...
