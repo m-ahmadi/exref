@@ -318,11 +318,10 @@ x_train, x_test = x_train / 255.0, x_test / 255.0
 sample, sample_label = x_train[0], y_train[0]
 
 
-# Let's create a model instance and train it.
-# 
-# We choose `sparse_categorical_crossentropy` as the loss function for the model. The
-# output of the model has shape of `[batch_size, 10]`. The target for the model is an
-# integer vector, each of the integer is in the range of 0 to 9.
+'''Let's create a model instance and train it.
+We choose `sparse_categorical_crossentropy` as the loss function for the model. The
+output of the model has shape of `[batch_size, 10]`. The target for the model is an
+integer vector, each of the integer is in the range of 0 to 9.'''
 model = build_model(allow_cudnn_kernel=True)
 
 model.compile(
@@ -332,21 +331,13 @@ model.compile(
 )
 
 
-model.fit(
-	x_train, y_train, validation_data=(x_test, y_test), batch_size=batch_size, epochs=1
-)
+model.fit(x_train, y_train, validation_data=(x_test, y_test), batch_size=batch_size, epochs=1)
 
 # Now, let's compare to a model that does not use the CuDNN kernel:
 noncudnn_model = build_model(allow_cudnn_kernel=False)
 noncudnn_model.set_weights(model.get_weights())
-noncudnn_model.compile(
-	loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-	optimizer='sgd',
-	metrics=['accuracy'],
-)
-noncudnn_model.fit(
-	x_train, y_train, validation_data=(x_test, y_test), batch_size=batch_size, epochs=1
-)
+noncudnn_model.compile(loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True), optimizer='sgd', metrics=['accuracy'])
+noncudnn_model.fit(x_train, y_train, validation_data=(x_test, y_test), batch_size=batch_size, epochs=1)
 
 '''When running on a machine with a NVIDIA GPU and CuDNN installed,
 the model built with CuDNN is much faster to train compared to the
@@ -369,6 +360,7 @@ with tf.device('CPU:0'):
 		'Predicted result is: %s, target result is: %s' % (result.numpy(), sample_label)
 	)
 	plt.imshow(sample, cmap=plt.get_cmap('gray'))
+	plt.show()
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''RNNs with list/dict inputs, or nested inputs
