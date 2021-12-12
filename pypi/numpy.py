@@ -474,6 +474,7 @@ np.random.random(size=None|0|(0,..))  |  random_sample()
 np.random.rand(?d0=0, ?d1=0, ..., ?dn=0)
 np.random.randint(low=0, ?high=None|0, ?size=None|0|(0,..), ?dtype=np.int)  |  random_integers() # low: inclusive, high: exclusive
 np.random.permutation(x=0|∂)
+np.random.normal(loc=0.0|[0.,..], scale=1.0|[0.,..], size=None|0|(0,..))
 np.RankWarning
 np.rate
 np.ravel

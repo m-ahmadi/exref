@@ -118,6 +118,8 @@ np.random.rand(3,2) # [ [0.51, 0.58], [0.32, 0.68], [0.43, 0.05] ]
 np.random.permutation(4)         # [3,1,0,2]
 np.random.permutation([6,7,8,9]) # [7,9,6,8]
 
+np.random.normal(0.5, .1, 3) # [0.72124197, 0.48887206, 0.51517659]
+
 # round
 np.round(np.random.uniform(1,5,5), 2) # [4.87, 3.47, 1.61, 4.99, 3.85]
 

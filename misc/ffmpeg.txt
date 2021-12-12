@@ -12,7 +12,11 @@ embed subtitle into video
 ffmpeg -i i.mp4 -i i.srt -c copy -c:s mov_text out.mp4
 
 cut part of video
-ffmpeg -ss 00:00:30.0 -i i.mkv -c copy -t 00:00:10.0 o.mp4		(10 seconds from 00:00:30.0)
+ffmpeg -ss 00:00:30.0 -i i.mkv -c copy -t 00:00:10.0 o.mp4		10 seconds from 00:00:30.0
+
+reduce size of video
+ffmpeg -i i.mp4 -vcodec libx265 -crf 35 o.mp4				higher -crf == lower size
+ffmpeg -i i.mp4 -b 800k o.mp4						lower -b    == lower size
 --------------------------------------------------------------------------------
 install
 

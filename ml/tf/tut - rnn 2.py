@@ -22,7 +22,7 @@ The Keras RNN API is designed with a focus on:
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers
+from keras.layers import SimpleRNN, LSTM, GRU, Dense, Embedding, Input, Bidirectional, RNN, SimpleRNNCell, GRUCell, LSTMCell, BatchNormalization
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''Built-in RNN layers: a simple example
 
@@ -38,13 +38,13 @@ embeds each integer into a 64-dimensional vector, then processes the sequence of
 
 model = keras.Sequential()
 # Add an Embedding layer expecting input vocab of size 1000, and output embedding dimension of size 64.
-model.add(layers.Embedding(input_dim=1000, output_dim=64))
+model.add(Embedding(input_dim=1000, output_dim=64))
 
 # Add a LSTM layer with 128 internal units.
-model.add(layers.LSTM(128))
+model.add(LSTM(128))
 
 # Add a Dense layer with 10 units.
-model.add(layers.Dense(10))
+model.add(Dense(10))
 model.summary()
 
 '''Built-in RNNs support a number of useful features:
@@ -65,14 +65,14 @@ A RNN layer can also return the entire sequence of outputs for each sample (one 
 per timestep per sample), if you set `return_sequences=True`. The shape of this output
 is `(batch_size, timesteps, units)`.'''
 model = keras.Sequential()
-model.add(layers.Embedding(input_dim=1000, output_dim=64))
+model.add(Embedding(input_dim=1000, output_dim=64))
 
 # The output of GRU will be a 3D tensor of shape (batch_size, timesteps, 256)
-model.add(layers.GRU(256, return_sequences=True))
+model.add(GRU(256, return_sequences=True))
 
 # The output of SimpleRNN will be a 2D tensor of shape (batch_size, 128)
-model.add(layers.SimpleRNN(128))
-model.add(layers.Dense(10))
+model.add(SimpleRNN(128))
+model.add(Dense(10))
 model.summary()
 
 
@@ -95,19 +95,19 @@ example below.'''
 encoder_vocab = 1000
 decoder_vocab = 2000
 
-encoder_input = layers.Input(shape=(None,))
-encoder_embedded = layers.Embedding(input_dim=encoder_vocab, output_dim=64)(encoder_input)
+encoder_input = Input(shape=(None,))
+encoder_embedded = Embedding(input_dim=encoder_vocab, output_dim=64)(encoder_input)
 
 # Return states in addition to output
-output, state_h, state_c = layers.LSTM(64, return_state=True, name='encoder')(encoder_embedded)
+output, state_h, state_c = LSTM(64, return_state=True, name='encoder')(encoder_embedded)
 encoder_state = [state_h, state_c]
 
-decoder_input = layers.Input(shape=(None,))
-decoder_embedded = layers.Embedding(input_dim=decoder_vocab, output_dim=64)(decoder_input)
+decoder_input = Input(shape=(None,))
+decoder_embedded = Embedding(input_dim=decoder_vocab, output_dim=64)(decoder_input)
 
 # Pass the 2 states to a new LSTM layer, as initial state
-decoder_output = layers.LSTM(64, name='decoder')(decoder_embedded, initial_state=encoder_state)
-output = layers.Dense(10)(decoder_output)
+decoder_output = LSTM(64, name='decoder')(decoder_embedded, initial_state=encoder_state)
+output = Dense(10)(decoder_output)
 
 model = keras.Model([encoder_input, decoder_input], output)
 model.summary()
@@ -187,7 +187,7 @@ paragraph1 = np.random.random((20, 10, 50)).astype(np.float32)
 paragraph2 = np.random.random((20, 10, 50)).astype(np.float32)
 paragraph3 = np.random.random((20, 10, 50)).astype(np.float32)
 
-lstm_layer = layers.LSTM(64, stateful=True)
+lstm_layer = LSTM(64, stateful=True)
 output = lstm_layer(paragraph1)
 output = lstm_layer(paragraph2)
 output = lstm_layer(paragraph3)
@@ -212,13 +212,13 @@ paragraph1 = np.random.random((20, 10, 50)).astype(np.float32)
 paragraph2 = np.random.random((20, 10, 50)).astype(np.float32)
 paragraph3 = np.random.random((20, 10, 50)).astype(np.float32)
 
-lstm_layer = layers.LSTM(64, stateful=True)
+lstm_layer = LSTM(64, stateful=True)
 output = lstm_layer(paragraph1)
 output = lstm_layer(paragraph2)
 
 existing_state = lstm_layer.states
 
-new_lstm_layer = layers.LSTM(64)
+new_lstm_layer = LSTM(64)
 new_output = new_lstm_layer(paragraph3, initial_state=existing_state)
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -235,10 +235,10 @@ Keras provides an easy API for you to build such bidirectional RNNs: the
 model = keras.Sequential()
 
 model.add(
-	layers.Bidirectional(layers.LSTM(64, return_sequences=True), input_shape=(5, 10))
+	Bidirectional(LSTM(64, return_sequences=True), input_shape=(5, 10))
 )
-model.add(layers.Bidirectional(layers.LSTM(32)))
-model.add(layers.Dense(10))
+model.add(Bidirectional(LSTM(32)))
+model.add(Dense(10))
 
 model.summary()
 
@@ -296,16 +296,16 @@ def build_model(allow_cudnn_kernel=True):
 	# while RNN(LSTMCell(units)) will run on non-CuDNN kernel.
 	if allow_cudnn_kernel:
 		# The LSTM layer with default options uses CuDNN.
-		lstm_layer = keras.layers.LSTM(units, input_shape=(None, input_dim))
+		lstm_layer = LSTM(units, input_shape=(None, input_dim))
 	else:
 		# Wrapping a LSTMCell in a RNN layer will not use CuDNN.
-		lstm_layer = keras.layers.RNN(
-				keras.layers.LSTMCell(units), input_shape=(None, input_dim)
+		lstm_layer = RNN(
+			LSTMCell(units), input_shape=(None, input_dim)
 		)
 	model = keras.models.Sequential([
 		lstm_layer,
-		keras.layers.BatchNormalization(),
-		keras.layers.Dense(output_size),
+		BatchNormalization(),
+		Dense(output_size),
 	])
 	return model
 
@@ -444,7 +444,7 @@ num_batches = 10
 timestep = 50
 
 cell = NestedCell(unit_1, unit_2, unit_3)
-rnn = keras.layers.RNN(cell)
+rnn = RNN(cell)
 
 input_1 = keras.Input((None, i1))
 input_2 = keras.Input((None, i2, i3))
