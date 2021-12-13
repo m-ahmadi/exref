@@ -1,6 +1,8 @@
 from tensorflow import keras
 import numpy as np
 
+import matplotlib.pyplot as plt
+from itertools import chain
 
 def generate_time_series(batch_size, n_steps):
 	freq1, freq2, offsets1, offsets2 = np.random.rand(4, batch_size, 1)
@@ -13,6 +15,14 @@ def generate_time_series(batch_size, n_steps):
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 n_steps = 50
 series = generate_time_series(10000, n_steps + 1)
+
+fig, axes = plt.subplots(4,4, figsize=(12,8), tight_layout=True)
+axes = [*chain(*axes)]
+for i in range(16):
+  y = series[i].reshape((series[i].size))
+  axes[i].plot(range(len(y)), y)
+plt.show()
+
 X_train, y_train = series[:7000, :n_steps], series[:7000, -1]
 X_valid, y_valid = series[7000:9000, :n_steps], series[7000:9000, -1]
 X_test, y_test = series[9000:, :n_steps], series[9000:, -1]
@@ -21,7 +31,9 @@ X_test, y_test = series[9000:, :n_steps], series[9000:, -1]
 
 # naive forecasting
 y_pred = X_valid[:, -1]
-np.mean(keras.losses.mean_squared_error(y_valid, y_pred)) # 0.020
+print(
+	np.mean(keras.losses.mean_squared_error(y_valid, y_pred)) # 0.020
+)
 
 # fully connected net
 model = keras.models.Sequential([
@@ -31,7 +43,7 @@ model = keras.models.Sequential([
 model.compile('adam', 'mse')
 model.fit(X_train, y_train, epochs=20)
 res = model.evaluate(X_valid, y_valid)
-res['mse'] # 0.004
+print( res['mse'] ) # 0.004
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # simple rnn
 
@@ -41,7 +53,7 @@ model = keras.models.Sequential([
 model.compile('adam', 'mse')
 model.fit(X_train, y_train, epochs=20)
 res = model.evaluate(X_valid, y_valid)
-res['mse'] # 0.014
+print( res['mse'] ) # 0.014
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # deep rnn
 
@@ -53,7 +65,7 @@ model = keras.models.Sequential([
 model.compile('adam', 'mse')
 model.fit(X_train, y_train, epochs=20)
 res = model.evaluate(X_valid, y_valid)
-res['mse'] # 0.003
+print( res['mse'] ) # 0.003
 
 
 model = keras.models.Sequential([
@@ -67,7 +79,7 @@ model.fit(X_train, y_train, epochs=20)
 res = model.evaluate(X_valid, y_valid)
 res['mse'] # 0.003
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# forecasting Several Time Steps Ahead
+# forecasting several time steps ahead
 
 series = generate_time_series(1, n_steps + 10)
 X_new, Y_new = series[:, :n_steps], series[:, n_steps:]
