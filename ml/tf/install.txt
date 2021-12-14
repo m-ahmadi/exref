@@ -1,6 +1,8 @@
 pip install tensorflow			needs python 3.6-3.9 64-bit
 
 pip install keras_tuner
+
+pip install tf-nightly
 --------------------------------------------------------------------------------
 local docs
 

@@ -1,0 +1,18 @@
+py -m venv --help
+
+py -m venv foo				create new env named foo
+
+foo\Scripts\activate.bat		activate it
+
+	py -c "import sys,site; print(f'{sys.prefix}\n{site.getsitepackages()}')"
+
+foo\Scripts\deactivate.bat		deactivate it
+
+--------------------------------------------------------------------------------
+check
+
+py
+import sys, site
+sys.prefix             # 'C:\\python39'
+site.getsitepackages() # ['C:\\python39', 'C:\\python39\\lib\\site-packages']
+--------------------------------------------------------------------------------
