@@ -1,13 +1,15 @@
-python -m pip install --upgrade pip	upgrade pip
-pip install pylint			linter
-pip install pyreadline			autocomplete in python shell
-pip install black			formatter
-
 python -V				version
 python -c "print(2+2)"			execute program as string
+python -m pip install -U pip		run library module
 python					enter shell
-exit()					exit shell (or ctrl z)
-import this				summary of principles
+	exit()				exit shell (or ctrl z)
+	import this			summary of principles
+--------------------------------------------------------------------------------
+lang pkgs
+
+pip install pyreadline			autocomplete in python shell
+pip install pylint			linter
+pip install black			formatter
 --------------------------------------------------------------------------------
 fix "Failed calling sys.__interactivehook__"
 
