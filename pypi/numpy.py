@@ -477,7 +477,7 @@ np.random.permutation(x=0|∂)
 np.random.normal(loc=0.0|[0.,..], scale=1.0|[0.,..], size=None|0|(0,..))
 np.RankWarning
 np.rate
-np.ravel
+np.ravel(a=∂, order='C|F|A|K')
 np.ravel_multi_index
 np.real
 np.real_if_close

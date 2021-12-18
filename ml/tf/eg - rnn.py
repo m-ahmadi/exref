@@ -2,6 +2,11 @@ from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import SimpleRNN, LSTM, GRU, Embedding, Dense, InputLayer
 
+''' note about rnn input
+since rnn can process any number of time steps
+it doesn't need to know length of input sequences (unlike other models)
+that's why first input dimension is set to None
+'''
 
 model = Sequential([
 	SimpleRNN(1, input_shape=(None,1)),

@@ -31,45 +31,44 @@ X_test, y_test = series[9000:, :n_steps], series[9000:, -1]
 
 # naive forecasting
 y_pred = X_valid[:, -1]
-print(
-	np.mean(keras.losses.mean_squared_error(y_valid, y_pred)) # 0.020
-)
+res = np.mean(keras.losses.mean_squared_error(y_valid, y_pred)) # 0.020
+print(res)
 
 # fully connected net
 model = keras.models.Sequential([
-	keras.layers.Flatten(input_shape=[50, 1]),
+	keras.layers.Flatten(input_shape=(50,1)),
 	keras.layers.Dense(1)
 ])
 model.compile('adam', 'mse')
 model.fit(X_train, y_train, epochs=20)
 res = model.evaluate(X_valid, y_valid)
-print( res['mse'] ) # 0.004
+print(res) # 0.004
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # simple rnn
 
 model = keras.models.Sequential([
-	keras.layers.SimpleRNN(1, input_shape=[None, 1])
+	keras.layers.SimpleRNN(1, input_shape=(None,1))
 ])
 model.compile('adam', 'mse')
 model.fit(X_train, y_train, epochs=20)
 res = model.evaluate(X_valid, y_valid)
-print( res['mse'] ) # 0.014
+print(res) # 0.014
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # deep rnn
 
 model = keras.models.Sequential([
-	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
 	keras.layers.SimpleRNN(20, return_sequences=True),
 	keras.layers.SimpleRNN(1)
 ])
 model.compile('adam', 'mse')
 model.fit(X_train, y_train, epochs=20)
 res = model.evaluate(X_valid, y_valid)
-print( res['mse'] ) # 0.003
+print(res) # 0.003
 
 
 model = keras.models.Sequential([
-	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
 	keras.layers.SimpleRNN(20),
 	keras.layers.Dense(1),
 	# keras.layers.Dense(1, activation='sigmoid'),
@@ -77,7 +76,7 @@ model = keras.models.Sequential([
 model.compile('adam', 'mse')
 model.fit(X_train, y_train, epochs=20)
 res = model.evaluate(X_valid, y_valid)
-res['mse'] # 0.003
+print(res) # 0.003
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # forecasting several time steps ahead
 
@@ -96,7 +95,7 @@ X_train, Y_train = series[:7000, :n_steps], series[:7000, -10:, 0]
 X_valid, Y_valid = series[7000:9000, :n_steps], series[7000:9000, -10:, 0]
 X_test, Y_test = series[9000:, :n_steps], series[9000:, -10:, 0]
 model = keras.models.Sequential([
-	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
 	keras.layers.SimpleRNN(20),
 	keras.layers.Dense(10)
 ])
@@ -111,7 +110,7 @@ Y_train = Y[:7000]
 Y_valid = Y[7000:9000]
 Y_test = Y[9000:]
 model = keras.models.Sequential([
-	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=[None, 1]),
+	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
 	keras.layers.SimpleRNN(20, return_sequences=True),
 	keras.layers.TimeDistributed(keras.layers.Dense(10))
 ])

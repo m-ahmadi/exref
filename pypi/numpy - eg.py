@@ -72,6 +72,13 @@ a[a != None]     # [1,2,4]
 a[a is None]     # []                    bad
 a[a is not None] # [[[1, 2, None, 4]]    bad
 
+# flat
+a = np.array([ [[1],[2]], [[3],[4]] ])
+a.ravel()      # array([1,2,3,4])
+a.flatten()    # ...
+a.reshape(-1)  # ... 
+[*a.flat]      # [1,2,3,4]
+
 # 2d arr slicing
 a = np.array([ [1,2], [3,4] ])
 a[0, 0] # 1
@@ -114,6 +121,11 @@ a[1,0,1] # 10
 a[0, :2, :2] # top left: [ [1,   2], [5,   6] ]
 a[1, :2, :2] # mid left: [ [9,  10], [13, 14] ]
 a[1, :2, :2] # bot left: [ [17, 18], [21, 22] ]
+
+a = np.arange(20).reshape(10,2,1)
+a[:, -1]   # a.map(i=> i.map(j=> j.slice(-1)[0] ).slice(-1) )
+a[:, 1, 0] # a.map(i=> i.map(j=> j[0] ).slice(-1)[0] )
+a[:, 0, 0] # a.map(i=> i.map(j=> j[0] ).slice(-2)[0] )
 
 # ellipsis operator
 a = np.arange(1,9).reshape((2,2,2))
