@@ -47,3 +47,5 @@ raise Exception('msg')
 raise TypeError('msg')
 
 NameError ValueError TypeError RuntimeError ConnectionError OSError ZeroDivisionError IndexError ...
+
+# avoid bare except (use specific ones)

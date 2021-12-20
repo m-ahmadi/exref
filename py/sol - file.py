@@ -9,6 +9,7 @@ open(file, mode='r|w|x|a|b|t|+', buffering=-1, encoding=None, errors=None, newli
 		'+' # update (read and write)
 	encoding= locale.getpreferredencoding(False) # default encoding (platform-dependent): 'cp1252'
 
+# manual (file never closes if exception thrown)
 # read
 f = open('file.txt')
 str = f.read()
@@ -26,7 +27,7 @@ f.close()
 
 # `with` (auto cleanup of resource)
 with open('file.txt') as f:
-	f.read()
+	str = f.read()
 
 with open('file.txt', 'w') as f:
 	f.write('hi')

@@ -1,0 +1,32 @@
+setup custom link
+
+Font -> Custom...
+
+	Font Name:	Bahij Nazanin Regular
+	Font URL:	https://drive.google.com/u/0/uc?id=1UoxH5Q1V3aj-UDwl-_egqc6fRzFaWzTK&export=download
+--------------------------------------------------------------------------------
+override defaults
+
+Extra -> Configuration...
+
+{
+  "customFonts": [
+    {
+      "fontFamily": "Bahij Nazanin Regular",
+      "fontUrl": "https://drive.google.com/u/0/uc?id=1UoxH5Q1V3aj-UDwl-_egqc6fRzFaWzTK&export=download"
+    }
+  ],
+  
+  "defaultVertexStyle": {
+    "fontFamily": "Bahij Nazanin Regular",
+    "fontSize": 20
+  },
+  
+  "defaultEdgeStyle": {
+    "fontFamily": "Bahij Nazanin Regular",
+    "fontSize": 20
+  }
+}
+
+https://www.diagrams.net/doc/faq/configure-diagram-editor
+--------------------------------------------------------------------------------

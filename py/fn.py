@@ -1,7 +1,24 @@
 def f(): print('hi') # basic
-def f(a): print(a)   # param (positional)
+def f(a): print(a)   # arg (positional)
 def f(a): return a*2 # return value
-def f(a=2): print(a) # default value
+
+# default arg
+def f(a=2): print(a)
+
+# default arg is assigned when fn is defined (not when run)
+def push(n, a=[]):
+	a.append(n)
+	return a
+push(0) # [0]
+push(1) # [0,1]
+
+def push(n, a=None): # correct
+	if a is None:
+		a = []
+	a.append(n)
+	return a
+push(0) # [0]
+push(1) # [1]
 
 # keyword arg (position doesn't matter when calling)
 def f(a,b): print(a,b)
@@ -73,7 +90,7 @@ def foo():
 	yield 2
 fn = foo()
 
-gen = (i*2 for i in [1,2,3])
+gen = (i*2 for i in [1,2,3]) # generator comprehension
 for i in gen:
 	print(i) # 2 4 6
 

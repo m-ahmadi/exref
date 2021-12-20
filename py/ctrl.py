@@ -1,18 +1,3 @@
-# bool cast (truthy falsy)
-# falsy
-1 if 0    else 0
-1 if ''   else 0
-1 if []   else 0
-1 if {}   else 0
-1 if ()   else 0
-1 if (0)  else 0
-1 if ('') else 0
-# truthy
-1 if 1     else 0
-1 if '0'   else 0
-1 if [0]   else 0
-1 if ('0') else 0
-
 # `with` ensures resource is 'cleaned up' afterward (wrap execution of block with methods defined by a context manager)
 with open('file.txt') as f:
 	f.read()

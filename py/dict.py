@@ -23,9 +23,19 @@ d.copy()               # make copy
 d.fromkeys(['foo'],32) # {'foo': 32}
 d.clear()              # {}
 
+# keys() creates a view (not a copy)
+d = {'a': 1, 'b': 2}
+keys = d.keys() # ['a', 'b']
+del a['a']
+keys            # ['b']
+
 # https://docs.python.org/3/library/stdtypes.html?#mapping-types-dict
 
 dict(zip(['a','b'], [1,2])) # {'a':1, 'b':2}
 dict([('a',1), ('b',2)])    # ...
 dict({'a':1, 'b':2})        # ...
 dict({'a':1}, b=2)          # ...
+
+# dict comprehension
+{i: i*i for i in range(3)}          # {0: 0, 1: 1, 2: 4}
+{f'foo-{i}': i*i for i in range(3)} # {'foo-0': 0, 'foo-1': 1, 'foo-2': 4}

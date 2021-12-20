@@ -100,3 +100,19 @@ a[0] # True
 b = [*a] # or a[:]
 b[0] = False
 a[0] # True
+
+# iteration
+a = [1,2,3]
+b = [4,5,6]
+
+for i in range(len(a)):
+	print(a[i], b[i]) # 1 4  2 5  3 6
+
+for i, v in enumerate(a):
+	print(a[i], b[i]) # 1 4  2 5  3 6
+
+for i in zip(a,b):
+	print(i) # (1,4) (2,5) (3,6)
+
+for i in enumerate(zip(a,b)):
+	print(i) # (0,(1,4))  (1,(2,5))  (2,(3,6))
