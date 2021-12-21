@@ -11,6 +11,7 @@ that's why first input dimension is set to None
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 inputs = np.random.random([32, 10, 8]).astype(np.float32)
+inputs.shape # [batch, timesteps, feature]
 
 simple_rnn = SimpleRNN(4)
 output = simple_rnn(inputs)
@@ -30,39 +31,34 @@ model = Sequential([
 	Dense(units=1, activation='sigmoid'),
 ])
 model.compile(optimizer=keras.optimizers.SGD(0.6), loss='mse')
-model.fit(x_train, y_train, epochs=1500)
+model.fit(x_train, y_train, batch_size=1, epochs=500)
+
 print(model.predict(x_train))
-# [[0.10568032]
-#  [0.86845374]
-#  [0.8640741 ]
-#  [0.16029805]]
+# [[0.05180356]
+#  [0.93621683]
+#  [0.9351667 ]
+#  [0.07719162]]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# x_train = [ [[0]], [[1]], [[1]], [[0]] ]
-x_train = [ [0], [1], [1], [0] ]
-y_train = [ [0], [1], [1], [0] ]
+x_train = np.random.normal(0, 0.1, (20,5,1))
+y_train = np.random.randint(0, 2, (20,1))
 
 model = Sequential([
-	InputLayer((None,1)),
-	SimpleRNN(1),
+	SimpleRNN(1, input_shape=(None,1)),
 ])
+
+# model = Sequential([
+	# SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
+	# SimpleRNN(20, return_sequences=True),
+	# SimpleRNN(1)
+# ])
+
+# model = Sequential([
+	# SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
+	# SimpleRNN(20),
+	# Dense(1),
+# ])
+
 model.compile('adam', 'mse')
 model.fit(x_train, y_train, epochs=500)
 print(model.predict(x_train))
-
-# [[0.12196616]
-#  [0.7597158 ]
-#  [0.7597158 ]
-#  [0.12196616]]
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-model = Sequential([
-	SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
-	SimpleRNN(20, return_sequences=True),
-	SimpleRNN(1)
-])
-
-model = Sequential([
-	SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
-	SimpleRNN(20),
-	Dense(1),
-])
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

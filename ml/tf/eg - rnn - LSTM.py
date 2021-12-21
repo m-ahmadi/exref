@@ -1,6 +1,7 @@
 import tensorflow as tf
 from tensorflow import keras
-from keras.layers import LSTM
+from keras.models import Sequential
+from keras.layers import LSTM, Embedding, Dense
 import numpy as np
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

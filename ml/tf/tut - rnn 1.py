@@ -23,14 +23,14 @@ for i in range(16):
   axes[i].plot(range(len(y)), y)
 plt.show()
 
-X_train, y_train = series[:7000, :n_steps], series[:7000, -1]
-X_valid, y_valid = series[7000:9000, :n_steps], series[7000:9000, -1]
-X_test, y_test = series[9000:, :n_steps], series[9000:, -1]
+x_train, y_train = series[:7000, :n_steps], series[:7000, -1]
+x_valid, y_valid = series[7000:9000, :n_steps], series[7000:9000, -1]
+x_test, y_test = series[9000:, :n_steps], series[9000:, -1]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # baseline metrics
 
 # naive forecasting
-y_pred = X_valid[:, -1]
+y_pred = x_valid[:, -1]
 res = np.mean(keras.losses.mean_squared_error(y_valid, y_pred)) # 0.020
 print(res)
 
@@ -40,8 +40,8 @@ model = keras.models.Sequential([
 	keras.layers.Dense(1)
 ])
 model.compile('adam', 'mse')
-model.fit(X_train, y_train, epochs=20)
-res = model.evaluate(X_valid, y_valid)
+model.fit(x_train, y_train, epochs=20)
+res = model.evaluate(x_valid, y_valid)
 print(res) # 0.004
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # simple rnn
@@ -50,8 +50,8 @@ model = keras.models.Sequential([
 	keras.layers.SimpleRNN(1, input_shape=(None,1))
 ])
 model.compile('adam', 'mse')
-model.fit(X_train, y_train, epochs=20)
-res = model.evaluate(X_valid, y_valid)
+model.fit(x_train, y_train, epochs=20)
+res = model.evaluate(x_valid, y_valid)
 print(res) # 0.014
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # deep rnn
@@ -62,8 +62,8 @@ model = keras.models.Sequential([
 	keras.layers.SimpleRNN(1)
 ])
 model.compile('adam', 'mse')
-model.fit(X_train, y_train, epochs=20)
-res = model.evaluate(X_valid, y_valid)
+model.fit(x_train, y_train, epochs=20)
+res = model.evaluate(x_valid, y_valid)
 print(res) # 0.003
 
 
@@ -74,8 +74,8 @@ model = keras.models.Sequential([
 	# keras.layers.Dense(1, activation='sigmoid'),
 ])
 model.compile('adam', 'mse')
-model.fit(X_train, y_train, epochs=20)
-res = model.evaluate(X_valid, y_valid)
+model.fit(x_train, y_train, epochs=20)
+res = model.evaluate(x_valid, y_valid)
 print(res) # 0.003
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # forecasting several time steps ahead
@@ -86,36 +86,36 @@ X = X_new
 for step_ahead in range(10):
 	y_pred_one = model.predict(X[:, step_ahead:])[:, np.newaxis, :]
 	X = np.concatenate([X, y_pred_one], axis=1)
-Y_pred = X[:, n_steps:]
+y_pred = X[:, n_steps:]
 
 
 
 series = generate_time_series(10000, n_steps + 10)
-X_train, Y_train = series[:7000, :n_steps], series[:7000, -10:, 0]
-X_valid, Y_valid = series[7000:9000, :n_steps], series[7000:9000, -10:, 0]
-X_test, Y_test = series[9000:, :n_steps], series[9000:, -10:, 0]
+x_train, y_train = series[:7000, :n_steps], series[:7000, -10:, 0]
+x_valid, y_valid = series[7000:9000, :n_steps], series[7000:9000, -10:, 0]
+x_test, y_test = series[9000:, :n_steps], series[9000:, -10:, 0]
 model = keras.models.Sequential([
 	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
 	keras.layers.SimpleRNN(20),
 	keras.layers.Dense(10)
 ])
 
-Y_pred = model.predict(X_new)
+y_pred = model.predict(X_new)
 
 
 Y = np.empty((10000, n_steps, 10)) # each target is a sequence of 10D vectors
 for step_ahead in range(1, 10 + 1):
 	Y[:, :, step_ahead - 1] = series[:, step_ahead:step_ahead + n_steps, 0]
-Y_train = Y[:7000]
-Y_valid = Y[7000:9000]
-Y_test = Y[9000:]
+y_train = Y[:7000]
+y_valid = Y[7000:9000]
+y_test = Y[9000:]
 model = keras.models.Sequential([
 	keras.layers.SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
 	keras.layers.SimpleRNN(20, return_sequences=True),
 	keras.layers.TimeDistributed(keras.layers.Dense(10))
 ])
 
-def last_time_step_mse(Y_true, Y_pred):
-	return keras.metrics.mean_squared_error(Y_true[:, -1], Y_pred[:, -1])
+def last_time_step_mse(Y_true, y_pred):
+	return keras.metrics.mean_squared_error(Y_true[:, -1], y_pred[:, -1])
 
-model.compile(loss='mse', optimizer=keras.optimizers.Adam(lr=0.01), metrics=[last_time_step_mse])
+model.compile(loss='mse', optimizer=keras.optimizers.Adam(0.01), metrics=[last_time_step_mse])
