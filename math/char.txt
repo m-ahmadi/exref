@@ -1,6 +1,7 @@
-﻿
-–	dash alternative	alt 0150
+﻿–	dash alternative	alt 0150
 —	like _ but middle	alt 0151
+
+‾	like _ but top		---		203E
 
 suP
 ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾
