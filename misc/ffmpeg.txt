@@ -17,6 +17,12 @@ ffmpeg -ss 00:00:30.0 -i i.mkv -c copy -t 00:00:10.0 o.mp4		10 seconds from 00:0
 reduce size of video
 ffmpeg -i i.mp4 -vcodec libx265 -crf 35 o.mp4				higher -crf == lower size
 ffmpeg -i i.mp4 -b 800k o.mp4						lower -b    == lower size
+
+convert ts to mp4
+ffmpeg -i i.ts -map 0 -c copy o.mp4					stream copy all streams
+ffmpeg -i i.ts -c:v libx264 -c:a copy o.mp4				re-encode video to H.264 and stream copy audio
+ffmpeg -i i.ts -c:v libx264 -c:a aac o.mp4				re-encode both video and audio
+ffmpeg -i i.ts -c:v libx264 -crf 0 -c:a copy o.mp4			lossless H.264 (huge file)
 --------------------------------------------------------------------------------
 install
 

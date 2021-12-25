@@ -6,6 +6,11 @@
 	"editor.autoClosingQuotes": "never",
 	"editor.mouseWheelZoom": true,
 	"editor.minimap.enabled": false,
+	"editor.tokenColorCustomizations": {
+		"[Visual Studio Light]": {
+			"numbers": "#ff0000"
+		}
+	},
 	
 	/** tab size and spaces */
 	"editor.tabSize": 2,
