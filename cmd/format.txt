@@ -1,1 +1,5 @@
-format H: /FS:FAT32
+format /?
+
+format H: /fs:FAT32 /q
+
+format F: /fs:FAT32 /v:"USB Drive" /q

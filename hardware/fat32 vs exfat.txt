@@ -1,10 +1,10 @@
-not tested
-
 windows "Format" from context menu only shows:
 	FAT32:	drives smaller than 32 GB
 	exFAT:	drives larger  than 32 GB
+--------------------------------------------------
+format drives larger than 32 GB as FAT32
 
-but you can format drives larger than 32 GB as FAT32 using:
-	compmgmt.msc
-	format /?
-	...
+fat32format utility		worked
+compmgmt.msc			fail (only shows exFAT)
+format F: /fs:FAT32 /q		fail (The volume is too big for FAT32)
+--------------------------------------------------
