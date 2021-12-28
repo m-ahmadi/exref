@@ -87,7 +87,8 @@ computername		DESKTOP-J3T9BJH
 --------------------------------------------------------------------------------
 shell:<dir>
 
-shell:Startup
+shell:Startup		startup programs
+shell:Common Startup	...
 shell:Desktop
 shell:Downloads
 shell:ProgramFiles
