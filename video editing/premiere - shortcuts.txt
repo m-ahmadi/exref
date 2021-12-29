@@ -1,0 +1,2 @@
+L	increase playback speed
+J	decrease playback speed
