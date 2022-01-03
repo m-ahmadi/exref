@@ -43,9 +43,24 @@ Compare
 JSLint
 --------------------------------------------------------------------------------
 js backtick (perl BACKTICKS)
-stylers.xml
-	<LexerType name="javascript"
-		<WordsStyle name="SINGLESTRING" ...
-		<WordsStyle name="BACKTICKS" styleID="20" fgColor="A31515" bgColor="F1F3F7" fontName="" fontStyle="0" fontSize="" />
-		...
+
+stylers.xml	->	<LexerType name="javascript"
+<WordsStyle name="SINGLESTRING" ...
+<WordsStyle name="BACKTICKS" styleID="20" fgColor="A31515" bgColor="F1F3F7" fontName="" fontStyle="0" fontSize="" />
+...
+--------------------------------------------------------------------------------
+py f-string (and more)
+
+1. copy diff of `<LexerType name="python">` from "stylers.model.xml" to "stylers.xml"
+2. change color (using `fgColor` or with "Style Configurator...")
+3. remove whitespace from <WordsStyle name=""> (not required, only for consistency)
+
+stylers.xml	->	<LexerType name="python"
+...
+<WordsStyle name="BUILTINS" styleID="14" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" keywordClass="instre2" />
+<WordsStyle name="DECORATOR" styleID="15" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+<WordsStyle name="FSTRING" styleID="16" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+<WordsStyle name="FCHARACTER" styleID="17" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+<WordsStyle name="FTRIPLE" styleID="18" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+<WordsStyle name="FTRIPLEDOUBLE" styleID="19" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
 --------------------------------------------------------------------------------

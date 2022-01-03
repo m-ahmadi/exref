@@ -17,3 +17,6 @@ set1.values()
 set1.entries()
 
 for (let item of set1) console.log(item)
+
+// type check
+Set.prototype.toString.call(set1) == '[object Set]'

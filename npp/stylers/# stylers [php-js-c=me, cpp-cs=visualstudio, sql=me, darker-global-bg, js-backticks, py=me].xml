@@ -381,7 +381,7 @@
             <WordsStyle name="COMMENT DOC KEYWORD" styleID="17" fgColor="008080" bgColor="FFFFFF" fontName="" fontStyle="1" fontSize="" />
             <WordsStyle name="COMMENT DOC KEYWORD ERROR" styleID="18" fgColor="008080" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
         </LexerType>
-        <LexerType name="javascript" desc="Javascript" ext="json mjs jsx">
+        <LexerType name="javascript" desc="Javascript" ext="json mjs jsx cjs">
             <WordsStyle name="DEFAULT" styleID="41" fgColor="000000" bgColor="F1F3F7" fontName="" fontStyle="0" fontSize="" colorStyle="1" />
             <WordsStyle name="NUMBER" styleID="45" fgColor="FF0000" bgColor="F1F3F7" fontName="" fontStyle="0" fontSize="" colorStyle="1" />
             <WordsStyle name="WORD" styleID="46" fgColor="000000" bgColor="F1F3F7" fontName="" fontStyle="0" fontSize="" colorStyle="1" />
@@ -591,7 +591,7 @@
             <WordsStyle name="NUMBER" styleID="2" fgColor="FF0000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
             <WordsStyle name="STRING" styleID="3" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
             <WordsStyle name="CHARACTER" styleID="4" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
-            <WordsStyle name="KEYWORDS" styleID="5" fgColor="0000FF" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" keywordClass="instre1" />
+            <WordsStyle name="KEYWORDS" styleID="5" fgColor="0000FF" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" keywordClass="instre1">True False None self</WordsStyle>
             <WordsStyle name="TRIPLE" styleID="6" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
             <WordsStyle name="TRIPLEDOUBLE" styleID="7" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
             <WordsStyle name="CLASSNAME" styleID="8" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
@@ -599,6 +599,12 @@
             <WordsStyle name="OPERATOR" styleID="10" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
             <WordsStyle name="IDENTIFIER" styleID="11" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
             <WordsStyle name="COMMENTBLOCK" styleID="12" fgColor="008000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+            <WordsStyle name="BUILTINS" styleID="14" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" keywordClass="instre2" />
+            <WordsStyle name="DECORATOR" styleID="15" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+            <WordsStyle name="FSTRING" styleID="16" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+            <WordsStyle name="FCHARACTER" styleID="17" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+            <WordsStyle name="FTRIPLE" styleID="18" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
+            <WordsStyle name="FTRIPLEDOUBLE" styleID="19" fgColor="A31515" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />
         </LexerType>
         <LexerType name="r" desc="R" ext="">
             <WordsStyle name="DEFAULT" styleID="0" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" fontSize="" />

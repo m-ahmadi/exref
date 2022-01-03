@@ -15,3 +15,9 @@ youtube.com/chnl/videos?sort=
 	da	"Date added (oldest)"		(date ascending)
 	dd	"Date added (newst)"		(date descending)
 --------------------------------------------------------------------------------
+sort on music channels
+
+	?view=0&sort=p
+
+https://www.youtube.com/channel/<channel-hash>/videos?view=0&sort=p
+--------------------------------------------------------------------------------
