@@ -50,8 +50,10 @@ r'\\' # '\\\\'
 u'dude'
 
 # format string
-f'{12.345:.2f}' # ...
 f'foo {23}!'    # 'foo 23!'
+f'{12.345:.2f}' # '12.35'
+
+f'''hi {2+2}''' # 'hi 4'
 
 age = 32
 f'hello {age}' # 'hello 32'

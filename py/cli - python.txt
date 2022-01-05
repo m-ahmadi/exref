@@ -13,7 +13,7 @@ pip install black			formatter
 --------------------------------------------------------------------------------
 fix "Failed calling sys.__interactivehook__"
 
-C:\python\lib\site-packages\pyreadline\lineeditor\history.py
+C:\python39\lib\site-packages\pyreadline\lineeditor\history.py
 def read_history_file(...):
 	...
 	for line in open(filename, 'r', encoding='utf-8'):

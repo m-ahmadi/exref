@@ -27,6 +27,11 @@ df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
 df['a']
 df[ ['a','b'] ]
 
+# sort
+df = pd.DataFrame([ {'a':1,'b':4}, {'a':2,'b':4}, {'a':3,'b':5} ])
+sorted = df.sort_values(by='b', ascending=False)
+sorted.index[0] # 2 (index of top item)
+
 # filter by content
 df = pd.DataFrame({'foo':[1,2,3,4,5,6], 'bar':[9,8,7,6,5,4]})
 grouped = df.groupby('foo')
