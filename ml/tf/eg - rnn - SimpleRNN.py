@@ -46,17 +46,17 @@ model = Sequential([
 	SimpleRNN(1, input_shape=(None,1)),
 ])
 
-# model = Sequential([
-	# SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
-	# SimpleRNN(20, return_sequences=True),
-	# SimpleRNN(1)
-# ])
+model = Sequential([
+	SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
+	SimpleRNN(20, return_sequences=True),
+	SimpleRNN(1)
+])
 
-# model = Sequential([
-	# SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
-	# SimpleRNN(20),
-	# Dense(1),
-# ])
+model = Sequential([
+	SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
+	SimpleRNN(20),
+	Dense(1),
+])
 
 model.compile('adam', 'mse')
 model.fit(x_train, y_train, epochs=500)

@@ -3,6 +3,8 @@
 General
 	Choose your startup task:	{Shells::cmd}
 	Choose color scheme:		Monokai
+	Appearance
+		Scrollbar: Show
 	Tab bar
 		Tabs on bottom
 	Confirm
