@@ -1,11 +1,15 @@
-no luck so far.
+worked
+
+del %LOCALAPPDATA%\IconCache.db
+taskkill /im explorer.exe /f
+explorer.exe
 --------------------------------------------------------
 .exe only (desperate solution)
 extract icons from .exe file using 7zip
 change shortcut icon manually to new extracted icon
 --------------------------------------------------------
 taskkill /im explorer.exe /f
-pushd %localappdata%\Microsoft\Windows\Explorer
+pushd %LOCALAPPDATA%\Microsoft\Windows\Explorer
 del iconcache*
 explorer.exe
 --------------------------------------------------------
