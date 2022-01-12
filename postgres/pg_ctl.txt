@@ -7,6 +7,6 @@ pg_ctl status -D D:\pgdb
 
 pg_ctl --help
 
-note
+note:
 default data dir: "C:\Program Files\PostgreSQL\13\data"
 windows installation makes service by default

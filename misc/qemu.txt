@@ -1,0 +1,11 @@
+no hard disk
+qemu-system-x86_64 -boot d -cdrom image.iso -m 2048
+
+with hard disk
+qemu-img create mydisk.img 10G
+qemu-system-x86_64 -boot d -cdrom image.iso -m 2048 -hda mydisk.img
+
+--------------------------------------------------------------------------------
+-boot		boot order
+-m		amount of ram
+--------------------------------------------------------------------------------
