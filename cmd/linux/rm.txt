@@ -1,0 +1,4 @@
+rm -rf lampp		delete all files & folders
+rm -r */		delete folders only
+
+git status | grep '^foo' | sed -e 's/.//' | xargs rm

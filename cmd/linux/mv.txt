@@ -1,0 +1,3 @@
+mv  -v ~/folder ~/anotherfolder			move folder
+mv  -v ~/folder/file.txt ~/Videos/		move file
+mv  -v ~/Downloads/* ~/Videos/			move all files & folders from Downloads to Videos

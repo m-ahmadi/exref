@@ -1,0 +1,2 @@
+wget -O /path/to/folder http://example.com/
+wget -O ./file.txt http://example.com/getFile		download file

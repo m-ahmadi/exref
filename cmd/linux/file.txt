@@ -1,0 +1,2 @@
+file *
+file */*.txt --mime-encoding -k			show file encodings

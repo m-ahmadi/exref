@@ -1,1 +1,0 @@
-rm -rf lampp	deletes all files and folders contained in the lampp directory

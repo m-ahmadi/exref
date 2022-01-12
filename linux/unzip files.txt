@@ -1,6 +1,0 @@
-mkdir temp_for_zip_extract
-unzip /path/to/file.zip -d temp_for_zip_extract
-
-or
-
-unzip file.zip
