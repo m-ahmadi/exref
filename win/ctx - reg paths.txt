@@ -1,0 +1,9 @@
+HKCR\*\shell						files
+HKCR\*\shellex\ContextMenuHandlers			
+HKCR\AllFileSystemObjects\ShellEx			
+
+HKCR\Directory\shell					folders
+HKCR\Directory\shellex\ContextMenuHandlers		
+HKCR\Directory\Background\shell				desktop
+
+HKCR\Drive\shell					drives

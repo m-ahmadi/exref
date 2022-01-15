@@ -1,0 +1,7 @@
+reg delete HKCR\*\shell\VSCode /f					files
+
+reg delete HKCR\Directory\shell\VSCode /f				folders
+
+reg delete HKCR\Directory\Background\shell\VSCode /f			desktop
+
+reg delete HKCR\Drive\shell\VSCode /f					drives

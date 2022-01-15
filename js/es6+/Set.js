@@ -20,3 +20,9 @@ for (let item of set1) console.log(item)
 
 // type check
 Set.prototype.toString.call(set1) == '[object Set]'
+
+
+// equality
+a = new Set(1,2,3);
+b = new Set(1,2,3);
+a.size === b.size && [...a].every(i => b.has(i)) // true
