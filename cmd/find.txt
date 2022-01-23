@@ -1,2 +1,4 @@
 dir /b | find "something"	find str in stdin
 find "foo" .\*			find "foo" in all files in dir
+
+type file.txt | find /c /v ""	count lines

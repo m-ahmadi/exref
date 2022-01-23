@@ -5,7 +5,13 @@ git checkout HEAD -- **		...
 git checkout -- .		...
 git checkout <commit_hash>	all from a commit
 
-switch to a specific commit temporarily and switch back
+checkout specific file at specific commit
+git checkout a1b2c3d file.js			one file
+git checkout a1b2c3d -- file.js			... (args after -- are not interpreted as options)
+git checkout a1b2c3d -- file1.js file2.js	multiple files
+git checkout a1b2c3d~1 file1.js			go to 1 commit before hash
+
+switch to specific commit temporarily and switch back
 git checkout <commit_hash>	switch to state of the specifid commit
 git checkout mybranch		return to state of last commit
 

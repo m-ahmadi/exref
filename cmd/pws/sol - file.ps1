@@ -66,3 +66,7 @@ dir -File -Rec | %{ $f=$_; (gc $f.PSPath) | %{$_ -replace '\\', '/'} | sc $f.PSP
 
 # rename
 dir -File | ri -NewName { 'Prefix_' + $_.Name }
+
+# count lines of file
+(type .\file.csv | Measure-Object -line).Lines # count lines in 1 file
+type *.csv | Measure-Object -line              # sum of all files lines

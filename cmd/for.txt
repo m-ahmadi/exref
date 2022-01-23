@@ -4,6 +4,9 @@ for /f %i in (test.txt) do @echo %i			first token of each line
 
 for /d %i in (dir*) do @echo %i				iterate folder names (that match wildcard)
 for /d %f in (*) do type %f/file.txt >> .\out.txt	cat all file.txt in all dirs into out.txt
+
+for /r %f in (*.csv) do @type "%f" | find /c /v ""	count lines of all *.csv files
+(for /r %f in (*.csv) do @type "%f") | find /c /v ""	sum of above
 --------------------------------------------------------------------------------
 syntax:
 FOR %variable IN (set) DO command [command-parameters]

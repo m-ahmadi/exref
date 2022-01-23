@@ -12,3 +12,5 @@ git log --grep=<pattern>		search in commit messages
 git log --grep=add\w+			...
 
 git log --reflog			show "lost" commits too
+
+git log --graph --oneline		draw railroad graph of commit history

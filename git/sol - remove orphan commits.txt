@@ -1,0 +1,11 @@
+git reflog delete master@{1}
+git reflog delete HEAD@{1}
+
+git gc --prune=now --aggressive
+git fsck
+
+git reflog show
+git log --reflog
+
+
+did not work (something is still points to those commits which prevents them to be garbage collected)
