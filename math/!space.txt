@@ -1,0 +1,17 @@
+'​'	200b	0				Zero Width Space
+' '	200a	<1/6       em			Hair Space
+' '	2006	1/6        em			Six-Per-Em Space
+' '	2009	1/5 or 1/6 em			Thin Space
+' '	202f	1/5        em			Narrow No-Break Space
+' '	205f	1/4.5      em			Medium Mathematical Space
+
+' '	2005	1/4 em				Four-Per-Em Space
+' '	00a0	1/4 em (adjusted)		No-Break Space
+' '	2008	period "." width		Punctuation Space
+' '	2004	1/3 em				Three-Per-Em Space
+
+' '	2000	1/2 em				En Quad
+' '	2002	1/2 em				En Space
+' '	2007	"tabular width" (digit widths)	Figure Space
+' '	2003	1 em				Em Space
+' '	2001	1 em (font hight)		Em Quad	
