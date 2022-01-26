@@ -29,7 +29,7 @@ keys = d.keys() # ['a', 'b']
 del a['a']
 keys            # ['b']
 
-# https://docs.python.org/3/library/stdtypes.html?#mapping-types-dict
+# https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
 dict(zip(['a','b'], [1,2])) # {'a':1, 'b':2}
 dict([('a',1), ('b',2)])    # ...

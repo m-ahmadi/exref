@@ -31,6 +31,27 @@ a.clear()   # []
 a.copy()
 # https://docs.python.org/3/tutorial/datastructures.html#more-on-lists
 
+
+# sort
+<list>.sort(key=None, reverse=False)  |  sorted(iterable, key=None, reverse=False)
+
+a = [3,1,2]
+a.sort()
+a # [1,2,3]
+
+sorted([3,1,2])               # [1,2,3]
+sorted([3,1,2], reverse=True) # [3,2,1]
+
+sorted(['A', 'B', 'a', 'b'])         # ['A', 'a', 'B', 'b']
+
+sorted(['1','10','11','2'])          # ['1', '10', '11', '2']
+sorted(['1','10','11','2'], key=int) # ['1', '2', '10', '11']
+
+sorted(['c','B','a'])                # ['B', 'a', 'c']
+sorted(['c','B','a'], key=str.lower) # ['a', 'B', 'c']
+
+sorted(['فراز', 'فرود', 'فریب', 'فرار']) # ['فرار', 'فراز', 'فرود', 'فریب']
+
 # creation
 a = range(1,10,2)
 list(a) # [1,3,5,7,9]

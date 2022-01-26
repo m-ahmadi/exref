@@ -23,5 +23,7 @@ symmetric_difference()
 symmetric_difference_update()
 {1,2}.union({3,4})          # {1,2,3,4}
 
+# https://docs.python.org/3/library/stdtypes.html#set-types-set-frozenset
+
 # set comprehension
 squares = {x**2 for x in [0,2,4] if x < 4} # {0, 4}

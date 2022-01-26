@@ -13,6 +13,7 @@
 'foo'.replace('oo', 'ar')   # 'far'
 len('foo')                  # 5
 'foo' in 'football'         # containment: True
+# https://docs.python.org/3/library/stdtypes.html#string-methods
 
 # str format using % opr
 'hello, %s' % 101        # 'hello, 101'

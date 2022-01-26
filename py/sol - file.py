@@ -33,7 +33,7 @@ with open('file.txt', 'w') as f:
 	f.write('hi')
 
 # misc
-import os
+import os # https://docs.python.org/3/library/os.html
 os.system('cls') # clear console
 os.listdir()
 os.mkdir()
@@ -42,12 +42,26 @@ os.path.exists()
 os.path.isfile()
 os.path.isdir()
 os.path.join()
+os.path.dirname()
+os.path.basename()
+os.path.abspath()
+os.path.getcwd()
 
-import pathlib
-path = pathlib.Path(path_to_file)
+import pathlib # https://docs.python.org/3/library/pathlib.html
+path = pathlib.Path('path/to')
+path.parent
+path.stem      # filename without extension
 path.is_file()
 path.is_dir()
 path.exists()
+path.resolve()
+path.absolute()
+# https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
+
+# path of current script
+__file__                                # 'C:\\foo.py'
+pathlib.Path(__file__).resolve()        # WindowsPath('C:/foo.py')
+pathlib.Path(__file__).parent.resolve() # current script dir
 
 # json
 import json

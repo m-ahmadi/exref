@@ -25,8 +25,7 @@ import sys
 sys.version      # string:  '3.8.10 ...'
 sys.version_info # array:   (major=3, minor=8, micro=10, ...)
 
-# capture stdout
-import subprocess
-proc = subprocess.Popen('dir /b', stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
-stdout, stderr = proc.communicate()
-stdout.decode('utf8') # 'file1.txt\r\nfile2.txt\r\n'
+# change locale
+import locale
+locale.setlocale(locale.LC_ALL, 'Persian')
+locale.setlocale(locale.LC_ALL, '')
