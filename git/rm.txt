@@ -1,4 +1,7 @@
-remove files that you added
+git rm file.txt			remove staged and     committed file and stage (remove from working tree and index)
+git rm file.txt -f		remove staged but not committed file           (remove from working tree)
 
-git rm --cached <file>		remove a specific file
-git rm --cached -r .		remove all files
+git rm --cached file.txt	unstage added file
+git rm --cached -r .		.. all files
+
+git rm file.txt -n		--dry-run, don't remove but just show what would happen

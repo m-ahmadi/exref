@@ -10,4 +10,8 @@ undo (unstage changes)
 
 git reset file.txt
 git reset .
-git rm -r --cached .
+
+git rm --cached file.txt
+git rm --cached -r .
+
+git restore --staged file.txt
