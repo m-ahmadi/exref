@@ -14,7 +14,11 @@ a, b, c = [1,2,3]
 a, b, c = [1]          # ValueError
 a, b, c = 'foo bar baz'.split()
 a, b    = [1,2,3], [1,2]
-[a, b]  = [[1,2],[3,4]]
+
+ar = [ [1,2], [3,4] ]
+[a, b] = ar         # a:[1,2]  b:[3,4]
+a, (_, b) = ar      # a:[1,2]  b:4
+(_, a), (b, _) = ar # a:2      b:3
 
 # ↑... dict
 from operator import itemgetter

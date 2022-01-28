@@ -38,6 +38,7 @@ os.system('cls') # clear console
 os.listdir()
 os.mkdir()
 os.rmdir()
+os.unlink() | remove()
 os.path.exists()
 os.path.isfile()
 os.path.isdir()
@@ -56,6 +57,7 @@ path.is_dir()
 path.exists()
 path.resolve()
 path.absolute()
+path.unlink()
 # https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
 # path of current script

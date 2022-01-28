@@ -51,3 +51,10 @@ df # [ [1,2], [3,4] ]
 # to csv
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=None) # '1,2\r\n3,4\r\n5,6\r\n'
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.csv', index=False, header=None)
+
+# count of csv rows
+df = pd.DataFrame([ [1,2], [3,4], [5,6] ])
+df.shape[0]   # 3
+len(df.index) # 3
+df.shape      # (3, 2)
+df.size       # 6
