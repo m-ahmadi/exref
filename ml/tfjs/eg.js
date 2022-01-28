@@ -36,12 +36,6 @@ var t = tf.tensor([-2, 1, 0, 5]);
 var o = tf.layers.activation({activation: 'relu'}).apply(t);
 o.print(); // [0, 1, 0, 5]
 
-// load/save
-var saveResult  = await model.save('localstorage://my-model-1');
-var model       = await tf.loadLayersModel('localstorage://my-model-1');
-var saveResults = await model.save('indexeddb://my-model-1');
-var loadedModel = await tf.loadLayersModel('indexeddb://my-model-1');
-
 // custom layers
 class SquaredSumLayer extends tf.layers.Layer {
 	constructor() { super({}); }

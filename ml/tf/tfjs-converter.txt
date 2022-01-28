@@ -1,0 +1,16 @@
+pip install tensorflowjs[wizard]
+
+tensorflowjs_wizard			start conversion wizard
+tensorflowjs_wizard --dryrun		only generate the `tensorflowjs_converter` command
+
+tensorflowjs_converter --input_format=keras_saved_model input_tfmodel output_tfjs_model		convert to tfjs LayerModel
+tensorflowjs_converter --input_format=tf_saved_model pmod jmod					convert to tfjs GraphModel
+
+--------------------------------------------------------------------------------
+tensorflowjs_converter --help
+
+	--input_format		keras_saved_model | tf_saved_model | tfjs_layers_model | tf_hub | keras | tf_frozen_model
+	--output_format		tfjs_graph_model | tfjs_layers_model | keras_saved_model | keras
+
+https://github.com/tensorflow/tfjs/tree/master/tfjs-converter#format-conversion-support-tables
+--------------------------------------------------------------------------------

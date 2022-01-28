@@ -99,14 +99,30 @@ tf.LayersModel.fit(
 		validationSteps: 0,
 		yieldEvery:      'auto|batch|epoch|never' | 0,
 })
-[ tf.Tensor|tf.Tensor[], tf.Tensor|tf.Tensor[] ]  |  [tf.Tensor | tf.Tensor[], tf.Tensor|tf.Tensor[], tf.Tensor|tf.Tensor[]]
 
 tf.LayersModel.fitDataset(dataset, args)
 tf.LayersModel.trainOnBatch(x, y)
 tf.LayersModel.save(handlerOrURL=''|IOHandler, ?config={trainableOnly:false, includeOptimizer:false})
 tf.LayersModel.getLayer(?name, ?index)
 
-tf.loadLayersModel(pathOrIOHandler=''|IOHandler, ?options={...})
+loadModelUrl =
+	'http://path' |
+	'https://path' |
+	'localstorage://path' | // browser only
+	'indexeddb://path' |    // ...
+	'file:///path'          // node only
+	
+tf.loadLayersModel(pathOrIOHandler='↑...'|IOHandler, ?options={
+	requestInit:        RequestInit,
+	onProgress:         ()=>,
+	fetchFunc:          ()=>,
+	strict:             true,
+	weightPathPrefix:   '',
+	fromTFHub:          false,
+	weightUrlConverter: (weightFileName='')=>Promise<string>,
+}): Promise<LayersModel>
+
+tf.loadGraphModel(modelUrl='↑...'|IOHandler, ?options={↑...}): Promise<GraphModel>
 
 tf.tidy(nameOrFn=''|()=>, ?fn)
 

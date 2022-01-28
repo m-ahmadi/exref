@@ -32,7 +32,7 @@ Light Explorer
 Quick Color Picker +
 HTML Tag
 Indent By Fold
-JSTool
+JSTool			Indent: Use tab 
 XML Tools
 NewFileBrowser
 TextFX Characters
