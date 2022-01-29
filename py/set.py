@@ -35,3 +35,7 @@ squares = {x**2 for x in [0,2,4] if x < 4} # {0, 4}
 d = {'a':1}
 s = {d}  # TypeError: unhashable type: 'dict'
 s.add(d) # ...
+
+# sets cannot be sorted
+sorted({3,2,1})       # [1,2,3]        (cuz auto casted to list)
+sorted({'c','b','a'}) # ['a','b','c']  ...

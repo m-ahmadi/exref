@@ -50,7 +50,22 @@ sorted(['1','10','11','2'], key=int) # ['1', '2', '10', '11']
 sorted(['c','B','a'])                # ['B', 'a', 'c']
 sorted(['c','B','a'], key=str.lower) # ['a', 'B', 'c']
 
-sorted(['فراز', 'فرود', 'فریب', 'فرار']) # ['فرار', 'فراز', 'فرود', 'فریب']
+# sort by locale
+ref = 'ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی'
+a = ref.split(' ')
+
+' '.join(sorted(r)) == ref                                 # False (bad)
+
+import locale
+from functools import cmp_to_key
+locale.setlocale(locale.LC_ALL, 'Persian') # or 'fa_FA.UTF-8'
+' '.join(sorted(a, key=locale.strxfrm)) == ref             # True (good, use this)
+' '.join(sorted(a, key=cmp_to_key(locale.strcoll))) == ref # True (good)
+locale.setlocale(locale.LC_ALL, '')
+
+import icu # pip install PyICU (did not install correctly)
+collator = icu.Collator.createInstance(icu.Locale('fa_FA.UTF-8'))
+' '.join(sorted(a, key=collator.getSortKey))
 
 # creation
 a = range(1,10,2)

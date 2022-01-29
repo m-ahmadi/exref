@@ -27,5 +27,5 @@ sys.version_info # array:   (major=3, minor=8, micro=10, ...)
 
 # change locale
 import locale
-locale.setlocale(locale.LC_ALL, 'Persian')
+locale.setlocale(locale.LC_ALL, 'Persian' | 'fa_FA.UTF-8')
 locale.setlocale(locale.LC_ALL, '')

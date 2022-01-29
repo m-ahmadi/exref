@@ -1,0 +1,9 @@
+shortcuts
+
+ctrl shift click	arrow
+
+https://docs.microsoft.com/en-us/sysinternals/downloads/zoomit#shortcuts
+--------------------------------------------------------------------------------
+install
+powershell -C "wget https://download.sysinternals.com/files/ZoomIt.zip -O x.zip; Expand-Archive x.zip -D t; mi t\ZoomIt64.exe -D $Env:windir\zoomit.exe; ri x.zip; ri t -Force -Recurse;"
+--------------------------------------------------------------------------------
