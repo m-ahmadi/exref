@@ -8,6 +8,8 @@ for /d %i in (*) do type %i/file.txt >> .\out.txt	cat all file.txt in all dirs i
 
 for /r %i in (*.csv) do @type "%i" | find /c /v ""	count lines of all *.csv files
 (for /r %i in (*.csv) do @type "%i") | find /c /v ""	sum of above
+
+for %i in (*.csv) do @echo %~ni				get file name without extension
 --------------------------------------------------------------------------------
 syntax:
 FOR %variable IN (set) DO command [command-parameters]

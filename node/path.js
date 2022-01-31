@@ -60,9 +60,11 @@ path.relative(from, to)
 path.relative('a/b/c', 'a/g/d') // '../../g/d'
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // basename
-path.basename('/path/to/hello.html')   // 'hello.html' (might yield different results on posix & windows)
-path.basename('C:\\temp\\myfile.html') // on posix:   'C:\\temp\\myfile.html'
-path.basename('C:\\temp\\myfile.html') // on windows: 'myfile.html'
+path.basename(path='', ?ext='')
+path.basename('/path/to/hello.html')          // 'hello.html' (might yield different results on posix & windows)
+path.basename('/path/to/hello.html', '.html') // 'hello'
+path.basename('C:\\temp\\myfile.html')        // on posix:   'C:\\temp\\myfile.html'
+path.basename('C:\\temp\\myfile.html')        // on windows: 'myfile.html'
 
 // for consistent results with windows or posix file paths on any operating system, use `path.win32` or `path.posix`:
 path.win32.basename('C:\\temp\\myfile.html') // on posix & windows: 'myfile.html'

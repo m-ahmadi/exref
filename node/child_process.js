@@ -113,8 +113,9 @@ const execFile = require('util').promisify(child_process.execFile);
 })()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // spawn
-const child = child_process.spawn('ls', ['-a', '-l']);
+const child = spawn('ls', ['-a', '-l']);
 const child = spawn('sass style.scss:style.css', {stdio: 'inherit'}); // preserve colors
+const child = spawn('python', ['script.py']);
 
 child.stdout.on('data', (data) => {
 	console.log('stdout:', data+'');
@@ -144,6 +145,10 @@ child.on('disconnect', () => {
 	// subprocess.disconnect() in parent
 	// process.disconnect()    in child
 });
+
+// 'close' vs 'exit'
+'close' // process ended & process stdio streams closed (multiple processes can share same stdio streams)
+'exit'  // process ended
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // fork
 const { fork } = child_process;

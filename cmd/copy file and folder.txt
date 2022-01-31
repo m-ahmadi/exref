@@ -16,3 +16,4 @@ robocopy src dest /ns /nc /nfl /ndl /np /njh /njs	don't log anything
 
 
 xcopy src dest /e		...
+xcopy src dest /e /i		... dest does not exist
