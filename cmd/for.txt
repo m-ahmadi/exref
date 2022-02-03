@@ -10,6 +10,7 @@ for /r %i in (*.csv) do @type "%i" | find /c /v ""	count lines of all *.csv file
 (for /r %i in (*.csv) do @type "%i") | find /c /v ""	sum of above
 
 for %i in (*.csv) do @echo %~ni				get file name without extension
+for /f %i in ('dir /b') do @winrar x %~ni.zip * %~ni\	... extract all .zip files
 --------------------------------------------------------------------------------
 syntax:
 FOR %variable IN (set) DO command [command-parameters]
