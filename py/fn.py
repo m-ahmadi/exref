@@ -115,3 +115,12 @@ def foo():
 	print('a')
 
 foo() # == a ==
+
+# async
+async def a():
+	return 32
+
+async def b():
+	n = await a()
+	print(n)
+	return n

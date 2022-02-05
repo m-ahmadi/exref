@@ -9,7 +9,7 @@ server.listen(5) # max 5 connections
 print('server listening...')
 connection, address = server.accept()
 while True:
-	buf = connection.recv(64)
+	buf = connection.recv(64) # best to be power of 2 (max 1,048,576 ???)
 	msg = str(buf,'utf8')
 	print(msg)
 	if msg == 'exit':

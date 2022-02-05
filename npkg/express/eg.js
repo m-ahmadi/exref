@@ -28,18 +28,21 @@ app.get('/', function (req, res) {
 	//	req.param('id')
 	//	express deprecated req.param(name, default): Use req.params, req.body, or req.query instead
 		req.query.id
-		);
+	);
 });
 
 
 
 // access post request parameters
-var bodyParser = require('body-parser');
-app.use( bodyParser.json() );                        // to support JSON-encoded bodies
-app.use( bodyParser.urlencoded({extended: true} ) ); // to support URL-encoded bodies
-app.post('/test-page', function (req, res) {
-	var pars = req.body;
+app.use( express.urlencoded({extended: true}) );   // to support JSON-encoded bodies
+app.use( express.json() )                          // to support URL-encoded bodies
+app.post('/foo', function (req, res) {
+	var bod = req.body;
 });
+// old way (before v4.16)
+var bodyParser = require('body-parser');
+app.use( bodyParser.urlencoded({extended: true} ) );
+app.use( bodyParser.json() );
 
 
 
