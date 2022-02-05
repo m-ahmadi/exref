@@ -1,5 +1,13 @@
-nssm install ProjectService c:\python39\python.exe c:\main.py
+nssm install MyService node file.js
 
+nssm install MyService py file.py
+nssm install MyService c:\python39\python.exe c:\file.py
+nssm install MyService c:\python39\Scripts\uvicorn.exe --app-dir e:\bar --port 4456 main:app
+
+nssm remove MyService confirm
+
+nssm start MyService
+nssm stop MyService
 --------------------------------------------------------------------------------
 install
 powershell -C "wget https://nssm.cc/release/nssm-2.24.zip -O x.zip; Expand-Archive x.zip -D .; mi nssm-2.24\win64\nssm.exe -D $Env:windir; ri x.zip; ri nssm-2.24 -Force -Recurse;"
