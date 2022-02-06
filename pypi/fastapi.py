@@ -120,6 +120,14 @@ class Bod(BaseModel):
 async def f(bod: Bod):
 	return bod
 
+@app.post('/foo')
+async def f(items: list[str]):
+	return items # bodies of pure lists
+
+@app.post('/foo')
+async def f(items: dict[int, float]):
+	return items # bodies of arbitrary dicts
+
 
 
 # cors

@@ -4,6 +4,14 @@ pip install keras_tuner
 
 pip install tf-nightly
 --------------------------------------------------------------------------------
+cli
+
+saved_model_cli --help
+
+tf_upgrade_v2 --help
+
+tflite_convert --help
+--------------------------------------------------------------------------------
 local docs
 
 pip install git+https://github.com/tensorflow/docs

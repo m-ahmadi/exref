@@ -69,3 +69,8 @@ pathlib.Path(__file__).parent.resolve() # current script dir
 import json
 with open('data.json', 'w', encoding='utf-8') as f:
 	json.dump(data, f, ensure_ascii=False, indent=4)
+
+# std
+import sys
+sys.stdout.write(f'1/100\r')
+sys.stdout.write(f'2/100\r')

@@ -31,7 +31,7 @@ a, *b = [1,2,3,4]      # a=1 b=[2,3,4]
 # ignoring
 a, _ = [1,2]           # ignore value
 a, _, c = (1,2,3)      # ...
-a, *_ = [1,2,3,4,5]    # ignore list
+a, *_ = [1,2,3,4,5]    # ignore rest
 
 # trailing comma
 a, = 1,

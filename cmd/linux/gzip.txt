@@ -1,0 +1,3 @@
+compress one file
+
+gzip --help

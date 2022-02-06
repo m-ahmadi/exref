@@ -1,0 +1,5 @@
+put multiple files together (no compression)
+
+tar --help
+
+tar czf archive.gz mydir		gzip folder

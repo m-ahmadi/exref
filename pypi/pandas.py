@@ -58,3 +58,9 @@ df.shape[0]   # 3
 len(df.index) # 3
 df.shape      # (3, 2)
 df.size       # 6
+
+# index of value
+df = pd.DataFrame({'foo': [1,2,3,4]})
+df['foo'].tolist().index(4)          # 3
+df.index[ df['foo'] == 4 ].tolist()  # [3]
+np.where(df['foo'] == 4)[0].tolist() # [3]

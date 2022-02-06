@@ -1,0 +1,3 @@
+in mac "آ" is two unicode chars 1575 1619
+
+in win "آ" is one unicode char  1570
