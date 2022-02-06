@@ -25,7 +25,9 @@ d = dt.datetime.fromtimestamp() # dt.datetime(2021, 1, 1, 0, 0)
 
 # str
 dt.datetime(2021,1,1).strftime('%Y %m %d')     # format:  '2021 01 01'
+dt.datetime.today().strftime('%Y%m')           # format:  '202202'
 dt.datetime.strptime('2021 01 01', '%Y %m %d') # parse:   dt.datetime(2021,1,1,0,0)
+dt.datetime.strptime('20220101', '%Y%m%d')     # parse:   dt.datetime(2022,1,1,0,0)
 # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 
 # change date

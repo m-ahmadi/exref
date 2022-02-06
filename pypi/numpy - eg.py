@@ -196,3 +196,5 @@ np.argmax([4,3,2,1]) # index of min: 3
 
 np.bincount([1,1,1])       # count occurrence: [0,3]
 np.bincount([1,1,1,4,4,4]) # ...               [0,3,0,0,3]
+
+np.array([1.5, 2.5, 3.5]).astype('int') # [1,2,3]
