@@ -1,5 +1,5 @@
 sysdm.cpl
-Advanced -> Performance -> Advanced -> Change
+Advanced -> Performance -> Settings -> Advanced -> Virtual memory -> Change
 
 ---------------------------------------------------------------------------------
 move pagefile.sys to another drive
@@ -8,6 +8,7 @@ move pagefile.sys to another drive
 2. click on drive C:
 3. select "No paging file"
 4. click on drive D: (or whatever)
-5. select "System managed size"
+5. select "System managed size" (or "Custom size")
+6. click Set
 
 done

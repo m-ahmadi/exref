@@ -28,6 +28,7 @@ async def f():
 
 ''' run
 uvicorn file:app --reload
+uvicorn file:app --app-dir foo --port 4456
 
 auto generated docs
 	http://127.0.0.1:8000/docs

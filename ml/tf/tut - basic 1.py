@@ -1,14 +1,18 @@
-# TensorFlow and tf.keras
+# house price prediction ffnn
+# https://github.com/lexfridman/mit-deep-learning/blob/master/tutorial_deep_learning_basics/deep_learning_basics.ipynb
+
+
+# tensorflow and keras
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense
+from tensorflow.keras.layers import Dense
 
-# Commonly used modules
+# commonly used modules
 import numpy as np
 import os
 import sys
 
-# Images, plots, display, and visualization
+# images, plots, display, and visualization
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
@@ -28,28 +32,28 @@ train_features = (train_features - train_mean) / train_std
 
 # build the model
 def build_model():
-    model = keras.Sequential([
-        Dense(20, activation=tf.nn.relu, input_shape=[len(train_features[0])]),
-        Dense(1)
-    ])
+		model = keras.Sequential([
+				Dense(20, activation=tf.nn.relu, input_shape=[len(train_features[0])]),
+				Dense(1)
+		])
 
-    model.compile(optimizer=tf.train.AdamOptimizer(), 
-                  loss='mse',
-                  metrics=['mae', 'mse'])
-    return model
+		model.compile(optimizer=tf.train.AdamOptimizer(), 
+									loss='mse',
+									metrics=['mae', 'mse'])
+		return model
 
 # see if model is "fit" to the training data:
 # this helps makes our output less verbose but still shows progress
 class PrintDot(keras.callbacks.Callback):
-    def on_epoch_end(self, epoch, logs):
-        if epoch % 100 == 0: print('')
-        print('.', end='')
+		def on_epoch_end(self, epoch, logs):
+				if epoch % 100 == 0: print('')
+				print('.', end='')
 
 model = build_model()
 
 early_stop = keras.callbacks.EarlyStopping(monitor='val_loss', patience=50)
 history = model.fit(train_features, train_labels, epochs=1000, verbose=0, validation_split = 0.1,
-                    callbacks=[early_stop, PrintDot()])
+										callbacks=[early_stop, PrintDot()])
 
 hist = pd.DataFrame(history.history)
 hist['epoch'] = history.epoch
@@ -62,13 +66,13 @@ print('Final Root Mean Square Error on validation set: {}'.format(round(rmse_fin
 
 # plot the loss function measure on the training and validation sets
 def plot_history():
-    plt.figure()
-    plt.xlabel('Epoch')
-    plt.ylabel('Mean Square Error [Thousand Dollars$^2$]')
-    plt.plot(hist['epoch'], hist['mean_squared_error'], label='Train Error')
-    plt.plot(hist['epoch'], hist['val_mean_squared_error'], label = 'Val Error')
-    plt.legend()
-    plt.ylim([0,50])
+		plt.figure()
+		plt.xlabel('Epoch')
+		plt.ylabel('Mean Square Error [Thousand Dollars$^2$]')
+		plt.plot(hist['epoch'], hist['mean_squared_error'], label='Train Error')
+		plt.plot(hist['epoch'], hist['val_mean_squared_error'], label = 'Val Error')
+		plt.legend()
+		plt.ylim([0,50])
 
 plot_history()
 
