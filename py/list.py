@@ -53,10 +53,10 @@ sorted(['c','B','a'])                # ['B', 'a', 'c']
 sorted(['c','B','a'], key=str.lower) # ['a', 'B', 'c']
 
 # sort by locale
-ref = 'ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی'
+ref = 'آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی'
 a = ref.split(' ')
 
-' '.join(sorted(r)) == ref                                 # False (bad)
+' '.join(sorted(a)) == ref                                 # False (bad)
 
 import locale
 from functools import cmp_to_key

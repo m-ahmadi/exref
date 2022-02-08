@@ -1,6 +1,6 @@
 import pandas as pd # pip install pandas
 
-pd.read_csv('file.csv', header=None, nrows=5)
+pd.read_csv('file.csv', header=None, nrows=5, sep=',', ...)
 
 DataFrame.filter(items=None, like=None|'', regex=None|'', axis=None|0|''|'columns')
 

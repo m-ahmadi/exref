@@ -48,6 +48,10 @@ os.path.basename()
 os.path.abspath()
 os.path.getcwd()
 
+import shutil
+shutil.rmtree('mydir') # almost equal to `rm -rf mydir`
+shutil.rmtree('mydir', ignore_errors=True)
+
 import pathlib # https://docs.python.org/3/library/pathlib.html
 path = pathlib.Path('path/to')
 path.parent
