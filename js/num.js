@@ -6,6 +6,7 @@
 0o377      // 255    octal
 255e-1     // 25.5   scientific
 25e-4      // 0.0025 scientific
+1_000      // 1000   es2021 num seperator
 
 // more scientific notations:
 .01024e4   // 102.4

@@ -1,10 +1,11 @@
 settings
 
 Playback -> Playback settings
-	Default window size: Maximize (to Desktop)
+	Default window size:	"Do not use" | "Maximize (to Desktop)"
 
 Playback -> Jump (to) -> Time Jump Settings
-	Left/Right Arrow Keys:		3
+	left/right:		3
+	ctrl left/right:	5
 --------------------------------------------------
 cli
 

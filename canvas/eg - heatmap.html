@@ -32,8 +32,8 @@ function go() {
 		+_bw.value,
 		+_bh.value,
 		[
-			colorRange(_c1.value,_c2.value,x.length*.5),
-			colorRange(_c2.value,_c3.value,x.length*.5)
+			colorRange(_c1.value, _c2.value, x.length*.5),
+			colorRange(_c2.value, _c3.value, x.length*.5)
 		].flat().map(a=>
 			'#'+a.map(i=>(i=i.toString(16),i.length<2?'0'+i:i)).join('')
 		)
