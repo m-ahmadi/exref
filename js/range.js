@@ -21,3 +21,14 @@ function range(...a) {
 // random
 var r1030 = [...Array(20)].map(_=> Math.floor(Math.random()*21)+10);
 var r6080 = [...Array(20)].map(_=> Math.floor(Math.random()*21)+60);
+
+
+// dif
+function dif(nums=[]) {//faster
+	return nums.map((v,i,a)=> i > 0 ? v - a[i-1] : 0);
+}
+function dif(nums=[]) {
+	let next = nums.slice(1);
+	let prev = nums.slice(0,-1);
+	return next.map((i,j)=> i - prev[j] );
+}
