@@ -64,3 +64,8 @@ df = pd.DataFrame({'foo': [1,2,3,4]})
 df['foo'].tolist().index(4)          # 3
 df.index[ df['foo'] == 4 ].tolist()  # [3]
 np.where(df['foo'] == 4)[0].tolist() # [3]
+
+# int location
+df = pd.DataFrame([ [1,1,1], [2,2,2], [4,4,4] ])
+df.iloc[0:1] # 1  1  1
+df.iloc[-1:] # 4  4  4

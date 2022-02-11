@@ -4,4 +4,4 @@ reg delete HKCR\SystemFileAssociations\.jpg\Shell\MediaInfo /f
 reg delete HKCR\SystemFileAssociations\.mp4\Shell\MediaInfo /f
 reg delete HKCR\SystemFileAssociations\.mkv\Shell\MediaInfo /f
 
-for /d %i in (ts,mp3,jpg,mp4,mkv) do reg delete HKCR\SystemFileAssociations\.%i\Shell\MediaInfo /f
+for %i in (ts,mp3,jpg,mp4,mkv) do @reg delete HKCR\SystemFileAssociations\.%i\Shell\MediaInfo /f

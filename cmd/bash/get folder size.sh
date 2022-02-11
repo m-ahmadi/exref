@@ -1,1 +1,0 @@
-du -s -h node_modules
