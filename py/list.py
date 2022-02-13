@@ -133,11 +133,21 @@ list(chain.from_iterable(a)) # ...
 # pass by reference
 a = [1,2,3,4]
 b = a
-b[0] = True
-a[0] # True
+b[0] = 57
+a[0] # 57
 b = [*a] # or a[:]
-b[0] = False
-a[0] # True
+b[0] = 57
+a[0] # 1
+
+# ... muldim
+a = [ [1,2], [3,4] ]
+b = a[:]
+b[0][0] = 68
+a[0][0] # 68
+a = [ [1,2], [3,4] ]
+b = [i[:] for i in a]
+b[0][0] = 68
+a[0][0] # 1
 
 # iteration
 a = [1,2,3]

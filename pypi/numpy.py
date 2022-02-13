@@ -139,7 +139,7 @@ np.concatenate((a1, a2, ...), ?axis=0, ?out=None|ndarray, ?dtype=None|''|dtype, 
 np.conj
 np.conjugate
 np.convolve
-np.copy
+np.copy(a=∂, order='K|C|F|A', subok=False)
 np.copysign
 np.copyto
 np.core
@@ -660,7 +660,7 @@ a.clip()
 a.compress()
 a.conj()
 a.conjugate()
-a.copy()
+a.copy(order='C|F|A|K')
 a.ctypes
 a.cumprod()
 a.cumsum()

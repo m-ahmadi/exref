@@ -4,6 +4,6 @@ f5
 --------------------------------------------------------------------------------
 show more than default 300 items
 
-%userprofile%\.vscode\extensions\ms-python.python-2021.11.1422169775\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py
+%userprofile%\.vscode\extensions\ms-python.python-2022.0.1814523869\pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py
 MAX_ITEMS_TO_HANDLE = 4000
 --------------------------------------------------------------------------------

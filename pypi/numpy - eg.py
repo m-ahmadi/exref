@@ -141,9 +141,19 @@ a[0, :, :, 1] # [ [2,4], [6,8] ]
 a[..., 1]     # ...
 
 # append
+np.append([1,2,3], 4)                          # [1,2,3,4]
+np.append([1,2], [3,4])                        # ...
 np.append([1,2], [ [3,4], [5,6] ])             # [1,2,3,4,5,6]
 np.append([ [1,2], [3,4] ], [ [6,7] ], axis=0) # [ [1,2], [3,4], [5,6] ]
 np.append([ [1,2], [3,4] ], [5,6], axis=0)     # err
+
+# preppend
+np.append([1,2], [3,4])          # [1,2,3,4]
+np.concatenate(( [1,2], [3,4] )) # ...
+np.insert([3,4], 0, [1,2])       # ...  (slowest)
+
+# splice
+np.insert([3,4], 1, [1,2]) # [3,1,2,4]
 
 # misc
 a = np.array([ [1,2], [3,4], [5,6] ])
@@ -185,6 +195,16 @@ def avgtrim(arr, percent):
 	k = int(round( n*(float(percent)/100)/2 ))
 	return np.mean(arr[k+1:n-k])
 
+# pass by reference
+a = [ [1,2], [3,4] ]
+b = a[:]
+b[0][0] = 57
+a[0][0] # 57
+
+a = np.array([ [1,2], [3,4] ])
+b = a.copy()
+b[0][0] = 57
+a[0][0] # 1
 
 # misc
 np.min([1,2])  # 1

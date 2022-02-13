@@ -39,3 +39,8 @@ dict({'a':1}, b=2)          # ...
 # dict comprehension
 {i: i*i for i in range(3)}          # {0: 0, 1: 1, 2: 4}
 {f'foo-{i}': i*i for i in range(3)} # {'foo-0': 0, 'foo-1': 1, 'foo-2': 4}
+
+# filter
+d = {'a':1, 'bb':2, 'bc':3}
+{k:v for k,v in d.items() if 'b' in k}         # {'bb': 2, 'bc': 3}
+dict(filter(lambda i: 'b' in i[0], d.items())) # {'bar': 2, 'baz': 3}
