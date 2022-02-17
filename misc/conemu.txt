@@ -1,4 +1,6 @@
-"D:\path\to\ConEmu\folder\ConEmu64.exe" -Dir "E:\start\path"
+"D:\Program Files\ConEmu\ConEmu64.exe" -Dir "E:\start\path"
+	-run {Bash::Git Bash}
+	-run foo.exe
 
 General
 	Choose your startup task:	{Shells::cmd}
