@@ -32,6 +32,12 @@ with open('file.txt') as f:
 with open('file.txt', 'w') as f:
 	f.write('hi')
 
+# default newline chars
+with open('file.txt', 'w') as f:
+	f.write('\n'.join(['a','b'])) # crlf
+with open('file.txt', 'w', newline='') as f:
+	f.write('\n'.join(['a','b'])) # lf
+
 # misc
 import os # https://docs.python.org/3/library/os.html
 os.system('cls') # clear console
