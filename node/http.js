@@ -80,6 +80,15 @@ http.get({
 	host: 'eternagame.wikia.com',
 	path: '/wiki/EteRNA_Dictionary'
 }, function (res) {});
+
+
+var fs = require('fs');
+http.get('http://jsonplaceholder.typicode.com/posts', res => {
+	res.setEncoding('utf8');
+	let str = '';
+	res.on('data', chunk => str += chunk);
+	res.on('end', ()=> fs.writeFileSync('foo.json', str));
+});
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // post
 const postData = querystring.stringify({

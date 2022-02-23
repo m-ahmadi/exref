@@ -76,6 +76,9 @@
 	"[javascript]": {
 		"editor.defaultFormatter": "Wscats.eno"
 	},
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
 	"[css]": {
 		"editor.defaultFormatter": "MikeBovenlander.formate"
 	},
