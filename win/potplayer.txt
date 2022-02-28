@@ -6,6 +6,11 @@ Playback -> Playback settings
 Playback -> Jump (to) -> Time Jump Settings
 	left/right:		3
 	ctrl left/right:	5
+
+Subtitles -> Font
+	Default:	Cambria
+	Alternative:	Courier New
+	Size:		14
 --------------------------------------------------
 cli
 
