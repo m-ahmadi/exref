@@ -1,0 +1,19 @@
+﻿triple-barrier method
+
+label an observation based on first barrier touched out of 3 barriers (2 horizontal + 1 vertical)
+triple-barrier method is path-dependent (takes into account the entire path)
+
+2 horizontal barriers
+	profit-taking and stoploss limits (dynamic function of estimated volatility)
+	not necessarily symmetric
+
+1 vertical barrier
+	number of bars elapsed since position was taken (an expiration limit)
+
+labeling: (if touched first)
+	upper    barrier	label =  1
+	lower    barrier	label = −1
+	vertical barrier	label = sign of return (realizing a profit or loss within limits)  |  0
+
+
+feature return = delta from X to barrier touch
