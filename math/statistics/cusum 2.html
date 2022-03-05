@@ -24,7 +24,8 @@ for (let i=1; i<80; i++) {
 
 var _mean = mean(data);
 var _stdv = stdv(data);
-var [s2,n2] = [2,-2].map(n=> _mean+(_stdv*n));
+var ucl = _mean + (_stdv * 1.5);
+var lcl = _mean + (_stdv * -1.5);
 var cma = data.map((v,i,a)=> mean(a.slice(0,i+1)) );
 
 var o = {points:{show:false},width:2,};
@@ -36,8 +37,8 @@ new uPlot({
 		{label:'i'},
 		{label:'x', stroke:'black',points:{size:8,fill:'black'}},
 		{label:'X̅', stroke:'lime',...o},
-		{label:'2σ', stroke:'blue',...O},
-		{label:'-2σ', stroke:'red',...O},
+		{label:'UCL', stroke:'blue',...O},
+		{label:'LCL', stroke:'red',...O},
 		{label:'cma', stroke:'magenta',width:2,points:{size:6,fill:'magenta'}},
 	],
 	scales: {x:{time:false}},
@@ -46,8 +47,8 @@ new uPlot({
 	[...data.keys()].map(i=>i+1),
 	data,
 	data.map(()=>_mean),
-	data.map(()=>s2),
-	data.map(()=>n2),
+	data.map(()=>ucl),
+	data.map(()=>lcl),
 	cma,
 ], charts);
 
@@ -57,15 +58,18 @@ var up = data.map(i=> (i=i-_mean, i<0?0:i));
 var dw = data.map(i=> (i=i-_mean, i>0?0:i));
 var all = up.map((v,i)=> v===0 ? dw[i] : v);
 
+var ucl2 = mean(all) + (stdv(all) * 1.5);
+var lcl2 = mean(all) - (stdv(all) * 1.5);
+
 new uPlot({
 	width:800, height:400,
 	series: [
 		{label:'i'},
 		//{label:'x',stroke:'black',width:2,points:{show:false}},
-		{label:'☝', stroke:'limegreen',width:3,points:{size:8,fill:'limegreen'}},
-		{label:'👇', stroke:'crimson',width:3,points:{size:8,fill:'crimson'}},
-		{label:'1.5σ', stroke:'blue',...o,dash:[5]},
-		{label:'-1.5σ', stroke:'red',...o,dash:[5]},
+		{label:'+ cusum', stroke:'limegreen',width:3,points:{size:8,fill:'limegreen'}},
+		{label:'- cusum', stroke:'crimson',width:3,points:{size:8,fill:'crimson'}},
+		{label:'UCL', stroke:'blue',...o,dash:[5]},
+		{label:'LCL', stroke:'red',...o,dash:[5]},
 	],
 	scales: {x:{time:false}},
 	axes: [{grid:{show:false}}]
@@ -74,8 +78,8 @@ new uPlot({
 	//data,
 	up,
 	dw,
-	all.map(()=>mean(all) + (stdv(all)*1.5)),
-	all.map(()=>mean(all) - (stdv(all)*1.5)),
+	all.map(()=>ucl2),
+	all.map(()=>lcl2),
 ], charts);
 
 </script>
