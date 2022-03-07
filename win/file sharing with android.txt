@@ -5,4 +5,4 @@ control appwiz.cpl,,2
 
 use "RS File Manager" in android to explore shared files
 
-done.
+done
