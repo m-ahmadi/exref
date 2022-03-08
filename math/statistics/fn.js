@@ -486,3 +486,35 @@ function polyval3(x=[], y=[], order=3) {
 	
 	return solution;
 }
+// exponentially weighted standard deviation
+function increwstdev(alpha) {
+	if (alpha < 0 || alpha > 1) throw new Error('alpha must be nonnegative number in [0,1] range');
+	
+	let incr;
+	let s2;
+	let s;
+	let r;
+	let m;
+	let c = 1 - alpha;
+	
+	return (x) => {
+		if (arguments.length === 0) return s === undefined ? null : s;
+		
+		if (s === undefined) {
+			m = x;
+			s2 = 0;
+		} else {
+			r = x - m;
+			incr = alpha * r;
+			m += incr;
+			s2 = c * ( s2 + (r*incr) );
+		}
+		
+		s = Math.sqrt(s2);
+		
+		return s;
+	};
+}
+var alpha = 2 / (5 + 1); // smoothing factor
+var accumulator = increwstdev(alpha);
+[...Array(9).keys()].slice(1).map(accumulator);
