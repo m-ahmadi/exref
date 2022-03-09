@@ -9,3 +9,5 @@ chrome://downloads
 ...
 
 chrome://settings/siteData		all cookies and site data
+
+chrome://dino
