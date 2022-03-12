@@ -3,6 +3,7 @@ del filename.txt /f		force delete read-only files
 
 del *.txt			all .txt files
 del *.txt /s/q			... subdirs
+del Thumbs.db /s/q /a:h		...
 del abc*.txt			all .txt  files starting with abc
 del a_folder			deletes all files within the dir (not the dir itself)
 
