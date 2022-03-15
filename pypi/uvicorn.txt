@@ -1,0 +1,7 @@
+uvicorn file:app
+
+uvicorn file:app --port 4000
+
+uvicorn --app-dir e:\bar --port 4456 main:app
+
+uvicorn --help

@@ -1,0 +1,29 @@
+DOSBox
+	https://sourceforge.net/projects/dosbox
+
+PE Tools
+	https://github.com/petoolse/petools/releases
+
+Fast Module Extractor v2.1
+	https://demozoo.org/productions/266998
+	http://old-dos.ru/files/file_1406.html
+--------------------------------------------------------------------------------
+1. open "keygen.exe"
+
+2. open "PE Tools"
+	find "keygen.exe" in "PE Tools" list
+	right click "Dump Full..."
+	save "Dumped.exe"
+
+3. create folder c:\dosprogs
+	copy "FM-EXT" to c:\dosprogs
+	copy "Dumped.exe" to c:\dosprogs
+
+4. open "DOSBox"
+	intro mount
+	mount c c:\dosprogs
+	c:
+	cd FM-EXT
+	FM-EXT.EXE				(launch "fm-ext")
+		FM-EXT ..\Dumped.exe		(start extracting)
+--------------------------------------------------------------------------------
