@@ -29,8 +29,9 @@ df[ ['a','b'] ]
 
 # sort
 df = pd.DataFrame([ {'a':1,'b':4}, {'a':2,'b':4}, {'a':3,'b':5} ])
-sorted = df.sort_values(by='b', ascending=False)
-sorted.index[0] # 2 (index of top item)
+_sorted = df.sort_values(by='b', ascending=False)
+_sorted.iloc[0]  # {'a': 3, 'b': 5}  (         top item)
+_sorted.index[0] # 2                 (index of top item)
 
 # filter by content
 df = pd.DataFrame({'foo':[1,2,3,4,5,6], 'bar':[9,8,7,6,5,4]})
@@ -48,9 +49,14 @@ df = pd.DateFrame([ [1,2], [3,4], [5,6], [7,8] ])
 df = df.drop([2,3])
 df # [ [1,2], [3,4] ]
 
+df = pd.DataFrame({'a': [1,2,3,4], 'b':[5,6,7,8], 'c':[9,10,11,12]})
+df.drop(columns='c')
+df # { 'a': [1,2,3,4], 'b':[5,6,7,8] }
+
 # to csv
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=None) # '1,2\r\n3,4\r\n5,6\r\n'
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.csv', index=False, header=None)
+pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.txt', sep='\t', index=False)
 
 # count of csv rows
 df = pd.DataFrame([ [1,2], [3,4], [5,6] ])
@@ -69,3 +75,8 @@ np.where(df['foo'] == 4)[0].tolist() # [3]
 df = pd.DataFrame([ [1,1,1], [2,2,2], [4,4,4] ])
 df.iloc[0:1] # 1  1  1
 df.iloc[-1:] # 4  4  4
+
+# first n rows
+df = pd.DataFrame([1,2,3,4,5,6,7,8,9])
+df1 = df.head(4)
+df1 # 1 2 3 4
