@@ -1,7 +1,8 @@
 from timeit import default_timer as timer
 t1 = timer()
 t2 = timer()
-print('took', round((t2-t1)/60, 2), 'min')
+d = t2 - t1 # seconds
+print('took', round(d/60, 2), 'min')
 
 # other ways
 import time

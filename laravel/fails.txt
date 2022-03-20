@@ -1,4 +1,4 @@
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 			composer download (curl-7.35.0-win32-fix2)
 
 curl -sS https://getcomposer.org/installer | php
@@ -9,7 +9,7 @@ curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename
 create new folder bin
 E:\xampp\php\bin\comsoer
 php bin\composer
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 			installing composer globally (failed)
 create "composer.bat":   (hold, faild)
 write 1 of these:
@@ -21,7 +21,7 @@ write 1 of these:
 path= C:\Users\NYC\AppData\Roaming\Composer\vendor\bin
 move	coposer.phar  &  composer.bat  to:
 C:\Users\NYC\AppData\Roaming\Composer\vendor\bin
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 			installing laravel with composer (failed)
 set http_proxy=   http://your_proxy:your_port 			(http  with    authentication)
 set http_proxy=   http://username:password@your_proxy:your_port	(http  without authentication)
@@ -37,7 +37,7 @@ set http_proxy=http://1proxy.space
 
 php bin\composer global require "laravel/installer=~1.1"
 
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				apache proxy server (failed)
 LoadModule proxy_http_module modules/mod_proxy_http.so
 LoadModule proxy_ftp_module modules/mod_proxy_ftp.so
@@ -54,4 +54,4 @@ Forward Proxy:
 	  Deny from all
 	  Allow from internal.example.com
 	</Proxy>
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

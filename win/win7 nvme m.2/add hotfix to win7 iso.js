@@ -81,4 +81,4 @@ dism /add-package /image:mount /packagepath:KB2990941.msu
 dism /add-package /image:mount /packagepath:KB3087873.msu
 dism /unmount-wim /mountdir:mount /commit
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// as an alternative you can use NTLite to "slipstream" drivers/hotfixes into an win7.iso
+// as an alternative you can use NTLite to "slipstream" drivers/hotfixes into a win7.iso
