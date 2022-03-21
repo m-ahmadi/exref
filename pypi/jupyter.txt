@@ -27,3 +27,7 @@ alt   enter	run cell and insert below
 shift space	scroll notebook up
 space		scroll notebook down
 --------------------------------------------------
+fix err "No module named 'prompt_toolkit.formatted_text'"
+
+pip install -U jupyter_console
+--------------------------------------------------
