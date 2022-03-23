@@ -1,9 +1,14 @@
+// https://divar.ir/s/tehran/rent-apartment?credit=-350000000&rent=0-0&floor=4-30&has-photo=true&elevator=true&parking=true&rent_to_single=true
+
 totalScrolls = 50;
 eachScrollHeight = 850;
-wait = 500;
+wait = 1000;
 makeHTML = true;
 makeCSV = false;
 UTF8_BOM_CSV = true;
+
+en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
+ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
 
 window.scrollTo(0,0);
 r = [];
@@ -13,12 +18,20 @@ for (let i of [...Array(totalScrolls).keys()]) {
 		await new Promise(r=>setTimeout(r,wait));
 		
 		r.push(
-			[...document.querySelectorAll('.post-card-item')].map(i => [
-				...i.querySelector('a .kt-post-card__description').innerText.split('\n').flat(),
-				i.querySelector('a .kt-post-card__title').innerText,
-				i.querySelector('a .kt-post-card__bottom-description').innerText,
-				decodeURI(i.querySelector('a').href),
-			])
+			[...document.querySelectorAll('.post-card-item')].map(i => {
+			
+				let [ credit, rent ] = i.querySelector('a .kt-post-card__description').innerText.split('\n').flat();
+				credit = credit.match(/ودیعه: (.*) تومان/)[1].match(/^(.{1,4}),/)[1];
+				credit = +[...credit].map(i => en[i]).join('');
+				
+				let title = i.querySelector('a .kt-post-card__title').innerText;
+				let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
+				let link = decodeURI(i.querySelector('a').href);
+				
+				if ( ignore.some(i=> title.includes(i) || time.includes(i)) ) return;
+				
+				return [credit, rent, title, time, link];
+			}).filter(i=>i)
 		);
 }
 r = r.flat();
@@ -26,7 +39,7 @@ r = r.map(i=>i[4]).map((v,i,a)=> a.indexOf(v)===i ? i : -1).filter(i=>i!==-1).ma
 
 if (makeCSV) {
 	text = r.map(i =>
-		i.map(j => j.includes(',') ? JSON.stringify(j) : j).join(',')
+		i.map(j => typeof j === 'string' && j.includes(',') ? JSON.stringify(j) : j).join(',')
 	).join('\n');
 	download('mydata.csv', text);
 }

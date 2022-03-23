@@ -1,9 +1,11 @@
-(/^\d{4}\/\d{2}\/\d{2}$/) // date string with forward slashes
-(/^[\d.,;-]*$/)           // only digits, dot, comma, semicolon and hyphen (0 or more)
-(/^\s*(\b|\B)/)           // leading whitespace characters
-(/^(?!.*hello.*).*/)      // all lines except those with "hello" in them
-(/^\n/)                   // all empty lines
-(/^(\d+\s?)+$/)           // space-separated string of positive integers
+(/^\d{4}\/\d{2}\/\d{2}$/)    // date string with forward slashes
+(/^[\d.,;-]*$/)              // only digits, dot, comma, semicolon and hyphen (0 or more)
+(/^\s*(\b|\B)/)              // leading whitespace characters
+(/^(?!.*hello.*).*/)         // all lines except those with "hello" in them
+(/^\n/)                      // all empty lines
+(/^(\d+\s?)+$/)              // space-separated string of positive integers
+(/<div id="a">(.*?)<\/div>/) // content of div (until next              closing div)
+(/<div id="a">(.*)<\/div>/)  // ...            (until I don't know what closing div)
 (\/\*\*\s*\n([^\*]|\*[^\/])*\*\/) // jsdoc comments
 
 

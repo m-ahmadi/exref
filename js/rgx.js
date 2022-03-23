@@ -33,12 +33,12 @@ res.groups // {year: '2015', month: '01', day: '02'}
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // methods
 //                         return:
-str.match(regex)           // array of matches|firstMatch (depending on g flag)
-str.matchAll(regex)        // iterator of matches + capturing groups (regex must have g flag)
-str.search(regex)          // index of the first match (-1 if not found)
-str.replace(regex, substr) // new str
-regex.exec(str)            // array with only the first match (similar to str.match() without g)
-regex.test(str)            // boolean. true: match found. (fast)
+str.match(regex)    // array of matches|firstMatch (depending on g flag)
+str.matchAll(regex) // iterator of matches + capturing groups (regex must have g flag)
+str.replace(regex, substr|replacer=(match, g1, g2, .., offset, string)=>) // new str
+str.search(regex)   // index of the first match (-1 if not found)
+regex.exec(str)     // array with only the first match (similar to str.match() without g)
+regex.test(str)     // boolean. true: match found. (fast)
 
 var res = str.match(regexp);
 res = regexp.global ? [all, matches, ...] : [onlyFirstMatch, groups]
@@ -50,4 +50,7 @@ res[1] res[2] ... // groups
 
 var res = str.matchAll(regex.global=true);
 for (const i of res) console.log(i)
+
+'abcd'.replace(/(a)(b)/, '@ $1 - @@ $2 - ')                   // '@ a - @@ b - cd'
+'abcd'.replace(/(a)(b)/, (m,g1,g2)=> `@ ${g1} - @@ ${g2} - `) // ...
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
