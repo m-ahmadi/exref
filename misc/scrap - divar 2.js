@@ -2,12 +2,11 @@
 
 ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
 
-totalScrolls = 50;
+totalScrolls = 90;
 eachScrollHeight = 850;
 wait = 1000;
-wait2 = 500;
 makeHTML = true;
-makeCSV = false;
+makeCSV = true;
 UTF8_BOM_CSV = true;
 
 en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
@@ -18,22 +17,22 @@ sleep = ms => new Promise(r=> setTimeout(r,ms));
 window.scrollTo(0,0);
 r = [];
 for (let i of [...Array(totalScrolls).keys()]) {
-		window.scrollBy(0,eachScrollHeight);
+	window.scrollBy(0,eachScrollHeight);
+	
+	await sleep(wait);
+	
+	r.push(
+		[...document.querySelectorAll('.post-card-item')].map(i => {
 		
-		await sleep(wait);
-		
-		r.push(
-			[...document.querySelectorAll('.post-card-item')].map(i => {
+			let title = i.querySelector('a .kt-post-card__title').innerText;
+			let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
+			let link = decodeURI(i.querySelector('a').href);
 			
-				let title = i.querySelector('a .kt-post-card__title').innerText;
-				let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
-				let link = decodeURI(i.querySelector('a').href);
-				
-				if ( ignore.some(i=> title.includes(i) || time.includes(i)) ) return;
-				
-				return link;
-			}).filter(i=>i)
-		);
+			if ( ignore.some(i=> title.includes(i) || time.includes(i)) ) return;
+			
+			return link;
+		}).filter(i=>i)
+	);
 }
 r = r.flat();
 r = [...new Set(r)];
@@ -95,7 +94,7 @@ for (let [idx, text] of texts.entries()) {
 	rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, storage, stove, type, convertable, url]);
 }
 
-headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال ساخت', 'اتاق', 'طبقه', 'تک واحدی', 'انباری', 'گاز رومیزی', 'نوع آگهی', 'قابل تبدیل', 'لینک'];
+headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'انباری', 'گازرومیزی', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
 
 if (makeCSV) {
 	text = [headers, ...rr].map(i =>
@@ -121,7 +120,15 @@ if (makeHTML) {
 <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/sort.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/resize_columns.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
-<script>new Tabulator('#mytable');</script>`;
+<script>
+table = new Tabulator('#mytable');
+table.setSort([
+	{column:'ودیعه', dir:'asc'},
+	{column:'متراژ', dir:'asc'},
+	{column:'گازرومیزی', dir:'asc'},
+	{column:'تک‌واحدی', dir:'asc'},
+]);
+</script>`;
 	download('mypage.html', html);
 }
 

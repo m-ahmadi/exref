@@ -1,3 +1,4 @@
+﻿'‌'	200c	0				Zero Width Non-Joiner
 '​'	200b	0				Zero Width Space
 ' '	200a	<1/6       em			Hair Space
 ' '	2006	1/6        em			Six-Per-Em Space
