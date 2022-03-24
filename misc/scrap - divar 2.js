@@ -13,13 +13,14 @@ UTF8_BOM_CSV = true;
 en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
 lett = {'۱':'یک', '۲':'دو', '۳':'سه', '۴':'چهار', '۵':'پنج', '۶':'شش', '۷':'هفت', '۸':'هشت', '۹':'نه'};
 toEn = s => +[...s].map(i => en[i]).join('');
+sleep = ms => new Promise(r=> setTimeout(r,ms));
 
 window.scrollTo(0,0);
 r = [];
 for (let i of [...Array(totalScrolls).keys()]) {
 		window.scrollBy(0,eachScrollHeight);
 		
-		await new Promise(r=>setTimeout(r,wait));
+		await sleep(wait);
 		
 		r.push(
 			[...document.querySelectorAll('.post-card-item')].map(i => {
@@ -38,19 +39,19 @@ r = r.flat();
 r = [...new Set(r)];
 
 
-/* let batch = async a => { let p=[]; for (let i of a) await new Promise(r=>setTimeout(r,wait2)), p.push(fetch(i)); return p; };
-let proms = await Promise.allSettled(await batch(r));
-while (proms.some(i=>i.reason)) {
-	let ers = proms.map((v,i)=> v.reason && i).filter(i=>i>=0);
-	(await Promise.allSettled( await batch(ers.map(i=> r[i])) ))
+t = performance.now();
+let proms = await Promise.allSettled(r.map(i=> fetch(i)));
+while (proms.some(i=>i.reason || i.value.status !== 200)) {
+	let ers = proms.map((v,i)=> v.reason || v.value.status !== 200 ? i : -1).filter(i=>i>-1);
+	await sleep(2000);
+	(await Promise.allSettled( ers.map(i=> fetch(r[i])) ))
 		.forEach((v,i) => proms[ers[i]] = v);
 }
-let texts = await Promise.all( proms.map(i=> i.value.text()) ); */
+let texts = await Promise.all( proms.map(i=> i.value.text()) );
+console.log('took', (((performance.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 rr = [];
-// for (let text of texts) {
-for (let url of r) {
-	let text = await (await fetch(url)).text();
+for (let [idx, text] of texts.entries()) {
 	let _document = new DOMParser().parseFromString(text, mimeType='text/html');
 
 	let title = _document.querySelector('.kt-page-title__title').innerText;
@@ -87,15 +88,17 @@ for (let url of r) {
 	let descs = _document.querySelector('.kt-description-row__text.post-description.kt-description-row__text--primary').innerText;
 	let singlefloor = ['تک واحدی', 'تکواحدی', 'تک واحد', 'تکواحد', 'یک واحدی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	let stove       = ['گاز رومیزی', 'اجاق گاز رومیزی', 'اجاق رومیزی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
-
+	
+	let url = r[idx];
+	
 	//[title, time, sqmeter, builtyear, rooms, credit, convertable, floor, type, storage, singlefloor, stove];
 	rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, storage, stove, type, convertable, url]);
-	
-	await new Promise(r=>setTimeout(r,wait2));
 }
 
+headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال ساخت', 'اتاق', 'طبقه', 'تک واحدی', 'انباری', 'گاز رومیزی', 'نوع آگهی', 'قابل تبدیل', 'لینک'];
+
 if (makeCSV) {
-	text = r.map(i =>
+	text = [headers, ...rr].map(i =>
 		i.map(j => typeof j === 'string' && j.includes(',') ? JSON.stringify(j) : j).join(',')
 	).join('\n');
 	download('mydata.csv', text);
@@ -106,20 +109,18 @@ if (makeHTML) {
 		'<tr>'+ i.map((v,j) => j===12 ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
 	).join('');
 	
-	headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال ساخت', 'اتاق', 'طبقه', 'تک واحدی', 'انباری', 'گاز رومیزی', 'نوع آگهی', 'قابل تبدیل', 'لینک'];
-	
 	html = `<meta charset="utf-8" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
 <table id="mytable">
 	<thead>
-		<tr> ${headers.map(i=> '<th>'+ i +'</th>')} </tr>
+		<tr> ${headers.map(i=> '<th>'+ i +'</th>').join('')} </tr>
 	</thead>	
 	${html}
 </table>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator_core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/modules/sort.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/modules/resize_columns.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/modules/html_table_import.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/tabulator_core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/sort.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/resize_columns.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
 <script>new Tabulator('#mytable');</script>`;
 	download('mypage.html', html);
 }

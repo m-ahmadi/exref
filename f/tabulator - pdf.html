@@ -1,0 +1,21 @@
+<a href="http://tabulator.info/docs/5.1/download#pdf">docs</a>
+
+<table id="mytable">
+	<tr> <th>A</th> <th>B</th> </tr>
+	<tr> <td>1</td> <td>2</td> </tr>
+	<tr> <td>3</td> <td>4</td> </tr>
+	<tr> <td>5</td> <td>6</td> </tr>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.4.0/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.5.20/dist/jspdf.plugin.autotable.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/tabulator_core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/download.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
+
+<script>
+table = new Tabulator('#mytable');
+
+table.download('pdf', 'data.pdf');
+</script>

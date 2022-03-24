@@ -1,0 +1,33 @@
+<script src="https://cdn.jsdelivr.net/npm/jspdf/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf-autotable"></script>
+
+<table id="my-table">
+	<thead>
+		<th>A</th>
+		<th>B</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>2</td>
+		</tr>
+	</tbody>
+</table>
+
+<script>
+var doc = new jspdf.jsPDF();
+doc.autoTable({html: '#my-table'});
+doc.save('table1.pdf');
+
+
+var doc = new jspdf.jsPDF();
+doc.autoTable({
+  head: [['Name', 'Email', 'Country']],
+  body: [
+    ['David', 'david@example.com', 'Sweden'],
+    ['Castille', 'castille@example.com', 'Spain'],
+  ],
+});
+
+doc.save('table2.pdf');
+</script>

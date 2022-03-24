@@ -1,0 +1,21 @@
+<a href="http://raw.githack.com/MrRio/jsPDF/master/docs/index.html">docs</a>
+
+<script src="https://cdn.jsdelivr.net/npm/jspdf/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas"></script>
+
+<script>
+var doc = new jspdf.jsPDF();
+doc.text('Hello world!', 10, 10);
+doc.save('a4.pdf');
+
+
+var doc = new jspdf.jsPDF();
+doc.html(document.body, { // needs `html2canvas`
+	callback: function (doc) {
+		doc.save('foo.pdf');
+	},
+	x: 10,
+	y: 10
+});
+doc.save('doc2.pdf');
+</script>

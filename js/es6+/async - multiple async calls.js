@@ -84,3 +84,16 @@ http://jsonplaceholder.typicode.com/posts/4
 http://jsonplaceholder.typicode.com/posts/5
 */
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// for & while (both work inside async func)
+
+let i = 0;
+while (i < 11) {
+	await new Promise(r=> setTimeout(r, 1000));
+	console.log(i);
+	i++;
+}
+
+for (let i=0; i<11; i++) {
+	await new Promise(r=> setTimeout(r, 1000));
+	console.log(i);
+}

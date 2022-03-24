@@ -57,10 +57,10 @@ if (makeHTML) {
 	</thead>	
 	${html}
 </table>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator_core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/modules/sort.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/modules/resize_columns.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/modules/html_table_import.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/tabulator_core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/sort.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/resize_columns.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
 <script>new Tabulator('#mytable');</script>`;
 	download('mypage.html', html);
 }
