@@ -86,7 +86,7 @@ for (let [idx, text] of texts.entries()) {
 
 	let descs = _document.querySelector('.kt-description-row__text.post-description.kt-description-row__text--primary').innerText;
 	let singlefloor = ['تک واحدی', 'تکواحدی', 'تک واحد', 'تکواحد', 'یک واحدی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
-	let stove       = ['گاز رومیزی', 'اجاق گاز رومیزی', 'اجاق رومیزی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
+	let stove       = ['گاز رومیزی', 'گازرومیزی', 'اجاق گاز رومیزی', 'اجاق رومیزی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	
 	let url = r[idx];
 	
@@ -97,10 +97,20 @@ for (let [idx, text] of texts.entries()) {
 headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'انباری', 'گازرومیزی', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
 
 if (makeCSV) {
-	text = [headers, ...rr].map(i =>
+	[s1,s2,s3,s4] = ['ودیعه','متراژ','گازرومیزی','تک‌واحدی'].map(i=> headers.indexOf(i));
+	
+	rr.sort((a,b)=>a[s1]-b[s1])
+		.sort((a,b)=>a[s2]-b[s2])
+		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'))
+		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'));
+	
+	_rr = rr.map((v,i) => [i+1, ...v]);
+	
+	text = [['ردیف',...headers], ..._rr].map(i =>
 		i.map(j => typeof j === 'string' && j.includes(',') ? JSON.stringify(j) : j).join(',')
 	).join('\n');
-	download('mydata.csv', text);
+	
+	download('out.csv', text);
 }
 
 if (makeHTML) {
@@ -129,7 +139,8 @@ table.setSort([
 	{column:'تک‌واحدی', dir:'asc'},
 ]);
 </script>`;
-	download('mypage.html', html);
+	
+	download('out.html', html);
 }
 
 function download(filename, text) {
