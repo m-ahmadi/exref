@@ -31,6 +31,12 @@ df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
 df['a']
 df[ ['a','b'] ]
 
+# dict with num values
+d = {'a':1, 'b':2}
+df = pd.DataFrame(d)            # err
+df = pd.DataFrame(d, index=[0]) # ok
+df = pd.DataFrame([d])          # ok
+
 # sort
 df = pd.DataFrame([ {'a':1,'b':4}, {'a':2,'b':4}, {'a':3,'b':5} ])
 _sorted = df.sort_values(by='b', ascending=False)
