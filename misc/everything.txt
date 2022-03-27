@@ -17,3 +17,8 @@ some\dir case:content:foo 				"Match case"
 some\dir wholeword:content:foo 				"Match whole words"
 some\dir diacritics:content:foo 			"Match diacritics"
 some\dir case:wholeword:diacritics:content:foo 		combination
+--------------------------------------------------------------------------------
+fix not working search
+
+Tools -> Options... -> Indexes -> Force Rebuild
+--------------------------------------------------------------------------------

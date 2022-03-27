@@ -3,7 +3,7 @@ start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\noise-b
 start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\noise-white.mp3"
 start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\wave-1.mp3"
 start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\wave-2.mp3"
-start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\muz-2.mp3"
+start /d "C:\Program Files\VideoLAN\VLC" vlc.exe "c:\dev\# General\noise\muz-3.mp3"
 
 REM max=4  top=620
 REM max=6  top=410
