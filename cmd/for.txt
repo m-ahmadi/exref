@@ -1,6 +1,8 @@
 for /L %i  in (1, 1, 100) do echo %i			start at 1, step by one, finish at 100
 for /f "tokens=4,5*" %i in ('dir') do @echo %i %j %k	get 4th and 5th columns of dir result
-for /f %i in (test.txt) do @echo %i			first token of each line
+for /f %i in (file.txt) do @echo %i			first token of each line
+for /f "tokens=*" %i in (file.txt) do @echo %i		whole line
+for /f "tokens=* eol=;" %i in (file.txt) do @echo %i	... specific eol
 
 for /d %i in (a,b,c,d) do @echo %i			iterate over set
 for /d %i in (dir*) do @echo %i				iterate folder names (that match wildcard)

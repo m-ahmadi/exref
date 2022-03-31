@@ -12,7 +12,7 @@ open(file, mode='r|w|x|a|b|t|+', buffering=-1, encoding=None, errors=None, newli
 # manual (file never closes if exception thrown)
 # read
 f = open('file.txt')
-str = f.read()
+_str = f.read()
 f.close()
 
 # write
@@ -27,7 +27,7 @@ f.close()
 
 # `with` (auto cleanup of resource)
 with open('file.txt') as f:
-	str = f.read()
+	_str = f.read()
 
 with open('file.txt', 'w') as f:
 	f.write('hi')
@@ -77,7 +77,11 @@ pathlib.Path(__file__).parent.resolve() # current script dir
 
 # json
 import json
-with open('data.json', 'w', encoding='utf-8') as f:
+
+with open('file.json') as f:
+  j = json.load(f)
+
+with open('file.json', 'w', encoding='utf-8') as f:
 	json.dump(data, f, ensure_ascii=False, indent=4)
 
 # std
