@@ -90,6 +90,9 @@ for (let [idx, text] of texts.entries()) {
 	
 	let url = r[idx];
 	
+	// TODO:
+	//let [elevator, , parking] = [...document.querySelectorAll('span.kt-group-row-item__value.kt-body.kt-body--stable')].map(i=>i.innerText);
+	
 	//[title, time, sqmeter, builtyear, rooms, credit, convertable, floor, type, storage, singlefloor, stove];
 	rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, storage, stove, type, convertable, url]);
 }
