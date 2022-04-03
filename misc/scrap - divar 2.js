@@ -1,4 +1,5 @@
 // https://divar.ir/s/tehran/rent-apartment?credit=-350000000&rent=0-0&floor=4-30&has-photo=true&elevator=true&parking=true&rent_to_single=true
+// https://divar.ir/s/tehran/rent-apartment?credit=-350000000&rent=0-0&floor=4-30&has-photo=true&elevator=false&parking=false&rent_to_single=true
 
 ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
 
@@ -81,7 +82,11 @@ for (let [idx, text] of texts.entries()) {
 	[sqmeter, builtyear, rooms, credit] = [sqmeter, builtyear, rooms, credit, floor].map(toEn);
 
 
-	let storage = _document.querySelector('.kt-group-row:nth-last-of-type(1) .kt-group-row-item:nth-last-of-type(1) span').innerText;
+	// let storage = _document.querySelector('.kt-group-row:nth-last-of-type(1) .kt-group-row-item:nth-last-of-type(1) span').innerText;
+	let [elevator, parking, storage] = [...document.querySelectorAll('span.kt-group-row-item__value.kt-body.kt-body--stable')].map(i=>i.innerText);
+	
+	elevator = elevator === 'آسانسور ندارد' ? 'خیر' : 'بله';
+	parking = parking === 'پارکینگ ندارد' ? 'خیر' : 'بله';
 	storage = storage === 'انباری ندارد' ? 'خیر' : 'بله';
 
 	let descs = _document.querySelector('.kt-description-row__text.post-description.kt-description-row__text--primary').innerText;
@@ -90,14 +95,14 @@ for (let [idx, text] of texts.entries()) {
 	
 	let url = r[idx];
 	
-	// TODO:
-	//let [elevator, , parking] = [...document.querySelectorAll('span.kt-group-row-item__value.kt-body.kt-body--stable')].map(i=>i.innerText);
+	//[title, time, sqmeter, builtyear, rooms, credit, convertable, floor, type, elevator, parking, storage, singlefloor, stove];
 	
-	//[title, time, sqmeter, builtyear, rooms, credit, convertable, floor, type, storage, singlefloor, stove];
-	rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, storage, stove, type, convertable, url]);
+	// rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, storage, stove, type, convertable, url]);
+	rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, type, convertable, url]);
 }
 
-headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'انباری', 'گازرومیزی', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
+// headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'انباری', 'گازرومیزی', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
+headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
 
 if (makeCSV) {
 	[s1,s2,s3,s4] = ['ودیعه','متراژ','گازرومیزی','تک‌واحدی'].map(i=> headers.indexOf(i));
@@ -117,8 +122,10 @@ if (makeCSV) {
 }
 
 if (makeHTML) {
+	linkIdx = headers.indexOf('لینک');
+	
 	html = rr.map(i =>
-		'<tr>'+ i.map((v,j) => j===12 ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
+		'<tr>'+ i.map((v,j) => j===linkIdx ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
 	).join('');
 	
 	html = `<meta charset="utf-8" />
