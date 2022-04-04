@@ -10,9 +10,6 @@ makeHTML = true;
 makeCSV = true;
 UTF8_BOM_CSV = true;
 
-en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
-lett = {'۱':'یک', '۲':'دو', '۳':'سه', '۴':'چهار', '۵':'پنج', '۶':'شش', '۷':'هفت', '۸':'هشت', '۹':'نه'};
-toEn = s => +[...s].map(i => en[i]).join('');
 sleep = ms => new Promise(r=> setTimeout(r,ms));
 
 window.scrollTo(0,0);
@@ -50,15 +47,67 @@ while (proms.some(i=>i.reason || i.value.status !== 200)) {
 let texts = await Promise.all( proms.map(i=> i.value.text()) );
 console.log('took', (((performance.now()-t) / 1000) / 60).toFixed(2), ' min');
 
+en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
+lett = {'۱':'یک', '۲':'دو', '۳':'سه', '۴':'چهار', '۵':'پنج', '۶':'شش', '۷':'هفت', '۸':'هشت', '۹':'نه'};
+toEn = s => +[...s].map(i => en[i]).join('');
+
 rr = [];
 for (let [idx, text] of texts.entries()) {
 	let _document = new DOMParser().parseFromString(text, mimeType='text/html');
 
 	let title = _document.querySelector('.kt-page-title__title').innerText;
-	let time = _document.querySelector('.kt-page-title__subtitle').innerText;
+	
+	/* let time = _document.querySelector('.kt-page-title__subtitle').innerText;
 	time = time.split('|')[0];
-	time = time.replace(/([۱۲۳۴۵۶۷۸۹])/g, (m,p1)=> lett[p1]).trim();
+	time = time.replace(/([۱۲۳۴۵۶۷۸۹])/g, (m,p1)=> lett[p1]).trim(); */
+	
+	let sub = _document.querySelector('.kt-page-title__subtitle').innerText;
+	sub = sub.split(' | ')[0];
+	let [when, hood] = sub.split('، ');
+	when = when.split(' در ')[0];
 
+	let n;
+	let K = 1 / (24*60);
+	let kk = {'۰':0, '۱':1, '۲':2, '۳':3, '۴':4, '۵':5, '۶':6, '۷':7, '۸':8, '۹':9};
+	
+	if (/لحظاتی پیش/.test(when)) {
+		n = K / 2;
+	} else if (/دقایقی پیش/.test(when)) {
+		n = K * 2;
+	} else if (/یک ربع پیش/.test(when)) {
+		n = K * 15;
+	} else {
+		if (/دقیقه/.test(when)) {
+			n = when.split(' دقیقه ')[0];
+			n = +n.replace(/([۰۱۲۳۴۵۶۷۸۹])/g, (m,p1)=> kk[p1]);
+		} else if (/ساعت/.test(when)) {
+			let _kk = {'نیم':0.1, ...kk};
+			n = when.split(' ساعت ')[0];
+			n = +n.replace(/([۰۱۲۳۴۵۶۷۸۹]|نیم)/g, (m,p1)=> _kk[p1]);
+			n = n * 60;
+		} else if (/روز/.test(when)) {
+			let _kk = {'دی':1, 'پری':2, ...kk};
+			n = when.split('روز')[0];
+			n = +n.replace(/([۰۱۲۳۴۵۶۷۸۹]|دی|پری)/g, (m,p1)=> _kk[p1]);
+			n = n * (24*60);
+		} else if (/هفته/.test(when)) {
+			if (/هفتهٔ/.test(when)) {
+				n = 1;
+			} else {
+				n = when.split(' هفته ')[0];
+				n = +n.replace(/([۰۱۲۳۴۵۶۷۸۹])/g, (m,p1)=> kk[p1]);
+			}
+			n = n * (7*24*60);
+		} else if (/ماه/.test(when)) {
+			n = when.split(' ماه ')[0];
+			n = +n.replace(/([۰۱۲۳۴۵۶۷۸۹])/g, (m,p1)=> digs[p1]);
+			n = n * (30*24*60);
+		}
+		n = n * K;
+	}
+	when = n % 1 ? n.toFixed(2) : n;
+	
+	
 	let [sqmeter, builtyear, rooms] = [..._document.querySelector('.kt-group-row').querySelectorAll('.kt-group-row-item__value')].map(i=> i.innerText);
 
 	let itms = [..._document.querySelectorAll('.post-info .kt-base-row.kt-base-row--large.kt-unexpandable-row')].map(i =>
@@ -98,19 +147,22 @@ for (let [idx, text] of texts.entries()) {
 	//[title, time, sqmeter, builtyear, rooms, credit, convertable, floor, type, elevator, parking, storage, singlefloor, stove];
 	
 	// rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, storage, stove, type, convertable, url]);
-	rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, type, convertable, url]);
+	// rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, type, convertable, url]);
+	rr.push([credit, title, when, hood, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, /*type, convertable,*/ url]);
 }
 
 // headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'انباری', 'گازرومیزی', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
-headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
+// headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
+headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', /*'نوع‌آگهی', 'قابل‌تبدیل',*/ 'لینک'];
 
 if (makeCSV) {
-	[s1,s2,s3,s4] = ['ودیعه','متراژ','گازرومیزی','تک‌واحدی'].map(i=> headers.indexOf(i));
+	[s1,s2,s3,s4,s5] = ['ودیعه','متراژ','گازرومیزی','تک‌واحدی','زمان'].map(i=> headers.indexOf(i));
 	
 	rr.sort((a,b)=>a[s1]-b[s1])
 		.sort((a,b)=>a[s2]-b[s2])
 		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'))
-		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'));
+		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'))
+		.sort((a,b)=>a[s5]-b[s5]);
 	
 	_rr = rr.map((v,i) => [i+1, ...v]);
 	
