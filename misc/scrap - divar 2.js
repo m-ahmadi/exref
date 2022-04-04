@@ -132,7 +132,7 @@ for (let [idx, text] of texts.entries()) {
 
 
 	// let storage = _document.querySelector('.kt-group-row:nth-last-of-type(1) .kt-group-row-item:nth-last-of-type(1) span').innerText;
-	let [elevator, parking, storage] = [...document.querySelectorAll('span.kt-group-row-item__value.kt-body.kt-body--stable')].map(i=>i.innerText);
+	let [elevator, parking, storage] = [..._document.querySelectorAll('span.kt-group-row-item__value.kt-body.kt-body--stable')].map(i=>i.innerText);
 	
 	elevator = elevator === 'آسانسور ندارد' ? 'خیر' : 'بله';
 	parking = parking === 'پارکینگ ندارد' ? 'خیر' : 'بله';
@@ -148,21 +148,30 @@ for (let [idx, text] of texts.entries()) {
 	
 	// rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, storage, stove, type, convertable, url]);
 	// rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, type, convertable, url]);
-	rr.push([credit, title, when, hood, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, /*type, convertable,*/ url]);
+	// rr.push([credit, title, when, hood, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, /*type, convertable,*/ url]);
+	rr.push([credit, title, when, hood, singlefloor, stove, floor, parking, elevator, sqmeter, builtyear, rooms, storage, url]);
 }
 
 // headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'انباری', 'گازرومیزی', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
 // headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
-headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', /*'نوع‌آگهی', 'قابل‌تبدیل',*/ 'لینک'];
+// headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', /*'نوع‌آگهی', 'قابل‌تبدیل',*/ 'لینک'];
+headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'طبقه', 'پارکینگ', 'آسانسور', 'متراژ', 'سال‌ساخت', 'اتاق', 'انباری', 'لینک'];
 
 if (makeCSV) {
-	[s1,s2,s3,s4,s5] = ['ودیعه','متراژ','گازرومیزی','تک‌واحدی','زمان'].map(i=> headers.indexOf(i));
+	/* [s1,s2,s3,s4,s5] = ['ودیعه','متراژ','گازرومیزی','تک‌واحدی','زمان'].map(i=> headers.indexOf(i));
 	
 	rr.sort((a,b)=>a[s1]-b[s1])
 		.sort((a,b)=>a[s2]-b[s2])
 		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'))
 		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'))
-		.sort((a,b)=>a[s5]-b[s5]);
+		.sort((a,b)=>a[s5]-b[s5]); */
+	
+	[s1,s2,s3] = ['گازرومیزی','زمان','تک‌واحدی'].map(i=> headers.indexOf(i));
+	
+	rr.sort((a,b)=>a[s1].localeCompare(b[s1],'fa'))
+		.sort((a,b)=>a[s2]-b[s2])
+		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'));
+		
 	
 	_rr = rr.map((v,i) => [i+1, ...v]);
 	
@@ -194,10 +203,15 @@ if (makeHTML) {
 <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
 <script>
 table = new Tabulator('#mytable');
-table.setSort([
+/*table.setSort([
 	{column:'ودیعه', dir:'asc'},
 	{column:'متراژ', dir:'asc'},
 	{column:'گازرومیزی', dir:'asc'},
+	{column:'تک‌واحدی', dir:'asc'},
+]);*/
+table.setSort([
+	{column:'گازرومیزی', dir:'asc'},
+	{column:'زمان', dir:'asc'},
 	{column:'تک‌واحدی', dir:'asc'},
 ]);
 </script>`;
