@@ -1,9 +1,9 @@
 // https://divar.ir/s/tehran/rent-apartment?credit=-350000000&rent=0-0&floor=4-30&has-photo=true&elevator=true&parking=true&rent_to_single=true
-// https://divar.ir/s/tehran/rent-apartment?credit=-350000000&rent=0-0&floor=4-30&has-photo=true&elevator=false&parking=false&rent_to_single=true
+// https://divar.ir/s/tehran/rent-apartment?credit=-450000000&rent=0-500000&floor=3-30&has-photo=true&elevator=false&parking=false&rent_to_single=true
 
 ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
 
-totalScrolls = 90;
+totalScrolls = 250;
 eachScrollHeight = 850;
 wait = 1000;
 makeHTML = true;
@@ -55,7 +55,9 @@ rr = [];
 for (let [idx, text] of texts.entries()) {
 	let _document = new DOMParser().parseFromString(text, mimeType='text/html');
 
-	let title = _document.querySelector('.kt-page-title__title').innerText;
+	let title = _document.querySelector('.kt-page-title__title')
+	if (!title) continue;
+	title = title.innerText;
 	
 	/* let time = _document.querySelector('.kt-page-title__subtitle').innerText;
 	time = time.split('|')[0];
@@ -119,7 +121,7 @@ for (let [idx, text] of texts.entries()) {
 	let convertable = itms.get('ودیعه و اجاره');
 	let floor       = itms.get('طبقه');
 	
-	credit = credit.match(/(.*) تومان/)[1].match(/^(.{1,4})٬/)[1];
+	credit = credit === 'مجانی' ? '0' : credit.match(/(.*) تومان/)[1].match(/^(.{1,4})٬/)[1];
 
 	convertable = convertable === 'قابل تبدیل' ? 'بله' : convertable === 'غیر قابل تبدیل' ? 'خیر' : '';
 	
@@ -166,11 +168,13 @@ if (makeCSV) {
 		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'))
 		.sort((a,b)=>a[s5]-b[s5]); */
 	
-	[s1,s2,s3] = ['گازرومیزی','زمان','تک‌واحدی'].map(i=> headers.indexOf(i));
+	[s1,s2,s3,s4,s5] = ['گازرومیزی','زمان','تک‌واحدی','آسانسور','پارکینگ'].map(i=> headers.indexOf(i));
 	
 	rr.sort((a,b)=>a[s1].localeCompare(b[s1],'fa'))
 		.sort((a,b)=>a[s2]-b[s2])
-		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'));
+		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'))
+		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'))
+		.sort((a,b)=>a[s5].localeCompare(b[s5],'fa'));
 		
 	
 	_rr = rr.map((v,i) => [i+1, ...v]);
@@ -213,6 +217,8 @@ table.setSort([
 	{column:'گازرومیزی', dir:'asc'},
 	{column:'زمان', dir:'asc'},
 	{column:'تک‌واحدی', dir:'asc'},
+	{column:'آسانسور', dir:'asc'},
+	{column:'پارکینگ', dir:'asc'},
 ]);
 </script>`;
 	
