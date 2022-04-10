@@ -108,14 +108,14 @@ for (let [idx, text] of texts.entries()) {
 	//[title, hood, when, sqmeter, credit, rent, rooms, parking, elevator, storage, buildage, singlefloor, stove];
 	
 	// rr.push([credit, title, when, hood, singlefloor, stove, parking, elevator, sqmeter, buildage, rooms, storage, url]);
-	rr.push([credit, title, when, hood, singlefloor, parking, elevator, url]);
-	// rr.push([credit, title, hood, singlefloor, parking, elevator, url]);
+	// rr.push([credit, title, when, hood, singlefloor, parking, elevator, url]);
+	rr.push([credit, title, hood, singlefloor, parking, elevator, url]);
 }
 
 
 // headers = ['رهن', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'پارکینگ', 'آسانسور', 'متراژ', 'سن بنا', 'اتاق', 'انباری', 'لینک'];
-headers = ['رهن', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'پارکینگ', 'آسانسور', 'لینک'];
-// headers = ['رهن', 'عنوان', 'محل', 'تک‌واحدی', 'پارکینگ', 'آسانسور', 'لینک'];
+// headers = ['رهن', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'پارکینگ', 'آسانسور', 'لینک'];
+headers = ['رهن', 'عنوان', 'محل', 'تک‌واحدی', 'پارکینگ', 'آسانسور', 'لینک'];
 
 if (makeCSV) {
 	[s1,s2,s3,s4,s5,s6] = ['زمان','رهن','تک‌واحدی','آسانسور','پارکینگ','محل'].map(i=> headers.indexOf(i));
@@ -159,7 +159,7 @@ if (makeHTML) {
 <script>
 table = new Tabulator('#mytable');
 table.setSort([
-	{column:'زمان', dir:'asc'},
+	//{column:'زمان', dir:'asc'},
 	{column:'رهن', dir:'asc'},
 	{column:'تک‌واحدی', dir:'asc'},
 	{column:'آسانسور', dir:'desc'},

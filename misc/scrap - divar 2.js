@@ -37,11 +37,12 @@ r = [...new Set(r)];
 
 
 t = performance.now();
-let proms = await Promise.allSettled(r.map(i=> fetch(i)));
+// let qu = async a => { let p=[]; for (let i of a) await sleep(1000), p.push(fetch(i)); return p; };
+let proms = await Promise.allSettled(r.map(i=> fetch(i)) /*await qu(r)*/);
 while (proms.some(i=>i.reason || i.value.status !== 200)) {
 	let ers = proms.map((v,i)=> v.reason || v.value.status !== 200 ? i : -1).filter(i=>i>-1);
 	await sleep(2000);
-	(await Promise.allSettled( ers.map(i=> fetch(r[i])) ))
+	(await Promise.allSettled( ers.map(i=> fetch(r[i])) /*await qu(ers.map(i=>r[i]))*/ ))
 		.forEach((v,i) => proms[ers[i]] = v);
 }
 let texts = await Promise.all( proms.map(i=> i.value.text()) );
@@ -162,7 +163,8 @@ headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی'
 if (makeCSV) {
 	/* [s1,s2,s3,s4,s5] = ['ودیعه','متراژ','گازرومیزی','تک‌واحدی','زمان'].map(i=> headers.indexOf(i));
 	
-	rr.sort((a,b)=>a[s1]-b[s1])
+	rr
+		.sort((a,b)=>a[s1]-b[s1])
 		.sort((a,b)=>a[s2]-b[s2])
 		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'))
 		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'))
@@ -170,7 +172,8 @@ if (makeCSV) {
 	
 	[s1,s2,s3,s4,s5] = ['گازرومیزی','زمان','تک‌واحدی','آسانسور','پارکینگ'].map(i=> headers.indexOf(i));
 	
-	rr.sort((a,b)=>a[s1].localeCompare(b[s1],'fa'))
+	rr
+		.sort((a,b)=>a[s1].localeCompare(b[s1],'fa'))
 		.sort((a,b)=>a[s2]-b[s2])
 		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'))
 		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'))
