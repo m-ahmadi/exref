@@ -55,7 +55,7 @@ rr = [];
 for (let [idx, text] of texts.entries()) {
 	let _document = new DOMParser().parseFromString(text, mimeType='text/html');
 
-	let title = _document.querySelector('.kt-page-title__title')
+	let title = _document.querySelector('.kt-page-title__title');
 	if (!title) continue;
 	title = title.innerText;
 	

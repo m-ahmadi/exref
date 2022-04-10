@@ -47,5 +47,5 @@ http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/...		StaticTreshholdData
 http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/...		InstrumentStateData
 http://cdn.tsetmc.com/api/Shareholder/...				ShareHolderData
 
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily...		some info
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/...		some info
 --------------------------------------------------------------------------------
