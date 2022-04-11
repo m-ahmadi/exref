@@ -37,12 +37,12 @@ r = [...new Set(r)];
 
 
 t = performance.now();
-// let qu = async a => { let p=[]; for (let i of a) await sleep(1000), p.push(fetch(i)); return p; };
-let proms = await Promise.allSettled(r.map(i=> fetch(i)) /*await qu(r)*/);
+let qu = async a => { let p=[]; for (let i of a) await sleep(1000), p.push(fetch(i)); return p; };
+let proms = await Promise.allSettled(await qu(r)); // r.map(i=> fetch(i))
 while (proms.some(i=>i.reason || i.value.status !== 200)) {
 	let ers = proms.map((v,i)=> v.reason || v.value.status !== 200 ? i : -1).filter(i=>i>-1);
 	await sleep(2000);
-	(await Promise.allSettled( ers.map(i=> fetch(r[i])) /*await qu(ers.map(i=>r[i]))*/ ))
+	(await Promise.allSettled( await qu(ers.map(i=>r[i])) )) // ers.map(i=> fetch(r[i]))
 		.forEach((v,i) => proms[ers[i]] = v);
 }
 let texts = await Promise.all( proms.map(i=> i.value.text()) );
