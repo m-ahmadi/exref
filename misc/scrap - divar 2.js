@@ -49,8 +49,8 @@ let texts = await Promise.all( proms.map(i=> i.value.text()) );
 console.log('took', (((performance.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
-lett = {'۱':'یک', '۲':'دو', '۳':'سه', '۴':'چهار', '۵':'پنج', '۶':'شش', '۷':'هفت', '۸':'هشت', '۹':'نه'};
 toEn = s => +[...s].map(i => en[i]).join('');
+lett = {'۱':'یک', '۲':'دو', '۳':'سه', '۴':'چهار', '۵':'پنج', '۶':'شش', '۷':'هفت', '۸':'هشت', '۹':'نه'};
 
 rr = [];
 for (let [idx, text] of texts.entries()) {
@@ -122,8 +122,8 @@ for (let [idx, text] of texts.entries()) {
 	let convertable = itms.get('ودیعه و اجاره');
 	let floor       = itms.get('طبقه');
 	
-	credit = credit === 'مجانی' ? '0' : credit.match(/(.*) تومان/)[1].match(/^(.{1,4})٬/)[1];
-
+	credit = credit === 'مجانی' ? '0' : toEn(credit) / 1e6; // credit.match(/(.*) تومان/)[1].match(/^(.{1,4})٬/)[1];
+	
 	convertable = convertable === 'قابل تبدیل' ? 'بله' : convertable === 'غیر قابل تبدیل' ? 'خیر' : '';
 	
 	let type =

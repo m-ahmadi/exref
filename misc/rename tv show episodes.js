@@ -44,7 +44,7 @@ fs.readdirSync('./')
 		var names = seasons[i];
 		var files = fs.readdirSync(folder).filter(i => i !=='sub');
 		files.forEach((file, j) => {
-			console.log(join(folder,file), ' ===> ', join(folder, names[j]+'.mkv'));
+			console.log(join(folder,file), '    ===>    ', join(folder, names[j]+'.mkv'));
 			//fs.renameSync(join(folder,file), join(folder, names[j]+'.mkv'))
 		});
 	});

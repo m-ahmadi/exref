@@ -95,7 +95,7 @@ for (let [idx, text] of texts.entries()) {
 	[sqmeter, credit, rent, rooms, parking, elevator, storage, buildage] =
 		[sqmeter, credit, rent, rooms, parking, elevator, storage, buildage].map(i=> i ? i : '');
 	
-	credit   = credit.replace(' تومان','').replace(/,/g,'') / 1e6;
+	credit   = credit.replace(/[^\d]/g,'') / 1e6;
 	rooms    = rooms === 'بدون اتاق' ? 0 : +rooms.replace(/[^\d]/g,'');
 	buildage = +buildage.replace(/[^\d]/g,'');
 	
