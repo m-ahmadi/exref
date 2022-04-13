@@ -48,9 +48,9 @@ while (proms.some(i=>i.reason || i.value.status !== 200)) {
 let texts = await Promise.all( proms.map(i=> i.value.text()) );
 console.log('took', (((performance.now()-t) / 1000) / 60).toFixed(2), ' min');
 
+
 en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
 toEn = s => +[...s].map(i => en[i]).join('');
-lett = {'۱':'یک', '۲':'دو', '۳':'سه', '۴':'چهار', '۵':'پنج', '۶':'شش', '۷':'هفت', '۸':'هشت', '۹':'نه'};
 
 rr = [];
 for (let [idx, text] of texts.entries()) {
@@ -59,10 +59,6 @@ for (let [idx, text] of texts.entries()) {
 	let title = _document.querySelector('.kt-page-title__title');
 	if (!title) continue;
 	title = title.innerText;
-	
-	/* let time = _document.querySelector('.kt-page-title__subtitle').innerText;
-	time = time.split('|')[0];
-	time = time.replace(/([۱۲۳۴۵۶۷۸۹])/g, (m,p1)=> lett[p1]).trim(); */
 	
 	let sub = _document.querySelector('.kt-page-title__subtitle').innerText;
 	sub = sub.split(' | ')[0];
@@ -120,9 +116,11 @@ for (let [idx, text] of texts.entries()) {
 	
 	let credit      = itms.get('ودیعه');
 	let convertable = itms.get('ودیعه و اجاره');
+	let rent        = itms.get('اجارهٔ ماهانه');
 	let floor       = itms.get('طبقه');
 	
-	credit = credit === 'مجانی' ? '0' : toEn(credit) / 1e6; // credit.match(/(.*) تومان/)[1].match(/^(.{1,4})٬/)[1];
+	credit = credit === 'مجانی' ? 0 : toEn(credit) / 1e6;
+	rent   = rent   === 'مجانی' ? 0 : toEn(rent)   / 1e6;
 	
 	convertable = convertable === 'قابل تبدیل' ? 'بله' : convertable === 'غیر قابل تبدیل' ? 'خیر' : '';
 	
@@ -131,10 +129,9 @@ for (let [idx, text] of texts.entries()) {
 		(itms.has('آگهی‌دهنده') && ['املاک','مشاور املاک','آژانس املاک'].includes(itms.get('آگهی‌دهنده'))) || itms.has('آژانس املاک') ? 'املاک' :
 		'';
 	
-	[sqmeter, builtyear, rooms, credit] = [sqmeter, builtyear, rooms, credit, floor].map(toEn);
-
-
-	// let storage = _document.querySelector('.kt-group-row:nth-last-of-type(1) .kt-group-row-item:nth-last-of-type(1) span').innerText;
+	[sqmeter, builtyear, rooms] = [sqmeter, builtyear, rooms].map(toEn);
+	
+	
 	let [elevator, parking, storage] = [..._document.querySelectorAll('span.kt-group-row-item__value.kt-body.kt-body--stable')].map(i=>i.innerText);
 	
 	elevator = elevator === 'آسانسور ندارد' ? 'خیر' : 'بله';
@@ -147,29 +144,14 @@ for (let [idx, text] of texts.entries()) {
 	
 	let url = r[idx];
 	
-	//[title, time, sqmeter, builtyear, rooms, credit, convertable, floor, type, elevator, parking, storage, singlefloor, stove];
+	//[title, time, sqmeter, builtyear, rooms, credit, rent, convertable, floor, type, elevator, parking, storage, singlefloor, stove];
 	
-	// rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, storage, stove, type, convertable, url]);
-	// rr.push([credit, title, time, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, type, convertable, url]);
-	// rr.push([credit, title, when, hood, sqmeter, builtyear, rooms, floor, singlefloor, stove, elevator, parking, storage, /*type, convertable,*/ url]);
 	rr.push([credit, title, when, hood, singlefloor, stove, floor, parking, elevator, sqmeter, builtyear, rooms, storage, url]);
 }
 
-// headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'انباری', 'گازرومیزی', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
-// headers = ['ودیعه', 'عنوان', 'زمان', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', 'نوع‌آگهی', 'قابل‌تبدیل', 'لینک'];
-// headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'متراژ', 'سال‌ساخت', 'اتاق', 'طبقه', 'تک‌واحدی', 'گازرومیزی', 'آسانسور', 'پارکینگ', 'انباری', /*'نوع‌آگهی', 'قابل‌تبدیل',*/ 'لینک'];
 headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'طبقه', 'پارکینگ', 'آسانسور', 'متراژ', 'سال‌ساخت', 'اتاق', 'انباری', 'لینک'];
 
 if (makeCSV) {
-	/* [s1,s2,s3,s4,s5] = ['ودیعه','متراژ','گازرومیزی','تک‌واحدی','زمان'].map(i=> headers.indexOf(i));
-	
-	rr
-		.sort((a,b)=>a[s1]-b[s1])
-		.sort((a,b)=>a[s2]-b[s2])
-		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'))
-		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'))
-		.sort((a,b)=>a[s5]-b[s5]); */
-	
 	[s1,s2,s3,s4,s5] = ['گازرومیزی','زمان','تک‌واحدی','آسانسور','پارکینگ'].map(i=> headers.indexOf(i));
 	
 	rr
@@ -210,12 +192,6 @@ if (makeHTML) {
 <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
 <script>
 table = new Tabulator('#mytable');
-/*table.setSort([
-	{column:'ودیعه', dir:'asc'},
-	{column:'متراژ', dir:'asc'},
-	{column:'گازرومیزی', dir:'asc'},
-	{column:'تک‌واحدی', dir:'asc'},
-]);*/
 table.setSort([
 	{column:'گازرومیزی', dir:'asc'},
 	{column:'زمان', dir:'asc'},
