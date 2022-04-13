@@ -430,6 +430,21 @@ function ema2(nums=[], period=5) {
 	return res;
 }
 
+function ema_formal(nums=[], alpha=1) {
+	if (alpha < 0 || alpha > 1) return;
+	
+	let S = [];
+	
+	S.push(nums[0]);
+	
+	for (let i=1, len=nums.length; i<len; i++) {
+		let s = ( (alpha * nums[i]) + (1-alpha) ) * S[i-1];
+		S.push(s);
+	}
+	
+	return S;
+}
+
 function minmax(nums=[]) {
 	let {min,max} = Math;
 	return nums.reduce(([n,x],i)=> [min(n,i), max(x,i)], [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]);
