@@ -405,6 +405,35 @@ function ema(nums=[], period=5, fill) {
 }
 
 function ema2(nums=[], period=5) {
+	let S = [];
+	
+	S.push( mean(nums.slice(0,period)) );
+	
+	let alpha = 2 / (period + 1);
+	
+	nums.slice(period).map((num, j) => {
+		let s = alpha * num + (1-alpha) * S[j];
+		S.push(s);
+	});
+	
+	return S;
+}
+function ema_formal(nums=[], alpha=1) {/* alt init */
+	if (alpha < 0 || alpha > 1) return;
+	
+	let S = [];
+	
+	S.push(nums[0]);
+	
+	nums.slice(1).map((num, j) => {
+		let s = alpha * num + (1-alpha) * S[j];
+		S.push(s);
+	});
+	
+	return S;
+}
+
+function ema3(nums=[], period=5) {
 	let res = [];
 	let pi = period - 1;
 	
@@ -428,21 +457,6 @@ function ema2(nums=[], period=5) {
 	}
 	
 	return res;
-}
-
-function ema_formal(nums=[], alpha=1) {
-	if (alpha < 0 || alpha > 1) return;
-	
-	let S = [];
-	
-	S.push(nums[0]);
-	
-	for (let i=1, len=nums.length; i<len; i++) {
-		let s = ( (alpha * nums[i]) + (1-alpha) ) * S[i-1];
-		S.push(s);
-	}
-	
-	return S;
 }
 
 function minmax(nums=[]) {

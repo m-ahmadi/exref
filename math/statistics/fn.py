@@ -1,6 +1,54 @@
 import numpy as np
 import pandas as pd
 
+def mean(nums=[], trim=0, sample=False):
+	if trim:
+		nums = sorted(nums[:])[+trim:-trim]
+	return sum(nums) / (len(nums) - (1 if sample else 0))
+
+
+def sma(nums=[], period=2, fill=None):
+	pi = period - 1 if period > 0 else 0
+	res = [fill] * pi
+	
+	if period > 0:
+		for i in range(pi, len(nums)):
+			res.append( mean(nums[i-pi:i+1]) )
+	else:
+		res = [ mean(nums[0:i+1]) for i,v in enumerate(nums) ]
+	
+	return res
+
+
+def ema(nums=[], period=5, fill=None):
+	res = [fill] * (period-1)
+	
+	res.append( mean(nums[0:period]) )
+	
+	m = 2 / (period+1)
+	
+	for i in range(period, len(nums)):
+		n = (nums[i] * m) + (res[i-1] * (1-m))
+		res.append(n)
+	
+	return res
+
+
+def ema_formal(nums=[], alpha=1):
+	if alpha < 0 or alpha > 1:
+		return
+	
+	S = []
+	
+	S.append( nums[0] )
+	
+	for j, num in enumerate(nums[1:]):
+		s = alpha * num + (1-alpha) * S[j]
+		S.append(s)
+	
+	return S
+
+
 def ems(data):
 	meancalc = []
 	varcalc = []
@@ -34,7 +82,6 @@ def ems(data):
 		stdcalc.append(ewmstd)
 
 	return [meancalc, varcalc, stdcalc]
-
 
 df = pd.read_csv('file.csv')
 close = df.close

@@ -121,3 +121,5 @@ a = s.ewm(com=2).mean()         # alpha = 1 / (com + 1)
 b = s.ewm(span=5).mean()        # alpha = 2 / (span + 1)
 c = s.ewm(alpha=2/(5+1)).mean() # alpha = direct
 a.tolist() == b.tolist() == c.tolist() # True
+s.ewm(halflife=1.70951129129999999).mean() # almost equal to above
+
