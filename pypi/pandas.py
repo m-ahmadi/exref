@@ -114,3 +114,10 @@ df2 = pd.DataFrame([ {'a':5,'b':6}, {'a':7,'b':8} ])
 cat = pd.concat([df1, df2], ignore_index=True)
 cat.columns # ['a', 'b']
 cat.values  # [ [1,2], [3,4], [5,6], [7,8] ]
+
+# stats - exponentially weighted calculations
+s = pd.Series([1,2,3,4,5,6,7,8])
+a = s.ewm(com=2).mean()         # alpha = 1 / (com + 1)
+b = s.ewm(span=5).mean()        # alpha = 2 / (span + 1)
+c = s.ewm(alpha=2/(5+1)).mean() # alpha = direct
+a.tolist() == b.tolist() == c.tolist() # True

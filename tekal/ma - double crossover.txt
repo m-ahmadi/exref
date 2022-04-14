@@ -2,8 +2,8 @@ double crossover (two moving averages)
 
 this technique lags the market a bit more than a single average but produces fewer whipsaws
 
-buy  signal:	when shorter average crosses above the longer
-sell signal:	when ...                     below the longer
+buy  signal:	when shorter average crosses above the longer average
+sell signal:	when ...                     below the longer average
 
 
 popular combinations
