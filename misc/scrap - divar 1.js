@@ -13,26 +13,26 @@ ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','ر
 window.scrollTo(0,0);
 r = [];
 for (let i of [...Array(totalScrolls).keys()]) {
-    window.scrollBy(0,eachScrollHeight);
+	window.scrollBy(0,eachScrollHeight);
+
+	await new Promise(r=>setTimeout(r,wait));
+
+	r.push(
+		[...document.querySelectorAll('.post-card-item')].map(i => {
 		
-		await new Promise(r=>setTimeout(r,wait));
-		
-		r.push(
-			[...document.querySelectorAll('.post-card-item')].map(i => {
+			let [ credit, rent ] = i.querySelector('a .kt-post-card__description').innerText.split('\n').flat();
+			credit = credit.match(/ودیعه: (.*) تومان/)[1].match(/^(.{1,4}),/)[1];
+			credit = +[...credit].map(i => en[i]).join('');
 			
-				let [ credit, rent ] = i.querySelector('a .kt-post-card__description').innerText.split('\n').flat();
-				credit = credit.match(/ودیعه: (.*) تومان/)[1].match(/^(.{1,4}),/)[1];
-				credit = +[...credit].map(i => en[i]).join('');
-				
-				let title = i.querySelector('a .kt-post-card__title').innerText;
-				let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
-				let link = decodeURI(i.querySelector('a').href);
-				
-				if ( ignore.some(i=> title.includes(i) || time.includes(i)) ) return;
-				
-				return [credit, rent, title, time, link];
-			}).filter(i=>i)
-		);
+			let title = i.querySelector('a .kt-post-card__title').innerText;
+			let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
+			let link = decodeURI(i.querySelector('a').href);
+			
+			if ( ignore.some(i=> title.includes(i) || time.includes(i)) ) return;
+			
+			return [credit, rent, title, time, link];
+		}).filter(i=>i)
+	);
 }
 r = r.flat();
 r = r.map(i=>i[4]).map((v,i,a)=> a.indexOf(v)===i ? i : -1).filter(i=>i!==-1).map(i=>r[i]);

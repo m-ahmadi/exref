@@ -3,7 +3,6 @@
 
 ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
 
-totalScrolls = 250;
 eachScrollHeight = 850;
 wait = 1000;
 makeHTML = true;
@@ -14,9 +13,10 @@ sleep = ms => new Promise(r=> setTimeout(r,ms));
 
 window.scrollTo(0,0);
 r = [];
-for (let i of [...Array(totalScrolls).keys()]) {
+prevY = -1;
+while (window.scrollY > prevY) {
+	prevY = window.scrollY;
 	window.scrollBy(0,eachScrollHeight);
-	
 	await sleep(wait);
 	
 	r.push(
@@ -115,8 +115,8 @@ for (let [idx, text] of texts.entries()) {
 	itms = new Map(itms);
 	
 	let credit      = itms.get('ودیعه');
-	let convertable = itms.get('ودیعه و اجاره');
 	let rent        = itms.get('اجارهٔ ماهانه');
+	let convertable = itms.get('ودیعه و اجاره');
 	let floor       = itms.get('طبقه');
 	
 	credit = credit === 'مجانی' ? 0 : toEn(credit) / 1e6;
@@ -152,15 +152,18 @@ for (let [idx, text] of texts.entries()) {
 headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'طبقه', 'پارکینگ', 'آسانسور', 'متراژ', 'سال‌ساخت', 'اتاق', 'انباری', 'لینک'];
 
 if (makeCSV) {
-	[s1,s2,s3,s4,s5] = ['گازرومیزی','زمان','تک‌واحدی','آسانسور','پارکینگ'].map(i=> headers.indexOf(i));
-	
-	rr
-		.sort((a,b)=>a[s1].localeCompare(b[s1],'fa'))
-		.sort((a,b)=>a[s2]-b[s2])
-		.sort((a,b)=>a[s3].localeCompare(b[s3],'fa'))
-		.sort((a,b)=>a[s4].localeCompare(b[s4],'fa'))
-		.sort((a,b)=>a[s5].localeCompare(b[s5],'fa'));
-		
+	[  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ']  ].map(([header, numerical, desc]) => {
+		let j = headers.indexOf(header);
+		if (numerical) {
+			desc
+				? rr.sort((a,b)=> b[j] - a[j])
+				: rr.sort((a,b)=> a[j] - b[j]);
+		} else {
+			desc
+				? rr.sort((a,b)=> b[j].localeCompare(a[j],'fa'))
+				: rr.sort((a,b)=> a[j].localeCompare(b[j],'fa'));
+		}
+	});
 	
 	_rr = rr.map((v,i) => [i+1, ...v]);
 	

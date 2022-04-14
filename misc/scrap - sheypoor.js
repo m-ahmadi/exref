@@ -118,6 +118,19 @@ for (let [idx, text] of texts.entries()) {
 headers = ['رهن', 'عنوان', 'محل', 'تک‌واحدی', 'پارکینگ', 'آسانسور', 'لینک'];
 
 if (makeCSV) {
+	[  ['زمان',1], ['رهن',1], ['تک‌واحدی'], ['آسانسور',0,1], ['پارکینگ',0,1], ['محل']  ].map(([header, numerical, desc]) => {
+		let j = headers.indexOf(header);
+		if (numerical) {
+			desc
+				? rr.sort((a,b)=> b[j] - a[j])
+				: rr.sort((a,b)=> a[j] - b[j]);
+		} else {
+			desc
+				? rr.sort((a,b)=> b[j].localeCompare(a[j],'fa'))
+				: rr.sort((a,b)=> a[j].localeCompare(b[j],'fa'));
+		}
+	});
+	
 	[s1,s2,s3,s4,s5,s6] = ['زمان','رهن','تک‌واحدی','آسانسور','پارکینگ','محل'].map(i=> headers.indexOf(i));
 	
 	rr
