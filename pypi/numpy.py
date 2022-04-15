@@ -454,7 +454,7 @@ np.positive
 np.power
 np.ppmt
 np.printoptions
-np.prod
+np.prod(a=∂, ?axis=None|0|(0,..), ?dtype=None, ?out=None, ?keepdims=, ?initial=, ?where=)
 np.product
 np.promote_types
 np.ptp

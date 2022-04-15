@@ -49,7 +49,7 @@ def ema_formal(nums=[], alpha=1):
 	return S
 
 
-def ems(data):
+def ewm(data):
 	meancalc = []
 	varcalc = []
 	stdcalc = []
@@ -64,15 +64,17 @@ def ems(data):
 		n = len(z)
 		w = (1-a) ** np.arange(n-1, -1, -1)
 		
+		w_sum = np.sum(w)
+
 		# calc exponential weighted mean
-		ewma = np.sum(w*z) / np.sum(w)
+		ewma = np.sum(w*z) / w_sum
 		
 		# calc bias
-		w_sumsqr = np.sum(w) ** 2
+		w_sumsqr = w_sum ** 2
 		bias = w_sumsqr / ( w_sumsqr - np.sum(w**2) )
 		
 		# calc exponential weighted variance
-		ewmvar = bias * np.sum( (w * (z-ewma) ** 2) / np.sum(w) )
+		ewmvar = bias * np.sum( (w * (z-ewma) ** 2) / w_sum )
 		
 		# calc exponential weighted standard deviation
 		ewmstd = np.sqrt(ewmvar)
@@ -83,15 +85,12 @@ def ems(data):
 
 	return [meancalc, varcalc, stdcalc]
 
-df = pd.read_csv('file.csv')
-close = df.close
-
-x = ems(close)
-
+s = pd.Series([1,2,3,4,5,6,7,8])
+x = ewm(s)
 '''
 _1 = x[0]
-_2 = pd.Series(close).ewm(span=5).mean().tolist()
+_2 = s.ewm(span=5).mean().tolist()
 
 _1 = x[2]
-_2 = pd.Series(close).ewm(span=5).std().tolist()
+_2 = s.ewm(span=5).std().tolist()
 '''

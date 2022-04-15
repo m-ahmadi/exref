@@ -403,8 +403,30 @@ function ema(nums=[], period=5, fill) {
 	
 	return res;
 }
-
-function ema2(nums=[], period=5) {
+function ema2(nums=[], period=5) {/*alt code 1*/
+	let res = [];
+	let pi = period - 1;
+	
+	for (let i=0, len=nums.length; i<len; i++) {
+		if (i < pi) {
+			res.push(undefined);
+			continue;
+		}
+		
+		if (i === pi) {
+			res.push( mean(nums.slice(0,i+1)) );
+			continue;
+		}
+		
+		let m = 2 / (period+1);
+		let v = (nums[i] * m) + (res[i-1] * (1-m) );
+		
+		res.push(v);
+	}
+	
+	return res;
+}
+function ema3(nums=[], period=5) {/*alt code 2*/
 	let S = [];
 	
 	S.push( mean(nums.slice(0,period)) );
@@ -418,7 +440,7 @@ function ema2(nums=[], period=5) {
 	
 	return S;
 }
-function ema_formal(nums=[], alpha=1) {/* alt init */
+function ema_formal(nums=[], alpha=1) {/*alt init*/
 	if (alpha < 0 || alpha > 1) return;
 	
 	let S = [];
@@ -432,32 +454,75 @@ function ema_formal(nums=[], alpha=1) {/* alt init */
 	
 	return S;
 }
-
-function ema3(nums=[], period=5) {
-	let res = [];
-	let pi = period - 1;
+function ewm_pandas(nums=[]) {/*cumulative exponentially weighted*/
+	let meancalc = [];
+	let varcalc = [];
+	let stdcalc = [];
 	
-	for (let i=0, len=nums.length; i<len; i++) {
-		if (i < pi) {
-			res.push(undefined);
-			continue;
-		}
-		
-		if (i === pi) {
-			let r = nums.slice(0,i+1);
-			r = r.reduce((r,i)=> r+=i,0) / r.length;
-			res.push(r);
-			continue;
-		}
-		
-		let m = 2 / (period+1);
-		let v = (nums[i] * m) + (res[i-1] * (1-m) );
-		
-		res.push(v);
-	}
+	let a = 2 / (5 + 1);
 	
-	return res;
+	nums.forEach((num, j) => {
+		let z = nums.slice(0, j+1);
+		let n = z.length;
+		
+		let w = [...Array(n)].map((_,i)=> n-(i+1)); // range(n-1, -1, -1)
+		w = w.map(i => (1-a) ** i);
+		
+		let wSum = sum(w);
+		let wSumsqr = wSum ** 2;
+		
+		// exponentially weighted mean
+		let ewma = sum(vecMul(w,z)) / wSum;
+		
+		// bias
+		let bias = wSumsqr / ( wSumsqr - sum(w.map(sqr)) );
+		
+		// exponentially weighted variance
+		let ewmvar = bias * sum(  vecMul(w, z.map(i=> i-ewma).map(sqr)).map(i=> i/wSum)  );
+		
+		// exponentially weighted standard deviation
+		let ewmstd = Math.sqrt(ewmvar);
+		
+		meancalc.push(ewma);
+		varcalc.push(ewmvar);
+		stdcalc.push(ewmstd);
+	});
+	
+	return [meancalc, varcalc, stdcalc];
 }
+
+// exponentially weighted standard deviation (from stdlib)
+function increwstdev(alpha) {
+	if (alpha < 0 || alpha > 1) throw new Error('alpha must be nonnegative number in [0,1] range');
+	
+	let incr;
+	let s2;
+	let s;
+	let r;
+	let m;
+	let c = 1 - alpha;
+	
+	return (x) => {
+		if (arguments.length === 0) return s === undefined ? null : s;
+		
+		if (s === undefined) {
+			m = x;
+			s2 = 0;
+		} else {
+			r = x - m;
+			incr = alpha * r;
+			m += incr;
+			s2 = c * ( s2 + (r*incr) );
+		}
+		
+		s = Math.sqrt(s2);
+		
+		return s;
+	};
+}
+var alpha = 2 / (5 + 1); // smoothing factor
+var accumulator = increwstdev(alpha);
+[...Array(9).keys()].slice(1).map(accumulator);
 
 function minmax(nums=[]) {
 	let {min,max} = Math;
@@ -515,35 +580,3 @@ function polyval3(x=[], y=[], order=3) {
 	
 	return solution;
 }
-// exponentially weighted standard deviation
-function increwstdev(alpha) {
-	if (alpha < 0 || alpha > 1) throw new Error('alpha must be nonnegative number in [0,1] range');
-	
-	let incr;
-	let s2;
-	let s;
-	let r;
-	let m;
-	let c = 1 - alpha;
-	
-	return (x) => {
-		if (arguments.length === 0) return s === undefined ? null : s;
-		
-		if (s === undefined) {
-			m = x;
-			s2 = 0;
-		} else {
-			r = x - m;
-			incr = alpha * r;
-			m += incr;
-			s2 = c * ( s2 + (r*incr) );
-		}
-		
-		s = Math.sqrt(s2);
-		
-		return s;
-	};
-}
-var alpha = 2 / (5 + 1); // smoothing factor
-var accumulator = increwstdev(alpha);
-[...Array(9).keys()].slice(1).map(accumulator);
