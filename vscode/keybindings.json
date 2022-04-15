@@ -17,4 +17,6 @@
 	{ "key": "ctrl+shift+u", "command": "editor.action.transformToUppercase", "when": "textInputFocus" },
 	{ "key": "ctrl+shift+b", "command": "workbench.action.toggleActivityBarVisibility" },
 	{ "key": "ctrl+l",       "command": "workbench.debug.panel.action.clearReplAction" },
+	{ "key": "f8",           "command": "workbench.action.debug.continue",    "when": "debugState == 'stopped'" },
+	{ "key": "f5",           "command": "workbench.action.debug.restart",     "when": "inDebugMode" },
 ]
