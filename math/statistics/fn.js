@@ -394,10 +394,10 @@ function ema(nums=[], period=5, fill) {
 	
 	res.push( mean(nums.slice(0,period)) );
 	
-	let m = 2 / (period+1);
+	let a = 2 / (period + 1);
 	
 	for (let i=period, len=nums.length; i<len; i++) {
-		let n = (nums[i] * m) + (res[i-1] * (1-m));
+		let n = (nums[i] * a) + (res[i-1] * (1-a));
 		res.push(n);
 	}
 	
@@ -406,6 +406,8 @@ function ema(nums=[], period=5, fill) {
 function ema2(nums=[], period=5) {/*alt code 1*/
 	let res = [];
 	let pi = period - 1;
+	
+	let a = 2 / (period + 1);
 	
 	for (let i=0, len=nums.length; i<len; i++) {
 		if (i < pi) {
@@ -418,8 +420,7 @@ function ema2(nums=[], period=5) {/*alt code 1*/
 			continue;
 		}
 		
-		let m = 2 / (period+1);
-		let v = (nums[i] * m) + (res[i-1] * (1-m) );
+		let v = (nums[i] * a) + (res[i-1] * (1-a) );
 		
 		res.push(v);
 	}
@@ -431,10 +432,10 @@ function ema3(nums=[], period=5) {/*alt code 2*/
 	
 	S.push( mean(nums.slice(0,period)) );
 	
-	let alpha = 2 / (period + 1);
+	let a = 2 / (period + 1);
 	
 	nums.slice(period).map((num, j) => {
-		let s = alpha * num + (1-alpha) * S[j];
+		let s = a * num + (1-a) * S[j];
 		S.push(s);
 	});
 	
