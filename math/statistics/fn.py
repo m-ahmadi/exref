@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 
 def mean(nums=[], trim=0, sample=False):
 	if trim:
@@ -49,28 +48,32 @@ def ema_formal(nums=[], alpha=1):
 	return S
 
 
-def ewm(data):
+def ewm(data, span=5, adjust=True):
 	meancalc = []
 	varcalc = []
 	stdcalc = []
 
-	a = 2 / (5 + 1)
+	a = 2 / (span + 1)
 
-	for i in range(0, len(data)):
+	for j in range(0, len(data)):
 		# get window
-		z = np.array(data.iloc[0:i+1].tolist())
+		z = np.array(data.iloc[0:j+1].tolist())
 
 		# get weights
 		n = len(z)
-		w = (1-a) ** np.arange(n-1, -1, -1)
+		if adjust:
+			w = (1-a) ** np.arange(n-1, -1, -1)
+		else:
+			w = [ a*(1-a)**i if i<j else (1-a)**i for i in range(n-1, -1, -1) ]
+			w = np.array(w)
 		
 		w_sum = np.sum(w)
-
+		w_sumsqr = w_sum ** 2
+		
 		# calc exponential weighted mean
 		ewma = np.sum(w*z) / w_sum
 		
 		# calc bias
-		w_sumsqr = w_sum ** 2
 		bias = w_sumsqr / ( w_sumsqr - np.sum(w**2) )
 		
 		# calc exponential weighted variance
@@ -84,13 +87,15 @@ def ewm(data):
 		stdcalc.append(ewmstd)
 
 	return [meancalc, varcalc, stdcalc]
-
-s = pd.Series([1,2,3,4,5,6,7,8])
-x = ewm(s)
 '''
-_1 = x[0]
-_2 = s.ewm(span=5).mean().tolist()
+s = pd.Series([1,2,3,4,5,6,7,8])
 
-_1 = x[2]
-_2 = s.ewm(span=5).std().tolist()
+s.ewm(span=5, adjust=True).mean().tolist()  == ewm(s, 5, True)[0]
+s.ewm(span=5, adjust=False).mean().tolist() == ewm(s, 5, False)[0]
+
+s.ewm(span=5, adjust=True).var().tolist()   == ewm(s, 5, True)[1]
+s.ewm(span=5, adjust=False).var().tolist()  == ewm(s, 5, False)[1]
+
+s.ewm(span=5, adjust=True).std().tolist()   == ewm(s, 5, True)[2]
+s.ewm(span=5, adjust=False).std().tolist()  == ewm(s, 5, False)[2]
 '''

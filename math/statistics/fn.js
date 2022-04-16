@@ -389,6 +389,10 @@ function sma(nums=[], period=2, fill) {
 	return res;
 }
 
+function cma(nums=[]) {
+	return nums.map((v,i,a) => mean(a.slice(0,i+1)) );
+}
+
 function ema(nums=[], period=5, fill) {
 	let res = Array(period-1).fill(fill);
 	
@@ -455,19 +459,23 @@ function ema_formal(nums=[], alpha=1) {/*alt init*/
 	
 	return S;
 }
-function ewm_pandas(nums=[]) {/*cumulative exponentially weighted*/
+function ewm_pandas(nums=[], span=5, adjust=true) {/*cumulative & exponentially weighted*/
 	let meancalc = [];
 	let varcalc = [];
 	let stdcalc = [];
 	
-	let a = 2 / (5 + 1);
+	let a = 2 / (span + 1);
 	
 	nums.forEach((num, j) => {
 		let z = nums.slice(0, j+1);
 		let n = z.length;
 		
-		let w = [...Array(n)].map((_,i)=> n-(i+1)); // range(n-1, -1, -1)
-		w = w.map(i => (1-a) ** i);
+		let w = [];
+		if (adjust) {
+			for (let i=n-1; i>-1; i--) w.push((1-a) ** i);
+		} else {
+			for (let i=n-1; i>-1; i--) w.push(i<j ? a*(1-a)**i : (1-a)**i);
+		}
 		
 		let wSum = sum(w);
 		let wSumsqr = wSum ** 2;
