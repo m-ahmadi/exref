@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css">
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+
+<div id="charts"></div>
+
+<script src="./fn.js"></script>
+<script>
+var rn = (n,x) => Math.floor(Math.random()*(x-n)+n);
+data=[300];
+for (let i=1; i<20; i++) {
+	var p=data[i-1], d=p*0.05, v=rn(p-d, p+d), k=2;
+	while (v===p) {v=rn(p-d, p+d*k); k*=2;}
+	data.push(v);
+}
+
+var _ewm = ewm(data);
+ewm = _ewm.map(a=> a.forEach((v,i,a)=> Number.isNaN(v) && (a[i] = undefined)) );
+var [ewma, ewmv, ewms] = _ewm;
+
+new uPlot({
+	width:1200, height:400,
+	series: [
+		{label:'t'},
+		{label:'price', stroke:'black',  width:5, points:{size:16,fill:'white'}},
+		{label:'sma',   stroke:'cyan',   width:2, points:{show:false}},
+		{label:'ema',   stroke:'red',    width:4, points:{show:false}},
+		{label:'ewma',  stroke:'blue',   width:4, points:{show:false}},
+	//{label:'ewmv',  stroke:'blue',   width:2, points:{show:false}},
+	//{label:'ewms',  stroke:'blue',   width:2, points:{show:false}},
+		{label:'cma',   stroke:'yellow', width:1, points:{show:false}, show:false},
+	],
+	scales: {x:{time:false}},
+	axes: [{grid:{show:false}}, {grid:{show:false}}]
+}, [
+	[...data.keys()].map(i=>i+1),
+	data,
+	sma(data),
+	ema(data),
+	ewma,
+	//ewmv,
+	//ewms,
+	cma(data),
+], charts);
+
+</script>

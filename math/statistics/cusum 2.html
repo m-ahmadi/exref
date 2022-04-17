@@ -22,10 +22,10 @@ for (let i=1; i<80; i++) {
 	data.push(v);
 }*/
 
-var _mean = mean(data);
-var _stdv = stdv(data);
-var ucl = _mean + (_stdv * 1.5);
-var lcl = _mean + (_stdv * -1.5);
+var u = mean(data);
+var s = stdv(data);
+var ucl = u + (s * 1.5);
+var lcl = u + (s * -1.5);
 var cma = data.map((v,i,a)=> mean(a.slice(0,i+1)) );
 
 var o = {points:{show:false},width:2,};
@@ -46,7 +46,7 @@ new uPlot({
 }, [
 	[...data.keys()].map(i=>i+1),
 	data,
-	data.map(()=>_mean),
+	data.map(()=>u),
 	data.map(()=>ucl),
 	data.map(()=>lcl),
 	cma,
@@ -54,8 +54,8 @@ new uPlot({
 
 
 
-var up = data.map(i=> (i=i-_mean, i<0?0:i));
-var dw = data.map(i=> (i=i-_mean, i>0?0:i));
+var up = data.map(i=> (i=i-u, i<0?0:i));
+var dw = data.map(i=> (i=i-u, i>0?0:i));
 var all = up.map((v,i)=> v===0 ? dw[i] : v);
 
 var ucl2 = mean(all) + (stdv(all) * 1.5);

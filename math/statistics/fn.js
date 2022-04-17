@@ -459,7 +459,7 @@ function ema_formal(nums=[], alpha=1) {/*alt init*/
 	
 	return S;
 }
-function ewm_pandas(nums=[], span=5, adjust=true) {/*cumulative & exponentially weighted*/
+function ewm(nums=[], span=5, adjust=true) {/*pandas*/
 	let meancalc = [];
 	let varcalc = [];
 	let stdcalc = [];

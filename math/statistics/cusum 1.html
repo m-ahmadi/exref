@@ -13,10 +13,10 @@ var data = [
 	5.362, 5.382, 5.389, 5.115, 5.184,
 ];
 
-var _mean = mean(data);
-var _stdv = stdv(data);
-var ucl = _mean + (_stdv * 1.5);
-var lcl = _mean - (_stdv * 1.5);
+var u = mean(data);
+var s = stdv(data);
+var ucl = u + (s * 1.5);
+var lcl = u - (s * 1.5);
 
 var chart1 = new Chart(_chart1, {
 	type: 'line',
@@ -32,7 +32,7 @@ var chart1 = new Chart(_chart1, {
 				pointBorderWidth: 3,
 			},
 			{
-				data: data.map(()=>_mean),
+				data: data.map(()=>u),
 				label: 'X̅',
 				borderColor: 'lime',
 				borderWidth: 2,
@@ -81,7 +81,7 @@ var chart2 = new Chart(_chart2, {
 		labels: [...data.keys()].map(i=>i+1),
 		datasets: [
 			{
-				data: data.map(i=> (i = i-_mean, i<0?0:i)),
+				data: data.map(i=> (i = i-u, i<0?0:i)),
 				label: '+ cusum',
 				borderColor: 'lime',
 				borderWidth: 1,
@@ -89,7 +89,7 @@ var chart2 = new Chart(_chart2, {
 				pointRadius: 4,
 			},
 			{
-				data: data.map(i=> (i = i-_mean, i>0?0:i)),
+				data: data.map(i=> (i = i-u, i>0?0:i)),
 				label: '- cusum',
 				borderColor: 'red',
 				borderWidth: 1,
