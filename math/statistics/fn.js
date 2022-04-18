@@ -393,7 +393,7 @@ function cma(nums=[]) {
 	return nums.map((v,i,a) => mean(a.slice(0,i+1)) );
 }
 
-function ema(nums=[], period=5, fill) {
+function ema(nums=[], period=2, fill) {
 	let res = Array(period-1).fill(fill);
 	
 	res.push( mean(nums.slice(0,period)) );
@@ -407,7 +407,7 @@ function ema(nums=[], period=5, fill) {
 	
 	return res;
 }
-function ema2(nums=[], period=5) {/*alt code 1*/
+function ema2(nums=[], period=2) {/*alt code 1*/
 	let res = [];
 	let pi = period - 1;
 	
@@ -431,7 +431,7 @@ function ema2(nums=[], period=5) {/*alt code 1*/
 	
 	return res;
 }
-function ema3(nums=[], period=5) {/*alt code 2*/
+function ema3(nums=[], period=2) {/*alt code 2*/
 	let S = [];
 	
 	S.push( mean(nums.slice(0,period)) );
@@ -459,7 +459,7 @@ function ema_formal(nums=[], alpha=1) {/*alt init*/
 	
 	return S;
 }
-function ewm(nums=[], span=5, adjust=true) {/*pandas*/
+function ewm(nums=[], span=2, adjust=true) {/*pandas*/
 	let meancalc = [];
 	let varcalc = [];
 	let stdcalc = [];

@@ -13,7 +13,7 @@ for (let i=1; i<20; i++) {
 	data.push(v);
 }
 
-var _ewm = ewm(data);
+var _ewm = ewm(data, 5);
 ewm = _ewm.map(a=> a.forEach((v,i,a)=> Number.isNaN(v) && (a[i] = undefined)) );
 var [ewma, ewmv, ewms] = _ewm;
 
@@ -34,8 +34,8 @@ new uPlot({
 }, [
 	[...data.keys()].map(i=>i+1),
 	data,
-	sma(data),
-	ema(data),
+	sma(data, 5),
+	ema(data, 5),
 	ewma,
 	//ewmv,
 	//ewms,

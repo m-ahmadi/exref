@@ -2,6 +2,7 @@
 // https://divar.ir/s/tehran/rent-apartment?credit=-450000000&rent=0-500000&floor=3-30&has-photo=true&elevator=false&parking=false&rent_to_single=true
 
 ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
+MAX_RENT = 0.5;
 
 eachScrollHeight = 850;
 wait = 1000;
@@ -119,10 +120,19 @@ for (let [idx, text] of texts.entries()) {
 	let convertable = itms.get('ودیعه و اجاره');
 	let floor       = itms.get('طبقه');
 	
-	credit = credit === 'مجانی' ? 0 : toEn(credit) / 1e6;
-	rent   = rent   === 'مجانی' ? 0 : toEn(rent)   / 1e6;
+	credit = ['مجانی','توافقی'].includes(credit) ? 0 : toEn(credit) / 1e6;
+	rent   = ['مجانی','توافقی'].includes(rent)   ? 0 : toEn(rent)   / 1e6;
 	
 	convertable = convertable === 'قابل تبدیل' ? 'بله' : convertable === 'غیر قابل تبدیل' ? 'خیر' : '';
+	
+	if (convertable === 'خیر' && rent > MAX_RENT) continue;
+	
+	let convcredit =
+		credit >  0 && rent >  0 ?  +(credit + rent / 0.03).toFixed() :
+		credit >  0 && rent <= 0 ?  credit :
+		credit <= 0 && rent >  0 ?  +(rent / 0.03).toFixed() :
+		credit <= 0 && rent <= 0 ?  'توافقی' :
+		'';
 	
 	let type =
 		itms.has('آگهی‌دهنده') && itms.get('آگهی‌دهنده') === 'شخصی' ? 'شخصی' :
@@ -144,15 +154,15 @@ for (let [idx, text] of texts.entries()) {
 	
 	let url = r[idx];
 	
-	//[title, time, sqmeter, builtyear, rooms, credit, rent, convertable, floor, type, elevator, parking, storage, singlefloor, stove];
+	//[title, when, sqmeter, builtyear, rooms, credit, rent, convertable, convcredit, floor, type, elevator, parking, storage, singlefloor, stove];
 	
-	rr.push([credit, title, when, hood, singlefloor, stove, floor, parking, elevator, sqmeter, builtyear, rooms, storage, url]);
+	rr.push([/*credit*/convcredit, title, when, hood, singlefloor, stove, floor, parking, elevator, sqmeter, builtyear, rooms, storage, url]);
 }
 
 headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'طبقه', 'پارکینگ', 'آسانسور', 'متراژ', 'سال‌ساخت', 'اتاق', 'انباری', 'لینک'];
 
 if (makeCSV) {
-	[  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ']  ].map(([header, numerical, desc]) => {
+	[  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'],  ].map(([header, numerical, desc]) => {
 		let j = headers.indexOf(header);
 		if (numerical) {
 			desc

@@ -19,7 +19,7 @@ def sma(nums=[], period=2, fill=None):
 	return res
 
 
-def ema(nums=[], period=5, fill=None):
+def ema(nums=[], period=2, fill=None):
 	res = [fill] * (period-1)
 	
 	res.append( mean(nums[0:period]) )
@@ -48,7 +48,7 @@ def ema_formal(nums=[], alpha=1):
 	return S
 
 
-def ewm(data, span=5, adjust=True):
+def ewm(data, span=2, adjust=True):
 	meancalc = []
 	varcalc = []
 	stdcalc = []
