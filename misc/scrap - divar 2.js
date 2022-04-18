@@ -134,6 +134,18 @@ for (let [idx, text] of texts.entries()) {
 		credit <= 0 && rent <= 0 ?  'توافقی' :
 		'';
 	
+	let totalfloors, lastfloor;
+	if (/از/.test(floor)) {
+		let [actualfloor, _totalfloors] = floor.split(' از ').map(i => i === 'همکف' ? 0 : toEn(i));
+		floor = actualfloor;
+		totalfloors = _totalfloors;
+		lastfloor = actualfloor === _totalfloors ? 'بله' : 'نه';
+	} else {
+		floor = floor === 'همکف' ? 0 : toEn(floor);
+		totalfloors = '';
+		lastfloor = 'مبهم'
+	}
+	
 	let type =
 		itms.has('آگهی‌دهنده') && itms.get('آگهی‌دهنده') === 'شخصی' ? 'شخصی' :
 		(itms.has('آگهی‌دهنده') && ['املاک','مشاور املاک','آژانس املاک'].includes(itms.get('آگهی‌دهنده'))) || itms.has('آژانس املاک') ? 'املاک' :
