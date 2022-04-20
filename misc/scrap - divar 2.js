@@ -3,6 +3,7 @@
 
 ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
 MAX_RENT = 0.5;
+MAX_CREDIT = 450;
 
 eachScrollHeight = 850;
 wait = 1000;
@@ -133,6 +134,8 @@ for (let [idx, text] of texts.entries()) {
 		credit <= 0 && rent >  0 ?  +(rent / 0.03).toFixed() :
 		credit <= 0 && rent <= 0 ?  'توافقی' :
 		'';
+	
+	if (+convcredit > MAX_CREDIT) continue;
 	
 	let totalfloors, lastfloor;
 	if (/از/.test(floor)) {
