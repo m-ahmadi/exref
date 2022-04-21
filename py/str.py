@@ -51,15 +51,20 @@ r'\\' # '\\\\'
 u'dude'
 
 # format string
-f'foo {23}!'    # 'foo 23!'
-f'{12.345:.2f}' # '12.35'
-
-f'''hi {2+2}''' # 'hi 4'
-
+f'foo {2+2}!'    # 'foo 4!'
+f'{12.345:.2f}'  # '12.35'
+f'''hi {2+2}'''  # 'hi 4'
 age = 32
 f'hello {age}' # 'hello 32'
 
 import datetime
 bday = datetime.date(1970, 10, 12)
-'your were born: {bday:%A, %B %d, %Y}'                      # 'your were born: Monday, October 12, 1970'
+f'your were born: {bday:%A, %B %d, %Y}'                     # 'your were born: Monday, October 12, 1970'
 'your were born: {}'.format(bday.strftime('%A, %B %d, %Y')) # ...
+
+# format string - escape curly
+f'hi {{ dude }}'                    # 'hi { dude }'
+f'{{ 2*2 }}'                        # '{ 2*2 }'
+f'foo {0} bar {1}'.format(4, 7)     # 'foo 0 bar 1'
+f'foo {{0}} bar {{1}}'.format(4, 7) # 'foo 4 bar 7'
+f'{{{ "HELLO".lower() }}}'          # eval expression:  '{hello}'

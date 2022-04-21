@@ -18,13 +18,13 @@ cdn
 npm i tabulator-tables
 */
 const options = {
-	data:                 [],           // assign data to table
+	data:                   [],           // assign data to table
 	
 	// layout
 	height:                 0|'',         // height of table (in css or here). any valid css height value. enables virtual dom & improves render speed dramatically
 	maxHeight:              0|'',
 	minHeight:              0|'',  
-	layout:                'fitColumns | fitData | fitDataFill| fitDataStretch | fitDataTable', // fit columns to width of table (optional)
+	layout:                 'fitColumns | fitData | fitDataFill| fitDataStretch | fitDataTable', // fit columns to width of table (optional)
 	responsiveLayout:       false|'hide | collapse'
 	layoutColumnsOnNewData: false
 	responsiveLayoutCollapseFormatter:     (data) => ,
@@ -45,19 +45,19 @@ const options = {
 	tooltipGenerationMode:  'load | hover'
 	tooltipsHeader:         false|''|()=>,
 	
-	pagination:              'local|remote',
-	paginationSize:          0,
-	paginationInitialPage:   0,
-	paginationSizeSelector:  false|[0,...],
-	paginationElement:       HTMLElement,
-	paginationButtonCount:   0,
-	paginationAddRow:        'page | table',
-	movableColumns:          false,
-	ajaxURL:                 '',
-	ajaxURLGenerator:        ()=>,
-	ajaxParams:              {},
-	paginationDataSent:      {},
-	paginationDataReceived:  {},
+	pagination:             'local|remote',
+	paginationSize:         0,
+	paginationInitialPage:  0,
+	paginationSizeSelector: false|[0,...],
+	paginationElement:      HTMLElement,
+	paginationButtonCount:  0,
+	paginationAddRow:       'page | table',
+	movableColumns:         false,
+	ajaxURL:                '',
+	ajaxURLGenerator:       ()=>,
+	ajaxParams:             {},
+	paginationDataSent:     {},
+	paginationDataReceived: {},
 	
 	columns: [            // define table columns
 		{
