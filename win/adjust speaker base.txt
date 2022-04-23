@@ -1,1 +1,4 @@
-mmsys.cpl -> Speakers -> Properties -> Dollby
+mmsys.cpl -> Speakers -> Properties ->
+	Dollby
+	or
+	Enhancements -> Equalizer

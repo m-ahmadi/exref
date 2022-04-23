@@ -14,6 +14,15 @@ elif 3 > 4
 else:
   print(3)
 
+if (
+	4 > 2 and
+	5 > 4 and
+	6 > 5
+):
+	print(1)
+else:
+	print(2)
+
 # ternary
 foo = 'allow' if condition else 'deny'
 ('false','true')[condition]

@@ -28,6 +28,7 @@ control admintools	Administrative Tools
 control desktop		Personalization
 firewall.cpl		Firewall
 mmsys.cpl		Sound
+mmsys.cpl ,1		... 2nd tab
 inetcpl.cpl		Internet Options
 desk.cpl		Display
 msconfig		System Configuration

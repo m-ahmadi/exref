@@ -1,0 +1,1 @@
+rd "%localappdata%\Microsoft\Media Player" /s/q

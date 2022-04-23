@@ -68,7 +68,7 @@ const opts = {
 			auto:  true | (u, resetScales=true)=>true,
 			range: [0,0] | (u, initMin=0, initMax=0, scaleKey='')=>[0,0] | { min:{pad:0.1,soft:0,mode:3,hard:0}, max:{←...} },
 			from:  '',
-			distr: 1|2|3|4, // linear|ordinal|logarithmic|arcsing
+			distr: 1|2|3|4, // linear|ordinal|logarithmic|arcsing    (ordinal: remove gaps in time)
 			log:   10|2,
 			clamp: 0 | (u, val=0, scaleMin=0, scaleMax=0, scaleKey='')=>0,
 			asinh: 1,
