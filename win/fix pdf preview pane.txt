@@ -1,0 +1,9 @@
+set key=HKLM\SOFTWARE\Wow6432Node\Classes\CLSID\{DC6EFB56-9CFA-464D-8880-44885D7DC193}
+
+reg delete %key% /v AppID /f
+
+reg add %key% /v AppID /d {534A1E02-D58F-44f0-B58B-36CBED287C7C} /f
+
+
+if does not work:
+https://www.pretentiousname.com/adobe_pdf_x64_fix/index.html

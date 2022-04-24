@@ -33,7 +33,7 @@ Number.MIN_SAFE_INTEGER  // -(2^53 - 1)
 
 // methods
 Number.isNaN()
-Number.isFinite()
+Number.isFinite()        // not neg/pos infinity and not NaN
 Number.isInteger()
 Number.isSafeInteger()   // between -9007199254740991 and 9007199254740991
 Number.toInteger() 
