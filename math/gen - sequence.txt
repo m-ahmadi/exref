@@ -1,0 +1,3 @@
+sequence:	a collection of things
+	repetitions are allowed
+	order matters

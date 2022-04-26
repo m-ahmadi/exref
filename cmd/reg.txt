@@ -6,7 +6,8 @@ reg delete HKCU\Environment /v foo /f		delete key (don't prompt)
 reg delete HKCU\Environment\foo /f		delete key & all subkeys
 reg import file.reg				import
 reg export HKLM\foo file.reg			export
-reg query HKCR\.css /ve				show value of (Default)
+reg query HKLM\foo /ve				show value of (Default)
+for /f "tokens=3" %i in ('reg query HKLM\foo /ve') do echo %i	... get data
 
 key abbreviations:
 HKCR = HKEY_CLASSES_ROOT

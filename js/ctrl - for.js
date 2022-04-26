@@ -32,9 +32,9 @@ for (let i=0,j=1; i<10; i+=j) {
 }
 
 // note: don't do the following:
-for (let i=j=0; i<10; i+=j) // variable j is not scoped and exists after loop ends.
+for (let i=j=0; i<10; i+=j) // variable j is not scoped and exists after loop ends
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// all 3 expressions in the head of the for loop are optional.
+// all 3 expressions in the head of the for loop are optional
 
 // no init:
 var i = 0;

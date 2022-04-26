@@ -69,6 +69,7 @@ shutdown ping ipconfig sfc chkdsk net netsh ... %windir%\system32\en-US
 rundll32 sysdm.cpl,EditEnvironmentVariables	open env vars directly
 control /name Microsoft.PowerOptions		same as: powercfg.cpl
 control /name Microsoft.FolderOptions		same as: control folders
+control /name Microsoft.Sound			same as: mmsys.cpl
 control /name Microsoft.NetworkAndSharingCenter
 control /name Microsoft.NetworkAndSharingCenter /page Advanced
 --------------------------------------------------------------------------------

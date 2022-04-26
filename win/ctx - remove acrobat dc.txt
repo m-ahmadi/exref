@@ -1,4 +1,4 @@
-cd "C:\Program Files (x86)\Adobe\Acrobat DC\Acrobat Elements"
+start "" "C:\Program Files\Adobe\Acrobat DC\Acrobat Elements"
 
 delete:
 
@@ -6,4 +6,13 @@ ContextMenu.dll
 ContextMenu64.dll
 ContextMenuShim64.dll
 
-done.
+--------------------------------------------------------------------------------
+another way (only folders)
+
+set key=HKCR\Folder\shellex\ContextMenuHandlers\Adobe.Acrobat.ContextMenu
+for /f "tokens=3" %i in ('reg query %key%') do set data=%i
+
+reg add %key% /f /ve /d --%data%
+
+undo:	reg add %key% /f /ve /d %data%
+--------------------------------------------------------------------------------

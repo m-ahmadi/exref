@@ -1,2 +1,3 @@
 taskkill /im notepad.exe /f
+taskkill /im explorer.exe /f
 taskkill /pid 12345 /f

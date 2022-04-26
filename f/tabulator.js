@@ -24,7 +24,7 @@ const options = {
 	height:                 0|'',         // height of table (in css or here). any valid css height value. enables virtual dom & improves render speed dramatically
 	maxHeight:              0|'',
 	minHeight:              0|'',  
-	layout:                 'fitColumns | fitData | fitDataFill| fitDataStretch | fitDataTable', // fit columns to width of table (optional)
+	layout:                 'fitColumns | fitData | fitDataFill | fitDataStretch | fitDataTable', // fit columns to width of table (optional)
 	responsiveLayout:       false|'hide | collapse'
 	layoutColumnsOnNewData: false
 	responsiveLayoutCollapseFormatter:     (data) => ,
