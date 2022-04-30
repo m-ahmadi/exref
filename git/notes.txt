@@ -30,3 +30,11 @@ git restore
 	does not update your branch.
 	also can restore files in the index from another commit
 --------------------------------------------------------------------------------
+commit specifier chars
+
+https://git-scm.com/docs/revisions
+
+~	ancestor
+^	parent
+@	shortcut for head
+--------------------------------------------------------------------------------

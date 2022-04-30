@@ -1,0 +1,15 @@
+﻿1. in excel, find | replace \|
+
+2. https://markdown-convert.com/en/tool/table
+
+3. edit headers
+--------------------------------------------------
+fail
+
+1. in excel, find | replace \|
+2. https://tabletomarkdown.com/convert-spreadsheet-to-markdown
+3. in npp:
+	find			replace
+	(✅|❌)\s{2,}\|		\1 \|
+	\\|			\|
+--------------------------------------------------
