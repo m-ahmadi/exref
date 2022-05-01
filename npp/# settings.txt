@@ -10,7 +10,7 @@ Settings -> Preferences
   Highlighting    -> Use Find dialog settings
   Auto-Completion -> html/xml close tag
   MISC.           -> Update silently (enable), Document Switcher (disable)
---------------------------------------------------------------------------------
+
 Settings -> Style Configurator
   Global Styles -> Global override
           Font size: 11

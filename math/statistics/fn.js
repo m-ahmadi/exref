@@ -533,6 +533,63 @@ var alpha = 2 / (5 + 1); // smoothing factor
 var accumulator = increwstdev(alpha);
 [...Array(9).keys()].slice(1).map(accumulator);
 
+function rsi(prices=[], period=14, decimals=2) {
+	if (prices.length - 1 < period) return [];
+	const result = [];
+	const calc = (ag, al) => +(100 - (100 / (1 + (ag / al)))).toFixed(decimals);
+	
+	const upmoves = [];
+	const dwmoves = [];
+	for (let i=1, n=period; i<=n; i++) {
+		const chg = prices[i] - prices[i-1];
+		upmoves.push(chg > 0 ? chg : 0);
+		dwmoves.push(chg < 0 ? Math.abs(chg) : 0);
+	}
+	let avgGain = sum(upmoves) / period;
+	let avgLoss = sum(dwmoves) / period;
+	
+	result.push( calc(avgGain, avgLoss) );
+	
+	for (let i=period+1, n=prices.length; i<n; i++) {
+		const chg = prices[i] - prices[i-1];
+		const gain = chg > 0 ? chg : 0;
+		const loss = chg < 0 ? Math.abs(chg) : 0;
+		
+		avgGain = ((avgGain * (period-1)) + gain) / period;
+		avgLoss = ((avgLoss * (period-1)) + loss) / period;
+		
+		result.push( calc(avgGain, avgLoss)  );
+	}
+	
+	return result;
+}
+
+function ad(prices={high: [], low: [], close: [], volume: []}, decimals=4) {
+	const { high } = prices;
+	const len = high.length;
+	if (!len) return [];
+	const keys = Object.keys(prices);
+	if (keys.join(' ') !== 'high low close volume') return [];
+	if ( keys.find(k => prices[k].length !== len) ) return [];
+	
+	const result = [];
+	const { isNaN } = Number;
+	
+	let _ad = 0;
+	for (let i=0; i<len; i++) {
+		const [ iHigh, iLow, iClose, iVol ] = keys.map(k => prices[k][i]);
+		
+		let mfm = ((iClose - iLow) - (iHigh - iClose)) / (iHigh - iLow);
+		if ( isNaN(mfm) ) mfm = 0;
+		const cmfv = mfm * iVol;
+		_ad += cmfv;
+		
+		result.push( +_ad.toFixed(decimals) );
+	}
+	
+	return result
+}
+
 function minmax(nums=[]) {
 	let {min,max} = Math;
 	return nums.reduce(([n,x],i)=> [min(n,i), max(x,i)], [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]);
