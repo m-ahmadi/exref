@@ -1,0 +1,39 @@
+a histogram of green/red bars,
+	green when bar value is higher than the previous bar
+	red   ...               lower  ...
+
+values fluctuate above/below a zero line
+
+when values
+	above zero:	short-term momentum rising  faster than long-term
+	below zero:	...                 falling ...                  
+--------------------------------------------------------------------------------
+strategy - basic
+
+buy:	cross of zero up
+sell:	cross of zero down
+--------------------------------------------------------------------------------
+strategy - twin peaks
+
+consider differences between two peaks on same side
+
+buy:
+	2 lows on negative side
+	2nd low higher than 1st, followed by a green bar
+	high between 2 lows must remain on negative side (below zero)
+
+sell:
+	2 highs on positive side
+	2nd high lower than 1st, followed by a red bar
+	low between two highs must remain on positive side (below zero)
+--------------------------------------------------------------------------------
+strategy - saucer 
+
+buy:
+	2 consecutive RED   bars on POSITIVE side
+	2nd bar lower than 1st, followed by a GREEN bar
+
+sell:
+	2 consecutive GREEN bars on NEGATIVE side
+	2nd bar lower than 1st, followed by a RED bar
+--------------------------------------------------------------------------------
