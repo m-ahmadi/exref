@@ -1,0 +1,106 @@
+Moving Averages
+	Simple Moving Average
+	Smoothed Moving Average
+	Weighted Moving Average
+	Exponential Moving Average
+	Hull Moving Average
+	Least Squares Moving Average
+	Volume Weighted Moving Average
+	Wilder's Smoothing Moving Average
+	Parabolic Weighted Moving Average
+	Hyperbolic Weighted Moving Average
+	Kaufman Adaptive Moving Average
+
+Indicators
+	Moving Average Convergence / Divergence
+	MACD Signal
+	MACD Bars
+	Relative Strength Index
+	Wilder's Relative Strength Index
+	True Strength Index
+	Balance Of Power
+	Force Index
+	Accumulative Swing Index
+	Alligator Indicator
+	Williams %R
+	Stochastics
+	Fibonacci Retracement
+	Bollinger Bandwidth
+	Ichimoku Cloud
+	Average True Range
+	Aroon Up
+	Aroon Down
+	Money Flow Index
+	Rate Of Change
+	Coppock Curve
+	Know Sure Thing
+	On-Balance Volume
+	Volume-Weighted Average Price
+	Fractals
+	Crossover
+	Momentum
+	HalfTrend
+	ZigZag
+	Parabolic SAR
+
+Oscillators
+	Alligator Oscillator
+	Chande Momentum Oscillator
+	Chaikin Oscillator
+	Aroon Oscillator
+	Awesome Oscillator
+	Accelerator Oscillator
+	Fisher Transform
+
+Bands
+	Bollinger Bands
+	Keltner Channels
+	Donchian Channels
+	Envelope
+
+Statistics
+	Sum
+	Standard Deviation
+	Variance
+	Normal CDF
+	Inverse Normal Distribution
+	Monte Carlo Simulation
+	Percentile
+	Correlation
+	Covariance
+	Percentage Difference
+	Expected Return
+	Abnormal Return
+	Kelly Criterion
+	Winratio
+	Average Win
+	Average Loss
+	Drawdown
+	Median
+	Recent High
+	Recent Low
+	Median Absolute Deviation
+	Average Absolute Deviation
+	Standard Error
+	Sum Squared Differences
+	Logarithm
+	Exponent
+	Normalize
+	Denormalize
+	Normalize Pair
+	Normalize From
+	Standardize
+	Z-Score
+	K-means Clustering
+
+Random functions
+	Pseudo Random Number Generator
+	Pick Random
+	Random Range
+	Random Float
+	Chart Types
+	Heikin Ashi
+	Renko
+	Experimental
+	Support Line
+	Resistance Line

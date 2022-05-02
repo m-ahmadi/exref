@@ -1,0 +1,203 @@
+-- PROPRIETARY VOLUME INDICATORS --
+	Volume
+	Modulated Volume
+	MVMFMV Money Flow
+	MVMFMV Money Flow Histogram
+	Market Volume Oscillator
+	Buying Volume
+	Selling Volume
+	Selling/Buying Volume
+	SBV Flow
+	SBV Histogram
+	Selling/Buying Volume Oscillator
+	Up-Down Momentum (UDM)
+	Up/Down Volume (UDV)
+
+-- Other PROPRIETARY INDICATORS --
+	Advance/Decline Sentiment
+	Advance/Decline Sentiment Oscillator
+	High-Low Breadth Index
+	Up/Down Price
+	V-MACD
+	Volatility MA
+
+-- ADVANCE & DECLINE MOMENTUM INDICATORS --
+	Advance/Decline Momentum Volume
+	Advance Momentum Volume
+	Decline Momentum Volume
+	Advance/Decline Momentum Volume Oscilator
+	Advance/Decline Momentum Volume Ratio
+	Advance/Decline Momentum Volume Percentage Oscillator
+
+-- ADVANCE & DECLINE INDICATORS --
+	Advance/Decline Volume
+	Advanced Volume
+	Declined Volume
+	Advance/Decline Volume Line
+	Advance/Decline Volume Oscillator
+	Advance/Decline Volume ratio
+	Advance/Decline Volume Percentage Oscillator
+	Advance/Decline
+	Advances
+	Declines
+	Advance/Decline Line
+	Advance/Decline Oscillator
+	Advance/Decline Ratio
+	Advance/Decline Percentage Oscillaor
+	New High/Lows
+	New High
+	New Lows
+	New High/Lows Oscillator
+	New High/Lows Ratio
+	New High/Lows ercentage Oscillator
+	Absolute Breadth Index
+	Breadth Thrust
+	Hindenburg Omen Indicator
+	STIX
+	TRIN Arms Index
+	McClellan Oscillator
+	McClellan Volume Oscillator
+	McClellan Summation Index
+	McClellan Volume Summation Index
+
+-- PRICE STUDIES --
+	ADX
+	ADXR
+	Absolute Price Oscillator
+	Aroon Oscillaor
+	ATR
+	Absolute ATR
+	Awesome Oscillator
+	Balance of Power
+	Beta Volatility Indicaor
+	Bollinger Bands
+	Bollinger bandwidth
+	Bollinger Percent
+	Chandelier Exit
+	Chande Momentum Oscillator
+	Chaikin Volatility
+	CCI
+	Close Location Value
+	Coppock Curve
+	Derivative Oscillator
+	Detrended Price Oscillaor
+	DMI
+	DX
+	Double EMA
+	Donchian Channel
+	Donchian Channel Width
+	Efficiency Ratio
+	Elder Ray
+	Elliot Wave Oscillator
+	Fibonacci Bands
+	Heikin Ashi Candlesticks
+	High-Low Moving Average
+	Ichimoku Clouds
+	Kaufman Adaptive MA
+	Keltner Channel
+	Mass Index
+	Moving Average
+	Exponential MA
+	Hull MA
+	Weighted MA
+	Displaced MA
+	Displaced Exponential MA
+	MA Envelopes
+	MACD
+	MACD Histogram
+	Momentum
+	OsMA
+	Parabolic SAR
+	Performance Index
+	Pivot Point
+	Percentage Price Oscillator
+	Price Channel
+	Price Momentum Oscillator (PMO)
+	Rate of Change
+	RVI - Relative Volatility Index
+	Rate of Change
+	Regression Curve
+	relative Strength Index
+	RSI Signal
+	Sentiment Indicator
+	Standard Deviation
+	Stochastics Double
+	Stochastics Fast
+	Stochastics Slow
+	Stochastics Histogram
+	Description of the Stochastics Momentum Index (SMI)
+	Stochastics Momentum Index (SMI) Histogram
+	Stochastics RSI
+	Welles Swing Index
+	Welles Accumulated Swing Index
+	TEMA (Triple Exponential Moving Average)
+	TMA (Triangular Moving Average)
+	TII
+	TRIX
+	TRIX 2 Line
+	TSI
+	Turtle Channel
+	Typical Price
+	Ulcer Index
+	Ultimate Oscillator
+	VHF - Vertical Horizontal Filter
+	Volatility Index Dynamic Average
+	Vortex Indicator
+	Weighted Close Price
+	Wilder's Volatility
+	Williams %R
+	Williams' Accumulation/Distribution
+	Zig Zag
+
+-- OTHER VOLUME STUDIES --
+	Accumulation / Distribution
+	CMF
+	Chaikin Oscillator
+	Easy of Movement
+	Force Index in Technical analysis
+	MFI
+	Negative Volme Index
+	OBV
+	PVO
+	Positive Volme Index
+	TMF - Twiggs Money Flow
+	Up/Down Volume
+	Volume Moving Average
+	Simple VMA
+	Exponential VMA
+	Displaced VMA
+	Displaced Exponential VMA
+	VAO
+	Volume-by-Price
+	Volume RSI
+	Volume ROC
+	Volume Oascillator
+	Volume Price Trend
+	VWAP
+
+-- ANALYTICAL DRAWINGS (Indicators) --
+(located in the drawing tools)
+	Trend Lines
+	Price Lines
+	Time Lines
+	Cycle Timelines
+	Price Channel
+	Fibonacci Retracement
+	Fibonacci Timelines
+	Fibonacci Arc
+	Fibonacci Fan
+	Fibonacci Timezones
+	Fibonacci Tool 1
+	Fibonacci Tool 2
+	Andrew's Pitchfork
+	Tirone Lines
+	Gann Fan
+	Quadrant Lines
+	Regression Line
+	Regression Channel
+	Speed Line
+
+-- VOLATILITY INDICATORS --
+	VIX Volatility Index
+	VXN Volatility Index
+	VXO Volatility Index
