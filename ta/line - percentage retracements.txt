@@ -2,12 +2,12 @@ after a particular market move, prices retrace a portion of the previous trend b
 these countertrend moves tend to fall into certain predictable percentage parameters.
 
 percentage retracements apply to any degree of trend: major, secondary, near term.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 50% retracement
 the best known application of the retracement phenomenon is the 50% retracement.
 in a market that is trending higher, often the subsequent reaction retraces about half of the prior move, before upward momentum is regained.
 it's a very well known market tendency and happens quite frequently.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 minimum & maximum retracements
 
 the price trend is divided into thirds.
@@ -22,10 +22,10 @@ a relatively low risk buying area in an uptrend or selling area in a downtrend.
 if prices move beyond the two-thirds point:
 	the odds favor a trend reversal rather than a retracement.
 	the move usually then retraces the entire 100% of the prior trend.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 usage
 a 33-50% price zone can be used as a general frame of reference for buying opportunities.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 in combination with other theories
 3 percentage retracement parameters (50%, 33%, 66%) are taken right from the original dow theory.
 elliott wave theory and fibonacci approach use percentage retracements of 38% and 62%.

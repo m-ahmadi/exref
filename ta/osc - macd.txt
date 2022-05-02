@@ -28,7 +28,7 @@ divergence between trend of macd lines and trend of price
 	positive divergence: (bullish)		...		    below ...		    move up ahead of price				(often, early sign of market bottom)
 	
 	draw trendlines on macd lines to identify important trend changes
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 macd histogram
 
 plots vertical bars that show difference between 2 macd lines (already covered: histogram of difference between 2 moving average lines)
@@ -46,4 +46,4 @@ histogram turns
 	turns back toward zero always precede actual crossover signals
 	best used for spotting early exit signals from existing positions
 	dangerous to use them against existing trend
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

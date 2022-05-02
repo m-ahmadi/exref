@@ -1,6 +1,6 @@
 different kinds of pitchforks identify different slopes.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 andrew's pitchfork
 
 it uses 3 parallel trendlines to identify possible levels of support and resistance, as well as potential breakout and breakdown levels.
@@ -20,7 +20,7 @@ points 2 and 3: reaction high/low in the uptrend/downtrend.
 point 1:        starting point of median trend line.
 draw a trendline from point 1 through the midpoint of points 2 and 3.
 draw and extend trendlines from points 2 and 3 parallel with the median trend line.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 schiff pitchfork
 
 same as andrew's pitchfork except:
@@ -29,7 +29,7 @@ the median line is drawn from a different point than the point 1 to the midpoint
 median line is drawn from:
 	half the vertical distance between the point 1 and 2.
 (to the midpoint of point 2 and 3.)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 modified schiff pitchfork
 
 same as andrew's pitchfork except:

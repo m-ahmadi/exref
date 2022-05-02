@@ -15,11 +15,11 @@ the day's highest price is below the previous day's low.
 	breakaway
 	runaway (or measuring)
 	exhaustion
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 myths
 "gaps are always filled."
 not true, some should be filled and others should not.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 the breakaway gap
 
 occurs at the completion of an important price pattern.
@@ -40,7 +40,7 @@ measuring implications
 upside gaps act as support areas on subsequent market corrections.
 it's important that prices not fall below gaps during an uptrend.
 a close below an upward gap is a sign of weakness.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 the runaway or measuring gap
 
 after a move has been underway for awhile, somewhere around middle of the move, prices will leap forward to form the runaway gap (or a series of gaps).
@@ -61,7 +61,7 @@ runaway gaps:
 measuring implications
 it's called a measuring gap because it occurs at about the halfway point in a trend.
 estimate the extent of the remaining move by by measuring the distance trend already traveled from original breakout and doubling that amount.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 the exhaustion gap
 
 it appears near the end of a market move.
@@ -72,7 +72,7 @@ near the end of an uptrend, prices leap forward in a last gasp,
 that upward leap quickly fades and prices turn lower within a couple of days or a week.
 when prices close under that last gap, it's a dead giveaway that the exhaustion gap made its appearance.
 this is a classic example where falling below a gap in an uptrend has very bearish implications.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 the island reversal
 
 this pattern is based on price gaps.

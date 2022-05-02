@@ -5,29 +5,29 @@ channel line (aka return line) is another useful variation of the trendline tech
 
 sometimes prices trend between two parallel lines, the basic trendline and the channel line.
 detecting that a channel exists can be used to profitable advantage.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 how to draw: (in an uptrend)
 	draw basic up trendline along the lows.
 	draw a dotted line from first important peak, parallel to the basic up trendline.
 	both lines move up to the right, forming a channel.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 how to confirm channel exist
 	level 1:    next rally reaches and backs off from the channel line.
 	level 2:    prices drop back to the original trendline.
 
 (same for a downtrend but in opposite direction.)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 usage
 up trendline can be used to initiate new long positions.
 channel line can be used for short term profit taking.
 channel line can be used to initiate a countertrend short position. (trading in opposite direction of current trend can be a dangerous tactic)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 significance
 a channel becomes more important and reliable when:
 	the longer it remains intact
 	the more often it is successfully tested
 	(same as basic trendline)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 breaking
 
 the breaking of the major trendline indicates an important change in trend.
@@ -44,7 +44,7 @@ general rule of thumb
 the failure of any move within an established price channel to reach one side of the channel:
 	usually indicates that the trend is shifting.
 	increases the likelihood that the other side of the channel will be broken.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 adjustment
 
 the channel can be used to adjust the basic trendline.
@@ -61,7 +61,7 @@ in other words, when prices fail to reach the upper channel line:
 	a down trendline is drawn over the two declining peaks.
 	a tentative channel line can be drawn from the first low point parallel to trendline.
 	the lower channel line sometimes indicates where initial support will be evident.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 measuring implications
 once a breakout occurs from an existing price channel, prices usually travel a distance equal to the width of the channel.
 measure the width of the channel and then project that amount from the point at which either trendline is broken.

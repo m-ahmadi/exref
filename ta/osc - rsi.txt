@@ -46,7 +46,7 @@ time period
 	other periods:
 		5  or 7  day (increased volatility)
 		21 or 28 day (smoothed out signals)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 interpreting rsi
 
 rsi is plotted on a vertical scale of o to 100
@@ -85,7 +85,7 @@ important point about oscillator usage:
 
 	50 level is rsi midpoint value, and often acts as support during pullbacks and resistance during bounces
 	some traders treat crossings above/below the 50 level as buy/sell signal
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 using 70 and 30 lines to generate signals
 
 traders often use 70/30 lines to generate buy/sell signals
@@ -98,4 +98,4 @@ buy signal:		a crossing back above 30 (confirms that trend in oscillator has tur
 ...
 ...
 sell signal:		a crossing back under 70
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

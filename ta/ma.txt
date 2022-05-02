@@ -18,7 +18,7 @@ which prices to use
 	midpoint	dividing the day's range by two: median(high,low) aka `midrange` in statistics
 	hlc		high + low + close / 3
 	price-bands	average of high and low separately (volatility buffer or neutral zone)
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 types of moving averages:
 
 basic types: simple, weighted, exponential
@@ -38,7 +38,7 @@ linearly weighted
 exponentially smoothed
 	weighted average of all previous day (different weights for the days though)
 	weight of last day depends on the number of periods in the moving average
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 usage
 
 generate trend signals
@@ -65,7 +65,7 @@ long average
 
 finding an average sensitive enough to generate early signals but insensitive enough to avoid most noises is a tradeoff
 using only one moving average has several disadvantages and it's best to use two
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 centering the average
 
 plotting a moving average in middle of the time period it covers (instead of at end)
@@ -77,7 +77,7 @@ major flaw of producing much later trend change signals
 
 usually not used (averages usually placed at end)
 this technique is used almost exclusively by cyclic analysts to isolate underlying market cycles
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 ties to cycles
 
 time cycles
@@ -106,7 +106,7 @@ example
 
 cyclic influences & harmonic relationships of neighboring cycles can explain many commonly used moving averages (including 4-9-18 day, which are derivatives of 5, 10, 20) 
 4 week cycle might explain the success of 4 week rule (and 2 week rule)
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 fibonacci numbers as moving averages
 
 fib number series (13, 21, 34, 55, ...) seem to lend themselves quite well to moving average analysis
@@ -115,14 +115,14 @@ true for daily & weekly charts
 
 21 day  average is a fib number
 13 week average is a fib number (and has proven valuable in both stocks and commodities)
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 applied to long term charts
 
 proven to be useful in longer range trend analysis
 
 10 13 30 40 week	have long been used in stock market (but not so much in futures)
 10 and 40   week	used to help track primary trend (futures & stocks)
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 some pros and cons of moving average
 
 pro
@@ -141,7 +141,7 @@ con
 adx indicator tells
 	when market is trending and when is not
 	whether market climate favors a trending moving average technique or a nontrending oscillator approach
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 moving averages as oscillators
 
 construct an oscillator
@@ -149,7 +149,7 @@ construct an oscillator
 macd
 	compares two exponentially smoothed averages
 	is used partially as an oscillator
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 moving average applied to other technical data
 
 moving average can be
@@ -157,7 +157,7 @@ moving average can be
 	used on open interest and volume figures (including on balance volume)
 	used on various indicators and ratios
 	applied to oscillators as well
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 optimization
 
 goal is to find best combination of moving averages & channel breakout parameters for each market
@@ -174,7 +174,7 @@ should you optimize advise:
 	do	 if following a handful      of markets
 	don't	 if following a large number of markets (use same parameters for all)
 
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 summary
 
 most technicians use two sma
@@ -194,4 +194,4 @@ common in stock market
 bollinger bands:	20 day & 20 week
 useful:			20 week | 100 day
 daily/weekly/monthly channel breakout works in trending market
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

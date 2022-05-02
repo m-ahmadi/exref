@@ -22,7 +22,7 @@ any time period can be used (10 day very common)
 	shorter period (5 day):		more sensitive line with more pronounced oscillations
 	longer  period (40 day):	much smoother  line with less volatile   oscillator swings
 
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 momentum measures rates of ascent or descent
 
 momentum
@@ -42,7 +42,7 @@ when momentum line:
 	advance:	price > 10 days ago
 	is flat:	price = 10 days ago
 	decline:	price < 10 days ago (even though price still rising)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 momentum line leads the price action
 
 momentum line
@@ -51,19 +51,19 @@ momentum line
 	then begins to move in opposite direction as price begins to level off
 
 *leveloff: stops rising/falling and stays at same level
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 crossing of zero line as trading signal
 
 remember: basic trend analysis overrules (don't trade against current trend)
 
 buy signal:	crossing above zero (only if trend is up)
 sell signal:	crossing below zero (only if trend is down)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 the need for upper and lower boundary
 
 problem with momentum line:	absence of a fixed upper & lower boundary (where is considered too high/low)
 solution:			draw horizontal line along previous upper/lower boundaries (line must be adjusted periodically, especially after important trend changes)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 rate of change (roc)
 
 rate of change = ratio of last price to the price of n days ago
@@ -79,4 +79,4 @@ with this formula, the 100 line is midpoint
 	price < 10 days ago:	roc below 100
 
 momentum & roc formulas might slightly differ in some softwares, but interpretation remains the same
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

@@ -25,14 +25,14 @@ what james sibbet did in 1964: (10 years after neill's book)
 	a service called "Consensus Index of Bullish Market Opinion" that provides an indication of market sentiment (published weekly)
 	uses 75% as overbought and 25% as oversold measurement
 
-=================================================
+==================================================
 interpreting bullish consensus numbers
 
 simple method used by most traders:
 	above 75%	overbought (a top    may be near)
 	below 25%	oversold   (a bottom may be near)
 
-=================================================
+==================================================
 contrary opinion measures remaining buying or selling power
 
 example:
@@ -48,7 +48,7 @@ if major sentiment of traders is on one side of market
 	not enough (buy/sell) pressure is left to continue the present trend
 
 (if most traders think market is going higher, they have bought, so no one is left to buy anymore and push market higher)
-=================================================
+==================================================
 contrary opinion measures strong versus weak hands
 
 1. if 80% of traders are long on a market
@@ -57,7 +57,7 @@ contrary opinion measures strong versus weak hands
 this means
 	strong hands:	20% shorts (well capitalized)
 	weaker hands:	80% longs with smaller positions per trader (forced to liquidate on sudden turn)
-=================================================
+==================================================
 some additional features of bullish consensus numbers
 
 some points on using these numbers:
@@ -72,7 +72,7 @@ some points on using these numbers:
 	
 	best to wait for change in trend of the numbers before going against the trend
 	a change in direction of numbers, especially from danger zones should be watched closely	
-=================================================
+==================================================
 the importance of open interest (futures)
 
 "open interest" plays a role in the use of "bullish consensus numbers"
@@ -84,7 +84,7 @@ the importance of open interest (futures)
 	ensure that hedgers hold less than 50% of the open interest
 	contrary opinion works better when most of open interest is held by speculators (who considered to be weaker hands)
 	it's not advisable to trade against large hedging interests
-=================================================
+==================================================
 watch the market's reaction to fundamental news
 
 
@@ -97,7 +97,7 @@ in overbought area
 in oversold area (under 25%)
 	failure to react to bearish news:	warning that all bad news have been ignored in the current low price
 	any bullish news:			enough to push prices higher
-=================================================
+==================================================
 combine contrarian opinion with other technical tools
 
 trade in direction of trend of "consensus numbers" until an extreme is reached
@@ -106,7 +106,7 @@ when exterem reached: monitor the numbers for a sign of a change in trend
 use standard technical tools to identify market turns at these critical times
 	breake of support/resistance/trendlines/moving averages can help to confirm that trend is turning
 	oscillator divergences are very useful when "bullish consensus numbers" are overbought/oversold
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 investor sentiment readings
 
 some polls to estimate degree of bullishness/bearishness in stock market
@@ -121,7 +121,7 @@ example of 4 different polls:
 "aaii index" 			bullish: 53% 		bearish: 13	neutral: 34
 "consensus index"		bullish opinion: 77%
 "market vane" bullish 		consensus: 66%
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 "investors intelligence" numbers
 
 a weekly poll of investment advisors that produces 3 numbers: (published by "investors intelligence" company)
@@ -142,4 +142,4 @@ number of stocks above 10 and 30 week moving averages can also be used in contra
 	30 week:	useful for measuring major market turns
 	
 	signal of potential trend change:	when numbers rise back above 30 or fall back below 70
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

@@ -24,7 +24,7 @@ as long as the trendline is not violated, it can be used to determine buying and
 
 violation of the trendline signals a trend change.
 breaking of the trendline is one of the best early warnings of a trend change. (very often)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 drawing a trendline
 
 there must be evidence of a trend.
@@ -52,12 +52,12 @@ confident levels of uptrend existence (before drawing a trendline):
 	level 3:  penetration of the peak at point 2
 
 once 2 ascending lows have been identified, a straight line (tentative trendline) is drawn connecting the lows (points 1 and 3).
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 tentative vs valid
 
 validity of a trendline is confirmed when a trendline is touched a third time and prices move higher again.
 point 5 confirms the validity of the trendline.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 significance of a trendline
 
 a trendline becomes more significant when:
@@ -67,14 +67,14 @@ a trendline becomes more significant when:
 the more significant the trendline:
 	the more confidence it inspires
 	the more important is its penetration
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 inclusion of price action
 
 the correct drawing of a trendline should include the entire day's trading range, not only closing (and opening) prices.
 including only opening/closing prices is not the more standard procedure but sometimes done.
 closing price is the most important price of the day, but represents a small sample of day's activity,
 including the day's price range takes into account all of the activity and is the more common usage.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 small trendline penetrations
 
 when prices violate a trendline on an intraday basis, but then close in the direction of the original trend,
@@ -85,7 +85,7 @@ is original trendline still valid or a new line should be drawn?
 	ignore the minor breach, if subsequent market action proves that the original line is still valid.
 
 remember there is no hard and fast rule to follow in such situations.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 valid breaking of trendlines
 
 a close beyond the trendline is more significant than just an intraday penetration.
@@ -124,7 +124,7 @@ friday close
 	require a friday close beyond a major breakout point to ensure a weekly signal.
 
 The 1-3% rule and 2 day rule are also applied to the breaking of important support and resistance levels.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 reversal of roles
 
 trendlines become the opposite once violated. (same as support/resistance)
@@ -135,13 +135,13 @@ an up   trendline (a support line)    will usually become a resistance line once
 a  down trendline (a resistance line) will usually become a support    line once it's decisively broken.
 
 project all trendlines as far out to the right as possible even after they've been broken.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 measuring implications
 
 when a trendline is broken, prices are expected to move to where they were when the trendline began.
 it doesn't always happen, but it's an expectation.
 similar to head and shoulders, where distance from "head" to "neckline" is projected beyond that line once it's broken.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 fan principle
 
 fan principle is another use of a trendline.
@@ -166,7 +166,7 @@ in other words, if after breaking of 1st/2nd/3rd lines, prices move toward back 
 they face support/resistance at the 3rd and 2nd line levels. (and also at the 1st line if they try to breach it)
 
 the term "fan principle" derives from appearance of the lines that gradually flatten out, resembling a fan.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 importance of the number three
 
 the number three plays a very important role throughout the entire field of technical analysis.
@@ -179,7 +179,7 @@ the number three plays a very important role throughout the entire field of tech
 3 trend directions:                            up,          down,      sideways.
 3 types of triangles in continuation patterns: symmetrical, ascending, descending.
 3 principle sources of information:            price,       volume,    open interest.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 relative steepness of the trendline
 
 the relative steepness of the trendline is also important.
@@ -195,7 +195,7 @@ too flat  trendline:
 	indicate the uptrend is too weak and not to be trusted.
 
 45 degree line was one of the techniques favored by W. D. Gann.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 how to adjust trendlines
 
 sometimes trendlines have to be adjusted to fit a slowing or an accelerating trend.
@@ -215,7 +215,7 @@ just as there are several different degrees of trend in effect at any one time, 
 a major up trendline connects low points of the major uptrend.
 a shorter and more sensitive line might be used for secondary swings.
 an even shorter line can measure the short term movements.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 internal trendlines
 
 they are variations of the trendline that don't rely on extreme highs or lows.
@@ -225,4 +225,4 @@ some find them useful.
 problem
 drawing of internal trendlines is very subjective.
 whereas the rules for drawing of traditional trendlines along extreme highs and lows are more exact.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

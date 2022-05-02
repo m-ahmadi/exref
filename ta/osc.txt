@@ -5,7 +5,7 @@ oscillator
 	also useful in trending phases (in conjunction with other tools) by alerting short term extremes (overbought/oversold)
 	can warn that trend is losing momentum before evident in price action
 	can signal that trend is near completion by showing certain divergences
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 oscillator usage in conjunction with trend
 
 direction of overriding trend is very important
@@ -15,7 +15,7 @@ oscillator
 	becomes extremely valuable toward the end of market moves
 no study of market extremes is complete without discussing contrary opinion philosophy
 
-=================================================
+==================================================
 interpretation of oscillators
 different ways to construct oscillators but interpretation differs very little
 
@@ -26,7 +26,7 @@ some oscillators
 	have a midpoint value (usually zero line) that divides the range to 2 halves (upper & lower)
 	have upper & lower boundaries ranging from 0 to 100
 
-=================================================
+==================================================
 general interpretation rules
 
 when oscillator reaches extreme value in upper/lower ends
@@ -36,12 +36,12 @@ when oscillator line in
 	upper end:	sell
 crossing of midpoint line often used to generate buy/sell signals
 
-=================================================
+==================================================
 3 situation when oscillator is most useful is when
 	1. its value reaches an extreme reading near the upper/lower end of its boundaries (upper=overbought, lower=oversold, warns that trend is overextended/vulnerable)
 	2. it's in extreme position and there's a divergence between oscillator & price action (usually an important warning)
 	3. it's crossing the zero line (important signal in direction of trend)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 choice of time period tied to cycles
 
 oscillator lengths can be tied to underlying market cycles
@@ -59,7 +59,7 @@ rsi uses 14 days which is half of 28
 	popular lengths based on it and its 1/2 (half)
 		10 day momentum
 		14 day rsi
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 importance of trend
 
 covered so far
@@ -95,7 +95,7 @@ danger of placing too much importance on oscillator:
 	temptation to use divergence as excuse to trade against the general trend (costly and painful)
 
 oscillator must be used as aid for basic trend analysis (and not a substitute)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 when oscillators are most useful
 
 some times oscillators are more useful than other times
@@ -123,7 +123,7 @@ many dynamic bull moves are missed by traders who saw the major trend signal, bu
 summary
 	oscillator lesser  importance in early stages of important move
 	...	   greater ...		 later ... 		   ...  (when move reaches maturity)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 combine weeklies and dailies
 
 signals on weekly charts are always more important than on daily charts (for all indicators)
@@ -136,4 +136,4 @@ a daily signal is followed only when it agrees with the weekly signal
 	weekly signals become trend filters for daily signals
 	prevents using daily signals to against existing trend
 	this principle is especially true in macd & stochastics (which both are crossover systems)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

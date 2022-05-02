@@ -16,7 +16,7 @@ each time a previous resistance peak is being tested, the uptrend is in an espec
 first warning that the existing trend is changing (usually):
 	failing to exceed   a previous resistance (peak) in an uptrend
 	ability to fall off a previous support    (low)  in a  downtrend
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 reversal of roles
 
 when a support/resistance level is penetrated by a significant amount, they reverse roles.
@@ -39,7 +39,7 @@ the distance prices travel away from a support/resistance area in future
 
 the more significant a previous support area is, the more potent resistance area it becomes later.
 all factors that created support previously, now function to put a ceiling over prices on subsequent rallies or bounces.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 degree of penetration
 
 a support level, penetrated by a significant margin, becomes a resistance level and vice versa.
@@ -48,7 +48,7 @@ support and resistance levels reverse roles only after a significant penetration
 determining whether a penetration is significant:
 	a 3% penetration criteria for major        support/resistance levels (particularly)
 	a 1% penetration criteria for shorter term support/resistance areas
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 round numbers
 
 numbers such as 10, 20, 25, 50, 75, 100 (and multiples of 1000) are important round numbers.

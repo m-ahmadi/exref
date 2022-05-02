@@ -6,12 +6,12 @@ flatter gann lines can be drawn at 26 1/4 and 15 degree lines.
 it's possible to draw as many as nine different gann lines.
 
 gann lines are named after the legendary commodity trader w.d. gann.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 usage
 gann lines are used in the same way as speed resistance lines.
 they are supposed to provide support during downward corrections.
 when one line is broken, prices will usually fall to the next lower line.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 controversy
 even if one of them works, you can't be sure in advance which one it will be.
 some question the validity of drawing geometric trendlines at all.

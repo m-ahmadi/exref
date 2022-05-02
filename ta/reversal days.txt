@@ -10,7 +10,7 @@ prices set a new high for a given upmove at some point during the day (usually a
 
 usage
 a reversal day is the signal for a possible near term trend reversal.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 significance
 the wider the range for the day
 the heavier the volume
@@ -20,7 +20,7 @@ outside day
 it's formed when both the high and low on reversal day exceed the range of previous day.
 not a requirement for a reversal day.
 if one is present, it carries more significance for the reversal day.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 bottom reversal day
 a bottom reversal day is a new low during the day followed by a higher close.
 
@@ -29,7 +29,7 @@ it's a dramatic turnaround at the bottom of a down move.
 it happens where all discouraged longs are forced out of the market on heavy volume,
 subsequent absence of selling pressure creates a vacuum over the market, which prices quickly rally to fill.
 it may not mark the final bottom of a falling market, but it signals that a significant low has been seen.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 weekly and monthly reversals
 appear on weekly and monthly bar charts and signals important turning points.
 each bar on the weekly chart represents the entire week's range and friday's close.

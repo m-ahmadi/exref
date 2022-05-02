@@ -18,7 +18,7 @@ louis lukac suggest breakout (channel) systems show superior results (like weekl
 	again channel breakout & moving average won
 	
 	channel breakout is great choice as a starting point system (says lokac)
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 4 week rule
 is a simple breakout system
 used primarily for futures
@@ -50,7 +50,7 @@ adjustments
 	using weekly breakouts as confirming filter for moving average crossover (or other techniques)
 	confirmed crossover signal:	2 week breakout in same direction
 	excellent filters:		1 or 2 week rules
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 time period adjustment
 
 expand or compress for risk management & sensitivity
@@ -62,7 +62,7 @@ trainling stop
 	if market sharp rally				stoploss at low of past   week
 
 8 week period		prevents position on shorter term & premature signals. iow: staying out until more important signal (eg in trading range situation)
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 ties to cycles
 
 4 week (or 20 day) trading cycle is a dominant cycle that influences all markets (may explain success of 4 week period)
@@ -83,4 +83,4 @@ daily numbers translated to weekly periods	 1 2 4 8 week
 	to lengthen		go from 4 to 8
 
 (in charting software: plot price channels above and below current prices to spot channel breakouts)
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
