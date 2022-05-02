@@ -26,7 +26,7 @@ ctrl alt
 	3 	J:\dev
 	4 	paint
     	5 	notepad			Target: %comspec% /c start notepad
-	6	kidkeylock (exit:qq, setup:kk, no key lock)
+	6	kidkeylock (exit:qq, setup:kk, lock all keys)
 	7	keyboardlocker (lock: ctrl alt L, unlock: unlock)
 	8 	paint.net
 	e 	cmd			Target: %comspec% /c start "cmd" /d D:\xampp\htdocs /i
