@@ -12,7 +12,7 @@ group = '';
   
   if (p) {
     if (!r[group]) r[group] = [];
-    r[group].push(p.querySelector('a').title);
+    r[group].push(p.querySelector('a').title/*innerText*/);
   }
   
 });
