@@ -1,1 +1,1 @@
-Home -> Format -> Hide & Unhide
+Home -> Cells -> Format -> Hide & Unhide
