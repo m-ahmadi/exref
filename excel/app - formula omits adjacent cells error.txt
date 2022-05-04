@@ -1,4 +1,0 @@
-turning it off:
-
-File > Options > Formulas > Error checking rules
- > Formulas which omit cells in a region
