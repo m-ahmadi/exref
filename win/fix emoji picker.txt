@@ -1,0 +1,20 @@
+worked
+
+taskkill /im explorer.exe /f
+start "" explorer.exe
+--------------------------------------------------
+not tried
+
+set k=HKLM\SOFTWARE\Microsoft\Input\Settings
+reg add %k% /v EnableExpressiveInputShellHotkey /t REG_DWORD /d 1
+undo:	reg delete %k% /v EnableExpressiveInputShellHotkey /f
+--------------------------------------------------
+not tried
+
+services.msc -> "Touch Keyboard and Handwriting Panel Service"
+	Startup type:	Automatic
+--------------------------------------------------
+not tried
+
+%windir%\System32\ctfmon.exe
+--------------------------------------------------
