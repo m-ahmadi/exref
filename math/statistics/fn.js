@@ -529,9 +529,9 @@ function increwstdev(alpha) {
 		return s;
 	};
 }
-var alpha = 2 / (5 + 1); // smoothing factor
+/* var alpha = 2 / (5 + 1); // smoothing factor
 var accumulator = increwstdev(alpha);
-[...Array(9).keys()].slice(1).map(accumulator);
+[...Array(9).keys()].slice(1).map(accumulator); */
 
 function rsi(prices=[], period=14, decimals=2) {
 	if (prices.length - 1 < period) return [];
