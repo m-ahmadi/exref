@@ -1,0 +1,38 @@
+<a href="https://omnipotent.net/jquery.sparkline/#s-docs" target="_blank">docs</a> <br><br>
+
+<div style="display: grid; grid-template-columns: auto auto; grid-row-gap: 10px; width: 300px; ">
+	
+<span id="e1">1,4,4,7,5,9,10</span>                    <i>inline - sparkline</i>
+<span id="e2">1,2,3,4,5,4,3,2,1</span>                 <i>...</i>
+<span id="e3">1,3,4,5,3,5</span>                       <i>inline - bar</i>
+<span class="e4"><!-- 1,2,3,4,5,4,3,2,1 --></span>     <i>inline - commenty</i>
+<span class="e4" values="1,2,3,4,5,4,3,2,1"></span>    <i>inline - attributy</i>
+
+<span id="e4">Loading..</span>                         <i>dynamic - sparkline</i>
+<span id="e5">Loading..</span>                         <i>...</i>
+<span id="e6">Loading..</span>                         <i>dynamic - bar</i>
+
+<span id="e7">1,3,4,5,3,5</span>                                               <i>options</i>
+<span class="e8" sparkType="bar" sparkBarColor="green">1,2,3,4,3,2,1</span>    <i>options as tag attrs</i>
+<span class="e8" sparkType="bar" sparkBarColor="red">1,2,3,4,3,2,1</span>      <i>...</i>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+<script src="https://omnipotent.net/jquery.sparkline/2.1.2/jquery.sparkline.min.js"></script>
+<script>
+$(function () {
+	$('#e1').sparkline();                                    // inline (values from tag content)
+	$('#e2').sparkline('html');                              // ...
+	$('#e3').sparkline('html', {type:'bar',barColor:'red'}); // ... bar
+	$('.e4').sparkline('html');                              // ... commenty & attributy
+	
+	var myvalues = [10,8,5,7,4,4,1];
+	$('#e4').sparkline(myvalues);                                // dynamic (values passed to fn)
+	$('#e5').sparkline([1,2,3,4,5,4,3,2,1]);                     // ...
+	$('#e6').sparkline(myvalues, {type:'bar',barColor:'green'}); // ... + options
+	
+	$('#e7').sparkline(myvalues, { type:'bar', barColor:'green' }); // option
+	$('.e8').sparkline('html', {enableTagOptions:true});            // options as tag attributes
+});
+</script>

@@ -70,8 +70,5 @@ var tabledata = [
 	{id:9,  name:'Emily Sykes',        location:'South Korea',    gender:'female', rating:1, col:'maroon', dob:'11/11/1970'},
 	{id:10, name:'James Newman',       location:'Japan',          gender:'male',   rating:5, col:'red',    dob:'22/03/1998'},
 ];
-var table = new Tabulator('#t4', {
-	data: tabledata,
-	autoColumns: true,
-});
+new Tabulator('#t4', {data: tabledata, autoColumns: true});
 </script>

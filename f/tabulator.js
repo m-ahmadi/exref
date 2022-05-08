@@ -20,6 +20,21 @@ npm i tabulator-tables
 const options = {
 	data:                   [],           // assign data to table
 	
+	// loading data
+	autoColumns:            false,
+	importFormat:           '|csv|json|...',
+	importReader:           '|text|buffer|binary|url',
+	ajaxURL:                '',
+	ajaxParams:             {},
+	ajaxConfig:             'GET|POST|...' | { method:'', mode:'', credentials:'', headers:{} },
+	ajaxContentType:        {},
+	ajaxRequesting:         (url, params)=>,
+	ajaxError:              (error)=>,
+	filterMode:             '|remote',
+	sortMode:               '|remote',
+	progressiveLoad:        'load|scroll',
+	progressiveLoadScrollMargin: 0,
+	
 	// layout
 	height:                 0|'',         // height of table (in css or here). any valid css height value. enables virtual dom & improves render speed dramatically
 	maxHeight:              0|'',
@@ -72,7 +87,7 @@ const options = {
 			hozAlign:        '',
 			headerSort:      false,
 			sorter:          '',
-			formatter:       ''|()=>,
+			formatter:       'plaintext|textarea|html|money|image|link|datetime|tickCross|color|star|traffic|progress|lookup|buttonTick|buttonCross|rownum|handle|...'|(cell, formatterParams, onRendered)=>,
 			formatterParams: {},
 			formatterPrint:  false,
 			titleFormatter:  '',
