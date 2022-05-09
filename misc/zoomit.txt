@@ -1,6 +1,7 @@
 shortcuts
 
 ctrl 2			start draw
+esc			clear draw
 ctrl 3			break draw
 ctrl shift click	arrow
 
