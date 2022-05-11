@@ -388,7 +388,7 @@ const opts = {
 			font:       {...Chart.defaults.font, weight:'bold'}  | {},
 			padding:    10,
 			lineHeight: 1.2 | '',
-			text:       '',
+			text:       ''|['',..],
 			fullWidth:  true,
 			weight:     2000
 		},
