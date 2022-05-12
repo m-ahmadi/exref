@@ -15,6 +15,10 @@ function mean(nums=[], trim=0, sample=false) {
 	return sum(nums) / (nums.length - (sample?1:0));
 }
 
+function meanWeighted(x=[], w=[]) {
+	return sum(vecMul(w,x)) / sum(w);
+}
+
 function statRange(nums=[]) {
 	let [_min, _max] = minmax(nums);
 	return _max - _min;
@@ -61,14 +65,14 @@ function stdv(nums=[]) {
 }
 
 function variance(x=[]) {
-	let m = mean(x);
-	let sqrDiffs = x.map(i=> sqr(i-m));
+	let u = mean(x);
+	let sqrDiffs = x.map(i=> sqr(i-u));
 	return mean(sqrDiffs);
 }
 
 function meandv(nums=[]) {
-	let m = mean(nums);
-	return mean( nums.map(i => Math.abs(i-m)) );
+	let u = mean(nums);
+	return mean( nums.map(i => Math.abs(i-u)) );
 }
 
 function meddv(nums=[]) {
