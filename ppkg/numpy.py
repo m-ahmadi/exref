@@ -469,12 +469,13 @@ np.rad2deg
 np.radians
 np.RAISE
 np.random
-np.random.uniform(?low=0.0, ?high=1.0, ?size=None|0|(0,..))
-np.random.random(size=None|0|(0,..))  |  random_sample()
-np.random.rand(?d0=0, ?d1=0, ..., ?dn=0)
-np.random.randint(low=0, ?high=None|0, ?size=None|0|(0,..), ?dtype=np.int)  |  random_integers() # low: inclusive, high: exclusive
+np.random.normal(loc=0.0|[0.,..], scale=1.0|[0.,..], size=None|0|(0,..)) # Gaussian distribution
 np.random.permutation(x=0|∂)
-np.random.normal(loc=0.0|[0.,..], scale=1.0|[0.,..], size=None|0|(0,..))
+np.random.rand(?d0=0, ?d1=0, ..., ?dn=0) # uniform distribution
+np.random.randint(low=0, ?high=None|0, ?size=None|0|(0,..), ?dtype=np.int)  |  random_integers() # low: inclusive, high: exclusive
+np.random.randn(?d0=0, ?d0, ..., ?dn=0) # "standard normal" distribution
+np.random.random(size=None|0|(0,..))  |  random_sample()
+np.random.uniform(?low=0.0, ?high=1.0, ?size=None|0|(0,..))
 np.RankWarning
 np.rate
 np.ravel(a=∂, order='C|F|A|K')
