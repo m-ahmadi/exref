@@ -85,6 +85,12 @@ def foo():
 
 foo() # 128
 
+# multiple global variables
+a, b, c = 1, 2, 3
+def foo():
+	global a, b, c
+	return [a, b, c]
+
 # generator function
 def foo():
 	yield 2

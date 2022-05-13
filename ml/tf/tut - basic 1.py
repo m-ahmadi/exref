@@ -32,22 +32,20 @@ train_features = (train_features - train_mean) / train_std
 
 # build the model
 def build_model():
-		model = keras.Sequential([
-				Dense(20, activation=tf.nn.relu, input_shape=[len(train_features[0])]),
-				Dense(1)
-		])
+	model = keras.Sequential([
+		Dense(20, activation=tf.nn.relu, input_shape=[len(train_features[0])]),
+		Dense(1)
+	])
 
-		model.compile(optimizer=tf.train.AdamOptimizer(), 
-									loss='mse',
-									metrics=['mae', 'mse'])
-		return model
+	model.compile(optimizer=tf.train.AdamOptimizer(), loss='mse', metrics=['mae', 'mse'])
+	return model
 
 # see if model is "fit" to the training data:
 # this helps makes our output less verbose but still shows progress
 class PrintDot(keras.callbacks.Callback):
-		def on_epoch_end(self, epoch, logs):
-				if epoch % 100 == 0: print('')
-				print('.', end='')
+	def on_epoch_end(self, epoch, logs):
+		if epoch % 100 == 0: print('')
+		print('.', end='')
 
 model = build_model()
 
@@ -66,13 +64,13 @@ print('Final Root Mean Square Error on validation set: {}'.format(round(rmse_fin
 
 # plot the loss function measure on the training and validation sets
 def plot_history():
-		plt.figure()
-		plt.xlabel('Epoch')
-		plt.ylabel('Mean Square Error [Thousand Dollars$^2$]')
-		plt.plot(hist['epoch'], hist['mean_squared_error'], label='Train Error')
-		plt.plot(hist['epoch'], hist['val_mean_squared_error'], label = 'Val Error')
-		plt.legend()
-		plt.ylim([0,50])
+	plt.figure()
+	plt.xlabel('Epoch')
+	plt.ylabel('Mean Square Error [Thousand Dollars$^2$]')
+	plt.plot(hist['epoch'], hist['mean_squared_error'], label='Train Error')
+	plt.plot(hist['epoch'], hist['val_mean_squared_error'], label = 'Val Error')
+	plt.legend()
+	plt.ylim([0,50])
 
 plot_history()
 
