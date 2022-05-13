@@ -196,7 +196,7 @@ np.ERR_RAISE
 np.ERR_WARN
 np.errstate
 np.euler_gamma
-np.exp
+np.exp(x=∂, ...) # Math.pow(Math.E, x)
 np.exp2
 np.expand_dims
 np.expm1

@@ -5,7 +5,7 @@ import numpy as np
 
 sizes      = [784, 30, 10] # neurons in each layer
 num_layers = len(sizes)
-biases     = [np.random.randn(y, 1) for y in sizes[1:]]
+biases     = [np.random.randn(y, 1) for y   in     sizes[1:]]
 weights    = [np.random.randn(y, x) for x,y in zip(sizes[:-1], sizes[1:])]
 
 # helpers
@@ -55,6 +55,7 @@ def backprop(x, y):
 	return (nabla_b, nabla_w)
 
 def update_mini_batch(mini_batch, learning_rate):
+	# nabla symbol represents the gradients
 	global biases, weights
 	nabla_b = [np.zeros(b.shape) for b in biases]
 	nabla_w = [np.zeros(w.shape) for w in weights]
@@ -62,8 +63,9 @@ def update_mini_batch(mini_batch, learning_rate):
 		delta_nabla_b, delta_nabla_w = backprop(x, y)
 		nabla_b = [nb + dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
 		nabla_w = [nw + dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
-	weights = [w-(learning_rate/len(mini_batch))*nw for w, nw in zip(weights, nabla_w)]
-	biases  = [b-(learning_rate/len(mini_batch))*nb for b, nb in zip(biases, nabla_b)]
+	a = learning_rate / len(mini_batch)
+	weights = [ w - a * nw for w, nw in zip(weights, nabla_w) ]
+	biases  = [ b - a * nb for b, nb in zip(biases, nabla_b) ]
 
 def SGD(training_data, epochs, mini_batch_size, learning_rate, test_data=None):
 	training_data = list(training_data)
@@ -75,8 +77,7 @@ def SGD(training_data, epochs, mini_batch_size, learning_rate, test_data=None):
 	
 	for j in range(epochs):
 		random.shuffle(training_data)
-		mini_batches = [training_data[k:k+mini_batch_size]
-										for k in range(0, samples, mini_batch_size)]
+		mini_batches = [ training_data[k : k+mini_batch_size] for k in range(0, samples, mini_batch_size) ]
 		for mini_batch in mini_batches:
 			update_mini_batch(mini_batch, learning_rate)
 		if test_data:

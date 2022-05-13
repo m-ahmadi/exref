@@ -34,3 +34,10 @@ random.normalvariate(mu, sigma)
 random.vonmisesvariate(mu, kappa)
 random.paretovariate(alpha)
 random.weibullvariate(alpha, beta)
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# examples
+
+a = [1,2,3]
+random.shuffle(a)
+a # [2,1,3]
