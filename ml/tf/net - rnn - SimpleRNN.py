@@ -1,6 +1,6 @@
 from tensorflow import keras
 from keras.models import Sequential
-from keras.layers import SimpleRNN, LSTM, GRU, Embedding, Dense, InputLayer
+from keras.layers import SimpleRNN, LSTM, GRU, Dense, InputLayer, BatchNormalization
 import numpy as np
 
 ''' note about rnn input
@@ -49,12 +49,14 @@ model = Sequential([
 model = Sequential([
 	SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
 	SimpleRNN(20, return_sequences=True),
+	# BatchNormalization(),
 	SimpleRNN(1)
 ])
 
 model = Sequential([
 	SimpleRNN(20, return_sequences=True, input_shape=(None,1)),
 	SimpleRNN(20),
+	# BatchNormalization(),
 	Dense(1),
 ])
 
