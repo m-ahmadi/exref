@@ -8,8 +8,8 @@ output layer
 	units:         1 (or more depending on labeling)
 '''
 model = tf.keras.Sequential([
-    tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2)),
-    tf.keras.layers.Dense(units=1, activation='sigmoid')
+	tf.keras.layers.Dense(units=4, activation='sigmoid', input_shape=(2)),
+	tf.keras.layers.Dense(units=1, activation='sigmoid')
 ])
 
 model.compile(optimizer='sgd', loss='binary_crossentropy')

@@ -7,7 +7,7 @@ emails = [
 ]
 
 // convert each email to feature vector (using "bag of words" method)
-englishDictionary = ['a', 'abandon', ..., 'zero', 'zone']
+englishDictionary = ['a','abandon','accident','ass',  ...,  'yolo','zero','zone']
 englishDictionary.length // 3000
 
 features = []
@@ -15,8 +15,8 @@ for (email of emails) features.push(
 	englishDictionary.map(i => email.includes(i))
 )
 
-features // [  []2e4, []2e4, ..., ..., ...9999, []2e4 ]
+features // [  []3000, []3000, ..., ..., ...9999, []3000 ]
 
-data = features.map((v,i) => [ v, emails[i][1] ])
+data = features.map((feat,i) => [ feat, emails[i][1] ])
 
 data // [ [feature,label], [feature,label], ...1e4 ]
