@@ -5,7 +5,7 @@ function range(start=0, stop=0, step=1) {
 	return r;
 }
 
-// step - py
+// step - py (unidirectional)
 function range(...a) {
 	let start, stop, step;
 	let r = [];
@@ -15,6 +15,25 @@ function range(...a) {
 		[start=0, stop=0, step=1] = a;
 	}
 	for (let i=start; i<stop; i+=step) r.push(i);
+	return r;
+}
+
+// step - py (bidirectional)
+function range(...a) {
+	let start, stop, step;
+	let r = [];
+	if (a.length < 2) {
+		[stop=0, start=0, step=1] = a;
+	} else {
+		[start=0, stop=0, step=1] = a;
+	}
+	if (start < stop) {
+		if (step <= 0) return r;
+		for (let i=start; i<stop; i+=step) r.push(i);
+	} else if (start > stop) {
+		if (step >= 0) return r;
+		for (let i=start; i>stop; i+=step) r.push(i);
+	}
 	return r;
 }
 
