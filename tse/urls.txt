@@ -46,16 +46,17 @@ rest api
 
 ... = :inscode/:deven
 
-http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/...		InstSimpleData
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/...				InstSimpleData
 
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/...	ClosingPriceData
-http://cdn.tsetmc.com/api/BestLimits/...				BestLimitData
-http://cdn.tsetmc.com/api/Trade/GetTradeHistory/.../:bool		IntraTradeData
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/...			ClosingPriceData
+http://cdn.tsetmc.com/api/BestLimits/...						BestLimitData
+http://cdn.tsetmc.com/api/Trade/GetTradeHistory/.../:bool				IntraTradeData
 
-http://cdn.tsetmc.com/api/ClientType/GetClientTypeHistory/...		ClientTypeData
-http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/...		StaticTreshholdData
-http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/...		InstrumentStateData
-http://cdn.tsetmc.com/api/Shareholder/...				ShareHolderData
+http://cdn.tsetmc.com/api/ClientType/GetClientTypeHistory/...				ClientTypeData
+http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/...				StaticTreshholdData
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/...				InstrumentStateData
+http://cdn.tsetmc.com/api/Shareholder/...						ShareHolderData
 
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/...		some info
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/...				ClosingPrice  single day
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyList/:inscode/:top<int>	ClosingPrices multiple days
 --------------------------------------------------------------------------------
