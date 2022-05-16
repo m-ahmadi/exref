@@ -21,11 +21,16 @@
 	This is excatly the same in Node environment,
 	except instead of WebAPIs, there's C++ APIs. (and that's all node does: sitting on top of c++ apies)
 */
-console.log("salam");
 
-// console.log("olaghe");
-setTimeout(function () {
-	console.log("olaghe");
-}, 0);
+// setTimeout|setInterval send task to queue 
+console.log('1');
+setTimeout(() => console.log('2'), 0);
+console.log('3');
+// 1 3 2
 
-console.log("aziz");
+// promises go to different queue
+console.log('1');
+setTimeout(() => console.log('2'), 0);
+new Promise(r => r('3')).then(console.log);
+console.log('4');
+// 1 4 3 2

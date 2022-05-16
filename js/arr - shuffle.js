@@ -3,7 +3,7 @@ function shuffleArr(arr=[]) {
 	let i = arr.length;
 	let j;
 	
-	while (i != 0) {
+	while (i !== 0) {
 		j = Math.floor(Math.random() * i);
 		i--;
 		[ arr[i], arr[j] ] = [ arr[j], arr[i] ]; // swap
