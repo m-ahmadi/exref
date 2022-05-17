@@ -1,0 +1,11 @@
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+or:
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/tf-backend-wasm.js"></script>
+<script>
+(async () => {
+	let sucset = await tf.setBackend('wasm');
+	// ...
+})()
+</script>
