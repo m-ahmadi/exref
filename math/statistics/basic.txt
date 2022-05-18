@@ -1,3 +1,32 @@
+types of data
+	quantitative:		numbers, can be measured. (hight, width, temperature, humidity, price)
+		discrete:	finite, integers, whole things, indivisible entities. children (can't have 2.5 kids)
+		continuous:	infinite, divisible to finer levels. weight (can be on more precise scales: meter,centi,milli,...)
+	qualitative:		categorical, characteristics, descriptors, can't be measured. (smells, tastes, textures, colors)
+		binomial:	binary
+		nominal:	unordered
+		ordinal:	ordered
+	time series:		successive measurements of same variable in time order
+	spacial data:		representing objects and their spatial coordinates (used in mapping and location analytics)
+	graph data:		representing relationships (physical, social, abstract)
+
+types of statistics
+	descriptive:	making information that describes the data in some manner
+	inferential:	making conclusions about the data, using only some part of it
+
+types of analysis
+	univariate	one variable
+	bivariate	two variables
+	multivariate	more than two variables
+
+distribution moments
+	location	first  moment
+	variability	second moment
+	skewness	third  moment	(whether data is skewed to larger or smaller values)
+	kurtosis	fourth moment	(propensity of the data to have extreme values)
+--------------------------------------------------------------------------------
+univariate analysis
+
 mean		normal average (sum(numbers) / numbers.length)
 
 median		middle value in the list of ascending-sorted numbers (mean of two middle values if list is even)
@@ -9,33 +38,61 @@ midrange	mean(min,max)
 
 iqr		difference betwwen median of first and second half of list (if list is odd, median of list is excluded from halves)
 
-types of statistics
-	descriptive:	making information that describes the data in some manner
-	inferential:	making conclusions about the data, using only some part of it
-
-distribution moments
-	location	first  moment
-	variability	second moment
-	skewness	third  moment	(whether data is skewed to larger or smaller values)
-	kurtosis	fourth moment	(propensity of the data to have extreme values)
+standard deviation
+	how spread the data is
+	the lower the standard deviation  =  the closer values are to mean
 
 frequency table
 	variable range devided into equally spaced segments with count of values in each segment
 	histogram is a way to visualize a frequency table
 
 bar chart vs histogram
-	bar chart:	x-axis represents sub-variables of variable (bars shown separate from each other)
-	histogram:	x-axis represents values        of variable (bars shown touching each other, with gaps for non-existing values)
+	bar chart:	x-axis represents sub-variables of variable (bars separate from each other)
+	histogram:	x-axis represents values        of variable (bars touching each other, with gaps for non-existing values)
 		
 density plot
 	a continuous line that shows distribution of data values
 	like a smoothed histogram
-
 --------------------------------------------------------------------------------
-correlation does not imply causation
-	causation:	a causal relationship between variables
-	correlation:	variables reflect the same pattern,
-	changes in one won't affect the other
+bivariate analysis
+
+scatter plot
+	relationship between 2 numeric variables (each on 1 axis)
+	the larger the sample size  =  the less useful is scatter plot (due to clutter)
+
+correlation
+	how much 2 variables are linearly related
+	correlation does not imply causation
+		causation:	a causal relationship between variables
+		correlation:	variables reflect the same pattern
+		changes in one won't affect the other
+--------------------------------------------------------------------------------
+multivariate analysis
+
+boxplot
+	compare distributions of 1 numeric variable grouped according to 1 categorical variable
+
+violin plot
+	enhancement to the boxplot
+	plot density estimate with density on y-axis (with a flip mirror which resembles a violin)
+
+contingency table
+	table of counts by category for 2 categorical variables
+
+==================================================
+two-dimensional density (natural analogs to histograms and density plots)
+
+hexagonal binning
+	data is grouped into hexagonal bins with a color indicating number of values in that bin
+	
+contour plot
+	topographical map to two variables
+	each contour band represents a specific density of points, increasing as one nears a "peak"
+heatmap
+	data is grouped into bins with a color indicating number of values in that bin
+	color can vary by hue or intensity
+--------------------------------------------------------------------------------
+misc
 
 curse of dimensionality
 	analyzing too many variables

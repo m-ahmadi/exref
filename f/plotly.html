@@ -1,9 +1,12 @@
 <div id="c1"></div>
 <div id="c2"></div>
+<div id="c3"></div>
+<div id="c4"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/plotly.js/dist/plotly.min.js"></script>
 <script>
 Plotly.newPlot('c1', [{
+	type: 'contour',
 	z: [
 		[10, 10.625, 12.5, 15.625, 20],
 		[5.625, 6.25, 8.125, 11.25, 15.625],
@@ -11,16 +14,26 @@ Plotly.newPlot('c1', [{
 		[0.625, 1.25, 3.125, 6.25, 10.625],
 		[0, 0.625, 2.5, 5.625, 10]
 	],
-	type: 'contour'
 }], {title: 'Basic Contour Plot'});
 
 
-
 Plotly.newPlot('c2', [{
+	type: 'box',
 	y: [0, 1, 1, 2, 3, 5, 8, 13, 21],
 	boxpoints: 'all',
 	jitter: 0.3,
 	pointpos: -1.8,
-	type: 'box'
 }], {title: 'Box Plot'});
+
+
+Plotly.newPlot('c3', [{
+	type: 'heatmap',
+	z: [[1, 20, 30], [20, 1, 60], [30, 60, 1]],
+}], {title: 'Heatmap'});
+
+
+Plotly.newPlot('c4', [
+	{type:'scatter', x:[1,2,3], y:[4,5,6]},
+	{type:'scatter', xaxis:'x2', yaxis:'y2', x:[20,30,40], y:[50,60,70]},
+], {grid: {rows:1, columns:2, pattern:'independent'}, title:'Suplots'});
 </script>
