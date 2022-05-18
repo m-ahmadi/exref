@@ -16,11 +16,16 @@ tf.tensor6d(...)
 tf.linspace(start=0, stop=0, num=0)
 tf.reshape(x=Tensor, shape=[0,...])
 
-tf.model({
+model = tf.model({
 	inputs:  SymbolicTensor | [SymbolicTensor,...],
 	outputs: SymbolicTensor | [SymbolicTensor,...],
 	name:    ''
 })
+model.getWeights()
+model.setWeights()
+model.layers[0].getWeight()
+model.layers[0].setWeight()
+
 tf.layers.dense(arg={
 	units:               +int,
 	activation:          undefined|'elu|hardSigmoid|linear|relu|relu6|selu|sigmoid|softmax|softplus|softsign|tanh',

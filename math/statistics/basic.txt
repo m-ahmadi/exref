@@ -9,12 +9,29 @@ midrange	mean(min,max)
 
 iqr		difference betwwen median of first and second half of list (if list is odd, median of list is excluded from halves)
 
-
 types of statistics
-descriptive		making information that describes the data in some manner
-inferential		making conclusions about the data, using only some part of it
+	descriptive:	making information that describes the data in some manner
+	inferential:	making conclusions about the data, using only some part of it
 
+distribution moments
+	location	first  moment
+	variability	second moment
+	skewness	third  moment	(whether data is skewed to larger or smaller values)
+	kurtosis	fourth moment	(propensity of the data to have extreme values)
 
+frequency table
+	variable range devided into equally spaced segments with count of values in each segment
+	histogram is a way to visualize a frequency table
+
+bar chart vs histogram
+	bar chart:	x-axis represents sub-variables of variable (bars shown separate from each other)
+	histogram:	x-axis represents values        of variable (bars shown touching each other, with gaps for non-existing values)
+		
+density plot
+	a continuous line that shows distribution of data values
+	like a smoothed histogram
+
+--------------------------------------------------------------------------------
 correlation does not imply causation
 	causation:	a causal relationship between variables
 	correlation:	variables reflect the same pattern,
@@ -22,3 +39,4 @@ correlation does not imply causation
 
 curse of dimensionality
 	analyzing too many variables
+--------------------------------------------------------------------------------

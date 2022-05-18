@@ -1,11 +1,9 @@
-"Define your vision." Elon Musk
-
 "Writing is a way of keeping things alive. Saving things that will eventually die.
 If you write it down, then it'll last forever." Edward Sheffield, Nocturnal Animals
 
 "Learning is fighting through confusion." Youtube Video
 
-The world is a tragedy for those who feel, a comedy for those who think. - Horace Walpole.
+"The world is a tragedy for those who feel, a comedy for those who think." Horace Walpole.
 
 "Life isn't about being the best in every aspect of every skillset,
 it's about being proud of what you're good at and doing things that other people couldn't do,
@@ -30,4 +28,7 @@ It takes a touch of genius and a lot of courage to move in the opposite directio
 
 "Wake up, Neo...
 The Matrix has you...
-Follow the white rabbit."  The Matrix (1999)
+Follow the white rabbit." The Matrix (1999)
+
+"The combination of some data and an aching desire for an answer does not ensure
+that a reasonable answer can be extracted from a given body of data." John Tukey

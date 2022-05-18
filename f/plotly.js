@@ -11,7 +11,7 @@ var plotly = Plotly.newPlot(graphDiv='',
 		},
 	],
 	layout={
-		title: ''|{
+		title: '' | {
 			text: '',
 			font: {family:'',size:1,color:''}
 		},

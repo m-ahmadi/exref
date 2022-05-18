@@ -34,11 +34,11 @@ function randn() {/*between 0 and 1 inclusive*/
 	while(v === 0) v = Math.random();
 	let num = Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 	num = num / 10 + 0.5;                  // translate to 0 -> 1
-	if (num > 1 || num < 0) return randn() // resample between 0 and 1
-	return num
+	if (num > 1 || num < 0) return randn(); // resample between 0 and 1
+	return num;
 }
 
-function randn(min, max, skew) {/*with min max skew*/
+function randn(min, max, skew) {/*between min max with skew*/
 	let [u, v] = [0, 0];
 	while(u === 0) u = Math.random();
 	while(v === 0) v = Math.random();
@@ -46,13 +46,13 @@ function randn(min, max, skew) {/*with min max skew*/
 
 	num = num / 10 + 0.5; // translate to 0 -> 1
 	if (num > 1 || num < 0) {
-		num = randn(min, max, skew) // resample between 0 and 1 if out of range
+		num = randn(min, max, skew); // resample between 0 and 1 if out of range
 	} else {
-		num = Math.pow(num, skew); // skew
-		num *= max - min;          // stretch to fill range
-		num += min;                // offset to min
+		num = Math.pow(num, skew);   // skew
+		num *= max - min;            // stretch to fill range
+		num += min;                  // offset to min
 	}
-	return num
+	return num;
 }
 
 // central limit theorem
