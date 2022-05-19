@@ -1,5 +1,5 @@
 const tf = require('@tensorflow/tfjs');          // pure js version (slowest option performance wise)
-const tf = require('@tensorflow/tfjs-node'	);   // native c++ bindings
+const tf = require('@tensorflow/tfjs-node');     // native c++ bindings
 const tf = require('@tensorflow/tfjs-node-gpu'); // higher performance if your system has a nvidia gpu with cuda support
 /*
 https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/

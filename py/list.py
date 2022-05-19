@@ -52,6 +52,14 @@ sorted(['1','10','11','2'], key=int) # ['1', '2', '10', '11']
 sorted(['c','B','a'])                # ['B', 'a', 'c']
 sorted(['c','B','a'], key=str.lower) # ['a', 'B', 'c']
 
+sorted([(1,6), (2,5), (3,4)], key=lambda i: i[1])           # [ (3,4), (2,5), (1,6) ]
+sorted([{'a':4}, {'a':3}, {'a':2}], key=lambda i: i['a'])   # [ {'a':2}, {'a':3}, {'a':4} ]
+sorted([ [1,2,3,4], [1,2,3], [1,2] ], key=lambda i: len(i)) # [ [1,2], [1,2,3], [1,2,3,4] ]
+
+from operator import itemgetter, attrgetter
+sorted([(1,6), (2,5), (3,4)], key=itemgetter(1))          # [ (3,4), (2,5), (1,6) ]
+sorted([{'a':4}, {'a':3}, {'a':2}], key=attrgetter('a'))  # [ {'a':2}, {'a':3}, {'a':4} ]
+
 # sort by locale
 ref = 'آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی'
 a = ref.split(' ')
@@ -72,6 +80,12 @@ collator = icu.Collator.createInstance(icu.Locale('fa_FA.UTF-8'))
 # creation
 a = range(1,10,2)
 list(a) # [1,3,5,7,9]
+
+# another concat
+a = [1,2]
+b = [3,4]
+a += b
+a # [1,2,3,4]
 
 # index access
 a = [1,2,3,4]
@@ -129,6 +143,8 @@ a = map(lambda i: [i]*4, [1,2])
 list(chain(*a))              # [1,1,1,1,2,2,2,2]
 a = ...
 list(chain.from_iterable(a)) # ...
+
+[i for a in a for i in a]    # ...
 
 # pass by reference
 a = [1,2,3,4]
