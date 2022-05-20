@@ -91,15 +91,6 @@ def foo():
 	global a, b, c
 	return [a, b, c]
 
-# generator function
-def foo():
-	yield 2
-fn = foo()
-
-gen = (i*2 for i in [1,2,3]) # generator comprehension
-for i in gen:
-	print(i) # 2 4 6
-
 # return fn
 def foo():
 	def bar():
@@ -107,6 +98,53 @@ def foo():
 	return bar
 
 foo()() # 'hi'
+
+# `nonlocal` variable (closure)
+def foo():
+	n = 7
+	def bar():
+		nonlocal n
+		n += 1
+		return n
+	return bar
+bar = foo()
+bar() # 8
+bar() # 9
+
+# without `nonlocal`, outter scope variable can only be read
+def foo():
+	n = 7
+	def bar():
+		#n += 1   # can't write
+		return n # can read
+	return bar
+foo()() # err
+
+# class defined in function
+def foo():
+	x = 3
+	class MyClass():
+		y = x
+		def m(self):
+			nonlocal x
+			x += 1
+			return x
+	return MyClass
+o = foo()()
+o.m() # 4
+o.m() # 5
+o.y   # 3
+
+# generator function
+def foo():
+	yield 2
+fn = foo()
+[*fn] # [2]
+[*fn] # []
+
+gen = (i*2 for i in [1,2,3]) # generator comprehension
+for i in gen:
+	print(i) # 2 4 6
 
 # decorator
 def my_decorator(func):

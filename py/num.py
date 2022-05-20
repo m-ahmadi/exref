@@ -9,6 +9,16 @@ import math
 float('inf')  == math.inf  # True
 float('-inf') == -math.inf # True
 
+# nan
+float('nan')
+math.nan
+float('nan') == math.nan # False
+
+# check for nan
+n = float('nan')
+math.isnan(n) # True
+n != n        # True
+
 # check for whole number
 2.1 % 1 == 0 # False
 2.0 % 1 == 0 # Tru
