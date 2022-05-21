@@ -1,30 +1,14 @@
 import tensorflow as tf
 
 model = tf.keras.Sequential(layers=None|[], name=None)
-
-model.compile(optimizer='rmsprop', loss=None|fn|''|Loss, metrics=None, loss_weights=None, weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs)
 model.compile(optimizer='sgd', loss='mse')
-
 model.layers[0].input.shape
-
 model.summary()
-
-history = model.fit(
-	x=None | arr<numpy> | list< arr<numpy> > | {'input':[]|Tensor} | tf.data | Sequence | DatasetCreator | ParameterServerStrategy,
-	y=None | ...,
-	batch_size=None, epochs=1, verbose=1|0|2|'auto',
-	callbacks=None, validation_split=0.0, validation_data=None, shuffle=True|'batch',
-	class_weight=None, sample_weight=None, initial_epoch=0, steps_per_epoch=None,
-	validation_steps=None, validation_batch_size=None, validation_freq=1,
-	max_queue_size=10, workers=1, use_multiprocessing=False
-)
+history = model.fit(...)
 history.history['loss'][-1] # last loss
-
-loss_and_metrics = model.evaluate(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, return_dict=False, **kwargs)
-
-model.predict(x, batch_size=None, verbose=0, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False)
-
-model.save(filepath='', overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None, save_traces=True)
+loss_and_metrics = model.evaluate(...)
+preds = model.predict(...)
+model.save(...)
 json_string = model.to_json(**kwargs)
 
 tf.keras.models.
@@ -34,6 +18,24 @@ tf.keras.models.
 
 tf.saved_model.save(obj=tf.Module|tf.train.Checkpoint, export_dir='', signatures=None, options=None)
 
+tf.keras.
+	Model(*args, **kwargs) <- Layer, Module
+		.compile(optimizer='rmsprop', loss=None|fn|''|Loss, metrics=None, loss_weights=None, weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs)
+		.fit(
+			x=None | arr<numpy> | list< arr<numpy> > | {'input':[]|Tensor} | tf.data | Sequence | DatasetCreator | ParameterServerStrategy,
+			y=None | ...,
+			batch_size=None, epochs=1, verbose=1|0|2|'auto',
+			callbacks=None, validation_split=0.0, validation_data=None, shuffle=True|'batch',
+			class_weight=None, sample_weight=None, initial_epoch=0, steps_per_epoch=None,
+			validation_steps=None, validation_batch_size=None, validation_freq=1,
+			max_queue_size=10, workers=1, use_multiprocessing=False
+		)
+		.evaluate(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, return_dict=False, **kwargs)
+		.predict(x, batch_size=None, verbose=0, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False)
+		.save(filepath='', overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None, save_traces=True)
+	Input(shape=None, batch_size=None, name=None, dtype=None, sparse=None, tensor=None, ragged=None, type_spec=None, **kwargs)
+	Sequential(layers=None, name=None) <- Model, Layer, Module
+	
 tf.keras.layers.
 	Dense(
 		units=+0, activation=None, use_bias=True,
@@ -92,6 +94,14 @@ tf.keras.layers.
 	
 	Flatten(data_format=None, **kwargs)
 	InputLayer(input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False, ?name='', ragged=False, type_spec=None, **kwargs)
+	
+	Layer(trainable=True, name=None, dtype=None, dynamic=False, **kwargs)
+		add_loss(losses, **kwargs)
+		add_metric(value, name=None, **kwargs)
+		add_weight(name=None, shape=None, dtype=None, initializer=None, regularizer=None, trainable=None, constraint=None, use_resource=None,
+			synchronization=tf.VariableSynchronization.AUTO, aggregation=tf.VariableAggregation.NONE, **kwargs)
+		get_weights()
+		set_weights(weights)
 
 tf.keras.activations.
 	elu(x, alpha=1.0)
@@ -145,10 +155,33 @@ tf.keras.optimizers.
 	SGD(learning_rate=0.01, momentum=0.0, nesterov=False, name='SGD', **kwargs)
 
 tf.keras.callbacks.
+	Callback()
+		class MyCallback(Callback):
+			params
+			model
+			def __init__(self):
+				super(MyCallback, self).__init__()
+			def on_batch_begin(batch, logs=None)
+			def on_batch_end(batch, logs=None)
+			def on_epoch_begin(epoch, logs=None)
+			def on_epoch_end(epoch, logs=None)
+			def on_predict_batch_begin(batch, logs=None)
+			def on_predict_batch_end(batch, logs=None)
+			def on_predict_begin(logs=None)
+			def on_predict_end(logs=None)
+			def on_test_batch_begin(batch, logs=None)
+			def on_test_batch_end(batch, logs=None)
+			def on_test_begin(logs=None)
+			def on_test_end(logs=None)
+			def on_train_batch_begin(batch, logs=None)
+			def on_train_batch_end(batch, logs=None)
+			def on_train_begin(logs=None)
+			def on_train_end(logs=None)
+			def set_model(model)
+			def set_params(params)
+	CallbackList(callbacks=None, add_history=False, add_progbar=False, model=None, **params)
 	BaseLogger(stateful_metrics=None)
 	CSVLogger(filename='', separator=',', append=False)
-	Callback()	
-	CallbackList(callbacks=None, add_history=False, add_progbar=False, model=None, **params)
 	EarlyStopping(monitor='val_loss', min_delta=0, patience=0, verbose=0, mode='auto|min|max', baseline=None, restore_best_weights=False)
 	History()
 	LambdaCallback(on_epoch_begin=None, on_epoch_end=None, on_batch_begin=None, on_batch_end=None, on_train_begin=None, on_train_end=None, **kwargs)
@@ -161,13 +194,13 @@ tf.keras.callbacks.
 	TerminateOnNaN()
 
 tf.keras.initializers.
+	Initializer()
 	Constant(value=0)
 	GlorotNormal(seed=None)
 	GlorotUniform(seed=None)
 	HeNormal(seed=None)
 	HeUniform(seed=None)
 	Identity(gain=1.0)
-	Initializer()
 	LecunNormal(seed=None)
 	LecunUniform(seed=None)
 	Ones()
@@ -183,6 +216,19 @@ tf.keras.initializers.
 	get(identifier)
 
 tf.keras.metrics.
+	Metric(name=None, dtype=None, **kwargs) <- Layer, Module
+		class MyMetric(Metric):
+			def __init__(self, name='my_metric', **kwargs):
+				super(MyMetric, self).__init__(name=name, **kwargs)
+				self.res = self.add_weight(name='x', initializer='zeros')
+			def update_state(self, y_true, y_pred, sample_weight=None):
+				self.res.assign_add(...)
+			def reset_state():
+				...
+			def merge_state(metrics):
+				...
+			def result():
+				return self.res
 	AUC(num_thresholds=200, curve='ROC', summation_method='interpolation', name=None, dtype=None, thresholds=None, multi_label=False, num_labels=None, label_weights=None, from_logits=False)
 	Accuracy(name='accuracy', dtype=None)
 	BinaryAccuracy(name='binary_accuracy', dtype=None, threshold=0.5)
@@ -205,7 +251,6 @@ tf.keras.metrics.
 	MeanSquaredError(name='mean_squared_error', dtype=None)
 	MeanSquaredLogarithmicError(name='mean_squared_logarithmic_error', dtype=None)
 	MeanTensor(name='mean_tensor', dtype=None, shape=None)
-	Metric(name=None, dtype=None, **kwargs)
 	Poisson(name='poisson', dtype=None)
 	Precision(thresholds=None, top_k=None, class_id=None, name=None, dtype=None)
 	PrecisionAtRecall(recall, num_thresholds=200, class_id=None, name=None, dtype=None)
@@ -257,16 +302,3 @@ tf.keras.metrics.
 	serialize(metric)
 	deserialize(config, custom_objects=None)
 	get(identifier)
-
-tf.function(
-	func=None, input_signature=None, autograph=True, jit_compile=None,
-	experimental_implements=None, experimental_autograph_options=None,
-	experimental_relax_shapes=False, experimental_follow_type_hints=None
-) -> tf.types.experimental.GenericFunction
-
-tf.int32 is tf.dtypes.int32 # True
-
-tf.TensorSpec(shape=TensorShape, dtype=tf.float32, name=None)
-tf.TensorShape(dims=[int,..]|None)
-tf.constant(value=num|[], dtype=None|''|tf.float32..., shape=None|(int,..), name='Const')
-tf.zeros(shape=list<int> | tuple<int> | Tensor1D<int32>, dtype=tf.float32, ?name=None|'')

@@ -112,13 +112,19 @@ bar() # 8
 bar() # 9
 
 # without `nonlocal`, outter scope variable can only be read
+n = 33
+def f():
+	print(n) # ok
+	n = 4    # err
+f()
+
 def foo():
-	n = 7
+	n = 33
 	def bar():
-		#n += 1   # can't write
-		return n # can read
+		print(n) # ok  (can read)
+		n = 4    # err (can't write)
 	return bar
-foo()() # err
+foo()()
 
 # class defined in function
 def foo():
