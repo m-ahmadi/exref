@@ -37,6 +37,15 @@ tf.keras.
 	Sequential(layers=None, name=None) <- Model, Layer, Module
 	
 tf.keras.layers.
+	Layer(trainable=True, name=None, dtype=None, dynamic=False, **kwargs)
+		class MyLayer(Layer):
+			def __init__():
+			def add_loss(losses, **kwargs):
+			def add_metric(value, name=None, **kwargs):
+			def add_weight(name=None, shape=None, ..., **kwargs)
+			def get_weights():
+			def set_weights(weights):
+			...
 	Dense(
 		units=+0, activation=None, use_bias=True,
 		kernel_initializer='glorot_uniform', bias_initializer='zeros',
@@ -94,14 +103,6 @@ tf.keras.layers.
 	
 	Flatten(data_format=None, **kwargs)
 	InputLayer(input_shape=(int,..)|TensorShape, batch_size=None, dtype=None, ?input_tensor=None, sparse=False, ?name='', ragged=False, type_spec=None, **kwargs)
-	
-	Layer(trainable=True, name=None, dtype=None, dynamic=False, **kwargs)
-		add_loss(losses, **kwargs)
-		add_metric(value, name=None, **kwargs)
-		add_weight(name=None, shape=None, dtype=None, initializer=None, regularizer=None, trainable=None, constraint=None, use_resource=None,
-			synchronization=tf.VariableSynchronization.AUTO, aggregation=tf.VariableAggregation.NONE, **kwargs)
-		get_weights()
-		set_weights(weights)
 
 tf.keras.activations.
 	elu(x, alpha=1.0)
