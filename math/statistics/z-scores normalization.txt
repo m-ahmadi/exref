@@ -1,0 +1,5 @@
+u = mean(data)
+s = stdv(data)
+
+z = data.map(i=> (i-u)/s)
+z = [(i-u)/s for i in data]
