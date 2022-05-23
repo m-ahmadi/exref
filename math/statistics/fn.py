@@ -1,10 +1,23 @@
 import numpy as np
+from scipy import stats
+
+# trim mean
+stats.trim_mean([1,2,3,4,5,6,7,8,9], .1) # 5
+
+# linear regression
+x = np.array([1,2,3,4])
+y = [2,3,2,1]
+res = stats.linregress(x, y)
+list(res.intercept + res.slope * x) # [2.6, 2.2, 1.79, 1.4]
+
+# pearson corrolation
+r, _ = stats.pearsonr([1,2,3,4], [2,3,2,1])
+print(r)
 
 def mean(nums=[], trim=0, sample=False):
 	if trim:
 		nums = sorted(nums[:])[+trim:-trim]
 	return sum(nums) / (len(nums) - (1 if sample else 0))
-
 
 def sma(nums=[], period=2, fill=None):
 	pi = period - 1 if period > 0 else 0
@@ -17,7 +30,6 @@ def sma(nums=[], period=2, fill=None):
 		res = [ mean(nums[0:i+1]) for i,v in enumerate(nums) ]
 	
 	return res
-
 
 def ema(nums=[], period=2, fill=None):
 	res = [fill] * (period-1)
@@ -32,7 +44,6 @@ def ema(nums=[], period=2, fill=None):
 	
 	return res
 
-
 def ema_formal(nums=[], alpha=1):
 	if alpha < 0 or alpha > 1:
 		return
@@ -46,7 +57,6 @@ def ema_formal(nums=[], alpha=1):
 		S.append(s)
 	
 	return S
-
 
 def ewm(data, span=2, adjust=True):
 	meancalc = []
