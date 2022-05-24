@@ -1,8 +1,20 @@
 import tensorflow as tf
 from tensorflow import keras
 
-class BinaryTruePositives(keras.metrics.Metric):
+def custom(y_true, y_pred):
+	score = 128
+	return tf.constant(score)
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=[custom])
 
+def custom(y_true, y_pred):
+	y_pred = y_pred.numpy().tolist()
+	score = ...
+	return tf.constant(score)
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=[custom], run_eagerly=True)
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+class BinaryTruePositives(keras.metrics.Metric):
 	def __init__(self, name='binary_true_positives', **kwargs):
 		super(BinaryTruePositives, self).__init__(name=name, **kwargs)
 		self.true_positives = self.add_weight(name='tp', initializer='zeros')
@@ -21,3 +33,4 @@ class BinaryTruePositives(keras.metrics.Metric):
 
 	def result(self):
 		return self.true_positives
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

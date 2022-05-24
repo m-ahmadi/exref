@@ -10,6 +10,7 @@ def objective(trial):
 		num_hidden = trial.suggest_int(f'n_units_l{i}', 4, 128, log=True)
 		model.add(tf.keras.layers.Dense(num_hidden, activation='relu'))
 	model.add(tf.keras.layers.Dense(CLASSES))
+	...
 	
 	return accuracy
 
