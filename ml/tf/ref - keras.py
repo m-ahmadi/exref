@@ -20,6 +20,7 @@ tf.saved_model.save(obj=tf.Module|tf.train.Checkpoint, export_dir='', signatures
 
 tf.keras.
 	Model(*args, **kwargs) <- Layer, Module
+		__call__(x, training=False)
 		.compile(optimizer='rmsprop', loss=None|fn|''|Loss, metrics=None, loss_weights=None, weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs)
 		.fit(
 			x=None | arr<numpy> | list< arr<numpy> > | {'input':[]|Tensor} | tf.data | Sequence | DatasetCreator | ParameterServerStrategy,
@@ -36,6 +37,14 @@ tf.keras.
 	Input(shape=None, batch_size=None, name=None, dtype=None, sparse=None, tensor=None, ragged=None, type_spec=None, **kwargs)
 	Sequential(layers=None, name=None) <- Model, Layer, Module
 	
+	# predict() vs __call__()
+	model.predict(x)
+		# loops over data in batches
+		# can't get its gradient if called in a `GradientTape` scope
+	model(x)
+		# happens in-memory
+		# only used when writing low-level stuff
+
 tf.keras.layers.
 	Layer(trainable=True, name=None, dtype=None, dynamic=False, **kwargs)
 		class MyLayer(Layer):

@@ -31,6 +31,16 @@ employee.name   # 'Jim'
 employee.age    # 47
 employee.salary # 80000
 
+# magic method
+class Foo():
+	def __init__(self, x):
+		self.x = x
+	def __call__(self):
+		return self.x * 2
+foo = Foo(32)
+foo.x # 32
+foo() # 64
+
 # iterate through own props
 vars(student)    # {'name': 'John', 'age': 88, 'major': None}
 student.__dict__ # ...

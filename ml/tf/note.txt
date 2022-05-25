@@ -1,0 +1,10 @@
+eager vs graph execution
+
+eager
+	operations evaluated immediately
+	operations return actual values
+	(tensor values are calculated as they occur in code)
+
+graph
+	operations return computational graphs to run later
+--------------------------------------------------------------------------------
