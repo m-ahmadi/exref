@@ -6,7 +6,7 @@ cd repo_dir
 
 jingo -s > config.yaml
 open config.yaml
-	application->repository: 'absolute path of git repo' 
+	application->repository: 'absolute path to git repo containing .md files' 
 	application->remote:     'origin'
 	server->localOnly:        true
 jingo -c config.yaml

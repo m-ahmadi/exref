@@ -19,7 +19,7 @@ tf.keras.models.
 tf.saved_model.save(obj=tf.Module|tf.train.Checkpoint, export_dir='', signatures=None, options=None)
 
 tf.keras.
-	Model(*args, **kwargs) <- Layer, Module
+	Model(*args, **kwargs) <- Layer, Module # https://www.tensorflow.org/api_docs/python/tf/keras/Model
 		__call__(x, training=False)
 		.compile(optimizer='rmsprop', loss=None|fn|''|Loss, metrics=None, loss_weights=None, weighted_metrics=None, run_eagerly=None, steps_per_execution=None, **kwargs)
 		.fit(
@@ -34,6 +34,7 @@ tf.keras.
 		.evaluate(x=None, y=None, batch_size=None, verbose=1, sample_weight=None, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False, return_dict=False, **kwargs)
 		.predict(x, batch_size=None, verbose=0, steps=None, callbacks=None, max_queue_size=10, workers=1, use_multiprocessing=False)
 		.save(filepath='', overwrite=True, include_optimizer=True, save_format=None, signatures=None, options=None, save_traces=True)
+		.train_step(data)
 	Input(shape=None, batch_size=None, name=None, dtype=None, sparse=None, tensor=None, ragged=None, type_spec=None, **kwargs)
 	Sequential(layers=None, name=None) <- Model, Layer, Module
 	

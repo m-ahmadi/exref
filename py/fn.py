@@ -174,3 +174,23 @@ async def b():
 	n = await a()
 	print(n)
 	return n
+
+# docstring
+def foo():
+	'''this func does something'''
+	return 2
+foo.__doc__ # 'this func does something'
+
+# magic attrs
+# https://docs.python.org/3/reference/datamodel.html#index-33
+__doc__
+__name__
+__qualname__
+__module__
+__defaults__
+__code__
+__globals__
+__dict__
+__closure__
+__annotations__
+__kwdefaults__

@@ -1,0 +1,8 @@
+{
+  "version": "0.0.1",
+  "dependencies": {
+    "fs-extra": "^10.1.0",
+    "js-yaml": "^4.1.0",
+    "showdown": "^2.1.0"
+  }
+}

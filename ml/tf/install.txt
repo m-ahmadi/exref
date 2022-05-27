@@ -17,6 +17,8 @@ local docs
 pip install git+https://github.com/tensorflow/docs
 
 git clone https://github.com/tensorflow/tensorflow
-cd tensorflow/tensorflow/tools/docs/
-python generate2.py --output_dir=/tmp/out
+py tensorflow\tensorflow\tools\docs\generate2.py --output_dir=/tmp/out
+	--site_path
+	--code_url_prefix
+	--search_hints		bool
 --------------------------------------------------------------------------------
