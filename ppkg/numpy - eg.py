@@ -79,6 +79,12 @@ a.flatten()    # ...
 a.reshape(-1)  # ... 
 [*a.flat]      # [1,2,3,4]
 
+# infer shape (from array length and remaining dimensions)
+np.arange(20).reshape((4,5))
+np.arange(20).reshape((-1,5)) # 4x5
+np.arange(20).reshape((-1,4)) # 5x4
+np.arange(20).reshape((-1,2)) # 2x10
+
 # 2d arr slicing
 a = np.array([ [1,2], [3,4] ])
 a[0, 0] # 1
