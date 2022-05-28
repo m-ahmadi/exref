@@ -30,6 +30,6 @@ tf.math.reduce_sum(input_tensor, axis=None, keepdims=False, name=None) | tf.redu
 
 tf.data.Dataset()
 	.from_tensor_slices()
-	.batch(batch_size, drop_remainder=False, num_parallel_calls=None, deterministic=None, name=None)
+	.batch(batch_size=int64|Tensor, ?drop_remainder=False, ?num_parallel_calls=None, ?deterministic=None, ?name=None)
 	.range(*args, **kwargs)
-		.as_numpy_iterator()
+	.as_numpy_iterator()
