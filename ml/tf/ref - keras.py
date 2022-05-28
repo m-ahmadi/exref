@@ -18,6 +18,14 @@ tf.keras.models.
 
 tf.saved_model.save(obj=tf.Module|tf.train.Checkpoint, export_dir='', signatures=None, options=None)
 
+tf.Module(name=None)
+	.name_scope
+	.non_trainable_variables
+	.submodules
+	.trainable_variables
+	.variables
+	.with_name_scope(method)
+
 tf.keras.
 	Model(*args, **kwargs) <- Layer, Module # https://www.tensorflow.org/api_docs/python/tf/keras/Model
 		__call__(x, training=False)
@@ -48,14 +56,28 @@ tf.keras.
 
 tf.keras.layers.
 	Layer(trainable=True, name=None, dtype=None, dynamic=False, **kwargs)
-		class MyLayer(Layer):
-			def __init__():
-			def add_loss(losses, **kwargs):
-			def add_metric(value, name=None, **kwargs):
-			def add_weight(name=None, shape=None, ..., **kwargs)
-			def get_weights():
-			def set_weights(weights):
-			...
+		.name
+		.dtype
+		.variable_dtype
+		.compute_dtype
+		.dtype_policy
+		.trainable_weights
+		.non_trainable_weights
+		.weights
+		.trainable
+		.input_spec
+		.activity_regularizer
+		.dynamic
+		.input
+		.losses
+		.metrics
+		.output
+		.supports_masking
+		.add_loss(losses, **kwargs)
+		.add_metric(value, name=None, **kwargs)
+		.add_weight(name=None, shape=None, ..., **kwargs)
+		.get_weights()
+		.set_weights(weights)
 	Dense(
 		units=+0, activation=None, use_bias=True,
 		kernel_initializer='glorot_uniform', bias_initializer='zeros',
