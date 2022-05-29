@@ -45,31 +45,23 @@ def objective(trial):
 	
 	optimizer = keras.optimizers.Adam()
 	
-	accuracy = None
+	metric = keras.metrics.SparseCategoricalAccuracy()
 	
-	with tf.device('/cpu:0'):
-		for _ in range(EPOCHS):
-			
-			accuracy = tf.metrics.Accuracy('accuracy', dtype=tf.float32)
-			for batch, (images, labels) in enumerate(dataset):
-				with tf.GradientTape() as tape:
-					logits = model(images, training=True)
-					loss_value = tf.reduce_mean(
-						tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=labels)
-					)
-					grads = tape.gradient(loss_value, model.variables)
-					optimizer.apply_gradients(zip(grads, model.variables))
-			
-			
-			accuracy = tf.metrics.Accuracy('accuracy', dtype=tf.float32)
-			for batch, (images, labels) in enumerate(dataset):
-				with tf.GradientTape() as tape:
-					logits = model(images, training=False)
-					accuracy(
-						tf.argmax(logits, axis=1, output_type=tf.int64), tf.cast(labels, tf.int64)
-					)
+	for epoch in range(EPOCHS):
+		for x_batch_train, y_batch_train in train_dataset:
+			with tf.GradientTape() as tape:
+				logits = model(x_batch_train, training=True)
+				loss_value = loss_fn(y_batch_train, logits)
+			grads = tape.gradient(loss_value, model.trainable_weights)
+			optimizer.apply_gradients(zip(grads, model.trainable_weights))
+		
+		for x_batch_val, y_batch_val in val_dataset:
+			val_logits = model(x_batch_val, training=False)
+			metric.update_state(y_batch_val, val_logits)
+		val_acc = metric.result()
+		metric.reset_states()
 	
-	return accuracy.result() # last validation accuracy
+	return val_acc # last validation accuracy
 
 
 study = optuna.create_study(direction='maximize')

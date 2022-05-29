@@ -75,7 +75,7 @@ tf.keras.layers.
 		.supports_masking
 		.add_loss(losses, **kwargs)
 		.add_metric(value, name=None, **kwargs)
-		.add_weight(name=None, shape=None, ..., **kwargs)
+		.add_weight(name=None, shape=None, dtype=None, initializer=None, regularizer=None, trainable=None, constraint=None, use_resource=None, ... **kwargs)
 		.get_weights()
 		.set_weights(weights)
 	Dense(
@@ -250,18 +250,11 @@ tf.keras.initializers.
 
 tf.keras.metrics.
 	Metric(name=None, dtype=None, **kwargs) <- Layer, Module
-		class MyMetric(Metric):
-			def __init__(self, name='my_metric', **kwargs):
-				super(MyMetric, self).__init__(name=name, **kwargs)
-				self.res = self.add_weight(name='x', initializer='zeros')
-			def update_state(self, y_true, y_pred, sample_weight=None):
-				self.res.assign_add(...)
-			def reset_state():
-				...
-			def merge_state(metrics):
-				...
-			def result():
-				return self.res
+		.merge_state(metrics)
+		.reset_state()
+		.result()
+		.update_state(self, y_true, y_pred, sample_weight=None)
+		
 	AUC(num_thresholds=200, curve='ROC', summation_method='interpolation', name=None, dtype=None, thresholds=None, multi_label=False, num_labels=None, label_weights=None, from_logits=False)
 	Accuracy(name='accuracy', dtype=None)
 	BinaryAccuracy(name='binary_accuracy', dtype=None, threshold=0.5)

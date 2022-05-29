@@ -32,7 +32,7 @@ val_acc_metric   = keras.metrics.SparseCategoricalAccuracy()
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # eager execution
 for epoch in range(EPOCHS):
-	for step, (x_batch_train, y_batch_train) in enumerate(train_dataset):
+	for x_batch_train, y_batch_train in train_dataset:
 		with tf.GradientTape() as tape:
 			logits = model(x_batch_train, training=True)
 			loss_value = loss_fn(y_batch_train, logits)
@@ -67,7 +67,7 @@ def test_step(x, y):
 	val_acc_metric.update_state(y, val_logits)
 
 for epoch in range(EPOCHS):
-	for step, (x_batch_train, y_batch_train) in enumerate(train_dataset):
+	for x_batch_train, y_batch_train in train_dataset:
 		loss_value = train_step(x_batch_train, y_batch_train)
 	
 	train_acc = train_acc_metric.result()

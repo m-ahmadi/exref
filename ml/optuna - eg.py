@@ -89,24 +89,21 @@ def learn(model, optimizer, dataset, mode='eval'):
 
 def create_optimizer(trial):
 	# we optimize the choice of optimizers as well as their parameters
-	kwargs = {}
 	optimizer_options = ['RMSprop', 'Adam', 'SGD']
 	optimizer_selected = trial.suggest_categorical('optimizer', optimizer_options)
+	
+	k = {}
 	if optimizer_selected == 'RMSprop':
-		kwargs['learning_rate'] = trial.suggest_float(
-				'rmsprop_learning_rate', 1e-5, 1e-1, log=True
-		)
-		kwargs['decay'] = trial.suggest_float('rmsprop_decay', 0.85, 0.99)
-		kwargs['momentum'] = trial.suggest_float('rmsprop_momentum', 1e-5, 1e-1, log=True)
+		k['learning_rate'] = trial.suggest_float('rmsprop_learning_rate', 0.00001, 0.1, log=True)
+		k['decay']         = trial.suggest_float('rmsprop_decay', 0.85, 0.99)
+		k['momentum']      = trial.suggest_float('rmsprop_momentum', 0.00001, 0.1, log=True)
 	elif optimizer_selected == 'Adam':
-		kwargs['learning_rate'] = trial.suggest_float('adam_learning_rate', 1e-5, 1e-1, log=True)
+		k['learning_rate'] = trial.suggest_float('adam_learning_rate', 0.00001, 0.1, log=True)
 	elif optimizer_selected == 'SGD':
-		kwargs['learning_rate'] = trial.suggest_float(
-				'sgd_opt_learning_rate', 1e-5, 1e-1, log=True
-		)
-		kwargs['momentum'] = trial.suggest_float('sgd_opt_momentum', 1e-5, 1e-1, log=True)
+		k['learning_rate'] = trial.suggest_float('sgd_opt_learning_rate', 0.00001, 0.1, log=True)
+		k['momentum']      = trial.suggest_float('sgd_opt_momentum', 0.00001, 0.1, log=True)
 
-	optimizer = getattr(tf.optimizers, optimizer_selected)(**kwargs)
+	optimizer = getattr(tf.optimizers, optimizer_selected)(**k)
 	return optimizer
 
 
