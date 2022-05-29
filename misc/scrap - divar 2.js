@@ -1,14 +1,22 @@
-// https://divar.ir/s/tehran/rent-apartment?credit=-350000000&rent=0-0&floor=4-30&has-photo=true&elevator=true&parking=true&rent_to_single=true
-// https://divar.ir/s/tehran/rent-apartment?credit=-450000000&rent=0-500000&floor=3-30&has-photo=true&elevator=false&parking=false&rent_to_single=true
+// https://divar.ir/s/tehran/rent-apartment
 
-ignore = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
+IGNORES = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
 MAX_RENT = 0.5;
 MAX_CREDIT = 450;
 
-eachScrollHeight = 850;
-wait = 1000;
-makeHTML = true;
-makeCSV = true;
+/* all possible columns:
+	title, when, hood, sqmeter, builtyear, rooms, credit, rent, convertable, convcredit, floor, totalfloors, lastfloor, type, elevator, parking, storage, singlefloor, stove, url */
+COLUMNS        = ['convcredit', 'title', 'when', 'hood', 'singlefloor', 'stove', 'floor', 'parking', 'elevator', 'sqmeter', 'builtyear', 'rooms', 'storage', 'url'];
+COLUMN_HEADERS = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'طبقه', 'پارکینگ', 'آسانسور', 'متراژ', 'سال‌ساخت', 'اتاق', 'انباری', 'لینک'];
+COLUMN_SORTS   = [  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'],  ]; // [header, numerical, desc]
+
+EACH_SCROLL_HEIGHT = 850;
+WAIT_AFTER_EACH_SCROLL = 1000;
+WAITED_REQUEST_STYLE = true; // takes longer but guaranteed (false: faster + risk of pending for too long)
+WAIT_AFTER_EACH_REQUEST = 1000;
+WAIT_BEFORE_RETRY = 2000;
+MAKE_HTML = true;
+MAKE_CSV = true;
 UTF8_BOM_CSV = true;
 
 sleep = ms => new Promise(r=> setTimeout(r,ms));
@@ -18,8 +26,8 @@ r = [];
 prevY = -1;
 while (window.scrollY > prevY) {
 	prevY = window.scrollY;
-	window.scrollBy(0,eachScrollHeight);
-	await sleep(wait);
+	window.scrollBy(0,EACH_SCROLL_HEIGHT);
+	await sleep(WAIT_AFTER_EACH_SCROLL);
 	
 	r.push(
 		[...document.querySelectorAll('.post-card-item')].map(i => {
@@ -28,7 +36,7 @@ while (window.scrollY > prevY) {
 			let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
 			let link = decodeURI(i.querySelector('a').href);
 			
-			if ( ignore.some(i=> title.includes(i) || time.includes(i)) ) return;
+			if ( IGNORES.some(i=> title.includes(i) || time.includes(i)) ) return;
 			
 			return link;
 		}).filter(i=>i)
@@ -38,17 +46,17 @@ r = r.flat();
 r = [...new Set(r)];
 
 
-t = performance.now();
-let qu = async a => { let p=[]; for (let i of a) await sleep(1000), p.push(fetch(i)); return p; };
-let proms = await Promise.allSettled(await qu(r)); // r.map(i=> fetch(i))
+t = Date.now();
+let qu = async a => { let p=[]; for (let i of a) await sleep(WAIT_AFTER_EACH_REQUEST), p.push(fetch(i)); return p; };
+let proms = await Promise.allSettled(WAITED_REQUEST_STYLE ? await qu(r) : r.map(i=>fetch(i)));
 while (proms.some(i=>i.reason || i.value.status !== 200)) {
 	let ers = proms.map((v,i)=> v.reason || v.value.status !== 200 ? i : -1).filter(i=>i>-1);
-	await sleep(2000);
-	(await Promise.allSettled( await qu(ers.map(i=>r[i])) )) // ers.map(i=> fetch(r[i]))
+	await sleep(WAIT_BEFORE_RETRY);
+	(await Promise.allSettled( WAITED_REQUEST_STYLE ? await qu(ers.map(i=>r[i])) : ers.map(i=>fetch(r[i])) ))
 		.forEach((v,i) => proms[ers[i]] = v);
 }
 let texts = await Promise.all( proms.map(i=> i.value.text()) );
-console.log('took', (((performance.now()-t) / 1000) / 60).toFixed(2), ' min');
+console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 
 en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
@@ -169,16 +177,15 @@ for (let [idx, text] of texts.entries()) {
 	
 	let url = r[idx];
 	
-	//[title, when, sqmeter, builtyear, rooms, credit, rent, convertable, convcredit, floor, type, elevator, parking, storage, singlefloor, stove];
+	let allCols = {title, when, hood, sqmeter, builtyear, rooms, credit, rent, convertable, convcredit, floor, totalfloors, lastfloor, type, elevator, parking, storage, singlefloor, stove, url};
 	
-	rr.push([/*credit*/convcredit, title, when, hood, singlefloor, stove, floor, parking, elevator, sqmeter, builtyear, rooms, storage, url]);
+	let row = COLUMNS.map(k => allCols[k]);
+	rr.push(row);
 }
 
-headers = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'طبقه', 'پارکینگ', 'آسانسور', 'متراژ', 'سال‌ساخت', 'اتاق', 'انباری', 'لینک'];
-
-if (makeCSV) {
-	[  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'],  ].map(([header, numerical, desc]) => {
-		let j = headers.indexOf(header);
+if (MAKE_CSV) {
+	COLUMN_SORTS.map(([header, numerical, desc]) => {
+		let j = COLUMN_HEADERS.indexOf(header);
 		if (numerical) {
 			desc
 				? rr.sort((a,b)=> b[j] - a[j])
@@ -192,15 +199,15 @@ if (makeCSV) {
 	
 	_rr = rr.map((v,i) => [i+1, ...v]);
 	
-	text = [['ردیف',...headers], ..._rr].map(i =>
+	text = [['ردیف',...COLUMN_HEADERS], ..._rr].map(i =>
 		i.map(j => typeof j === 'string' && j.includes(',') ? JSON.stringify(j) : j).join(',')
 	).join('\n');
 	
 	download('out.csv', text);
 }
 
-if (makeHTML) {
-	linkIdx = headers.indexOf('لینک');
+if (MAKE_HTML) {
+	linkIdx = COLUMN_HEADERS.indexOf('لینک');
 	
 	html = rr.map(i =>
 		'<tr>'+ i.map((v,j) => j===linkIdx ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
@@ -210,7 +217,7 @@ if (makeHTML) {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
 <table id="mytable">
 	<thead>
-		<tr> ${headers.map(i=> '<th>'+ i +'</th>').join('')} </tr>
+		<tr> ${COLUMN_HEADERS.map(i=> '<th>'+ i +'</th>').join('')} </tr>
 	</thead>	
 	${html}
 </table>
@@ -220,13 +227,7 @@ if (makeHTML) {
 <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
 <script>
 table = new Tabulator('#mytable');
-table.setSort([
-	{column:'گازرومیزی', dir:'asc'},
-	{column:'زمان', dir:'asc'},
-	{column:'تک‌واحدی', dir:'asc'},
-	{column:'آسانسور', dir:'asc'},
-	{column:'پارکینگ', dir:'asc'},
-]);
+table.setSort(${ JSON.stringify(COLUMN_SORTS.map(([column,,desc]) => ({column, dir: desc?'desc':'asc'}))) });
 </script>`;
 	
 	download('out.html', html);
@@ -234,7 +235,7 @@ table.setSort([
 
 function download(filename, text) {
 	var el = document.createElement('a');
-	el.setAttribute('href', 'data:text/plain;charset=utf-8,' + (makeCSV && UTF8_BOM_CSV ? '\ufeff' : '')+encodeURIComponent(text));
+	el.setAttribute('href', 'data:text/plain;charset=utf-8,' + (MAKE_CSV && UTF8_BOM_CSV ? '\ufeff' : '')+encodeURIComponent(text));
 	el.setAttribute('download', filename);
 	el.style.display = 'none';
 	document.body.appendChild(el);
