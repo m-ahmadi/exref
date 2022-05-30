@@ -1,5 +1,6 @@
 import tensorflow as tf
 from tensorflow import keras
+import keras.backend as K # similar fns to numpy
 
 def custom(y_true, y_pred):
 	score = 128
@@ -12,6 +13,11 @@ def custom(y_true, y_pred):
 	return tf.constant(score)
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=[custom], run_eagerly=True)
 
+def mae(y_true, y_pred):       
+	eval = K.abs(y_pred - y_true)
+	eval = K.mean(eval, axis=-1)
+	return eval
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=[mae])
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 class BinaryTruePositives(keras.metrics.Metric):

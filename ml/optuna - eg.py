@@ -1,11 +1,13 @@
 '''
 optimize:
-validation accuracy
-	neural network architecture and optimizer configuration
+	validation accuracy
+	network architecture and optimizer config
 (tf eager execution)
 '''
 import tensorflow as tf
-from tensorflow.keras.datasets import mnist
+from tensorflow import keras
+from keras.layers import Flatten, Dense
+from keras.datasets import mnist
 import optuna
 
 N_TRAIN_EXAMPLES = 3000
@@ -29,7 +31,6 @@ def main():
 	for key, value in trial.params.items():
 		print('    {}: {}'.format(key, value))
 
-
 def objective(trial):
 	train_ds, valid_ds = get_mnist() # get mnist data
 
@@ -50,24 +51,24 @@ def create_model(trial):
 	# we optimize the numbers of layers, their units and weight decay parameter
 	n_layers = trial.suggest_int('n_layers', 1, 3)
 	weight_decay = trial.suggest_float('weight_decay', 1e-10, 1e-3, log=True)
-	model = tf.keras.Sequential()
-	model.add(tf.keras.layers.Flatten())
+	model = keras.models.Sequential()
+	model.add(Flatten())
 	for i in range(n_layers):
 		num_hidden = trial.suggest_int('n_units_l{}'.format(i), 4, 128, log=True)
 		model.add(
-			tf.keras.layers.Dense(
+			Dense(
 				num_hidden,
 				activation='relu',
-				kernel_regularizer=tf.keras.regularizers.l2(weight_decay),
+				kernel_regularizer=keras.regularizers.l2(weight_decay),
 			)
 		)
 	model.add(
-		tf.keras.layers.Dense(CLASSES, kernel_regularizer=tf.keras.regularizers.l2(weight_decay))
+		Dense(CLASSES, kernel_regularizer=keras.regularizers.l2(weight_decay))
 	)
 	return model
 
 def learn(model, optimizer, dataset, mode='eval'):
-	accuracy = tf.metrics.Accuracy('accuracy', dtype=tf.float32)
+	accuracy = keras.metrics.Accuracy('accuracy', dtype=tf.float32)
 
 	for batch, (images, labels) in enumerate(dataset):
 		with tf.GradientTape() as tape:
@@ -86,7 +87,6 @@ def learn(model, optimizer, dataset, mode='eval'):
 	if mode == 'eval':
 		return accuracy
 
-
 def create_optimizer(trial):
 	# we optimize the choice of optimizers as well as their parameters
 	optimizer_options = ['RMSprop', 'Adam', 'SGD']
@@ -103,9 +103,8 @@ def create_optimizer(trial):
 		k['learning_rate'] = trial.suggest_float('sgd_opt_learning_rate', 0.00001, 0.1, log=True)
 		k['momentum']      = trial.suggest_float('sgd_opt_momentum', 0.00001, 0.1, log=True)
 
-	optimizer = getattr(tf.optimizers, optimizer_selected)(**k)
+	optimizer = getattr(keras.optimizers, optimizer_selected)(**k)
 	return optimizer
-
 
 def get_mnist():
 	(x_train, y_train), (x_valid, y_valid) = mnist.load_data()
@@ -121,4 +120,5 @@ def get_mnist():
 	valid_ds = tf.data.Dataset.from_tensor_slices((x_valid, y_valid))
 	valid_ds = valid_ds.shuffle(10000).batch(BATCHSIZE).take(N_VALID_EXAMPLES)
 	return train_ds, valid_ds
+
 main()
