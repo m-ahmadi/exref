@@ -26,11 +26,9 @@ tf.zeros(shape=list<int> | tuple<int> | Tensor1D<int32>, dtype=tf.float32, ?name
 
 tf.math.
 	reduce_sum(input_tensor, axis=None, keepdims=False, name=None) | tf.reduce_sum
-		reduce_sum( tf.constant([[1,1,1], [1,1,1]]) ).numpy() # 6
 	reduce_mean(input_tensor, axis=None, keepdims=False, name=None)
-		reduce_mean([ [2,2], [6,6] ], 0).numpy() # [4,4]  ie: (2+2+6+6)/4
-		reduce_mean([ [2,2], [6,6] ], 1).numpy() # [2,6]
-
+	sigmoid(x, name=None) | tf.sigmoid | tf.nn.sigmoid
+	argmax(input, axis=None, output_type=tf.dtypes.int64, name=None)
 
 tf.data.Dataset()
 	.from_tensor_slices()

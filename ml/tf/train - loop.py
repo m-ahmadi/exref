@@ -62,7 +62,7 @@ def train_step(x, y):
 	return loss_value
 
 @tf.function
-def test_step(x, y):
+def val_step(x, y):
 	val_logits = model(x, training=False)
 	val_acc_metric.update_state(y, val_logits)
 
@@ -75,7 +75,7 @@ for epoch in range(EPOCHS):
 	train_acc_metric.reset_states()
 	
 	for x_batch_val, y_batch_val in val_dataset:
-		test_step(x_batch_val, y_batch_val)
+		val_step(x_batch_val, y_batch_val)
 	val_acc = val_acc_metric.result()
 	val_acc_metric.reset_states()
 	print('val_accuracy', float(val_acc), '\n')
