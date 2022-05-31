@@ -35,3 +35,8 @@ tf.data.Dataset()
 	.batch(batch_size=int64|Tensor, ?drop_remainder=False, ?num_parallel_calls=None, ?deterministic=None, ?name=None)
 	.range(*args, **kwargs)
 	.as_numpy_iterator()
+
+tf.gather(params, indices, validate_indices=None, axis=None, batch_dims=0, name=None)
+	params = tf.constant([11,22,33])
+	tf.gather(params, 1).numpy() == params[1].numpy() == # True
+	tf.gather(params, [0,2]).numpy() # [11,33]
