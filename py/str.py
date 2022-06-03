@@ -68,3 +68,7 @@ f'{{ 2*2 }}'                        # '{ 2*2 }'
 f'foo {0} bar {1}'.format(4, 7)     # 'foo 0 bar 1'
 f'foo {{0}} bar {{1}}'.format(4, 7) # 'foo 4 bar 7'
 f'{{{ "HELLO".lower() }}}'          # eval expression:  '{hello}'
+
+# format string - backslash not allowed
+f'foo \n bar'     # ok
+f'foo {"\n"} bar' # err
