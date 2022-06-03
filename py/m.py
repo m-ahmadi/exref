@@ -23,13 +23,13 @@ another.reload() # refresh cache
 
 # import from other dirs
 import sys
-sys.path.insert(0, './data/')
-import get_my_file as db
+sys.path.insert(0, './foo/') # or .append('./foo')
+import foo
 # or
-new_path = 'insert here the new path'
+new_path = './foo/'
 if new_path not in sys.path:
-    sys.path.append(new_path)
-import funcoes_python
+	sys.path.append(new_path)
+import foo
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # detect module invocation type
 if __name__ == '__main__':
