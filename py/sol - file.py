@@ -73,7 +73,9 @@ path.unlink()
 # path of current script
 __file__                                # 'C:\\foo.py'
 pathlib.Path(__file__).resolve()        # WindowsPath('C:/foo.py')
-pathlib.Path(__file__).parent.resolve() # current script dir
+pathlib.Path(__file__).parent.resolve() # WindowsPath('C:/')    (current script dir)
+import sys
+sys.path[0]                             # 'c:\\'                (current script dir)
 
 # json
 import json
