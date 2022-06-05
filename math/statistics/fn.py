@@ -5,10 +5,10 @@ from scipy import stats
 stats.trim_mean([1,2,3,4,5,6,7,8,9], .1) # 5
 
 # linear regression
-x = np.array([1,2,3,4])
-y = [2,3,2,1]
+x = [0,1,2,3,4]
+y = [4,4,6,9,5]
 res = stats.linregress(x, y)
-list(res.intercept + res.slope * x) # [2.6, 2.2, 1.79, 1.4]
+y_hat = list(res.intercept + res.slope * np.array(x)) # [4.2, 4.9, 5.6, 6.3, 7]
 
 # pearson corrolation
 r, _ = stats.pearsonr([1,2,3,4], [2,3,2,1])

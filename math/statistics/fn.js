@@ -99,7 +99,9 @@ function iqr(_nums=[]) {
 	return median(secondHalf) - median(firstHalf);
 }
 
-function regressionLinear(x=[], y=[]) {
+function regressionLinear(x=[], y=[], withInfo=false) {
+	if (x.length !== y.length) return;
+	
 	let [xMean, yMean] = [mean(x), mean(y)];
 	
 	let xMeanDiff = x.map(n => n - xMean);
@@ -107,12 +109,12 @@ function regressionLinear(x=[], y=[]) {
 	let xMeanDiffSquared        = xMeanDiff.map(sqr);
 	let xMeanDiffTimesYMeanDiff = xMeanDiff.map((n, i) => n * yMeanDiff[i]);
 	
-	let b1 = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
-	let b0 = yMean - (b1 * xMean);
+	let m = sum(xMeanDiffTimesYMeanDiff) / sum(xMeanDiffSquared);
+	let b = yMean - (m * xMean);
 	
-	let regresions = x.map(x => (x*b1) + b0);
+	let yHat = x.map(x => m*x + b);
 	
-	return regresions;
+	return withInfo ? {yHat, intercept: b, slope: m} : yHat;
 }
 
 function covariance(x=[], y=[]) {
