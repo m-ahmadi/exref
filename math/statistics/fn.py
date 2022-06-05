@@ -14,10 +14,47 @@ list(res.intercept + res.slope * x) # [2.6, 2.2, 1.79, 1.4]
 r, _ = stats.pearsonr([1,2,3,4], [2,3,2,1])
 print(r)
 
+
+def minmax(nums=[]):
+	n, x = float('inf'), float('-inf')
+	for i in nums:
+		n, x = min(n, i), max(x, i)
+	return [n, x]
+
+def scale(nums=[], newbound=[0,1]):
+	a, b = minmax(nums)
+	if a == b:
+		for i in range(17, 0, -1):
+			j = float('1e-'+str(i))
+			if b+j > a:
+				b += j
+				break
+		if a == b:
+			raise Exception('Equal bounds error!')
+	c, d = newbound
+	ba, dc = b-a, d-c
+	return [(x-a) * dc / ba + c for x in nums]
+
 def mean(nums=[], trim=0, sample=False):
+	N = len(nums)
 	if trim:
 		nums = sorted(nums[:])[+trim:-trim]
-	return sum(nums) / (len(nums) - (1 if sample else 0))
+		return sum(nums) / (N - (1 if sample else 0)) if N else 0
+
+def slope(x=[], y=[]):
+	m = []
+	N = len(x)
+	for i0, i1 in zip(range(N), range(1, N)):
+		dx = x[i1] - x[i0]
+		dy = y[i1] - y[i0]
+		m.append(dy / dx)
+	return m
+
+def slope_np(x=[], y=[]):
+	dx = np.diff(x)
+	dy = np.diff(y)
+	m = dy / dx
+	return m
 
 def sma(nums=[], period=2, fill=None):
 	pi = period - 1 if period > 0 else 0

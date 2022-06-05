@@ -2,7 +2,10 @@
 
 function scale(nums=[], newbound=[0,1]) {
 	let [a,b] = [Math.min(...nums), Math.max(...nums)];
-	if (a === b) for (let i=17, j=1e-17; i>0; i--, j=parseFloat('1e-'+i)) if (b+j > a) { b+=j; break; }
+	if (a === b) {
+		for (let i=17, j=1e-17; i>0; i--, j=parseFloat('1e-'+i)) if (b+j > a) { b+=j; break; }
+		if (a === b) throw new Error('Equal bounds error!');
+	}
 	let [c,d] = newbound;
 	return nums.map(x => (x-a) * (d-c) / (b-a) + c);
 //return nums.map(x => (x-a) / (b-a) * (d-c) + c);

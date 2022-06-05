@@ -150,9 +150,9 @@ function skewness(x=[]) {
 }
 
 function stdMoment(x=[], ith=1) {
-	let [m, s, n] = [mean(x), stdv(x), x.length];
+	let [u, s, n] = [mean(x), stdv(x), x.length];
 	let sum = 0;
-	for (let i=0; i<n; i++) sum += Math.pow((x[i] - m) / s, ith);
+	for (let i=0; i<n; i++) sum += Math.pow((x[i] - u) / s, ith);
 	return sum / n;
 }
 
@@ -380,6 +380,16 @@ function cusum(nums=[]) {
 	return nums.map(i => sum += i);
 }
 
+function slope(x=[], y=[]) {
+	let m = [];
+	for (let i0=0, i1=1, N=x.length;  i1<N;  i0++, i1++) {
+		let dx = x[i1] - x[i0];
+		let dy = y[i1] - y[i0];
+		m.push(dy / dx);
+	}
+	return m;
+}
+
 function sma(nums=[], period=2, fill) {
 	let pi = period > 0 ? period - 1 : 0;
 	let res = Array(pi).fill(fill);
@@ -599,10 +609,10 @@ function minmax(nums=[]) {
 	return nums.reduce(([n,x],i)=> [min(n,i), max(x,i)], [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]);
 }
 
+
 function min(nums=[]) {
 	return nums.reduce((n,i)=> Math.min(n,i), Number.POSITIVE_INFINITY);
 }
-
 function max(nums=[]) {
 	return nums.reduce((x,i)=> Math.max(x,i), Number.NEGATIVE_INFINITY);
 }
