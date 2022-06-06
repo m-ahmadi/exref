@@ -1,6 +1,12 @@
 from sktime.classification.interval_based import TimeSeriesForestClassifier
 from sktime.datasets import load_unit_test
 
+TimeSeriesForestClassifier(n_estimators=200, min_intervalint=3, n_jobs=1, random_state=None|0)
+	.fit(X, y, **kwargs)
+	.predict(X, **kwargs)
+	.predict_proba(X, **kwargs)
+
+
 X_train, y_train = load_unit_test(split='train', return_X_y=True)
 X_test, y_test = load_unit_test(split='test', return_X_y=True)
 

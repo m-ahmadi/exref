@@ -44,3 +44,31 @@ dict({'a':1}, b=2)          # ...
 d = {'a':1, 'bb':2, 'bc':3}
 {k:v for k,v in d.items() if 'b' in k}         # {'bb': 2, 'bc': 3}
 dict(filter(lambda i: 'b' in i[0], d.items())) # {'bar': 2, 'baz': 3}
+
+# pass-by-reference
+a = {'x':1, 'y':2}
+b = a
+b['x'] = 7
+a # {'x':7, 'y':2}
+b # {'x':7, 'y':2}
+
+# ↑... 1-level copy
+a = {'x':1, 'y':2}
+b = {**a}
+b['x'] = 7
+a # {'x':1, 'y':2}
+b # {'x':7, 'y':2}
+
+# ↑... deep copy
+import copy
+a = {'x':1, 'y':{'z':2}}
+b = {**a}
+b['y']['z'] = 7
+a # {'x':1, 'y':{'z':7}}
+b # {'x':1, 'y':{'z':7}}
+
+a = {'x':1, 'y':{'z':2}}
+b = copy.deepcopy(a)
+b['y']['z'] = 7
+a # {'x':1, 'y':{'z':2}}
+b # {'x':1, 'y':{'z':7}}

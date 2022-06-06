@@ -146,7 +146,7 @@ list(chain.from_iterable(a)) # ...
 
 [i for a in a for i in a]    # ...
 
-# pass by reference
+# pass-by-reference
 a = [1,2,3,4]
 b = a
 b[0] = 57
@@ -155,15 +155,27 @@ b = [*a] # or a[:]
 b[0] = 57
 a[0] # 1
 
-# ... muldim
-a = [ [1,2], [3,4] ]
+# ↑... muldim
+a = [[1], [2]]
 b = a[:]
-b[0][0] = 68
-a[0][0] # 68
-a = [ [1,2], [3,4] ]
+b[0][0] = 7
+a # [[7], [2]]
+b # [[7], [2]]
+
+# ↑... 1-level copy
+a = [[1], [2]]
 b = [i[:] for i in a]
-b[0][0] = 68
-a[0][0] # 1
+b[0][0] = 7
+a # [[1], [2]]
+b # [[7], [2]]
+
+# deep copy
+import copy
+a = [ [1], [[2]] ]
+b = copy.deepcopy(a)
+b[1][0][0] = 7
+a # [ [1], [[2]] ]
+b # [ [7], [[7]] ]
 
 # iteration
 a = [1,2,3]
