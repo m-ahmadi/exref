@@ -2,10 +2,10 @@ task flow
 	single flow completed similarly by all users for a specific action (Sign Up)
 	singular flow
 	they don't branch out
----------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 User Flow
 	the path a user follows through an application (mini user journeys)
 	doesn't have to be linear, it can branch out in a non-lienaer path
 
----------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

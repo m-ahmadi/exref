@@ -5,7 +5,7 @@ user stories are a requirement technique, they're not the requirement itself, th
 user storeis represent the users/customers of the product
 user stories are made up of personas
 user stories are written to replace requirements
-------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 basic template
 
 As a <who>, I want <what> so that <why>.
@@ -14,7 +14,7 @@ As a <role>, I want <feature> because <reason>
 As a <role>, I can <feature>
 
 the <so that> clause can be optional if it satisties the story point better
-------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 focus on
 	who
@@ -26,7 +26,7 @@ avoid
 
 focus on telling the story
 don't make the story too long
-------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 we want our stories to start off as fiction from the user's point of view,
 and it represent what the user's world will look once the story is completed.
 
@@ -34,5 +34,5 @@ and it represent what the user's world will look once the story is completed.
 a story can be equal to 1 or 2 days of dev work (maybe)
 
 
-------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 

@@ -14,7 +14,7 @@ As a frequent flyer, I want to rebook a past trip.
 So that I save time booking trips I take often.
 	It's like going to a coffee shop and say give me the usual.
 	Of course the date has to be different!
-------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Where are the details in these stories?
 
 
@@ -29,7 +29,7 @@ conditions of satisfaction and sub-stories, are 2 different techniques, and the 
 	conditions of satisfaction, on the back of card
 	sub-stories, end up with more stories
 but they both solve the same problem
-------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 product backlog
 
 small detailed things on the top of the backlog
@@ -42,4 +42,4 @@ the bottom stories are
 
 example of a bottom story, for a travel website, that does not support cruise ships
 	As a traveler, I want to book a cabin on a cruise ship
-------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

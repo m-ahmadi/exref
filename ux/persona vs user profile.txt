@@ -9,21 +9,21 @@ user profile
 
 limitations
 	averages and ranges don’t always give a complete or accurate picture
------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 persona
 	specific
 	describes a representative (but fictional) individual
 	has specific details (age 22) that accurately reflect and highlight important features of the group
 	should be written in a way that will encourage readers to use the detail to enhance the design and make informed choices
 	provides an accessible and easy to remember description of key users, including their attributes, needs and priorities
------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 relation between user profile and persona
 
 	profiles can provide input to personas
 	process of creating personas can address limitations of user profiles
 	no need for a 1-to-1 correspondence between personas and user profiles
 	process of creating personas should include analysis of the user profiles, including identification of important clusters of users within or between user profiles
------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 process
 	compiling profiles
 	analyzing the profiles in order to create a targeted set of personas

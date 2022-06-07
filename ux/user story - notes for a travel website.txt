@@ -13,7 +13,7 @@ So that I save time booking trips I take often.
 	It's like going to a coffee shop and say give me the usual.
 	Of course the date has to be different!
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Where are the details in these stories?
 
 write details in the form of:
@@ -32,7 +32,7 @@ they have different results:
 
 but they both solve the same problem
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 product backlog
 
 top stories
@@ -44,8 +44,8 @@ bottom stories
 	stuff we might do in 6 months or a year
 	example of a bottom story, for a travel website that doesn't support cruise ships
 	As a traveler, I want to book a cabin on a cruise ships.
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Focus on user goals, not attributes of the system.
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

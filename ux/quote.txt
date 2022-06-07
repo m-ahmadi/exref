@@ -1,14 +1,14 @@
---------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 "Design is a path-dependent process...
 Our early design decisions are like bets whose outcome we will have to live with iteration after iteration."
 Ryan Singer
---------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 "Creativity is just connecting things. When you ask creative people how they did something,
 they feel a little guilty because they didn't really do it, they just saw something..."
 Steve Jobs
---------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 "I invented the term because I thought human interface and usability were too narrow.
 I wanted to cover all aspects of the person's experience with the system including industrial design,
 graphics, the interface, the physical interaction, and the manual."
 Don Norman
---------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
