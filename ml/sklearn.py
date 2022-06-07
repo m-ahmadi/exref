@@ -86,3 +86,19 @@ sklearn.utils.class_weight.compute_class_weight(class_weight={}|'balanced'|None,
 
 from sklearn.utils.class_weight import compute_class_weight
 weights = compute_class_weight('balanced', classes=np.unique(y_train), y=y_org)
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# random forest
+# https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
+from sklearn.ensemble import RandomForestClassifier # univariate only
+
+model = RandomForestClassifier(n_estimators=10, max_depth=2, random_state=0)
+x = [ [0,0], [0,1], [1,0], [1,1] ]
+y = [  0,     1,     1,     0    ]
+model.fit(x, y)
+model.predict(x) # [0,1,1,0]
+
+# multivariate workaround (chain 3rd dim into flat 2nd)
+x_train_2d = [ [1,1,9,9], [2,2,8,8], [3,3,7,7], [4,4,6,6] ]
+# instead of:
+x_train_3d = [ [[1,1],[9,9]], [[2,2],[8,8]], [[3,3],[7,7]], [[4,4],[6,6]] ]
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
