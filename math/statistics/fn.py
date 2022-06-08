@@ -1,4 +1,5 @@
 import numpy as np
+from math import floor
 from scipy import stats
 
 # trim mean
@@ -37,9 +38,12 @@ def scale(nums=[], newbound=[0,1]):
 
 def mean(nums=[], trim=0, sample=False):
 	N = len(nums)
-	if trim:
+	if trim and trim > 0:
+		if trim < 1:
+			trim = floor(N * trim)
 		nums = sorted(nums[:])[+trim:-trim]
-		return sum(nums) / (N - (1 if sample else 0)) if N else 0
+		N = len(nums)
+	return sum(nums) / (N - (1 if sample else 0)) if N else 0
 
 def slope(x=[], y=[]):
 	m = []
