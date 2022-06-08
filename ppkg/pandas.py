@@ -3,6 +3,7 @@ import pandas as pd # pip install pandas
 pd.read_csv('file.csv', header=None, nrows=5, sep=',', ...)
 pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
 
+DataFrame(data=None, index=None, columns=None, dtype=None, copy=None)
 DataFrame.columns
 DataFrame.values
 
@@ -30,6 +31,13 @@ DataFrame.pop(item='')
 df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
 df['a']
 df[ ['a','b'] ]
+
+# df from list of rows
+df = pd.DataFrame([ [1,2], [3,4] ])
+df = pd.DataFrame([ ['a','b'], [1,2], [3,4] ])
+df.a # err
+df = pd.DataFrame([ [1,2], [3,4] ], columns=['a','b'])
+df.a # [1,3]
 
 # dict with num values
 d = {'a':1, 'b':2}
@@ -92,13 +100,12 @@ df1 = df.head(4)
 df1 # 1 2 3 4
 
 # convert dict-like df to list
-df = pd.DataFrame([ ['a','b'], [1,2], [3,4] ])
-df.values.tolist()     # [ ['a','b'], [1,2], [3,4] ]
+df = pd.DataFrame([ [1,2], [3,4] ], columns=['a','b'])
+df.values.tolist()     # [ [1,2], [3,4] ]
 df.to_numpy().tolist() # ...
-df.values[1:].tolist() # [ [1,2], [3,4] ]
 
-df = pd.DataFrame([ {'a':1,'b':4}, {'a':2,'b':4} ])
-df.values.tolist()     # [ [1,4], [2,4] ]
+df = pd.DataFrame([ {'a':1,'b':2}, {'a':3,'b':4} ])
+df.values.tolist()     # [ [1,2], [3,4] ]
 df.to_numpy().tolist() # ...
 df.columns.tolist()    # ['a','b']
 

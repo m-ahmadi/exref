@@ -21,7 +21,7 @@ str(d)                 # '2021-10-26'
 
 # date obj from timestamp
 ts = dt.datetime(2021,1,1).timestamp()
-d = dt.datetime.fromtimestamp() # dt.datetime(2021, 1, 1, 0, 0)
+d = dt.datetime.fromtimestamp(ts) # dt.datetime(2021, 1, 1, 0, 0)
 
 # str
 dt.datetime(2021,1,1).strftime('%Y %m %d')     # format:  '2021 01 01'
