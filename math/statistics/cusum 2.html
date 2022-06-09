@@ -42,7 +42,8 @@ new uPlot({
 		{label:'cma', stroke:'magenta',width:2,points:{size:6,fill:'magenta'}},
 	],
 	scales: {x:{time:false}},
-	axes: [{grid:{show:false}}, {grid:{show:false}}]
+	axes: [{grid:{show:false}}, {grid:{show:false}}],
+	cursor: {sync:{key:'foo'}},
 }, [
 	[...data.keys()].map(i=>i+1),
 	data,
@@ -72,7 +73,8 @@ new uPlot({
 		{label:'LCL', stroke:'red',...o,dash:[5]},
 	],
 	scales: {x:{time:false}},
-	axes: [{grid:{show:false}}]
+	axes: [{grid:{show:false}}],
+	cursor: {sync:{key:'foo'}},
 }, [
 	[...data.keys()].map(i=>i+1),
 	//data,

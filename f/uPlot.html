@@ -29,7 +29,7 @@ new uPlot({width:600, height:400, title:'My Chart', series:[
 	{label:'RAM', value:(s,rawValue)=>'$'+rawValue.toFixed(2), stroke:'red', fill:'rgba(255,0,0,0.3)', dash:[10,5]},
 	{}]}, data, charts);
 
-new uPlot({width:600, height:400, title:'Seconds',
+new uPlot({width:600, height:400, title:'seconds',
 	tzDate: ts => uPlot.tzDate(new Date(ts*1e3), 'Asia/Tehran'),
 	series:[
 		{value:'{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}'}, // HH = 12hour
@@ -39,13 +39,24 @@ new uPlot({width:600, height:400, title:'Seconds',
 		[...Array(60).keys()]
 	], charts);
 
-new uPlot({width:600, height:400, series:[{label:'x'},{stroke:'blue'},{stroke:'red'}], scales:{x:{time:false}} }, [
+new uPlot({width:600, height:400, series:[{label:'x'},{stroke:'blue'},{stroke:'red'}], scales:{x:{time:false}}, title:'non-time x scale' }, [
 	[1,2,3,4,5,6],
 	[25,32,42,65,44,32],
 	[65,60,55,70,75,60],
 ], charts);
 
-new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2},{stroke:'red',width:3,points:{size:15,space:0}}] }, [
+new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], cursor:{lock:true}, title:'cursor lock'}, data, charts);
+
+new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], cursor:{sync:{key:'foo'}}, title:'cursor sync1'}, data, charts);
+new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], cursor:{sync:{key:'foo'}}, title:'cursor sync2'}, data, charts);
+
+var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}], title:'chart.setData()'}, [], charts);
+chart.setData([
+	ts(20),
+	[...Array(20)].map(()=> Math.floor(Math.random()*250) )
+]);
+
+new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2},{stroke:'red',width:3,points:{size:15,space:0}}], title:'mimic drawing with overlay serie'}, [
 	ts(6),
 	[1,4,2,6,3,7],
 	[null,4,2,null,3,7],
@@ -56,12 +67,6 @@ new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2},{stroke:'r
 	[1,4,2,6,3,7],
 	[null,null,1.5,null,2.5,null],
 ], charts);
-
-var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}]}, [], charts);
-chart.setData([
-	ts(20),
-	[...Array(20)].map(()=> Math.floor(Math.random()*250) )
-]);
 
 new uPlot({width:600, height:400, series:[{},{stroke:'black',width:2}], plugins:[{opts:(u,opts)=> opts.series.forEach((s,i)=> i>0 && uPlot.assign(s,{points:{show:drawStars}}))}]}, [
 	ts(6),
@@ -229,7 +234,6 @@ div.innerText = 'sparklines';
 	div.append(canv);
 });
 charts.append(div);
-
 
 function ts(n,k='Date') { return [...Array(n)].map((d,i)=> (d=new Date, d['set'+k](d['get'+k]()-n+i)/1000)) }
 </script>
