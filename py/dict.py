@@ -29,12 +29,12 @@ keys = d.keys() # ['a', 'b']
 del a['a']
 keys            # ['b']
 
-# https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
-
+# creation
+dict([['a',1], ['b',2]])    # ...
 dict(zip(['a','b'], [1,2])) # {'a':1, 'b':2}
-dict([('a',1), ('b',2)])    # ...
-dict({'a':1, 'b':2})        # ...
 dict({'a':1}, b=2)          # ...
+dict(a=1, b=2)              # ...
+# https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
 # dict comprehension
 {i: i*i for i in range(3)}          # {0: 0, 1: 1, 2: 4}
