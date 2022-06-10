@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css">
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+
+<pre style="font-size:1.5em">
+x          samples
+μ₀,ᵢ₋₁     mean of previous samples (excluding i)
+σ₀,ᵢ₋₁     standard deviations of previous samples (excluding i)
++ cusum    diff of  x  from  μ₀,ᵢ₋₁
+- cusum    diff of  x  from  σ₀,ᵢ₋₁
+</pre>
+<div id="charts"></div>
+
+<script src="./fn.js"></script>
+<script>
+data = [10, 132, 313, 347, 316, 315, 276, 432, 216, 68, 397, 493, 101, 143, 132, 294, 56, 348, 256, 172];
+var rn = (n,x) => Math.floor(Math.random()*(x-n)+n);
+//var data = [...Array(20)].map(()=>rn(0,500));
+
+var cu = data.map((v,i,a)=> i>0 ? mean(a.slice(0,i)) : 0); // must exclude i
+var cs = data.map((v,i,a)=> i>0 ? stdv(a.slice(0,i)) : 0);
+
+var errors = data.map((i,j)=> i-cu[j]);
+var pos = errors.map(i=> i<0?0:i);
+var neg = errors.map(i=> i>0?0:i);
+
+var uE = mean(errors);
+var threshold = stdv(errors) * 1.5;
+var ucl = uE + threshold;
+var lcl = uE - threshold;
+
+
+new uPlot({
+	width:800, height:400,
+	series: [
+		{label:'i'},
+		{label:'x',      stroke:'black',   width:1, points:{size:12,fill:'black'}},
+		{label:'μ₀,ᵢ₋₁', stroke:'magenta', width:2, points:{size:16,fill:'white'}},
+		{label:'σ₀,ᵢ₋₁', stroke:'orange',  width:2, points:{show:false}},
+	],
+	scales: {x:{time:false}},
+	axes: [{grid:{show:false}}, {grid:{show:false}}],
+	cursor: {sync:{key:'foo'}},
+}, [
+	[...data.keys()].map(i=>i+1),
+	data,
+	cu,
+	cs,
+], charts);
+
+new uPlot({
+	width:800, height:400,
+	series: [
+		{label:'i'},
+		{label:'x',       stroke:'black',     width:1, points:{size:8,fill:'white'}, show:false},
+		{label:'+ cusum', stroke:'limegreen', width:3, points:{show:false}},
+		{label:'- cusum', stroke:'crimson',   width:3, points:{show:false}},
+		{label:'UCL',     stroke:'blue',      width:2, points:{show:false}, dash:[5]},
+		{label:'LCL',     stroke:'red',       width:2, points:{show:false}, dash:[5]},
+	],
+	scales: {x:{time:false}},
+	axes: [{grid:{show:false}}, {grid:{show:false}}],
+	cursor: {sync:{key:'foo'}},
+}, [
+	[...data.keys()].map(i=>i+1),
+	data,
+	pos,
+	neg,
+	data.map(()=>ucl),
+	data.map(()=>lcl),
+], charts);
+
+</script>

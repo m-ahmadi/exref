@@ -479,9 +479,9 @@ function ema_formal(nums=[], alpha=1) {/*alt init*/
 	return S;
 }
 function ewm(nums=[], span=2, adjust=true) {/*pandas*/
-	let meancalc = [];
-	let varcalc = [];
-	let stdcalc = [];
+	let means = [];
+	let vars = [];
+	let stds = [];
 	
 	let a = 2 / (span + 1);
 	
@@ -511,12 +511,12 @@ function ewm(nums=[], span=2, adjust=true) {/*pandas*/
 		// exponentially weighted standard deviation
 		let ewmstd = Math.sqrt(ewmvar);
 		
-		meancalc.push(ewma);
-		varcalc.push(ewmvar);
-		stdcalc.push(ewmstd);
+		means.push(ewma);
+		vars.push(ewmvar);
+		stds.push(ewmstd);
 	});
 	
-	return [meancalc, varcalc, stdcalc];
+	return [means, vars, stds];
 }
 
 // exponentially weighted standard deviation (from stdlib)

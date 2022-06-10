@@ -15,8 +15,9 @@ var data = [
 
 var u = mean(data);
 var s = stdv(data);
-var ucl = u + (s * 1.5);
-var lcl = u - (s * 1.5);
+var threshold = s * 1.5;
+var ucl = u + threshold;
+var lcl = u - threshold;
 
 var chart1 = new Chart(_chart1, {
 	type: 'line',

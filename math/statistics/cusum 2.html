@@ -13,8 +13,7 @@ var data = [
 	0.85273,  1.0159,   0.53494,  1.4023,
 ];
 var rn = (n,x) => Math.floor(Math.random()*(x-n)+n);
-
-//data = [...Array(20)].map(()=>rn(-250,250))
+//data = [...Array(20)].map(()=>rn(-250,250));
 /*data=[300];
 for (let i=1; i<80; i++) {
 	var p=data[i-1], d=p*0.05, v=rn(p-d, p+d), k=2;
@@ -24,12 +23,13 @@ for (let i=1; i<80; i++) {
 
 var u = mean(data);
 var s = stdv(data);
-var ucl = u + (s * 1.5);
-var lcl = u + (s * -1.5);
+var threshold = s * 1.5;
+var ucl = u + threshold;
+var lcl = u - threshold;
 var cma = data.map((v,i,a)=> mean(a.slice(0,i+1)) );
 
 var o = {points:{show:false},width:2,};
-var O = {points:{show:false},dash:[20],width:2};
+var O = {points:{show:false},dash:[5],width:2};
 
 new uPlot({
 	width:800, height:400,
@@ -54,34 +54,35 @@ new uPlot({
 ], charts);
 
 
+var errors = data.map(i=> i-u);
+var pos = errors.map(i=> i<0?0:i);
+var neg = errors.map(i=> i>0?0:i);
 
-var up = data.map(i=> (i=i-u, i<0?0:i));
-var dw = data.map(i=> (i=i-u, i>0?0:i));
-var all = up.map((v,i)=> v===0 ? dw[i] : v);
-
-var ucl2 = mean(all) + (stdv(all) * 1.5);
-var lcl2 = mean(all) - (stdv(all) * 1.5);
+var uE = mean(errors);
+var threshold2 = stdv(errors) * 1.5;
+var ucl2 = uE + threshold2;
+var lcl2 = uE - threshold2;
 
 new uPlot({
 	width:800, height:400,
 	series: [
 		{label:'i'},
-		//{label:'x',stroke:'black',width:2,points:{show:false}},
-		{label:'+ cusum', stroke:'limegreen',width:3,points:{size:8,fill:'limegreen'}},
-		{label:'- cusum', stroke:'crimson',width:3,points:{size:8,fill:'crimson'}},
+		{label:'x',stroke:'black',points:{size:8,fill:'black'}},
+		{label:'+ cusum', stroke:'limegreen',width:3,points:{show:false}},
+		{label:'- cusum', stroke:'crimson',width:3,points:{show:false}},
 		{label:'UCL', stroke:'blue',...o,dash:[5]},
 		{label:'LCL', stroke:'red',...o,dash:[5]},
 	],
 	scales: {x:{time:false}},
-	axes: [{grid:{show:false}}],
+	axes: [{grid:{show:false}}, {grid:{show:false}}],
 	cursor: {sync:{key:'foo'}},
 }, [
 	[...data.keys()].map(i=>i+1),
-	//data,
-	up,
-	dw,
-	all.map(()=>ucl2),
-	all.map(()=>lcl2),
+	data,
+	pos,
+	neg,
+	data.map(()=>ucl2),
+	data.map(()=>lcl2),
 ], charts);
 
 </script>

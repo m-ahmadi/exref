@@ -13,6 +13,7 @@ types of data
 types of statistics
 	descriptive:	making information that describes the data in some manner
 	inferential:	making conclusions about the data, using only some part of it
+	nonparametric:	not using parameters of probability distribution (mean, stdv, etc)
 
 types of analysis
 	univariate	one variable
