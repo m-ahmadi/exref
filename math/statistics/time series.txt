@@ -1,0 +1,3 @@
+stationary time series
+	statistical properties of series do not change (mean and variance)
+	series value changes, but the way it changes remains the same (repeating a pattern)

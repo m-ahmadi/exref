@@ -20,7 +20,3 @@ classification types
 
 dynamic time warping (dwt)	measuring similarity between two temporal sequences, which may vary in speed.
 longest common subsequence
-
-stationary time series
-	statistical properties of series do not change (mean and variance)
-	series value changes, but the way it changes remains the same (repeating a pattern)
