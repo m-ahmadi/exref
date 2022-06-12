@@ -1,3 +1,14 @@
+time series features
+
+mean, stdv, ...
+slope (of linregres)
+amplitude		diff from center
+wavelength		length of 1 cycle
+cycle			from a point till reaches back to same point (after going in both directions)
+period			time it takes to complete 1 cycle
+frequency		number of cycles occurred in 1 unit (1/period)
+
+--------------------------------------------------------------------------------
 stationary time series
 	statistical properties of series do not change (mean and variance)
 	series value changes, but the way it changes remains the same (repeating a pattern)

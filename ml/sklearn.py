@@ -102,3 +102,15 @@ x_train_2d = [ [1,1,9,9], [2,2,8,8], [3,3,7,7], [4,4,6,6] ]
 # instead of:
 x_train_3d = [ [[1,1],[9,9]], [[2,2],[8,8]], [[3,3],[7,7]], [[4,4],[6,6]] ]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# gradient boosting
+from sklearn.datasets import make_hastie_10_2
+from sklearn.ensemble import GradientBoostingClassifier
+
+X, y = make_hastie_10_2(random_state=0)
+X_train, X_test = X[:2000], X[2000:]
+y_train, y_test = y[:2000], y[2000:]
+
+clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=0)
+clf.fit(X_train, y_train)
+clf.score(X_test, y_test) # 0.913
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,3 +1,21 @@
+decision tree
+	built on entire dataset using features of interest
+
+bagging (bootstrap aggregating)
+	randomly generated training sets are created for multiple models in an ensemble
+	"random forest" use it at core
+
+boosting
+	multiple models are trained sequentially,
+	then, each model focuses on correcting the error made by previous model
+	"gradient boosting" use it at core
+
+random forest
+	a collection of decision trees
+	builds multiple decision trees from randomly selected instances & features,
+	then, each tree votes for prediction class,
+	then, class with most votes is the prediction
+--------------------------------------------------------------------------------
 feed forward (ffnn)		0 cycles
 convolutional (cnn)		spatial-invariance, image
 recurrent (rnn, lstm, gru)	context-critical, sequential data, text, time-series
