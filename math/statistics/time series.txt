@@ -9,6 +9,20 @@ period			time it takes to complete 1 cycle
 frequency		number of cycles occurred in 1 unit (1/period)
 
 --------------------------------------------------------------------------------
-stationary time series
-	statistical properties of series do not change (mean and variance)
-	series value changes, but the way it changes remains the same (repeating a pattern)
+types of processes
+
+stochastic		process that appear to vary in random manner
+stationary		mean & variance do not change over time
+	strong		both mean & variance do not vary (aka strict-sense)
+	weak		only mean & autocovariance do not vary but variance can vary (aka covariance-stationary, wide-sense)
+	trend		stochastic process that becomes stationary when trend removed
+	Nth-order	only up to certain order N remain stationary (weaker than weak)
+non-stationary		mean & variance change over time
+cyclostationary		statistical properties that vary cyclically with time
+unit root		non-stationary process that does not always have a trend (aka difference-stationary)
+--------------------------------------------------------------------------------
+
+autocorrelation
+	correlation of a signal with a delayed copy of itself as a function of delay
+autocovariance
+	given a stochastic process, a function that gives covariance of process with itself at pairs of time points

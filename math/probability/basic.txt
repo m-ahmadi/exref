@@ -1,4 +1,6 @@
-independent Events vs conditional probability
+independent events		occurrence of one event does not affect probability of occurrence of the other
+conditional probability		probability of an  event  occurring, given that another event has already occurred
+joint probability		probability of two events occurring together
 
 bayes theory
 	P(A|B) = P(A) * P(B|A) / P(B)
