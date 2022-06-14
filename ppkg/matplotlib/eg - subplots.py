@@ -25,10 +25,23 @@ ax1.plot(x, y)
 ax2.plot(x, -y)
 
 # ... hight ratio
-fig, (ax1, ax2) = plt.subplots(3, 1, gridspec_kw={'height_ratios':[3,1]})
+fig, (ax1, ax2) = plt.subplots(2, 1, gridspec_kw={'height_ratios':[3,1]})
 ax1.plot(x, y)
 ax2.plot(x, -y)
 
+# ... title of each plot
+_, axs = plt.subplots(2)
+axs[0].plot(x)
+axs[0].title.set_text('title1')
+axs[1].plot(y)
+axs[1].title.set_text('title2')
+
+# ... legend of each plot
+_, axs = plt.subplots(2)
+axs[0].plot(x, label='label1')
+axs[1].plot(y, label='label2')
+for ax in axs:
+	ax.legend(loc='upper left')
 
 
 # stack two directions

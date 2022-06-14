@@ -380,7 +380,7 @@ function vecDiv(a=[], b=[]) {
 	}
 }
 
-function cusum(nums=[]) {
+function cumsum(nums=[]) {
 	let sum = 0;
 	return nums.map(i => sum += i);
 }

@@ -33,7 +33,7 @@ function randn() {/*between 0 and 1 inclusive*/
 	while(u === 0) u = Math.random();
 	while(v === 0) v = Math.random();
 	let num = Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
-	num = num / 10 + 0.5;                  // translate to 0 -> 1
+	num = num / 10 + 0.5;                   // translate to 0 -> 1
 	if (num > 1 || num < 0) return randn(); // resample between 0 and 1
 	return num;
 }
