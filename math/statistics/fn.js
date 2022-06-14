@@ -141,6 +141,18 @@ function pearsonR(x=[], y=[]) {
 	return numerator / denominator;
 }
 
+function diff(_x=[], _d=1) {
+	let x = [..._x];
+	
+	for (let d of range(1, _d+1)) {
+		let L = 0;
+		let k = Math.pow(1-L, d);
+		x = range(1, x.length).map(i=> k*x[i] - k*x[i-1] );
+	}
+	
+	return x;
+}
+
 function durbinWatson(x=[], y=[]) {
 	let e = regressionLinear(x,y).map((v,i)=> y[i]-v);
 	return sum(x.map((v,t)=> t>0 ? sqr(e[t] - e[t-1]) : 0)) / sum(e.map(sqr));
@@ -178,7 +190,7 @@ function shapiroWilk(_x=[]) {
 	if (n < 3) throw new Error('Sample vector must have at least 3 valid observations.');
 	if (n > 5000) console.warning('Shapiro-Wilk statistic might be inaccurate due to large sample size ( > 5000).');
 	
-	let t = range(1,n).map(i=>(i-3/8) / (n+0.25));
+	let t = range(1,n+1).map(i=>(i-3/8) / (n+0.25));
 	let m = t.map(i=> norminv(i));
 	let w = Array(n).fill(0);
 	let W;
@@ -226,7 +238,7 @@ function shapiroWilk(_x=[]) {
 			phi = ( matMul([m], matTranspose([m]))[0][0] - 2 * sqr(m[m.length-1]) ) / (1 - 2 * sqr(w[l]));
 		}
 		
-		range(ct,(n-2)-ct+1).map(i=> w[i] = m[i] / sqrt(phi));
+		range(ct,(n-2)-ct+2).map(i=> w[i] = m[i] / sqrt(phi));
 		
 		let mu = mean(x);
 		let xd = x.map(i=> i-mu);
@@ -235,8 +247,6 @@ function shapiroWilk(_x=[]) {
 	}
 
 	return W;
-	
-	function range(b,e,s=1){let r=[];for(let i=b;i<=e;i+=s){r.push(i);}return r;}
 }
 
 function norminv(p, mean=0, stdv=1) {
@@ -614,12 +624,29 @@ function minmax(nums=[]) {
 	return nums.reduce(([n,x],i)=> [min(n,i), max(x,i)], [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]);
 }
 
-
+// util
 function min(nums=[]) {
 	return nums.reduce((n,i)=> Math.min(n,i), Number.POSITIVE_INFINITY);
 }
 function max(nums=[]) {
 	return nums.reduce((x,i)=> Math.max(x,i), Number.NEGATIVE_INFINITY);
+}
+function range(...a) {
+	let start, stop, step;
+	let r = [];
+	if (a.length < 2) {
+		[stop=0, start=0, step=1] = a;
+	} else {
+		[start=0, stop=0, step=1] = a;
+	}
+	if (start < stop) {
+		if (step <= 0) return r;
+		for (let i=start; i<stop; i+=step) r.push(i);
+	} else if (start > stop) {
+		if (step >= 0) return r;
+		for (let i=start; i>stop; i+=step) r.push(i);
+	}
+	return r;
 }
 
 // tmp
