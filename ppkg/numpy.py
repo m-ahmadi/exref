@@ -330,7 +330,7 @@ np.less_equal
 np.lexsort
 np.lib
 np.linalg
-np.linspace
+np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)
 np.little_endian
 np.load
 np.loads

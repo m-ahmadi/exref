@@ -94,6 +94,15 @@ df = pd.DataFrame([ [1,1,1], [2,2,2], [4,4,4] ])
 df.iloc[0:1] # 1  1  1
 df.iloc[-1:] # 4  4  4
 
+# label location
+df = pd.DataFrame([ [1,2], [4,5], [7,8] ], columns=['a','b'], index=['foo','bar','baz'])
+df.loc['foo'] # [1,2]
+
+df = pd.DataFrame(columns=['a','b'])
+df.loc[0] = [1,2]
+df.loc[1] = [3,4]
+df # [ [1,2], [3,4] ]
+
 # first n rows
 df = pd.DataFrame([1,2,3,4,5,6,7,8,9])
 df1 = df.head(4)
