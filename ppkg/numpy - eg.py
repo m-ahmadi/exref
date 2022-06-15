@@ -20,7 +20,7 @@ np.quantile()
 
 # as operand
 a = np.array([1,2,3,4])
-a*2    # element-wise product: [2,4,6,8]
+a * 2  # element-wise product: [2,4,6,8]
 	[i*2 for i in [1,2,3,4]] == list(a*2) # True
 	list(map(lambda i: i*2, [1,2,3,4])) == list(a*2) # True
 a + 2  # [3,4,5,6]
@@ -28,6 +28,12 @@ a - 2  # [-1,0,1,2]
 a / 2  # [.5,1,1.5,2]
 a // 2 # [0,1,1,2]
 a ** 2 # [1,4,9,16]
+
+# as arg of python's toplevel fns
+abs([-2,2]),            # err
+abs(np.array([-2,2]))   # [2,2]
+pow([2,4], 2)           # err
+pow(np.array([2,4]), 2) # [4,16]
 
 # slice by another arr
 a = np.array([10,20,30,40,50,60])
