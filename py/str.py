@@ -2,6 +2,7 @@
 ('foo' 'bar')     # ...: 'foobar'
 'foo' * 2         # str repeat: 'foofoo'
 'a,b,c'.split()             # ['a', 'b', 'c']
+list('abc')                 # ...
 'AA\nBB\nCC\n'.splitlines() # ['AA', 'BB', 'CC']
 ', '.join(['a','b','c'])    # 'a, b, c'
 ' foo '.strip()             # 'foo'

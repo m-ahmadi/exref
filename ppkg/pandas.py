@@ -25,6 +25,8 @@ DataFrame.copy(deep=True)
 DataFrame.head(n=5)
 DataFrame.describe(percentiles=None|[], include=None|'all'|[dtype,..], exclude=None|[dtype,..], datetime_is_numeric=False)
 DataFrame.pop(item='')
+DataFrame.fillna(value=None, method=None|'backfill|bfill|pad|ffill', axis=None|0|'', inplace=False, limit=None|0, downcast=None|{})
+DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], inplace=False)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
@@ -130,6 +132,16 @@ df2 = pd.DataFrame([ {'a':5,'b':6}, {'a':7,'b':8} ])
 cat = pd.concat([df1, df2], ignore_index=True)
 cat.columns # ['a', 'b']
 cat.values  # [ [1,2], [3,4], [5,6], [7,8] ]
+
+# replace missing value
+df = pd.DataFrame([ [1,np.nan], [np.nan,4] ])
+df = df.fillna(8)
+df # [ [1,8], [8,4] ]
+
+# remove missing value
+df = pd.DataFrame([ [1, np.nan], [3,4] ])
+df1 = df.dropna()          # [ [3,4] ]
+df2 = df.dropna(how='all') # [ [1,nan], [3,4] ]
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])
