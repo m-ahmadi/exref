@@ -174,7 +174,7 @@ np.digitize
 np.disp
 np.divide
 np.divmod
-np.dot
+np.dot(a=∂, b=∂, ?out=None|ndarray)
 np.double
 np.dsplit
 np.dstack
@@ -573,7 +573,7 @@ np.timedelta64
 np.TooHardError
 np.trace
 np.tracemalloc_domain
-np.transpose
+np.transpose(a=∂, ?axes=None|[0,..])
 np.trapz
 np.tri
 np.tril

@@ -6,6 +6,8 @@ np.info(np.sum) # prints to stdout
 
 # math
 np.multiply([2,2], [2,4]) # [4,8]
+np.dot(2, [2,4])          # ...
+np.dot([2,2], [2,4])      # 12
 np.ceil(2.9)              # 3
 np.sum([1,2,3])           # 6
 np.mean([2,3])            # 2.5
@@ -85,6 +87,11 @@ a.ravel()      # array([1,2,3,4])
 a.flatten()    # ...
 a.reshape(-1)  # ... 
 [*a.flat]      # [1,2,3,4]
+
+# transpose
+a = np.array([ [1,2], [3,4] ])
+np.transpose(a) # [ [1,3], [2,4] ]
+a.T             # ...
 
 # infer shape (from array length and remaining dimensions)
 np.arange(20).reshape((4,5))
