@@ -95,11 +95,19 @@ np.where(df['foo'] == 4)[0].tolist() # [3]
 df = pd.DataFrame([ [1,1,1], [2,2,2], [4,4,4] ])
 df.iloc[0:1] # 1  1  1
 df.iloc[-1:] # 4  4  4
+# ... single value
+df.iat[0,0] # 1
+df.iat[1,0] # 2
+df.iat[2,0] # 4
 
 # label location
 df = pd.DataFrame([ [1,2], [4,5], [7,8] ], columns=['a','b'], index=['foo','bar','baz'])
 df.loc['foo'] # [1,2]
-
+# ... single value
+df.at['foo','a'] # 1
+df.at['bar','a'] # 4
+df.at['baz','a'] # 7
+# ... another thing
 df = pd.DataFrame(columns=['a','b'])
 df.loc[0] = [1,2]
 df.loc[1] = [3,4]
