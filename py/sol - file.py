@@ -60,8 +60,9 @@ shutil.rmtree('mydir', ignore_errors=True)
 
 import pathlib # https://docs.python.org/3/library/pathlib.html
 path = pathlib.Path('path/to')
+path/'some'/'where' # using magic methods:  WindowsPath('path/to/some/where')
 path.parent
-path.stem      # filename without extension
+path.stem           # filename without extension
 path.is_file()
 path.is_dir()
 path.exists()
