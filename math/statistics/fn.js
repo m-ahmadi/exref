@@ -390,6 +390,10 @@ function vecDiv(a=[], b=[]) {
 	}
 }
 
+function dot(a=[], b=[]) {
+	return sum(vecMul(a, b));
+}
+
 function cumsum(nums=[]) {
 	let sum = 0;
 	return nums.map(i => sum += i);
