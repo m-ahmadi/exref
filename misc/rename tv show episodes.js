@@ -9,10 +9,10 @@ for (let [i] of [...bySeason.options].entries()) {
 		var n = i+1;
 		var sn = n<10 ? '0'+n : n;
 		return `${name} - ${document.querySelector('#bySeason').selectedOptions[0].value}x${sn} - ` + v.innerText;
-	}).join(';');
+	}).join('\n');
 	r.push(season);
 }
-r.join('@')
+console.log(r.join('\n\n'))
 
 // imdb manual
 [...document.querySelectorAll('#episodes_content strong a')].map((v,i) => {
