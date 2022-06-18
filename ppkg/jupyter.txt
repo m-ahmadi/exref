@@ -11,7 +11,22 @@ jupyter console  | jupyter-console		launch console
 jupyter lab      | jupyter-lab			launch lab
 voila file.ipynb				run voila
 voila file.ipynb --strip-sources=False --theme=dark
+--------------------------------------------------
+make jupyter recognize venv packages
 
+py -m venv foo
+foo\Scripts\activate.bat
+pip install -r requirements.txt		(or: `py -m pip ...` if err)
+
+pip install ipykernel
+py -m ipykernel install --name=foo
+
+foo\Scripts\deactivate.bat
+jupyter notebook
+
+undo:
+	jupyter kernelspec list
+	jupyter kernelspec uninstall foo -f
 --------------------------------------------------
 shortcuts
 
