@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css">
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<script src="./fn.js"></script>
+
+<div id="charts"></div>
+
+<script>
+s = [...Array(4000)].map(randn);
+sc = cumsum(s);
+
+/* WRONG (smh)
+log = sc.map(i => (i=Math.log(i), Number.isFinite(i) ? i : 0));
+dif = log.map((v,i,a) => i>0 ? v - a[i-1] : 0);
+y = dif.map(Math.abs);*/
+y = minmaxScale(s, [-1,1]);
+
+r = cusum(y, stdv(sc)*2);
+_r = new Set(r);
+sigs = sc.map((v,i)=> _r.has(i) ? v : null);
+
+x = [...s.keys()].map(i=>i+1);
+opts = { width:1200, height:400, scales:{x:{time:false}}, cursor:{sync:{key:'a'}} };
+new uPlot({series: [{}, {stroke:'black'}], ...opts, height:250, title:'random from gaussian distr'}, [x,s], charts);
+new uPlot({series: [{}, {stroke:'black'}, {points:{size:16,space:0,fill:'red'}}], ...opts, title:'cumsum of above + cusum signals'}, [x,sc,sigs], charts);
+
+
+function randn() {/*random from gaussian distribution*/
+	let [u, v] = [0, 0];
+	while (u === 0) u = Math.random();
+	while (v === 0) v = Math.random();
+	return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+}
+function minmaxScale(X=[], newbound=[0,1]) {
+	let [a,b] = [Math.min(...X), Math.max(...X)]
+	let [c,d] = newbound;
+	let [dx,dy] = [b-a, d-c];
+	return X.map(x => (x-a) * dy / dx + c);
+}
+</script>

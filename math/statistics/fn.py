@@ -33,8 +33,8 @@ def scale(nums=[], newbound=[0,1]):
 		if a == b:
 			raise Exception('Equal bounds error!')
 	c, d = newbound
-	ba, dc = b-a, d-c
-	return [(x-a) * dc / ba + c for x in nums]
+	dx, dy = b-a, d-c
+	return [(x-a) * dy / dx + c for x in nums]
 
 def mean(nums=[], trim=0, sample=False):
 	N = len(nums)
@@ -44,6 +44,20 @@ def mean(nums=[], trim=0, sample=False):
 		nums = sorted(nums[:])[+trim:-trim]
 		N = len(nums)
 	return sum(nums) / (N - (1 if sample else 0)) if N else 0
+
+def cusum(x=[], h=0):
+	res = []
+	pos, neg = 0, 0
+	for i, v in enumerate(x):
+		pos = max(0, pos + v)
+		neg = min(0, neg + v)
+		if neg < -h:
+			neg = 0
+			res.append(i)
+		elif pos > h:
+			pos = 0
+			res.append(i)
+	return res
 
 def slope(x=[], y=[]):
 	m = []

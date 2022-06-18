@@ -399,6 +399,25 @@ function cumsum(nums=[]) {
 	return nums.map(i => sum += i);
 }
 
+function cusum(x=[], h=0) {
+	let res = [];
+	let [pos, neg] = [0, 0];
+	
+	for (let [i, v] of x.entries()) {
+		pos = Math.max(0, pos + v);
+		neg = Math.min(0, neg + v);
+		if (neg < -h) {
+			neg = 0;
+			res.push(i)
+		} else if (pos > h) {
+			pos = 0;
+			res.push(i);
+		}
+	}
+	
+	return res;
+}
+
 function slope(x=[], y=[]) {
 	let m = [];
 	for (let i0=0, i1=1, N=x.length;  i1<N;  i0++, i1++) {
@@ -623,12 +642,11 @@ function ad(prices={high: [], low: [], close: [], volume: []}, decimals=4) {
 	return result
 }
 
+// util
 function minmax(nums=[]) {
 	let {min,max} = Math;
 	return nums.reduce(([n,x],i)=> [min(n,i), max(x,i)], [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]);
 }
-
-// util
 function min(nums=[]) {
 	return nums.reduce((n,i)=> Math.min(n,i), Number.POSITIVE_INFINITY);
 }
