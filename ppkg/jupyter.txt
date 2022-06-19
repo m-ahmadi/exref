@@ -7,26 +7,24 @@ pip install qtconsole		needs qt
 commands:
 
 jupyter notebook | jupyter-notebook		launch notebook
+	--no-browser				... don't open browser
 jupyter console  | jupyter-console		launch console
 jupyter lab      | jupyter-lab			launch lab
+
+jupyter kernelspec list
+jupyter kernelspec install --name=foo
+jupyter kernelspec uninstall foo -f
+
 voila file.ipynb				run voila
 voila file.ipynb --strip-sources=False --theme=dark
 --------------------------------------------------
-make jupyter recognize venv packages
+bound jupyter to certain venv
 
 py -m venv foo
 foo\Scripts\activate.bat
 pip install -r requirements.txt		(or: `py -m pip ...` if err)
-
-pip install ipykernel
-py -m ipykernel install --name=foo
-
-foo\Scripts\deactivate.bat
-jupyter notebook
-
-undo:
-	jupyter kernelspec list
-	jupyter kernelspec uninstall foo -f
+pip install jupyter			(must install new jupyter in new venv)
+jupyter notebook --no-browser
 --------------------------------------------------
 shortcuts
 
