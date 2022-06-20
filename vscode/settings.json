@@ -90,12 +90,20 @@
 	"python.showStartPage": false,
 	"python.defaultInterpreterPath": "C:\\python39\\python.exe",
 	"editor.snippetSuggestions": "top", // show prev history at bottom
+	
+	/** change indent size of autopep8 formatter */
+	"python.formatting.autopep8Args": ["--indent-size=2"],
+	// hacky alt: fart C:\python39\Lib\site-packages\autopep8.py "DEFAULT_INDENT_SIZE = 4" "DEFAULT_INDENT_SIZE = 2"
+	
+	/** change indent size of yapf formatter */
+	// "python.formatting.provider": "yapf",
+	// "python.formatting.yapfArgs": ["--style","{based_on_style: google, indent_width: 2}"],
+	
 	// vscode auto detect, not me:
 	"workbench.editorAssociations": {
 		"*.ipynb": "jupyter-notebook"
 	},
 	"python.linting.enabled": true,
 	"python.linting.pylintEnabled": true,
-	"python.formatting.provider": "black",
 	
 }

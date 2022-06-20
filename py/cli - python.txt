@@ -9,7 +9,9 @@ lang pkgs
 
 pip install pyreadline			autocomplete in python shell
 pip install pylint			linter
-pip install black			formatter
+pip install autopep8			formatter (use this)
+pip install yapf			formatter (also good)
+pip install black			formatter (don't use, not configurable)
 --------------------------------------------------------------------------------
 fix "Failed calling sys.__interactivehook__"
 
