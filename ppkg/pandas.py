@@ -141,6 +141,11 @@ cat = pd.concat([df1, df2], ignore_index=True)
 cat.columns # ['a', 'b']
 cat.values  # [ [1,2], [3,4], [5,6], [7,8] ]
 
+# assign
+df = pd.DataFrame({'a':[2,4]})
+df1 = df.assign(bbb=lambda x: x.a * 4)
+df1 # {'a':[2,4], 'bbb':[4,16]}
+
 # replace missing value
 df = pd.DataFrame([ [1,np.nan], [np.nan,4] ])
 df = df.fillna(8)
