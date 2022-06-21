@@ -20,8 +20,8 @@ voila file.ipynb --strip-sources=False --theme=dark
 --------------------------------------------------
 bound jupyter to certain venv
 
-py -m venv foo
-foo\Scripts\activate.bat
+py -m venv .env
+.env\Scripts\activate.bat
 pip install -r requirements.txt		(or: `py -m pip ...` if err)
 pip install jupyter			(must install new jupyter in new venv)
 jupyter notebook --no-browser
