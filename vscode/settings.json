@@ -6,6 +6,7 @@
 	"editor.autoClosingQuotes": "never",
 	"editor.mouseWheelZoom": true,
 	"editor.minimap.enabled": false,
+	"editor.bracketPairColorization.enabled": false,
 	"editor.tokenColorCustomizations": {
 		"[Visual Studio Light]": {
 			"numbers": "#ff0000"
@@ -31,11 +32,12 @@
 	// "window.openFilesInNewWindow": "off",    // open files in new window (not sure what it does)
 	// "workbench.editor.enablePreview": false, // open files on single click (if true: 1-click=preview, 2-click=open)
 	"workbench.colorCustomizations": {
-		// "editor.background": "#fbfbfb",                // background color
-		"editor.wordHighlightBackground": "#75D975",      // selection match color primary
-		"editor.selectionHighlightBackground": "#9BFF9B", // selection match color secondary
-		"editor.selectionBackground": "#C0C0C0",          // selection color
-		"editorBracketMatch.background": "#fff",
+		// "editor.background": "#fbfbfb",                   // whole editor background
+		"editor.selectionBackground": "#75D975",             // selection itself
+		"editor.selectionHighlightBackground": "#9BFF9B",    // selection matches
+		"editor.wordHighlightBackground": "#ffffff00",       // auto-detect word matches
+		"editor.wordHighlightStrongBackground": "#ffffff00", // ↑... but during write-access
+		"editorBracketMatch.background": "#ff00007F",
 		"editorBracketMatch.border": "#ff0000",
 	},
 	
@@ -85,7 +87,7 @@
 	
 	/** py */
 	"debug.openDebug": "neverOpen",
-	"debug.inlineValues": true,
+	"debug.inlineValues": "on",
 	"debug.terminal.clearBeforeReusing": true,
 	"python.showStartPage": false,
 	"python.defaultInterpreterPath": "C:\\python39\\python.exe",
