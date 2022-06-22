@@ -1,5 +1,6 @@
 f1					command pallete
-ctrl+shift+p				...
+ctrl shift p				...
+ctrl ,					user settings
 select text > f1 >"Join Lines"		format multiline code to single line
 
 %appdata%\Code\User\
@@ -16,6 +17,7 @@ light_vs.json
 (grammer files: <install_dir>\*.tmLanguage.json)
 --------------------------------------------------------------------------------
 extensions
+
 code --list-extensions | xargs -L 1 echo code --install-extension
 
 vincaslt.highlight-matching-tag

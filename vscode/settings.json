@@ -7,6 +7,7 @@
 	"editor.mouseWheelZoom": true,
 	"editor.minimap.enabled": false,
 	"editor.bracketPairColorization.enabled": false,
+	"editor.foldingHighlight": false,
 	"editor.tokenColorCustomizations": {
 		"[Visual Studio Light]": {
 			"numbers": "#ff0000"
@@ -95,7 +96,7 @@
 	
 	/** yapf formatter opts */
 	"python.formatting.provider": "yapf",
-	"python.formatting.yapfArgs": ["--style","{based_on_style: google, indent_width: 2, column_limit: 160, indent_blank_lines: True}"],
+	"python.formatting.yapfArgs": ["--style","{based_on_style: google, indent_width: 2, column_limit: 160, indent_blank_lines: True, use_tabs: True}"],
 	// https://github.com/google/yapf#knobs
 	
 	/** autopep8 formatter opts */
