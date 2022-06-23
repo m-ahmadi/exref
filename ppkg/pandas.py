@@ -27,6 +27,12 @@ DataFrame.describe(percentiles=None|[], include=None|'all'|[dtype,..], exclude=N
 DataFrame.pop(item='')
 DataFrame.fillna(value=None, method=None|'backfill|bfill|pad|ffill', axis=None|0|'', inplace=False, limit=None|0, downcast=None|{})
 DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], inplace=False)
+
+# missing type
+pd.NA
+pd.NaT
+np.nan
+None
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
