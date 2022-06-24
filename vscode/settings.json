@@ -36,8 +36,8 @@
 		// "editor.background": "#fbfbfb",                   // whole editor background
 		"editor.selectionBackground": "#75D975",             // selection itself
 		"editor.selectionHighlightBackground": "#9BFF9B",    // selection matches
-		"editor.wordHighlightBackground": "#ffffff00",       // auto-detect word matches
-		"editor.wordHighlightStrongBackground": "#ffffff00", // ↑... but during write-access
+		"editor.wordHighlightBackground": "#00000010",       // auto-detect word matches
+		"editor.wordHighlightStrongBackground": "#00000010", // ↑... but during write-access
 		"editorBracketMatch.background": "#ff00007F",
 		"editorBracketMatch.border": "#ff0000",
 	},

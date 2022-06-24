@@ -162,6 +162,11 @@ df = pd.DataFrame([ [1, np.nan], [3,4] ])
 df1 = df.dropna()          # [ [3,4] ]
 df2 = df.dropna(how='all') # [ [1,nan], [3,4] ]
 
+# searchsorted (index of where to insert each num so serie remains sorted)
+s = pd.Series([1,2,3])
+s.searchsorted(4)          # 3
+s.searchsorted([1.5, 2.5]) # [1,2]
+
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])
 a = s.ewm(com=2).mean()         # alpha = 1 / (com + 1)
