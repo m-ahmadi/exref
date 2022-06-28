@@ -27,6 +27,7 @@ DataFrame.describe(percentiles=None|[], include=None|'all'|[dtype,..], exclude=N
 DataFrame.pop(item='')
 DataFrame.fillna(value=None, method=None|'backfill|bfill|pad|ffill', axis=None|0|'', inplace=False, limit=None|0, downcast=None|{})
 DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], inplace=False)
+DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right’|outer|inner', lsuffix='', rsuffix='', sort=False)
 
 # missing type
 pd.NA
@@ -166,6 +167,20 @@ df2 = df.dropna(how='all') # [ [1,nan], [3,4] ]
 s = pd.Series([1,2,3])
 s.searchsorted(4)          # 3
 s.searchsorted([1.5, 2.5]) # [1,2]
+
+# join - simple
+df1 = pd.DataFrame({'a': [1,2,3]})
+df2 = pd.DataFrame({'b': [9,8,7]})
+df3 = df1.join(df2) # { 'a':[1,2,3], 'b':[9,8,7] }
+df3 = df2.join(df1) # { 'b':[9,8,7], 'a':[1,2,3] }
+
+# join - index-based
+df1 = pd.DataFrame({'a': [1,2,3]}, index=['i0','i1','i2'])
+df2 = pd.DataFrame({'b': [9,8]},   index=['i0','i1'])
+df1.join(df2)              # { 'a':[1,2,3],   'b':[9,8,NaN] }
+df1.join(df2, how='right') # { 'a':[1,2],     'b':[9,8] }
+df2.join(df1)              # { 'b':[9,8],     'a':[1,2] }
+df2.join(df1, how='right') # { 'b':[9,8,NaN], 'a':[1,2,3] }
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])
