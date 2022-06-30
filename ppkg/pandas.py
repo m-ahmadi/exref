@@ -142,11 +142,21 @@ cat = pd.concat([df1, df2])
 cat # [ ['a','b'], [1,2], [3,4], ['a','b'], [5,6], [7,8] ]
 cat = pd.concat([df1, df2], ignore_index=True)
 
-df1 = pd.DataFrame([ {'a':1,'b':2}, {'a':3,'b':4} ])
-df2 = pd.DataFrame([ {'a':5,'b':6}, {'a':7,'b':8} ])
+df1 = pd.DataFrame({'a':[1,3],'b':[2,4]})
+df2 = pd.DataFrame({'a':[5,7],'b':[6,8]})
 cat = pd.concat([df1, df2], ignore_index=True)
-cat.columns # ['a', 'b']
-cat.values  # [ [1,2], [3,4], [5,6], [7,8] ]
+cat # { 'a':[1,3,5,7], 'b':[2,4,6,8] }
+
+# concat - series
+s1 = pd.Series([4,5,6])
+s2 = pd.Series([7,8,9])
+cat = pd.concat({'a':s1, 'b':s2}, axis=1)
+cat # { 'a':[4,5,6], 'b':[7,8,9] }
+
+s1 = pd.Series([4,5,6], index=[0,1,2])
+s2 = pd.Series([7,8,9], index=[3,4,5])
+cat = pd.concat({'a':s1, 'b':s2}, axis=1)
+cat # { 'a':[4,5,6,nan,nan,nan], 'b':[nan,nan,nan,7,8,9] }
 
 # assign
 df = pd.DataFrame({'a':[2,4]})
@@ -161,7 +171,12 @@ df # [ [1,8], [8,4] ]
 # remove missing value
 df = pd.DataFrame([ [1, np.nan], [3,4] ])
 df1 = df.dropna()          # [ [3,4] ]
-df2 = df.dropna(how='all') # [ [1,nan], [3,4] ]
+df1 = df.dropna(how='all') # [ [1,nan], [3,4] ]
+
+df = pd.DataFrame({'a':[1,2,np.nan], 'b': [4,np.nan,6]})
+df1 = df.dropna(subset=['a']) # { 'a': [1,2],   'b': [4,nan] }
+df1 = df.dropna(subset=['b']) # { 'a': [1,nan], 'b': [4,6] }
+
 
 # searchsorted (index of where to insert each num so serie remains sorted)
 s = pd.Series([1,2,3])
@@ -181,6 +196,13 @@ df1.join(df2)              # { 'a':[1,2,3],   'b':[9,8,NaN] }
 df1.join(df2, how='right') # { 'a':[1,2],     'b':[9,8] }
 df2.join(df1)              # { 'b':[9,8],     'a':[1,2] }
 df2.join(df1, how='right') # { 'b':[9,8,NaN], 'a':[1,2,3] }
+
+# min
+df = pd.DataFrame({'a':[1,2,3,4], 'b':[5,6,7,8]})
+df.min(axis=0) # {'a':[1], 'b':[5]}
+df.min(axis=1) # [1,2,3,4]
+
+pd.DataFrame({'a':[2,2], 'b':[1,3]}).min(axis=1) # [1,2]
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])

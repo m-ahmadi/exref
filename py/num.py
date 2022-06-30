@@ -1,3 +1,10 @@
+4   # int
+2.5 # float
+0.  # ...
+1j  # complex
+
+1_000 # digit grouping (python v3.6+)
+
 1+2*3/4 # arithmetic: 2.5
 9 % 2   # remainder: 1
 4 ** 2  # squared: 16
