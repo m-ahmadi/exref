@@ -1,0 +1,9 @@
+Preferences -> Accessibility -> Document Colors Options -> Replace Document Colors ->
+
+	Custom Color:	Page Background: (18,18,18)	Document Text: (191,191,191)
+
+--------------------------------------------------
+change interface colors (adobe reader dc only)
+
+View -> Display Theme -> Dark Gray
+--------------------------------------------------
