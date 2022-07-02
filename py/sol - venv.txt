@@ -1,12 +1,12 @@
 py -m venv --help
 
-py -m venv .env				create new env named .env
+py -m venv env				create new venv named env
 
-.env\Scripts\activate.bat		activate it
+env\Scripts\activate.bat		activate it
 
 	py -c "import sys,site; print(f'{sys.prefix}\n{site.getsitepackages()}')"
 
-.env\Scripts\deactivate.bat		deactivate it
+env\Scripts\deactivate.bat		deactivate it
 
 --------------------------------------------------------------------------------
 check

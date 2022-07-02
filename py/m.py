@@ -37,14 +37,6 @@ if __name__ == '__main__':
 else:
 	print('module imported')
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# package (a dir that contains multiple modules)
-
-# __init__.py (if exists in a dir, that dir is treated as package)
-__all__ = ['echo', 'surround', 'reverse']
-
-
-# implicit namespace packages
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # name with spaces (avoid)
 
 foo_bar = __import__('foo bar')
@@ -53,4 +45,22 @@ exec(open('foo bar.py', 'r').read()) # from foo_bar import *
 
 import importlib
 foo_bar = importlib.import_module('foo bar') # wrapper around __import__()
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# package (a dir that contains multiple modules)
+
+# __init__.py (if exists in a dir, that dir is treated as package)
+__all__ = ['echo', 'surround', 'reverse']
+
+
+# implicit namespace packages
+# ?
+
+
+# package relative imports
+from .moduleY import spam
+from .moduleY import spam as ham
+from . import moduleY
+from ..subpackage1 import moduleY
+from ..subpackage2.moduleZ import eggs
+from ..moduleA import foo
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
