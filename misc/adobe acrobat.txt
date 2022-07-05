@@ -1,0 +1,20 @@
+dark mode
+
+Preferences -> Accessibility -> Document Colors Options -> Replace Document Colors ->
+	Custom Color:	Page Background: (18,18,18)	Document Text: (128,128,128)
+
+change interface colors (dc only)
+	View -> Display Theme -> Dark Gray
+--------------------------------------------------------------------------------
+bookmark zoom level (acrobat)
+
+right click on bookmark -> Properties -> Actions -> Edit -> Zoom: "Inherit Zoom"
+--------------------------------------------------------------------------------
+shortcuts
+
+f4		navigation pane
+f8		toobars
+f9		menu bar
+ctrl h		read mode
+ctrl k		preferences
+--------------------------------------------------------------------------------

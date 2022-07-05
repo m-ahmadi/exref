@@ -118,8 +118,8 @@ for (let [idx, text] of texts.entries()) {
 	
 	
 	let [sqmeter, builtyear, rooms] = [..._document.querySelector('.kt-group-row').querySelectorAll('.kt-group-row-item__value')].map(i=> i.innerText);
-
-	let itms = [..._document.querySelectorAll('.post-info .kt-base-row.kt-base-row--large.kt-unexpandable-row')].map(i =>
+	
+	let itms = [..._document.querySelectorAll('.post-page__section--padded .kt-base-row.kt-base-row--large.kt-unexpandable-row')].map(i => // prev: '.post-info .kt-base-row.kt-base-row--large.kt-unexpandable-row'
 		[...i.querySelectorAll('div > p')].map(i=> i.innerText)
 	);
 	itms = new Map(itms);
@@ -128,6 +128,10 @@ for (let [idx, text] of texts.entries()) {
 	let rent        = itms.get('اجارهٔ ماهانه');
 	let convertable = itms.get('ودیعه و اجاره');
 	let floor       = itms.get('طبقه');
+	
+	if (_document.querySelector('.convert-slider')) {
+		[credit, rent] = [..._document.querySelectorAll('.convert-slider .kt-group-row-item--info-row .kt-group-row-item__value')].map(i=>i.innerText);
+	}
 	
 	credit = ['مجانی','توافقی'].includes(credit) ? 0 : toEn(credit) / 1e6;
 	rent   = ['مجانی','توافقی'].includes(rent)   ? 0 : toEn(rent)   / 1e6;
@@ -171,7 +175,7 @@ for (let [idx, text] of texts.entries()) {
 	parking = parking === 'پارکینگ ندارد' ? 'خیر' : 'بله';
 	storage = storage === 'انباری ندارد' ? 'خیر' : 'بله';
 
-	let descs = _document.querySelector('.kt-description-row__text.post-description.kt-description-row__text--primary').innerText;
+	let descs = _document.querySelector('.kt-description-row__text.kt-description-row__text--primary').innerText; // prev: '.kt-description-row__text.post-description.kt-description-row__text--primary'
 	let singlefloor = ['تک واحدی', 'تکواحدی', 'تک واحد', 'تکواحد', 'یک واحدی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	let stove       = ['گاز رومیزی', 'گازرومیزی', 'اجاق گاز رومیزی', 'اجاق رومیزی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	
