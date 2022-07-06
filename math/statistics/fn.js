@@ -399,11 +399,12 @@ function cumsum(nums=[]) {
 	return nums.map(i => sum += i);
 }
 
-function cusum(x=[], h=0) {
+function cusum(x=[], _h=0) {
 	let res = [];
 	let [pos, neg] = [0, 0];
 	
 	for (let [i, v] of x.entries()) {
+		let h = _h[i] || _h;
 		pos = Math.max(0, pos + v);
 		neg = Math.min(0, neg + v);
 		if (neg < -h) {
@@ -550,6 +551,23 @@ function ewm(nums=[], span=2, adjust=true) {/*pandas*/
 	});
 	
 	return [means, vars, stds];
+}
+function ewmstd(x=[], period=2) {/*formal init values*/
+	let ema   = [ x[0] ];
+	let emvar = [ 0 ];
+	let delta = [ x[0] - ema[0] ];
+	let emsd  = [];
+	
+	let a = 2 / (period + 1);
+	
+	for (let i=1, len=x.length; i<len; i++) {
+		delta.push(x[i] - ema[i-1]);
+		ema.push(ema[i-1] + a * delta[i]);
+		emvar.push( (1-a) * (emvar[i-1] + a * delta[i]**2) );
+		emsd.push(Math.sqrt(emvar[i]));
+	}
+	
+	return emsd;
 }
 
 // exponentially weighted standard deviation (from stdlib)

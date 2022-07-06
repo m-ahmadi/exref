@@ -42,4 +42,21 @@ new uPlot({
 	cma(data),
 ], charts);
 
+
+// ewm.std
+new uPlot({
+	width:1200, height:400,
+	series: [
+		{label:'t'},
+		{label:'ewms',            stroke:'black', width:2, points:{show:false}},
+		{label:'ewmstd (formal)', stroke:'blue',  width:2, points:{show:false}},
+	],
+	scales: {x:{time:false}},
+	axes: [{grid:{show:false}}, {grid:{show:false}}],
+}, [
+	[...data.keys()].map(i=>i+1),
+	ewms,
+	[null, ...ewmstd(data, 5)],
+], charts);
+
 </script>
