@@ -29,6 +29,8 @@ DataFrame.fillna(value=None, method=None|'backfill|bfill|pad|ffill', axis=None|0
 DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], inplace=False)
 DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right’|outer|inner', lsuffix='', rsuffix='', sort=False)
 
+Index.duplicated(keep='first|last'|False)
+
 # missing type
 pd.NA
 pd.NaT
@@ -203,6 +205,12 @@ df.min(axis=0) # {'a':[1], 'b':[5]}
 df.min(axis=1) # [1,2,3,4]
 
 pd.DataFrame({'a':[2,2], 'b':[1,3]}).min(axis=1) # [1,2]
+
+# index
+idx = pd.Index(['a','b','c','c'])
+idx.duplicated(keep='first') # [False, False, False, True]
+idx.duplicated(keep='last')  # [False, False, True,  False]
+idx.duplicated(keep=False)   # [False, False, True,  True]
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])

@@ -31,6 +31,9 @@ a / 2  # [.5,1,1.5,2]
 a // 2 # [0,1,1,2]
 a ** 2 # [1,4,9,16]
 
+# inverse bool arr (unary invert operator, hacky)
+~np.array([True, False]) # [False,  True]
+
 # as arg of python's toplevel fns
 abs([-2,2]),            # err
 abs(np.array([-2,2]))   # [2,2]

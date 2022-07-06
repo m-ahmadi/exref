@@ -26,7 +26,7 @@ n++ // ...             (postfix)
 --n // unary decrement (prefix)
 n-- // ...             (postfix)
 -n  // unary negation
-+n  // unary plus
++n  // unary plus (unchanged numeric operand)
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // comparison
 >
