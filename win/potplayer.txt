@@ -11,6 +11,10 @@ Subtitles -> Font
 	Default:	Cambria
 	Alternative:	Courier New
 	Size:		14
+
+General ->
+	Auto check for updates:		Never
+		!Auto download files if an update is available
 --------------------------------------------------
 cli
 
