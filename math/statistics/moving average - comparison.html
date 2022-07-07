@@ -17,6 +17,8 @@ var _ewm = ewm(data, 5);
 _ewm.map(a=> a.forEach((v,i,aa)=> Number.isNaN(v) && (aa[i] = undefined)) );
 var [ewma, ewmv, ewms] = _ewm;
 
+var _ewmstd = ewmstd(data, 5);
+
 new uPlot({
 	width:1200, height:400,
 	series: [
@@ -56,7 +58,7 @@ new uPlot({
 }, [
 	[...data.keys()].map(i=>i+1),
 	ewms,
-	[null, ...ewmstd(data, 5)],
+	_ewmstd,
 ], charts);
 
 </script>

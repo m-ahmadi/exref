@@ -45,10 +45,14 @@ new uPlot({width:600, height:400, series:[{label:'x'},{stroke:'blue'},{stroke:'r
 	[65,60,55,70,75,60],
 ], charts);
 
+data2 = [[+new Date(2022,01,01), +new Date(2022,01,02), +new Date(2022,01,08), +new Date(2022,01,09), +new Date(2022,01,10)], [40,20,70,50,80]];
+new uPlot({width:600, height:400, series:[{},{stroke:'deeppink',width:4}], cursor:{sync:{key:'a'}}, title:'gaps in time axis - default'}, data2, charts);
+new uPlot({width:600, height:400, series:[{},{stroke:'deeppink',width:4}], cursor:{sync:{key:'a'}}, scales:{x:{distr:2}}, title:'gaps in time axis - removed'}, data2, charts);
+
 new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], cursor:{lock:true}, title:'cursor lock'}, data, charts);
 
-new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], cursor:{sync:{key:'foo'}}, title:'cursor sync1'}, data, charts);
-new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], cursor:{sync:{key:'foo'}}, title:'cursor sync2'}, data, charts);
+new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], cursor:{sync:{key:'b'}}, title:'cursor sync1'}, data, charts);
+new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], cursor:{sync:{key:'b'}}, title:'cursor sync2'}, data, charts);
 
 var chart = new uPlot({width:600, height:400, series:[{},{stroke:'black'}], title:'chart.setData()'}, [], charts);
 chart.setData([

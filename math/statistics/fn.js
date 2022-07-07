@@ -556,7 +556,7 @@ function ewmstd(x=[], period=2) {/*formal init values*/
 	let ema   = [ x[0] ];
 	let emvar = [ 0 ];
 	let delta = [ undefined ];
-	let emsd  = [];
+	let emsd  = [ undefined ];
 	
 	let a = 2 / (period + 1);
 	
@@ -564,7 +564,7 @@ function ewmstd(x=[], period=2) {/*formal init values*/
 		delta.push(x[i] - ema[i-1]);
 		ema.push(ema[i-1] + a * delta[i]);
 		emvar.push( (1-a) * (emvar[i-1] + a * delta[i]**2) );
-		emsd.push(Math.sqrt(emvar[i]));
+		emsd.push( Math.sqrt(emvar[i]) );
 	}
 	
 	return emsd;

@@ -1,4 +1,4 @@
-adblock -> customize
+adblock -> customize	(adblock plus -> advanced -> my filter list -> +add)
 	github.com###dashboard > div.news .release
 
 or
