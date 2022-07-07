@@ -540,7 +540,7 @@ function ewm(nums=[], span=2, adjust=true) {/*pandas*/
 		let bias = wSumsqr / ( wSumsqr - sum(w.map(sqr)) );
 		
 		// exponentially weighted variance
-		let ewmvar = bias * sum(  vecMul(w, z.map(i=> i-ewma).map(sqr)).map(i=> i/wSum)  );
+		let ewmvar = bias * sum(  vecMul(w, z.map(i=> (i-ewma)**2)).map(i=> i/wSum)  );
 		
 		// exponentially weighted standard deviation
 		let ewmstd = Math.sqrt(ewmvar);
@@ -555,7 +555,7 @@ function ewm(nums=[], span=2, adjust=true) {/*pandas*/
 function ewmstd(x=[], period=2) {/*formal init values*/
 	let ema   = [ x[0] ];
 	let emvar = [ 0 ];
-	let delta = [ x[0] - ema[0] ];
+	let delta = [ undefined ];
 	let emsd  = [];
 	
 	let a = 2 / (period + 1);
