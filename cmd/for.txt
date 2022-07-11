@@ -5,7 +5,8 @@ for /f %i in (file.txt) do @echo %i				first token of each line
 for /f "tokens=*" %i in (file.txt) do @echo %i			whole line
 for /f "tokens=* eol=;" %i in (file.txt) do @echo %i		... specific eol
 
-for /d %i in (a,b,c,d) do @echo %i				iterate over set
+for %i in (aa bb cc*) do @echo %i				iterate over strings (can't escape * ? in string)
+for /d %i in (a,b,c,d) do @echo %i				iterate over folder names
 for /d %i in (dir*) do @echo %i					iterate folder names (that match wildcard)
 for /d %i in (*) do type %i/file.txt >> .\out.txt		cat all file.txt in all dirs into out.txt
 
@@ -39,6 +40,6 @@ tokens=x,y,m-n	specifies which tokens from each line are to be passed to the for
 		This will cause additional variable names to be allocated.
 		The m-n form is a range, specifying the mth through the nth tokens.
 		If the last character in the tokens= string is an asterisk, then an additional variable is allocated and receives the remaining text on the line after the last token parsed.
-usebackq	a back quoted string is executed as a command
+usebackq	a back-quoted string is executed as a command
 		and a single quoted string is a literal string command and allows the use of double quotes to quote file names in file-set.
 --------------------------------------------------------------------------------
