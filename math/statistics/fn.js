@@ -660,6 +660,49 @@ function ad(prices={high: [], low: [], close: [], volume: []}, decimals=4) {
 	return result
 }
 
+function fracDiffExpandingWindow(x=[], d=0, thres=0.01) {
+	let N = x.length;
+	
+	let W = [1];
+	for (let k of range(1,N)) W.push( -W[W.length-1] / k*(d-k+1) );
+	W.reverse();
+	
+	let w = cumsum(W.map(Math.abs));
+	let last = w[w.length-1];
+	w = w.map(i => i / last);
+	let skip = w.filter(i => i > thres).length;
+	
+	let r = [];
+	for (let i of range(skip,N)) r.push(
+		dot(w.slice(-(i+1)), x.slice(0, i+1))
+	);
+	
+	return r;
+}
+
+function fracDiffFixedWindow(x=[], d=0, thres=0.00001) {
+	let N = x.length;
+	
+	let [W, k, ctr, lim] = [[1], 1, 0, N];
+	while (true) {
+		let w = -W[W.length-1] / k*(d-k+1);
+		if (Math.abs(w) < thres) break;
+		W.push(w);
+		k += 1;
+		ctr += 1;
+		if (ctr === lim - 1) break;
+	}
+	W.reverse();
+	
+	let width = W.length - 1;
+	let r = Array(width).fill(0);
+	for (let i in range(width,N)) r.push(
+		dot(W, x.slice(i-width, i+1)) || 0
+	);
+	
+	return r;
+}
+
 // util
 function minmax(nums=[]) {
 	let {min,max} = Math;

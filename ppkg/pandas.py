@@ -31,6 +31,8 @@ DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|rightâ€
 
 Index.duplicated(keep='first|last'|False)
 
+DatetimeIndex(data=None, freq, tz=None, normalize=False, closed=None, ambiguous='raise', dayfirst=False, yearfirst=False, dtype=None, copy=False, name=None)
+
 # missing type
 pd.NA
 pd.NaT
@@ -211,6 +213,11 @@ idx = pd.Index(['a','b','c','c'])
 idx.duplicated(keep='first') # [False, False, False, True]
 idx.duplicated(keep='last')  # [False, False, True,  False]
 idx.duplicated(keep=False)   # [False, False, True,  True]
+
+# index - datetime
+import datetime as dt
+idx = pd.DatetimeIndex([dt.datetime(2022,1,1), dt.datetime(2022,1,2), dt.datetime(2022,1,3)])
+df = pd.DataFrame({'foo': [1,2,3]}, index=idx)
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])

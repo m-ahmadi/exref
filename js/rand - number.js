@@ -24,7 +24,7 @@ function randn() {
 	let [u, v] = [0, 0];
 	while (u === 0) u = Math.random();
 	while (v === 0) v = Math.random();
-	return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+	return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
 //minmax([...Array(1000)].map(randn)) // [-3.126482221938456, 3.0262664871559735]
 
