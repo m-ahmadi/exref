@@ -21,6 +21,10 @@ DataFrame.to_csv(path_or_buf=None|''|file_handle, sep=',', na_rep='', float_form
 	quotechar='"', line_terminator=os.linesep, chunksize=None|0, date_format=None|'', doublequote=True, escapechar=None|'',
 	decimal='.', errors='strict', storage_options=None|{})
 
+DataFrame.to_json(path_or_buf=None, orient=None|'split|records|index|columns|values|table',
+	date_format=None, double_precision=10, force_ascii=True, date_unit='ms', default_handler=None,
+	lines=False, compression='infer', index=True, indent=None, storage_options=None)
+
 DataFrame.copy(deep=True)
 DataFrame.head(n=5)
 DataFrame.describe(percentiles=None|[], include=None|'all'|[dtype,..], exclude=None|[dtype,..], datetime_is_numeric=False)
@@ -88,6 +92,11 @@ df # { 'a': [1,2,3,4], 'b':[5,6,7,8] }
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=None) # '1,2\r\n3,4\r\n5,6\r\n'
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.csv', index=False, header=None)
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.txt', sep='\t', index=False)
+
+# to json
+pd.Series([1,2,3]).to_json('out.json', orient='values')     # [1,2,3]
+pd.Series([1,2,3]).to_json('out.json', orient='index')      # {"0":1,"1":2,"2":3}
+pd.DataFrame([1,2,3]).to_json('out.json', orient='columns') # {"0":{"0":1,"1":2,"2":3}}
 
 # count of csv rows
 df = pd.DataFrame([ [1,2], [3,4], [5,6] ])

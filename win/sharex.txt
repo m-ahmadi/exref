@@ -1,0 +1,5 @@
+Task settings -> Upload -> File naming
+	Name pattern for capture or clipboard upload:	%y%mo%d_%h%mi%s		orig: %ra{10}
+	Name pattern for window capture:		%y%mo%d_%h%mi%s		orig: %pn_%ra{10}
+
+Application settings -> History -> !Save tasks to history
