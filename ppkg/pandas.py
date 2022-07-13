@@ -190,7 +190,6 @@ df = pd.DataFrame({'a':[1,2,np.nan], 'b': [4,np.nan,6]})
 df1 = df.dropna(subset=['a']) # { 'a': [1,2],   'b': [4,nan] }
 df1 = df.dropna(subset=['b']) # { 'a': [1,nan], 'b': [4,6] }
 
-
 # searchsorted (index of where to insert each num so serie remains sorted)
 s = pd.Series([1,2,3])
 s.searchsorted(4)          # 3
@@ -227,6 +226,12 @@ idx.duplicated(keep=False)   # [False, False, True,  True]
 import datetime as dt
 idx = pd.DatetimeIndex([dt.datetime(2022,1,1), dt.datetime(2022,1,2), dt.datetime(2022,1,3)])
 df = pd.DataFrame({'foo': [1,2,3]}, index=idx)
+
+# index - reindex
+df = pd.DataFrame({'a':[3,4,5]}, index=[0,1,2])
+df2 = df.reindex([1,2,0])
+df  # {'a':[3,4,5]}
+df2 # {'a':[4,5,3]}
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])
