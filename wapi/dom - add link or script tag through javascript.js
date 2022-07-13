@@ -39,3 +39,6 @@ async function addHeadScript() {
 		}
 	});
 }
+
+// eval + force sync (hacky sol for 'raw.githubusercontent.com' mimetype issue)
+eval((r=new XMLHttpRequest(), r.open('GET','https://raw.githubusercontent.com/user/repo/branch/script.js',false), r.send(null), r.responseText)); delete r;
