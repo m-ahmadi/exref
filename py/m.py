@@ -47,20 +47,67 @@ import importlib
 foo_bar = importlib.import_module('foo bar') # wrapper around __import__()
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # package (a dir that contains multiple modules)
+# dir treated as pkg if contains `__init__.py`
+# https://docs.python.org/3/tutorial/modules.html#packages
+# https://docs.python.org/3/reference/import.html#packages
 
-# __init__.py (if exists in a dir, that dir is treated as package)
-__all__ = ['echo', 'surround', 'reverse']
+# __init__.py
+# can be empty
+__all__ = ['x','y'] # modules names to import when `from package import *`
 
 
-# implicit namespace packages
-# ?
+# example
+'''
+foo/
+	__init__.py:  null
+	a.py:         aa = lambda i: i*2
+bar/
+	__init__.py:  null
+	b.py:         bb = lambda i: i*3
+baz/
+	__init__.py:  __all__ = ['c','d']
+	c.py:         cc = lambda i: i*4
+	d.py:         dd = lambda i: i*5
+'''
+from foo.a import aa
+aa(2)   # 4
+from bar.b import bb
+bb(2)   # 6
+from baz import *
+c.cc(2) # 8
+d.dd(2) # 10
 
 
-# package relative imports
+# see which names a module defines
+dir() # this module
+import math
+dir(math)
+
+
+# intra-package References
+# https://docs.python.org/3/tutorial/modules.html#intra-package-references
+# https://docs.python.org/3/reference/import.html#package-relative-imports
 from .moduleY import spam
 from .moduleY import spam as ham
 from . import moduleY
 from ..subpackage1 import moduleY
 from ..subpackage2.moduleZ import eggs
 from ..moduleA import foo
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# namespace package
+# https://packaging.python.org/en/latest/guides/packaging-namespace-packages/
+
+# setup.py
+from setuptools import find_packages, setup # pip install setuptools
+
+setup(
+	name='mypkg',
+	packages=find_packages(),
+	version='0.0.1',
+	description='foo',
+	author='bar',
+	license='MIT',
+)
+
+# pip install -e .
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
