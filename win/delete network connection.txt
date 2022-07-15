@@ -1,2 +1,17 @@
-if cannot delete from ncpa.cpl
-delete from dev.mgmt, under "Network adapters"
+ncpa.cpl -> rclick -> Delete
+
+ncpa.cpl -> rclick -> Networking -> Configure... -> Driver -> Uninstall Device
+
+devmgmt.msc -> Network adapters -> rclick -> Uninstall device
+
+--------------------------------------------------------------------------------
+remove "VirtualBox" stuff
+
+pushd <install_dir>
+
+vboxmanage hostonlyif remove "VirtualBox Host-Only Ethernet Adapter"
+
+note:
+adapter must be enabled in ncpa.cpl (won't work otherwise)
+use adapter name from devmgmt.msc, not ncpa.cpl
+--------------------------------------------------------------------------------
