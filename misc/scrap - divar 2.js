@@ -11,6 +11,7 @@ COLUMN_HEADERS = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌وا
 COLUMN_SORTS   = [  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'],  ]; // [header, numerical, desc]
 
 EACH_SCROLL_HEIGHT = 850;
+MAX_ITEMS = Infinity;
 WAIT_AFTER_EACH_SCROLL = 1000;
 WAITED_REQUEST_STYLE = true; // takes longer but guaranteed (false: faster + risk of pending for too long)
 WAIT_AFTER_EACH_REQUEST = 1000;
@@ -24,7 +25,8 @@ sleep = ms => new Promise(r=> setTimeout(r,ms));
 window.scrollTo(0,0);
 r = [];
 prevY = -1;
-while (window.scrollY > prevY) {
+tot = 0;
+while (window.scrollY > prevY && tot < MAX_ITEMS) {
 	prevY = window.scrollY;
 	window.scrollBy(0,EACH_SCROLL_HEIGHT);
 	await sleep(WAIT_AFTER_EACH_SCROLL);
@@ -41,6 +43,9 @@ while (window.scrollY > prevY) {
 			return link;
 		}).filter(i=>i)
 	);
+	
+	tot = new Set(r.flat()).size;
+	console.log(tot);
 }
 r = r.flat();
 r = [...new Set(r)];
@@ -50,12 +55,13 @@ t = Date.now();
 let qu = async a => { let p=[]; for (let i of a) await sleep(WAIT_AFTER_EACH_REQUEST), p.push(fetch(i)); return p; };
 let proms = await Promise.allSettled(WAITED_REQUEST_STYLE ? await qu(r) : r.map(i=>fetch(i)));
 while (proms.some(i=>i.reason || i.value.status !== 200)) {
-	let ers = proms.map((v,i)=> v.reason || v.value.status !== 200 ? i : -1).filter(i=>i>-1);
+	proms.forEach((v,i)=> v?.value?.status === 404 ? proms[i]='' : 0);
+	let ers = proms.map((v,i)=> v?.reason || v?.value?.status !== 200 ? i : -1).filter(i=>i>-1);
 	await sleep(WAIT_BEFORE_RETRY);
 	(await Promise.allSettled( WAITED_REQUEST_STYLE ? await qu(ers.map(i=>r[i])) : ers.map(i=>fetch(r[i])) ))
 		.forEach((v,i) => proms[ers[i]] = v);
 }
-let texts = await Promise.all( proms.map(i=> i.value.text()) );
+let texts = await Promise.all( proms.map(i=> i.value ? i.value.text() : '') );
 console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 
@@ -64,6 +70,7 @@ toEn = s => +[...s].map(i => en[i]).join('');
 
 rr = [];
 for (let [idx, text] of texts.entries()) {
+	if (!text) continue;
 	let _document = new DOMParser().parseFromString(text, mimeType='text/html');
 
 	let title = _document.querySelector('.kt-page-title__title');
@@ -118,8 +125,9 @@ for (let [idx, text] of texts.entries()) {
 	
 	
 	let [sqmeter, builtyear, rooms] = [..._document.querySelector('.kt-group-row').querySelectorAll('.kt-group-row-item__value')].map(i=> i.innerText);
+	[sqmeter, builtyear, rooms] = [sqmeter, builtyear, rooms].map(i => i ? toEn(i) : '');
 	
-	let itms = [..._document.querySelectorAll('.post-page__section--padded .kt-base-row.kt-base-row--large.kt-unexpandable-row')].map(i => // prev: '.post-info .kt-base-row.kt-base-row--large.kt-unexpandable-row'
+	let itms = [..._document.querySelectorAll('.post-page__section--padded .kt-base-row.kt-base-row--large.kt-unexpandable-row')].map(i =>
 		[...i.querySelectorAll('div > p')].map(i=> i.innerText)
 	);
 	itms = new Map(itms);
@@ -150,14 +158,19 @@ for (let [idx, text] of texts.entries()) {
 	if (+convcredit > MAX_CREDIT) continue;
 	
 	let totalfloors, lastfloor;
-	if (/از/.test(floor)) {
-		let [actualfloor, _totalfloors] = floor.split(' از ').map(i => i === 'همکف' ? 0 : toEn(i));
-		floor = actualfloor;
-		totalfloors = _totalfloors;
-		lastfloor = actualfloor === _totalfloors ? 'بله' : 'نه';
+	if (floor) {
+		if (/از/.test(floor)) {
+			let [actualfloor, _totalfloors] = floor.split(' از ').map(i => i === 'همکف' ? 0 : toEn(i));
+			floor = actualfloor;
+			totalfloors = _totalfloors;
+			lastfloor = actualfloor === _totalfloors ? 'بله' : 'نه';
+		} else {
+			floor = floor === 'همکف' ? 0 : toEn(floor);
+			totalfloors = '';
+			lastfloor = 'مبهم'
+		}
 	} else {
-		floor = floor === 'همکف' ? 0 : toEn(floor);
-		totalfloors = '';
+		totalfloors = 'مبهم';
 		lastfloor = 'مبهم'
 	}
 	
@@ -166,16 +179,13 @@ for (let [idx, text] of texts.entries()) {
 		(itms.has('آگهی‌دهنده') && ['املاک','مشاور املاک','آژانس املاک'].includes(itms.get('آگهی‌دهنده'))) || itms.has('آژانس املاک') ? 'املاک' :
 		'';
 	
-	[sqmeter, builtyear, rooms] = [sqmeter, builtyear, rooms].map(toEn);
-	
-	
 	let [elevator, parking, storage] = [..._document.querySelectorAll('span.kt-group-row-item__value.kt-body.kt-body--stable')].map(i=>i.innerText);
 	
 	elevator = elevator === 'آسانسور ندارد' ? 'خیر' : 'بله';
 	parking = parking === 'پارکینگ ندارد' ? 'خیر' : 'بله';
 	storage = storage === 'انباری ندارد' ? 'خیر' : 'بله';
 
-	let descs = _document.querySelector('.kt-description-row__text.kt-description-row__text--primary').innerText; // prev: '.kt-description-row__text.post-description.kt-description-row__text--primary'
+	let descs = _document.querySelector('.kt-description-row__text.kt-description-row__text--primary').innerText;
 	let singlefloor = ['تک واحدی', 'تکواحدی', 'تک واحد', 'تکواحد', 'یک واحدی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	let stove       = ['گاز رومیزی', 'گازرومیزی', 'اجاق گاز رومیزی', 'اجاق رومیزی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	
@@ -246,3 +256,32 @@ function download(filename, text) {
 	el.click();
 	document.body.removeChild(el);
 }
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// check all checkboxes in neighborhood modal (alternative to `IGNORES`)
+
+/*
+scroller = document.querySelector('.multi-select-modal__scroll');
+itemsContainer = scroller.querySelector('.virtuoso-grid-list');
+max = scroller.scrollHeight - scroller.clientHeight;
+sleep = ms => new Promise(r=> setTimeout(r,ms));
+
+allNames = [];
+
+while (scroller.scrollTop < max) {
+	let cbs = itemsContainer.querySelectorAll('input[type="checkbox"]');
+	
+	let names = [...itemsContainer.querySelectorAll('a.kt-control-row__title')].map(i=>i.innerText);
+	allNames = [...allNames, ...names];
+	
+	for (let cb of cbs) {
+		if (cb.checked) continue;
+		cb.dispatchEvent(new Event('click',{bubbles:true}));
+	}
+	
+	let lastChild = itemsContainer.querySelector(':scope > div:last-child');
+	lastChild.scrollIntoView();
+	await sleep(500);
+}
+*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

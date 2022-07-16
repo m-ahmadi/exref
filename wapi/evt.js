@@ -56,7 +56,8 @@ for( const elem of document.querySelectorAll('*') ) {
 
 // trigger event programmatically
 var event = new Event('change')
-var event = new CustomEvent('build', {detail: 'event data', bubble, cancelable, ...})
+var event = new Event('change', {bubbles: true})
+var event = new CustomEvent('build', {detail: 'event data', bubbles, cancelable, ...})
 var event = new MouseEvent('click', {cancelable: true})
 elem.dispatchEvent(event)
 var cancelled = !elem.dispatchEvent(event)

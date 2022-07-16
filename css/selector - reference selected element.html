@@ -1,0 +1,14 @@
+<div>
+	<p id="a">1</p>
+	<div>
+		<p id="b">2</p>
+	</div>
+	<p id="c">3</p>
+</div>
+
+<script>
+el = document.querySelector('div');
+
+el.querySelectorAll('p')          // [p#a, p#b, p#c]
+el.querySelectorAll(':scope > p') // [p#a, p#c]
+</script>
