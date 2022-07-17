@@ -8,9 +8,8 @@ MAX_CREDIT = 450;
 	title, when, hood, sqmeter, builtyear, rooms, credit, rent, convertable, convcredit, floor, totalfloors, lastfloor, type, elevator, parking, storage, singlefloor, stove, url */
 COLUMNS        = ['convcredit', 'title', 'when', 'hood', 'singlefloor', 'stove', 'floor', 'parking', 'elevator', 'sqmeter', 'builtyear', 'rooms', 'storage', 'url'];
 COLUMN_HEADERS = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'طبقه', 'پارکینگ', 'آسانسور', 'متراژ', 'سال‌ساخت', 'اتاق', 'انباری', 'لینک'];
-COLUMN_SORTS   = [  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'],  ]; // [header, numerical, desc]
+COLUMN_SORTS   = [  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'],  ]; // [header, numericalSort, descSort]
 
-EACH_SCROLL_HEIGHT = 850;
 MAX_ITEMS = Infinity;
 WAIT_AFTER_EACH_SCROLL = 1000;
 WAITED_REQUEST_STYLE = true; // takes longer but guaranteed (false: faster + risk of pending for too long)
@@ -24,44 +23,38 @@ sleep = ms => new Promise(r=> setTimeout(r,ms));
 
 window.scrollTo(0,0);
 r = [];
+postsContainer = document.querySelector('.browse-post-list');
 prevY = -1;
 tot = 0;
 while (window.scrollY > prevY && tot < MAX_ITEMS) {
 	prevY = window.scrollY;
-	window.scrollBy(0,EACH_SCROLL_HEIGHT);
-	await sleep(WAIT_AFTER_EACH_SCROLL);
-	
-	r.push(
-		[...document.querySelectorAll('.post-card-item')].map(i => {
-		
-			let title = i.querySelector('a .kt-post-card__title').innerText;
-			let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
-			let link = decodeURI(i.querySelector('a').href);
-			
-			if ( IGNORES.some(i=> title.includes(i) || time.includes(i)) ) return;
-			
-			return link;
-		}).filter(i=>i)
-	);
-	
-	tot = new Set(r.flat()).size;
+	let posts = [...postsContainer.querySelectorAll('.post-card-item')];
+	let links = posts.map(i => {
+		let title = i.querySelector('a .kt-post-card__title').innerText;
+		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
+		let link = decodeURI(i.querySelector('a').href);
+		if ( IGNORES.some(i=> title.includes(i) || time.includes(i)) ) return;
+		return link;
+	}).filter(i=>i);
+	r = [...new Set(r.concat(links))];
+	tot = r.length;
 	console.log(tot);
+	postsContainer.querySelector(':scope > div:last-child').scrollIntoView();
+	await sleep(WAIT_AFTER_EACH_SCROLL);
 }
-r = r.flat();
-r = [...new Set(r)];
 
 
 t = Date.now();
 let qu = async a => { let p=[]; for (let i of a) await sleep(WAIT_AFTER_EACH_REQUEST), p.push(fetch(i)); return p; };
 let proms = await Promise.allSettled(WAITED_REQUEST_STYLE ? await qu(r) : r.map(i=>fetch(i)));
-while (proms.some(i=>i.reason || i.value.status !== 200)) {
+while (proms.some(i=> i && (i.reason || i.value.status !== 200))) {
 	proms.forEach((v,i)=> v?.value?.status === 404 ? proms[i]='' : 0);
-	let ers = proms.map((v,i)=> v?.reason || v?.value?.status !== 200 ? i : -1).filter(i=>i>-1);
+	let ers = proms.map((v,i)=> v && (v.reason || v.value.status !== 200) ? i : -1).filter(i=>i>-1);
 	await sleep(WAIT_BEFORE_RETRY);
 	(await Promise.allSettled( WAITED_REQUEST_STYLE ? await qu(ers.map(i=>r[i])) : ers.map(i=>fetch(r[i])) ))
 		.forEach((v,i) => proms[ers[i]] = v);
 }
-let texts = await Promise.all( proms.map(i=> i.value ? i.value.text() : '') );
+let texts = await Promise.all( proms.map(i=> i && i.value.text()) );
 console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 
@@ -198,14 +191,14 @@ for (let [idx, text] of texts.entries()) {
 }
 
 if (MAKE_CSV) {
-	COLUMN_SORTS.map(([header, numerical, desc]) => {
+	COLUMN_SORTS.map(([header, numericalSort, descSort]) => {
 		let j = COLUMN_HEADERS.indexOf(header);
-		if (numerical) {
-			desc
+		if (numericalSort) {
+			descSort
 				? rr.sort((a,b)=> b[j] - a[j])
 				: rr.sort((a,b)=> a[j] - b[j]);
 		} else {
-			desc
+			descSort
 				? rr.sort((a,b)=> b[j].localeCompare(a[j],'fa'))
 				: rr.sort((a,b)=> a[j].localeCompare(b[j],'fa'));
 		}
@@ -258,30 +251,37 @@ function download(filename, text) {
 }
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// check all checkboxes in neighborhood modal (alternative to `IGNORES`)
+// hood util
+// check all checkboxes in neighborhood modal
+// or get list of all hoods
 
-/*
-scroller = document.querySelector('.multi-select-modal__scroll');
-itemsContainer = scroller.querySelector('.virtuoso-grid-list');
-max = scroller.scrollHeight - scroller.clientHeight;
-sleep = ms => new Promise(r=> setTimeout(r,ms));
+async function hoodUtil(_toChecks=[], getAllNames=false) {
+	let scroller = document.querySelector('.multi-select-modal__scroll');
+	let itemsContainer = scroller.querySelector('.virtuoso-grid-list');
+	let max = scroller.scrollHeight - scroller.clientHeight;
+	let sleep = ms => new Promise(r=> setTimeout(r,ms));
 
-allNames = [];
+	let allNames = [];                 // get list of all items
+	let toChecks = new Set(_toChecks); // checkk some items
 
-while (scroller.scrollTop < max) {
-	let cbs = itemsContainer.querySelectorAll('input[type="checkbox"]');
-	
-	let names = [...itemsContainer.querySelectorAll('a.kt-control-row__title')].map(i=>i.innerText);
-	allNames = [...allNames, ...names];
-	
-	for (let cb of cbs) {
-		if (cb.checked) continue;
-		cb.dispatchEvent(new Event('click',{bubbles:true}));
+	while (scroller.scrollTop < max) {
+		let cbs = itemsContainer.querySelectorAll('input[type="checkbox"]');
+		
+		let names = [...itemsContainer.querySelectorAll('a.kt-control-row__title')].map(i=>i.innerText);
+		allNames = [...new Set(allNames.concat(names))];
+		
+		let shouldCheck = toChecks.size ? names.map(i => toChecks.has(i)) : names.map(()=>true);
+		
+		for (let [idx, cb] of cbs.entries()) {
+			if (cb.checked) continue;
+			if (!shouldCheck[idx]) continue;
+			cb.dispatchEvent(new Event('click',{bubbles:true}));
+		}
+		
+		itemsContainer.querySelector(':scope > div:last-child').scrollIntoView();
+		await sleep(500);
 	}
 	
-	let lastChild = itemsContainer.querySelector(':scope > div:last-child');
-	lastChild.scrollIntoView();
-	await sleep(500);
+	if (getAllNames) return allNames;
 }
-*/
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

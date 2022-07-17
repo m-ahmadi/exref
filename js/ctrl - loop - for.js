@@ -25,7 +25,7 @@ for (let i=0; i<50; i+=1) {
 	if (i===2) i = 47
 }
 
-// dynamic index:
+// dynamic index incrementation:
 for (let i=0,j=1; i<10; i+=j) {
 	console.log(i); // 0 1 2 3 5 7 9
 	j = i < 3 ? 1 : 2;
