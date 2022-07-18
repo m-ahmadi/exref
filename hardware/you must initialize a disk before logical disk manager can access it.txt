@@ -3,7 +3,7 @@ happens when
 	hard disks go bad
 
 MBR or GPT?
-choose GPT
+	choose GPT
 
 Most PCs use the GUID Partition Table (GPT) disk type for hard drives and SSDs.
 GPT is more robust and allows for volumes bigger than 2 TB.

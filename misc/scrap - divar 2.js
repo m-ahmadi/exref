@@ -26,6 +26,7 @@ r = [];
 postsContainer = document.querySelector('.browse-post-list');
 prevY = -1;
 tot = 0;
+ignores = [ ...IGNORES, ...IGNORES.filter(i=> (/\s+/g).test(i)).map(i=> i.replace(/\s/g, '\u200C')) ];
 while (window.scrollY > prevY && tot < MAX_ITEMS) {
 	prevY = window.scrollY;
 	let posts = [...postsContainer.querySelectorAll('.post-card-item')];
@@ -33,7 +34,7 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 		let title = i.querySelector('a .kt-post-card__title').innerText;
 		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
 		let link = decodeURI(i.querySelector('a').href);
-		if ( IGNORES.some(i=> title.includes(i) || time.includes(i)) ) return;
+		if ( ignores.some(i=> title.includes(i) || time.includes(i)) ) return;
 		return link;
 	}).filter(i=>i);
 	r = [...new Set(r.concat(links))];
@@ -257,6 +258,7 @@ function download(filename, text) {
 
 async function hoodUtil(_toChecks=[], getAllNames=false) {
 	let scroller = document.querySelector('.multi-select-modal__scroll');
+	if (!scroller) return;
 	let itemsContainer = scroller.querySelector('.virtuoso-grid-list');
 	let max = scroller.scrollHeight - scroller.clientHeight;
 	let sleep = ms => new Promise(r=> setTimeout(r,ms));
