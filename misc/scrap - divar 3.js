@@ -12,9 +12,7 @@ COLUMN_SORTS   = [  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'
 
 MAX_ITEMS = Infinity;
 WAIT_AFTER_EACH_SCROLL = 1000;
-WAITED_REQUEST_STYLE = true; // takes longer but guaranteed (false: faster + risk of pending for too long)
 WAIT_AFTER_EACH_REQUEST = 1000;
-WAIT_BEFORE_RETRY = 2000;
 MAKE_HTML = true;
 MAKE_CSV = true;
 UTF8_BOM_CSV = true;
@@ -46,29 +44,93 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 
 
 t = Date.now();
-let qu = async a => { let p=[]; for (let i of a) await sleep(WAIT_AFTER_EACH_REQUEST), p.push(fetch(i)); return p; };
-let proms = await Promise.allSettled(WAITED_REQUEST_STYLE ? await qu(r) : r.map(i=>fetch(i)));
-while (proms.some(i=> i && (i.reason || i.value.status !== 200))) {
-	proms.forEach((v,i)=> v?.value?.status === 404 ? proms[i]='' : 0);
-	let ers = proms.map((v,i)=> v && (v.reason || v.value.status !== 200) ? i : -1).filter(i=>i>-1);
-	await sleep(WAIT_BEFORE_RETRY);
-	(await Promise.allSettled( WAITED_REQUEST_STYLE ? await qu(ers.map(i=>r[i])) : ers.map(i=>fetch(r[i])) ))
-		.forEach((v,i) => proms[ers[i]] = v);
+rr = [];
+links = new Map(r.map(i=> [i, undefined]));
+tot = links.size;
+while (links.size > 0) {
+	let proms = [];
+	for (let link of links.keys()) {
+		let prom = fetch(link).then(resp => {
+			if (resp.status == 200) {
+				links.delete(link);
+				console.log(links.size-tot+'/'+tot);
+				resp.text().then(text => {
+					let row = extractRow(text, link);
+					if (row) rr.push(row);
+				});
+			} else if (resp.status === 404) {
+				links.delete(link);
+				console.log(links.size-tot+'/'+tot);
+			}
+		}).catch(()=> undefined);
+		proms.push(prom);
+		await sleep(WAIT_AFTER_EACH_REQUEST);
+	}
+	await Promise.allSettled(proms);
 }
-let texts = await Promise.all( proms.map(i=> i && i.value.text()) );
 console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 
-en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
-toEn = s => +[...s].map(i => en[i]).join('');
+if (MAKE_HTML) {
+	linkIdx = COLUMN_HEADERS.indexOf('لینک');
+	
+	html = rr.map(i =>
+		'<tr>'+ i.map((v,j) => j===linkIdx ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
+	).join('');
+	
+	html = `<meta charset="utf-8" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
+<table id="mytable">
+	<thead>
+		<tr> ${COLUMN_HEADERS.map(i=> '<th>'+ i +'</th>').join('')} </tr>
+	</thead>	
+	${html}
+</table>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/tabulator_core.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/sort.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/resize_columns.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
+<script>
+table = new Tabulator('#mytable');
+table.setSort(${ JSON.stringify(COLUMN_SORTS.map(([column,,desc]) => ({column, dir: desc?'desc':'asc'}))) });
+</script>`;
+	
+	download('out.html', html);
+}
 
-rr = [];
-for (let [idx, text] of texts.entries()) {
-	if (!text) continue;
+if (MAKE_CSV) {
+	COLUMN_SORTS.map(([header, numericalSort, descSort]) => {
+		let j = COLUMN_HEADERS.indexOf(header);
+		if (numericalSort) {
+			descSort
+				? rr.sort((a,b)=> b[j] - a[j])
+				: rr.sort((a,b)=> a[j] - b[j]);
+		} else {
+			descSort
+				? rr.sort((a,b)=> b[j].localeCompare(a[j],'fa'))
+				: rr.sort((a,b)=> a[j].localeCompare(b[j],'fa'));
+		}
+	});
+	
+	_rr = rr.map((v,i) => [i+1, ...v]);
+	
+	text = [['ردیف',...COLUMN_HEADERS], ..._rr].map(i =>
+		i.map(j => typeof j === 'string' && j.includes(',') ? JSON.stringify(j) : j).join(',')
+	).join('\n');
+	
+	download('out.csv', text);
+}
+
+
+function extractRow(text='', url='') {
+	if (!text) return;
+	let en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
+	let toEn = s => +[...s].map(i => en[i]).join('');
+	
 	let _document = new DOMParser().parseFromString(text, mimeType='text/html');
 
 	let title = _document.querySelector('.kt-page-title__title');
-	if (!title) continue;
+	if (!title) return;
 	title = title.innerText;
 	
 	let sub = _document.querySelector('.kt-page-title__subtitle').innerText;
@@ -120,7 +182,7 @@ for (let [idx, text] of texts.entries()) {
 	
 	let [sqmeter, builtyear, rooms] = [..._document.querySelector('.kt-group-row').querySelectorAll('.kt-group-row-item__value')].map(i=> i.innerText);
 	[sqmeter, builtyear, rooms] = [sqmeter, builtyear, rooms].map(i => i ? toEn(i) : '');
-	
+
 	let itms = [..._document.querySelectorAll('.post-page__section--padded .kt-base-row.kt-base-row--large.kt-unexpandable-row')].map(i =>
 		[...i.querySelectorAll('div > p')].map(i=> i.innerText)
 	);
@@ -140,7 +202,7 @@ for (let [idx, text] of texts.entries()) {
 	
 	convertable = convertable === 'قابل تبدیل' ? 'بله' : convertable === 'غیر قابل تبدیل' ? 'خیر' : '';
 	
-	if (convertable === 'خیر' && rent > MAX_RENT) continue;
+	if (convertable === 'خیر' && rent > MAX_RENT) return;
 	
 	let convcredit =
 		credit >  0 && rent >  0 ?  +(credit + rent / 0.03).toFixed() :
@@ -149,7 +211,7 @@ for (let [idx, text] of texts.entries()) {
 		credit <= 0 && rent <= 0 ?  'توافقی' :
 		'';
 	
-	if (+convcredit > MAX_CREDIT) continue;
+	if (+convcredit > MAX_CREDIT) return;
 	
 	let totalfloors, lastfloor;
 	if (floor) {
@@ -183,62 +245,10 @@ for (let [idx, text] of texts.entries()) {
 	let singlefloor = ['تک واحدی', 'تکواحدی', 'تک واحد', 'تکواحد', 'یک واحدی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	let stove       = ['گاز رومیزی', 'گازرومیزی', 'اجاق گاز رومیزی', 'اجاق رومیزی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	
-	let url = r[idx];
-	
 	let allCols = {title, when, hood, sqmeter, builtyear, rooms, credit, rent, convertable, convcredit, floor, totalfloors, lastfloor, type, elevator, parking, storage, singlefloor, stove, url};
 	
 	let row = COLUMNS.map(k => allCols[k]);
-	rr.push(row);
-}
-
-if (MAKE_CSV) {
-	COLUMN_SORTS.map(([header, numericalSort, descSort]) => {
-		let j = COLUMN_HEADERS.indexOf(header);
-		if (numericalSort) {
-			descSort
-				? rr.sort((a,b)=> b[j] - a[j])
-				: rr.sort((a,b)=> a[j] - b[j]);
-		} else {
-			descSort
-				? rr.sort((a,b)=> b[j].localeCompare(a[j],'fa'))
-				: rr.sort((a,b)=> a[j].localeCompare(b[j],'fa'));
-		}
-	});
-	
-	_rr = rr.map((v,i) => [i+1, ...v]);
-	
-	text = [['ردیف',...COLUMN_HEADERS], ..._rr].map(i =>
-		i.map(j => typeof j === 'string' && j.includes(',') ? JSON.stringify(j) : j).join(',')
-	).join('\n');
-	
-	download('out.csv', text);
-}
-
-if (MAKE_HTML) {
-	linkIdx = COLUMN_HEADERS.indexOf('لینک');
-	
-	html = rr.map(i =>
-		'<tr>'+ i.map((v,j) => j===linkIdx ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
-	).join('');
-	
-	html = `<meta charset="utf-8" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
-<table id="mytable">
-	<thead>
-		<tr> ${COLUMN_HEADERS.map(i=> '<th>'+ i +'</th>').join('')} </tr>
-	</thead>	
-	${html}
-</table>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/tabulator_core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/sort.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/resize_columns.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
-<script>
-table = new Tabulator('#mytable');
-table.setSort(${ JSON.stringify(COLUMN_SORTS.map(([column,,desc]) => ({column, dir: desc?'desc':'asc'}))) });
-</script>`;
-	
-	download('out.html', html);
+	return row;
 }
 
 function download(filename, text) {
@@ -250,3 +260,40 @@ function download(filename, text) {
 	el.click();
 	document.body.removeChild(el);
 }
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// hood util
+// check all checkboxes in neighborhood modal
+// or get list of all hoods
+
+async function hoodUtil(_toChecks=[], getAllNames=false) {
+	let scroller = document.querySelector('.multi-select-modal__scroll');
+	if (!scroller) return;
+	let itemsContainer = scroller.querySelector('.virtuoso-grid-list');
+	let max = scroller.scrollHeight - scroller.clientHeight;
+	let sleep = ms => new Promise(r=> setTimeout(r,ms));
+
+	let allNames = [];                 // get list of all items
+	let toChecks = new Set(_toChecks); // checkk some items
+
+	while (scroller.scrollTop < max) {
+		let cbs = itemsContainer.querySelectorAll('input[type="checkbox"]');
+		
+		let names = [...itemsContainer.querySelectorAll('a.kt-control-row__title')].map(i=>i.innerText);
+		allNames = [...new Set(allNames.concat(names))];
+		
+		let shouldCheck = toChecks.size ? names.map(i => toChecks.has(i)) : names.map(()=>true);
+		
+		for (let [idx, cb] of cbs.entries()) {
+			if (cb.checked) continue;
+			if (!shouldCheck[idx]) continue;
+			cb.dispatchEvent(new Event('click',{bubbles:true}));
+		}
+		
+		itemsContainer.querySelector(':scope > div:last-child').scrollIntoView();
+		await sleep(500);
+	}
+	
+	if (getAllNames) return allNames;
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

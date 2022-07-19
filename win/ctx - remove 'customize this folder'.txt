@@ -1,0 +1,6 @@
+not worked as expected (maybe due to windows version?)
+
+set key=HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FolderDescriptions\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}\PropertyBag
+
+reg add %key% /v NoCustomize /t REG_DWORD /d 1 /f		remove
+reg add %key% /v NoCustomize /t REG_DWORD /d 0 /f		add
