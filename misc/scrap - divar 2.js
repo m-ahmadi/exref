@@ -20,6 +20,8 @@ MAKE_CSV = true;
 UTF8_BOM_CSV = true;
 
 sleep = ms => new Promise(r=> setTimeout(r,ms));
+en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9', '.':'.'};
+toEn = s => +[...s].map(i => en[i]).join('');
 
 window.scrollTo(0,0);
 r = [];
@@ -34,6 +36,10 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 		let title = i.querySelector('a .kt-post-card__title').innerText;
 		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
 		let link = decodeURI(i.querySelector('a').href);
+		let [credit, rent] = [...i.querySelectorAll('.kt-post-card__body .kt-post-card__description')].map(i=>i.innerText);
+		[credit, rent] = [credit, rent].map(i => i.includes('رایگان') || i.includes('توافقی') ? 0 : toEn(i) / 1e6);
+		let convcredit = calcConvCredit(credit, rent);
+		if (+convcredit > MAX_CREDIT) return;
 		if ( ignores.some(i=> title.includes(i) || time.includes(i)) ) return;
 		return link;
 	}).filter(i=>i);
@@ -58,9 +64,6 @@ while (proms.some(i=> i && (i.reason || i.value.status !== 200))) {
 let texts = await Promise.all( proms.map(i=> i && i.value.text()) );
 console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
 
-
-en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9'};
-toEn = s => +[...s].map(i => en[i]).join('');
 
 rr = [];
 for (let [idx, text] of texts.entries()) {
@@ -131,23 +134,23 @@ for (let [idx, text] of texts.entries()) {
 	let convertable = itms.get('ودیعه و اجاره');
 	let floor       = itms.get('طبقه');
 	
-	if (_document.querySelector('.convert-slider')) {
+	let convertSlider = _document.querySelector('.convert-slider');
+	
+	if (convertSlider) {
 		[credit, rent] = [..._document.querySelectorAll('.convert-slider .kt-group-row-item--info-row .kt-group-row-item__value')].map(i=>i.innerText);
 	}
 	
-	credit = ['مجانی','توافقی'].includes(credit) ? 0 : toEn(credit) / 1e6;
-	rent   = ['مجانی','توافقی'].includes(rent)   ? 0 : toEn(rent)   / 1e6;
+	credit = ['مجانی','توافقی'].includes(credit) ? 0 : toEn(credit);
+	rent   = ['مجانی','توافقی'].includes(rent)   ? 0 : toEn(rent);
+	
+	credit = convertSlider ? credit : credit / 1e6;
+	rent   = convertSlider ? rent   : rent   / 1e6;
 	
 	convertable = convertable === 'قابل تبدیل' ? 'بله' : convertable === 'غیر قابل تبدیل' ? 'خیر' : '';
 	
 	if (convertable === 'خیر' && rent > MAX_RENT) continue;
 	
-	let convcredit =
-		credit >  0 && rent >  0 ?  +(credit + rent / 0.03).toFixed() :
-		credit >  0 && rent <= 0 ?  credit :
-		credit <= 0 && rent >  0 ?  +(rent / 0.03).toFixed() :
-		credit <= 0 && rent <= 0 ?  'توافقی' :
-		'';
+	let convcredit = calcConvCredit(credit, rent);
 	
 	if (+convcredit > MAX_CREDIT) continue;
 	
@@ -239,6 +242,16 @@ table.setSort(${ JSON.stringify(COLUMN_SORTS.map(([column,,desc]) => ({column, d
 </script>`;
 	
 	download('out.html', html);
+}
+
+function calcConvCredit(credit=0, rent=0) {
+	return (
+		credit >  0 && rent >  0 ?  +(credit + rent / 0.03).toFixed() :
+		credit >  0 && rent <= 0 ?  credit :
+		credit <= 0 && rent >  0 ?  +(rent / 0.03).toFixed() :
+		credit <= 0 && rent <= 0 ?  'توافقی' :
+		''
+	);
 }
 
 function download(filename, text) {
