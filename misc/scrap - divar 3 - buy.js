@@ -1,14 +1,12 @@
-// https://divar.ir/s/tehran/rent-apartment
+// https://divar.ir/s/tehran/buy-apartment?price=-1600000000
 
-IGNORES = ['اندیشه','بومهن','پاکدشت','پردیس','پرند','رباط کریم','رودهن','شریف آباد','شهر قدس','شهریار','فشم','قرچک','قیام دشت','لواسان','ورامین'];
-MAX_RENT = 0.5;
-MAX_CREDIT = 450;
+IGNORES = [];
 
 /* all possible columns:
-	title, when, hood, sqmeter, builtyear, rooms, credit, rent, convertable, convcredit, floor, totalfloors, lastfloor, type, elevator, parking, storage, singlefloor, stove, url */
-COLUMNS        = ['convcredit', 'title', 'when', 'hood', 'singlefloor', 'stove', 'floor', 'parking', 'elevator', 'sqmeter', 'builtyear', 'rooms', 'storage', 'url'];
-COLUMN_HEADERS = ['ودیعه', 'عنوان', 'زمان', 'محل', 'تک‌واحدی', 'گازرومیزی', 'طبقه', 'پارکینگ', 'آسانسور', 'متراژ', 'سال‌ساخت', 'اتاق', 'انباری', 'لینک'];
-COLUMN_SORTS   = [  ['گازرومیزی'], ['زمان',1], ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'],  ]; // [header, numericalSort, descSort]
+	title, when, hood, sqmeter, builtyear, rooms, price, priceMeter, floor, totalfloors, lastfloor, type, elevator, parking, storage, singlefloor, stove, url */
+COLUMNS        = ['price', 'priceMeter', 'when', 'title', 'hood', 'lastfloor', 'floor', 'totalfloors', 'parking', 'elevator', 'singlefloor', 'url'];
+COLUMN_HEADERS = ['قیمت', 'متری', 'زمان', 'عنوان', 'محل', 'طبقه‌آخر', 'طبقه', 'کل‌طبقات', 'پارکینگ', 'آسانسور', 'تک‌واحدی', 'لینک'];
+COLUMN_SORTS   = [  ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'], ['زمان',1], ['قیمت',1], ['طبقه',1,1], ['طبقه‌آخر'],  ];
 
 MAX_ITEMS = Infinity;
 WAIT_AFTER_EACH_SCROLL = 1000;
@@ -34,10 +32,6 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 		let title = i.querySelector('a .kt-post-card__title').innerText;
 		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
 		let link = decodeURI(i.querySelector('a').href);
-		let [credit, rent] = [...i.querySelectorAll('.kt-post-card__body .kt-post-card__description')].map(i=>i.innerText);
-		[credit, rent] = [credit, rent].map(i => i.includes('رایگان') || i.includes('توافقی') ? 0 : toEn(i) / 1e6);
-		let convcredit = calcConvCredit(credit, rent);
-		if (+convcredit > MAX_CREDIT) return;
 		if ( ignores.some(i=> title.includes(i) || time.includes(i)) ) return;
 		return link;
 	}).filter(i=>i);
@@ -191,30 +185,12 @@ function extractRow(text='', url='') {
 	);
 	itms = new Map(itms);
 	
-	let credit      = itms.get('ودیعه');
-	let rent        = itms.get('اجارهٔ ماهانه');
-	let convertable = itms.get('ودیعه و اجاره');
-	let floor       = itms.get('طبقه');
+	let price      = itms.get('قیمت کل');
+	let priceMeter = itms.get('قیمت هر متر');
+	let floor      = itms.get('طبقه');
 	
-	let convertSlider = _document.querySelector('.convert-slider');
-	
-	if (convertSlider) {
-		[credit, rent] = [..._document.querySelectorAll('.convert-slider .kt-group-row-item--info-row .kt-group-row-item__value')].map(i=>i.innerText);
-	}
-	
-	credit = ['مجانی','توافقی'].includes(credit) ? 0 : toEn(credit);
-	rent   = ['مجانی','توافقی'].includes(rent)   ? 0 : toEn(rent);
-	
-	credit = convertSlider ? credit : credit / 1e6;
-	rent   = convertSlider ? rent   : rent   / 1e6;
-	
-	convertable = convertable === 'قابل تبدیل' ? 'بله' : convertable === 'غیر قابل تبدیل' ? 'خیر' : '';
-	
-	if (convertable === 'خیر' && rent > MAX_RENT) return;
-	
-	let convcredit = calcConvCredit(credit, rent);
-	
-	if (+convcredit > MAX_CREDIT) return;
+	price      = price      === 'توافقی' ? 0 : toEn(price) / 1e9;
+	priceMeter = priceMeter === 'توافقی' ? 0 : +(toEn(priceMeter) / 1e6).toFixed(1);
 	
 	let totalfloors, lastfloor;
 	if (floor) {
@@ -248,20 +224,10 @@ function extractRow(text='', url='') {
 	let singlefloor = ['تک واحدی', 'تکواحدی', 'تک واحد', 'تکواحد', 'یک واحدی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	let stove       = ['گاز رومیزی', 'گازرومیزی', 'اجاق گاز رومیزی', 'اجاق رومیزی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	
-	let allCols = {title, when, hood, sqmeter, builtyear, rooms, credit, rent, convertable, convcredit, floor, totalfloors, lastfloor, type, elevator, parking, storage, singlefloor, stove, url};
+	let allCols = {title, when, hood, sqmeter, builtyear, rooms, price, priceMeter, floor, totalfloors, lastfloor, type, elevator, parking, storage, singlefloor, stove, url};
 	
 	let row = COLUMNS.map(k => allCols[k]);
 	return row;
-}
-
-function calcConvCredit(credit=0, rent=0) {
-	return (
-		credit >  0 && rent >  0 ?  +(credit + rent / 0.03).toFixed() :
-		credit >  0 && rent <= 0 ?  credit :
-		credit <= 0 && rent >  0 ?  +(rent / 0.03).toFixed() :
-		credit <= 0 && rent <= 0 ?  'توافقی' :
-		''
-	);
 }
 
 function download(filename, text) {
@@ -273,40 +239,3 @@ function download(filename, text) {
 	el.click();
 	document.body.removeChild(el);
 }
-
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// hood util
-// check all checkboxes in neighborhood modal
-// or get list of all hoods
-
-async function hoodUtil(_toChecks=[], getAllNames=false) {
-	let scroller = document.querySelector('.multi-select-modal__scroll');
-	if (!scroller) return;
-	let itemsContainer = scroller.querySelector('.virtuoso-grid-list');
-	let max = scroller.scrollHeight - scroller.clientHeight;
-	let sleep = ms => new Promise(r=> setTimeout(r,ms));
-
-	let allNames = [];                 // get list of all items
-	let toChecks = new Set(_toChecks); // check some items
-
-	while (scroller.scrollTop < max) {
-		let cbs = itemsContainer.querySelectorAll('input[type="checkbox"]');
-		
-		let names = [...itemsContainer.querySelectorAll('a.kt-control-row__title')].map(i=>i.innerText);
-		allNames = [...new Set(allNames.concat(names))];
-		
-		let shouldCheck = toChecks.size ? names.map(i => toChecks.has(i)) : names.map(()=>true);
-		
-		for (let [idx, cb] of cbs.entries()) {
-			if (cb.checked) continue;
-			if (!shouldCheck[idx]) continue;
-			cb.dispatchEvent(new Event('click',{bubbles:true}));
-		}
-		
-		itemsContainer.querySelector(':scope > div:last-child').scrollIntoView();
-		await sleep(500);
-	}
-	
-	if (getAllNames) return allNames;
-}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,11 +1,18 @@
-light explorer			ctrl b
-space to tab (leading)		ctrl t
-show white space and tab	alt  ~
-show end of line		alt shift ~
-move to other view		alt e
-clone to other view		alt d
+ctrl b			light explorer
+ctrl t			space to tab (leading)
+alt  ~			show white space and tab
+alt shift ~		show end of line
+alt e			move to other view
+alt d			clone to other view
 
-reindent file			shift alt   f			Indent By Fold
-format js			ctrl  alt   m			JSTool
-format json			ctrl  alt   shift m		JSON Viewer
-select tag content		ctrl  shift c			HTML Tag
+plugins:
+
+shift alt   f		reindent file			Indent By Fold
+ctrl  alt   m		format js			JSTool
+ctrl  alt   shift m	format json			JSON Viewer
+ctrl  shift c		select tag content		HTML Tag
+
+ctrl  1			set as first to compare		Compare
+ctrl  alt c		compare				Compare
+ctrl  alt x		clear active compare		Compare
+ctrk  alt   shift x	clear all compares		Compare
