@@ -1,6 +1,6 @@
 import pandas as pd # pip install pandas
 
-pd.read_csv('file.csv', header=None, nrows=5, sep=',', ...)
+pd.read_csv('file.csv', header='infer'|0|[0,..]|None, names=['',..], nrows=0, sep=',', index_col=None|0|''|False, parse_dates=False|[0|''|[],..], dtype=''|{}, ...)
 pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
 
 DataFrame(data=None, index=None, columns=None, dtype=None, copy=None)
@@ -232,6 +232,18 @@ df = pd.DataFrame({'a':[3,4,5]}, index=[0,1,2])
 df2 = df.reindex([1,2,0])
 df  # {'a':[3,4,5]}
 df2 # {'a':[4,5,3]}
+
+# read_csv - DatetimeIndex
+''' file.csv
+,count
+2022-01-01 08:15:00,100
+2022-01-01 08:45:00,150
+2022-01-01 09:15:00,200
+'''
+df = pd.read_csv('file.csv', index_col=0, parse_dates=True)
+df.index   # [Timestamp('2022-01-01 08:15:00'), Timestamp('2022-01-01 08:45:00'), Timestamp('2022-01-01 09:15:00')]
+df.values  # [100, 150, 200]
+df.columns # ['count']
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])

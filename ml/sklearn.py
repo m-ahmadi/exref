@@ -87,15 +87,25 @@ sklearn.utils.class_weight.compute_class_weight(class_weight={}|'balanced'|None,
 from sklearn.utils.class_weight import compute_class_weight
 weights = compute_class_weight('balanced', classes=np.unique(y_train), y=y_org)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# decision tree classifier
+# https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import cross_val_score
+
+clf = DecisionTreeClassifier(random_state=0)
+iris = load_iris()
+cross_val_score(clf, iris.data, iris.target, cv=10)
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # random forest
 # https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
 from sklearn.ensemble import RandomForestClassifier # univariate only
 
-model = RandomForestClassifier(n_estimators=10, max_depth=2, random_state=0)
 x = [ [0,0], [0,1], [1,0], [1,1] ]
 y = [  0,     1,     1,     0    ]
-model.fit(x, y)
-model.predict(x) # [0,1,1,0]
+clf = RandomForestClassifier(n_estimators=10, max_depth=2, random_state=0)
+clf.fit(x, y)
+clf.predict(x) # [0,1,1,0]
 
 # multivariate workaround (chain 3rd dim into flat 2nd)
 x_train_2d = [ [1,1,9,9], [2,2,8,8], [3,3,7,7], [4,4,6,6] ]
@@ -103,14 +113,40 @@ x_train_2d = [ [1,1,9,9], [2,2,8,8], [3,3,7,7], [4,4,6,6] ]
 x_train_3d = [ [[1,1],[9,9]], [[2,2],[8,8]], [[3,3],[7,7]], [[4,4],[6,6]] ]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # gradient boosting
+# https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
 from sklearn.datasets import make_hastie_10_2
 from sklearn.ensemble import GradientBoostingClassifier
 
-X, y = make_hastie_10_2(random_state=0)
-X_train, X_test = X[:2000], X[2000:]
+x, y = make_hastie_10_2(random_state=0)
+x_train, x_test = x[:2000], x[2000:]
 y_train, y_test = y[:2000], y[2000:]
 
 clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=1, random_state=0)
-clf.fit(X_train, y_train)
-clf.score(X_test, y_test) # 0.913
+clf.fit(x_train, y_train)
+clf.score(x_test, y_test) # 0.913
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# bagging classifier
+# https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html
+from sklearn.ensemble import BaggingClassifier
+from sklearn.svm import SVC
+from sklearn.datasets import make_classification
+
+x = [ [-1,0,1,2,3], [-1,0,1,2,3], [-1,0,1,2,3], [-1,0,1,2,3] ]
+y = [   0,            1,            0,            1          ]
+x, y = make_classification(n_samples=100, n_features=4, n_informative=2, n_redundant=0, random_state=0, shuffle=False)
+clf = BaggingClassifier(base_estimator=SVC(), n_estimators=10, random_state=0)
+clf.fit(x, y)
+clf.predict([[0,0,0,0]])
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# one v rest classifier
+# https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html
+import numpy as np
+from sklearn.multiclass import OneVsRestClassifier
+from sklearn.svm import SVC
+
+x = [ [10,10], [8,10], [-5,5.5], [-5.4,5.5], [-20,-20], [-15,-20] ]
+y = [  0,       0,       1,        1,          2,         2       ]
+clf = OneVsRestClassifier(SVC())
+clf.fit(x, y)
+clf.predict([ [-19,-20], [9,9], [-5,5] ]) # [2, 0, 1]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
