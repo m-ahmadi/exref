@@ -1,0 +1,3 @@
+1. win+k		(win+i -> System -> Display -> Multiple Display -> Connect to a wireless display)
+2. win+p -> Duplicate
+done

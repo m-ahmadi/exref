@@ -7,6 +7,7 @@ win f			search window
 win p			monitor modes
 win l			log off
 win i			settings
+win k			sidebar connect
 win . or ;		emoji picker
 win f4			explorer: open address bar
 win +			magnifier

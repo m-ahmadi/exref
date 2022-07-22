@@ -33,6 +33,7 @@ inetcpl.cpl		Internet Options
 desk.cpl		Display
 msconfig		System Configuration
 ms-settings:		Settings (win+i)
+mstsc			Remote Desktop Connection
 
 services.msc		Services
 compmgmt.msc		Computer Management
