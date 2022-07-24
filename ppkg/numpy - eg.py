@@ -20,6 +20,23 @@ np.cov([ [1,2,3,4], [2,3,2,1] ])[0][1]
 np.percentile([1,2,3,4], 50) # 2.5
 np.quantile()
 
+# math - sum
+np.sum([1,2,3])       # 6
+np.sum([])            # 0.0
+np.sum([0.2, 0.6])    # 0.8
+np.sum([[1,2],[3,4]]) # 10
+np.sum([0.2, 0.6], dtype='int32') # 0
+np.sum([1,2,3], initial=10)       # 16
+
+np.sum([ [1,2],
+				 [1,2],
+				 [1,2] ], axis=0)   # [3,6]
+
+np.sum([ [1,1,1],
+				 [2,2,2] ], axis=1) # [3,6]
+
+np.sum([ [1,2,False], [3,4,False] ], axis=1, where=[True,True,False]) # [3,7]
+
 # as operand
 a = np.array([1,2,3,4])
 a * 2  # element-wise product: [2,4,6,8]
