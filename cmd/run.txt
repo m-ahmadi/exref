@@ -26,6 +26,7 @@ netplwiz		...
 control appwiz.cpl,,2	Windows Features
 control admintools	Administrative Tools
 control desktop		Personalization
+control international	Region
 firewall.cpl		Firewall
 mmsys.cpl		Sound
 mmsys.cpl ,1		... 2nd tab
