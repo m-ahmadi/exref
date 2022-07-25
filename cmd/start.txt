@@ -1,6 +1,9 @@
-start			start new console
-start /d D:\		...in this path
-start /i		...with original env of cmd.exe (not env of this)
-start /max		...maximized window
-start D:\		open explorer in this path
-start explorer D:\	same as above
+start				start new console
+start /d D:\			...in this path
+start /i			...with original env of cmd.exe (not env of this)
+start /max			...maximized window
+start D:\			open explorer in this path
+start explorer D:\		same as above
+
+start foo.exe /abovenormal	set priority
+start foo.exe /affinity 1	set affinity (only use "CPU 0")

@@ -1,9 +1,7 @@
 title windowtitle		change title of console window
 exit				exit the console
 
-systeminfo			prints system information
-wmic os get caption		...
-wmic os get osarchitecture	...
+systeminfo			print system information
 date /t				show current date
 time /t				show current time
 help cd				show help on command (only available for some commands)

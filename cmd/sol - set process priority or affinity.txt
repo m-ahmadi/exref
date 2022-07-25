@@ -1,0 +1,10 @@
+priority
+
+	wmic process where name="foo.exe" CALL setpriority "above normal"
+
+	start foo.exe /abovenormal
+
+
+affinity
+
+	start foo.exe /affinity 1
