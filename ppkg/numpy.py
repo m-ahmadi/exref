@@ -476,6 +476,7 @@ np.random.randint(low=0, ?high=None|0, ?size=None|0|(0,..), ?dtype=np.int)  |  r
 np.random.randn(?d0=0, ?d0, ..., ?dn=0) # "standard normal" distribution
 np.random.random(size=None|0|(0,..))  |  random_sample()
 np.random.uniform(?low=0.0, ?high=1.0, ?size=None|0|(0,..))
+np.random.choice(a=[]|0, size=None|0|(0,..), replace=True, p=None|[])
 np.RankWarning
 np.rate
 np.ravel(a=∂, order='C|F|A|K')
