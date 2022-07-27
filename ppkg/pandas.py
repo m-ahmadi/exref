@@ -55,6 +55,8 @@ df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
 df2 = pd.DataFrame([ [1,4], [2,5], [3,6] ], columns=['a','b'])
 df == df2 # True ...
 
+df = pd.DataFrame(0, index=range(6), columns=range(6)) # 5x5 matrix init to 0
+
 s = pd.Series([1,2,3,4])
 s = pd.Series([1,2,3], index=['a','b','c'])
 
@@ -151,6 +153,23 @@ df = pd.DataFrame(columns=['a','b'])
 df.loc[0] = [1,2]
 df.loc[1] = [3,4]
 df # [ [1,2], [3,4] ]
+
+# row & col indexing
+df = pd.DataFrame([ [11, 21, 31],
+										[12, 22, 32],
+										[13, 23, 33],
+										[14, 24, 34],
+										[15, 25, 35] ], index=range(5), columns=range(3))
+df.loc[0]            # [11, 21, 31]
+df.loc[0, 0]         # [11]
+df.loc[0:1, 0]       # [11, 12]
+df.loc[[0,1], 0]     # ...
+df.iloc[0:2, 0]      # ...
+df.loc[0, 0:1]       # [11, 21]
+df.loc[0, [0,1]]     # ...
+df.iloc[0, 0:2]      # ...
+df.loc[0:1, 0:1]     # [ [11,21], [12,22] ]
+df.loc[[0,1], [0,1]] # ...
 
 # first n rows
 df = pd.DataFrame([1,2,3,4,5,6,7,8,9])
