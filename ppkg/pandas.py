@@ -3,7 +3,7 @@ import pandas as pd # pip install pandas
 pd.read_csv('file.csv', header='infer'|0|[0,..]|None, names=['',..], nrows=0, sep=',', index_col=None|0|''|False, parse_dates=False|[0|''|[],..], dtype=''|{}, ...)
 pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
 
-DataFrame(data=None, index=None, columns=None, dtype=None, copy=None)
+DataFrame(data=None|ndarray|[]|{}|DataFrame, index=None|[], columns=None|[], dtype=None, copy=None|bool)
 DataFrame.columns
 DataFrame.values
 
@@ -50,6 +50,15 @@ None
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
+# creation
+df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
+df2 = pd.DataFrame([ [1,4], [2,5], [3,6] ], columns=['a','b'])
+df == df2 # True ...
+
+s = pd.Series([1,2,3,4])
+s = pd.Series([1,2,3], index=['a','b','c'])
+
+# index access
 df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
 df.a
 df['a']
