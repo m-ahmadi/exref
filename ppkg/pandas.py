@@ -6,6 +6,8 @@ pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
 DataFrame(data=None|ndarray|[]|{}|DataFrame, index=None|[], columns=None|[], dtype=None, copy=None|bool)
 DataFrame.columns
 DataFrame.values
+DataFrame.iloc[row, col]
+DataFrame.loc[row, col]
 
 DataFrame.filter(items=None, like=None|'', regex=None|'', axis=None|0|''|'columns')
 
