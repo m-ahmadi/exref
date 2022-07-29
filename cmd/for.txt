@@ -4,6 +4,7 @@ for /f "tokens=3" %i in ('reg query HKLM\x /ve') do echo %i	get 3rd column of re
 for /f %i in (file.txt) do @echo %i				first token of each line
 for /f "tokens=*" %i in (file.txt) do @echo %i			whole line
 for /f "tokens=* eol=;" %i in (file.txt) do @echo %i		... specific eol
+for /f %i in ('tasklist ^| findstr chrome.exe') do @echo %i	pipe needs escape
 
 for %i in (aa bb cc*) do @echo %i				iterate over strings (can't escape * ? in string)
 for /d %i in (a,b,c,d) do @echo %i				iterate over folder names
@@ -15,6 +16,8 @@ for /r %i in (*.csv) do @type "%i" | find /c /v ""		count lines of all *.csv fil
 
 for %i in (*.csv) do @echo %~ni					get file name without extension
 for /f %i in ('dir /b') do @winrar x %~ni.zip * %~ni\		... extract all .zip files
+
+for /f "tokens=2" %i in ('tasklist ^| findstr chrome.exe') do @taskkill /pid %i /f	get chrome.exe pids and force kill all
 --------------------------------------------------------------------------------
 syntax:
 FOR %variable IN (set) DO command [command-parameters]
