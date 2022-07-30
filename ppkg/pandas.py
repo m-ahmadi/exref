@@ -36,7 +36,7 @@ DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], 
 DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right’|outer|inner', lsuffix='', rsuffix='', sort=False)
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
-DataFrame.div(other=0|[]|Series|DataFrame, axis='columns'|0, level=None|0|'', fill_value=None)
+DataFrame.div(other=0|[]|Series|DataFrame, axis='columns|index'|0, level=None|0|'', fill_value=None)
 DataFrame.add(↑...)
 DataFrame.mul(↑...)
 
@@ -68,9 +68,13 @@ df.a
 df['a']
 df[ ['a','b'] ]
 
-df = pd.DataFrame([ [1,2,3], [4,5,6], [7,8,9] ])
-df[ [0] ]   # [1,4,7]
-df[ [1,2] ] # [ [2,5,8], [3,6,9] ]
+df = pd.DataFrame([ [1, 2, 3],
+										[4, 5, 6],
+										[7, 8, 9] ])
+df[0]       # [1,4,7]
+df[ [0] ]   # ...
+df[1]       # [2,5,8]
+df[ [1,2] ] # [ [2,3], [5,6], [8,9] ]
 
 # df from list of rows
 df = pd.DataFrame([ [1,2], [3,4] ])
@@ -286,12 +290,12 @@ df.values  # [100, 150, 200]
 df.columns # ['count']
 
 # math
-df = pd.DataFrame({'a':[1,2,3], 'b':[9,8,7]})
-df + 1                         # {'a':[2,3,4], 'b':[10,9,8]}
-df.add(1)                      # ...
-df.div(2)                      # {'a':[0.5, 1, 1.5], 'b':[4.5, 4, 3.5]}
-df - [1,3]                     # {'a':[0,1,2], 'b':[6,5,4]}
-df.sub([1, 2], axis='columns') # ...
+df = pd.DataFrame({'a':[2,4,6], 'b':[8,10,12]})
+df + 1                        # {'a':[3,5,7], 'b':[9,11,13]}
+df.add(1)                     # ...
+df.div(2)                     # {'a':[1,2,3], 'b':[4,5,6]}
+df - [1,3]                    # {'a':[1,3,5], 'b':[5,7,9]}
+df.sub([1,2], axis='columns') # ...
 
 df2 = pd.DataFrame({'a': [2,2,3]})
 df * df2                       # {'a':[2,4,9], 'b':[NaN,NaN,NaN]}
@@ -301,6 +305,19 @@ df.mul(df2, fill_value=0)      # {'a':[2,4,9], 'b':[0,0,0]}
 df = pd.DataFrame({'a':[1,1,1], 'b':[1,1,1]})
 df.sum()       # [3,3]
 df.sum(axis=1) # [2,2,2]
+
+df = pd.DataFrame([ [1,1,1],
+										[1,1,1] ])
+df.sum()       # [2,2,2]
+df.sum(axis=1) # [3,3]
+
+# math - div
+df = pd.DataFrame([ [6,6,6],
+										[6,6,6] ])
+df.div(2)                   # [ [3,3,3], [3,3,3] ]
+df.div([2,2,3])             # [ [3,3,2], [3,3,2] ]
+df.div([2,3], axis=0)       # [ [3,3,3], [2,2,2] ]
+df.div([2,3], axis='index') # ...
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])
