@@ -1,3 +1,5 @@
-1. win+k		(win+i -> System -> Display -> Multiple Display -> Connect to a wireless display)
+1. win+k  or:
+	win+i -> System -> Display -> Multiple Display -> Connect to a wireless display
+	win+i -> Devices -> Bluetooth & other devices -> Add Bluetooth or other device -> Wireless display or duck
 2. win+p -> Duplicate
 done

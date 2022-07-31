@@ -1,0 +1,1 @@
+win+i -> Devices -> Bluetooth & other devices -> Add Bluetooth or other device -> Bluetooth
