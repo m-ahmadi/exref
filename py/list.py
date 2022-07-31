@@ -146,6 +146,11 @@ list(chain.from_iterable(a)) # ...
 
 [i for a in a for i in a]    # ...
 
+# remove duplicates
+a = [1,1,2]
+list(set(a))           # [1,2]
+list(dict.fromkeys(a)) # ...
+
 # pass-by-reference
 a = [1,2,3,4]
 b = a

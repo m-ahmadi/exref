@@ -94,7 +94,7 @@ ax.set_xticklabels([])
 ax.xticks([])
 ax.yticks([])
 ax.grid()
-ax.imshow()
+ax.imshow(x, cmap='viridis|plasma|inferno|magma|cividis')
 
 fig  = plt.gcf() # get current figure
 axes = plt.gca() # ... axes
