@@ -36,6 +36,7 @@ DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], 
 DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right’|outer|inner', lsuffix='', rsuffix='', sort=False)
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
+DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
 DataFrame.div(other=0|[]|Series|DataFrame, axis='columns|index'|0, level=None|0|'', fill_value=None)
 DataFrame.add(↑...)
 DataFrame.mul(↑...)
@@ -318,6 +319,13 @@ df.div(2)                   # [ [3,3,3], [3,3,3] ]
 df.div([2,2,3])             # [ [3,3,2], [3,3,2] ]
 df.div([2,3], axis=0)       # [ [3,3,3], [2,2,2] ]
 df.div([2,3], axis='index') # ...
+
+# math - mean
+df = pd.DataFrame([ [1,2],
+										[1,2],
+										[1,2]])
+df.mean()       # [1, 2]
+df.mean(axis=1) # [1.5, 1.5, 1.5]
 
 # stats - exponentially weighted calculations
 s = pd.Series([1,2,3,4,5,6,7,8])
