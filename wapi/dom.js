@@ -153,6 +153,15 @@ HTMLOrForeignElement.focus()
 HTMLObjectElement extends HTMLElement
 HTMLObjectElement.setCustomValidity
 
+
+HTML...Element extends HTMLElement
+// https://developer.mozilla.org/en-US/docs/Web/API#h_2
+
+HTMLAnchorElement extends HTMLElement
+HTMLAnchorElement.href
+
+HTMLInputElement.value
+
 abstract NonDocumentTypeChildNode <- Element, CharacterData
 NonDocumentTypeChildNode.nextElementSibling
 NonDocumentTypeChildNode.previousElementSibling
