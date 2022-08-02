@@ -3,20 +3,22 @@ limit search to a dir (does not follow symlinks)
 path\to\mydir    keywords...
 "path to\my dir" keywords...
 parent:mydir     keywords...		v1.4+
-
+--------------------------------------------------------------------------------
 advanced search: (must ends with space)
 
 some\dir foo 			exact phrase
-some\dir "foo bar baz"  	exact phrase with space
+some\dir "foo bar baz" 		exact phrase with space
 some\dir foo|bar|baz 		any  of these words
 some\dir !foo !bar !baz 	none of these words
 
-some\dir content:foo 					search in the file
-some\dir content:"foo bar baz" 				...
-some\dir case:content:foo 				"Match case"
-some\dir wholeword:content:foo 				"Match whole words"
-some\dir diacritics:content:foo 			"Match diacritics"
-some\dir case:wholeword:diacritics:content:foo 		combination
+some\dir content:foo 			search in the file
+some\dir content:"foo bar baz" 		...
+some\dir case:content:foo 		"Match case"
+some\dir wholeword:content:foo 		"Match whole words"
+some\dir diacritics:content:foo 	"Match diacritics"
+
+some\dir case:wholeword:diacritics:content:foo		combination
+
 --------------------------------------------------------------------------------
 fix not working search
 

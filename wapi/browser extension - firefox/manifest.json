@@ -1,0 +1,46 @@
+{
+	// mandatory
+	"manifest_version": 3,
+	"name": "foo",
+	"version": "1.0",
+	
+	// other
+	"description": "",
+	"icons": {
+		"16": "/images/icon16.png",
+		"32": "/images/icon32.png",
+		"48": "/images/icon48.png",
+		"128": "/images/icon128.png"
+	},
+	
+	"permissions": ["storage", "activeTab", "scripting"],
+	
+	// load script to pages matching url pattern
+	"content_scripts": [
+		{
+			"matches": ["*://*.example.org/*"],
+			"js": ["script.js"]
+		}
+	]
+	
+	// script that run in background
+	"background": {
+		"scripts": ["a.js", ...],
+		"page": "a.js",
+		"persistent": true
+	},
+	
+	// button attached to toolbar
+	"action": {
+		"default_title": "something",
+		"default_popup": "popup.html",
+		"default_icon": {
+			"16": "/images/icon16.png",
+			"32": "/images/icon32.png",
+			"48": "/images/icon48.png",
+			"128": "/images/icon128.png"
+		}
+	},
+	
+	"options_ui": "options.html",
+}
