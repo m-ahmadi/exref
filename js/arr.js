@@ -3,13 +3,14 @@ Array.isArray()
 Array.isArray({})       // false
 Array.isArray([])       // true
 //-----------------------------------------------
+// mutate
+
 var arr = [1,2,3];
 arr.push(4)    // append    - arr: [1, 2, 3, 4]
 arr.pop()      // del last  - arr: [1, 2, 3]
 arr.shift()    // del first - arr: [2, 3]
 arr.unshift(1) // prepend   - arr: [1, 2, 3]
 
-// all mutate
 //-----------------------------------------------
 arr.join(?separator=',')
 [1,2,3].join(',')       // '1,2,3'

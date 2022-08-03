@@ -71,7 +71,7 @@ Math.log2(x)               // base 2 logarithm of a number
 Math.max(x, y, ...)        // largest  of zero or more numbers (maximum 125525 numbers)
 Math.min(x, y, ...)        // smallest of zero or more numbers (maximum 125525 numbers)
 Math.pow(x, y)             // base to the exponent power: x^y
-Math.random()              // a pseudo-random number between 0 and 1
+Math.random()              // a pseudo-random number between [0, 1)
 Math.round(x)              // value of a number rounded to the nearest integer
 Math.sign(x)               // sign of the x, indicating whether x is positive, negative or zero
 Math.sin(x)                // sine of a number

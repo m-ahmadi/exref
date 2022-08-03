@@ -71,3 +71,52 @@ function randn(mu=0, sigma=1, nsamples=6){
 	return sigma * (r - nsamples / 2) / (nsamples / 2) + mu;
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// random choice (numpy.random.choice)
+
+// simplest (between 2 choices)
+choices = [4, 7];
+choices[Math.floor(Math.random() * choices.length)]; // 7
+
+// integer only
+function randomChoice(size=0, p=[]) {
+	let pSum = p.reduce((r,i) => r+i, 0);
+	
+	return [...Array(size)].map(() => {
+		let rnd = pSum * Math.random();
+		return p.findIndex(i => (rnd -= i) < 0);
+	});
+}
+randomChoice(6, [.1, .1, .1, .1, .6]) // [4, 4, 2, 4, 1, 4]
+
+// complete
+function randomChoice(events=[], size=0, p=[]) {
+	let [N, M] = [events.length, p.length];
+	let EPS = Number.EPSILON;
+	
+	if (M) {
+		if (N !== M)                   throw Error('Events have to be same length as probability.');
+		if (!p.every(Number.isFinite)) throw Error('Probability can contain only numbers.');
+		if (p.some(i => i < 0))        throw Error('Probability cannot contain negative numbers.');
+		
+		let pSum = p.reduce((r,i) => r+i, 0);
+		if (pSum < 1-EPS || pSum > 1+EPS) throw Error('Overall probability has to be 1.');
+	} else {
+		p = Array(N).fill(1 / N);
+	}
+	
+	let pRanges = p.reduce((ranges, v, i) => {
+		let start = i > 0 ? ranges[i-1][1] : 0 - EPS;
+		ranges.push([start, v + start + EPS]);
+		return ranges;
+	}, []);
+	
+	let choices = [];
+	for (let i=0; i<size; i++) {
+		let n = Math.random();
+		let rangeIndex = pRanges.findIndex((v, i) => n > v[0] && n <= v[1]);
+		choices.push(events[rangeIndex]);
+	}
+	
+	return choices;
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

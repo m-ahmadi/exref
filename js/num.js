@@ -25,11 +25,15 @@ Number('42')             // 42
 Number.MAX_VALUE         // biggest
 Number.MIN_VALUE         // smallest
 Number.NaN               // special "not a number" value
-Number.EPSILON           // smallest interval between two representable numbers.
-Number.POSITIVE_INFINITY // special value representing infinity. returned on overflow.
-Number.NEGATIVE_INFINITY // special value representing negative infinity. returned on overflow.
+Number.EPSILON           // smallest interval between two representable numbers. 2^-52
+Number.POSITIVE_INFINITY // special value representing infinity. returned on overflow
+Number.NEGATIVE_INFINITY // special value representing negative infinity. returned on overflow
 Number.MAX_SAFE_INTEGER  // 2^53 - 1
 Number.MIN_SAFE_INTEGER  // -(2^53 - 1)
+
+Math.pow(2, -52) === Number.EPSILON // true
+1e-15 < Number.EPSILON              // false
+1e-16 < Number.EPSILON              // true
 
 // methods
 Number.isNaN()
@@ -61,24 +65,25 @@ n.toFixed(6);            // '12345.678900' (note added zeros)
 
 (16.45200).valueOf()     // 16.452
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// only one number type.
-// no integers.
-// 64-bit floating point ieee-754 (aka "double").
-//------------------------------------------------------------------------------
+// only one number type
+// no integers
+// 64-bit floating point ieee-754 (aka "double")
+
+//-----------------------------------------------
 // associative law does not hold
 (a + b) + c === a + (b + c)
-// produces false for some values.
-// integers under 9007199254740992 (9 quadrillion) are ok.
+// produces false for some values
+// integers under 9007199254740992 (9 quadrillion) are ok
 var maximum = 9007199254740991;
 9007199254740992 === 9007199254740992 + 1 // true
-//------------------------------------------------------------------------------
+//-----------------------------------------------
 // decimal fractions are approximate
 var a = 0.1,
 	b = 0.2,
 	c = 0.3;
 (a + b) + c === a + (b + c); // false
 // solution: turn it into integers and then do the work.
-//------------------------------------------------------------------------------
+//-----------------------------------------------
 // numeric values are always floating point
 // numbers are treated with floating point precision,
 // and may not always yield the expected results:
