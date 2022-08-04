@@ -3,6 +3,8 @@ var arr = [];
 arr.length // 0
 
 // creating initialized array (all return the created array):
+Array(1,2,3,4)                        // [1, 2, 3, 4]
+new Array(1,2,3,4)                    // ...
 [...Array(4)]                         // [undefined, undefined, undefined, undefined]
 Array(4).fill(0)                      // [0, 0, 0, 0]
 [...Array(4).keys()]                  // [0, 1, 2, 3]
