@@ -7,9 +7,13 @@ suP
 ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾
 ᵃ ᵇ ᶜ ᵈ ᵉ ᶠ ᶢ - ⁱ ʲ ᵏ ᶪ ᵐ ⁿ ᵒ ᵖ - - - ᵗ ᵘ ᵛ - ᵡ - ᶻ
 ᴬ ᴮ - ᴰ ᴱ - ᴳ ᴴ ᴵ ᴶ ᴷ ᴸ ᴹ ᴺ ᴼ ᴾ - ᴿ - ᵀ ᵁ - ᵂ - - -
+˒ ʾ ʼ › ·	(look-alikes)
 suB
 ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ ₊ ₋ ₌ ₍ ₎
 ₐ - - - ₑ - - - ᵢ - - - - - ₒ - - ᵣ - - ᵤ ᵥ - ₓ ᵧ -		ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ
+
+
+suP look-alike
 
 
 suP digit			2070
@@ -23,6 +27,12 @@ zero-width space		200B
 zero-width non-joiner		200C
 zero-width joiner		200D
 zero-width no-break space	FEFF
+
+suP look-alikes
+	comma			02D2
+	apostrophe		02BE 02BC
+	greater-than		203A
+	Middle dot		00B7
 
 
 https://unicode-table.com/en/sets/superscript-and-subscript-letters

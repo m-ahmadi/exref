@@ -1,4 +1,6 @@
-new Error() // can be used as a base object for user-defined exceptions
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
+
+new Error()          // can be used as a base object for user-defined exceptions
 new EvalError()      // indicates an error regarding the global eval() function (non-standard)
 new InternalError()  // indicates an error that occurred internally in the JavaScript engine
 new RangeError()     // indicates an error when a value is not in the set or range of allowed values
@@ -11,7 +13,7 @@ new URIError()       // represents an error when a global URI handling function 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
-// simple vales (no trace captured about where error happened)
+// simple values (no trace captured about where error happened)
 throw 42
 throw 'hi'
 throw new Date()
@@ -31,12 +33,28 @@ console.log(err.stack)
 
 // throw an object
 function UserException(message) {
-	this.message = message;
 	this.name = 'UserException';
+	this.message = message;
 }
 try {
 	throw new UserException('InvalidMonthNo');
 } catch (e) {
 	e.message // InvalidMonthNo 
 	e.name    // UserException
+}
+
+// user-defined error
+function MyError(message) {
+	this.name = 'MyError';
+	this.message = message;
+	this.stack = new Error().stack;
+}
+MyError.prototype = new Error;
+
+// user-defined error - es6
+class MyError extends Error {
+	constructor(message) {
+		super(message);
+		this.name = this.constructor.name;
+	}
 }
