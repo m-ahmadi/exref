@@ -1,0 +1,5 @@
+1. remove all external devices
+2. change sata ahci controller
+3. update ssd firmware
+4. chkdsk c: /f /r
+5. sfc /scannow
