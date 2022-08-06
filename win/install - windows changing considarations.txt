@@ -17,8 +17,8 @@ logitech mouse config
 
 optional
 powercfg /export %home%\mypowerplan.pow <GUID>
-export HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
-then import folders.reg
+reg export HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced folders.reg
+later `reg import folders.reg`
 --------------------------------------------------------------------------------
 new install:
 control folders, taskbar, disable realtime protec, power options, ...
