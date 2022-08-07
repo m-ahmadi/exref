@@ -24,12 +24,6 @@ new uPlot({series: [{}, {stroke:'black'}], ...opts, height:250, title:'random fr
 new uPlot({series: [{}, {stroke:'black'}, {points:{size:16,space:0,fill:'rgba(255,0,0,.7)'}}], ...opts, title:'cumsum of above + cusum signals'}, [x,sc,sigs], charts);
 
 
-function randn() {/*random from gaussian distribution*/
-	let [u, v] = [0, 0];
-	while (u === 0) u = Math.random();
-	while (v === 0) v = Math.random();
-	return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
-}
 function minmaxScale(X=[], newbound=[0,1]) {
 	let [a,b] = [Math.min(...X), Math.max(...X)]
 	let [c,d] = newbound;

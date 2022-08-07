@@ -703,6 +703,44 @@ function fracDiffFixedWindow(x=[], d=0, thres=0.00001) {
 	return r;
 }
 
+// random
+function randn() {/*random from gaussian distribution*/
+	let [u, v] = [0, 0];
+	while (u === 0) u = Math.random();
+	while (v === 0) v = Math.random();
+	return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+}
+function randomChoice(events=[], size=0, p=[]) {/*numpy.random.choice*/
+	let [N, M] = [events.length, p.length];
+	let EPS = Number.EPSILON;
+	
+	if (M) {
+		if (N !== M)                   throw Error('Events have to be same length as probability.');
+		if (!p.every(Number.isFinite)) throw Error('Probability can contain only numbers.');
+		if (p.some(i => i < 0))        throw Error('Probability cannot contain negative numbers.');
+		
+		let pSum = p.reduce((r,i) => r+i, 0);
+		if (pSum < 1-EPS || pSum > 1+EPS) throw Error('Overall probability has to be 1.');
+	} else {
+		p = Array(N).fill(1 / N);
+	}
+	
+	let pRanges = p.reduce((ranges, v, i) => {
+		let start = i > 0 ? ranges[i-1][1] : 0 - EPS;
+		ranges.push([start, v + start + EPS]);
+		return ranges;
+	}, []);
+	
+	let choices = [];
+	for (let i=0; i<size; i++) {
+		let n = Math.random();
+		let rangeIndex = pRanges.findIndex((v, i) => n > v[0] && n <= v[1]);
+		choices.push(events[rangeIndex]);
+	}
+	
+	return choices;
+}
+
 // util
 function minmax(nums=[]) {
 	let {min,max} = Math;
