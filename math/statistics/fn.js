@@ -710,6 +710,7 @@ function randn() {/*random from gaussian distribution*/
 	while (v === 0) v = Math.random();
 	return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
+
 function randomChoice(events=[], size=0, p=[]) {/*numpy.random.choice*/
 	let [N, M] = [events.length, p.length];
 	let EPS = Number.EPSILON;
