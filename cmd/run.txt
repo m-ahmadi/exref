@@ -32,6 +32,7 @@ mmsys.cpl		Sound
 mmsys.cpl ,1		... 2nd tab
 inetcpl.cpl		Internet Options
 desk.cpl		Display
+timedate.cpl		Date and Time
 msconfig		System Configuration
 ms-settings:		Settings (win+i)
 mstsc			Remote Desktop Connection
@@ -74,6 +75,7 @@ control /name Microsoft.FolderOptions		same as: control folders
 control /name Microsoft.Sound			same as: mmsys.cpl
 control /name Microsoft.NetworkAndSharingCenter
 control /name Microsoft.NetworkAndSharingCenter /page Advanced
+control /name Microsoft.DateAndTime		same as: timedate.cpl
 --------------------------------------------------------------------------------
 some env variables
 compsec			C:\Windows\system32\cmd.exe

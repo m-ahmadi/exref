@@ -9,6 +9,13 @@ import numpy as np # pip install numpy
 		zda.shape # ()
 		zda.ndim  # 0
 
+# types
+'''
+int             https://numpy.org/doc/stable/reference/arrays.scalars.html#signed-integer-types
+uint            https://numpy.org/doc/stable/reference/arrays.scalars.html#unsigned-integer-types
+float           https://numpy.org/doc/stable/reference/arrays.scalars.html#floating-point-types
+<type><size>    https://numpy.org/doc/stable/reference/arrays.scalars.html#sized-aliases
+'''
 np.__all__
 np.__builtins__
 np.__cached__
