@@ -37,6 +37,14 @@ np.sum([ [1,1,1],
 
 np.sum([ [1,2,False], [3,4,False] ], axis=1, where=[True,True,False]) # [3,7]
 
+# math - interp
+x = [1,2,3]
+y = [2,4,6]
+np.interp(1, x, y)   # 2
+np.interp(2, x, y)   # 4
+np.interp(1.5, x, y) # 3
+np.interp(4, x, y)   # 6
+
 # as operand
 a = np.array([1,2,3,4])
 a * 2  # element-wise product: [2,4,6,8]

@@ -300,7 +300,7 @@ np.int64
 np.int8
 np.intc
 np.integer
-np.interp
+np.interp(x=∂, xp=[0.,..], fp=[0.|0j,..], left=None|0.|0j, right=None|0.|0j, period=None|0.)
 np.intersect1d
 np.intp
 np.invert
