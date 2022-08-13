@@ -3,3 +3,11 @@ Task settings -> Upload -> File naming
 	Name pattern for window capture:		%y%mo%d_%h%mi%s		orig: %pn_%ra{10}
 
 Application settings -> History -> !Save tasks to history
+
+--------------------------------------------------------------------------------
+record audio when screen recoding
+
+Task settings -> Capture -> Screen recorder -> Screen recording options...
+	Install recorder devices
+	Audio source: virtual-audio-capturer
+--------------------------------------------------------------------------------
