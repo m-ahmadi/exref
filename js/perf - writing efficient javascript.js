@@ -1,6 +1,6 @@
 // https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // monomorphism
 /*
 	When declaring a function with 2 parameters the compiler takes your word for it,
@@ -19,7 +19,7 @@ example(1);      // still bad
 example('1', 2); // dammit meg
 example(1, 2);   // good
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // unfolding
 /*
 	The compiler can resolve a variable's value at compile time and unfold it (in best case),
@@ -47,7 +47,7 @@ e;
 2716
 Math.random() * 2716
 'Hello Medium'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // inlining
 /*
 	The JIT compiler can figure out, which part of your code gets commonly executed.
@@ -74,7 +74,7 @@ if (isNumeric(cc)) {}
 // after inlining
 if (cc >= 48 && cc <= 57) {}
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // declarations
 /*
 	Avoid declaring functions/closures and objects inside frequently called tasks.
@@ -109,7 +109,7 @@ function b() {
 	return doSomething();
 };
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // arguments
 /*
 	Function calls are expensive (if the compiler cannot inline them).
@@ -125,7 +125,7 @@ function test(a, b) {
 	let tmp = a; // good
 	tmp *= 2; // we can now modify our fake 'a'
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // data types
 /*
 	Try to make as much use as possible of Numbers and Booleans,
@@ -163,7 +163,7 @@ if (entity.type === E_TYPE.Robot) {
 if (entity.type === ROBOT) {
 	
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // strict and abstract operators
 /*
 	Attempt to use triple equality operators like “===” (strict) over “==” (loosely, abstract).
@@ -172,7 +172,7 @@ if (entity.type === ROBOT) {
 	which ends up in better performance scenarios at all.
 */
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // toxicity
 /*
 	The following is a list of language features, which reduce or block the code optimization process.
@@ -181,7 +181,7 @@ if (entity.type === ROBOT) {
 	try/catch
 */
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // objects
 /*
 	Object instances usually try to share the same hidden classes,
@@ -206,7 +206,7 @@ vec2.z = 0;
 
 // good, compiler knows this member
 vec2.x = 1;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // loops
 /*
 	Cache your array lengths and use arrays with monomorphic types.
@@ -238,4 +238,4 @@ let length = array.length;
 for (; i < length; ++i) {
 	key = array[i];
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,18 +1,12 @@
-==========================================================================================
-
 c:/windows/system32/drivers/etc/host
 and add
 127.0.0.1 player.kmpmedia.net
 this will prevent the kmplayer to connect to the internet and no sidebar will appear!
 
-==========================================================================================
+--------------------------------------------------------------------------------
 
-Internet Options
-Security Tab
-Restricted Sites
-Sites
+Internet Options -> Security Tab -> Restricted Sites -> Sites
+	Add player.kmpmedia.net to the list of restricted sites
+	close KMPlayer, re-open it and the sidebar will no longer appear
 
-Add player.kmpmedia.net to the list of restricted sites
-close KMPlayer, re-open it and the sidebar will no longer appear
-
-==========================================================================================
+--------------------------------------------------------------------------------

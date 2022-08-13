@@ -5,7 +5,7 @@ const bundle = await rollup.rollup({input: 'src/main.js'});
 const dependencies = bundle.watchFiles;
 
 await bundle.write({file: 'public/bundle.js', format: 'iife'});
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
 const inputOptions = {...};  // same as rollup.config.js
 const outputOptions = {...}; // ...
@@ -49,7 +49,7 @@ for (const chunkOrAsset of output) {
 		console.log('Chunk', chunkOrAsset.modules);
 	}
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref - rollup.watch
 const rollup = require('rollup');
 
@@ -77,4 +77,4 @@ watcher.on('event', event => {
 
 // stop watching
 watcher.close();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -8,7 +8,7 @@ module.exports = {
 		path: path.resolve(__dirname, './dist')
 	}
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
 module.exports = {
 	entry: './app/entry',                    // str|obj|arr Here the application starts executing and webpack starts bundling

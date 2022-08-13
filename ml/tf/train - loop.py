@@ -29,7 +29,7 @@ loss_fn          = keras.losses.SparseCategoricalCrossentropy(from_logits=True)
 train_acc_metric = keras.metrics.SparseCategoricalAccuracy()
 val_acc_metric   = keras.metrics.SparseCategoricalAccuracy()
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # eager execution
 for epoch in range(EPOCHS):
 	for x_batch_train, y_batch_train in train_dataset:
@@ -49,7 +49,7 @@ for epoch in range(EPOCHS):
 	val_acc = val_acc_metric.result()
 	print('val_accuracy', float(val_acc), '\n')
 	val_acc_metric.reset_states()
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # graph execution
 @tf.function
 def train_step(x, y):
@@ -79,7 +79,7 @@ for epoch in range(EPOCHS):
 	val_acc = val_acc_metric.result()
 	val_acc_metric.reset_states()
 	print('val_accuracy', float(val_acc), '\n')
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 pred = model.predict(x_test[0:1]).tolist()[0]
 pred = pred.index(np.max(pred))

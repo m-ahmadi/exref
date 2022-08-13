@@ -12,7 +12,7 @@ def generate_time_series(batch_size, n_steps):
 	series += 0.1 * (np.random.rand(batch_size, n_steps) - 0.5) # + noise
 	return series[..., np.newaxis].astype(np.float32)
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 n_steps = 50
 series = generate_time_series(10000, n_steps + 1)
 
@@ -26,7 +26,7 @@ plt.show()
 x_train, y_train = series[:7000, :n_steps], series[:7000, -1]
 x_valid, y_valid = series[7000:9000, :n_steps], series[7000:9000, -1]
 x_test, y_test = series[9000:, :n_steps], series[9000:, -1]
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # baseline metrics
 
 # naive forecasting
@@ -43,7 +43,7 @@ model.compile('adam', 'mse')
 model.fit(x_train, y_train, epochs=20)
 res = model.evaluate(x_valid, y_valid)
 print(res) # 0.004
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # simple rnn
 
 model = keras.models.Sequential([
@@ -53,7 +53,7 @@ model.compile('adam', 'mse')
 model.fit(x_train, y_train, epochs=20)
 res = model.evaluate(x_valid, y_valid)
 print(res) # 0.014
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # deep rnn
 
 model = keras.models.Sequential([
@@ -77,7 +77,7 @@ model.compile('adam', 'mse')
 model.fit(x_train, y_train, epochs=20)
 res = model.evaluate(x_valid, y_valid)
 print(res) # 0.003
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # forecasting several time steps ahead
 
 series = generate_time_series(1, n_steps + 10)

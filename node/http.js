@@ -42,7 +42,7 @@ IncomingMessage extends stream.Readable {
 	setTimeout(msecs, ?callback)
 }
 'aborted close'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // example
 var http = require('http|https');
 
@@ -89,7 +89,7 @@ http.get('http://jsonplaceholder.typicode.com/posts', res => {
 	res.on('data', chunk => str += chunk);
 	res.on('end', ()=> fs.writeFileSync('foo.json', str));
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // post
 const postData = querystring.stringify({
 	'msg': 'Hello World!'
@@ -125,4 +125,4 @@ req.on('error', (err) => {
 // write data to request body
 req.write(postData);
 req.end();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

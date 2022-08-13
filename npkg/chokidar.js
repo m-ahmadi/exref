@@ -9,7 +9,7 @@ chokidar.watch('.', {ignored: /[\/\\]\./}).on('all', (event, path) => {
 	console.log(event, path);
 });
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // advanced
 const watcher = chokidar.watch('file, dir, glob, or array', {
 	ignored: /[\/\\]\./,
@@ -41,7 +41,7 @@ watcher.unwatch('new-file*');
 
 // only needed if watching is `persistent: true`
 watcher.close();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // options ref:
 chokidar.watch('file', {
 	persistent: true,
@@ -65,4 +65,4 @@ chokidar.watch('file', {
 	ignorePermissionErrors: false,
 	atomic:                 true // or a custom 'atomicity delay', in milliseconds (default 100)
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

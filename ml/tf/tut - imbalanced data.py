@@ -18,7 +18,7 @@ from sklearn.preprocessing import StandardScaler
 
 mpl.rcParams['figure.figsize'] = (10, 8)
 colors = plt.rcParams['axes.prop_cycle'].by_key()['color']
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Data processing and exploration
 
 #=================================================
@@ -108,7 +108,7 @@ plt.suptitle('Positive distribution')
 sns.jointplot(neg_df['V5'], neg_df['V6'], kind='hex', xlim=(-5,5), ylim=(-5,5))
 _ = plt.suptitle('Negative distribution')
 plt.show()
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Define the model and metrics
 
 #=================================================
@@ -159,7 +159,7 @@ def make_model(metrics=METRICS, output_bias=None):
 #   [ROC-AUC](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc)
 #   [Relationship between Precision-Recall and ROC Curves](https://www.biostat.wisc.edu/~page/rocpr.pdf)
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Baseline model
 
 #=================================================
@@ -350,7 +350,7 @@ plt.show()
 # Classifiers often face challenges when trying to maximize both precision and recall, which is especially true when working with imbalanced datasets.
 # It is important to consider the costs of different types of errors in the context of the problem you care about.
 # In this example, a false negative (a fraudulent transaction is missed) may have a financial cost, while a false positive (a transaction is incorrectly flagged as fraudulent) may decrease user happiness.
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Class weights
 
 #=================================================
@@ -433,7 +433,7 @@ plot_prc('Test Weighted', test_labels, test_predictions_weighted, color=colors[1
 
 plt.legend(loc='lower right')
 plt.show()
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Oversampling
 
 #=================================================
@@ -594,4 +594,4 @@ plt.show()
 #  give substantial thought to what features may be relevant so the model can get the most out of your minority class.
 # At some point your model may struggle to improve and yield the results you want,
 # so it is important to keep in mind the context of your problem and the trade offs between different types of errors.
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

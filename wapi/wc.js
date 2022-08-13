@@ -8,7 +8,7 @@ class Autonomous extends HTMLElement {
 	adoptedCallback() {}
 	attributeChangedCallback() {}
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // autonomous
 class MyComponent extends HTMLElement {
 	constructor() { super(); }
@@ -31,7 +31,7 @@ customElements.define('expanding-list', ExpandingList, {extends: 'ul'});
 /* html:
 <ul is="expanding-list">ul>
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // shadow dom example
 class NewsArticle extends HTMLElement {
 	constructor() {
@@ -58,4 +58,4 @@ document.appendChild(el);
 	#shadow-root (open)
 </news-article>
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

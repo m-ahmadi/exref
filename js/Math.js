@@ -33,7 +33,7 @@ Math.abs(10-20) // 10
 Math.exp(-1) // 0.36787944117144233
 Math.exp(0)  // 1
 Math.exp(1)  // 2.718281828459045
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // all props
 Math.E                     // euler's constant and the base of natural logarithms, approximately 2.718.
 Math.LN2                   // natural logarithm of 2, approximately 0.693.
@@ -43,7 +43,7 @@ Math.LOG10E                // base 10 logarithm of E, approximately 0.434.
 Math.PI                    // ratio of the circumference of a circle to its diameter, approximately 3.14159.
 Math.SQRT1_2               // square root of 1/2; equivalently, 1 over the square root of 2, approximately 0.707.
 Math.SQRT2                 // square root of 2, approximately 1.414.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // all methods
 Math.abs(x)                // absolute value of a number
 Math.acos(x)               // arccosine of a number
@@ -81,4 +81,4 @@ Math.tan(x)                // tangent of a number
 Math.tanh(x)               // hyperbolic tangent of a number
 Math.toSource()            // string "Math"
 Math.trunc(x)              // integral part of the number x, removing any fractional digits.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

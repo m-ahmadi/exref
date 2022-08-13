@@ -27,7 +27,7 @@ for epoch in range(EPOCHS):
 		...
 		y_batch_pred = tf.nn.sigmoid_cross_entropy_with_logits(y_batch_train, logits)
 		metric(y_batch_train, y_batch_pred)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 class BinaryTruePositives(keras.metrics.Metric):
 	def __init__(self, name='binary_true_positives', **kwargs):
@@ -48,7 +48,7 @@ class BinaryTruePositives(keras.metrics.Metric):
 
 	def result(self):
 		return self.true_positives
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # https://medium.com/analytics-vidhya/custom-metrics-for-keras-tensorflow-ae7036654e05
 def recall(y_true, y_pred):
 	true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
@@ -119,4 +119,4 @@ def equal_error_rate(y_true, y_pred):
 	eer = (fpr + fnr) / 2
 
 	return eer
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

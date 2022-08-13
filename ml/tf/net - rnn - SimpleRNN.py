@@ -9,7 +9,7 @@ it doesn't need to know length of input sequences (unlike other models)
 that's why first input dimension is set to None
 '''
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 inputs = np.random.random([32, 10, 8]).astype(np.float32)
 inputs.shape # [batch, timesteps, feature]
 
@@ -21,7 +21,7 @@ simple_rnn = SimpleRNN(4, return_sequences=True, return_state=True)
 whole_sequence_output, final_state = simple_rnn(inputs)
 whole_sequence_output.shape # [32, 10, 4]
 final_state.shape           # [32, 4]
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 x_train = [ [[0,0]], [[0,1]], [[1,0]], [[1,1]] ]
 y_train = [ [0], [1], [1], [0] ]
 
@@ -38,7 +38,7 @@ print(model.predict(x_train))
 #  [0.93621683]
 #  [0.9351667 ]
 #  [0.07719162]]
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 x_train = np.random.normal(0, 0.1, (20,5,1))
 y_train = np.random.randint(0, 2, (20,1))
 
@@ -63,4 +63,4 @@ model = Sequential([
 model.compile('adam', 'mse')
 model.fit(x_train, y_train, epochs=500)
 print(model.predict(x_train))
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

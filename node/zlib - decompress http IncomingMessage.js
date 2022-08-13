@@ -1,5 +1,5 @@
 var res = await http.request(...);
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // with streams
 
 // http.response --> decompressStream --> manaul handle
@@ -25,7 +25,7 @@ if (encoding === 'gzip') {
 } else {
 	res.pipe(writeStream);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // without streams
 
 var chunks = [];
@@ -43,7 +43,7 @@ res.on('end', function () {
 	
 	fs.writeFileSync('file.txt', decompressed);
 })
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // with streams + get size information (not sure)
 var encoding = res.headers['content-encoding'];
 var decompressedSize = 0; // size after uncompression
@@ -74,4 +74,4 @@ function showSizes() {
 	console.log('bodySize compressed:',       bodySize);
 	console.log('compression:',               decompressedSize - bodySize);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

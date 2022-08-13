@@ -16,7 +16,7 @@ let randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random(
 
 // using Math.round() for rounding instead of ceil and floor, will give you a non-uniform distribution
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // standard normal distribution
 
 // box-muller transform
@@ -70,7 +70,7 @@ function randn(mu=0, sigma=1, nsamples=6){
 	for (let i=0; i<nsamples; i++) r += Math.random();
 	return sigma * (r - nsamples / 2) / (nsamples / 2) + mu;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // random choice (numpy.random.choice)
 
 // simplest (between 2 choices)
@@ -119,4 +119,4 @@ function randomChoice(events=[], size=0, p=[]) {
 	
 	return choices;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

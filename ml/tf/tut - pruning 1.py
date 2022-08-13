@@ -8,7 +8,7 @@ import tensorflow as tf
 import numpy as np
 
 from tensorflow import keras
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # train a model for mnist without pruning
 
 # load mnist dataset
@@ -51,7 +51,7 @@ print('Baseline test accuracy:', baseline_model_accuracy)
 _, keras_file = tempfile.mkstemp('.h5')
 tf.keras.models.save_model(model, keras_file, include_optimizer=False)
 print('Saved baseline model to:', keras_file)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # fine-tune pre-trained model with pruning
 
 #================================================
@@ -118,7 +118,7 @@ print('Pruned test accuracy:', model_for_pruning_accuracy)
 # %tensorboard --logdir={logdir}
 
 # for non-Colab users, you can see [the results of a previous run](https://tensorboard.dev/experiment/sRQnrycaTMWQOaswXzClYA/#scalars&_smoothingWeight=0) of this code block on [TensorBoard.dev](https://tensorboard.dev/).
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Create 3x smaller models from pruning
 
 # both `tfmot.sparsity.keras.strip_pruning` and applying a standard compression algorithm (e.g. via gzip) are necessary to see the compression
@@ -163,7 +163,7 @@ def get_gzipped_model_size(file):
 print("Size of gzipped baseline Keras model: %.2f bytes" % (get_gzipped_model_size(keras_file)))
 print("Size of gzipped pruned Keras model: %.2f bytes" % (get_gzipped_model_size(pruned_keras_file)))
 print("Size of gzipped pruned TFlite model: %.2f bytes" % (get_gzipped_model_size(pruned_tflite_file)))
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # create a 10x smaller model from combining pruning and quantization
 
 # you can apply post-training quantization to the pruned model for additional benefits.
@@ -180,7 +180,7 @@ print('Saved quantized and pruned TFLite model to:', quantized_and_pruned_tflite
 
 print("Size of gzipped baseline Keras model: %.2f bytes" % (get_gzipped_model_size(keras_file)))
 print("Size of gzipped pruned and quantized TFlite model: %.2f bytes" % (get_gzipped_model_size(quantized_and_pruned_tflite_file)))
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # see persistence of accuracy from TF to TFLite
 
 # define a helper function to evaluate the TF Lite model on the test dataset.
@@ -224,4 +224,4 @@ test_accuracy = evaluate_model(interpreter)
 
 print('Pruned and quantized TFLite test_accuracy:', test_accuracy)
 print('Pruned TF test accuracy:', model_for_pruning_accuracy)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

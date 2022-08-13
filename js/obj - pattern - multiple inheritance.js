@@ -16,7 +16,7 @@ v.f  // owned
 v.a  // inherited
 v.b  // inherited
 v.ee // inherited
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // basic extend function
 //  second
 function extend(proto, literal) {
@@ -38,7 +38,7 @@ function extend(proto, literal) {
   return result;
 }
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pass-by-reff  and  pass-by-val
 /*  problem:
   if your object has a property and value of that is changing all the time,
@@ -153,7 +153,7 @@ a.getP()  // false
 a.setP(true)
 a.getP    // true
 a.op.p    // false
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // methods work in the scope they were defined
 function employee() {
   var inst = extend ( person() ),
@@ -198,7 +198,7 @@ t.s2(4)
 
 t.g() // 9
 t.g2()  // 4
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // extend v3 (current version)
 function extend() {
   var args = Array.prototype.slice.call(arguments),
@@ -271,7 +271,7 @@ var s = extend([
     lastname: 'ahmadi'
   }
 ]);
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // extend v2
 function extend() {
   var args = Array.prototype.slice.call(arguments),
@@ -325,7 +325,7 @@ var t = extend(
     lastname: 'ahmadi'
   }
 );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // extend v1
 function extend(proto, literal) {
   var arr = [],
@@ -378,7 +378,7 @@ for (i=1; i<proto.length+1; i+=1) {
 }
 */
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // util
 function isObject(v) {
   return (

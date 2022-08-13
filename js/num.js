@@ -64,30 +64,30 @@ n.toFixed(6);            // '12345.678900' (note added zeros)
 (16.4520).toPrecision(5) // '16.452'
 
 (16.45200).valueOf()     // 16.452
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // only one number type
 // no integers
 // 64-bit floating point ieee-754 (aka "double")
 
-//-----------------------------------------------
+//------------------------------------------------
 // associative law does not hold
 (a + b) + c === a + (b + c)
 // produces false for some values
 // integers under 9007199254740992 (9 quadrillion) are ok
 var maximum = 9007199254740991;
 9007199254740992 === 9007199254740992 + 1 // true
-//-----------------------------------------------
+//------------------------------------------------
 // decimal fractions are approximate
 var a = 0.1,
 	b = 0.2,
 	c = 0.3;
 (a + b) + c === a + (b + c); // false
 // solution: turn it into integers and then do the work.
-//-----------------------------------------------
+//------------------------------------------------
 // numeric values are always floating point
 // numbers are treated with floating point precision,
 // and may not always yield the expected results:
 0.1 + 0.2         // 0.30000000000000004
 0.1 + 0.2 == 0.3  // false
 0.1 + 0.2 !== 0.3 // true
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -21,7 +21,7 @@ fetch('https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_1MB.
 	res.body.pipe(writeStream);
 });
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // download progress
 fetch('https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_1MB.jpg').then(res => {
 	const total = +res.headers.get('content-length');
@@ -30,4 +30,4 @@ fetch('https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_1MB.
 	res.body.on('data', chunk => bar.tick(chunk.length));
 	res.body.pipe(writeStream);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

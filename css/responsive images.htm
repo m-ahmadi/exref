@@ -3,7 +3,7 @@ resolution switching (same image, different sizes/resolutions)
 
 art direction (different images)
 	offer the browser several image files, different images suitable for different space allocations
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 resolution switching 1
 
 browser process:
@@ -27,7 +27,7 @@ browser process:
 	"
 	src="pic-800w.jpg" alt="My picture"
 />
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 resolution switching 2 (same size, different resolutions)
 no `size`
 
@@ -49,7 +49,7 @@ standard/low res device (1 device pixel per css pixel):
 
 high resolution device (2 device pixels per css pixel or more):
 	pic-640w.jpg image will be loaded
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 art direction
 <picture>
   <source media="(max-width: 799px)" srcset="pic-480w-close-portrait.jpg" />
@@ -71,4 +71,4 @@ art direction
 	this provides a default case that will apply when none of the media conditions return true
 	and a fallback for browsers that don't support the <picture> element
 	(you could actually remove the second <source> element in this example)
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

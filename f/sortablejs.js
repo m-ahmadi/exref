@@ -26,7 +26,7 @@ new Sortable(el, {
 	animation: 150,
 	ghostClass: 'some-class'
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
 var sortable = new Sortable(el, {
 	group:                'name',                   // or { name: '...', pull: [true, false, 'clone', array], put: [true, false, array] }

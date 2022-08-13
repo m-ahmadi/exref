@@ -25,7 +25,7 @@ function getFiles(dir, res=[]) {
 	}
 	return res;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const { readFileSync, writeFileSync } = require('fs');
 const { extname } = require('path');
 const glob = require('glob');
@@ -40,4 +40,4 @@ glob.sync('./template/**/*.htm').forEach(path => {
 writeFileSync( './templates.js', str );
 
 // path.replace(/^\.*(\/|\\){1,2}/, '') // todo: fix .\abc issue
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

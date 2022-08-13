@@ -85,7 +85,7 @@ def SGD(training_data, epochs, mini_batch_size, learning_rate, test_data=None):
 		else:
 			print(f'Epoch {j} complete')
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # import mnist_loader
 # training_data, validation_data, test_data = mnist_loader.load_data_together()
 '''

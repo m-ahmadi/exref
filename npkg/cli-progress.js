@@ -68,7 +68,7 @@ var multiBarContainer = new cliProgress.MultiBar(options, ?preset=preset | {})
 var bar = multiBarContainer.create(totalValue=0, startValue=0, ?payload={})
 multiBarContainer.remove(bar)
 multiBarContainer.stop()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);

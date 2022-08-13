@@ -20,7 +20,7 @@ person
 obviously there are many ways to implenet the above data
 but here are the two ways I found best:
 */
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* without foreign key constraint (bad*)
   in this method tables dont have relations with each other, we give them that when quering.
 
@@ -52,6 +52,6 @@ JOIN eyes
 
 
 --  *because entries don't get re-numbered in one column if the other-one changes
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* with foreign key constraint
 */

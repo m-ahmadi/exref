@@ -20,7 +20,7 @@ console.timeLog(?label='default')    // log timer
 console.timeStamp(?label='default')
 console.trace()                      // outputs stack trace
 console.warn()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 // log

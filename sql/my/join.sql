@@ -34,7 +34,7 @@ select first_name, last_name, name, location
 from employee inner join department		-- employee  join  department
 	using(department_id)				-- on employee.employee_id = department.department_id
 
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- data
 CREATE TABLE department (
   department_id INT NOT NULL AUTO_INCREMENT,
@@ -71,4 +71,4 @@ INSERT INTO employee (employee_id,first_name,last_name,hire_date,department_id) 
 INSERT INTO employee (employee_id,first_name,last_name,hire_date,department_id) VALUES (736,'Alice','Bailey','1999-09-01',NULL);
 INSERT INTO employee (employee_id,first_name,last_name,hire_date,department_id) VALUES (737,'Oswald','Hall','2011-03-19',5);
 INSERT INTO employee (employee_id,first_name,last_name,hire_date,department_id) VALUES (738,'John','Velasquez','2010-04-05',4);
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -22,7 +22,7 @@ pred1 = model.predict( np.array([ [0,0], [0,1], [1,0], [1,1] ]) )
 
 # make frozen model
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # convert
 
 # convert keras model to ConcreteFunction
@@ -35,12 +35,12 @@ full_model = full_model.get_concrete_function(x=tf.TensorSpec(model.inputs[0].sh
 # get frozen ConcreteFunction
 frozen_func = convert_variables_to_constants_v2(full_model)
 frozen_func.graph.as_graph_def() # (maybe unnecessary, not sure)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # save
 
 # save frozen graph from frozen ConcreteFunction
 tf.io.write_graph(graph_or_graph_def=frozen_func.graph, logdir='./model_frozen', name='saved_model_frozen.pb', as_text=False)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # load
 
 # load frozen graph using tf v1 functions
@@ -58,11 +58,11 @@ frozen_func = wrapped_import.prune(
 	tf.nest.map_structure(imported_graph.as_graph_element, ['Identity:0'])
 )
 # layers = [op.name for op in frozen_func.graph.get_operations()]
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # predict
 
 pred2 = frozen_func(x=tf.constant([ [0,0], [0,1], [1,0], [1,1] ], dtype='float32'))[0].numpy()
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
 print(f'''

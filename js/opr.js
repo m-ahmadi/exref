@@ -13,7 +13,7 @@ if else for break continue while do switch case try catch finally throw throws r
 true false NaN Infinity null [number string int short char byte float double long boolean]
 super static this prototype [enum abstract interface extends implements private public protected]
 [package native transient volatile final goto synchronized default]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // arithmetic
 +
 -
@@ -27,7 +27,7 @@ n++ // ...             (postfix)
 n-- // ...             (postfix)
 -n  // unary negation
 +n  // unary plus (unchanged numeric operand)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // comparison
 >
 <
@@ -37,13 +37,13 @@ n-- // ...             (postfix)
 !=
 ===
 !==
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // logical
 &&
 ||
 !
 ?? // nullish coalescing
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // bitwise
 &
 |
@@ -52,7 +52,7 @@ n-- // ...             (postfix)
 <<  // left shift
 >>  // right shift
 >>> // sign-propagating right shift
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // assignment
 =
 +=   // arithmetic...
@@ -70,7 +70,7 @@ n-- // ...             (postfix)
 &&=  // logical...
 ||=
 ??=
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // misc
 
 ''+''      // string concat
@@ -83,7 +83,7 @@ void       // ... (evaluates expression and returns undefined)
 
 in         // relational
 instanceof // ...
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // precedence (high to low)
 ()
 . [] new(...) f() ?.
@@ -108,4 +108,4 @@ yield yield*
 ,
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

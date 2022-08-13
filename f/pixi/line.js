@@ -8,7 +8,7 @@ line.beginFill();
 line.moveTo();
 line.lineTo();
 line.endFill();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	Sprite-Based (useful only for straight lines)
 	formula:
@@ -33,7 +33,7 @@ line.anchor.set(0);
 	clone.y = Math.random() * window.innerHeight *5;
 */
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*	Redrawing Lines (WORKED)
 	1. Grab context of the line.
 	2. clear() on the context
@@ -51,14 +51,14 @@ line.clearDirty = (line.clearDirty) ? false : true;
  
 //graphics.currentPath.shape.points
 //line.graphicsData[0].shape.points
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	Interactivity
 	problem:
 	hitArea is a rectangular shape so you can click the line even if you click under or above it
 */
 line.hitArea = line.getBounds();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	quadraticCurveTo
 */

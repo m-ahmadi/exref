@@ -3,7 +3,7 @@
 	npm i postcss postcss-loader rtlcss autoprefixer -D
 	ng serve --extra-webpack-config webpack.partial.js -o
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // webpack.partial.js
 const rtlcss = require('rtlcss');
 const autoprefixer = require('autoprefixer');
@@ -26,4 +26,4 @@ module.exports = {
     ],
   },
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

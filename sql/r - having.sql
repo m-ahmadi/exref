@@ -33,7 +33,7 @@ HAVING AVG(price) > 25
 ORDER BY 1, 2;
 
 -- you won't see any null values in the result, much the same way you don't see null when using WHERE clause.
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- you cannot use an aggregate in the WHERE clause.
 -- error:
 SELECT type, AVG(price)
@@ -44,7 +44,7 @@ ORDER BY 1, 2;
 -- PostgreSQL:	ERROR:  aggregate functions are not allowed in WHERE
 -- Oracle:			ORA-00934: group function is not allowed here
 -- MySQL:				MySQL-1111: Invalid use of group function
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- could you use a HAVING without using an aggregate function?
 -- yes. but The GROUP BY clause will work like a WHERE clause then:
 SELECT type
@@ -59,7 +59,7 @@ WHERE type = 'computer'
 ORDER BY 1;
 -- but you can not list the title or any other column than the type column with the first statement
 -- so the WHERE clause gives more flexibility, and you should not use HAVING clause in this way
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- HAVING clause with compound conditions
 SELECT type, AVG(price), SUM(ytd_sales)
 FROM book

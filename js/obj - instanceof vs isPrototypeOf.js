@@ -6,7 +6,7 @@ Object.prototype.isPrototypeOf()
 // checks
 	// if object exists in another object's prototype chain
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // instanceof
 function C() {}
 function D() {}
@@ -29,7 +29,7 @@ var o3 = new D();
 o3 instanceof D; // true
 o3 instanceof C; // true
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // isPrototypeOf
 
 function Foo() {}

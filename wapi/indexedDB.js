@@ -15,7 +15,7 @@ safar:     50% ?              1 GB
 var quota = await navigator.storage.estimate();
 quota.quote // total space
 quote.used  // used  space
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // basic
 let db;
 const request = indexedDB.open('dbName', 1);
@@ -48,7 +48,7 @@ request.onupgradeneeded = function (event) {
 		};
 	};
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // read data
 let db;
 const request = indexedDB.open('dbName', 1);
@@ -68,7 +68,7 @@ request.onsuccess = function (event) {
 		console.log('SSN 444-44-4444:' + event.target.result.name);
 	};
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // delete data
 let db;
 const request = indexedDB.open('dbName', 1);
@@ -83,7 +83,7 @@ request.onsuccess = function (event) {
 		console.log('deleted.');
 	};
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // IDBFactory
 indexedDB.databases().then(console.log) // [ {name, version}, {}, ... ]
 //----------------------------------------------------------------------
@@ -112,7 +112,7 @@ request.versionchange
 const req = indexedDB.deleteDatabase(name);
 req.onsuccess = function (e) { console.log('deleted.') };
 req.onerror   = function (e) { console.log('couldn\'t delete.') };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // IDBDatabase
 let db;
 db.close()
@@ -124,7 +124,7 @@ db.onerror = function (event) {};
 db.onversionchange = function (event) {}; // fires when `onupgradeneeded` fires.
 const objectStore = db.createObjectStore('storeName', { keyPath: 'myKey' });
 const transaction = db.transaction('storeName', 'readwrite');
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // IDBDatabase.createObjectStore()
 db.createObjectStore(name, options?): IDBObjectStore
 // options:
@@ -135,7 +135,7 @@ db.createObjectStore(name, options?): IDBObjectStore
 	// if prop already exists, prop value is used as key rather than generating a new key.
 	
 const store = db.createObjectStore('name');
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // IDBDatabase.transaction()
 db.transaction(storeNames: string[] | string, mode?= 'readonly'): IDBTransaction
 // modes:
@@ -161,7 +161,7 @@ trans.commit()
 trans.oncomplete = function(event) {};
 trans.onerror    = function(event) {};
 trans.onabort    = function(event) {};
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // IDBObjectStore 
 const store = db.createObjectStore('storeName');
 
@@ -190,10 +190,10 @@ store.index(): void
 store.openCursor()
 store.openKeyCursor()
 store.put()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // IDBObjectStore.createIndex()
 // only on object stores that holds objects, not primitives.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // another basic example:
 let db;
 let dbReq = indexedDB.open('myDatabase', 1);
@@ -219,11 +219,11 @@ function addStickyNote(db, message) {
     console.log('error storing note: ' + event.target.errorCode);
   }
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // browser support
 window.indexedDB      = window.indexedDB      || window.mozIndexedDB         || window.webkitIndexedDB  || window.msIndexedDB;
 window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction || {READ_WRITE: 'readwrite'};
 window.IDBKeyRange    = window.IDBKeyRange    || window.webkitIDBKeyRange    || window.msIDBKeyRange;
 
 if (!window.indexedDB) console.log('browser doesn't support a stable version of IndexedDB.');
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

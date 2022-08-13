@@ -10,7 +10,7 @@ ali();  // 'default value'
 function ali(a = 'default value') {
 	console.log(a);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // hazard #1
 function makePerson(favoriteColor, name, age) {
 	if (arguments.length < 3) {
@@ -29,7 +29,7 @@ var person = makePerson('Joe', 18);
 
 console.log(person); // {name: 'green', age: 'green', favoriteColor: 'green'}
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // hazard #2 (less hazardous with let and const)
 var a = 'hello';
 function fn(a) {

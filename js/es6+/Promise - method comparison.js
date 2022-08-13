@@ -12,7 +12,7 @@ Promise.reject(reason)       // ...
 'settled'   // done:         fulfilled |     rejected
 
 //                        breaks?       breaks on?            fulfilled on?         rejected on?
-//======================================================================================================
+//=====================================================================================================
 Promise.all()        //   ✔            first rejected        all fulfilled         first rejected
 Promise.allsettled() //   ✖            never                 always                never
 Promise.race()       //   ✔            first settled         first fulfilled       first rejected

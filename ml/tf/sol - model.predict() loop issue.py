@@ -45,7 +45,7 @@ for i in range(9):
 		'\ninput: ', input,
 		'\npredict:', mods[i].predict(input)
 	)
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # another example (simple)
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'

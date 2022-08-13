@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 
 app.listen(3000);
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* layout vs view
 a layout is just a template with a {{{body}}} placeholder, sorta like a level before a view.
 so when you render a view, it goes through a layout first, then the layout passes stuff to the view
@@ -62,4 +62,4 @@ res.render('home', { layout: false });			// renders without layout
 	</body>
 	</html>
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

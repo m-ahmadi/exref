@@ -17,14 +17,14 @@ interface LabelledValue {
 	new (hour: number, minute: number);
 	new (hour: number, minute: number): ClockInterface;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function printLabel(labelledObj: { label: string }) {
 	console.log(labelledObj.label);
 }
 
 let myObj = { size: 10, label: 'Size 10 Object' };
 printLabel(myObj);
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 interface LabelledValue {
 	label: string;
@@ -38,7 +38,7 @@ let myObj = { size: 10, label: 'Size 10 Object' };
 printLabel(myObj);
 
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 interface SquareConfig {
 	color?: string;
 	width?: number;
@@ -56,7 +56,7 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
 }
 
 let mySquare = createSquare({ color: 'black' });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // index signatures
 interface Nodes {
 	[key: string]: Node;
@@ -69,4 +69,4 @@ interface SquareConfig {
 }
 // SquareConfig can have any number of properties,
 // and as long as they aren’t color or width, their types don’t matter
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

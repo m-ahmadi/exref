@@ -1,8 +1,8 @@
 from fchollet page 114
 
-============================================================================================================
+================================================================================
 problem type					last-layer activation		loss function
-============================================================================================================
+================================================================================
 binary classification				sigmoid				binary_crossentropy
 multiclass, single-label classification		softmax				categorical_crossentropy
 multiclass, multilabel classification		sigmoid				binary_crossentropy

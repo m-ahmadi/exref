@@ -48,7 +48,7 @@ fs.readdirSync('./')
 			//fs.renameSync(join(folder,file), join(folder, names[j]+'.mkv'))
 		});
 	});
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // genBulkRenamePairs
 const { readFileSync, writeFileSync } = require('fs');
 const num = n => n < 9 ? '0'+(n+1) : n+1;
@@ -59,4 +59,4 @@ writeFileSync('rename-pairs.txt', readFileSync('episodes.txt', 'utf8').split('\r
 	
 	return oldNames.map((v,j) => `${v}.mkv|${names[j]}.mkv`).join('\n');
 }).join(''));
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

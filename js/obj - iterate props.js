@@ -5,7 +5,7 @@ Object.keys(object)
 Object.keys(object).forEach(key => {
 	var prop = object[key];
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // for in
 
 for (prop in obj) {
@@ -35,4 +35,4 @@ Object.create(null)
 enumerable: false
 	// set enumerable attribute to false when adding methods to prototypes
 	// that keeps them out of "for in" enumeration
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -6,7 +6,7 @@ method(() => {
 	// doesn't have `this` and `arguments`
 	// can't be called with new
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // implicit return
 
 // syntax:
@@ -27,7 +27,7 @@ nums = evens.map((v, i) => v + i)
 odds  = evens.map(function (v) { return v + 1; })
 pairs = evens.map(function (v) { return { even: v, odd: v + 1 }; })
 nums  = evens.map(function (v, i) { return v + i; })
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // return shorthands in curlyless body
 
 // comma + parens
@@ -40,7 +40,7 @@ var f = () => 0 && 4; // 0
 // logical or  (ONLY if first operand falsy)
 var f = () => 0 || 7; // 7
 var f = () => 1 || 7; // 1
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // lexical this
 // arrow functions automatically bind this
 // (that's why they overwrite the this value in a jquery event handler)
@@ -82,7 +82,7 @@ var f2 = () => this.a;
 
 f1.bind({a:2})() // 2
 f2.bind({a:2})() // 1
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // multiple arrow function (curried function or functions that return another function)
 var add = x => y => x + y;
 // same as:
@@ -97,4 +97,4 @@ add(2)(2); // 4
 
 var add4to = add(4);
 add4to(10); // 14
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

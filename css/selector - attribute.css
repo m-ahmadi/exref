@@ -19,7 +19,7 @@ any string (alphanumeric) is a valid unquoted attr value except: */
 [attr=-0abc] /* start with a hyphen followed by a digit */
 
 [attr=--abc] /* valid */
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 input[type="radio"] {}
 input[type="checkbox"][disabled] {}
 input[type="checkbox"]:disabled {} /* ie9+ */

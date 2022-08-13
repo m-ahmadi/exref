@@ -20,7 +20,7 @@ socket.on('disconnect', function () {
 function sendMessageToServer(message) {
 	socket.send(message);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // another example:
 
 var socket = io(); // tries to connect to the host that serves the page (by default)
@@ -31,7 +31,7 @@ socket.emit('chat message', 'message');
 socket.on('server msg', function (v) {
 	console.log(v);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // basic server
 var app = require('express')();
 var http = require('http').Server(app);
@@ -65,4 +65,4 @@ io.on('connection', function (socket) {
 http.listen(port, function () {
 	console.log('listening on *:' + port);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

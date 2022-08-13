@@ -27,7 +27,7 @@ Symbol.prototype.toSource()
 Symbol.prototype.toString()
 Symbol.prototype.valueOf()
 Symbol.prototype[@@toPrimitive]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 typeof Symbol()        // 'symbol'

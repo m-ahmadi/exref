@@ -28,10 +28,10 @@ Generator.prototype.throw(exception)
 
 function* f() {}
 var obj = new f(); // TypeError: f is not a constructor (not constructable)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
-//===============================================
+//================================================
 // basic
 function* foo(arg1, arg2) {
 	var n = 0;
@@ -54,7 +54,7 @@ g.next().value // 16
 g.next().value // 8
 g.next().value // undefined
 
-//===============================================
+//================================================
 // send value to generator
 function* foo(x) {
 	yield x +' world';
@@ -82,7 +82,7 @@ g.next()        // 0
 g.next('hello') // 1 pretzel
 g.next('dear')  // 2 california
 g.next('world') // 3 mayonnaise
-//===============================================
+//================================================
 // delegate
 function* another(i) {
 	yield i + 1;
@@ -101,7 +101,7 @@ g.next().value // 11
 g.next().value // 12
 g.next().value // 13
 g.next().value // 70
-//===============================================
+//================================================
 // function expression
 var foo = function* () {
 	yield 10;
@@ -109,7 +109,7 @@ var foo = function* () {
 };
 var gen = foo();
 gen.next()
-//===============================================
+//================================================
 // object property
 var obj = {
 	*generator () {
@@ -119,7 +119,7 @@ var obj = {
 };
 var gen = obj.generator();
 gen.next()
-//===============================================
+//================================================
 // class method
 class Foo {
 	*generator () {
@@ -130,7 +130,7 @@ class Foo {
 }
 var f = new Foo();
 var gen = f.generator();
-//===============================================
+//================================================
 // computed property
 class Foo {
 	*[Symbol.iterator] () {
@@ -146,4 +146,4 @@ var bar = {
 };
 Array.from(new Foo) // [ 1, 2 ]
 Array.from(bar)     // [ 'a', 'b' ]
-//===============================================
+//================================================

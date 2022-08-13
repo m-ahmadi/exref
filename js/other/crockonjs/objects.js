@@ -1,7 +1,7 @@
 // An object is a dynamic collection of properties.
 // Every property has key string that is unique within that object.
 // If you add 2 properties with the same name, second one will replace first one.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Get, set and delete **/
 // get
 object.name
@@ -14,7 +14,7 @@ object[expression] = value
 // delete
 delete object.name
 delete object[expression]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Property **/
 // A property is a named collection of attributes.
 // Every property has a:
@@ -27,7 +27,7 @@ set:            function(value) {}
 // There is two kinds of properties:
 // Data properties,
 // Accessor properties (get, set).
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** New in ES5 **/
 Object.defineProperty(object, key, descriptor)
 Object.defineProperties(object, object_of_descriptors)
@@ -36,7 +36,7 @@ Object.getOwnProperties(object)
 Object.keys(object)
 // Object.keys return an array of all enumerable owned keys.
 // use forEach/map to apply a set functions to each property.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Object literals **/
 var obj = {foo: bar};
 var obj = Object.defineProperties(Object.create(Object.prototype), {
@@ -47,7 +47,7 @@ var obj = Object.defineProperties(Object.create(Object.prototype), {
 		configurable: true
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Accessor property **/
 var obj = {};
 obj.t = 100;
@@ -60,7 +60,7 @@ Object.defineProperty(obj, 'inch', {
 	},
 	enumerable: true
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Prototypal Inheritance **/
 // Other names: Delegation / Differential.
 // You make an object and you add stuff to it only to make it different from the object that it inherits from.
@@ -73,7 +73,7 @@ Object.defineProperty(obj, 'inch', {
 // Objects have a prototype attribute (it's not a property, it's an attribute of the object).
 // prototype can be "object" or "null".
 Object.getPrototypeOf(object)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** new prefix operator **/
 // Do not use "new".
 // Think prototypal!
@@ -97,7 +97,7 @@ window.prop1 = 'apple';
 window.prop2 = 'orange';
 // which means you are clobbering global object.
 // There's no compile warning and no runtime warning.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** The constructor property problem **/
 var word_count = {};
 function bump_count(word) {
@@ -130,7 +130,7 @@ function bump_count(word) {
 	}
 }
 // Object {salam: 2, olaghe: 1, aziz: 2, constructor: 1}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** The for in problem **/
 // Functions inherited from a prototype are included in the "for in" enumeration.
 var obj = {};
@@ -175,7 +175,7 @@ enumerable: false
 Object.keys(object)
 // Produces an array of strings which are:
 // the keys of owned enumerable properties. (not inherited properties)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Keys must be strings **/
 // "get" or "set" will take whatever key you provide force it to be a string
 // If you pass it a number it'll turn it to a string
@@ -211,7 +211,7 @@ function make_sealer() {
 var t = make_sealer();
 t.sealer('hello');   // returns an empty object.
 t.unsealer('hello'); // returns undefined.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Objects have an extensible attribute **/
 extensible: boolean
 Object.isExtensible(object)
@@ -227,7 +227,7 @@ Object.freeze(object)
 // Does the same as "preventExtensions" but it also sets everything to read only which means
 // turns off everybody's "writeable" bit which results in a immutable object,
 // numbers, strings, booleans are immutable objects, system can make them, you can't, but now you can.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Object and types **/
 // We have 7 types:
 // Number
@@ -239,4 +239,4 @@ Object.freeze(object)
 // Function
 // They are all based on objects
 // Everything inherit from objects
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

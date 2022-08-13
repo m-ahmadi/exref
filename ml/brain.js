@@ -86,7 +86,7 @@ needs "Microsoft Visual Studio Build Tools 2015"  https://www.microsoft.com/en-u
 npm config set msvs_version 2015
 npm config set python python2.7    or?    npm config set python "C:\path\to\python.exe"
 npm rebuild */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 // xor

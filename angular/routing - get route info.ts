@@ -18,7 +18,7 @@ class BarComponent implements OnInit {
 		this.route.queryParams.subscribe(queryParams => this.queryParams = JSON.stringify(queryParams));
 	}
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // routing module
 import { RouterModule, Routes } from '@angular/router';
 
@@ -29,7 +29,7 @@ const routes: Routes = [
 	{ path: '**', redirectTo: '/' },
 ];
 @NgModule({ imports: [RouterModule.forRoot(routes)], exports: [RouterModule] }) class AppRoutingModule { }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 import { BrowserModule } from '@angular/platform-browser';
 
 @Component({selector:'app-root', template: `

@@ -12,7 +12,7 @@ zlib.gzip('a', (err, data) => console.log(data))
 
 fs.writeFileSync('out.gz', zlib.gzipSync(fs.readFileSync('in.txt')))   // zip
 fs.writeFileSync('out.txt', zlib.gunzipSync(fs.readFileSync('in.gz'))) // unzip
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // compress/decompress data in a single step:
 const input = '.................................';
 zlib.deflate(input, (err, buffer) => {
@@ -31,7 +31,7 @@ zlib.unzip(buffer, (err, buffer) => {
 		// handle error
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // options
 // https://www.zlib.net/manual.html
 var options = {
@@ -98,4 +98,4 @@ zlib.GUNZIP:     4
 zlib.GZIP:       3
 zlib.INFLATE:    2
 ...
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

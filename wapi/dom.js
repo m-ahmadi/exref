@@ -199,7 +199,7 @@ DOMParser.parseFromString(stringXMLSource, mimeType=''): HTMLDocument | XMLDocum
 	'application/xml'	      XMLDocument
 	'application/xhtml+xml'	XMLDocument
 	'image/svg+xml'         SVGDocument // ?
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // parse html
 var el = document.createElement('div');
 el.innerHTML = '<p>hi</p>';
@@ -274,7 +274,7 @@ await input.files[0].text() // or
 var reader = new FileReader();
 reader.readAsText(input.files[0], 'UTF-8')
 reader.onload = evt => console.log(evt.target.result)
-//-----------------------------------------------
+//------------------------------------------------
 // ps
 A <- B, C, D // B,C,D implements A (implemented by)
 ! = non-standard

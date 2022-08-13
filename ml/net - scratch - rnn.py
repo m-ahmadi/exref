@@ -139,7 +139,7 @@ def train(U, V, W, X, Y, X_validation, Y_validation):
 					
 	return U, V, W
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
 

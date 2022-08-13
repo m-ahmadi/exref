@@ -36,7 +36,7 @@ dism /unmount-wim /mountdir:mount /commit
 	save as
 */
 // done
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // actual quick example:
 dism /mount-wim /wimfile:D:\win7\boot.wim /index:1 /mountdir:D:\win7\mount
 dism /add-driver /image:D:\win7\mount /driver:D:\win7\drivers /recurse
@@ -49,7 +49,7 @@ dism /unmount-wim /mountdir:D:\win7\mount /commit
 dism /mount-wim /wimfile:install.wim /index:1 /mountdir:D:\win7\mount
 dism /add-driver /image:D:\win7\mount /driver:D:\win7\drivers /recurse
 dism /unmount-wim /mountdir:D:\win7\mount /commit
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // community.spiceworks.com
 // update boot.wim
 dism /mount-wim /wimfile:boot.wim /index:2 /mountdir:mount
@@ -63,7 +63,7 @@ dism /Get-WimInfo /WimFile:install.wim
 dism /mount-wim /wimfile:install.wim /index:1 /mountdir:mount
 dism /image:mount /add-driver:"USB" /recurse
 dism /unmount-wim /mountdir:mount /commit
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // docs.microsoft.com
 
 // 1. Mount a Windows image
@@ -85,11 +85,11 @@ Dism /Image:C:\test\offline /Get-Drivers
 
 // 4. Commit the changes and unmount the image
 Dism /Unmount-Image /MountDir:C:\test\offline /Commit
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // social.technet.microsoft.com/Forums/
 Dism /Mount-Image /ImageFile:"F:\sources\boot.wim" /index:1 /MountDir:"C:\Temp\Offline" // Mount the wim file
 Dism /Add-Driver /Image:"C:\Temp\Offline" /Driver:"C:\SWSETUP\SP78930" /Recurse         // Add drivers
 Dism /Unmount-Image /Mountdir:"C:\Temp\Offline" /commit                                 // Then unmount the image and that's it.
 // The drivers can be added to the install.wim file in the same way.
 // If you need drivers in the boot process add them to the boot wim file.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -4,7 +4,7 @@
 	in JavaScript there's just function, and function does all of those things and more.
 	that's not a deficiency, that's actually a wonderful thing, having one thing that can do a lot and do it brilliantly at scale.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    function expression (function literal)    **/
 /*
 	function
@@ -31,7 +31,7 @@
 	it may seem kind of strange that a function can inherit methods from something else, but it can,
 	so in this language functions have methods.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  /**    var statement    **/
 /*
 	var statement declares and initializes variables within a function.
@@ -49,7 +49,7 @@ var myVar = 0, myOtherVar;
 var myVar = undefined,
 	myOtherVar = undefined;
 myVar = 0;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  /**    function statement    **/
 /*
 	function
@@ -81,7 +81,7 @@ var foo  = function foo() {};
 var foo = undefined;
 foo = function foo() {};
 // The assignment of the function is also hoisted
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  /**    function expression v function statement    **/
 /*
 	It's confusing having both function expressions and function statements,
@@ -98,7 +98,7 @@ foo = function foo() {};
 	but because the language definition doesn't tell you what it supposed to do, they all do something different,
 	so that's one of the edge cases that you want to stay away from.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  /**    Scope    **/
 /*
 	Block scope v function scope:
@@ -135,7 +135,7 @@ function assure_positive(matrix, n) {
 	In other languages the common style is to declare variables near the sight of their first use,
 	and in languages which have block scope, that's good advise, but it's not recommended in JavaScript.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  /**    Return statement    **/
 /*
 	return statement allows a function to return early, and also it indicates what value the function should be returning.
@@ -151,7 +151,7 @@ function assure_positive(matrix, n) {
 return expression;
 // or
 return;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  /**    Two pseudo parameters    **/
 /*
 	There are two pseudo parameters that every function can receive:
@@ -211,7 +211,7 @@ var ten = sum(1, 2, 3, 4);
 	"this" is the key to prototypal inheritance,
 	prototypal inheritance works in this language because of "this".
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
  /**    Invocation    **/
 /*
 	() suffix operator:
@@ -266,7 +266,7 @@ function.prototype.call = function (thisObject) {
 	so instead, we have to go out and find it, and we know that we can find it at "Array.prototype",
 	and then we can take that piece of arguments out.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    this: summarize    **/
 /*
 	Invocation form           "this"
@@ -279,7 +279,7 @@ function.prototype.call = function (thisObject) {
 	"this" gives methods access to their objects.
 	"this" is bound at invocation time.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Recursion    **/
 /*
 	When a function calls itself.
@@ -339,7 +339,7 @@ var array = function () {
 	next(']');
 	return array;
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    A Module pattern    **/
 /*
 	Another thing we can do with functions is to create modules.
@@ -426,7 +426,7 @@ GLOBAL.methodical = (function () {
 	and I want to immediately execute it.
 	
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Power Constructors    **/
 /*
 	We can take the Module pattern and very easily turn it into a constructor pattern.
@@ -485,7 +485,7 @@ function myPowerConstructor(x) {
 	I return "that".
 	So it's really simple !
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Super Methods    **/
 /*
 	When I started working with this language,
@@ -517,7 +517,7 @@ function hoozit(id) {
 	you might step back and figure out why do I think I need that,
 	and maybe there's a simpler way to think about this.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Don’t make functions in a loop.    **/
 /*
 	One bit of warning about functions:
@@ -566,7 +566,7 @@ for (i...) {
 	by doing that we avoided creating any functions inside of the loop,
 	and that way we avoided the confusion that came from that problem with Closure.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**    Tennent's Principle of Correspondence    **/
 /*
 	Here I have two versions of the "factorial" function that do exactly the same thing,
@@ -647,4 +647,4 @@ varnumber120 = factorial(5);
 	you ought to be doing this stuff,
 	off to the side where you're not going to hurt anybody.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

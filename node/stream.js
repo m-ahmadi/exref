@@ -25,7 +25,7 @@ streamR.unpipe()
 
 streamW.write('Some Data!!')
 streamW.end('Ended.')
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // other examples
 fs.createReadStream('sample.txt', { start: 90, end: 99 }) // read last 10 bytes of a 100 bytes long file
 
@@ -35,7 +35,7 @@ setTimeout(() => {
   stream.push(null);
   stream.read(0);
 }, 100);
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // ref
 var readOptions = {
 	flags:          'r',       // file system flag (r,w,a,...)
@@ -61,4 +61,4 @@ fs.createReadStream(path [, options])
 fs.createWriteStream(path [, options])
 // path:    string|buffer|url
 // options: string|object
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

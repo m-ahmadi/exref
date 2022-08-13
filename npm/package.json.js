@@ -3,7 +3,7 @@
 	"name": "test",
 	"version": "0.0.1"
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* version range descriptors
 	
 version                must match version exactly
@@ -24,13 +24,13 @@ user/repo              github url
 tag                    a specific version tagged and published as tag See npm-dist-tag
 path/path/path         local path
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // tell npm to use a specific branch of a github repository.
 "repository": {
 	"type": "git",
 	"url": "git+https://github.com/username/repo.git#branch-name"
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // engines
 {
 	"engines": {
@@ -38,12 +38,12 @@ path/path/path         local path
 		"npm": "~1.0.20"
 	}
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // files to include upon install
 {
 	"files": ["dist", "index.js", "*"]
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // npm init -f
 {
   "name": "",
@@ -65,7 +65,7 @@ path/path/path         local path
   },
   "homepage": "https://github.com/m-ahmadi/pubsub#readme"
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // first try
 {
   "name": "app",
@@ -83,7 +83,7 @@ path/path/path         local path
     "sha1": "^1.1.1"
   }
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // env indicators
 {
 	"main": "",
@@ -91,4 +91,4 @@ path/path/path         local path
 	"module": "",
 	"exports": "", // node v12.8+
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
