@@ -96,23 +96,26 @@ from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 
 # perfect classifier
-fpr, tpr, _ = roc_curve([1,1,1,1,0,0,0,0], [1,1,1,1,0,0,0,0])
+fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,0])
 
 # 1 false positive (fpr=1/4=0.25, tpr=4/4=1)
-fpr, tpr, _ = roc_curve([1,1,1,1,0,0,0,0], [1,1,1,1,0,0,1,0])
+fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,1])
 plt.plot(fpr, tpr)
 plt.show()
 
 # 1 false negative (fpr=0/4=0, tpr=3/4=0.75)
-fpr, tpr, _ = roc_curve([1,1,1,1,0,0,0,0], [1,0,1,1,0,0,0,0])
+fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [0,1,1,1, 0,0,0,0])
 plt.plot(fpr, tpr)
 plt.show()
 #————————————————————————————————————————————————
 # auc
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html
 
-fpr, tpr, _ = roc_curve([1, 1, 2, 2], [0.1, 0.4, 0.35, 0.8], pos_label=2)
-auc(fpr, tpr)
+fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,1])
+auc(fpr, tpr) # 0.875
+
+fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [0,0,1,1, 0,0,0,0])
+auc(fpr, tpr) # 0.75
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # decision tree classifier
 # https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
