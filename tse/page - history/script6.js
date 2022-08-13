@@ -9,7 +9,7 @@ var StaticTreshholdData = [
 a = StaticTreshholdData
 day_range_min  a[1][2]
 day_range_max  a[1][1]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var ClosingPriceData = [
 	// 0                   1     2        3         4      5          6        7        8        9           10             11          12
 	// datetime                  last     close     open   yesterday  high     low      count    volume      value          discarded   time
@@ -29,7 +29,7 @@ count      c[8]
 volume     c[9]
 value      c[10]
 discarded  c[11]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // redundant (ClosingPriceData snapshots)
 
 var IntraDayPriceData = [
@@ -46,7 +46,7 @@ high    p[2]
 low     p[3]
 close   p[4]
 volume  p[5]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var InstrumentStateData = [
 //              CEtaVal	
 	[20200919, 1, 'A ']
@@ -64,7 +64,7 @@ var InstrumentStateData = [
 
 a = InstrumentStateData
 instrument_state  a[0][2]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var IntraTradeData = [
 //  count    time         volume    price     discarded
 	['754',    '09:01:06',  '500',   '19530',   0],
@@ -78,7 +78,7 @@ count      t[0]
 volume     t[2]
 price      t[3]
 discarded  t[4]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var ShareHolderData = [];
 var ShareHolderDataYesterday = [
 // ???    CIsin          current shares  % of total shares  inc/dec/same   shareholder desc (NOT Intrument.Name | LSoc30)
@@ -103,7 +103,7 @@ var ShareHolderDataYesterday = [//another example
 	[2662,   'IRO1FOLD0009', 2566245185,  1.220,  'ArrowDown', 'شركت س اخوزستان س.خ-م ك م ف ع-'],
 	[1063,   'IRO1FOLD0009', 2310383952,  1.100,  'ArrowDown', 'شركت س ااصفهان س.خ-م ك م ف ع-']
 ];
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 var ClientTypeData = [
 // bPc  bLc  sPc  sLc
 	4862, 13, 1255, 3,
@@ -162,4 +162,4 @@ legal_sell_price      a[19]    lsprice
 legal_sell_vol_ptot   a[11]    lsvolptot
 
 legal_to_person_chg   a[20]    lpchg
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -3,7 +3,7 @@ new SharedWorker() // shared    worker. can be accessed from multiple scripts
 
 // you can't pass function, dom nodes and some other things to workers
 // https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // main.js---------------------------------------
 var worker = new Worker('js/worker.js');
 
@@ -29,7 +29,7 @@ self.onmessage = function (e) {
 };
 
 close(); // closing the worker from the worker thread
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // usage example with promises
 
 // simple
@@ -64,4 +64,4 @@ self.onmessage = function ({data: {action, data}}) {
 	self.postMessage({action, result});
 };
 function doSome(input) { return input.replace(/a/g, 'b') }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

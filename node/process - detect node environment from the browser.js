@@ -8,7 +8,7 @@ const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'u
 
 // webworker
 typeof self === 'object' && self.constructor && self.constructor.name === 'DedicatedWorkerGlobalScope';
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // other bad node detections
 
 // lil bit better (detects node versions >= 3.0.0)
@@ -22,4 +22,4 @@ typeof window === 'undefined'
 
 // worst - this detects CommonJS support, which browsers may support (ie: requirejs):
 typeof module !== 'undefined' && module.exports
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

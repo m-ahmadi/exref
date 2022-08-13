@@ -9,7 +9,7 @@ SELECT name, title, price, advance          -- 4
 -- types of columns should be same
 -- or cast one to match the other
 SELECT ... ON (zip = ytd_sales::varchar)
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- inner join with ON
 	
 SELECT name, title FROM publisher JOIN book USING (pub_id)                      ORDER BY 1, 2;
@@ -22,7 +22,7 @@ SELECT p.name, b.title FROM publisher p JOIN book b ON (p.pub_id = b.pub_id) ORD
 	
 -- casting
 SELECT lastname, firstname, title, zip, ytd_sales FROM author JOIN book ON (zip = ytd_sales::varchar) ORDER BY 1, 2, 3;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- inner join with USING
 -- USING is a shortcut for ON
 
@@ -37,4 +37,4 @@ SELECT title, lastname, firstname
 		JOIN bookauthor USING (ISBN)
 		JOIN author USING(author_id)
 ORDER BY 1, 2, 3;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

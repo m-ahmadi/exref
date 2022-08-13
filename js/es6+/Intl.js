@@ -31,7 +31,7 @@ Intl.Segmenter()
 // static methods
 Intl.getCanonicalLocales()
 Intl.supportedValuesOf()
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 var d = new Date(2022,2,21);

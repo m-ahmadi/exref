@@ -10,7 +10,7 @@ function constructor() {
 		goodness: reuse.goodness
 	});
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // factory
 function newGender(type) {
 	let instance = {};
@@ -23,7 +23,7 @@ function newGender(type) {
 	
 	return instance;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // constructor function
 var p = new p();
 function P() {
@@ -53,7 +53,7 @@ var b = new B();
 var inst = new function () {
 	this.foo = 'bar';
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // immediate init
 ({
 	foo: 600,
@@ -65,7 +65,7 @@ var inst = new function () {
 		console.log(this.doit());
 	}
 }).init();
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // misc other forms (just for reference)
 var p = function() {};
 p.prototype = (function () {

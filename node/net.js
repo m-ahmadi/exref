@@ -81,7 +81,7 @@ socket.setTimeout(timeout, ?callback)
 socket.unref()
 socket.write(data=''|Buffer|Uint8Array, ?encoding='utf8', ?callback)
 'close|connect|data|drain|end|error|lookup|ready|timeout'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // example
 
 // server.js

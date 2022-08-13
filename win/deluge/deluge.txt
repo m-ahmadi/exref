@@ -1,5 +1,3 @@
-====================================================================================
-
 delugeStart
 	%compsec%
 	/c deluge.exe
@@ -9,11 +7,8 @@ delugeExit
 	%compsec%
 	/c taskkill /im "deluge.exe"                 taskkill /f /im "deluge.exe"
 
-====================================================================================
+--------------------------------------------------------------------------------
 
-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
-New
-String Value:
-	"D:\Program Files\Deluge\Deluge.exe"
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Deluge /d "D:\Program Files\Deluge\Deluge.exe"
 
-====================================================================================
+--------------------------------------------------------------------------------

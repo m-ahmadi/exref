@@ -11,7 +11,7 @@ while (proms.some(i=>i.reason)) {
 }
 
 let posts = await Promise.all( proms.map(i=> i.value.json()) );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // wait after each request
 
 let wait = 1000;
@@ -29,7 +29,7 @@ while (proms.some(i=>i.reason || i.value.status !== 200)) {
 }
 
 let posts = await Promise.all( proms.map(i=> i.value.json()) );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // split into batches (wait after each request + wait after each batch)
 
 sleep = ms => new Promise(r=> setTimeout(r,ms));
@@ -61,4 +61,4 @@ while (proms.some(i=> i.status !== 200)) {
 }
 
 let posts = await Promise.all( proms.map(i=> i.json()) );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

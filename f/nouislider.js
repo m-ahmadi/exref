@@ -22,7 +22,7 @@ slider.noUiSlider.set([null, 60])
 slider.setAttribute('disabled', true)
 slider.removeAttribute('disabled')
 slider.getElementsByClassName('noUi-origin')[0].setAttribute('disabled', true) // disable one handle
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // an example
 slider.style.height = '400px';
 slider.style.margin = '0 auto 30px';
@@ -51,7 +51,7 @@ noUiSlider.create(slider, {
 		// does not extend the default classes.
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // reference
 const formatter = { // default formatter (accept all numeric values, output two decimals)
 	from: value => value,
@@ -123,7 +123,7 @@ function callback(values=[], handle=0, unencoded=[], tap=false, positions=[]) { 
 	tap:        event was caused by the user tapping the slider
 	positions:  left offset of the handles */
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // options that need adding css classes
 
 /* colored connect elements
@@ -145,4 +145,4 @@ slider.querySelectorAll('.noUi-connect')
 	display: block;
 }
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

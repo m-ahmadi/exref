@@ -26,7 +26,7 @@ typedarray.set(array|typedarray, ?offset)
 typedarray.map(callbackfn, ?thisArg)
 typedarray.subarray(?begin, ?end)
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 Uint8Array.from('123')                 // Uint8Array [1, 2, 3]
@@ -66,7 +66,7 @@ var int16View = new Int16Array(buffer);
 // overflow causes the value to be 0
 new Uint8Array([127, 255, 256, 257]) // [127, 255, 0, 0]
 new Uint16Array([65535, 65536])      // [65535, 0]
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // merge two typed arrays
 
 // needs twice the memory
@@ -80,4 +80,4 @@ c // Int8Array(6) [1, 2, 3, 4, 5, 6]
 // another way
 var myArrays = [a, b];
 var merged = Int8Array.from( Array.prototype.concat(...myArrays.map(a => Array.from(a))) );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

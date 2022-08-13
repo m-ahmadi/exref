@@ -6,6 +6,6 @@ miso "C:\os.iso" -a "C:\NASM\p\w.bin" -ab "C:\boot.img"
 bochs -f bochsrc.bxrc
 
 
-=========================================================
+==================================================
 
 nasm -f bin w.asm -o w.iso

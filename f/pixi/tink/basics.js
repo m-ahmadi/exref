@@ -1,6 +1,6 @@
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	Setting up
-*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// setting up
+
 var t = new Tink(PIXI, renderer.view);
 
 function animate() {
@@ -10,9 +10,9 @@ function animate() {
 	
 	renderer.render(stage);
 }
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	A universal pointer
-*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// a universal pointer
+
 var pointer = t.makePointer();
 
 pointer.press =   function () { console.log("The pointer was pressed");  }
@@ -28,9 +28,9 @@ pointer.tapped
 
 pointer.visible = false;
 pointer.visible = true;
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	Pointer interaction with sprites
-*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// pointer interaction with sprites
+
 pointer.hitTestSprite(anySprite);
 anyCircularSprite.circular = true;
 
@@ -43,16 +43,16 @@ function animate() {
 }
 pointer.cursor = "pointer" // same as:
 renderer.view.style.cursor = "pointer";
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	Drag and drop sprites
-*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// drag and drop sprites
+
 t.makeDraggable(cat, tiger, hedgehog);
 anySprite.draggable = false;
 anySprite.draggable = true;
 t.makeUndraggable(cat, tiger, hedgehog);
-/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-	Buttons
-*/
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// buttons
+
 playButton.press =   function () { console.log("pressed");  }
 playButton.release = function () { console.log("released"); }
 playButton.over =    function () { console.log("over");     }

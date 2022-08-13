@@ -1,7 +1,7 @@
 // useful
 dism /get-packages /image:mount
 dism /unmount-wim /mountdir:mount /discard
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // support.microsoft.com
 /*
 	./src                 copy all from DVD/mounted ISO
@@ -44,7 +44,7 @@ oscdimg -LTEST -m -u2 -bootdata:2#p0,e,bC:\src\boot\etfsboot.com#pEF,e,bC:\src\e
 
 // compress the image (optional)
 dism /image:mount /cleanup-image /startcomponentcleanup /resetbase // didn't work (error 87)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // working example:
 dism /mount-image /imagefile:d:\win7\src\sources\boot.wim /index:1 /mountdir:d:\win7\mount
 dism /add-package /image:d:\win7\mount /packagepath:d:\win7\hotfix
@@ -73,12 +73,12 @@ dism /unmount-wim /mountdir:d:\win7\mount /commit
 
 oscdimg -LTEST -m -u2 -bootdata:2#p0,e,bd:\win7\src\boot\etfsboot.com#pEF,e,bd:\win7\src\efi\microsoft\boot\efisys.bin d:\win7\src d:\Win7.NVME.ISO
 oscdimg -LTEST -m -u2 -bd:\win7\src\boot\etfsboot.com d:\win7\src D:\Win7.NVME.LEGACY-BIOS.ISO
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // winaero.com
 dism /get-wiminfo /wimfile:install.wim
 dism /mount-wim /wimfile:install.wim /index:1 /mountdir:mount
 dism /add-package /image:mount /packagepath:KB2990941.msu
 dism /add-package /image:mount /packagepath:KB3087873.msu
 dism /unmount-wim /mountdir:mount /commit
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // as an alternative you can use NTLite to "slipstream" drivers/hotfixes into a win7.iso

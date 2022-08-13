@@ -1,6 +1,6 @@
 // a prop can be passed a primitive, anotherComp, function
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // class
 class Comp extends React.Component {
 	constructor(props) {
@@ -47,7 +47,7 @@ class Comp extends React.PureComponent {
 		return <div />;
 	}
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // function (can't have state or lifecycle, unless using hooks)
 
 function Comp() {
@@ -85,7 +85,7 @@ function Comp() {
 	return <h1>hello</h1>;
 };
 Comp.prototype.componentDidMount = function () { console.log('hi') };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // use defined component by rendering them or exporting them to be used in another file:
 
 // exporting:
@@ -99,4 +99,4 @@ ReactDOM.render(
 	<SayHello name='olagh' />
 	document.getElementById('root')
 );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

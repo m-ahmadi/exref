@@ -23,7 +23,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from keras.layers import SimpleRNN, LSTM, GRU, Dense, Embedding, Input, Bidirectional, RNN, SimpleRNNCell, GRUCell, LSTMCell, BatchNormalization
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''Built-in RNN layers: a simple example
 
 There are three built-in RNN layers in Keras:
@@ -54,7 +54,7 @@ model.summary()
 	...and more.
 
 For more information, see the [RNN API documentation](https://keras.io/api/layers/recurrent_layers/).'''
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''Outputs and states
 By default, the output of a RNN layer contains a single vector per sample. This vector
 is the RNN cell output corresponding to the last timestep, containing information
@@ -111,7 +111,7 @@ output = Dense(10)(decoder_output)
 
 model = keras.Model([encoder_input, decoder_input], output)
 model.summary()
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''RNN layers and RNN cells
 
 In addition to the built-in RNN layers, the RNN API also provides cell-level APIs.
@@ -138,7 +138,7 @@ layer.
 
 The cell abstraction, together with the generic `keras.layers.RNN` class, make it
 very easy to implement custom RNN architectures for your research.'''
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''Cross-batch statefulness
 
 When processing very long sequences (possibly infinite), you may want to use the
@@ -221,7 +221,7 @@ existing_state = lstm_layer.states
 new_lstm_layer = LSTM(64)
 new_output = new_lstm_layer(paragraph3, initial_state=existing_state)
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''Bidirectional RNNs
 
 For sequences other than time series (e.g. text), it is often the case that a RNN model
@@ -251,7 +251,7 @@ output and the backward layer output. If you need a different merging behavior, 
 concatenation, change the `merge_mode` parameter in the `Bidirectional` wrapper
 constructor. For more details about `Bidirectional`, please check
 [the API docs](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Bidirectional/).'''
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''Performance optimization and CuDNN kernels
 
 In TensorFlow 2.0, the built-in LSTM and GRU layers have been updated to leverage CuDNN
@@ -362,7 +362,7 @@ with tf.device('CPU:0'):
 	plt.imshow(sample, cmap=plt.get_cmap('gray'))
 	plt.show()
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 '''RNNs with list/dict inputs, or nested inputs
 
 Nested structures allow implementers to include more information within a single
@@ -475,4 +475,4 @@ will handle the sequence iteration for you. It's an incredibly powerful way to q
 prototype new kinds of RNNs (e.g. a LSTM variant).
 
 For more details, please visit the [API docs](https://https://www.tensorflow.org/api_docs/python/tf/keras/layers/RNN/).'''
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

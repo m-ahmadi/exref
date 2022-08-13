@@ -3,7 +3,7 @@ CREATE TABLE table_name (
 	col2  VARCHAR(40) NOT NULL,
 	col3  DATE
 );
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- auto increment col
 
 CREATE TABLE table_name (colname SMALLSERIAL|SERIAL|BIGSERIAL); 
@@ -26,7 +26,7 @@ TRUNCATE tbl RESTART IDENTITY [CASCADE]; -- also deletes all rows
 
 setval('tbl_col_seq', 1);
 select pg_get_serial_sequence('tbl', 'col'); -- get sequence name
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- mysql
 CREATE TABLE t1 (col1 INT NOT NULL PRIMARY KEY AUTO_INCREMENT);
 CREATE TABLE IF NOT EXISTS db.tbl_name (

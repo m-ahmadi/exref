@@ -37,7 +37,7 @@ service.on('install', ()=>)
 'error'               // when an error occurs (in some instances)
 
 const wincmd = require('node-windows');
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 var { Service } = require('node-windows');

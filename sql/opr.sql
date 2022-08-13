@@ -19,7 +19,7 @@ SELECT * FROM players WHERE score IN (250, 220, 170);
 <= -- less    than or equal to
 <> -- not equal
 
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- between (alternative for AND to query ranges)
 -- works with text|date
 -- generaly slower on large data
@@ -47,7 +47,7 @@ SELECT title, price FROM book WHERE title BETWEEN 'D' AND 'T' ORDER BY 1; -- sam
 outer limits are defined by next letter out
 	<= 'U' to match 'T'
 */
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- like
 -- wildcards: % _
 SELECT name FROM author WHERE name LIKE 'S%'  ORDER BY 1, 2; -- authors whose name started with 'S'
@@ -72,4 +72,4 @@ SELECT lastname, firstname, phone
 FROM author
 WHERE phone LIKE '____836%'
 ORDER BY 1, 2, 3;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

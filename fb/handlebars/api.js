@@ -21,7 +21,7 @@ var templateSpec = Handlebars.precompile(strTemplate, options={
 	destName: ''
 })
 var fnTemplate = Handlebars.template(  eval('(function(){return'+ templateSpec +'})();')  )
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // runtime
 
 // render
@@ -51,7 +51,7 @@ var myHandlebars = Handlebars.noConflict();
 Handlebars.escapeExpression(str)
 Handlebars.Utils.escapeExpression(text)
 new Handlebars.SafeString(str)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // manual precompile (same as `handlebars partialdir -p -o` and `handlebars tempdir -o`)
 const Handlebars = require('handlebars');
 const { writeFileSync, readFileSync, readdirSync, statSync } = require('fs');
@@ -93,4 +93,4 @@ function getFiles(dir, res=[]) {
 	}
 	return res;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -6,7 +6,7 @@ php.ini> extension_dir = "E:\PHP\ext"
 php.ini> extension=php_mysqli.dll
 php.ini> session.save_path = "C:\Windows\Temp"
 
-=====================================================================
+================================================================================
 
 apache\conf\httpd.conf :
 

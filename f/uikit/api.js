@@ -29,7 +29,7 @@ UIkit.mixin({
 }, 'sticky');
 
 UIkit.getComponents(element) // get all the components on the element
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // components
 
 // offcanvas

@@ -15,7 +15,7 @@ localStorage.clear();
 Object.keys(localStorage)
 localStorage.foo = 'hello';
 localStorage.foo // 'hello'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* sessionStorage
 	data stored in sessionStorage gets cleared when the page session ends.
 	up to 10MB of data per origin can be stored.
@@ -32,7 +32,7 @@ sessionStorage.setItem('key', 'value')   // save data
 var data = sessionStorage.getItem('key') // get saved data
 sessionStorage.removeItem('key')         // remove saved data
 sessionStorage.clear()                   // remove all saved data
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // storage event
 // fired only when a storage area (localStorage or sessionStorage) is changed from another tab/page
 
@@ -41,4 +41,4 @@ window.addEventListener('storage', function (e) {
 });
 
 sessionStorage.setItem('owner', 'mohammad') // won't work if on the same tab/page
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

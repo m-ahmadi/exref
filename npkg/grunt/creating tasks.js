@@ -7,7 +7,7 @@
 	but a task named "default" has been defined,
 	that task will run (unsurprisingly) by default.
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*															Alias Tasks
 	If a task list is specified,
 	the new task will be an alias for one or more other tasks.
@@ -30,7 +30,7 @@ grunt.registerTask( 'default', ['jshint', 'qunit', 'concat', 'uglify'] );
 	each with a "dist" argument:
 */
 grunt.registerTask( 'dist', ['concat:dist', 'uglify:dist'] );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*															Multi Tasks
 	When a multi task is run, Grunt looks for a property of the same name in the Grunt configuration.
 	Multi-tasks can have multiple configurations, defined using arbitrarily named "targets."
@@ -72,7 +72,7 @@ grunt.registerMultiTask('log', 'Log stuff.', function () {
 		bar: hello world
 		baz: false
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*															"Basic" Tasks
 	When a basic task is run,
 	Grunt doesn't look at the configuration or environment,
@@ -94,7 +94,7 @@ grunt.registerTask('foo', 'A sample task that logs stuff.', function (arg1, arg2
 	grunt foo:testing:123    ->    testing 123
 	grunt foo                ->    foo, no args
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*															Custom Tasks
 	You can go crazy with tasks.
 	If your tasks don't follow the "multi task" structure, use a custom task.

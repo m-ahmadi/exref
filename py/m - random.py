@@ -35,7 +35,7 @@ random.vonmisesvariate(mu, kappa)
 random.paretovariate(alpha)
 random.weibullvariate(alpha, beta)
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
 a = [1,2,3]

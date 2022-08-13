@@ -5,7 +5,7 @@ corolla.drive(); // "Vroom, I have 4 doors"
 solstice.drive(); // "Vroom, I have 2 doors"
 cherokee.drive(); // "Vroom, I have 17 doors"var name = 'John Doe';
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function CarMaker() {}
 
 CarMaker.prototype.drive = function () {
@@ -42,7 +42,7 @@ CarMaker.SUV = function () {
 	this.doors = 24;
 };
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 var o = new Object(),
 n = new Object(1),

@@ -8,7 +8,7 @@ for rtl run `rtlcss out.css out-rtl.css`
 @import "uikit/src/scss/variables-theme.scss";
 @import "uikit/src/scss/mixins-theme.scss";
 @import "uikit/src/scss/uikit-theme.scss";
- //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // light modifications
 
 // using core theme
@@ -24,7 +24,7 @@ $global-link-color: yellow;                        // variables
 @import "uikit/src/scss/mixins-theme.scss";
 @mixin hook-card() { background: green; }          // customizing hook mixins
 @import "uikit/src/scss/uikit-theme.scss";         // entry
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // heavy modifications
 
 // using core theme
@@ -44,4 +44,4 @@ $global-link-color: yellow;                        // variables
 @import "site-theme/accordion-mixins.scss";
 @import "site-theme/alert-mixins.scss";
 @import "uikit/src/scss/uikit-theme.scss";
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

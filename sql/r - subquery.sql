@@ -22,7 +22,7 @@ SELECT lastname, firstname, state
 FROM author
 WHERE state IN (SELECT DISTINCT state FROM publisher)
 ORDER BY 1, 2, 3;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- generated values by a sql statement must match the kind of value being compared to the left of the IN operator.
 -- this would be a mistake:
 SELECT lastname, firstname, state
@@ -31,7 +31,7 @@ WHERE city IN
 	(SELECT DISTINCT state FROM publisher)
 ORDER BY 1, 2, 3;
 -- why: comparing the city column to a generated list of states
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 --  you must compare one column to a list of values generated from one column.
 -- this would be a mistake:
 SELECT lastname, firstname, state
@@ -40,7 +40,7 @@ WHERE city IN
 	(SELECT city, state FROM publisher)
 ORDER BY 1, 2, 3;
 -- why: you can't compare a city to a city and a state (you can't do SELECT * as well)
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- another example:
 SELECT lastname, firstname, 'wrote more than one book'
 FROM author
@@ -50,7 +50,7 @@ WHERE author_id IN
 	 GROUP BY author_id
 	 HAVING count(*) > 1)
 ORDER BY 1, 2;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- with a subquery you can get results from a table using information from that same table
 -- see all the books that have the same price as books that begin with 'How'
 SELECT title, price
@@ -60,7 +60,7 @@ WHERE price IN
 	 FROM book
 	 WHERE title LIKE 'How%')
 ORDER BY 1, 2;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- which authors sell books that cost 12.99:
 SELECT lastname, firstname, 'sell books at 12.99'
 FROM author
@@ -68,7 +68,7 @@ WHERE author_id IN
   (SELECT author_id FROM bookauthor WHERE isbn IN
      (SELECT isbn FROM book WHERE price = 12.99))
 ORDER BY 1, 2;
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*	Subqueries with a Comparison Operator
 	when you use a comparison operator, instead of an IN, the inner query MUST return exactly one single value. (i.e. one row, one cell),
 	otherwise it's an error condition

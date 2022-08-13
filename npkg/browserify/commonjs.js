@@ -5,7 +5,7 @@ var $ = require('./jquery');	  // relative file  (without extension)
 var $ = require('./jquery.js'); // relative file  (with    extension)
 var $ = require('jquery.js');   // module lookup? (without extension)
 var $ = require('jquery');      // module lookup? (with    extension)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // require relative files
 
 // current directory
@@ -19,7 +19,7 @@ console.log( foo(4) );
 // with or without the file extention
 var foo = require('./foo.js');
 var foo = require('./foo');
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // export a single value from a file
 
 // foo.js file:
@@ -44,4 +44,4 @@ module.exports = function (n) { return n * 1000 }
 // another file:
 var foo = require('./foo.js');
 console.log( foo(5) );
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

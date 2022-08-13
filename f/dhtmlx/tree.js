@@ -16,7 +16,7 @@ var tree = new dhx.Tree("tree_container");
 // either:
 tree.data.parse(data);            // local source (a js object containing data)
 tree.data.load("./dataset.json"); // external file
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // reference:
 var tree = new dhx.Tree("tree_container", {
 	autoload: true            // defines that the structure of a tree is being built while opening items
@@ -34,7 +34,7 @@ var tree = new dhx.Tree("tree_container", {
 		file: "fas fa-file"
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // data structure
 // nodes must have unique ids, if not weird things will happen:
 // nodes with similar ids will not open on the tree.
@@ -49,7 +49,7 @@ var node = {
 	items: [] // array. an array of nested items
 };
 var data = [ node ];
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // sample data
 var data = [
 	{

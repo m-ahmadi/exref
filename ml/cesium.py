@@ -22,7 +22,7 @@ fset_cesium = featurize_time_series(
 	scheduler=None
 )
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # windows install
 
 # 1. download "mingw" from https://winlibs.com/#download-release
@@ -38,4 +38,4 @@ compiler=mingw32
 compiler=mingw32
 '''
 # pip install cesium
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

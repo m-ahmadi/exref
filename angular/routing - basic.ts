@@ -3,7 +3,7 @@ import { NgModule, Component } from '@angular/core';
 @Component({selector: 'notfound', template: '<h2>Page not found</h2>'}) class PageNotFoundComponent {}
 @Component({selector: 'foo', template: '<router-outlet>I\'m foo</router-outlet>'}) class FooComponent {}
 @Component({selector: 'bar', template: '<router-outlet>Hello bar</router-outlet>'}) class BarComponent {}
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // routing module
 import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
 	{ path: '**', component: PageNotFoundComponent },
 ];
 @NgModule({ imports: [RouterModule.forRoot(routes)], exports: [RouterModule] }) class AppRoutingModule { }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 import { BrowserModule } from '@angular/platform-browser';
 
 @Component({selector:'app-root', styles: ['.active{background:orange;} .b{background:red;}'], template: `

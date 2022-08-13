@@ -4,7 +4,7 @@ import { Input } from '@angular/core';
 @Input(
 	bindingPropertyName?: string // specify name of the dom prop (otherwise same name as class prop)
 )
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // example
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component, Input } from '@angular/core';
@@ -24,4 +24,4 @@ class AppComponent {}
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -20,7 +20,7 @@
 +--------+----------------+-----------------+
 | GOOG   | 0.1            | Google          |
 +--------+----------------+-----------------+  */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // config
 // request:  GET /config
 // response: json response with the same structure of js api setup call, (config passed to japi.onReady() callback)
@@ -37,7 +37,7 @@ supports_group_request: true // true: data feed provides full information only f
 	supports_search: false,
 	supports_timescale_marks: false
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* symbol group
 request:
 	GET /symbol_info?group=<group_name>
@@ -76,7 +76,7 @@ if your symbol list has more than a few items, consider using symbol search or i
 	"volume_precision": 0,
 	"force-session-rebuild": false
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* symbol resolve
 request: GET /symbols?symbol=<symbol>
 	symbol: string. symbol name or ticker.
@@ -89,7 +89,7 @@ response:
 this call is requested if your data feed set the following in the configuration request:  */
 supports_group_request: false
 supports_search: true 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* symbol search
 request: GET /search?query=<query>&type=<type>&exchange=<exchange>&limit=<limit>
 	query:    string.   text typed by the user in the symbol search input
@@ -104,7 +104,7 @@ response:
 this call is requested if your data feed set the following in the configuration request:  */
 upports_group_request: false
 supports_search: true
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* bars
 request: GET /history?symbol=<ticker_name>&from=<unix_timestamp>&to=<unix_timestamp>&resolution=<resolution>
 	symbol:      symbol name or ticker.
@@ -164,7 +164,7 @@ library expects the following response from the data feed:
   nextTime: 1428001140000 // 2 Apr 2015 18:59:00 GMT+0
 }
 // nextTime is the time of the closest available bar in the past.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* marks
 request: GET /marks?symbol=<ticker_name>&from=<unix_timestamp>&to=<unix_timestamp>&resolution=<resolution>
 	symbol:        symbol name or ticker.
@@ -186,7 +186,7 @@ response:
 }
 // this call is requested if your data feed set the following in the configuration request:  
 supports_marks: true
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* timescale marks
 request: GET /timescale_marks?symbol=<ticker_name>&from=<unix_timestamp>&to=<unix_timestamp>&resolution=<resolution>
 	symbol:        symbol name or ticker.
@@ -204,14 +204,14 @@ response:
 
 this call is requested if your data feed set the following in the configuration request:  */
 supports_timescale_marks: true
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* server time
 request: GET /time
 response:
 	numeric unix time without milliseconds.
 	example:  */
 1445324591
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* quotes
 request: GET /quotes?symbols=<ticker_name_1>,<ticker_name_2>,...,<ticker_name_n>
 
@@ -225,7 +225,7 @@ response:
 	"errmsg": "", // error message. should be present only when s = 'error'
 	"d": [{}, {}] // symbols data Array
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // constructor
 new Datafeeds.UDFCompatibleDatafeed(datafeedURL, updateFrequency)
 datafeedURL     // url of the server which receives requests and returns data.
@@ -235,4 +235,4 @@ updateFrequency // frequency of requests that the data feed will send to the ser
 const widget = new TradingView.widget({
 	datafeed: new Datafeeds.UDFCompatibleDatafeed('https://demo_feed.tradingview.com', 10000)
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

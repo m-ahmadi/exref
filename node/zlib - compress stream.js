@@ -2,7 +2,7 @@ const zlib = require('zlib');
 const fs = require('fs');
 const stream = require('stream');
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pipe readStream -> gzipStream -> writeStream
 const gzip  = zlib.createGzip();
 const read  = fs.createReadStream('input.txt');
@@ -20,7 +20,7 @@ stream.pipeline(read, gzip, write, (err) => {
 		process.exitCode = 1;
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // pipe readStream -> gunzipStream -> manual handle
 const read  = fs.createReadStream('input.txt.gz');
 const gunzip  = zlib.createGunzip();
@@ -41,4 +41,4 @@ read.pipe(gunzip);
 stream.pipeline(read, gunzip, (err, val) => {
 	if (!err) console.error('done');
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

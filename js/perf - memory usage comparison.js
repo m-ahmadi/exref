@@ -4,7 +4,7 @@ let b = 'abcdefghijklmnopqu'.repeat(1e7);
 let c = 'abcdefghijklmnopqu'.repeat(1e7);
 let d = 'abcdefghijklmnopqu'.repeat(1e7); // still 22K
 
-//-----------------------------------------------
+//------------------------------------------------
 // 400 MB (1e8 == 3.4 GB)
 let x = '';
 for (let i=0; i<1e7; i++) {

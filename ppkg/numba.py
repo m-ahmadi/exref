@@ -21,7 +21,7 @@ import numba # pip install numba
 
 numba.typed.List
 # https://numba.readthedocs.io/en/stable/reference/pysupported.html#typed-list
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 from numba import jit, njit
 

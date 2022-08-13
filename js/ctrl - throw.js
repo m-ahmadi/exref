@@ -10,7 +10,7 @@ new TypeError()      // represents an error when a value is not of the expected 
 new URIError()       // represents an error when a global URI handling function was used in a wrong way
 
 // statements after throw won't execute and control is passed to first catch block if any otherwise program terminates
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 // simple values (no trace captured about where error happened)

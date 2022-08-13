@@ -56,7 +56,7 @@ var data = d3.csvParseRows(string, function(d, i) {
     length: +d[3] // convert fourth column to number
   };
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // fetching the data with an ajax call
 
 d3.csv(input[, init][, row])

@@ -5,7 +5,7 @@ prettier dir/**/*js --write	glob
 prettier --config ../		different config path
 
 prettier --single-quote --trailing-comma es5 --write "{app,__{tests,mocks}__}/**/*.js"
-============================================================================================================
+================================================================================
 options
 
 Usage: prettier [options] [file/glob ...]
@@ -27,13 +27,13 @@ Stdin is read if it is piped to Prettier and no files are given.
 	* inferredParser (string | null) - name of parser inferred from file path
 --loglevel <silent|error|warn|log|debug>
 	What level of logs to report. Defaults to log.
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 output
 
 -c, --check			Check if the given files are formatted, print a human-friendly summary message and paths to unformatted files (see also --list-different).
 -l, --list-different		Print the names of files that are different from Prettier's formatting (see also --check).
 --write				Edit files in-place. (Beware!)
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 config
 
 --config <path>			Path to a Prettier configuration file (.prettierrc, package.json, prettier.config.js).
@@ -52,7 +52,7 @@ config
 	Overrides default behavior when plugins are searched relatively to the location of Prettier.
 	Multiple values are accepted.
 	Defaults to [].
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 format
 
 --arrow-parens <avoid|always>				Include parentheses around a sole arrow function parameter. Defaults to avoid.
@@ -73,7 +73,7 @@ format
 
 --parser <flow|babel|babel-flow|typescript|css|less|scss|json|json5|json-stringify|graphql|markdown|mdx|vue|yaml|html|angular|lwc>
 	Which parser to use.
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 editor
 
 --cursor-offset <int>
@@ -92,4 +92,4 @@ editor
 	The range will extend backwards to the start of the first line containing the selected statement.
 	This option cannot be used with --cursor-offset.
 	Defaults to 0.
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

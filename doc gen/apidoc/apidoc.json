@@ -6,7 +6,7 @@
   "title": "Custom apiDoc browser title",
   "url" : "https://api.github.com/v1"
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // reference
 {
 	"name":        "Github APIs",               // name of your project. #
@@ -45,7 +45,7 @@
 	
 	// #: if not found in apidoc.json, parser looks in package.json for it as well.
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // config in package.json
 {
   "name": "example",

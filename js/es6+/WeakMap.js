@@ -9,7 +9,7 @@ WeakMap.prototype.delete(key)
 WeakMap.prototype.get(key)
 WeakMap.prototype.has(key)
 WeakMap.prototype.set(key, value)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 var wm = new WeakMap();

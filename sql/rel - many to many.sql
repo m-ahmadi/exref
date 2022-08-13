@@ -11,7 +11,7 @@ FROM book
 	JOIN author_book USING(book_id)
 	JOIN author      USING(author_id)
 WHERE first_name = 'Jordan' AND last_name = 'Winters';
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- example postgress
 CREATE TABLE book (
   book_id SERIAL PRIMARY KEY NOT NULL,
@@ -49,7 +49,7 @@ INSERT INTO author_book VALUES -- if constrained, this can't be before aboves
 	(445, 1145),
 	(446, 1146),
 	(447, 1147);
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 -- another example
 select * from eyes;
 select * from person;
@@ -85,4 +85,4 @@ INSERT INTO person VALUES
 	(3,'farhad',27,3),
 	(4,'mohsen',34,4),
 	(5,'tooraj',29,5);
---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

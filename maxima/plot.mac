@@ -5,7 +5,7 @@ plot2d([plot_1, ..., plot_n], x_range, ..., options, ...)
 
 plot3d(expr, x_range, y_range, ..., options, ...)
 plot3d([expr_1, ..., expr_n], x_range, y_range, ..., options, ...)
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 plot2d(x^2, [x,-4,4])

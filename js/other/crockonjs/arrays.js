@@ -15,11 +15,11 @@
 // so when you create an array, you're not setting a side a bucket of memory,
 // it's an object and it can grow dynamically as it needs to, so there' no need to dimension it,
 // that turns out to be really nice.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Arrays **/
 // Array inherits from 'object'.
 // Indexes are converted to strings and used as names for retrieving values.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** length **/
 // Arrays have a special "length" property (unlike objects).
 // It's an accessor property which changes.
@@ -36,7 +36,7 @@ for (i = 0; i < a.length; i++) {
 // Generally when you working with an array you want to do it in order.
 // If your program depends on "for in" producing keys in a particular sequence, your program is in error,
 // and it could break in some future version of the language.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Array Literals **/
 // An array literal uses [].
 // It can contain any number of expressions separated by commas.
@@ -46,7 +46,7 @@ array[array.length] = 'yellow'; // now length is 4
 // In some languages this would cause you an array bonds error, because we're adding something beyond the end of the array.
 // Arrays in this language don't have bonds, because they're not really arrays, they're objects, so that's not a problem.
 // The dot notation should not be used with arrays, you can use dot for getting array methods.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Array Methods **/
 concat
 every
@@ -69,7 +69,7 @@ toLocaleString
 toString
 unshift
 // You pass "forEach"/"map" function a function, and that function then will be called for each element of the array.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** sort method **/
 // "sort" method has some surprising behaviour:
 var n = [4, 8, 15, 16, 23, 42];
@@ -78,7 +78,7 @@ n.sort();
 // It evaluated each number as though they were strings.
 // Fortunately "sort" allows you to pass in your own comparison function,
 // which will get passed pairs of values and then you'd return the value based on which one you think should come first. 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /** Deleting Elements **/
 array = ['a', 'b', 'c', 'd']
 delete array[number]; 
@@ -88,10 +88,10 @@ array.splice(number, 1);
 // Removes the element and renumbers all the following elements
 // ['a', 'c', 'd']
 // "splice" goes through the array and rehash everything, so it's a slow process and it's not fast.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /**  Arrays v Objects **/
 // Arrays and Objects are almost the same in this language.
 // Use objects when the names are arbitrary strings.
 // Use arrays when the names are sequential integers.
 // Don't get confused by the term Associative Array, in this language object is the Associative Array.
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

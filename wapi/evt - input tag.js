@@ -13,7 +13,7 @@ el is :checked                                                    <input type=ra
 selecting dropdown item                                           <select>
 selecting date                                                    <input type=date>
 selecting file                                                    <input type=file>  */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 'focus'    // el receives focus
 'blur'     // el looses focus
 'focusin'  // same as 'focus' but bubbles
@@ -21,6 +21,6 @@ selecting file                                                    <input type=fi
 'cut'
 'copy'
 'paste'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // non-standard
 'search' // when x is clicked in <input type="search" />

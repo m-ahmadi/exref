@@ -28,7 +28,7 @@ exports.js = js;
 exports.css = css;
 exports.html = html;
 exports.default = parallel(html, css, js);
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // old
 var gulp = require('gulp');
 var pug = require('gulp-pug');

@@ -25,7 +25,7 @@ async function moveDir(oldPath, newPath) {
 
 moveDir('dir1', 'dir2')
 moveDir('dir1', 'E:\dir2')
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // recursive
 async function moveDir(oldPath, newPath) {
 	await access(newPath).catch(async err => {
@@ -73,4 +73,4 @@ function moveDirSync(src, dest) {
 	}
 	fs.rmdirSync(src);
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

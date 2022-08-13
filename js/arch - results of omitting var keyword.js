@@ -7,7 +7,7 @@
 	b = 2; // GLOBAL
 }());
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //													implicit vs explicit globals
 /*
 	Globals created with var (those created in the program outside of any function) cannot be deleted.

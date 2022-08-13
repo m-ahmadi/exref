@@ -6,7 +6,7 @@ notes:
 	router in webpack is slightly different than vue-router in browser
 	RouteConfig.component === Vue.components.component
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // src/router/index.js
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -37,7 +37,7 @@ const router = new VueRouter({
 });
 
 export default router;
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // src/main.js
 import Vue from 'vue';
 import App from './App.vue';

@@ -4,7 +4,7 @@ let file = fs.createWriteStream('file.jpg');
 let request = http.get('url', response => {
 	response.pipe(file);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const http = require('http');
 const fs = require('fs');
 let download = (url, dest, cb) => {

@@ -55,7 +55,7 @@ str.small()          // <small>
 str.strike()         // <strike>
 str.sub()            // <sub>
 str.sup()            // <sup>
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // immutable (all methods return a new string)
 var s = 'abcd';
 s[0] = 'x'; // won't throw, but string won't change

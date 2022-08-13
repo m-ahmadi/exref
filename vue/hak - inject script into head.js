@@ -23,7 +23,7 @@ export default {
 		});
 	},
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // sol 2: async lifecycle hook (must be guarded manually)
 async function addHeadScript() {
 	return new Promise((resolve, reject) => {

@@ -28,7 +28,7 @@ glob('**/*.js', options, function (err, files) {
 	// if the `nonull` option is set, and nothing was found, then files is ['**/*.js'] 
 	// err is an error object or null. 
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /* reference
 *                           0 or more characters in a single path portion
 ?                           1 character
@@ -60,4 +60,4 @@ glob('**/*.js', options, function (err, files) {
 '**/*.{js,json}'
 '**/*.+(js|json)'
 '**/*.@(js|json)'
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

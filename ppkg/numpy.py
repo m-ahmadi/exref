@@ -637,7 +637,7 @@ np.who
 np.WRAP
 np.zeros(shape=0|(0,..), ?dtype=np.float64, *, ?like='C|F')
 np.zeros_like
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 a = np.array() # `array` type is alies for `ndarray`
 

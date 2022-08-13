@@ -12,7 +12,7 @@ const observable = new rxjs.Observable(function (subscriber) {
 	subscriber.error();    // raise an error
 	subscriber.complete(); // notify of a successful completion.
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // another example:
 const observable = new rxjs.Observable();
 
@@ -44,7 +44,7 @@ just after subscribe
 got value 4
 done
 */
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // subscribe method
 observable.subscribe(next, error, complete);
 observable.subscribe(x => {}, err => {}, () => {});
@@ -53,4 +53,4 @@ observable.subscribe({
 	error(err) {},
 	complete() {}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

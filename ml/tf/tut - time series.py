@@ -21,7 +21,7 @@ import tensorflow as tf
 
 mpl.rcParams['figure.figsize'] = (8, 6)
 mpl.rcParams['axes.grid'] = False
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # The weather dataset
 # This tutorial uses a weather time series dataset (https://www.bgc-jena.mpg.de/wetter/)
 # recorded by the Max Planck Institute for Biogeochemistry (https://www.bgc-jena.mpg.de)
@@ -200,7 +200,7 @@ plt.figure(figsize=(12, 6))
 ax = sns.violinplot(x='Column', y='Normalized', data=df_std)
 _ = ax.set_xticklabels(df.keys(), rotation=90)
 plt.show()
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Data windowing
 
 # The models in this tutorial will make a set of predictions based on a window of consecutive samples from the data. 
@@ -431,7 +431,7 @@ w2.train.element_spec
 for example_inputs, example_labels in w2.train.take(1):
 	print(f'Inputs shape (batch, time, features): {example_inputs.shape}')
 	print(f'Labels shape (batch, time, features): {example_labels.shape}')
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Single step models
 
 # The simplest model you can build on this sort of data is one that predicts a single feature's value—1 time step (one hour) into the future based only on the current conditions.
@@ -874,7 +874,7 @@ plt.show()
 for name, value in performance.items():
 	print(f'{name:15s}: {value[1]:0.4f}')
 # The above performances are averaged across all model outputs.
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Multi-step models
 # 
 # Both the single-output and multiple-output models in the previous sections made "single time step predictions", one hour into the future.

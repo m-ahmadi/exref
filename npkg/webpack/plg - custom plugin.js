@@ -50,7 +50,7 @@ module.exports = {
 		new MyPlugin(),
 	]
 };
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // or using node api
 const webpack = require('webpack');
 const configuration = require('./webpack.config.js');

@@ -1,4 +1,4 @@
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	The Best.
 	Mine.
@@ -25,7 +25,7 @@ function zoom(x, y, isZoomIn) {
 $(document).on('mousewheel', function (e) {
 	zoom(e.pageX, e.pageY, e.deltaY > 0, e);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	(stole it from Erika Sorensen pixizam :D)
 	It does have zoom-on-cursor,
@@ -58,7 +58,7 @@ function zam( event ) {
 $(document).on('mousewheel', function (e) {
 	zoom(e);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	Better (stole it from ngraph :D)
 	The zooming itslef is much better than the first one,
@@ -108,7 +108,7 @@ var zoom = (function () {
 $(document).on('mousewheel', function (e) {
 	zoom(e.pageX, e.pageY, e.deltaY > 0);
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 /*
 	Very basic and crappy.
 	mousewheel event by `jquery.mousewheel.js` plugin.
@@ -128,4 +128,4 @@ $(document).on('mousewheel', function (e) {
 		stage.scale.set( stage.scale.y += 0.05  );
 	}
 });
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
