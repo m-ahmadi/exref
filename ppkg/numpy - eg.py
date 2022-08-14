@@ -94,6 +94,19 @@ np.where(a != None, a, b)     # [1, 2, 3, 9,    4, 5, 9,    6]
 np.where(a is None, a, b)     # [9, 9, 9, 9,    9, 9, 9,    9]  bad
 np.where(a is not None, a, b) # [1, 2, 3, None, 4, 5, None, 6]  bad
 
+# some & every
+np.any([False, False, True])  # True
+np.any([False, False, False]) # False
+np.all([True, True, True])    # True
+np.all([True, True, False])   # False
+
+a = np.array([1,2,3,4])
+b = np.array([1,2,3,4])
+c = np.array([1,2,3,5])
+np.all(a == b) # True
+np.all(a == c) # False
+np.any(a == c) # True
+
 # filter
 a = np.arange(10)
 a[a%2==0] # [0,2,4,6,8]
@@ -120,6 +133,10 @@ a.reshape(-1)  # ...
 a = np.array([ [1,2], [3,4] ])
 np.transpose(a) # [ [1,3], [2,4] ]
 a.T             # ...
+
+# translate
+np.c_[[1,2,3], [4,5,6]]  # [ [1,4], [2,5], [3,6] ]
+np.r_[[1,2], [3,4], 5,6] # [1,2,3,4,5,6]
 
 # infer shape (from array length and remaining dimensions)
 np.arange(20).reshape((4,5))
