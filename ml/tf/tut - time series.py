@@ -53,7 +53,7 @@ plot_features.index = date_time[:480]
 _ = plot_features.plot(subplots=True)
 
 plt.show()
-#================================================
+#=================================================
 # Inspect and cleanup
 
 # Next, look at the statistics of the dataset:
@@ -73,7 +73,7 @@ max_wv[bad_max_wv] = 0.0
 
 # The above inplace edits are reflected in the DataFrame.
 df['wv (m/s)'].min()
-#================================================
+#=================================================
 # Feature engineering
 
 # Before diving in to build a model, it's important to understand your data and be sure that you're passing the model appropriately formatted data.
@@ -159,7 +159,7 @@ plt.xlim([0.1, max(plt.xlim())])
 plt.xticks([1, 365.2524], labels=['1/Year', '1/day'])
 _ = plt.xlabel('Frequency (log scale)')
 plt.show()
-#================================================
+#=================================================
 # Split the data
 
 # You'll use a `(70%, 20%, 10%)` split for the training, validation, and test sets.
@@ -175,7 +175,7 @@ test_df = df[int(n*0.9):]
 
 num_features = df.shape[1]
 
-#================================================
+#=================================================
 # Normalize the data
 # It is important to scale features before training a neural network.
 # Normalization is a common way of doing this scaling:
@@ -224,7 +224,7 @@ plt.show()
 # 	1. Split windows of features into `(features, labels)` pairs.
 # 	2. Plot the content of the resulting windows.
 # 	3. Efficiently generate batches of these windows from the training, evaluation, and test data, using `tf.data.Dataset`s.
-#================================================
+#=================================================
 # 1. Indexes and offsets
 
 # Start by creating the `WindowGenerator` class.
@@ -273,7 +273,7 @@ print(w1)
 
 w2 = WindowGenerator(input_width=6, label_width=1, shift=1, label_columns=['T (degC)'])
 print(w2)
-#================================================
+#=================================================
 # 2. Split
 
 # Given a list of consecutive inputs, the `split_window` method will convert them to a window of inputs and a window of labels.
@@ -322,7 +322,7 @@ print(f'Labels shape: {example_labels.shape}')
 # It splits them into a batch of 6-time step 19-feature inputs, and a 1-time step 1-feature label.
 # The label only has one feature because the `WindowGenerator` was initialized with `label_columns=['T (degC)']`.
 # Initially, this tutorial will build models that predict single output labels.
-#================================================
+#=================================================
 # 3. Plot
 # Here is a plot method that allows a simple visualization of the split window:
 w2.example = example_inputs, example_labels
@@ -368,7 +368,7 @@ plt.show()
 # You can plot the other columns, but the example window `w2` configuration only has labels for the `T (degC)` column.
 w2.plot(plot_col='p (mbar)')
 plt.show()
-#================================================
+#=================================================
 # 4. Create `tf.data.Dataset`s
 
 # Finally, this `make_dataset` method will take a time series DataFrame and convert it to a `tf.data.Dataset` of
@@ -447,7 +447,7 @@ for example_inputs, example_labels in single_step_window.train.take(1):
 	print(f'Inputs shape (batch, time, features): {example_inputs.shape}')
 	print(f'Labels shape (batch, time, features): {example_labels.shape}')
 
-#================================================
+#=================================================
 # Baseline
 # 
 # Before building a trainable model it would be good to have a performance baseline as a point for comparison with the later more complicated models.
@@ -511,7 +511,7 @@ plt.show()
 # 	The orange `Predictions` crosses
 # 		are the model's prediction's for each output time step.
 # 		If the model were predicting perfectly the predictions would land directly on the `Labels`.
-#================================================
+#=================================================
 # Linear model
 # The simplest trainable model you can apply to this task is to insert linear transformation between the input and output.
 # In this case the output from a time step only depends on that step:
@@ -570,7 +570,7 @@ plt.show()
 
 # Sometimes the model doesn't even place the most weight on the input `T (degC)`.
 # This is one of the risks of random initialization. 
-#================================================
+#=================================================
 # Dense
 # Before applying models that actually operate on multiple time-steps,
 # it's worth checking the performance of deeper, more powerful, single input step models.
@@ -585,7 +585,7 @@ history = compile_and_fit(dense, single_step_window)
 
 val_performance['Dense'] = dense.evaluate(single_step_window.val)
 performance['Dense'] = dense.evaluate(single_step_window.test, verbose=0)
-#================================================
+#=================================================
 # Multi-step dense
 # A single-time-step model has no context for the current values of its inputs.
 # It can't see how the input features are changing over time.
@@ -635,7 +635,7 @@ except Exception as e:
 	print(f'\n{type(e).__name__}:{e}')
 
 # The convolutional models in the next section fix this problem.
-#================================================
+#=================================================
 # Convolution neural network 
 # A convolution layer (`tf.keras.layers.Conv1D`) also takes multiple time steps as input to each prediction.
 # Below is the same model as `multi_step_dense`, re-written with a convolution. 
@@ -686,7 +686,7 @@ print('Output shape:', conv_model(wide_conv_window.example[0]).shape)
 # Every prediction here is based on the 3 preceding time steps:
 wide_conv_window.plot(conv_model)
 plt.show()
-#================================================
+#=================================================
 # Recurrent neural network
 # A Recurrent Neural Network (RNN) is a type of neural network well-suited to time series data.
 # RNNs process a time series step-by-step, maintaining an internal state from time-step to time-step.
@@ -724,7 +724,7 @@ performance['LSTM'] = lstm_model.evaluate(wide_window.test, verbose=0)
 
 wide_window.plot(lstm_model)
 plt.show()
-#================================================
+#=================================================
 # Performance
 
 # With this dataset typically each of the models does slightly better than the one before it:
@@ -745,7 +745,7 @@ plt.show()
 for name, value in performance.items():
 	print(f'{name:12s}: {value[1]:0.4f}')
 
-#================================================
+#=================================================
 # Multi-output models
 # The models so far all predicted a single output feature, `T (degC)`, for a single time step.
 # All of these models can be converted to predict multiple features just by changing the
@@ -895,7 +895,7 @@ multi_window = WindowGenerator(input_width=24, label_width=OUT_STEPS, shift=OUT_
 multi_window.plot()
 print(multi_window)
 plt.show()
-#================================================
+#=================================================
 # Baselines
 # A simple baseline for this task is to repeat the last input time step for the required number of output time steps:
 # 	![Repeat the last input, for each output step](images/multistep_last.png)
@@ -927,7 +927,7 @@ multi_val_performance['Repeat'] = repeat_baseline.evaluate(multi_window.val)
 multi_performance['Repeat'] = repeat_baseline.evaluate(multi_window.test, verbose=0)
 multi_window.plot(repeat_baseline)
 plt.show()
-#================================================
+#=================================================
 # Single-shot models
 # One high-level approach to this problem is to use a "single-shot" model,
 #  where the model makes the entire sequence prediction in a single step.
@@ -1024,7 +1024,7 @@ multi_val_performance['LSTM'] = multi_lstm_model.evaluate(multi_window.val)
 multi_performance['LSTM'] = multi_lstm_model.evaluate(multi_window.test, verbose=0)
 multi_window.plot(multi_lstm_model)
 plt.show()
-#================================================
+#=================================================
 # Advanced: Autoregressive model
 # The above models all predict the entire output sequence in a single step.
 # In some cases it may be helpful for the model to decompose this prediction into individual time steps.
@@ -1118,7 +1118,7 @@ multi_val_performance['AR LSTM'] = feedback_model.evaluate(multi_window.val)
 multi_performance['AR LSTM'] = feedback_model.evaluate(multi_window.test, verbose=0)
 multi_window.plot(feedback_model)
 plt.show()
-#================================================
+#=================================================
 # Performance
 # There are clearly diminishing returns as a function of model complexity on this problem:
 x = np.arange(len(multi_performance))

@@ -54,7 +54,7 @@ print('Saved baseline model to:', keras_file)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # fine-tune pre-trained model with pruning
 
-#================================================
+#=================================================
 # define the model
 
 # you will apply pruning to the whole model and see this in the model summary.
@@ -88,7 +88,7 @@ model_for_pruning.compile(optimizer='adam',
 							metrics=['accuracy'])
 
 model_for_pruning.summary()
-#================================================
+#=================================================
 # train and evaluate the model against baseline
 
 # fine tune with pruning for two epochs.
