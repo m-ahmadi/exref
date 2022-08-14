@@ -196,7 +196,7 @@ output = lstm_layer(paragraph3)
 # If no initial_state was provided, zero-states will be used by default.
 lstm_layer.reset_states()
 
-#================================================
+#=================================================
 '''RNN State Reuse
 The recorded states of the RNN layer are not included in the `layer.weights()`. If you
 would like to reuse the state from a RNN layer, you can retrieve the states value by
@@ -275,7 +275,7 @@ For the detailed list of constraints, please see the documentation for the
 [LSTM](https://www.tensorflow.org/api_docs/python/tf/keras/layers/LSTM/) and
 [GRU](https://www.tensorflow.org/api_docs/python/tf/keras/layers/GRU/) layers.'''
 
-#================================================
+#=================================================
 '''Using CuDNN kernels when available
 Let's build a simple LSTM model to demonstrate the performance difference.
 We'll use as input sequences the sequence of rows of MNIST digits (treating each row of
@@ -379,7 +379,7 @@ representation could be:
 
 The following code provides an example of how to build a custom RNN cell that accepts
 such structured inputs.'''
-#================================================
+#=================================================
 # Define a custom cell that supports nested input/output
 
 # See [Making new Layers & Models via subclassing](https://www.tensorflow.org/guide/keras/custom_layers_and_models/)
@@ -427,7 +427,7 @@ class NestedCell(keras.layers.Layer):
 	def get_config(self):
 		return {'unit_1': self.unit_1, 'unit_2': unit_2, 'unit_3': self.unit_3}
 
-#================================================
+#=================================================
 # Build a RNN model with nested input/output
 
 # Let's build a Keras model that uses a `keras.layers.RNN` layer and the custom cell
@@ -455,7 +455,7 @@ model = keras.models.Model([input_1, input_2], outputs)
 
 model.compile(optimizer='adam', loss='mse', metrics=['accuracy'])
 
-#================================================
+#=================================================
 # Train the model with randomly generated data
 
 # Since there isn't a good candidate dataset for this model, we use random Numpy data for

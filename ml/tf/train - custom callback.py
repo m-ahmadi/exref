@@ -9,13 +9,13 @@ model = keras.Sequential([
 model.compile(optimizer=keras.optimizers.SGD(0.6), loss='mean_squared_error')
 
 # stop training if loss <= N
-#================================================
+#=================================================
 # basic
 class MyCallback(Callback):
 	def on_epoch_end(self, epoch, logs={}):
 		if logs.get('loss') <= 0.005:
 			self.model.stop_training = True
-#================================================
+#=================================================
 # plus restore best weights
 class EarlyStoppingByLoss(keras.callbacks.Callback):
 	def on_train_begin(self, logs=None):
@@ -32,7 +32,7 @@ class EarlyStoppingByLoss(keras.callbacks.Callback):
 	def on_train_end(self, logs={}):
 		if logs.get('loss') > self.best:
 			self.model.set_weights(self.best_weights)
-#================================================
+#=================================================
 # another
 class MyCallback(Callback):
 	def __init__(self, monitor='loss', value=0.005):
@@ -46,7 +46,7 @@ class MyCallback(Callback):
 			return
 		if current <= self.value:
 			self.model.stop_training = True
-#================================================
+#=================================================
 
 history = model.fit([ [0,0], [0,1], [1,0], [1,1] ], [0,1,1,0], batch_size=1, epochs=20000, callbacks=[MyCallback()], verbose=1)
 
