@@ -194,4 +194,26 @@ y = [  0,       0,       1,        1,          2,         2       ]
 clf = OneVsRestClassifier(SVC())
 clf.fit(x, y)
 clf.predict([ [-19,-20], [9,9], [-5,5] ]) # [2, 0, 1]
+
+'''
+OneVsRest converts multiclass clf into multiple binary clfs for each class
+
+example:
+
+label: good|bad|ugly (3 classes)
+
+3 binary clfs:
+	clf1 = good vs [bad,ugly]   (good | !good)
+	clf2 = bad  vs [good,ugly]  (bad  | !bad)
+	clf3 = ugly vs [good,bad]   (ugly | !ugly)
+
+3 binary clf metrics
+	metrics = [ clf.precision|recall for clf in [clf1, clf2, clf3] ]
+	metrics = [clf1, clf2, clf3].map(clf => clf.precision|recall)
+
+average of 3 binary metrics
+	macro:      mean of metrics per class (good for balanced data)
+	weighted:   mean of metrics per class weighted by number of samples in that class (good for imbalanced data)
+	micro:      same as accuracy:  sum(matrix.diagonal_cells) / sum(matrix.cells)
+'''
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
