@@ -90,9 +90,8 @@ weights = compute_class_weight('balanced', classes=np.unique(y_train), y=y_org)
 # metrics
 
 #————————————————————————————————————————————————
-# roc_curve
+from sklearn.metrics import roc_curve
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html
-from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as plt
 
 # perfect classifier
@@ -108,7 +107,7 @@ fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [0,1,1,1, 0,0,0,0])
 plt.plot(fpr, tpr)
 plt.show()
 #————————————————————————————————————————————————
-# auc
+from sklearn.metrics import auc
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html
 
 fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,1])
@@ -116,6 +115,22 @@ auc(fpr, tpr) # 0.875
 
 fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [0,0,1,1, 0,0,0,0])
 auc(fpr, tpr) # 0.75
+#————————————————————————————————————————————————
+from sklearn.metrics import roc_auc_score
+# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html
+
+roc_auc_score([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,1]) # 0.875
+roc_auc_score([1,1,1,1, 0,0,0,0], [0,0,1,1, 0,0,0,0]) # 0.75
+#————————————————————————————————————————————————
+from sklearn.metrics import classification_report
+# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.classification_report.html
+
+y_true = [0, 1, 2, 2, 0]
+y_pred = [0, 0, 2, 1, 0]
+target_names = ['class 0', 'class 1', 'class 2']
+print(classification_report(y_true, y_pred, target_names=target_names))
+
+print(classification_report([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,1]))
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # decision tree classifier
 # https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html

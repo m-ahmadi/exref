@@ -46,14 +46,14 @@ np.add_docstring
 np.add_newdoc
 np.add_newdoc_ufunc
 np.alen
-np.all
+np.all(a=∂, axis=None, out=None|<ndarray>, keepdims=bool, *, where=∂<bool>)
 np.allclose(a=∂, b=∂, rtol=1e-05, atol=1e-08, equal_nan=False)
 np.ALLOW_THREADS
 np.alltrue
 np.amax()
 np.amin()
 np.angle
-np.any
+np.any(a=∂, axis=None, out=None|<ndarray>, keepdims=bool, *, where=∂<bool>)
 np.append(arr=∂, values=∂, ?axis=None|0)
 np.apply_along_axis
 np.apply_over_axes
