@@ -189,11 +189,11 @@ import numpy as np
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.svm import SVC
 
-x = [ [10,10], [8,10], [-5,5.5], [-5.4,5.5], [-20,-20], [-15,-20] ]
-y = [  0,       0,       1,        1,          2,         2       ]
+x = [ [0,0], [0,0], [1,1], [1,1],   [0,1], [0,1] ] 
+y = [  1,     1,     2,     2,       3,     3    ]
 clf = OneVsRestClassifier(SVC())
 clf.fit(x, y)
-clf.predict([ [-19,-20], [9,9], [-5,5] ]) # [2, 0, 1]
+clf.predict(x) # [1,1,2,2,3,3]
 
 '''
 OneVsRest converts multiclass clf into multiple binary clfs for each class
@@ -216,4 +216,12 @@ average of 3 binary metrics
 	weighted:   mean of metrics per class weighted by number of samples in that class (good for imbalanced data)
 	micro:      same as accuracy:  sum(matrix.diagonal_cells) / sum(matrix.cells)
 '''
+
+# SVC handles multiclass internally using a one-vs-one scheme
+# otherwise this would be an error since svm only handles binary classification
+x = [ [0,0], [0,0], [1,1], [1,1],   [0,1], [0,1] ] 
+y = [  1,     1,     2,     2,       3,     3    ]
+clf = SVC()
+clf.fit(x, y)
+clf.predict(x) # [1,1,2,2,3,3]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
