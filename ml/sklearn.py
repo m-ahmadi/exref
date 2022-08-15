@@ -224,4 +224,17 @@ y = [  1,     1,     2,     2,       3,     3    ]
 clf = SVC()
 clf.fit(x, y)
 clf.predict(x) # [1,1,2,2,3,3]
+
+# how to evaluate
+y_test # [ [0,1,2], [0,1,2], ... ]
+y_pred = fit.predict_proba(x_test)
+fpr, tpr, roc_auc = {}, {}, {}
+for clas in [0,1,2]:
+	clas_y_true = y_test[:, clas]
+	clas_y_pred = y_pred[:, clas]
+	clas_fpr, class_tpr, _ = roc_curve(clas_y_true, clas_y_pred)
+	clas_auc = auc(clas_fpr, clas_tpr)
+	fpr[clas]     = clas_fpr
+	tpr[clas]     = clas_tpr
+	roc_auc[clas] = clas_auc
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
