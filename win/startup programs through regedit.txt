@@ -5,7 +5,7 @@ HKLM\Software\Microsoft\Windows\CurrentVersion\Run
 New
 String Value:
 "file.exe"
-------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 for "All Users"
 
 for 32-bit and 64-bit Windows 7:
@@ -19,4 +19,4 @@ for 32-bit and 64-bit Windows 7:
 
 for 64-bit Windows 7 only:
 	HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run
-------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

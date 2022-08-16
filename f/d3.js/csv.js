@@ -36,7 +36,7 @@ var data = d3.csvParse(string, function(d) {
 		length: +d.Length // lowercase and convert 'Length' to number
   };
 });
-//--------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 d3.csvParseRows(string[, row])
 /*
 string: csv string (delimiter-separated values format)

@@ -3,7 +3,7 @@ PC3-100600 vs PC3-10600S, what is that S for?
 S stands for SODIMM, meaning the RAM is for laptop.
 (hwinfo: Memory Type: DDR3 SDRAM)
 
-------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 1Rx8 vs 2Rx8
 
 1Rx8:	single-rank module.

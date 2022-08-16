@@ -37,14 +37,14 @@ watch: {
 			event: ['added', 'deleted'],
 		}
 	},
-	//-----------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------------
 	configFiles: {
 		files: [ 'Gruntfile.js', 'config/*.js' ],
 		options: {
 			reload: true
 		}
 	},
-	//-----------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------------
 	options: {
 		options: {
 			livereload: true,
@@ -60,7 +60,7 @@ watch: {
 		//	event: 'a/path'
 		}
 	},
-	//-----------------------------------------------------------------------------------------------------
+	//----------------------------------------------------------------------------
 	css: {
 		files: '**/*.sass',
 		tasks: ['sass'],
@@ -84,7 +84,7 @@ watch: {
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //																Examples:
-/*------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Simple config to run jshint any time a file is added, changed or deleted
 */
 grunt.initConfig({
@@ -93,7 +93,7 @@ grunt.initConfig({
 		tasks: ['jshint'],
 	}
 });
-/*------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Advanced config. Run specific tasks when specific files are added, changed or deleted. 
 */
 grunt.initConfig({
@@ -112,7 +112,7 @@ grunt.initConfig({
 		}
 	}
 });
-/*------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Using the watch event
 */
 grunt.initConfig({
@@ -125,7 +125,7 @@ grunt.initConfig({
 grunt.event.on('watch', function (action, filepath, target) {
 	grunt.log.writeln(target + ': ' + filepath + ' has ' + action);
 });
-/*------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Compiling Files As Needed
 */
 grunt.initConfig({
@@ -161,7 +161,7 @@ grunt.event.on('watch', function (action, filepath) {
 	changedFiles[filepath] = action;
 	onChange();
 });
-/*------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Live Reloading
 */
 grunt.initConfig({
@@ -186,12 +186,12 @@ grunt.initConfig({
 			options: {
 				// Start a live reload server on the default port 35729 
 				livereload: true,
-				//======================================================
+				//========================================
 				// or another port
 				livereload: 123456,
 				// (unfortunately chrome livereload extension doesn't have
 				// the option to change the port from 35729 to something else)
-				//======================================================
+				//========================================
 				// Passing an object to livereload allows listening on a specific port and hostname/IP or over https connections (by specifying key and cert paths).
 				livereload: {
 					host: 'localhost',
@@ -200,7 +200,7 @@ grunt.initConfig({
 					cert: grunt.file.read('path/to/ssl.crt')
 					// you can pass in any other options you'd like to the https server, as listed here: http://nodejs.org/api/tls.html#tls_tls_createserver_options_secureconnectionlistener 
 				}
-				//======================================================
+				//========================================
 			}
 		},
 		another: {
@@ -217,7 +217,7 @@ grunt.initConfig({
 		}
 	}
 });
-/*------------------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Live Reload with Preprocessors
 */
 grunt.initConfig({

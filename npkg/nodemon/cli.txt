@@ -12,7 +12,7 @@ nodemon app.js -- --config # pass config to app.js
 
 
 default monitored extensions: js,mjs,coffee,litcoffee,json
----------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags - quick
 
 --config file			alternate nodemon.json config file to use
@@ -23,7 +23,7 @@ flags - quick
 -V, --verbose			show detail on what is causing restarts.
 -- <your args>			to tell nodemon stop slurping arguments.
 
----------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags - full
 Configuration
   -i, --ignore			ignore specific files or directories
@@ -58,4 +58,4 @@ Information
 
 note
 any unrecognised arguments are passed to the executing command.
----------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

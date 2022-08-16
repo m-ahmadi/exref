@@ -8,7 +8,7 @@ echo 'theme = "ananke"' >> config.toml
 hugo new posts/my-first-post.md
 hugo server -D
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 site configuration
 
 config.toml:
@@ -16,7 +16,7 @@ baseURL = "https://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "ananke"
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 build static pages
 
 hugo				did not work as expected

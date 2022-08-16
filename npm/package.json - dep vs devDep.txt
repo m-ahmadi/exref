@@ -4,7 +4,7 @@ if you npm install in root of a package:
 if you npm install a package from either npm, git-url or a folder:
 	only deps will be installed.
 
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 devDependencies
 
 if someone is planning on downloading and using your module in their program,
@@ -38,4 +38,4 @@ in dev mode (locally running npm install), it'll run this script as well, so tha
   },
   
 }
------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

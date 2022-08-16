@@ -20,7 +20,7 @@ _posts/
 _sass/
 	_base.scss
 	_layout.scss
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 _config.yml	Configuration data. Many available from cli.
 _drafts		Drafts are unpublished posts. The format of these files is without a date: title.MARKUP.
 _includes	Partials to be mixed and matched by your layouts and posts. Liquid tag: {% include file.ext %} includes the partial in _includes/file.ext)
@@ -43,11 +43,11 @@ _data
 	This helps Jekyll keep track of which files have not been modified since the site was last built,
 	and which files will need to be regenerated on the next build.
 	This file will not be included in the generated site.
-	It’s probably a good idea to add this to your .gitignore file.
+	Itï¿½s probably a good idea to add this to your .gitignore file.
 
 index.html / index.md / other HTML, Markdown files
 	Provided that the file has a front matter section, it will be transformed by Jekyll.
-	The same will happen for any .html, .markdown, .md, or .textile file in your site’s root directory or directories not listed above.
+	The same will happen for any .html, .markdown, .md, or .textile file in your siteï¿½s root directory or directories not listed above.
 
 Other Files/Folders
 	Every other directory and file except for those listed above, will be copied verbatim to the generated site. (css, images folders, favicon.ico)

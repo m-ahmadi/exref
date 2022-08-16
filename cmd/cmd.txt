@@ -1,7 +1,7 @@
 ﻿cmd /k cd /d E:\dir		keep and change dir
 cmd /k pushd E:\dir		same as above
 cmd.exe /s /k pushd "%V"	??
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 run as admin
 
 solution 1:
@@ -32,7 +32,7 @@ to fix "The system cannot find message text..."
   cd en-US
   copy cmd.exe.mui cmd-orig.exe.mui
 done
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 change default start dir of cmd (bad cuz: ruins start path of all cmd .lnk shortcuts)
 
 reg add "HKCU\Software\Microsoft\Command Processor" /v Autorun /d "cd /d c:\"
@@ -47,7 +47,7 @@ if "open cmd here" has problems, add /d to value of HKCR\Directory\shell\cmd\com
 /d makes cmd to ignore AutoRun reg variables in HKLM & HKCU \Software\Microsoft\Command Processor\Autorun
 or
 compmgmt.msc -> Local users and Groups -> Users -> NYC -> Profile -> Home folder, Local path: -> Apply
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 some flags
 /c	close secondary session after execution (also called child process)
 /k	keep secondary session, do not close session after execution.
@@ -58,4 +58,4 @@ some flags
 /z	display the errorlevel of every (external) command executed. MS-DOS 7.* (Windows 95/98)
 /e:nnn	environment size in bytes. minimum value for n is 160 bytes, maximum is 32768, values outside this range are ignored.
 /msg	message files in memory. valid with /P only; to be used when booting from removable disk
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

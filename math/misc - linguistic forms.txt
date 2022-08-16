@@ -5,7 +5,7 @@
 
 all other statements are sub-statements of these forms using combinators: and, all, not
 
----------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 key language terms involved:
   and
   or

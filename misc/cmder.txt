@@ -12,13 +12,13 @@ Features
 	Transparency
 		! Activate window transparency
 		! Use seperate transparency value for inactive window
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 context menu
 
 cd <cmder_installation_dir>
 Cmder.exe /register all
 Cmder.exe /unregister all
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Settings-> Startup-> Tasks -> {cmd}
 	cmd /k "%ConEmuDir%\..\init.bat" -new_console:d:"E:\"
 	
@@ -29,7 +29,7 @@ What each means:
 	-new_console:d:"D:\app"			D:\app
 	-new_console:d:"E:\"			E:\
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 different starting location for each shortcut
 
 Shortcut properties:
@@ -37,7 +37,7 @@ Target: "path\to\Cmder.exe" /START <path>
 
 	"D:\Program Files\cmder\Cmder.exe" /START "J:\"
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 different starting task for each shortcut
 
 Shortcut properties:
@@ -45,7 +45,7 @@ Target: "path\to\Cmder.exe" /TASK <taskname>
 
 	"D:\Program Files\cmder\Cmder.exe" /TASK "mytask"
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 opening multiple tabs in a task
 
 1. create task:
@@ -67,4 +67,4 @@ command2
 (mark active tab with > at start of line):
 command1
 >command2
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

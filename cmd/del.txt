@@ -11,7 +11,7 @@ del log.txt /s			all files named log.txt in current dir and all its sub-dirs
 del foo.txt /s/q		... silent
 del *.txt /s			all .txt files (in dir & sub-dirs)
 del foo\* /s /q			all files in dir & sub-dirs & dont ask confirmation
------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 del flags
 
 /s		delete specified files from all subdirectories

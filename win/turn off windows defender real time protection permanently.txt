@@ -3,7 +3,7 @@ reg add %key% /v DisableRealtimeMonitoring /t REG_DWORD /d 1
 
 enable again:
 reg delete %key%
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 through gpedit.msc
 Computer Configuration
 	Administrative Templates
@@ -11,4 +11,4 @@ Computer Configuration
 			Windows Defender Antivirus
 				Real-time Protection
 					Turn off real-time protection: Enabled
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

@@ -7,7 +7,7 @@ handlebars mypartial.handlebars -f partials.js -p		precompile partials
 handlebars <input> -f <output> -k each -k if -k unless		optimize with only the specified helpers
 handlebars <input> -f <output> --knownOnly			optimize with all known helpers
 handlebars *.handlebars -f templates.js				using glob in input
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 options:
 -f, --output		Output File
     --map		Source Map File. string. default: undefined
@@ -28,7 +28,7 @@ options:
 -d, --data		Include data when compiling
 -e, --extension		Template extension. default: handlebars
 -b, --bom		Removes the BOM (Byte Order Mark) from the beginning of the templates.
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 .handlebars vs .hbs
 when precompiling an entire directory,
 handlebars cli by default recognizes .handlebars extension,
@@ -39,4 +39,4 @@ handlebars dir/ -f output.js -e hbs
 
 other than that, the extension doesn't matter, and it can be anything.
 (when precompiling a single file, the ext doesn't matter)
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

@@ -2,7 +2,7 @@ git config --global core.autocrlf input
 git config --global core.autocrlf true
 git config --global core.autocrlf false
 
-------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Checkout Windows-style, commit Unix-style line endings:
 
@@ -25,9 +25,9 @@ Checkout as-is, commit as-is:
 	checking out or committing text files.
 	Choosing this option is not recommended for cross-platform projects.
 	("core.autocrlf" is set to "false")
-------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Cloned vs. zip-download line endings
 
 cloned repo (via "git clone") line-ending is based on global config core.autocrlf
 zip-downloaded repo line-ending is based on original repo env (usually lf)
-------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

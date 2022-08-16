@@ -41,7 +41,7 @@ japi.onReady = function (callback) {
 };
 
 const config = {
-//----------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 	exchanges: [                          // array of exchange descriptor objects
 		{
 			value: '',                        // passed as exchange argument to searchSymbols
@@ -54,7 +54,7 @@ const config = {
 	exchanges: [],                        // no exchanges filter in Symbol Search list.
 	// or:
 	exchanges: [ {value: ''} ],           // include all exchanges.
-//----------------------------------------------------------------------------------------------------------	
+//------------------------------------------------------------------------------
 	symbols_types: [                      // array of filter descriptor objects.
 		{
 			name: '',
@@ -66,14 +66,14 @@ const config = {
 	symbolsTypes: [],                     // leads to the absence of filter types in Symbol Search list.
 	// or:
 	symbolsTypes: [ {value: ''} ],        // include all filter types.
-//----------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 	supported_resolutions: ['', '']       // array of supported resolutions. 1D 1W
 	supported_resolutions: undefined | [] // includes the default resolutions.
-//----------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 	supports_marks: true,                 // boolean. true: your datafeed supports marks on bars.
 	supports_timescale_marks: true,       // boolean. true: your datafeed supports timescale marks.
 	supports_time: true,                  // boolean. true: your datafeed provides server time (unix time). it's used to adjust countdown on the price scale.
-//----------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 	futures_regex: /^&###/                // regex. used to group futures in the symbol search. it will be applied to instruments with futures as a type.
 	futures_regex: /^(.+)([12]!|[FGHJKMNQUVXZ]\d{1,2})$/ // this regex should divide an instrument name into 2 parts: a root and an expiration.
 };

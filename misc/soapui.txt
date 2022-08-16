@@ -8,7 +8,7 @@
 	you can't paste raw http requests in it.
 	you must set headers manually then paste in the body. (in case of post)
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 creating web services:
 	soap service which generates requests from a wsdl.xml file.
 	rest service with get, post, etc requests.

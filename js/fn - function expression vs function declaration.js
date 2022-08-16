@@ -36,7 +36,7 @@ fn.toString()
 "function () {}"
 fn.name // name property is an extension of the language and not part of the ECMA standard
 ""
-//-----------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //	another example
 if (test) {
 	//	defines fnc irrespective of test's value
@@ -58,7 +58,7 @@ var o = (function () {
 		daFn: fn
 	};
 }());
-//-----------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //	named function expression
 /*
 	a specific case of a function expression

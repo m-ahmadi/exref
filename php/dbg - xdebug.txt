@@ -2,7 +2,7 @@ it comes auto-istalled with xampp
 if not
 php.ini
 zend_extension = E:\xampp\php\ext\php_xdebug-2.4.0-5.6-vc11-x86_64
-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 					enabling
 [xdebug]
 zend_extension = "e:/xampp/php/ext/php_xdebug.dll"
@@ -24,7 +24,7 @@ xdebug.show_exception_trace = 0
 xdebug.show_local_vars = 9
 xdebug.show_mem_delta = 0
 xdebug.trace_format = 0
-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 					usage
 install DBGp plugin in notepad++
 DBGp->config
@@ -36,7 +36,7 @@ DBGp->config
 send a get variable named "XDEBUG_SESSION_START" to the script you want to debug
 
 ?XDEBUG_SESSION_START=session_name
-----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 					phpstorm
 button	"Start Listening for PHP Debug Connections"
 button	"Break at first line"

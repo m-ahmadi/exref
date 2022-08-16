@@ -8,7 +8,7 @@ documentation serve app.js					build and serve HTML docs for app.js
 
 documentation lint util.js					validate JSDoc syntax in util.js
 
---------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 serve [input..]				generate, update, and display HTML documentation
 build [input..]				build documentation

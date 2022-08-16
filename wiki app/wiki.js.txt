@@ -8,7 +8,7 @@ notepad .\config.yml
 node server
 
 failed to install from instructions on the docs (windows 7 not supported)
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 how to install
 
 download the following:
@@ -21,7 +21,7 @@ extract wiki-js.tar.gz
 extract node_modules.tar.gz
 rename config.sample.yml to config.yml
 node wiki configure
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 usage
 
 copy .md files to dir_name/repo

@@ -8,7 +8,7 @@ git tag -a v1.2 9fceb02
 git tag v1.4-lw					create lightweight tag (no tag info on git show)
 git tag -d v1.4-lw				delete tag on local repo
 
-----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 pushing ("git push" won't push tags to remote by default)
 
 git push origin master --tags 			pushes all tags to remote that aren't already there (pushes both types of tags, lightweight & annotated)
@@ -18,7 +18,7 @@ git push origin --delete <tagname>		delete specified tag from remote
 git push origin --delete v1.4-lw
 git push origin :refs/tags/v1.4-lw		same as prev line
 
-----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 undo deleted tag
 
 tag exists on remote
@@ -30,14 +30,14 @@ recover from local repo
 git fsck --unreachable | grep tag
 git show KEY
 git update-ref refs/tags/NAME KEY
-----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 annotated vs lightweight tags
 
 recommended: annotated
 
 annotated
 	stored as full objects in the Git database.
-	they’re checksummed.
+	theyï¿½re checksummed.
 	contain the tagger name, email, and date.
 	have a tagging message.
 	can be signed and verified with GNU Privacy Guard (GPG).
@@ -46,4 +46,4 @@ lightweight
 	temporary tag.
 	does not hold any data like annotated.
 	a pointer to a specific commit.
-	like a branch that doesn’t change.
+	like a branch that doesnï¿½t change.

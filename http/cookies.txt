@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 						Cookies
 
 a cookie contains an arbitrary list of name=value information
@@ -10,7 +10,7 @@ Types
 
 	Persistent Cookies
 		Persistent cookies survive browser exits and computer restarts
-------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 						How Cookies Work
 
 server sends a response header called "Set-Cookie" to browser
@@ -32,7 +32,7 @@ and puts it as contetns of "Cookie" header
 Since browser is responsible for storing cookie information, this system is called "Client-Side State"
 Official name for cookie specification is "HTTP State Management Mechanism"
 
-------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 GET /index.html HTTP/1.0
 Host: www.mysite.com
@@ -46,4 +46,4 @@ GET /index.html HTTP/1.0
 Host: www.mysite.com
 Cookie: id="34294"
 
-------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

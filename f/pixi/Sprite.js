@@ -33,12 +33,12 @@ function setup() {
 	// or:
 	var sprite = new PIXI.Sprite( PIXI.loader.resources['images/anyImage.png'].texture );
 }
-//-------------------------------------------------------------------------------------------------
+//------------------------------------------------
 
 var texture = PIXI.Texture.fromImage('images/computer.png');
 var sprite = new PIXI.Sprite(texture);
 
-//-------------------------------------------------------------------------------------------------
+//------------------------------------------------
 
 var sprite = new PIXI.Sprite.fromImage('images/cat.png');
 

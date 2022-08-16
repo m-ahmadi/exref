@@ -6,7 +6,7 @@ apidoc						input=./     output=./doc (causes warnings and more. don't use it)
 apidoc -t mytemplate/
 apidoc -f ".*\\.js$" -f ".*\\.ts$"		parse only .js and .ts files
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags
 
 -i, --input <input>					Input/source dirname. default: ./

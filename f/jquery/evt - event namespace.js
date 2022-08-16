@@ -11,7 +11,7 @@
 .on('click.myPlugin.simple')
 .off('click.simple')
 .off('.myNamespace') // another way
-//--------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // example: (removing anonymous handlers)
 
 // removing named handlers:

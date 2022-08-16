@@ -103,7 +103,7 @@ grunt.registerTask('default', 'My "default" task description.', function () {
 	grunt.log.writeln('Currently running the "default" task.');
 });
 
-/*-----------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Inside a task, you can run other tasks.
 */
 grunt.registerTask('foo', 'My "foo" task.', function () {
@@ -112,7 +112,7 @@ grunt.registerTask('foo', 'My "foo" task.', function () {
 	// Or:
 	grunt.task.run(['bar', 'baz']);
 });
-/*-----------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Tasks can be asynchronous
 */
 grunt.registerTask('asyncfoo', 'My "asyncfoo" task.', function () {
@@ -126,7 +126,7 @@ grunt.registerTask('asyncfoo', 'My "asyncfoo" task.', function () {
 		done();
 	}, 1000);
 });
-/*-----------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Tasks can access their own name and arguments.
 */
 grunt.registerTask('foo', 'My "foo" task.', function (a, b) {
@@ -140,7 +140,7 @@ grunt.registerTask('foo', 'My "foo" task.', function (a, b) {
 	grunt foo:bar:baz
 		logs: "foo", "bar", "baz"
 */
-/*-----------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Tasks can fail if any errors were logged.
 */
 grunt.registerTask('foo', 'My "foo" task.', function () {
@@ -153,7 +153,7 @@ grunt.registerTask('foo', 'My "foo" task.', function () {
 
 	grunt.log.writeln('This is the success message');
 });
-/*-----------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	When tasks fail, all subsequent tasks will be aborted unless --force was specified
 */
 grunt.registerTask('foo', 'My "foo" task.', function () {
@@ -168,7 +168,7 @@ grunt.registerTask('bar', 'My "bar" task.', function () {
 		done(false);
 	}, 1000);
 });
-/*-----------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Tasks can be dependent on the successful execution of other tasks.
 	Note that grunt.task.requires won't actually RUN the other task(s).
 	It'll just check to see that it has run and not failed.
@@ -191,7 +191,7 @@ grunt.registerTask('bar', 'My "bar" task.', function () {
 //   (similar to executing two lines of code: `grunt foo` then `grunt bar`)
 // grunt bar
 //   doesn't log, because foo never ran.
-/*-----------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Tasks can fail if required configuration properties don't exist
 */
 grunt.registerTask('foo', 'My "foo" task.', function () {
@@ -203,7 +203,7 @@ grunt.registerTask('foo', 'My "foo" task.', function () {
 	// Log... conditionally.
 	grunt.log.writeln('This will only log if meta.name is defined in the config.');
 });
-/*-----------------------------------------------------------------------------------------------
+/*------------------------------------------------------------------------------
 	Tasks can access configuration properties
 */
 grunt.registerTask('foo', 'My "foo" task.', function () {

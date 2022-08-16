@@ -2,7 +2,7 @@ mongod --dbpath ./data				start server
 mongod --dbpath=./data				alternative syntax
 
 must manually add it to path
-----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags
 
 --dbpath arg					directory for datafiles. default: \data\db\
@@ -23,7 +23,7 @@ flags
 --serviceDescription arg			windows service description
 --serviceUser arg				account for service execution
 --servicePassword arg				password used to authenticate serviceUser
-----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 install as service
 
 mongod --install --dbpath ./data --logpath E:\logs.txt		install service
@@ -42,4 +42,4 @@ installed service is set to `Automatic` by default. (starts on windows startup, 
 mongod --install --dbpath E:\db --logpath "C:\Program Files\MongoDB\Server\4.2\log\mongod.log" --serviceName mongo
 net start mongo
 mongo is running on: localhost:27017
-----------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

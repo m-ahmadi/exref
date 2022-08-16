@@ -1,4 +1,4 @@
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 tsc with no input files:
 	compiler searches for the tsconfig.json file starting in the current directory
 	(and continuing up the parent directory chain)
@@ -6,7 +6,7 @@ tsc with no input files:
 cd proj
 tsc
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 tsc with no input files and --project (or -p):
 
 -project/-p option specifies
@@ -18,6 +18,6 @@ tsc --project folderpath
 tsc --project folder/tsconfig.json
 tsc -p
 
----------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 When input files are specified on the command line, tsconfig.json files are ignored.
