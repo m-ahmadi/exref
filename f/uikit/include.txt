@@ -6,7 +6,7 @@ cdn
 	https://cdn.jsdelivr.net/npm/uikit/dist/css/uikit.min.css
 	https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit.min.js
 	https://cdn.jsdelivr.net/npm/uikit/dist/js/uikit-icons.min.js
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 info
 
 uikit.css		uikit's css
@@ -18,4 +18,4 @@ uikit-icons.js		icon library
 
 uikit-core.js		stripped down javascript. core functionality without additional components
 /components		additional components (eg: lightbox), only needed when including uikit-core.js
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

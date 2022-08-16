@@ -3,7 +3,7 @@ jsdoc book.js -d docs
 jsdoc src -r -d docs			generate a website from folder. output dir: `docs`
 
 
------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags
 
 -c, --configure <value>			The path to the configuration file. Default: path/to/jsdoc/conf.json

@@ -16,7 +16,7 @@ command > filename 2>&1			combine stdout and stderr into same file
 note
 > and >> redirect stdout by default
 stdio files/streams are reference with numbers: 0 stdin, 1 stdout, 2 stderr
-------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 some examples
 
 dir /b | sort								pipe
@@ -26,4 +26,4 @@ node -p "2+2" 1>> out.txt						stdout only
 node -p "x+2" 2>> err.txt						stderr only 
 node -p "x+2" > out.txt 2>&1						stdout and stderr combined
 node -p "console.log(fs.readFileSync(0,'utf8'))" < file.txt		file as stdin
-------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

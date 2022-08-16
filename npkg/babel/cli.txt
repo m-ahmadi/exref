@@ -11,7 +11,7 @@ babel src -d dist --ignore lib				ignore a folder
 babel src -d dist --copy-files				copy files that will not be compiled
 babel src -d dist --presets @babel/env			using a preset
 babel file.js -o out.js --plugins babel-plugin-*	using a plugin
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 options:
 -f, --filename [filename]			filename to use when reading from stdin - this will be used in source-maps, errors etc
 -o, --out-file [out]				compile all input files into a single file
@@ -48,4 +48,4 @@ options:
     --relative					compile into an output directory relative to input directory or file. Requires --out-dir [out]
     --include-dotfiles				include dotfiles when compiling and copying non-compilable files
     --verbose					log everything
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

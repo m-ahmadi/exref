@@ -14,7 +14,7 @@ rollup main=entry1.js other=entry2.js -f esm				name chunks by adding =
 rollup "main entry"="entry 1.js" "other entry.js" -f esm		file names containing spaces
 
 note: when piping to stdout, only inline sourcemaps are permitted.
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 usage: rollup [options] <entry file>
 options:
 -c, --config <filename>			Use this config file (if argument is used but value is unspecified, defaults to rollup.config.js)
@@ -64,4 +64,4 @@ options:
     --no-treeshake.annotations		Ignore pure call annotations
     --no-treeshake.propertyReadSideEffects	Ignore property access side-effects
     --treeshake.pureExternalModules		Assume side-effect free externals
-------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

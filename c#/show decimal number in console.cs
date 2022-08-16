@@ -2,7 +2,7 @@ Console.WriteLine( (decimal)5 / 20 );
 
 Console.WriteLine("{0:N2}", ((double)n) / 1450);
 
-//-----------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // when using int for decimal numbers, the result is not rounded up/down,
 // it's just the integer part before the decimal point.
 int num;

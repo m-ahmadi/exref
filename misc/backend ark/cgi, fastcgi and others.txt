@@ -1,9 +1,9 @@
----------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 							CGI
 
 Each Web server runs HTTP server software, which responds to requests from Web browsers.
 Generally, the HTTP server has a directory (folder),
-which is designated as a document collection — files that can be sent to Web browsers connected to this server
+which is designated as a document collection ï¿½ files that can be sent to Web browsers connected to this server
 
 For example
 if the Web server has the domain name example.com,
@@ -43,7 +43,7 @@ via HTTP POST request
 	script can then read these environment variables or data from standard input
 
 
----------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 						Problems with CGI
 
 Calling a command generally means the invocation of a newly created process on the server.

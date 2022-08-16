@@ -2,7 +2,7 @@ plato src -r -d report 				hyphenless arg is input
 
 
 plato src -r -d report -l .jshintrc -t "My Awesome App" -x .json routes/*.js
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags
 
 -d, --dir : String *required*			The output directory

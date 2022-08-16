@@ -9,7 +9,7 @@ npm restart
 npm run build
 npm run something
 
------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 reference:
 
 prepublish 					Run BEFORE the package is packed and published, as well as on local npm install without any arguments.

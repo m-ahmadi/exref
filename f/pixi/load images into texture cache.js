@@ -49,7 +49,7 @@ sprite = new PIXI.Sprite(texture);
  loader
 	.add('images/atlas.json')
 	.load(setup);
- //-------------------------------------------------------------------------------------
+ //-----------------------------------------------
 function setup() {
 	var texture = PIXI.loader.resources['images/atlas.json'].textures['cat.png'];
 	var sprite = new Sprite( texture );

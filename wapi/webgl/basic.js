@@ -8,12 +8,12 @@ var gl, canvas;
 document.addEventListener('DOMContentLoaded', function () {
 	
 //	Setup
-//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 canvas = document.getElementById('glcanvas');
 gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
 
 if (!gl) { throw new Error('Unable to initialize WebGL. Your browser may not support it.'); return; }
-//------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 
 
 gl.clearColor(0.0, 0.0, 0.0, 1.0);                   // Set clear color to black, fully opaque

@@ -8,7 +8,7 @@ Change advanced power settings
 		USB selective suspend settings   disabled
 
 
------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Control Panel
 Device Manager

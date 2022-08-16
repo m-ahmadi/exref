@@ -10,7 +10,7 @@ httpd -k stop -n "Apache"		stop the service named: Apache
 httpd -k uninstall -n "Apache"		uninstall the service named: Apache
 
 httpd -M				show all loaded modules
------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 install as service
 
 httpd -k install
@@ -19,7 +19,7 @@ httpd -k install -n "MyServiceName" -f "c:\files\my.conf" -d "c:/some/where"
 `Startup type:` is set to `Automatic` by default. (change through services.msc)
 
 note: install service with non-default name to avoid conflict with xampp
------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 flags
 
 -k start			start Apache service
@@ -51,4 +51,4 @@ flags
 -t -D DUMP_INCLUDES		show all included configuration files
 -M				synonym for:  -t -D DUMP_MODULES
 -S				synonym for:  -t -D DUMP_VHOSTS -D DUMP_RUN_CFG
------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

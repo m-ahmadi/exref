@@ -44,7 +44,7 @@ var symbolInfo = {
 	pricescale: 1
 };
 
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 minmov, pricescale, minmove2, fractional, // these four have different meanings when used for common and fractional prices.
 
 // common prices: (MinimalPossiblePriceChange = minmov / pricescale)
@@ -67,7 +67,7 @@ fractional: true,
 119'16'2 // 119 + 16.25/32
 119'16'5 // 119 + 16.5/32
 119'16'7 // 119 + 16.75/32
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 session: '', /*
 	required field. if not set: console.warn(): SymbolInfo validation: session must be non-empty string
 	time is expected to be in exchange time zone.

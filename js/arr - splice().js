@@ -21,7 +21,7 @@ arr.splice(0, 2, 10, 20)     // remove 2 items and insert 2 others: [10, 20, 3, 
 arr.splice(arr.length-2, 2)  // remove last 2   items:              [1, 2]
 arr.splice(-1, 1)            // remove last     item:               [1, 2, 3]
 arr.splice(-2, 1)            // remove 2nd-last item:               [1, 2, 4]
-//--------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // modify array in the middle of iteration
 var a = ['a','b','c','d']
 a.forEach((v,i,a) => {
@@ -33,7 +33,7 @@ a.forEach((v,i,a) => {
 1
 2
 */
-//--------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // custom function
 Array.prototype.move = function (from, to) {
 	this.splice(to, 0, this.splice(from, 1)[0]);

@@ -1,7 +1,7 @@
 sysdm.cpl
 Advanced -> Performance -> Settings -> Advanced -> Virtual memory -> Change
 
----------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 move pagefile.sys to another drive
 
 1. uncheck "Automatically manage paging file size for all drives"

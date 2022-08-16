@@ -10,7 +10,7 @@ sass in.scss > out.css --update		only compile out-of-date files
 sass in.scss:out.css -s			output style: options: expanded(default)|compressed
 echo $x:red;a{color:$x} | sass --stdin	...
 
-------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 ruby sass (deprecated)
 
 install ruby
@@ -25,4 +25,4 @@ gem install sass
 uninstall
 
 gem uninstall sass
-------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

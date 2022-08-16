@@ -3,7 +3,7 @@ grep -i "hello world" menu.h main.c						search in specified files
 grep -R --exclude-dir=node_modules "some pattern" /path/to/search		search in dir
 grep -i -r "what up" --exclude=package*.json					search in current dir
 grep -r ^some\sregex$ D:\xampp\htdocs
----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 help
 
 Pattern selection and interpretation:
@@ -64,4 +64,4 @@ With no FILE, read '.' if recursive, '-' otherwise.
 With fewer than two FILEs, assume -h.
 Exit status is 0 if any line is selected, 1 otherwise;
 if any error occurs and -q is not given, the exit status is 2.
----------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 could not install the ruby gem on windows
 
---------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 method 1 (failed):
 
 install ruby with msys2 (without msys2 the ruby gem won't install)
@@ -12,7 +12,7 @@ ERROR: icu required (brew install icu4c or apt-get install libicu-dev)
 
 kept failing even after installing cygwin and its libicu-dev package
 
---------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 method 2 (failed):
 
 install jre (java runtime environment)
@@ -22,4 +22,4 @@ gem install gollum
 
 ERROR: icu required (brew install icu4c or apt-get install libicu-dev)
 
---------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

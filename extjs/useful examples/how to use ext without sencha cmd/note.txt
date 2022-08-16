@@ -40,7 +40,7 @@ We have to reference them inside the SDK.
 	/ext/build/classic/theme-neptune/theme-neptune	.js
 	/ext/build/classic/theme-triton	/theme-triton	.js
 
------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 
 build an application without Sencha Cmd
@@ -48,8 +48,8 @@ build an application without Sencha Cmd
 include
 	the Framework
 	theme CSS
-	your chosen theme’s JS override
-in your index.html file’s head.
+	your chosen themeï¿½s JS override
+in your index.html fileï¿½s head.
 
 Ext JS 6 themes location:
 	classic "{ExtJS-6-SDK}/classic/"
@@ -62,7 +62,7 @@ Ext JS 6 themes location:
 		theme-crisp
 		theme-crisp-touch (_optimized for tablets_)
 		theme-triton
-	modern “{ExtJS-6-SDK}/modern/”
+	modern ï¿½{ExtJS-6-SDK}/modern/ï¿½
 		theme-base (_used by the framework and should not be configured directly_)
 		theme-blackberry
 		theme-cupertino

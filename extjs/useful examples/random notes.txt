@@ -1,12 +1,12 @@
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 do not edit the ~/index.html
 if we need to include a js or css file, we should define this within the ~/app.json file
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 Ext.application():
 	parent container of the app will be the viewport.
 	The viewport is a specialized container representing the viewable application area that
 	is rendered inside the <body> tag of the HTML page (<body></body>).
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 The alias for a class that extends from a component always starts with widget,
 followed by the alias or xtype class we want to assign.
 alias must be unique in an application.
@@ -14,9 +14,9 @@ The naming convention for xtype and alias is lowercase.
 
 alias: 'widget.login-dialog'
 xtype: 'login-dialog'
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 console.log('launch');
 for IE: window.console.log()
 
-------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

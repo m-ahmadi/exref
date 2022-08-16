@@ -1,4 +1,4 @@
------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 					Transactions
 
 Clients use HTTP to transact with web servers and their resources.
@@ -18,7 +18,7 @@ response
 	Content-type: image/gif
 	Content-length: 8572
 
------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 					Methods
 
 HTTP supports several different request commands, called HTTP methods.
@@ -33,7 +33,7 @@ five common HTTP methods
 	PUT 		Store data from client into a named server resource
 	DELETE 		Delete the named resource from a server
 	HEAD 		Send just the HTTP headers from the response for the named resource
------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 					Status Codes
 
 Every HTTP response message comes back with a status code.
@@ -43,9 +43,9 @@ Status Code  tells the client if the request succeeded, or if other actions are 
 A few common status codes
 	200	OK. Document returned correctly.
 	302	Redirect. Go someplace else to get the resource.
-	404	Not Found. Can’t find this resource.
+	404	Not Found. Canï¿½t find this resource.
 
-HTTP also sends an explanatory textual “reason phrase” with each numeric status code 
+HTTP also sends an explanatory textual ï¿½reason phraseï¿½ with each numeric status code 
 The textual phrase is included only for descriptive purposes;
 the numeric code is used for all processing.
 
@@ -53,5 +53,5 @@ These are treated identically by HTTP software:
 	200 OK
 	200 Document attached
 	200 Success
-	200 All’s cool, dude
------------------------------------------------------------------------------------------------
+	200 Allï¿½s cool, dude
+--------------------------------------------------------------------------------

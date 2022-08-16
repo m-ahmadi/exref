@@ -21,7 +21,7 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "m-ahmadi.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  m-ahmadi
 
-#-----------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------
 # with this, you can remove layout from the front matter of all pages and posts.
 collections:
   authors:
