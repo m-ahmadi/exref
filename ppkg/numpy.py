@@ -614,7 +614,7 @@ np.ulonglong
 np.unicode
 np.unicode_
 np.union1d
-np.unique
+np.unique(ar=∂, return_index=False, return_inverse=False, return_counts=False, axis=None|0, *, equal_nan=True)
 np.unpackbits
 np.unravel_index
 np.unsignedinteger
@@ -636,7 +636,7 @@ np.where(condition, ?x, ?y)
 np.who
 np.WRAP
 np.zeros(shape=0|(0,..), ?dtype=np.float64, *, ?like='C|F')
-np.zeros_like
+np.zeros_like(a=∂, dtype=None, order='K|C|F|A', subok=True, shape=None|0|[0,..])
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 a = np.array() # `array` type is alies for `ndarray`

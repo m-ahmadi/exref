@@ -17,6 +17,7 @@ print(
 # preprocessing
 # https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing
 
+#————————————————————————————————————————————————
 # two-point transform
 from sklearn.preprocessing import minmax_scale
 minmax_scale(X, feature_range=(0,1), *, axis=0, copy=True)
@@ -29,15 +30,13 @@ y = minmax_scale([x,a,b], (c,d))[0] # transform x in range [a,b] to y in [c,d]
 minmax_scale([5,1,10], (10,100))[0] # 50
 
 #————————————————————————————————————————————————
-# alt (mean removal and variance scaling)
+# mean removal and variance scaling
 from sklearn.preprocessing import StandardScaler
 StandardScaler(*, copy=True, with_mean=True, with_std=True)
 
-X_train = np.array([
-	[1, -1,  2],
-	[2,  0,  0],
-	[0,  1, -1]
-])
+X_train = np.array([[1, -1,  2],
+										[2,  0,  0],
+										[0,  1, -1]])
 scaler.mean_  # [1.        , 0.        , 0.33333333]
 scaler.scale_ # [0.81649658, 0.81649658, 1.24721913]
 X_scaled = scaler.transform(X_train)
@@ -45,6 +44,14 @@ X_scaled
 	# [[ 0.        , -1.22474487,  1.33630621],
 	#  [ 1.22474487,  0.        , -0.26726124],
 	#  [-1.22474487,  1.22474487, -1.06904497]])
+#————————————————————————————————————————————————
+from sklearn.preprocessing import label_binarize
+label_binarize(y=[], *, classes=[], neg_label=0, pos_label=1, sparse_output=False)
+
+label_binarize([1,6], classes=[1,2,4,6]) # [ [1,0,0,0], [0,0,0,1] ]
+label_binarize([0,0,6], classes=[4,6,0]) # [ [0,0,1], [0,0,1], [0,1,0] ]
+
+label_binarize(['yes','no','no','yes'], classes=['yes', 'no']) # [ [0], [1], [1], [0] ]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # model_selection
 # https://scikit-learn.org/stable/modules/classes.html#module-sklearn.model_selection
@@ -106,6 +113,13 @@ plt.show()
 fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [0,1,1,1, 0,0,0,0])
 plt.plot(fpr, tpr)
 plt.show()
+
+# `thresholds`: decreasing numbers used to compute `fpr` and `tpr`
+# it goes from `max(y_pred) + 1` to near 0
+y_true = [1,   1,   2,    2  ]
+y_pred = [0.1, 0.4, 0.35, 0.8]
+fpr, tpr, thresholds = roc_curve(y_true, y_pred, pos_label=2)
+thresholds # [1.8 , 0.8 , 0.4 , 0.35, 0.1 ]
 #————————————————————————————————————————————————
 from sklearn.metrics import auc
 # https://scikit-learn.org/stable/modules/generated/sklearn.metrics.auc.html
