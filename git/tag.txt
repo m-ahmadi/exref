@@ -1,4 +1,4 @@
-git tag						list existing tags in repo
+﻿git tag						list existing tags in repo
 git tag -l "v1.8.5"				list tags that match a particular pattern
 
 git tag -a v1.4 -m "my version 1.4"		create annotated tag (needs a message) for current commit
@@ -37,7 +37,7 @@ recommended: annotated
 
 annotated
 	stored as full objects in the Git database.
-	they�re checksummed.
+	they're checksummed.
 	contain the tagger name, email, and date.
 	have a tagging message.
 	can be signed and verified with GNU Privacy Guard (GPG).
@@ -46,4 +46,4 @@ lightweight
 	temporary tag.
 	does not hold any data like annotated.
 	a pointer to a specific commit.
-	like a branch that doesn�t change.
+	like a branch that doesn't change.
