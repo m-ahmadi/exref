@@ -12,7 +12,7 @@ fetch('https://jsonplaceholder.typicode.com/todos/1', {signal}).then(async r => 
 	// detection
 	if (e.name === 'AbortError') // aborted by user
 });
-controller.abort(); // The user aborted a request.
+controller.abort(); // user aborted the request
 
 
 // abort multiple fetches

@@ -1,2 +1,4 @@
+does not work (comes back after restart)
+
 reg delete HKCR\*\shellex\ContextMenuHandlers\EPP /f			files
 reg delete HKCR\Directory\shellex\ContextMenuHandlers\EPP /f		folders
