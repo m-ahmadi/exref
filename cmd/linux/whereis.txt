@@ -1,0 +1,3 @@
+whereis --help
+
+whereis google-chrome

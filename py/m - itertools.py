@@ -26,3 +26,8 @@ permutations(iterable, r=None)
 combinations(iterable, r)
 combinations_with_replacement(iterable, r)
 
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# examples
+
+colors = cycle(['red','blue'])
+[*zip([1,2,3], colors)] # [ [1,'red'], [2,'blue'], [3,'red'] ]

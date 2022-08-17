@@ -44,6 +44,7 @@ np.interp(1, x, y)   # 2
 np.interp(2, x, y)   # 4
 np.interp(1.5, x, y) # 3
 np.interp(4, x, y)   # 6
+np.interp([1.5, 2.5], x, y) # [3, 5]
 
 # as operand
 a = np.array([1,2,3,4])
