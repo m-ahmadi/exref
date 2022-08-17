@@ -18,7 +18,7 @@ for (let i of [...Array(totalScrolls).keys()]) {
 	await new Promise(r=>setTimeout(r,wait));
 
 	r.push(
-		[...document.querySelectorAll('.post-card-item')].map(i => {
+		[...document.querySelectorAll('.waf972.wbee95.we9d46'/* prev: .post-card-item */)].map(i => {
 		
 			let [ credit, rent ] = i.querySelector('a .kt-post-card__description').innerText.split('\n').flat();
 			credit = credit.match(/ودیعه: (.*) تومان/)[1].match(/^(.{1,4}),/)[1];

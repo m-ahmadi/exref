@@ -1,3 +1,5 @@
+// https://developer.mozilla.org/en-US/docs/Web/API/fetch
+
 var responsePromise = WindowOrWorkerGlobalScope.fetch(resource=''|URL|Request, ?init={
 	method:         'get|post|put|patch|delete|head',
 	headers:        Headers | {k:ByteString, ...},
