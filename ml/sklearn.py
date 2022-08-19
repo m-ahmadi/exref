@@ -226,8 +226,8 @@ label: good|bad|ugly (3 classes)
 	metrics = [clf1, clf2, clf3].map(clf => clf.precision|recall)
 
 average of 3 binary metrics
-	macro:      mean of metrics per class (good for balanced data)
-	weighted:   mean of metrics per class weighted by number of samples in that class (good for imbalanced data)
+	macro:      mean of metric from each class (good for balanced data)
+	weighted:   mean of metric from each class weighted by number of samples in that class (good for imbalanced data)
 	micro:      same as accuracy:  sum(matrix.diagonal_cells) / sum(matrix.cells)
 '''
 
