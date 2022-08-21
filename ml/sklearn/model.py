@@ -127,6 +127,14 @@ average of 3 binary metrics
 	macro:      mean of metric from each class (good for balanced data)
 	weighted:   mean of metric from each class weighted by number of samples in that class (good for imbalanced data)
 	micro:      same as accuracy:  sum(matrix.diagonal_cells) / sum(matrix.cells)
+
+example with precision metric:
+          TP  FP  PPV
+class A:  1   1   0.5
+class B:  10  90  0.1
+class C:  1   1   0.5
+macro avg = (0.5 + 0.1 + 0.4) / 4        = 0.1
+micro avg = (1 + 10 + 1) / (2 + 100 + 2) = 0.1154
 '''
 
 # SVC handles multiclass internally using a one-vs-one scheme

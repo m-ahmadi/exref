@@ -23,6 +23,11 @@ ctrl shift n		new folder
 ctx w t			new text file
 ctx w f			new folder
 ctx w s			new shortcut
+ctx<file> r		properties
+ctx<file> m		rename
+ctx<file> s		create shortcut
+ctx<file> h		open with
+ctx<file> shift d	delete
 ctrl win left/right	switch desktops
 ctrl shift f10		context-menu
 
