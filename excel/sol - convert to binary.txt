@@ -1,0 +1,6 @@
+install xcellcompiler.com | xlspadlock.com
+
+Options -> Trust Center -> Trust Center Settings... -> Macro Settings
+	Trust access to the VPA project object model
+
+open excel file -> DoneEx | XLS Padlock -> Compile
