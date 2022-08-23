@@ -56,7 +56,8 @@ f'foo {2+2}!'    # 'foo 4!'
 f'{12.345:.2f}'  # '12.35'
 f'''hi {2+2}'''  # 'hi 4'
 age = 32
-f'hello {age}' # 'hello 32'
+f'hello {age}'      # 'hello 32'
+f'hello {age:0.2f}' # 'hello 32.00'
 
 import datetime
 bday = datetime.date(1970, 10, 12)

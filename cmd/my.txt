@@ -1,9 +1,10 @@
 mklink /d C:\r "J:\...\exref"
 mklink /d C:\h D:\xampp\htdocs
-mklink /d C:\#htdocs d:\xampp\htdocs
+mklink /d C:\#htdocs D:\xampp\htdocs
 
-mklink /d C:\dev "J:\...\Dev"
-mklink /d C:\ac  "L:\...\accounts"
+mklink /d C:\dev  "J:\...\Dev"
+mklink /d C:\ac   "J:\...\accounts"
+mklink /d C:\info "J:\...\info"
 mklink /d C:\usr C:\Users\NYC
 
 C:\node.lnk	...\node.exe
