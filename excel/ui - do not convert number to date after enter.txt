@@ -1,0 +1,19 @@
+apostrophe ' before number		(not displayed in cell)
+	'01-6
+	'1/47
+
+a zero and a space before fraction	(zero does not remain in cell)
+	0 1/2
+	0 3/4
+
+a space before number			(space remains in cell)
+	 01-6
+
+
+note:
+	use ' if using lookup fns (MATCH,VLOOKUP ignore ')
+	left-aligned number in cell  =  not formatted as number
+	number with "e" result in scientific number (avoid with ')
+	green triangle in cell topleft indicate number stored as text
+
+https://support.microsoft.com/en-us/office/stop-automatically-changing-numbers-to-dates-452bd2db-cc96-47d1-81e4-72cec11c4ed8

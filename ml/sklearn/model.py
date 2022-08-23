@@ -133,7 +133,7 @@ example with precision metric:
 class A:  1   1   0.5
 class B:  10  90  0.1
 class C:  1   1   0.5
-macro avg = (0.5 + 0.1 + 0.4) / 4        = 0.1
+macro avg = (0.5 + 0.1 + 0.4) / 3        = 0.3666
 micro avg = (1 + 10 + 1) / (2 + 100 + 2) = 0.1154
 '''
 
