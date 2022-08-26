@@ -1,0 +1,3 @@
+Preferences -> Queueing
+	Maximum number of active torrents (upload or download):		1
+	Maximum number of active downloads:				2

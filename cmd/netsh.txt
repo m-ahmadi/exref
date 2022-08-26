@@ -2,8 +2,13 @@ netsh winsock reset					reset winsock catalog
 netsh int ip reset					reset ip configuration
 netsh firewall set opmode disable			disable firewall
 netsh firewall set opmode enable			enable firewall
-netsh int tcp set heuristics disabled
-netsh int tcp set global autotuninglevel=disabled
-netsh int tcp set global rss=enabled
-netsh int tcp show global
+
+netsh int tcp show global				tcp config
+netsh int tcp set heuristics disabled			?
+netsh int tcp set global autotuninglevel=disabled	?
+netsh int tcp set global rss=enabled			?
+
 netsh int portproxy show v4tov4				show current port proxies
+
+netsh wlan connect name="foo"				connect to wireless network
+netsh wlan disconnect					disconnect from wireless network
