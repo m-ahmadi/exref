@@ -77,6 +77,22 @@ np.linspace(1, 2, 5)             # [1, 1.25, 1.5, 1.75, 2]
 np.zeros(4)                      # [0., 0., 0., 0.]
 np.zeros_like([1,2,3,4])         # [0, 0, 0, 0]
 
+# index of
+np.argmax([1,2,3,4]) # 3
+np.argmax([4,3,2,1]) # 3
+
+a = np.array([1,2,3,4])
+a.argmin() # 0
+a.argmax() # 3
+np.where(a == a.min()) # [0]
+np.where(a == a.max()) # [3]
+
+# min max
+np.min == np.amin # True
+np.max == np.amax # True
+np.min([4,6]) # 4
+np.max([4,6]) # 6
+
 # map
 a = np.array([1,2,3,4,5])
 np.where(a<4, a+10, a*2) # [11,12,13,8,10]
@@ -293,13 +309,6 @@ b[0][0] = 57
 a[0][0] # 1
 
 # misc
-np.min([1,2])  # 1
-np.max([1,2])  # 2
-np.amin([1,2]) # 1
-np.amax([1,2]) # 2
-np.argmax([1,2,3,4]) # index of max: 3
-np.argmax([4,3,2,1]) # index of min: 3
-
 np.bincount([1,1,1])       # count occurrence: [0,3]
 np.bincount([1,1,1,4,4,4]) # ...               [0,3,0,0,3]
 

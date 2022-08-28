@@ -50,8 +50,8 @@ np.all(a=∂, axis=None, out=None|<ndarray>, keepdims=bool, *, where=∂<bool>)
 np.allclose(a=∂, b=∂, rtol=1e-05, atol=1e-08, equal_nan=False)
 np.ALLOW_THREADS
 np.alltrue
-np.amax()
-np.amin()
+np.min | amax(a=∂, axis=None|0|[0,..], ?out=None|∂, ?keepdims=bool, ?initial=0, ?where=ndarray<bool>)
+np.min | amin(a=∂, axis=None|0|[0,..], ?out=None|∂, ?keepdims=bool, ?initial=0, ?where=ndarray<bool>)
 np.angle
 np.any(a=∂, axis=None, out=None|<ndarray>, keepdims=bool, *, where=∂<bool>)
 np.append(arr=∂, values=∂, ?axis=None|0)
@@ -569,8 +569,8 @@ np.subtract
 np.sum(
 np.swapaxes
 np.sys
-np.take
-np.take_along_axis
+np.take(a=∂, indices=<ndarray>, axis=None|0, out=None, mode='raise')
+np.take_along_axis(arr=∂, indices=<ndarray>, axis=0)
 np.tan
 np.tanh
 np.tensordot
