@@ -78,6 +78,28 @@ axes.scatter(
 	plotnonfinite=False, data=None, **kwargs
 )
 
+axes.pie(
+	x,
+	explode=None,
+	labels=None,
+	colors=None|[]|'',
+	autopct=None|''|fn,
+	pctdistance=0.6,
+	shadow=False,
+	labeldistance=1.1,
+	startangle=0,
+	radius=1,
+	counterclock=True,
+	wedgeprops=None,
+	textprops=None,
+	center=(0, 0),
+	frame=False,
+	rotatelabels=False,
+	*,
+	normalize=True,
+	data=None
+)
+
 axes.text(x=0., y=0., s='', fontdict=None, **kwargs)
 	fontfamily|family='serif|sans-serif|cursive|fantasy|monospace|...'
 	fontsize|size=0.|'xx-small|x-small|small|medium|large|x-large|xx-large'
