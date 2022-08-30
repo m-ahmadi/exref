@@ -183,7 +183,7 @@ for (let [idx, text] of texts.entries()) {
 	storage = storage === 'انباری ندارد' ? 'خیر' : 'بله';
 
 	let descs = _document.querySelector('.kt-description-row__text.kt-description-row__text--primary').innerText;
-	let singlefloor = ['تک واحدی', 'تکواحدی', 'تک واحد', 'تکواحد', 'یک واحدی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
+	let singlefloor = ['تک واحدی', 'تکواحدی', 'تک واحد', 'تکواحد', 'یک واحدی'].some(i => (title+'\n'+descs).includes(i)) ? 'بله' : 'خیر';
 	let stove       = ['گاز رومیزی', 'گازرومیزی', 'اجاق گاز رومیزی', 'اجاق رومیزی'].some(i => descs.includes(i)) ? 'بله' : 'خیر';
 	
 	let url = r[idx];
