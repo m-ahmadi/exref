@@ -8,7 +8,7 @@ winrar a -afzip -m5 output.zip inputdir
 -m4 good
 -m5 best
 
-winrar x archive.zip *			extract here
-winrar x archive.zip * foo\		extract to foo dir
+winrar x file.zip *			extract here
+winrar x file.zip * foo\		extract to foo dir
 
 Help -> Help topics -> Command line mode
