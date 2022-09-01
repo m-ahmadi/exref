@@ -1,5 +1,7 @@
-none worked on 1809 17763
+solution for 1809 17763 (worked)
 
+1. https://github.com/kkkgo/LTSC-Add-MicrosoftStore/releases
+2. reboot
 --------------------------------------------------------------------------------
 solutions:
 
@@ -31,4 +33,13 @@ or
 reg add HKLM\SOFTWARE\Policies\Microsoft\WindowsStore /v RemoveWindowsStore /t REG_DWORD /d 0
 undo:
 reg delete HKLM\SOFTWARE\Policies\Microsoft\WindowsStore /f
+--------------------------------------------------------------------------------
+clear cache
+
+wsreset.exe
+
+or
+
+wmic useraccount get name,sid
+reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Appx\AppxAllUserStore\<SID_OF_CURRENTLY_LOGGED_IN_USER> /f
 --------------------------------------------------------------------------------

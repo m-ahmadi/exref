@@ -15,6 +15,7 @@ WAIT_AFTER_EACH_SCROLL = 1000;
 WAIT_AFTER_EACH_REQUEST = 1000;
 MAKE_HTML = true;
 MAKE_CSV = true;
+MAKE_CSV_ROWNUM_COL = true;
 UTF8_BOM_CSV = true;
 
 sleep = ms => new Promise(r=> setTimeout(r,ms));
@@ -78,7 +79,7 @@ console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 
 if (MAKE_HTML) {
-	linkIdx = COLUMN_HEADERS.indexOf('لینک');
+	linkIdx = COLUMN_HEADERS.length - 1;
 	
 	html = rr.map(i =>
 		'<tr>'+ i.map((v,j) => j===linkIdx ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
@@ -118,9 +119,15 @@ if (MAKE_CSV) {
 		}
 	});
 	
-	_rr = rr.map((v,i) => [i+1, ...v]);
+	let finalRows;
+	if (MAKE_CSV_ROWNUM_COL) {
+		let _rr = rr.map((v,i) => [i+1, ...v]);
+		finalRows = [['ردیف',...COLUMN_HEADERS], ..._rr];
+	} else {
+		finalRows = [COLUMN_HEADERS, ...rr];
+	}
 	
-	text = [['ردیف',...COLUMN_HEADERS], ..._rr].map(i =>
+	text = finalRows.map(i =>
 		i.map(j => typeof j === 'string' && j.includes(',') ? JSON.stringify(j) : j).join(',')
 	).join('\n');
 	
