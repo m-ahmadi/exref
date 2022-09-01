@@ -1,0 +1,12 @@
+install "Phone Link" on windows v1903+ from store
+install "Link to Windows" on android v7+
+	can make phone calls
+	paired using bluetooth/wifi (might need bluetooth dungle)
+	on android v<7, it can only send webpage from phone to pc
+or
+
+install "KDE Connect" on windows and android
+	can send sms
+	can't make phone calls
+	paired using wifi
+
