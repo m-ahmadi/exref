@@ -8,12 +8,24 @@ copy src\file.js dest		one file
 copy src.txt dest.txt /b	needs /b to copy properly when dest is a file (not when dest is a dir)
 copy src\*.js dest\		all js files
 copy src dest /y		say yes to all prompts
+copy file1 + file2 file3	concat file1 and file2 and copy to file3
+copy con file.txt		write from console to file (end with ctrl+c)
+copy file prn			send file to be printed
+copy file \\computer\printer	... shared printers
 
 
-robocopy src dest /e		copy subdirs including empty ones
-robocopy src dest file.txt	copy one file
+robocopy src dest /e /r:0				copy subdirs including empty ones (0 retries)
+robocopy src dest file.txt				copy one file
 robocopy src dest /ns /nc /nfl /ndl /np /njh /njs	don't log anything
+robocopy src dest /xf * /r:0				copy dir structure only without files
+robocopy src dest /e /xf * /r:0				... + subdir
+robocopy src dest /e /xf * /lev:2 /r:0			... only 1 level deep
+note: robocopy doesn't have traditional exit codes (0=err, 1=fine, ...)
 
 
-xcopy src dest /e		...
+xcopy src\file.txt dest		copy one file
+xcopy src dest /e		copy subdirs including empty ones
 xcopy src dest /e /i		... dest does not exist
+xcopy src dest /q		don't log file names
+xcopy src dest /t /i		copy dir structure only without files
+xcopy src dest /t /e /i		... + subdirs

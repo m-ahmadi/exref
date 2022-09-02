@@ -9,6 +9,14 @@ if ($fruit -eq 'orange') {
 	'We sucked'
 }
 
+# ternary
+$result = if ($cond) {'true'} else {'false'}
+write-host $(if ($cond) {'true'} else {'false'})
+
+# ternary - powershell v7+
+0 ? 'yes' : 'no' # 'no'
+1 ? 'yes' : 'no' # 'yes'
+
 # exit script
 exit
 

@@ -1,26 +1,23 @@
-bad idea! don't use this method. why:
+append entry to path env variable
+
+powershell -C "$k='HKCU:Environment'; $v='Path'; sp -Path $k -Name $v -Value ((gpv $k $v)+';D:\foo') -Type ExpandString;"
+powershell -C "$k='HKLM:SYSTEM\CurrentControlSet\Control\Session Manager\Environment'; $v='Path'; sp -Path $k -Name $v -Value ((gpv $k $v)+';D:\foo') -Type ExpandString;"
+
+note:
+using cmd.exe is problematic due to `reg query` and `for /f` which can't get value of `Path` if contains space
+--------------------------------------------------------------------------------
+bad idea! do not do this!
+
+why:
 there are other path variables set in an opened cmd.exe,
 other paths that are not meant to be in system variables and
 by using this method, you are saving them on the system permanently.
---------------------------------------------------------------------------------
+
+setx Path %PATH%;D:\foo		change user path variable: (User variables for NYC, HKEY_CURRENT_USER)
+setx /m Path %PATH%;D:\foo	change system path variable: (System variables, HKEY_LOCAL_MACHINE)
+
 notes:
-
-new PATH is not visible in your current cmd.exe.
-
-setx will truncate the stored string to 1024 bytes.
-
-use this method if your path variable is less than 1024 bytes.
---------------------------------------------------------------------------------
-change user path variable: (User variables for NYC)
-
-setx path "%PATH%;D:\my\new\path with spaces"
-
---------------------------------------------------------------------------------
-changes system path variable: (System variables)
-
-setx /M PATH "%PATH%;D:\my\new\path with spaces"
-
-
-/M will change the PATH in HKEY_LOCAL_MACHINE instead of HKEY_CURRENT_USER.
-(in other words: a system variable, instead of a user variable.)
+	new PATH is not visible in your current cmd.exe
+	setx will truncate the stored string to 1024 bytes
+	use this method if your path variable is less than 1024 bytes
 --------------------------------------------------------------------------------

@@ -9,8 +9,11 @@ win+r command setup
 mklink %windir%\code "D:\Program Files\VSCode\Code.exe"
 --------------------------------------------------------------------------------
 export extension list
-code --list-extensions | xargs -L 1 echo code --install-extension
 
-powershell
-code --list-extensions | % { "code --install-extension $_" }
+code --list-extensions > extensions.txt
+for /f %i in (extensions.txt) do @code --install-extension %i
+
+alt bulk installs
+	bash:	code --list-extensions | xargs -L 1 echo code --install-extension
+	pws:	code --list-extensions | % { "code --install-extension $_" }
 --------------------------------------------------------------------------------
