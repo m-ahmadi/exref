@@ -23,16 +23,45 @@ $str = gc index.js -Encoding UTF8 | Out-String
 $obj = gc file.json -Encoding UTF8 | Out-String | ConvertFrom-Json
 $obj.key
 
-# create .lnk shortcut
-$o = New-Object -ComObject WScript.Shell;
-$s = $o.CreateShortcut('shortcut.lnk');
-$s.TargetPath='dest';
-$s.Save(); # or:
-$s=(New-Object -COM WScript.Shell).CreateShortcut('foo.lnk');$s.TargetPath='dest';$s.Save()
+# .lnk shortcut - create 
+$WshShell = New-Object -ComObject WScript.Shell;
+$Shortcut = $WshShell.CreateShortcut('foo.lnk');
+$Shortcut.TargetPath = '%comspec%';
+$Shortcut.Arguments = '/k echo hello';
+# $Shortcut.Description
+# $Shortcut.FullName
+# $Shortcut.Hotkey
+# $Shortcut.IconLocation
+# $Shortcut.RelativePath
+# $Shortcut.WindowStyle
+# $Shortcut.WorkingDirectory
+$Shortcut.Save();
+
+# .lnk shortcut - create oneliner
+$s=(New-Object -COM WScript.Shell).CreateShortcut('foo.lnk');$s.TargetPath='%comspec%';$s.Arguments='/k echo hello';$s.Save();
+
+# .lnk shortcut - function
+function Make-Shortcut {
+	param( [string]$Name, [string]$Target, [string]$Arguments, [string]$Hotkey, [string]$StartIn )
+	$WshShell = New-Object -ComObject WScript.Shell;
+	$Shortcut = $WshShell.CreateShortcut($Name+'.lnk');
+	$Shortcut.TargetPath = $Target;
+	$Shortcut.Arguments = $Arguments;
+	$Shortcut.Hotkey = if ($Hotkey) {$Hotkey} else {''}
+	$Shortcut.WorkingDirectory = if ($StartIn) {$StartIn} else {''}
+	$Shortcut.Save();
+}
+Make-Shortcut 'foo' '%comspec%' '/k echo hello'
+
+# .lnk shortcut - modify to "Run As Administrator"
+$file = "foo.lnk";
+$bytes = [System.IO.File]::ReadAllBytes($file);
+$bytes[0x15] = $bytes[0x15] -bor 0x20; # set byte 21 (0x15) bit 6 (0x20) ON (Use –bor to set RunAsAdministrator option and –bxor to unset)
+[System.IO.File]::WriteAllBytes($file, $bytes);
 
 # mklink
-ni -Path C:\src -ItemType SymbolicLink -Value E:\dest
-ni -Path C:\src.txt -ItemType SymbolicLink -Value E:\dest.txt
+ni -ItemType SymbolicLink -Path C:\src -Value E:\dest
+ni -ItemType SymbolicLink -Path C:\src.txt -Value E:\dest.txt
 (gi C:\src).Delete()
 (gi C:\src.txt).Delete()
 

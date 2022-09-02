@@ -31,3 +31,9 @@ $a[-2] # 2
 
 $a[0]  # 1 (first)
 $a[1]  # 2
+
+# join
+$a = 'foo', 'bar', 'baz'
+[string]$a   # 'foo bar baz'
+$a -join '@' # 'foo@bar@baz'
+ni file.txt -ItemType File -Value ((1,2,3) -join "`n") -Force

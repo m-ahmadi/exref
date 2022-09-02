@@ -1,71 +1,72 @@
 shortcuts (no need for %%)
 
-\			C:\
-.			%userprofile%
-..			C:\Users
-..\			C:\
-d:			D:\
-explorer /		My Document
-explorer =		My Computer
-appdata			C:\Users\NYC\AppData
-desktop			C:\Users\NYC\Desktop
-temp			C:\Windows\Temp
+\				C:\
+.				%userprofile%
+..				C:\Users
+..\				C:\
+d:				D:\
+explorer /			My Document
+explorer =			My Computer
+appdata				C:\Users\NYC\AppData
+desktop				C:\Users\NYC\Desktop
+temp				C:\Windows\Temp
 
-sysdm.cpl		System Properties (mycomputer -> Properties -> Advanced system settings)
-control sysdm.cpl,,3	... Advanced tab
-appwiz.cpl		Programs and Features
-control			All Control Panel Items
-control folders		Folder Options
-ncpa.cpl		Network Connections
-powercfg.cpl		Power Options
-control powercfg.cpl,,0	... Advanced settings
-control schedtasks	Task Scheduler
-control userpasswords	User Accounts (control panel page)
-control userpasswords2	User Accounts
-netplwiz		...
-control appwiz.cpl,,2	Windows Features
-control admintools	Administrative Tools
-control desktop		Personalization
-control international	Region
-firewall.cpl		Firewall
-mmsys.cpl		Sound
-mmsys.cpl ,1		... 2nd tab
-inetcpl.cpl		Internet Options
-desk.cpl		Display
-timedate.cpl		Date and Time
-msconfig		System Configuration
-ms-settings:		Settings (win+i)
-mstsc			Remote Desktop Connection
+sysdm.cpl			System Properties (mycomputer -> Properties -> Advanced system settings)
+control sysdm.cpl,,3		... Advanced tab
+appwiz.cpl			Programs and Features
+control				All Control Panel Items
+control folders			Folder Options
+ncpa.cpl			Network Connections
+powercfg.cpl			Power Options
+control powercfg.cpl,,0		... Advanced settings
+control schedtasks		Task Scheduler
+control userpasswords		User Accounts (control panel page)
+UserAccountControlSettings	User Account Control Settings
+control userpasswords2		User Accounts
+netplwiz			...
+control appwiz.cpl,,2		Windows Features
+control admintools		Administrative Tools
+control desktop			Personalization
+control international		Region
+firewall.cpl			Firewall
+mmsys.cpl			Sound
+mmsys.cpl ,1			... 2nd tab
+inetcpl.cpl			Internet Options
+desk.cpl			Display
+timedate.cpl			Date and Time
+msconfig			System Configuration
+ms-settings:			Settings (win+i)
+mstsc				Remote Desktop Connection
 
-services.msc		Services
-compmgmt.msc		Computer Management
-devmgmt.msc		Device Manager
-diskmgmt.msc		Disk Management
-regedit			Registry Editor
-lusrmgr.msc		Local Users and Groups
-gpedit.msc		Local Group Policy Editor
-secpol.msc		Local Security Policy
-wf.msc			Windows Defender Firewall with Advanced Security
-eventvwr.msc		Event Viewer
-fsmgmt.msc		Shared Folders
-dcomcnfg		Component Services
-resmon			Resource Monitor
-taskmgr			Task Manager
-taskmgr /7 /startup	... Startup tab (no other option exists)
+services.msc			Services
+compmgmt.msc			Computer Management
+devmgmt.msc			Device Manager
+diskmgmt.msc			Disk Management
+regedit				Registry Editor
+lusrmgr.msc			Local Users and Groups
+gpedit.msc			Local Group Policy Editor
+secpol.msc			Local Security Policy
+wf.msc				Windows Defender Firewall with Advanced Security
+eventvwr.msc			Event Viewer
+fsmgmt.msc			Shared Folders
+dcomcnfg			Component Services
+resmon				Resource Monitor
+taskmgr				Task Manager
+taskmgr /7 /startup		... Startup tab (no other option exists)
 
 calc notepad fonts charmap logoff mspaint wmplayer write
 chrome excel winword powerpnt access ccleaner winrar mpc-hc64
 
-sndvol			Volume mixer
-sndvol -f		...
-osk			On-Screen Keyboard
-winver			About Windows
-msinfo32		System Information
-msiexec			Windows Installer (about)
-cleanmgr		Disk Cleanup
-dxdiag			DirectX Diagnostic Tool
-verifier		Driver Verifier Manager
-ms-windows-store:	Windows Store
+sndvol				Volume mixer
+sndvol -f			...
+osk				On-Screen Keyboard
+winver				About Windows
+msinfo32			System Information
+msiexec				Windows Installer (about)
+cleanmgr			Disk Cleanup
+dxdiag				DirectX Diagnostic Tool
+verifier			Driver Verifier Manager
+ms-windows-store:		Windows Store
 
 shutdown ping ipconfig sfc chkdsk net netsh ... %windir%\system32\en-US
 
@@ -78,23 +79,23 @@ control /name Microsoft.NetworkAndSharingCenter /page Advanced
 control /name Microsoft.DateAndTime		same as: timedate.cpl
 --------------------------------------------------------------------------------
 some env variables
-compsec			C:\Windows\system32\cmd.exe
-appdata			C:\Users\NYC\AppData\Roaming
-localappdata		C:\Users\NYC\AppData\Local
-userprofile		C:\Users\NYC
-homepath		C:\Users\NYC
-programfiles		C:\Program Files
-programfiles(x86)	C:\Program Files (x86)
-windir			C:\Windows
-systemroot		C:\Windows
-homedrive		C:\
-allusersprofile		C:\ProgramData
-computername		DESKTOP-J3T9BJH
+compsec				C:\Windows\system32\cmd.exe
+appdata				C:\Users\NYC\AppData\Roaming
+localappdata			C:\Users\NYC\AppData\Local
+userprofile			C:\Users\NYC
+homepath			C:\Users\NYC
+programfiles			C:\Program Files
+programfiles(x86)		C:\Program Files (x86)
+windir				C:\Windows
+systemroot			C:\Windows
+homedrive			C:\
+allusersprofile			C:\ProgramData
+computername			DESKTOP-J3T9BJH
 --------------------------------------------------------------------------------
 shell:<dir>
 
-shell:Startup		startup programs
-shell:Common Startup	...
+shell:Startup			startup programs
+shell:Common Startup		...
 shell:Desktop
 shell:Downloads
 shell:ProgramFiles

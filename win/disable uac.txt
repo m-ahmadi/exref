@@ -3,6 +3,16 @@ reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v Enable
 undo:
 reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 1 /f
 
+possible values
+1	FilterAdministratorToken
+2	ConsentPromptBehaviorAdmin
+3	ConsentPromptBehaviorUser
+4	EnableInstallerDetection
+5	ValidateAdminCodeSignatures
+6	EnableLUA
+7	PromptOnSecureDesktop
+8	EnableVirtualization
 
 note:
 if disabled, everything will be "Run as administrator" by default
+ui slider in `UserAccountControlSettings` sets a combination of possible values (not just 1)

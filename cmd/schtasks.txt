@@ -1,0 +1,5 @@
+schtasks /?
+
+schtasks /query /xml /tn TaskName > task.xml		export task to task.xml file (output xml not same as export from ui)
+
+schtasks /create /xml task.xml /tn TaskName		import task from task.xml file

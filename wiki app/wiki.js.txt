@@ -1,5 +1,5 @@
 powershell
-Invoke-WebRequest -Uri "https://github.com/Requarks/wiki/releases/download/2.0.12/wiki-js-windows.tar.gz" -OutFile "wiki-js.tar.gz"
+wget -Uri "https://github.com/Requarks/wiki/releases/download/2.0.12/wiki-js-windows.tar.gz" -OutFile "wiki-js.tar.gz"
 New-Item -Path "C:\" -Name "wiki" -ItemType "directory"
 tar xzf wiki-js.tar.gz -C "C:\wiki"
 cd C:\wiki

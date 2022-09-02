@@ -21,11 +21,14 @@ rni ren			Rename-Item
 ri del			Remove-Item
 mi mv move	Move-Item
 cpi cp copy	Copy-Item
+gp					Get-ItemProperty
 sp					Set-ItemProperty
 rp					Remove-ItemProperty
+gpv					Get-ItemPropertyValue
 gc cat			Get-content
 pushd				Push-Location
 start saps	Start-Process
+wget				Invoke-WebRequest
 
 ft					Format-Table
 gcb					Get-Clipboard
