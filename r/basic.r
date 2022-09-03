@@ -1,3 +1,8 @@
+# single line comment
+'
+	multiline comment
+'
+
 # types
 10.5 55    # numeric
 1L 55L     # integer

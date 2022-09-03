@@ -1,3 +1,8 @@
+# single line comment
+'''
+	multiline comment
+'''
+
 # semicolon only separates (for multiple statements on single line)
 2+2; 3+3;
 # 4
