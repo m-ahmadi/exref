@@ -26,16 +26,19 @@ control userpasswords2		User Accounts
 netplwiz			...
 control appwiz.cpl,,2		Windows Features
 control admintools		Administrative Tools
-control desktop			Personalization
+control desktop			win+i -> Personalization
 control international		Region
 firewall.cpl			Firewall
 mmsys.cpl			Sound
 mmsys.cpl ,1			... 2nd tab
 inetcpl.cpl			Internet Options
-desk.cpl			Display
+desk.cpl			win+i -> System -> Display
+desk.cpl ,5			Desktop Icon Settings
 timedate.cpl			Date and Time
 msconfig			System Configuration
 ms-settings:			Settings (win+i)
+windowsdefender:		win+i -> Update & Security -> Windows Security
+windowsdefender://threat	... Virus & threat protection
 mstsc				Remote Desktop Connection
 
 services.msc			Services
@@ -71,12 +74,13 @@ ms-windows-store:		Windows Store
 shutdown ping ipconfig sfc chkdsk net netsh ... %windir%\system32\en-US
 
 rundll32 sysdm.cpl,EditEnvironmentVariables	open env vars directly
-control /name Microsoft.PowerOptions		same as: powercfg.cpl
-control /name Microsoft.FolderOptions		same as: control folders
-control /name Microsoft.Sound			same as: mmsys.cpl
+rundll32 shell32.dll,Control_RunDLL appwiz.cpl	appwiz.cpl (more verbose form)
+control /name Microsoft.PowerOptions		powercfg.cpl
+control /name Microsoft.FolderOptions		control folders
+control /name Microsoft.Sound			mmsys.cpl
 control /name Microsoft.NetworkAndSharingCenter
 control /name Microsoft.NetworkAndSharingCenter /page Advanced
-control /name Microsoft.DateAndTime		same as: timedate.cpl
+control /name Microsoft.DateAndTime		timedate.cpl
 --------------------------------------------------------------------------------
 some env variables
 compsec				C:\Windows\system32\cmd.exe

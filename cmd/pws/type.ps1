@@ -1,24 +1,33 @@
 # string, number, boolean. everything else is object?
 
-(true).GetType()      # error
+# boolean
+$true 
+$false
 $true.GetType().Name  # Boolean
 $false                # ...
+(true).GetType()      # error
+
+# string
 "hello"               # String
 'hello'               # ...
 
-# numbers
-(32).GetType().Name # int32
-$foo.GetType().Name # typeof
-32 -is [int32]      # true
-32 -is 'int32'      # true
-32 -is 'int64'      # false
+# null value
+$null
 
+# numbers
 7                   # Int32
 32                  # Int32
 2147483647          # Int32
 2147483648          # Int64
 9223372036854775807 # Int 64
 9223372036854775808 # Decimal
+
+(32).GetType().Name # int32
+$foo.GetType().Name # typeof
+32 -is [int32]      # true
+32 -is 'int32'      # true
+32 -is 'int64'      # false
+
 #type        alias       description
 [byte]       ---         # Byte (unsigned)
 [sbyte]      ---         # Byte (signed)

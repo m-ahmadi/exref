@@ -5,33 +5,34 @@ Get-Alias -D Get-Alias             # gal
 gal -d Get-Command                 # gcm
 gal -d Get-Help                    # does not exist
 
-# alias			cmdlet  
-help				Get-Help # not rly
-gps ps			Get-Process
-gal					Get-Alias
-gcm					Get-Command
-gm					Get-Member
-gci dir ls	Get-ChildItem
-clv					Clear-Variable
-select			Select-Object
+# alias					cmdlet  
+help						Get-Help # not rly
+gps ps					Get-Process
+gal							Get-Alias
+gcm							Get-Command
+gm							Get-Member
+gci dir ls			Get-ChildItem
+clv							Clear-Variable
+select					Select-Object
 
-gi					Get-Item
-ni					New-Item
-rni ren			Rename-Item
-ri del			Remove-Item
-mi mv move	Move-Item
-cpi cp copy	Copy-Item
-gp					Get-ItemProperty
-sp					Set-ItemProperty
-rp					Remove-ItemProperty
-gpv					Get-ItemPropertyValue
-gc cat			Get-content
-pushd				Push-Location
-start saps	Start-Process
-wget				Invoke-WebRequest
+gi							Get-Item
+ni							New-Item
+rni ren					Rename-Item
+ri del					Remove-Item
+mi mv move			Move-Item
+cpi cp copy			Copy-Item
+gp							Get-ItemProperty
+sp							Set-ItemProperty
+rp							Remove-ItemProperty
+gpv							Get-ItemPropertyValue
+gc cat					Get-content
+pushd						Push-Location
+start saps			Start-Process
+wget iwr curl		Invoke-WebRequest
 
-ft					Format-Table
-gcb					Get-Clipboard
+ft							Format-Table
+fl							Format-List
+gcb							Get-Clipboard
 
-% foreach		ForEach-Object
-? where			Where-Object
+% foreach				ForEach-Object
+? where					Where-Object

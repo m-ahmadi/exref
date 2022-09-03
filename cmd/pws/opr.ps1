@@ -1,3 +1,5 @@
+# https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_operators
+
 + - * / %               # arithmetic
 =  +=  -=  *=  /=  %=   # assignment
 -eq -ne -gt -ge -lt -le # equality
@@ -25,10 +27,10 @@ $( ) # subexpression
 ?{}  # alias for Where-Object (gal ?)
 
 # comparison
--match -notmatch -replace # regex
--like -notlike            # wildcard
--is -isnot                # type
--bAND -bOR -bXOR -bNOT    # bitwise
+-match -notmatch -replace         # regex
+-like -notlike                    # wildcard
+-is -isnot                        # type
+-bAND -bOR -bXOR -bNOT            # bitwise
 -contains -notcontains -in -notin # containment
 
 # some examples
@@ -55,15 +57,3 @@ $c = 'Get-Executionpolicy'
 (1,2,3)[1]               # 2
 [datetime]::now          # Friday, January 3, 2020 2:18:58 AM
 1..4                     # 1,2,3,4
-
-# automatic variables (read-only, don't write, though you can)
-$$ # last line's last  token
-$^ # last line's first token
-$? # last command's exec status
-$_ # current obj in pipeline
-$args $null $true $false $foreach ...
-# $_
-1,2,3 | %{ write-host $_ }
-1,2,3 | %{ write-host $PSItem }
-1,2,3 | %{ Write-Host $_ }
-1,2,3 | ?{ $_ -gt 1 }
