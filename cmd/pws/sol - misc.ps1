@@ -1,3 +1,7 @@
+# add to path
+$env:Path += ';./node_modules/.bin'
+$env:Path = "$($env:Path);./node_modules/.bin"
+
 # change window title
 $Host.ui.RawUI.WindowTitle = 'mytitle'
 

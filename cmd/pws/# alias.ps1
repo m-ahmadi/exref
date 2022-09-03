@@ -28,7 +28,9 @@ gpv							Get-ItemPropertyValue
 gc cat					Get-content
 pushd						Push-Location
 start saps			Start-Process
+kill spps       Stop-Process
 wget iwr curl		Invoke-WebRequest
+gsv							Get-Service
 
 ft							Format-Table
 fl							Format-List

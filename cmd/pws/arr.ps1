@@ -1,3 +1,10 @@
+1,2,3      # array: 1,2,3
+@(1,2,3)   # casted array: 1,2,3
+@(dir)     # array from dir output
+,1         # array with one item
+(1,2,3)[1] # index access: 2
+1..4       # range operator: 1,2,3,4
+
 # any comma-separated list is considered array:
 $x = 'hello', 'world'
 $x[0] # hello
