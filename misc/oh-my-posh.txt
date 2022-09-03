@@ -1,6 +1,7 @@
 powershell module
 
 Install-Module oh-my-posh -Scope CurrentUser		install
+Uninstall-Module oh-my-posh				uninstall
 Update-Module oh-my-posh				update
 
 Get-PoshThemes						view all themes
@@ -16,13 +17,13 @@ custom theme
 		console_title: false
 	.mytheme.omp.json
 $PROFILE:
-	$Host.ui.RawUI.WindowTitle = 'pws'
 	Set-PoshPrompt -Theme .mytheme
 --------------------------------------------------------------------------------
 setup powershell
 
 Install-Module oh-my-posh -Scope CurrentUser
-ni $PROFILE -ItemType File -Value "Set-PoshPrompt -Theme powerlevel10k_rainbow"
+add "Set-PoshPrompt -Theme powerlevel10k_rainbow" to $PROFILE
+	
 
 https://github.com/ryanoasis/nerd-fonts/releases
 	install "Meslo LG M Regular Nerd Font Complete Mono Windows Compatible.ttf"
@@ -33,6 +34,11 @@ powershell window "Properties" (not "Defaults")
 	font=17
 	width  height  left  top
 	117    28      957   528
+
+uninstall
+	Uninstall-Module oh-my-posh
+	remove $PROFILE entry
+	set powershell window "Properties" to defaults (use "PowerShell (x86)" window for values)
 --------------------------------------------------------------------------------
 setup bash
 

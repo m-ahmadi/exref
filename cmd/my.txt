@@ -31,7 +31,7 @@ ctrl alt
 	7	keyboardlocker (lock: ctrl alt L, unlock: unlock)
 	8 	paint.net
 	e 	cmd			Target: %comspec% /c start "cmd" /d D:\xampp\htdocs /i
-	r 	powershell admin,	Target: %pws% -NoExit -Command "pushd $env:h"
+	r 	powershell admin	Target: %pws% -NoExit -Command "pushd $env:h; $Host.ui.RawUI.WindowTitle='pws';"
 	`	conemu
 ctrl `		deskpins
 ctrl shift `	everything

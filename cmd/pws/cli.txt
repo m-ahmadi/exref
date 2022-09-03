@@ -5,9 +5,9 @@ powershell -ExecutionPolicy Bypass -File .\file.ps1	... bypass policy
 powershell -NoExit -Command "pushd $env:home"		open and cd
 
 
--NonInteractive		Does not present an interactive prompt to the user.
--NoProfile		Does not load the Windows PowerShell profile.
--NoLogo			Hides the copyright banner at startup.
+-NonInteractive		do not present interactive prompt to user
+-NoProfile		do not load powershell profile
+-NoLogo			hide copyright banner at startup
 --------------------------------------------------------------------------------
 another way of changing global execution policy
 
