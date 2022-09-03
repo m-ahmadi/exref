@@ -1,6 +1,9 @@
-/*************************************************************************************************************************************
-	Primitive Types:
+// single line comment
+/*
+	multiline comment
 */
+
+// primitive types
 1234567890 // Number
 'string'   // String
 true false // Boolean
@@ -8,9 +11,7 @@ undefined  // undefined
 null       // null
 Object     // and Objects
 
-/*************************************************************************************************************************************
-	Wrappers:
-*/
+// wrappers
 String()
 Number()
 Boolean()
@@ -21,21 +22,16 @@ RegExp()
 Date()
 Error()
 Symbol() ES6
-/*************************************************************************************************************************************
-	Truthy & Falsy values:
-*/
-// Falsy:
-false
-null
-undefined
-''         // The empty string
-0          // The number 0
-NaN        // The number NaN
-// Truthy:
-// Everything else
-/*************************************************************************************************************************************
-	First-Class Functions
-*/
+
+// falsy values (everything else is truthy)
+false     // falsy
+null      // ...
+undefined // ...
+''        // ... empty string
+0         // ... number 0
+NaN       // ... number NaN
+
+// first-class functions
 /*
 	js supports:
 		passing functions as arguments to other functions

@@ -22,3 +22,8 @@ $obj.Kill()             # call method
 $x = 2
 $y = 3
 $x = 2; $y = 3;
+
+# single line comment
+<#
+	multiline comment
+#>

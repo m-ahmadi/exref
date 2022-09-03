@@ -1,3 +1,8 @@
+% single line comment
+%{
+	multiline comment
+%}
+
 clc          % clear command window
 cla          % clear plot axes
 clf          % clear current figure window
@@ -35,9 +40,5 @@ save('myvars.mat')
 load('myvars.mat')
 
 % disable commandhistory popup: Home -> Layout -> Command History -> Closed
-
-%{
-	multiline comment
-%}
 
 class(x) % type of variable
