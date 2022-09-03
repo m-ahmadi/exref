@@ -12,7 +12,7 @@ len(a)                  # 2
 ([1,2]+[3,4])[1:]       # concat & slice:  [1,2,3]
 [1,2]+[3,4][1:]         # ...              [1,2,4]
 [1,2].append(3)         # NoneType,  a: [1,2,3]
-[1,2,3].insert(2, 4)    # NoneType,  a: [1,2,4,3]
+[1,2,3].insert(2,4)     # NoneType,  a: [1,2,4,3]
 [1,2].extend([3,4])     # NoneType,  a: [1,2,3,4]
 [7,8,9].remove(8)       # NoneType,  a: [7,8]
 [1,2,3].reverse()       # NoneType,  a: [3,2,1]

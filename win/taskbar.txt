@@ -1,0 +1,8 @@
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v TaskbarGlomLevel /t REG_DWORD /d 2 /f
+
+0	Always, hide labels
+1	When taskbar is full
+2	Never
+
+note:
+must restart "explorer.exe" to see the change

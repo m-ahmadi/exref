@@ -1,21 +1,47 @@
 # concat
 'foot' + 'ball'        # football
-$name='ball'
-Write-Host 'foot'$name # football
-echo 'foot'$name       # foot
-"$($name)ball"         # football
-$x = 'ini '
-$x += 'mini '
-$x += 'miny'
-$x                     # ini mini miny
-$env:Path += ';./node_modules/.bin'
-$env:Path = "$($env:Path);./node_modules/.bin"
 
-# backtick (word-wrap operator)
+# backtick as word-wrap operator
 "ini `n mini"   # \n
 "ini `r`n mini" # \r\n
 "ini `t mini"   # \t
 'ini `n mini'   # no effect (only with double quotes)
+
+# escape
+'I''m good'         # single:    "I'm good"
+"breaking ""news""" # double:    'breaking "news"'
+"breaking `"news`"" # backtick:  ...
+
+# special chars
+"
+	`0       null
+	`a       alert bell/beep
+	`b       backspace
+	`e       escape (v6+)
+	`f       form feed (use with printer output)
+	`n       newline
+	`r       carriage return
+	`r`n     carriage return + newline
+	`t       horizontal tab
+	`u{x}    unicode escape sequence (v6+)
+	`v       vertical tab (use with printer output)
+"
+
+# multiline string
+"foo
+bar"
+
+'foo
+bar
+'
+
+@'
+foo
+bar
+'@
+
+'foo '+
+'bar' # 'foo bar'
 
 # split
 'a b c'.split()    # a,b,c
@@ -28,7 +54,7 @@ $s.Substring($s.Length - 1) # ';'
 # replace
 'lord of the rings'.Replace('l', 'f')
 
-
+# all
 $str.Length
 $str.Clone()
 $str.CompareTo()

@@ -1,6 +1,9 @@
+$foo = 'hello' # create variable
+clv -n foo     # delete variable
+$env:path      # special variable (access env variables like `echo %path%`)
+
 # automatic variables (read-only, don't write, though you can)
 # https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables
-
 $$ # last line's last  token
 $?
 $^ # last line's first token
@@ -50,7 +53,7 @@ $true
 $Env
 
 # $_
-1,2,3 | %{ write-host $_ }
-1,2,3 | %{ write-host $PSItem }
-1,2,3 | %{ Write-Host $_ }
+1,2,3 | %{ echo $_ }
+1,2,3 | %{ echo $PSItem }
+1,2,3 | %{ echo $_ }
 1,2,3 | ?{ $_ -gt 1 }

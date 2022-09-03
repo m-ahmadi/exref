@@ -11,6 +11,7 @@ ri mydir -Force -Recurse           # ... & all subdirs
 mi a.txt -Destination E:\          # move file or dir
 mi a.txt,b.txt -D E:\              # ... multiple
 cpi C:\file.txt -Destination E:\   # copy file
+cpi -LiteralPath a -Destination b  # ...
 cpi C:\foo -D E:\ -Recurse         # copy dir and everything inside
 Test-Path 'd'                      # folder exists?
 Test-Path 'd' -PathType Container  # ... more restricted
@@ -50,19 +51,24 @@ gci | select -ExpandProperty Name    # ...
 gci | select FullName                # abs path
 gci -dir | select Name               # dir /a:d /b
 
-# copy folder structure only without files
-cpi $src $dest -Filter {PSIsContainer} -Recurse -Force
+# copy folder hierarchy without files
+cpi src dest -Recurse -Filter {PSIsContainer} -Force
+cpi src dest -Recurse -Filter {PSIsContainer -eq $true}
+cpi src dest -r -fi PSIsContainer
 
-# ↑... limit level (not exactly like `robocopy /e /xf * /lev:3`)
-gci -Directory -Depth 2 'C:\Program Files' | %{cpi $_.FullName -Destination 'D:\foo' -Force}
+# ↑... first level only
+gci 'C:\Program Files' -Directory -Depth 1 | %{cpi $_.FullName -Destination D:\foo -Force}
 
-# copy flat files only
-New-Item $dest -type directory
+# copy flat folders from n level deep (not like `robocopy /e /xf * /lev:3`)
+gci 'C:\Program Files' -Directory -Depth 2 | %{cpi $_.FullName -Destination D:\foo -Force}
+
+# copy flat files
+New-Item $dest -Type Directory
 Get-ChildItem $src -Recurse | `
 	Where-Object { $_.PSIsContainer -eq $False } | `
 	ForEach-Object { Copy-Item -Path $_.Fullname -Destination $dest -Force }
 # ... shorty:
-ni $dest -type directory
+ni $dest -Type Directory
 gci $src -Recurse | ?{$_.PSIsContainer -eq $False} | %{cpi -Path $_.Fullname -Destination $dest -Force}
 
 # unzip
