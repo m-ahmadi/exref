@@ -14,6 +14,7 @@ gm							Get-Member
 gci dir ls			Get-ChildItem
 clv							Clear-Variable
 select					Select-Object
+sort						Sort-Object
 
 gi							Get-Item
 ni							New-Item
@@ -34,6 +35,7 @@ gsv							Get-Service
 
 ft							Format-Table
 fl							Format-List
+fw							Format-Wide
 gcb							Get-Clipboard
 
 % foreach				ForEach-Object

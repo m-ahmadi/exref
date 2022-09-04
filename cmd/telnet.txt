@@ -1,0 +1,12 @@
+telnet /?
+
+telnet www.example.com 80
+
+Ctrl-]		exit telnet
+quit		...
+--------------------------------------------------
+activate
+
+appwiz.cpl ,2 -> Telnet Client
+reboot
+--------------------------------------------------

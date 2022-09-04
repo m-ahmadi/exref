@@ -50,6 +50,7 @@ gci | select Name                    # dir /b
 gci | select -ExpandProperty Name    # ...
 gci | select FullName                # abs path
 gci -dir | select Name               # dir /a:d /b
+gci .\*.mp3 | select Name | sort Name | fw -Column 1 # dir *.mp3 /b
 
 # copy folder hierarchy without files
 cpi src dest -Recurse -Filter {PSIsContainer} -Force
