@@ -3,7 +3,7 @@ ipconfig /release		on all adapters
 ipconfig /release Wi-Fi		on specified adapter
 ipconfig /renew Wi-Fi		renew ipvc (if dhcp enabeld)
 ipconfig /flushdns		delete dns resolver cache
-ipconfig /registerdns
+ipconfig /registerdns		refresh all dhcp leases and re-register dns names
 
 netstat				network connections and open ports
 tracert

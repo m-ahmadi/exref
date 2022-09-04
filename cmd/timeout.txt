@@ -1,0 +1,4 @@
+timeout /?
+
+timeout 1		wait 1 second
+timeout 1 /nobreak	... ignore key presses
