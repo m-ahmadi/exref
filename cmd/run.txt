@@ -125,7 +125,6 @@ tpm.msc				Trusted Platform Module
 wf.msc				Windows Defender Firewall with Advanced Security
 wmimgmt.msc			Windows Management Instrumentation (WMI)
 
-
 --------------------------------------------------
 other
 
@@ -142,10 +141,17 @@ oddball
 --------------------------------------------------
 note
 
-actual substituted command by windows
+actual substituted commands by windows
 	rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl
 	rundll32.exe shell32.dll,Options_RunDLL 7
 	rundll32.exe shell32.dll,SHHelpShortcuts_RunDLL AddPrinter
+	
+	rundll32.exe devmgr.dll DeviceManager_Execute
+	rundll32.exe keymgr.dll,PRShowSaveWizardExW
+	rundll32.exe keymgr.dll,KRShowKeyMgr
+	rundll32.exe powrprof.dll,SetSuspendState
+	rundll32.exe shwebsvc.dll,AddNetPlaceRunDll
+	rundll32.exe user32.dll,LockWorkStation
 
 location of some .cpl in registry
 	regjump "HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Cpls"
