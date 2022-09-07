@@ -1,0 +1,294 @@
+https://docs.microsoft.com/en-us/windows/uwp/launch-resume/launch-settings-app
+
+--------------------------------------------------------------------------------
+Accounts
+
+workplace					Access work or school
+emailandaccounts				Email & app accounts
+otherusers					Family & other people
+assignedaccess					Set up a kiosk
+signinoptions					Sign-in options
+signinoptions-dynamiclock			...
+sync						Sync your settings
+backup						... (deprecated in win 11)
+signinoptions-launchfaceenrollment		Windows Hello setup
+signinoptions-launchfingerprintenrollment	...
+yourinfo					Your info
+--------------------------------------------------------------------------------
+Apps
+
+appsfeatures					Apps & Features
+appsfeatures-app				App features
+appsforwebsites					Apps for websites
+defaultapps					Default apps
+optionalfeatures				Manage optional features
+maps						Offline Maps
+maps-downloadmaps				... Download maps
+startupapps					Startup apps
+videoplayback					Video playback
+--------------------------------------------------------------------------------
+Control Center
+
+controlcenter					Control center
+--------------------------------------------------------------------------------
+Cortana
+
+cortana-notifications				Cortana across my devices
+cortana-moredetails				More details
+cortana-permissions				Permissions & History
+cortana-windowssearch				Searching Windows
+cortana-language				Talk to Cortana
+cortana						...
+cortana-talktocortana				...
+--------------------------------------------------------------------------------
+Devices
+
+autoplay					AutoPlay
+bluetooth					Bluetooth
+connecteddevices				Connected Devices
+camera 						Default camera (deprecated in win10 v1809+)
+camera						Camera Settings (win11 v22000+)
+mousetouchpad					Mouse & touchpad (if touchpad)				
+pen						Pen & Windows Ink
+printers					Printers & scanners
+devices-touch					Touch
+devices-touchpad 				Touchpad (if touchpad)
+devicestyping-hwkbtextsuggestions)		Text Suggestions
+typing						Typing
+usb						USB
+wheel						Wheel (if Dial is paired)				
+mobile-devices					Your phone
+--------------------------------------------------------------------------------
+Ease of access
+
+easeofaccess-audio				Audio
+easeofaccess-closedcaptioning			Closed captions
+easeofaccess-colorfilter			Color filters
+easeofaccess-colorfilter-adaptivecolorlink	...
+easeofaccess-colorfilter-bluelightlink		...		
+easeofaccess-display				Display
+easeofaccess-eyecontrol				Eye control
+fonts						Fonts
+easeofaccess-highcontrast			High contrast
+easeofaccess-keyboard				Keyboard
+easeofaccess-magnifier				Magnifier
+easeofaccess-mouse				Mouse
+easeofaccess-mousepointer			Mouse pointer & touch
+easeofaccess-narrator				Narrator
+easeofaccess-narrator-isautostartenabled	...
+easeofaccess-speechrecognition			Speech
+easeofaccess-cursor				Text cursor
+easeofaccess-visualeffects			Visual Effects
+--------------------------------------------------------------------------------
+Extras
+
+extras						Extras (if "settings apps" installed)
+--------------------------------------------------------------------------------
+Family Group
+
+family-group					Family Group
+--------------------------------------------------------------------------------
+Gaming
+
+gaming-gamebar					Game bar
+gaming-gamedvr					Game DVR
+gaming-gamemode					Game Mode
+quietmomentsgame				Playing a game full screen
+gaming-trueplay 				TruePlay (removed in win10 v1809 b17763 removed)
+--------------------------------------------------------------------------------
+Home page
+
+defaultbrowsersettings				Default browser settings
+--------------------------------------------------------------------------------
+Mixed reality (if "Mixed Reality Portal" installed)
+
+holographic-audio				Audio and speech
+privacy-holographic-environment			Environment
+holographic-headset				Headset display
+holographic-management				Uninstall
+holographic-startupandesktop			Startup and desktop
+--------------------------------------------------------------------------------
+Network and internet
+
+network-status					Network & internet
+network-advancedsettings			Advanced settings
+network-airplanemode				Airplane mode
+proximity					...
+network-cellular				Cellular & SIM
+network-dialup					Dial-up
+network-directaccess 				DirectAccess (if DirectAccess is enabled)
+network-ethernet				Ethernet
+network-wifisettings				Manage known networks
+network-mobilehotspot				Mobile hotspot
+network-proxy					Proxy
+network-vpn					VPN
+network-wifi 					Wi-Fi (if device has wifi adapter)
+wifi-provisioning				Wi-Fi provisioning
+--------------------------------------------------------------------------------
+Personalization
+
+personalization-background			Background
+personalization-start-places			Choose which folders appear on Start
+personalization-colors				Colors
+colors						...
+lockscreen					Lock screen
+personalization					Personalization (category)
+personalization-start				Start
+taskbar						Taskbar
+personalization-touchkeyboard			Touch Keyboard
+themes						Themes
+personalization-glance 				Glance (deprecated in win10 v1809+)
+personalization-navbar 				Navigation bar (deprecated in win10 v1809+)
+--------------------------------------------------------------------------------
+Phone
+
+mobile-devices					Your phone
+mobile-devices-addphone				...
+mobile-devices-addphone-direct			... (opens "Your Phone" app)
+deviceusage					Device Usage
+--------------------------------------------------------------------------------
+Privacy
+
+privacy-accessoryapps				Accessory apps (deprecated in win10 v1809+)
+privacy-accountinfo				Account info
+privacy-activityhistory				Activity history
+privacy-advertisingid				Advertising ID (deprecated in win10 v1809+)
+privacy-appdiagnostics				App diagnostics
+privacy-automaticfiledownloads			Automatic file downloads
+privacy-backgroundapps				Background Apps
+privacy-backgroundspatialperception		Background Spatial Perception
+privacy-calendar				Calendar
+privacy-callhistory				Call history
+privacy-webcam					Camera
+privacy-contacts				Contacts
+privacy-documents				Documents
+privacy-downloadsfolder				Downloads folder
+privacy-email					Email
+privacy-eyetracker 				Eye tracker (requires eyetracker hardware)
+privacy-feedback				Feedback & diagnostics
+privacy-broadfilesystemaccess			File system
+privacy						General
+privacy-general					...
+privacy-graphicscaptureprogrammatic		Graphics
+privacy-graphicscapturewithoutborder		...
+privacy-speechtyping				Inking & typing
+privacy-location				Location
+privacy-messaging				Messaging
+privacy-microphone				Microphone
+privacy-motion					Motion
+privacy-musiclibrary				Music Library
+privacy-notifications				Notifications
+privacy-customdevices				Other devices
+privacy-phonecalls				Phone calls
+privacy-pictures				Pictures
+privacy-radios					Radios
+privacy-speech					Speech
+privacy-tasks					Tasks
+privacy-videos					Videos
+privacy-voiceactivation				Voice activation
+--------------------------------------------------------------------------------
+Search
+
+search						Search
+search-moredetails				Search more details
+search-permissions				Search Permissions
+--------------------------------------------------------------------------------
+Surface Hub
+
+surfacehub-accounts				Accounts
+surfacehub-sessioncleanup			Session cleanup
+surfacehub-calling				Team Conferencing
+surfacehub-devicemanagenent			Team device management
+surfacehub-welcome				Welcome screen
+--------------------------------------------------------------------------------
+System
+
+about						About
+display-advanced				Advanced display settings (if device support)
+apps-volume					App volume and device preferences (added in win10 v1903)
+batterysaver					Battery Saver (if battery device)
+batterysaver-settings				Battery Saver settings (if battery device)
+batterysaver-usagedetails			Battery use (if battery device)
+clipboard					Clipboard
+display						Display
+savelocations					Default Save Locations
+screenrotation					Display
+quietmomentspresentation			Duplicating my display
+quietmomentsscheduled				During these hours
+deviceencryption				Encryption
+quiethours					Focus assist
+display-advancedgraphics			Graphics Settings (if device support)
+display-advancedgraphics-default		Graphics Default Settings
+multitasking					Multitasking
+multitasking-sgupdate				...
+nightlight					Night light settings
+project						Projecting to this PC
+crossdevice					Shared experiences
+tabletmode					Tablet mode (removed in win11)
+taskbar						Taskbar
+notifications					Notifications & actions
+remotedesktop					Remote Desktop
+phone 						Phone (deprecated in win10 v1809+)
+powersleep					Power & sleep
+sound						Sound
+sound-devices					Sound devices
+storagesense					Storage
+storagepolicies					Storage Sense
+storagerecommendations				Storage recommendations
+disksandvolumes					Disks & volumes
+--------------------------------------------------------------------------------
+Time and language
+
+dateandtime					Date & time
+regionlanguage-jpnime 				Japan IME settings (available if the Microsoft Japan input method editor is installed)
+regionformatting				Region
+keyboard					Language
+keyboard-advanced				...
+regionlanguage					...
+regionlanguage-bpmfime				...
+regionlanguage-cangjieime			...
+regionlanguage-chsime-wubi-udp			...
+regionlanguage-quickime				...
+regionlanguage-korime				...
+regionlanguage-chsime-pinyin			Pinyin IME settings (if "Microsoft Pinyin input method editor" installed)
+regionlanguage-chsime-pinyin-domainlexicon	...
+regionlanguage-chsime-pinyin-keyconfig		...
+regionlanguage-chsime-pinyin-udp		...
+speech						Speech
+regionlanguage-chsime-wubi 			Wubi IME settings (if "Microsoft Wubi input method editor" installed)
+regionlanguage-adddisplaylanguage		Add display language
+regionlanguage-languageoptions			Language options
+regionlanguage-setdisplaylanguage		Set display language
+--------------------------------------------------------------------------------
+Update and security
+
+activation					Activation
+backup 						Backup (removed in win11; opens sync)
+delivery-optimization				Delivery Optimization
+delivery-optimization-activity			...
+delivery-optimization-advanced			...
+findmydevice					Find My Device
+developers					For developers
+recovery					Recovery
+signinoptions-launchsecuritykeyenrollment	Launch Security Key Enrollment
+troubleshoot					Troubleshoot
+windowsdefender					Windows Security
+windowsinsider					Windows Insider Program (if user enrolled in WIP)
+windowsinsider-optin				...
+windowsupdate					Windows Update
+windowsupdate-action				...
+windowsupdate-activehours			Windows Update-Active hours
+windowsupdate-options				Windows Update-Advanced options
+windowsupdate-optionalupdates			Windows Update-Optional updates
+windowsupdate-restartoptions			Windows Update-Restart options
+windowsupdate-seekerondemand			Windows Update-Seeker on demand
+windowsupdate-history				Windows Update-View update history
+--------------------------------------------------------------------------------
+User accounts
+
+
+workplace-provisioning 				Provisioning (if enterprise deployed provisioning package)
+workplace-repairtoken				Repair token
+provisioning 					Provisioning (only on mobile and if enterprise deployed provisioning package)
+windowsanywhere 				Windows Anywhere (if "Windows Anywhere-capable" device)
+--------------------------------------------------------------------------------
