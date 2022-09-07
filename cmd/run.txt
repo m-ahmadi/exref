@@ -56,6 +56,7 @@ WorkFolders			Work Folders
 control access.cpl		Ease of Access Center
 control admintools		Administrative Tools
 control color			win+i -> Personalization
+control date/time		Date and Time
 control desktop			win+i -> Personalization
 control folders			Folder Options
 control fonts			Fonts
@@ -64,6 +65,8 @@ control international		Region
 control keyboard		Keyboard Properties
 control mouse			Mouse Properties
 control netconnections		Network Connections
+control netsetup.cpl		Set Up a Network
+control odbccp32.cpl		ODBC Data Source Administrator
 control printers		Devices and Printers
 control schedtasks		Task Scheduler
 control srchadmin.dll		Indexing Options
@@ -104,8 +107,8 @@ powercfg.cpl ,0			... Change plan settings -> Change advanced power settings
 rtsnmg64.cpl			Realtek HD Audio Manager
 sysdm.cpl			System Properties (win+pause -> Advanced system settings)
 sysdm.cpl ,3			... Advanced (3rd tab)
-tabletpc.cpl			Table and Pen Settings
-telephon.cpl			Location Information
+tabletpc.cpl			Pen and Touch
+telephon.cpl			Phone and Modem
 timedate.cpl			Date and Time
 wscui.cpl			Security and Maintenance
 
@@ -226,14 +229,20 @@ signature:
 	control /name Microsoft.<PanelName> /page <PageName>
 
 control /name Microsoft.ActionCenter				-
+control /name Microsoft.AddHardware				-
 control /name Microsoft.AdministrativeTools			-
+control /name Microsoft.AudioDevicesAndSoundThemes		-
 control /name Microsoft.AutoPlay				-
+control /name Microsoft.BackupAndRestore			-
+control /name Microsoft.BackupAndRestoreCenter			-
 control /name Microsoft.BiometricDevices			-
 control /name Microsoft.BitLockerDriveEncryption		-
+control /name Microsoft.BluetoothDevices			-
 control /name Microsoft.ColorManagement				-
 control /name Microsoft.CredentialManager			-
 control /name Microsoft.DateAndTime				Date and Time
 control /name Microsoft.DefaultPrograms				-
+control /name Microsoft.DesktopGadgets				-
 control /name Microsoft.DeviceManager				-
 control /name Microsoft.DevicesAndPrinters			-
 control /name Microsoft.Display					-
@@ -242,29 +251,37 @@ control /name Microsoft.ParentalControls			-
 control /name Microsoft.FileHistory				-
 control /name Microsoft.FolderOptions				Folder Options
 control /name Microsoft.Fonts					-
+control /name Microsoft.GameControllers				-
+control /name Microsoft.GetPrograms				-
+control /name Microsoft.GettingStarted				-
 control /name Microsoft.HomeGroup				-
 control /name Microsoft.IndexingOptions				-
 control /name Microsoft.Infrared				-
-control /name Microsoft.InternetOptions				-
 control /name Microsoft.iSCSIInitiator				-
 control /name Microsoft.iSNSServer				-
 control /name Microsoft.Keyboard				-
 control /name Microsoft.Language				-
 control /name Microsoft.LocationSettings			-
+control /name Microsoft.LocationAndOtherSensors			-
 control /name Microsoft.Mouse					-
 control /name Microsoft.MPIOConfiguration			-
 control /name Microsoft.NetworkAndSharingCenter			-
 control /name Microsoft.NetworkAndSharingCenter /page Advanced	-
 control /name Microsoft.NotificationAreaIcons			-
+control /name Microsoft.OfflineFiles				-
 control /name Microsoft.PenAndTouch				-
+control /name Microsoft.PenAndInputDevices			-
 control /name Microsoft.Personalization				win+i -> Personalization
 control /name Microsoft.PhoneAndModem				-
 control /name Microsoft.PowerOptions				Power Options
 control /name Microsoft.PowerOptions /page pagePlanSettings	... Change plan settings
+control /name Microsoft.Printers				-
 control /name Microsoft.ProgramsAndFeatures			-
 control /name Microsoft.Recovery				-
 control /name Microsoft.RegionAndLanguage			-
 control /name Microsoft.RemoteAppAndDesktopConnections		-
+control /name Microsoft.ScannersAndCameras			-
+control /name Microsoft.SecurityCenter				-
 control /name Microsoft.Sound					Sound
 control /name Microsoft.SpeechRecognition			-
 control /name Microsoft.StorageSpaces				-
@@ -272,6 +289,7 @@ control /name Microsoft.SyncCenter				-
 control /name Microsoft.System					-
 control /name Microsoft.TabletPCSettings			-
 control /name Microsoft.Taskbar					-
+control /name Microsoft.TextToSpeech				-
 control /name Microsoft.Troubleshooting				-
 control /name Microsoft.TSAppInstall				-
 control /name Microsoft.UserAccounts				-
