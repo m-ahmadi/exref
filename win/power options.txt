@@ -1,9 +1,0 @@
-control powercfg.cpl,,0
-
-Hard disk			Turn off hard disk after: 0
-Desktop background settings	Slide show: Paused
-Wireless Adapter Settings	Power Saving Mode: Maximum Performance
-Sleep				Sleep after: Never
-USB settings			USB selective suspend setting: Disabled
-PCI Express			Link State Power Management: Off
-Display				Turn off display after: 300 Minutes

@@ -18,6 +18,7 @@ win < v > ^		window snapping
 win shift s		screen snip (copied to clipboard)
 win a			action center
 win b			focus taskbar
+win pause		control panel -> system
 
 ctrl w			close window
 ctrl shift esc		task manager
