@@ -1,3 +1,182 @@
+standalone exe `dir %windir%\system32\*.exe /b`
+
+cmd calc notepad charmap logoff mspaint wmplayer write mpc-hc64
+chrome excel winword powerpnt access ccleaner winrar javaws
+
+cleanmgr			Disk Cleanup
+cliconfg			SQL Server Client Network Utility
+control				All Control Panel Items
+dcomcnfg			Component Services
+DevicePairingWizard		Add a device
+dxdiag				DirectX Diagnostic Tool
+eudcedit			Private Character Editor
+fonts				control fonts
+fsquirt				Bluetooth Transfer Wizard
+hdwwiz				Add Hardware Wizard
+iexpress			Iexpress Wizard
+magnify				Magnifier
+ms-settings:			Settings (win+i)
+ms-windows-store:		Windows Store
+msconfig			System Configuration
+msiexec				Windows Installer (about)
+msinfo32			System Information
+mstsc				Remote Desktop Connection
+netplwiz			User Accounts
+OptionalFeatures		Windows Features
+osk				On-Screen Keyboard
+perfmon				Performance Monitor
+PresentationSettings		Presentation Settings (only available on mobile pcs)
+pwcreator			Create a Windows To Go workspace
+regedit				Registry Editor
+resmon				Resource Monitor
+sigverif			File Signature Verification
+sndvol				Volume mixer
+sndvol -f			...
+SystemPropertiesAdvanced	sysdm.cpl ,3
+SystemPropertiesComputerName	sysdm.cpl ,1
+SystemPropertiesDataExecutionPrevention		Data Execution Prevention
+SystemPropertiesHardware	sysdm.cpl ,2
+SystemPropertiesPerformance	Performance Options (sysdm.cpl ,3 -> Performance -> Settings...)
+SystemPropertiesProtection	sysdm.cpl ,4
+SystemPropertiesRemote		sysdm.cpl ,5
+taskmgr				Task Manager
+taskmgr /7 /startup		... Startup tab (no other option exists)
+telnet				Telnet Client
+UserAccountControlSettings	User Account Control Settings
+utilman				win+i -> Ease of Access
+verifier			Driver Verifier Manager
+verifier			Driver Verifier Manager
+windowsdefender:		win+i -> Update & Security -> Windows Security
+windowsdefender://threat	... Virus & threat protection
+winver				About Windows
+WorkFolders			Work Folders
+
+
+control access.cpl		Ease of Access Center
+control admintools		Administrative Tools
+control color			win+i -> Personalization
+control desktop			win+i -> Personalization
+control folders			Folder Options
+control fonts			Fonts
+control international		Region
+control keyboard		Keyboard Properties
+control mouse			Mouse Properties
+control netconnections		Network Connections
+control printers		Devices and Printers
+control schedtasks		Task Scheduler
+control sticpl.cpl		Scanners and Cameras
+control userpasswords		User Accounts (control panel page)
+control userpasswords2		User Accounts
+
+--------------------------------------------------
+cpl
+
+appwiz.cpl			Programs and Features
+appwiz.cpl ,2			Windows Features
+bthprops.cpl			Bluetooth Authentication Agent
+desk.cpl			win+i -> System -> Display
+desk.cpl ,0			Desktop Icon Settings
+desk.cpl ,2			control desktop
+firewall.cpl			Windows Defender Firewall
+hdwwiz.cpl			Device Manager
+igfxcpl.cpl			Intel Graphics Control Panel
+inetcpl.cpl			Internet Options
+intl.cpl			Region
+irprops.cpl			Infrared
+joy.cpl				Game Controllers
+main.cpl			Mouse Properties
+main.cpl ,2			... 3rd tab
+main.cpl keyboard		Keyboard Properties
+mmsys.cpl			Sound
+mmsys.cpl ,1			... Recording (2nd tab)
+ncpa.cpl			Network Connections
+powercfg.cpl			Power Options
+powercfg.cpl ,0			... Change plan settings -> Change advanced power settings
+rtsnmg64.cpl			Realtek HD Audio Manager
+sysdm.cpl			System Properties (mycomputer -> Properties -> Advanced system settings)
+sysdm.cpl ,3			... Advanced (3rd tab)
+tabletpc.cpl			Table and Pen Settings
+telephon.cpl			Location Information
+timedate.cpl			Date and Time
+wscui.cpl			Security and Maintenance
+
+--------------------------------------------------
+msc
+
+azman.msc			Authorization Manager
+certlm.msc			Certificates - Local Computer
+certmgr.msc			Certificates - Current User
+comexp.msc			Component Services
+compmgmt.msc			Computer Management
+devmgmt.msc			Device Manager
+DevModeRunAsUserConfig.msc	DevModeRunAsUserConfig - [Start Menu and Taskbar]
+diskmgmt.msc			Disk Management
+eventvwr.msc			Event Viewer
+fsmgmt.msc			Shared Folders
+gpedit.msc			Local Group Policy Editor
+lusrmgr.msc			Local Users and Groups
+perfmon.msc			Performance Monitor
+printmanagement.msc		Print Management
+rsop.msc			Resultant Set of Policy
+secpol.msc			Local Security Policy
+services.msc			Services
+taskschd.msc			Task Scheduler
+tpm.msc				Trusted Platform Module
+wf.msc				Windows Defender Firewall with Advanced Security
+wmimgmt.msc			Windows Management Instrumentation (WMI)
+
+
+--------------------------------------------------
+other
+
+runnable commands
+	shutdown ping ipconfig sfc chkdsk diskpart net netsh ...
+	dir %windir%\system32\en-US\*.exe.mui /b
+
+oddball
+
+	rundll32 sysdm.cpl,EditEnvironmentVariables			open env vars directly
+	rundll32 InetCpl.cpl,ClearMyTracksByProcess 8			Delete Temporary Internet Files (other opts: 1,2,16,32,255,4351)
+	explorer.exe shell:::{21ec2020-3aea-1069-a2dd-08002b30309d}	All Control Panel Items
+
+--------------------------------------------------
+note
+
+actual substituted command by windows
+	rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl
+	rundll32.exe shell32.dll,Options_RunDLL 7
+	rundll32.exe shell32.dll,SHHelpShortcuts_RunDLL AddPrinter
+
+location of some .cpl in registry
+	regjump "HKLM\Software\Microsoft\Windows\CurrentVersion\Control Panel\Cpls"
+
+rule for .cpl, all equal:
+	main.cpl ,1
+	control main.cpl ,1
+	control main.cpl,,1
+
+path of some cpl & msc files
+	dir %windir%\system32\*.cpl /b
+	dir %windir%\system32\*.msc /b
+
+--------------------------------------------------------------------------------
+env variables
+
+comspec				C:\Windows\system32\cmd.exe
+appdata				C:\Users\NYC\AppData\Roaming
+localappdata			C:\Users\NYC\AppData\Local
+temp				C:\Users\NYC\AppData\Local\Temp
+tmp				...
+userprofile			C:\Users\NYC
+homepath			\Users\NYC
+programfiles			C:\Program Files
+programfiles(x86)		C:\Program Files (x86)
+windir				C:\Windows
+systemroot			...
+homedrive			C:\
+allusersprofile			C:\ProgramData
+computername			DESKTOP-J3T9BJH
+
 shortcuts (no need for %%)
 
 \				C:\
@@ -10,106 +189,174 @@ explorer =			My Computer
 appdata				C:\Users\NYC\AppData
 desktop				C:\Users\NYC\Desktop
 temp				C:\Windows\Temp
-
-sysdm.cpl			System Properties (mycomputer -> Properties -> Advanced system settings)
-control sysdm.cpl,,3		... Advanced tab
-appwiz.cpl			Programs and Features
-control				All Control Panel Items
-control folders			Folder Options
-ncpa.cpl			Network Connections
-powercfg.cpl			Power Options
-control powercfg.cpl,,0		... Advanced settings
-control schedtasks		Task Scheduler
-control userpasswords		User Accounts (control panel page)
-UserAccountControlSettings	User Account Control Settings
-control userpasswords2		User Accounts
-netplwiz			...
-control appwiz.cpl,,2		Windows Features
-control admintools		Administrative Tools
-control desktop			win+i -> Personalization
-control international		Region
-firewall.cpl			Firewall
-mmsys.cpl			Sound
-mmsys.cpl ,1			... 2nd tab
-inetcpl.cpl			Internet Options
-desk.cpl			win+i -> System -> Display
-desk.cpl ,5			Desktop Icon Settings
-timedate.cpl			Date and Time
-msconfig			System Configuration
-ms-settings:			Settings (win+i)
-windowsdefender:		win+i -> Update & Security -> Windows Security
-windowsdefender://threat	... Virus & threat protection
-mstsc				Remote Desktop Connection
-
-services.msc			Services
-compmgmt.msc			Computer Management
-devmgmt.msc			Device Manager
-diskmgmt.msc			Disk Management
-regedit				Registry Editor
-lusrmgr.msc			Local Users and Groups
-gpedit.msc			Local Group Policy Editor
-secpol.msc			Local Security Policy
-wf.msc				Windows Defender Firewall with Advanced Security
-eventvwr.msc			Event Viewer
-fsmgmt.msc			Shared Folders
-dcomcnfg			Component Services
-resmon				Resource Monitor
-taskmgr				Task Manager
-taskmgr /7 /startup		... Startup tab (no other option exists)
-
-calc notepad fonts charmap logoff mspaint wmplayer write
-chrome excel winword powerpnt access ccleaner winrar mpc-hc64
-
-sndvol				Volume mixer
-sndvol -f			...
-osk				On-Screen Keyboard
-winver				About Windows
-msinfo32			System Information
-msiexec				Windows Installer (about)
-cleanmgr			Disk Cleanup
-dxdiag				DirectX Diagnostic Tool
-verifier			Driver Verifier Manager
-ms-windows-store:		Windows Store
-
-shutdown ping ipconfig sfc chkdsk net netsh ... %windir%\system32\en-US
-
-rundll32 sysdm.cpl,EditEnvironmentVariables	open env vars directly
-rundll32 shell32.dll,Control_RunDLL appwiz.cpl	appwiz.cpl (more verbose form)
-control /name Microsoft.PowerOptions		powercfg.cpl
-control /name Microsoft.FolderOptions		control folders
-control /name Microsoft.Sound			mmsys.cpl
-control /name Microsoft.NetworkAndSharingCenter
-control /name Microsoft.NetworkAndSharingCenter /page Advanced
-control /name Microsoft.DateAndTime		timedate.cpl
 --------------------------------------------------------------------------------
-some env variables
-compsec				C:\Windows\system32\cmd.exe
-appdata				C:\Users\NYC\AppData\Roaming
-localappdata			C:\Users\NYC\AppData\Local
-userprofile			C:\Users\NYC
-homepath			C:\Users\NYC
-programfiles			C:\Program Files
-programfiles(x86)		C:\Program Files (x86)
-windir				C:\Windows
-systemroot			C:\Windows
-homedrive			C:\
-allusersprofile			C:\ProgramData
-computername			DESKTOP-J3T9BJH
+control /name (access items without .cpl file)
+
+signature:
+	control /name Microsoft.<PanelName> /page <PageName>
+
+control /name Microsoft.ActionCenter				-
+control /name Microsoft.AdministrativeTools			-
+control /name Microsoft.AutoPlay				-
+control /name Microsoft.BiometricDevices			-
+control /name Microsoft.BitLockerDriveEncryption		-
+control /name Microsoft.ColorManagement				-
+control /name Microsoft.CredentialManager			-
+control /name Microsoft.DateAndTime				Date and Time
+control /name Microsoft.DefaultPrograms				-
+control /name Microsoft.DeviceManager				-
+control /name Microsoft.DevicesAndPrinters			-
+control /name Microsoft.Display					-
+control /name Microsoft.EaseOfAccessCenter			-
+control /name Microsoft.ParentalControls			-
+control /name Microsoft.FileHistory				-
+control /name Microsoft.FolderOptions				Folder Options
+control /name Microsoft.Fonts					-
+control /name Microsoft.HomeGroup				-
+control /name Microsoft.IndexingOptions				-
+control /name Microsoft.Infrared				-
+control /name Microsoft.InternetOptions				-
+control /name Microsoft.iSCSIInitiator				-
+control /name Microsoft.iSNSServer				-
+control /name Microsoft.Keyboard				-
+control /name Microsoft.Language				-
+control /name Microsoft.LocationSettings			-
+control /name Microsoft.Mouse					-
+control /name Microsoft.MPIOConfiguration			-
+control /name Microsoft.NetworkAndSharingCenter			-
+control /name Microsoft.NetworkAndSharingCenter /page Advanced	-
+control /name Microsoft.NotificationAreaIcons			-
+control /name Microsoft.PenAndTouch				-
+control /name Microsoft.Personalization				win+i -> Personalization
+control /name Microsoft.PhoneAndModem				-
+control /name Microsoft.PowerOptions				Power Options
+control /name Microsoft.PowerOptions /page pagePlanSettings	... Change plan settings
+control /name Microsoft.ProgramsAndFeatures			-
+control /name Microsoft.Recovery				-
+control /name Microsoft.RegionAndLanguage			-
+control /name Microsoft.RemoteAppAndDesktopConnections		-
+control /name Microsoft.Sound					Sound
+control /name Microsoft.SpeechRecognition			-
+control /name Microsoft.StorageSpaces				-
+control /name Microsoft.SyncCenter				-
+control /name Microsoft.System					-
+control /name Microsoft.TabletPCSettings			-
+control /name Microsoft.Taskbar					-
+control /name Microsoft.Troubleshooting				-
+control /name Microsoft.TSAppInstall				-
+control /name Microsoft.UserAccounts				-
+control /name Microsoft.WindowsAnytimeUpgrade			-
+control /name Microsoft.WindowsDefender				-
+control /name Microsoft.WindowsFirewall				-
+control /name Microsoft.MobilityCenter				-
+control /name Microsoft.PortableWorkspaceCreator		-
+control /name Microsoft.WindowsUpdate				-
+control /name Microsoft.WorkFolders				-
 --------------------------------------------------------------------------------
 shell:<dir>
 
-shell:Startup			startup programs
-shell:Common Startup		...
-shell:Desktop
-shell:Downloads
-shell:ProgramFiles
-shell:ProgramFilesx86
-shell:Profile
-shell:My Music
-shell:My Pictures
-shell:My Video
-shell:Fonts
-shell:Windows
-...
-http://smallvoid.com/article/winnt-shell-keyword.html
+shell:AddNewProgramsFolder		-
+shell:Administrative Tools		-
+shell:AppData				-
+shell:AppUpdatesFolder			-
+shell:Cache				-
+shell:CD Burning			-
+shell:ChangeRemoveProgramsFolder	-
+shell:Common Administrative Tools	-
+shell:Common AppData			-
+shell:Common Desktop			-
+shell:Common Documents			-
+shell:Common Programs			-
+shell:Common Start Menu			-
+shell:Common Startup			startup programs
+shell:Common Templates			-
+shell:CommonDownloads			-
+shell:CommonMusic			-
+shell:CommonPictures			-
+shell:CommonRingtones			-
+shell:CommonVideo			-
+shell:ConflictFolder			-
+shell:ConnectionsFolder			-
+shell:Contacts				-
+shell:ControlPanelFolder		-
+shell:Cookies				-
+shell:CredentialManager			-
+shell:CryptoKeys			-
+shell:CSCFolder				-
+shell:Default Gadgets			-
+shell:Desktop				-
+shell:Device Metadata Store		-
+shell:DocumentsLibrary			-
+shell:Downloads				-
+shell:DpapiKeys				-
+shell:Favorites				-
+shell:Fonts				-
+shell:Gadgets				-
+shell:Games				-
+shell:GameTasks				-
+shell:History				-
+shell:ImplicitAppShortcuts		-
+shell:InternetFolder			-
+shell:Libraries				-
+shell:Links				-
+shell:Local AppData			-
+shell:LocalAppDataLow			-
+shell:LocalizedResourcesDir		-
+shell:MAPIFolder			-
+shell:MusicLibrary			-
+shell:My Music				-
+shell:My Pictures			-
+shell:My Video				-
+shell:MyComputerFolder			-
+shell:NetHood				-
+shell:NetworkPlacesFolder		-
+shell:OEM Links				-
+shell:Original Images			-
+shell:OtherUsersFolder			-
+shell:Personal				-
+shell:PhotoAlbums			-
+shell:PicturesLibrary			-
+shell:Playlists				-
+shell:PrintersFolder			-
+shell:PrintHood				-
+shell:Profile				-
+shell:ProgramFiles			-
+shell:ProgramFilesCommon		-
+shell:ProgramFilesCommonX86		-
+shell:ProgramFilesx86			-
+shell:ProgramFilesX86			-
+shell:Programs				-
+shell:Public				-
+shell:PublicGameTasks			-
+shell:PublicSuggestedLocations		-
+shell:Quick Launch			-
+shell:Recent				-
+shell:RecycleBinFolder			-
+shell:ResourceDir			-
+shell:Ringtones				-
+shell:SampleMusic			-
+shell:SamplePictures			-
+shell:SamplePlaylists			-
+shell:SampleVideos			-
+shell:SavedGames			-
+shell:Searches				-
+shell:SearchHomeFolder			-
+shell:SendTo				-
+shell:Start Menu			-
+shell:Startup				-
+shell:Startup				startup programs
+shell:SyncCenterFolder			-
+shell:SyncResultsFolder			-
+shell:SyncSetupFolder			-
+shell:System				-
+shell:SystemCertificates		-
+shell:SystemX86				-
+shell:Templates				-
+shell:TreePropertiesFolder		-
+shell:User Pinned			-
+shell:UserProfiles			-
+shell:UsersFilesFolder			-
+shell:UsersLibrariesFolder		-
+shell:VideosLibrary			-
+shell:Windows				-
 --------------------------------------------------------------------------------
