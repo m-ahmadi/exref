@@ -1,2 +1,2 @@
-Tools -> Folder Options -> View
-check "Display the full path in the title bar (Classic theme only)"
+control folders -> View
+	Display the full path in the title bar

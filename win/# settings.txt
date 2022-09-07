@@ -1,0 +1,32 @@
+desk.cpl ,5
+	Computer
+	User's Files
+	Recycle Bin
+
+UserAccountControlSettings -> Never notify
+
+control folders -> View
+	Show hidden files, folders and drives
+	! Hide extensions for known file types
+	(or `reg import folders.reg`)
+
+powercfg.cpl ,0
+	Hard disk			Turn off hard disk after: 0
+	Desktop background settings	Slide show: Paused
+	Wireless Adapter Settings	Power Saving Mode: Maximum Performance
+	Sleep				Sleep after: Never
+	USB settings			USB selective suspend setting: Disabled
+	PCI Express			Link State Power Management: Off
+	Display				Turn off display after: 300 Minutes
+	(or `powercfg /import powerplan.pow`)
+
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableRealtimeMonitoring /t REG_DWORD /d 1
+
+ms-settings:taskbar ->
+	Combine taskbar buttons: Never
+	Select which icons appear on the taskbar: turn all off
+
+ms-settings:colors -> Transparency effect: Off
+
+ms-settings:multitasking
+	"When I snap a windows, show what I can snap next to it": Off

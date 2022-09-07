@@ -17,6 +17,7 @@ iexpress			Iexpress Wizard
 magnify				Magnifier
 ms-settings:			Settings (win+i)
 ms-windows-store:		Windows Store
+ms-availablenetworks:		win+i -> Network & Internet -> Show available networks
 msconfig			System Configuration
 msiexec				Windows Installer (about)
 msinfo32			System Information
@@ -58,16 +59,22 @@ control color			win+i -> Personalization
 control desktop			win+i -> Personalization
 control folders			Folder Options
 control fonts			Fonts
+control hotplug.dll		Safely Remove Hardware
 control international		Region
 control keyboard		Keyboard Properties
 control mouse			Mouse Properties
 control netconnections		Network Connections
 control printers		Devices and Printers
 control schedtasks		Task Scheduler
+control srchadmin.dll		Indexing Options
 control sticpl.cpl		Scanners and Cameras
+control system			System
 control userpasswords		User Accounts (control panel page)
 control userpasswords2		User Accounts
 
+sdclt /configure		Set up backup
+sdclt /restorewizardadmin	Advanced Restore
+sdclt /restorewizard		Restore Files
 --------------------------------------------------
 cpl
 
@@ -85,15 +92,17 @@ intl.cpl			Region
 irprops.cpl			Infrared
 joy.cpl				Game Controllers
 main.cpl			Mouse Properties
+main.cpl @0			Mouse Properties
 main.cpl ,2			... 3rd tab
 main.cpl keyboard		Keyboard Properties
+main.cpl @1			Keyboard Properties
 mmsys.cpl			Sound
 mmsys.cpl ,1			... Recording (2nd tab)
 ncpa.cpl			Network Connections
 powercfg.cpl			Power Options
 powercfg.cpl ,0			... Change plan settings -> Change advanced power settings
 rtsnmg64.cpl			Realtek HD Audio Manager
-sysdm.cpl			System Properties (mycomputer -> Properties -> Advanced system settings)
+sysdm.cpl			System Properties (win+pause -> Advanced system settings)
 sysdm.cpl ,3			... Advanced (3rd tab)
 tabletpc.cpl			Table and Pen Settings
 telephon.cpl			Location Information
@@ -132,20 +141,35 @@ runnable commands
 	shutdown ping ipconfig sfc chkdsk diskpart net netsh ...
 	dir %windir%\system32\en-US\*.exe.mui /b
 
+--------------------------------------------------
 oddball
 
-	rundll32 sysdm.cpl,EditEnvironmentVariables			open env vars directly
-	rundll32 InetCpl.cpl,ClearMyTracksByProcess 8			Delete Temporary Internet Files (other opts: 1,2,16,32,255,4351)
-	explorer.exe shell:::{21ec2020-3aea-1069-a2dd-08002b30309d}	All Control Panel Items
+rundll32 devmgr.dll DeviceManager_Execute			Device Manager
+rundll32 InetCpl.cpl,ClearMyTracksByProcess 8			Delete Temporary Internet Files (other opts: 1,2,16,32,255,4351)
+rundll32 keymgr.dll,PRShowSaveWizardExW				Forgotten Password Wizard
+rundll32 keymgr.dll,KRShowKeyMgr				Stored Usernames and Passwords
+rundll32 powrprof.dll,SetSuspendState				Hibernate
+rundll32 shell32.dll,Options_RunDLL 0				Folder Options – General
+rundll32 shell32.dll,Options_RunDLL 2				Folder Options – Search
+rundll32 shell32.dll,Options_RunDLL 7				Folder Options – View
+rundll32 shell32.dll,Options_RunDLL 1				win+i -> Personalization -> Taskbar
+rundll32 shell32.dll,Options_RunDLL 5				win+i -> System -> Notifications & actions
+rundll32 shell32.dll,SHHelpShortcuts_RunDLL AddPrinter		Add Printer
+rundll32 shell32.dll,SHHelpShortcuts_RunDLL Connect		Map Network Drive
+rundll32 shell32.dll,ShellAboutW				Windows – About
+rundll32 shwebsvc.dll,AddNetPlaceRunDll				Add Network Location (wizard)
+rundll32 sysdm.cpl,EditEnvironmentVariables			sysdm.cpl ,3 -> Environment Variables...
+rundll32 user32.dll,LockWorkStation				Lock Screen
 
+explorer.exe shell:::{21ec2020-3aea-1069-a2dd-08002b30309d}	All Control Panel Items
 --------------------------------------------------
 note
 
 actual substituted commands by windows
-	rundll32.exe shell32.dll,Control_RunDLL appwiz.cpl
-	rundll32.exe shell32.dll,Options_RunDLL 7
-	rundll32.exe shell32.dll,SHHelpShortcuts_RunDLL AddPrinter
-	
+	rundll32.exe shell32.dll,Control_RunDLL
+	rundll32.exe shell32.dll,Control_RunDLL <ARG>
+	rundll32.exe shell32.dll,Options_RunDLL <ARG>
+	rundll32.exe shell32.dll,SHHelpShortcuts_RunDLL <ARG>
 	rundll32.exe devmgr.dll DeviceManager_Execute
 	rundll32.exe keymgr.dll,PRShowSaveWizardExW
 	rundll32.exe keymgr.dll,KRShowKeyMgr
