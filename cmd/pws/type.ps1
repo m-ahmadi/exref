@@ -1,18 +1,17 @@
 # string, number, boolean. everything else is object?
 
-# boolean
-$true 
-$false
-$true.GetType().Name  # Boolean
-$false                # ...
-(true).GetType()      # error
+''.GetType().Name      # String
 
-# string
-"hello"               # String
-'hello'               # ...
+(1).GetType().Name     # Int32
 
-# null value
-$null
+$true.GetType().Name   # Boolean
+$false.GetType().Name  # Boolean
+(true).GetType()       # err
+
+$null                  # null value
+$null.GetType().Name   # err
+
+(1,2,3).GetType().Name # Object[]
 
 # numbers
 7                   # Int32
@@ -23,7 +22,6 @@ $null
 9223372036854775808 # Decimal
 
 (32).GetType().Name # int32
-$foo.GetType().Name # typeof
 32 -is [int32]      # true
 32 -is 'int32'      # true
 32 -is 'int64'      # false
