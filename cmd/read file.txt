@@ -1,4 +1,5 @@
 type file.txt				reads a file and outputs it to the screen
+type file.lnk | find "\"		hacky sol to read .lnk shortcut target
 more file.txt				...display one screen at a time
 
-FOR /F %i IN (file.txt) DO @echo %i	reads a file line by line (stops reading the line if finds whitespace character in the line)
+for /f %i IN (file.txt) DO @echo %i	reads a file line by line (stops reading the line if finds whitespace character in the line)
