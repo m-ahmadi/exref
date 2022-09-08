@@ -1,1 +1,1 @@
-shift+f10
+shift + f10

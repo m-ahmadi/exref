@@ -1,0 +1,19 @@
+%windir%\en-US\explorer.exe.mui
+%windir%\SysWOW64\en-US\explorer.exe.mui
+
+make copy of them
+
+open with "Resource Hacker"
+	Menu -> 205 -> 1033
+	delete line:	MENUITEM "&Undo", 416, MFT_STRING, MFS_ENABLED
+	Compile Script, Save
+
+rename original files to something else
+replace modified files with originals
+
+cmd /k mcbuilder
+
+restart
+
+
+https://superuser.com/questions/397795/how-do-i-remove-the-undo-option-from-windows-right-click-context-menu

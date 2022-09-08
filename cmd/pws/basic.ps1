@@ -50,20 +50,25 @@ ps explorer | gm
 ps chrome | select Id
 1,2,3 | %{ echo $_ }
 
-# implicit print concatenation
-$name = 'ball'
-Write-Host 'foot'$name # football
-echo 'foot'$name       # foot
-
 # newline and semicolon are statement separators
 $x = 2
 $y = 3
 $x = 2; $y = 3;
 
+# cast type
+$str = '123'
+$str.GetType().Name          # String
+([array]$str).GetType().Name # Object[]
+
 # single line comment
 <#
 	multiline comment
 #>
+
+# implicit print concatenation
+$name = 'ball'
+Write-Host 'foot'$name # football
+echo 'foot'$name       # foot
 
 # operation on multiple items
 Get-ChildItem $env:USERPROFILE\Desktop -r | Select-Object Name | Where-Object {$_.Name -match '^P.*'} | Foreach-Object {'hello:  ' + $_.Name}
