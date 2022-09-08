@@ -65,6 +65,10 @@ $x = 2; $y = 3;
 	multiline comment
 #>
 
+# operation on multiple items
+Get-ChildItem $env:USERPROFILE\Desktop -r | Select-Object Name | Where-Object {$_.Name -match '^P.*'} | Foreach-Object {'hello:  ' + $_.Name}
+gci $env:USERPROFILE\Desktop -r           | select Name        | ?{$_.Name -match '^P.*'}             | %{'hello:  ' + $_.Name}
+
 # profile (autoruned script upon shell startup)
 $PROFILE                   # default path
 Test-Path $PROFILE         # has been created?

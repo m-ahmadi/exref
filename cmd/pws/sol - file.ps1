@@ -25,6 +25,7 @@ Split-Path .\path\to\some          # get path leftmost:  '.\path\to'
 ni file.js -ItemType File -Value "some content"  # UTF-8
 "some content" | Out-File main.js -Encoding utf8 # UTF-8-BOM
 echo "some content" > file.js                    # UCS-2 LE BOM
+gci -File $env:USERPROFILE\Desktop | select FullName | sort > file.txt
 
 # read file
 $str = gc index.js -Encoding UTF8 | Out-String
@@ -142,3 +143,11 @@ $file = "foo.lnk";
 $bytes = [System.IO.File]::ReadAllBytes($file);
 $bytes[0x15] = $bytes[0x15] -bor 0x20; # set byte 21 (0x15) bit 6 (0x20) ON (Use –bor to set RunAsAdministrator option and –bxor to unset)
 [System.IO.File]::WriteAllBytes($file, $bytes);
+
+# .lnk shorctut - read target
+$s = (New-Object -ComObject WScript.Shell).CreateShortcut('foo.lnk');
+$s.TargetPath
+
+# .lnk shorctut - list target of all shortcuts
+$r = gci $env:USERPROFILE\Desktop\*.lnk -Recurse | %{ (New-Object -ComObject WScript.Shell).createShortcut($_.FullName).TargetPath }
+$r | ?{$_ -ne ''} | sort > shortcuts.txt

@@ -1,31 +1,123 @@
-apps installed in C:\ (plus full check)
+mkdir winchg && cd winchg
+
+copy all desktop (use ui, not cli i.e. `robocopy %userprofile%\Desktop .\Desktop /e /r:0`)
+Desktop Restore -> Custom Save/Restore... -> Save to File... -> "Layout 1920 x 1080 (48).dtr"
+control schedtasks -> rclick task -> Export...
+	sleeping tasks
+	*broken shortcut task
+screenshot chrome extensions
+appwiz.cpl
+	set columns to [Name,Size,Version,Location]
+	screenshot
+	open with "Adobe Acrobat DC" -> Scan & OCR -> Recognize Text -> Save as "appwiz.pdf"
+screenshot quick access & start shortcuts
+
+npm ls -g --depth 0 > npkgs.txt
+pip list > ppkgs.txt
+py -V -> pyversion.txt
+copy %userprofile%\.gitconfig   .\
+copy %userprofile%\.npmrc       .\
+copy %userprofile%\noiz.cmd     .\
+copy %userprofile%\autoshut.cmd .\
+robocopy %userprofile%\tse-cache .\tse-cache /e /r:0
+
+vscode settings, keybindings, extensions
+	copy %appdata%\Code\User\settings.json .\
+	copy %appdata%\Code\User\keybindings.json .\
+	code --list-extensions > vscode-extensions.txt
+		later `for /f %i in (vscode-extensions.txt) do @code --install-extension %i`
+
+export path variable entries
+powershell
+ni path-sys.txt -ItemType File -Value ((gpv 'HKLM:SYSTEM\CurrentControlSet\Control\Session Manager\Environment' Path).split(';') -join "`n")
+ni path-usr.txt -ItemType File -Value ((gpv HKCU:Environment Path).split(';') -join "`n")
+exit
+
+copy %userprofile%\Music\Playlists\#.wpl .\
+robocopy %userprofile%\Pictures .\Pictures /e /r:0
+robocopy %userprofile%\Documents .\Documents /e /r:0
+
+ghost of apps installed in C:\ (plus full check)
+	robocopy "C:\Program Files"       ".\c\Program Files"       /e /xf * /lev:2 /r:0
+	robocopy "C:\Program Files (x86)" ".\c\Program Files (x86)" /e /xf * /lev:2 /r:0
+	robocopy %userprofile%\AppData    .\c\AppData               /e /xf * /lev:4 /r:0
+
+target of all desktop shortcuts
+powershell -C "gci $env:userprofile\Desktop\*.lnk -Recurse | %{(New-Object -ComObject WScript.Shell).createShortcut($_.FullName).TargetPath} | ?{$_ -ne ''} | sort > shortcuts.txt"
+
+
 idm download list
 bittorrent download list
-desktop shortcuts (desktop restore layout file: .dtr)
-chrome extensions
-sleeping sch-tasks
-*broken shortcut task
-
-quick access & start shortcuts
-npm ls -g --depth 0
-%userprofile%\.gitconfig
-%userprofile%\.npmrc
-notepad++ plugins, userDefinedLang, ...
-vscode settings, keybindings, extensions
-playlists.wpl
+notepad++ plugins, userDefinedLang, ... (not needed if installed with "Don't Use %APPDATA%")
 logitech mouse config
-
+--------------------------------------------------
 optional
-powercfg /export %home%\mypowerplan.pow <GUID>
+
+powercfg /list
+powercfg /export powerplan.pow <GUID>
+later `powercfg /import powerplan.pow`
+
 reg export HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced folders.reg
 later `reg import folders.reg`
---------------------------------------------------------------------------------
-new install:
-control folders, taskbar, disable realtime protec, power options, ...
-chrome winrar idm vpn
-drivers ses lgs
-deskrestore
-vscode npp 7z curl apache node yarn
-cmder .gitconfig .npmrc git-ssh-key
+--------------------------------------------------
+swap-like
+
+robocopy c:\apache .\c\apache /e /r:0
+robocopy c:\curl   .\c\curl   /e /r:0
+robocopy c:\ffmpeg .\c\ffmpeg /e /r:0
+
+mkdir .\c\Windows
+
+copy /b c:\windows\cmdow.exe       .\c\Windows
+copy /b c:\windows\winsw.exe       .\c\Windows
+copy /b c:\windows\nssm.exe        .\c\Windows
+copy /b c:\windows\fnr.exe         .\c\Windows
+copy /b c:\windows\fart.exe        .\c\Windows
+copy /b c:\windows\zoomit.exe      .\c\Windows
+copy /b c:\windows\Procmon.exe     .\c\Windows
+copy /b c:\windows\regjump.exe     .\c\Windows
+copy /b c:\windows\youtube-dl.exe  .\c\Windows
+copy /b c:\windows\jq.exe          .\c\Windows
+copy /b c:\windows\gdrive.exe      .\c\Windows
+
+copy /b c:\windows\nircmd.exe      .\c\Windows
+copy /b c:\windows\nircmdc.exe     .\c\Windows
+copy /b c:\windows\NirCmd.chm      .\c\Windows
+
+copy /b c:\windows\posh.exe        .\c\Windows
+copy c:\windows\posh.json          .\c\Windows
+
+copy /L c:\windows\npp             .\c\Windows
+copy c:\windows\npp.cmd            .\c\Windows
+
+copy /L c:\windows\code            .\c\Windows
+
+copy /L c:\windows\30nama          .\c\Windows
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+new install
+
+apply "\r\win\# settings.txt"
+
+install
+	chrome winrar idm vpn
+	drivers ses lgs
+	deskrestore
+	vscode npp 7zip ccleaner klite potplayer vlc kmplayer
+	apache node python ruby curl yarn
+	cmder
+	git (git-ssh-key)
+
+.gitconfig .npmrc
 npm i -g
---------------------------------------------------------------------------------
+pip list
+
+copy .\.gitconfig   %userprofile%
+copy .\.npmrc       %userprofile%
+copy .\noiz.cmd     %userprofile%
+copy .\autoshut.cmd %userprofile%
+robocopy .\tse-cache %userprofile%\tse-cache /e /r:0
+
+everything deskpins volmouse clickmonitor 7+taskbartweaker powertoys kidkeylock keyboardlocker paint.net sharex
+
+apply "C:\r\cmd\my.txt"
