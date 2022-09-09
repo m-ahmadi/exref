@@ -239,5 +239,52 @@ div.innerText = 'sparklines';
 });
 charts.append(div);
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// draw bars, stepped & smoothed lines
+const { linear, stepped, bars, spline } = uPlot.paths;
+const _bars60_100   = bars({size: [0.6, 100]});
+const _bars100Left  = bars({size: [1], align:  1});
+const _bars100Right = bars({size: [1], align: -1});
+const _stepBefore   = stepped({align: -1}); //, ascDesc: true
+const _stepAfter    = stepped({align:  1}); //, ascDesc: true
+const _linear       = linear();
+const _spline       = spline();
+const lineInterps = {linear:0, stepAfter:1, stepBefore:2, spline:3};
+const drawStyles = {line:0, bars:1, points:2, barsLeft:3, barsRight: 4};
+function paths(u, seriesIdx, idx0, idx1, extendGap, buildClip) {
+	let s = u.series[seriesIdx];
+	let style = s.drawStyle;
+	let interp = s.lineInterpolation;
+	let renderer = (
+		style === drawStyles.line ? (
+			interp == lineInterps.linear     ? _linear :
+			interp == lineInterps.stepAfter  ? _stepAfter :
+			interp == lineInterps.stepBefore ? _stepBefore :
+			interp == lineInterps.spline     ? _spline :
+			null
+		) :
+		style === drawStyles.bars      ? _bars60_100 :
+		style === drawStyles.barsLeft  ? _bars100Left :
+		style === drawStyles.barsRight ? _bars100Right :
+		style === drawStyles.points    ? (()=>null) :
+		() => null
+	);
+	return renderer(u, seriesIdx, idx0, idx1, extendGap, buildClip);
+}
+new uPlot({width:600,height:400, title: 'draw - step',
+	series:[{}, {
+		stroke: 'orange', width: 4,
+		paths,
+		drawStyle: drawStyles.line,
+		lineInterpolation: lineInterps.stepBefore
+	}],
+	scales: {x:{time:false}},
+}, [
+	[0,1,2,3,4,5,6,7,8,9,10],
+	[2,4,8,2,3,4,1,9,7,6,3],
+], charts);
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
 function ts(n,k='Date') { return [...Array(n)].map((d,i)=> (d=new Date, d['set'+k](d['get'+k]()-n+i)/1000)) }
 </script>
