@@ -11,11 +11,11 @@ const data = [
 	[4,5,7,8,5,6,9,7,7,8],
 ];
 
-new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}]}, data, charts);
+new uPlot({width:600,height:400,series:[{},{stroke:'black'},{stroke:'red'}], title:'basic'}, data, charts);
 
-new uPlot({width:600, height:400, legend:{show:false}, series:[{},{stroke:'cyan'},{stroke:'magenta'}]}, data, charts);
+new uPlot({width:600, height:400, legend:{show:false}, series:[{},{stroke:'cyan'},{stroke:'magenta'}], title:'no legend'}, data, charts);
 
-new uPlot({width:600, height:400,
+new uPlot({width:600, height:400, title:'no cursor,select,legend,grid',
 	cursor: {show:false},
 	select: {show:false},
 	legend: {show:false},
@@ -24,7 +24,7 @@ new uPlot({width:600, height:400,
 	series: [ {}, {stroke:'lime'}, {stroke:'crimson'} ],
 }, data, charts);
 
-new uPlot({width:600, height:400, title:'My Chart', series:[
+new uPlot({width:600, height:400, title:'format value', series:[
 	{},
 	{label:'RAM', value:(s,rawValue)=>'$'+rawValue.toFixed(2), stroke:'red', fill:'rgba(255,0,0,0.3)', dash:[10,5]},
 	{}]}, data, charts);
@@ -245,16 +245,14 @@ const { linear, stepped, bars, spline } = uPlot.paths;
 const _bars60_100   = bars({size: [0.6, 100]});
 const _bars100Left  = bars({size: [1], align:  1});
 const _bars100Right = bars({size: [1], align: -1});
-const _stepBefore   = stepped({align: -1}); //, ascDesc: true
-const _stepAfter    = stepped({align:  1}); //, ascDesc: true
+const _stepBefore   = stepped({align: -1});
+const _stepAfter    = stepped({align:  1});
 const _linear       = linear();
 const _spline       = spline();
 const lineInterps = {linear:0, stepAfter:1, stepBefore:2, spline:3};
-const drawStyles = {line:0, bars:1, points:2, barsLeft:3, barsRight: 4};
+const drawStyles  = {line:0, bars:1, points:2, barsLeft:3, barsRight: 4};
 function paths(u, seriesIdx, idx0, idx1, extendGap, buildClip) {
-	let s = u.series[seriesIdx];
-	let style = s.drawStyle;
-	let interp = s.lineInterpolation;
+	let {drawStyle: style, lineInterp: interp} = u.series[seriesIdx];
 	let renderer = (
 		style === drawStyles.line ? (
 			interp == lineInterps.linear     ? _linear :
@@ -271,18 +269,21 @@ function paths(u, seriesIdx, idx0, idx1, extendGap, buildClip) {
 	);
 	return renderer(u, seriesIdx, idx0, idx1, extendGap, buildClip);
 }
-new uPlot({width:600,height:400, title: 'draw - step',
+new uPlot({width:600,height:400, title:'draw bars, stepped & smoothed lines',
 	series:[{}, {
 		stroke: 'orange', width: 4,
 		paths,
 		drawStyle: drawStyles.line,
-		lineInterpolation: lineInterps.stepBefore
+		lineInterp: lineInterps.stepBefore
 	}],
 	scales: {x:{time:false}},
 }, [
 	[0,1,2,3,4,5,6,7,8,9,10],
 	[2,4,8,2,3,4,1,9,7,6,3],
 ], charts);
+
+new uPlot({width:600,height:400, series:[{}, {stroke:'deeppink', width:8, paths:(...r)=>uPlot.paths.stepped({align:1})(...r)}], title:'stepAfter'}, [ts(6), [2,4,8,2,3,4]], charts);
+new uPlot({width:600,height:400, series:[{}, {stroke:'deeppink', width:8, paths:(...r)=>uPlot.paths.stepped({align:-1})(...r)}], title:'stepBefore'}, [ts(6), [2,4,8,2,3,4]], charts);
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
