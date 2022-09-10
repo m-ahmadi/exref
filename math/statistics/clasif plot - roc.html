@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css"></script>
+<script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.js"></script>
+<script src="./fn.js"></script>
+
+<div id="charts"></div>
+
+<script>
+n = 50;
+yTrue = [...Array(n)].map(()=> Math.round(Math.random()));
+yPred = [...Array(n)].map(()=> Math.random());
+
+thresholds = range(0, 1.01, 0.1).map(i=>+i.toFixed(3));
+//thresholds = py`sklearn.metrics.roc_curve(yTrue,yPred)[2]`
+//thresholds.reverse();
+
+pos = new Set(yTrue.map((v,i)=> v?i:-1).filter(i=>i>-1));
+neg = new Set(yTrue.map((v,i)=> !v?i:-1).filter(i=>i>-1));
+
+metrics = [...thresholds].reverse().map(thres => {
+	let posPreds = yPred.map((v,i)=> v >= thres ? i : -1).filter(i=>i>-1);
+
+	let tp = posPreds.filter(i=> pos.has(i)).length;
+	let fp = posPreds.filter(i=> !pos.has(i)).length;
+
+	let fn = pos.size - tp;
+	let tn = neg.size - fp;
+
+	let tpr = tp / (tp + fn);
+	let fpr = fp / (fp + tn);
+	
+	return [tpr, fpr];
+});
+
+tprs = metrics.map(i=>i[0]);
+fprs = metrics.map(i=>i[1]);
+
+randclf = thresholds.map(()=>null);
+randclf[0] = 0;
+randclf[randclf.length - 1] = 1;
+
+new uPlot({width:600,height:400,
+	series:[{label: 'threshold'},
+		{stroke:'orange', width:4, label:'ROC Curve', paths:(...r)=> uPlot.paths.stepped({align:1})(...r)},
+		{stroke:'navy',   width:3, label:'Random classifier', spanGaps:true, dash:[10,5], points:{show:false}}
+	],
+	scales: {x:{time:false, range:[-0.02,1.02]}, y:{range:[-0.02,1.02]}},
+	axes: [{label:'FPR'}, {label:'TPR'}]
+}, [fprs, tprs, randclf], charts);
+</script>
