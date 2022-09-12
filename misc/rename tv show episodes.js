@@ -60,3 +60,10 @@ writeFileSync('rename-pairs.txt', readFileSync('episodes.txt', 'utf8').split('\r
 	return oldNames.map((v,j) => `${v}.mkv|${names[j]}.mkv`).join('\n');
 }).join(''));
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// rename subs to vids
+dir = fs.readdirSync('.').slice(0,-1);
+vids = dir.slice(0,13);
+subs = dir.slice(13);
+subs.forEach((sub,i)=> console.log(sub, '    ===>    ', vids[i].slice(0,-3)+'srt'));
+//subs.forEach((sub,i)=> fs.renameSync(sub, vids[i].slice(0,-3)+'srt'));
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
