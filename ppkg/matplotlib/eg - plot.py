@@ -14,6 +14,11 @@ plt.plot([1,2,3],[6,7,8], label='bar')
 plt.legend()
 plt.show()
 
+plt.plot([1,2,3],[5,6,7])
+plt.plot([1,2,3],[6,7,8])
+plt.legend(['foo','bar'])
+plt.show()
+
 # multi series
 _, (p1, p2, p3, p4) = plt.subplots(4, constrained_layout=True)
 
