@@ -9,41 +9,102 @@ n = 50;
 yTrue = [...Array(n)].map(()=> Math.round(Math.random()));
 yPred = [...Array(n)].map(()=> Math.random());
 
-thresholds = range(0, 1.01, 0.1).map(i=>+i.toFixed(3));
-//thresholds = py`sklearn.metrics.roc_curve(yTrue,yPred)[2]`
-//thresholds.reverse();
-
-pos = new Set(yTrue.map((v,i)=> v?i:-1).filter(i=>i>-1));
-neg = new Set(yTrue.map((v,i)=> !v?i:-1).filter(i=>i>-1));
-
-metrics = [...thresholds].reverse().map(thres => {
-	let posPreds = yPred.map((v,i)=> v >= thres ? i : -1).filter(i=>i>-1);
-
-	let tp = posPreds.filter(i=> pos.has(i)).length;
-	let fp = posPreds.filter(i=> !pos.has(i)).length;
-
-	let fn = pos.size - tp;
-	let tn = neg.size - fp;
-
-	let tpr = tp / (tp + fn);
-	let fpr = fp / (fp + tn);
-	
-	return [tpr, fpr];
-});
-
-tprs = metrics.map(i=>i[0]);
-fprs = metrics.map(i=>i[1]);
+[fprs, tprs, thresholds] = rocCurve(yTrue, yPred);
 
 randclf = thresholds.map(()=>null);
 randclf[0] = 0;
 randclf[randclf.length - 1] = 1;
 
+paths = (...r)=> uPlot.paths.stepped({align:1})(...r);
 new uPlot({width:600,height:400,
 	series:[{label: 'threshold'},
-		{stroke:'orange', width:4, label:'ROC Curve', paths:(...r)=> uPlot.paths.stepped({align:1})(...r)},
+		{stroke:'orange', width:4, label:'ROC Curve', paths},
 		{stroke:'navy',   width:3, label:'Random classifier', spanGaps:true, dash:[10,5], points:{show:false}}
 	],
 	scales: {x:{time:false, range:[-0.02,1.02]}, y:{range:[-0.02,1.02]}},
 	axes: [{label:'FPR'}, {label:'TPR'}]
 }, [fprs, tprs, randclf], charts);
+
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// multiclass
+
+n = 50;
+y = [...Array(n)].map(()=> Math.floor(Math.random()*3));
+yTrue = y.map(i=> (i=Math.round(Math.random()*3), [...Array(3)].map((_,j)=>j===i?1:0) ));
+
+classes = [0, 1, 2];
+nClasses = classes.length;
+
+// gen multiclass probability estimates (binarized)
+randFloat = (min,max) => Math.random() * (max-min) + min;
+yPred = y.map(i => {
+	let a = [];
+	let prev;
+	for (let i=0; i<nClasses; i++) {
+		let sm = sum(a);
+		let p = randFloat(0, a.length ? 1-sm : 1);
+		a.push(p);
+		prev = p;
+		if (i === nClasses-1) {// make sure sums to 1
+			let tot = sum(a);
+			if (tot < 1) a[a.length-1] += 1-tot;
+		}
+	}
+	return a;
+});
+
+
+[fpr, tpr, auc] = [{}, {}, {}];
+
+// per class
+for (let clas in classes) {
+	let yTrueClass = yTrue.map(i=> i[clas]);
+	let yPredClass = yPred.map(i=> i[clas]);
+	
+	let [fprs, tprs] = rocCurve(yTrueClass, yPredClass);
+	
+	fpr[clas] = fprs;
+	tpr[clas] = tprs;
+	auc[clas] = areaUnderCurve(fprs, tprs);
+}
+
+// micro
+[fprsMicro, tprsMicro] = rocCurve(yTrue.flat(), yPred.flat());
+fpr['micro'] = fprsMicro;
+tpr['micro'] = tprsMicro;
+auc['micro'] = areaUnderCurve(fpr['micro'], tpr['micro']);
+
+// macro
+allFpr = classes.map(i => fpr[i]).flat();
+allFpr = [...new Set(allFpr)]; // unique
+
+meanTpr = Array(allFpr.length).fill(0);
+for (let clas in classes) {
+	let interp = interpolate(allFpr, fpr[clas], tpr[clas]);
+	meanTpr = meanTpr.map((v,i) => v += interp[i]);
+}
+meanTpr = meanTpr.map(i => i / nClasses);
+
+fpr['macro'] = allFpr
+tpr['macro'] = meanTpr
+auc['macro'] = areaUnderCurve(fpr['macro'], tpr['macro']);
+
+
+// plot
+o = {points:{show:false}};
+r = n => +n.toFixed(2);
+new uPlot({width:1200,height:600, title:'multiclass roc',
+	series:[{label: 'threshold'},
+		{stroke:'darkorange',     width:4, label:'ROC curve of class 0 (area = '+r(auc[0])+')', paths, ...o},
+		{stroke:'aqua',           width:4, label:'ROC curve of class 1 (area = '+r(auc[1])+')', paths, ...o},
+		{stroke:'cornflowerblue', width:4, label:'ROC curve of class 2 (area = '+r(auc[2])+')', paths, ...o},
+		{stroke:'deeppink',       width:4, label:'micro-average ROC curve (area = '+r(auc['micro'])+')', dash:[3,6], ...o},
+		{stroke:'blue',           width:4, label:'macro-average ROC curve (area = '+r(auc['macro'])+')', dash:[3,6], ...o},
+		{stroke:'navy',           width:3, label:'Random classifier', spanGaps:true, dash:[10,5], ...o}
+	],
+	scales: {x:{time:false, range:[-0.02,1.02]}, y:{range:[-0.02,1.02]}},
+	axes: [{label:'FPR'}, {label:'TPR'}]
+}, [fpr[0], tpr[0], tpr[1], tpr[2], tpr['micro'], tpr['macro'], randclf], charts);
+
 </script>

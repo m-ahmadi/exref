@@ -270,11 +270,14 @@ np.random.uniform()      # 0.78
 np.random.uniform(2,4)   # 3.40
 np.random.uniform(1,5,5) # [2.752647, 1.19705214, 3.33665323, 1.93819238, 3.36881953]
 
-np.random.randint(5)     # 4
-np.random.randint(15,20) # 17
+np.random.randint(5)       # 4
+np.random.randint(15,20)   # 17
+np.random.randint(15,20,3) # [17, 17, 18]
 
 np.random.rand()    # 0.04
+np.random.rand(3)   # [0.41532406, 0.86290618, 0.29035438]
 np.random.rand(3,2) # [ [0.51, 0.58], [0.32, 0.68], [0.43, 0.05] ]
+np.random.random_sample() # ...
 
 np.random.permutation(4)         # [3,1,0,2]
 np.random.permutation([6,7,8,9]) # [7,9,6,8]
@@ -309,6 +312,9 @@ b[0][0] = 57
 a[0][0] # 1
 
 # misc
+np.flip([1,2,3]) # [3,2,1]
+np.flip([1,2,3]).tolist() == [*reversed([1,2,3])] # True
+
 np.bincount([1,1,1])       # count occurrence: [0,3]
 np.bincount([1,1,1,4,4,4]) # ...               [0,3,0,0,3]
 

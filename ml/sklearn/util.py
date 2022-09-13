@@ -2,7 +2,7 @@
 # https://scikit-learn.org/stable/modules/classes.html#module-sklearn.preprocessing
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# two-point transform
+# linear algebra two-point transform
 from sklearn.preprocessing import minmax_scale
 minmax_scale(X, feature_range=(0,1), *, axis=0, copy=True)
 
