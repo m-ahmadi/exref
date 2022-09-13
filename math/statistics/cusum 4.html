@@ -12,7 +12,7 @@ sc = cumsum(s);
 log = sc.map(i => (i=Math.log(i), Number.isFinite(i) ? i : 0));
 dif = log.map((v,i,a) => i>0 ? v - a[i-1] : 0);
 y = dif.map(Math.abs);*/
-y = minmaxScale(s, [-1,1]);
+y = scale(s, [-1,1]);
 
 r = cusum(y, stdv(sc)*2);
 _r = new Set(r);
@@ -22,12 +22,4 @@ x = [...s.keys()].map(i=>i+1);
 opts = { width:1200, height:400, scales:{x:{time:false}}, cursor:{sync:{key:'a'}} };
 new uPlot({series: [{}, {stroke:'black'}], ...opts, height:250, title:'random from gaussian distr'}, [x,s], charts);
 new uPlot({series: [{}, {stroke:'black'}, {points:{size:16,space:0,fill:'rgba(255,0,0,.7)'}}], ...opts, title:'cumsum of above + cusum signals'}, [x,sc,sigs], charts);
-
-
-function minmaxScale(X=[], newbound=[0,1]) {
-	let [a,b] = [Math.min(...X), Math.max(...X)]
-	let [c,d] = newbound;
-	let [dx,dy] = [b-a, d-c];
-	return X.map(x => (x-a) * dy / dx + c);
-}
 </script>

@@ -10,6 +10,54 @@ function product(nums=[]) {
 	return nums.reduce((r,i) => r *= i, 1);
 }
 
+function scale(nums=[], newbound=[0,1]) {/*linear algebra two-point transform*/
+	let [a,b] = minmax(nums);
+	if (a === b) {
+		for (let i=17, j=1e-17; i>0; i--, j=parseFloat('1e-'+i)) if (b+j > a) { b+=j; break; }
+		if (a === b) throw new Error('Equal bounds error!');
+	}
+	let [c,d] = newbound;
+	let [dx,dy] = [b-a, d-c];
+	return nums.map(x => (x-a) * dy / dx + c);
+//return nums.map(x => (x-a) * (d-c) / (b-a) + c);
+//return nums.map(x => (x-a) / (b-a) * (d-c) + c);
+//return nums.map(x => (d-c) * (x-a) / (b-a) + c);
+}
+
+function scaleN(x=0, a=0, b=0, c=0, d=0) {/*↑...one number at a time*/
+	return (x-a) * (d-c) / (b-a) + c;
+}
+
+function lerp(x=0, y=0, a=0) {/*value between two numbers at specified decimal midpoint*/
+	return x * (1-a) + y * a;
+}
+
+function interpolate(x=[], xp=[], yp=[]) {/*naive*/
+	let [xp0, xp1] = [ xp[0], xp[xp.length-1] ];
+	let [yp0, yp1] = [ yp[0], yp[yp.length-1] ];
+	
+	return x.map(i => {
+		if (i < xp0) return yp0;
+		if (i > xp1) return yp1;
+			
+		let xa = xp.filter(j => j < i).slice(-1)[0] || xp0;
+		let xb = xp.filter(j => j > i)[0]           || xp1;
+		
+		let ya = yp[ xp.indexOf(xa) ];
+		let yb = yp[ xp.indexOf(xb) ];
+		
+		let [dx, dy] = [xb-xa, yb-ya];
+		
+		let y = ya + dy * (i-xa) / dx;
+		
+		return y;
+	});
+}
+
+function areaUnderCurve(x=[], y=[]) {
+	return sum(x.map((v,i,a)=> y[i] * (i > 0 ? v - a[i-1] : 0)));
+}
+
 function mean(nums=[], trim=0, sample=false) {
 	if (trim && trim > 0) {
 		if (trim < 1) trim = Math.floor(nums.length * trim);
@@ -427,6 +475,36 @@ function slope(x=[], y=[]) {
 		m.push(dy / dx);
 	}
 	return m;
+}
+
+function rocCurve(yTrue=[], yPred=[], numThresholds=10, posLabel=1) {
+	let pos = new Set(yTrue.map((v,i)=> v === posLabel ? i : -1).filter(i=>i>-1));
+	let negSize = yTrue.length - pos.size;
+	
+	let thresholds = [...Array(numThresholds + 1)].map((_,i) => i / numThresholds).reverse();
+	//thresholds = [Math.max(...yPred) + 1, ...thresholds];
+	//thresholds === py`[*reversed(  sklearn.metrics.roc_curve(yTrue, yPred)[2][1:]  )]`
+	
+	let tprs = [];
+	let fprs = [];
+	
+	for (let threshold of thresholds) {
+		let posPreds = yPred.map((v,i)=> v >= threshold ? i : -1).filter(i=>i>-1);
+		
+		let tp = posPreds.filter(i=> pos.has(i)).length;
+		let fp = posPreds.filter(i=> !pos.has(i)).length;
+		
+		let fn = pos.size - tp;
+		let tn = negSize - fp;
+		
+		let tpr = tp / (tp + fn);
+		let fpr = fp / (fp + tn);
+		
+		tprs.push(tpr);
+		fprs.push(fpr);
+	}
+	
+	return [fprs, tprs, thresholds];
 }
 
 function sma(nums=[], period=2, fill) {

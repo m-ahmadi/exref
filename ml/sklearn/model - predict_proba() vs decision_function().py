@@ -30,7 +30,7 @@ higher distance = higher probability
 y_pred = clf.decision_function(x_test)
 
 
-''' predict_prob()
+''' predict_proba()
 output numbers in [0,1] range
 probability of sample belonging to class
 in multiclass outputs probability for each class (sums to 1)
@@ -42,7 +42,7 @@ y_prob = clf.predict_proba(x_test)
 figsize = (15,8)
 label_1 = 'decision_function() in default [-inf,inf] range'
 label_1_a = 'decision_function() scaled to [0,1] range'
-label_2 = 'predict_prob() in default [0,1] range'
+label_2 = 'predict_proba() in default [0,1] range'
 
 
 
