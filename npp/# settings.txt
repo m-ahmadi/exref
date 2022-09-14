@@ -24,6 +24,8 @@ Settings -> Style Configurator
   Python -> KEYWORD -> User-defined keywords: True False None self
 
 remove <Language name="json"> tag from %appdata%\notepad++\langs.xml
+
+View -> Hide Bookmark Marign
 --------------------------------------------------------------------------------
 Plugins -> Plugins Admin
 
