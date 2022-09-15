@@ -16,9 +16,9 @@ randclf[0] = 0;
 randclf[randclf.length - 1] = 1;
 
 paths = (...r)=> uPlot.paths.stepped({align:1})(...r);
-new uPlot({width:600,height:400,
-	series:[{label: 'threshold'},
-		{stroke:'orange', width:4, label:'ROC Curve', paths},
+new uPlot({width:600,height:400, title:'ROC Curve',
+	series:[{label: 'FPR'},
+		{stroke:'orange', width:4, label:'TPR', paths},
 		{stroke:'navy',   width:3, label:'Random classifier', spanGaps:true, dash:[10,5], points:{show:false}}
 	],
 	scales: {x:{time:false, range:[-0.02,1.02]}, y:{range:[-0.02,1.02]}},
@@ -56,55 +56,67 @@ yPred = y.map(i => {
 
 
 [fpr, tpr, auc] = [{}, {}, {}];
-
 // per class
-for (let clas in classes) {
+for (let clas of classes) {
 	let yTrueClass = yTrue.map(i=> i[clas]);
 	let yPredClass = yPred.map(i=> i[clas]);
 	
-	let [fprs, tprs] = rocCurve(yTrueClass, yPredClass);
+	[fpr[clas], tpr[clas]] = rocCurve(yTrueClass, yPredClass);
 	
-	fpr[clas] = fprs;
-	tpr[clas] = tprs;
-	auc[clas] = areaUnderCurve(fprs, tprs);
+	auc[clas] = areaUnderCurve(fpr[clas], tpr[clas]);
 }
 
 // micro
-[fprsMicro, tprsMicro] = rocCurve(yTrue.flat(), yPred.flat());
-fpr['micro'] = fprsMicro;
-tpr['micro'] = tprsMicro;
-auc['micro'] = areaUnderCurve(fpr['micro'], tpr['micro']);
+[fpr.micro, tpr.micro] = rocCurve(yTrue.flat(), yPred.flat());
+auc.micro = areaUnderCurve(fpr.micro, tpr.micro);
 
 // macro
 allFpr = classes.map(i => fpr[i]).flat();
 allFpr = [...new Set(allFpr)]; // unique
 
 meanTpr = Array(allFpr.length).fill(0);
-for (let clas in classes) {
+for (let clas of classes) {
 	let interp = interpolate(allFpr, fpr[clas], tpr[clas]);
 	meanTpr = meanTpr.map((v,i) => v += interp[i]);
 }
 meanTpr = meanTpr.map(i => i / nClasses);
 
-fpr['macro'] = allFpr
-tpr['macro'] = meanTpr
-auc['macro'] = areaUnderCurve(fpr['macro'], tpr['macro']);
+fpr.macro = allFpr;
+tpr.macro = meanTpr;
+auc.macro = areaUnderCurve(fpr.macro, tpr.macro);
 
 
 // plot
+// make unified series with gaps set to null (based on all unique fprs)
+curveGroups = [...classes, 'micro', 'macro'];
+
+x = curveGroups.map(k=> fpr[k]).flat();
+x = [...new Set(x)];
+x.sort((a,b)=>b-a);
+
+ys = curveGroups.map(k => {
+	let tprByFprOfClass = new Map( fpr[k].map((v,i)=> [v, tpr[k][i]]) ); // to find tpr corresponding to an fpr
+	let tprsOfClass = x.map(fpr => tprByFprOfClass.get(fpr) || null);
+	return tprsOfClass;
+});
+
+randclf = x.map(()=>null);
+randclf[0] = 1;
+randclf[randclf.length - 1] = 0;
+
 o = {points:{show:false}};
 r = n => +n.toFixed(2);
-new uPlot({width:1200,height:600, title:'multiclass roc',
-	series:[{label: 'threshold'},
-		{stroke:'darkorange',     width:4, label:'ROC curve of class 0 (area = '+r(auc[0])+')', paths, ...o},
-		{stroke:'aqua',           width:4, label:'ROC curve of class 1 (area = '+r(auc[1])+')', paths, ...o},
-		{stroke:'cornflowerblue', width:4, label:'ROC curve of class 2 (area = '+r(auc[2])+')', paths, ...o},
+new uPlot({width:800,height:600, title:'Multiclass ROC',
+	series:[{label: 'FPR'},
+		{stroke:'aqua',           width:4, label:'ROC curve of class 0 (area = '+r(auc[0])+')', paths, ...o},
+		{stroke:'cornflowerblue', width:4, label:'ROC curve of class 1 (area = '+r(auc[1])+')', paths, ...o},
+		{stroke:'darkorange',     width:4, label:'ROC curve of class 2 (area = '+r(auc[2])+')', paths, ...o},
 		{stroke:'deeppink',       width:4, label:'micro-average ROC curve (area = '+r(auc['micro'])+')', dash:[3,6], ...o},
 		{stroke:'blue',           width:4, label:'macro-average ROC curve (area = '+r(auc['macro'])+')', dash:[3,6], ...o},
 		{stroke:'navy',           width:3, label:'Random classifier', spanGaps:true, dash:[10,5], ...o}
 	],
 	scales: {x:{time:false, range:[-0.02,1.02]}, y:{range:[-0.02,1.02]}},
 	axes: [{label:'FPR'}, {label:'TPR'}]
-}, [fpr[0], tpr[0], tpr[1], tpr[2], tpr['micro'], tpr['macro'], randclf], charts);
+}, [x, ...ys, randclf], charts);
 
 </script>

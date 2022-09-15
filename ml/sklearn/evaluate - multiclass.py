@@ -1,4 +1,5 @@
 from sklearn.metrics import roc_curve, auc, roc_auc_score
+# https://scikit-learn.org/stable/auto_examples/model_selection/plot_roc.html
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,16 +9,16 @@ from sklearn.preprocessing import label_binarize
 from sklearn.multiclass import OneVsRestClassifier
 plt.style.use('bmh')
 
-def main():
+def main(proba=False):
 	classes, y_test, y_pred, y_prob = get_model_related_things()
 	
-	fpr, tpr, roc_auc = get_multiclass_roc(classes, y_test, y_pred)
+	fpr, tpr, roc_auc = get_multiclass_roc(classes, y_test, y_prob if proba else y_pred)
 	
 	# plot one specific class
 	plt.figure()
 	lw = 2
 	plt.plot(fpr[2], tpr[2], color='darkorange', lw=lw, label=f'ROC curve of class 2 (area = {roc_auc[2]:0.2f})')
-	plt.plot([0, 1], [0, 1], color='navy',       lw=lw, label='random classifier', linestyle='--')
+	plt.plot([0,1], [0,1],   color='navy',       lw=lw, label='random classifier', linestyle='--')
 	plt.xlim([0.0, 1.0])
 	plt.ylim([0.0, 1.05])
 	plt.xlabel('FPR')
@@ -34,7 +35,7 @@ def main():
 	for i, color in zip(classes, colors):
 		plt.plot(fpr[i], tpr[i], color=color, lw=lw, label=f'ROC curve of class {i} (area = {roc_auc[i]:0.2f})')
 	
-	plt.plot([0, 1], [0, 1], 'k--', lw=lw)
+	plt.plot([0,1], [0,1], 'k--', lw=lw)
 	plt.xlim([0.0, 1.0])
 	plt.ylim([0.0, 1.05])
 	plt.xlabel('FPR')
@@ -113,3 +114,4 @@ def get_model_related_things():
 
 
 main()
+main(True)
