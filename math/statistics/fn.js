@@ -55,7 +55,7 @@ function interpolate(x=[], xp=[], yp=[]) {/*naive*/
 }
 
 function areaUnderCurve(x=[], y=[]) {
-	return sum(x.map((v,i,a)=> y[i] * (i > 0 ? v - a[i-1] : 0)));
+	return sum(x.map((v,i,a)=> y[i] * (i > 0 ? Math.abs(v - a[i-1]) : 0)));
 }
 
 function mean(nums=[], trim=0, sample=false) {
@@ -477,13 +477,14 @@ function slope(x=[], y=[]) {
 	return m;
 }
 
-function rocCurve(yTrue=[], yPred=[], numThresholds=10, posLabel=1) {
+function rocCurve(yTrue=[], yPred=[], thresholds=10, posLabel=1) {
 	let pos = new Set(yTrue.map((v,i)=> v === posLabel ? i : -1).filter(i=>i>-1));
 	let negSize = yTrue.length - pos.size;
 	
-	let thresholds = [...Array(numThresholds + 1)].map((_,i) => i / numThresholds).reverse();
-	//thresholds = [Math.max(...yPred) + 1, ...thresholds];
-	//thresholds === py`[*reversed(  sklearn.metrics.roc_curve(yTrue, yPred)[2][1:]  )]`
+	if (typeof thresholds === 'number') {
+		thresholds = [...Array(thresholds + 1)].map((_,i) => i / thresholds).reverse();
+		//thresholds === py`sklearn.metrics.roc_curve(yTrue, yPred)[2][1:]`
+	}
 	
 	let tprs = [];
 	let fprs = [];
