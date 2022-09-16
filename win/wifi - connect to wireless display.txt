@@ -3,3 +3,10 @@
 	win+i -> Devices -> Bluetooth & other devices -> Add Bluetooth or other device -> Wireless display or duck
 2. win+p -> Duplicate
 done
+
+--------------------------------------------------------------------------------
+check device support ("your pc or mobile device doesn't support miracast")
+
+dxdiax -> Save All Information... -> file.txt
+in file.txt search for "Miracast"
+--------------------------------------------------------------------------------
