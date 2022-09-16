@@ -18,7 +18,7 @@ def main(proba=False):
 	plt.figure()
 	lw = 2
 	plt.plot(fpr[2], tpr[2], color='darkorange', lw=lw, label=f'ROC curve of class 2 (area = {roc_auc[2]:0.2f})')
-	plt.plot([0,1], [0,1],   color='navy',       lw=lw, label='random classifier', linestyle='--')
+	plt.plot([0,1], [0,1],   color='navy',       lw=lw, label='Random classifier', linestyle='--')
 	plt.xlim([0.0, 1.0])
 	plt.ylim([0.0, 1.05])
 	plt.xlabel('FPR')
