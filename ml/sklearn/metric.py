@@ -100,6 +100,26 @@ y_pred = [0.1, 0.4, 0.35, 0.8]
 fpr, tpr, thresholds = roc_curve(y_true, y_pred, pos_label=2)
 thresholds # [1.8 , 0.8 , 0.4 , 0.35, 0.1 ]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+from sklearn.metrics import precision_recall_curve
+
+precision, recall, _ = precision_recall_curve([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,0])
+plt.plot(recall, precision)
+plt.show()
+
+# 1 false positive (ppv:4/5=0.8, tpr:4/4=1)
+precision, recall, _ = precision_recall_curve([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,1])
+plt.plot(recall, precision)
+plt.show()
+
+# 1 false negative (ppv:0/4=0, tpr:3/4=0.75)
+precision, recall, _ = precision_recall_curve([1,1,1,1, 0,0,0,0], [0,1,1,1, 0,0,0,0])
+plt.plot(recall, precision)
+plt.show()
+
+# `thresholds`: increasing numbers used to compute `precision` and `recall`
+precision, recall, thresholds = roc_curve(y_true, y_pred, pos_label=2)
+n_thresholds === len(np.unique(y_pred)) # True
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 from sklearn.metrics import auc
 
 fpr, tpr, _ = roc_curve([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,1])

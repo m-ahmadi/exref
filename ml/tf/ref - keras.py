@@ -259,7 +259,18 @@ tf.keras.metrics.
 		.reset_state()
 		.result()
 		.update_state(self, y_true, y_pred, sample_weight=None)
-	AUC(num_thresholds=200, curve='ROC', summation_method='interpolation', name=None, dtype=None, thresholds=None, multi_label=False, num_labels=None, label_weights=None, from_logits=False)
+	AUC(
+		num_thresholds=200,
+		curve='ROC|PR',
+		summation_method='interpolation|minoring|majoring',
+		name=None|'',
+		dtype=None,
+		thresholds=None|[0.,..],
+		multi_label=False,
+		num_labels=None|0,
+		label_weights=None|[]|Tensor,
+		from_logits=False
+	)
 	Accuracy(name='accuracy', dtype=None)
 	BinaryAccuracy(name='binary_accuracy', dtype=None, threshold=0.5)
 	BinaryCrossentropy(name='binary_crossentropy', dtype=None, from_logits=False, label_smoothing=0)

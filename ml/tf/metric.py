@@ -6,7 +6,12 @@ metrics = [
 	keras.metrics.FalseNegatives(thresholds=0.95, name='fn'), 
 	keras.metrics.TruePositives(thresholds=0.95, name='tp'),
 	keras.metrics.TrueNegatives(thresholds=0.95, name='tn'),
+	
 	keras.metrics.SensitivityAtSpecificity(0.9),
+	
+	keras.metrics.AUC(curve='ROC'),
+	keras.metrics.AUC(curve='PR'),
+	
 ]
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=metrics)
 
