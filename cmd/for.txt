@@ -16,7 +16,7 @@ for /r %i in (*.csv) do @type "%i" | find /c /v ""		count lines of all *.csv fil
 (for /r %i in (*.csv) do @type "%i") | find /c /v ""		sum of above
 
 for %i in (*.csv) do @echo %~ni					get file name without extension
-for /f %i in ('dir /b') do @winrar x %~ni.zip * %~ni\		... extract all .zip files
+for /f %i in ('dir *.zip /b') do @winrar x %~ni.zip * %~ni\	... extract all .zip files
 
 for /f "tokens=2" %i in ('tasklist ^| findstr chrome.exe') do @taskkill /pid %i /f	get chrome.exe pids and force kill all
 --------------------------------------------------------------------------------
