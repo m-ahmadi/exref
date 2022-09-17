@@ -155,6 +155,13 @@ a.T             # ...
 
 # translate
 np.c_[[1,2,3], [4,5,6]]  # [ [1,4], [2,5], [3,6] ]
+a = [[1,1],
+     [2,2]]
+b = [[3,3],
+		 [4,4]]
+np.c_[a, b]                    # [[1,1,3,3], [2,2,4,4]]
+np.concatenate([a, b], axis=1) # ...
+
 np.r_[[1,2], [3,4], 5,6] # [1,2,3,4,5,6]
 
 # infer shape (from array length and remaining dimensions)

@@ -161,6 +161,10 @@ ctrl    .. fix aspect ratio
 f       full screen
 '''
 
+plt.clf()
+plt.close()
+plt.show()
+
 plt.style.available # ['Solarize_Light2', '_classic_test_patch', 'bmh', 'classic', ...]
 plt.style.use('bmh')
 # https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html

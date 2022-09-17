@@ -93,15 +93,15 @@ def get_multiclass_roc(classes, y_test, y_pred):
 
 
 def get_model_related_things():
-	iris = datasets.load_iris()
-	x, y = iris.data, iris.target
+	x, y = datasets.load_iris(return_X_y=True)
 	classes = np.unique(y)
 	y_bin = label_binarize(y, classes=classes)
 	
 	# add noisy features to make the problem harder
 	random_state = np.random.RandomState(0)
 	n_samples, n_features = x.shape
-	x = np.c_[x, random_state.randn(n_samples, 200 * n_features)]
+	noise = random_state.randn(n_samples, 200 * n_features)
+	x = np.concatenate([x, noise], axis=1)
 	
 	x_train, x_test, y_train, y_test = train_test_split(x, y_bin, test_size=0.5, random_state=0)
 	
