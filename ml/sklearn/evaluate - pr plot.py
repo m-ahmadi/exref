@@ -25,7 +25,7 @@ n_samples, n_features = x.shape
 noise = random_state.randn(n_samples, 200 * n_features)
 x = np.concatenate([x, noise], axis=1)
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # binary classification
 
 x_binclf, y_binclf = x[y<2], y[y<2] # mimic binary
@@ -63,8 +63,8 @@ disp = PrecisionRecallDisplay.from_predictions(y_true, y_pred, name='LinearSVC')
 disp.ax_.set_title('2-class Precision-Recall curve')
 plt.show()
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# multilabel
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# multiclass
 
 classes = [0,1,2]
 ybin = label_binarize(y, classes=classes)
@@ -77,8 +77,9 @@ y_score = clf.decision_function(x_test)
 # average precision score for each class
 ppv, tpr, ppv_avg = {}, {}, {}
 for i in classes:
-	ppv[i], tpr[i], _ = precision_recall_curve(y_test[:, i], y_score[:, i])
-	ppv_avg[i] = average_precision_score(y_test[:, i], y_score[:, i])
+	clas_y_true, clas_y_pred = y_test[:, i], y_score[:, i]
+	ppv[i], tpr[i], _ = precision_recall_curve(clas_y_true, clas_y_pred)
+	ppv_avg[i] = average_precision_score(clas_y_true, clas_y_pred)
 
 ppv['micro'], tpr['micro'], _ = precision_recall_curve(y_test.ravel(), y_score.ravel())
 ppv_avg['micro'] = average_precision_score(y_test, y_score, average='micro')
