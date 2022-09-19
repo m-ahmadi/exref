@@ -775,7 +775,7 @@ function fracDiffFixedWindow(x=[], d=0, thres=0.00001) {
 	
 	let width = W.length - 1;
 	let r = Array(width).fill(0);
-	for (let i in range(width,N)) r.push(
+	for (let i of range(width,N)) r.push(
 		dot(W, x.slice(i-width, i+1)) || 0
 	);
 	
