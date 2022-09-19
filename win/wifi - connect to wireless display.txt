@@ -5,6 +5,14 @@
 done
 
 --------------------------------------------------------------------------------
+fix bluescreen crash
+
+eventvwr -> Windows Logs -> System
+	rclick -> Clear Log...
+
+connect so crash happens
+check log
+--------------------------------------------------------------------------------
 check device support ("your pc or mobile device doesn't support miracast")
 
 dxdiax -> Save All Information... -> file.txt

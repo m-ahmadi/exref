@@ -1,4 +1,4 @@
-standalone exe `dir %windir%\system32\*.exe /b`
+﻿standalone exe `dir %windir%\system32\*.exe /b`
 
 cmd calc notepad charmap logoff mspaint wmplayer write mpc-hc64
 chrome excel winword powerpnt access ccleaner winrar javaws
@@ -10,6 +10,7 @@ dcomcnfg			Component Services
 DevicePairingWizard		Add a device
 dxdiag				DirectX Diagnostic Tool
 eudcedit			Private Character Editor
+eventvwr			Event Viewer
 fonts				control fonts
 fsquirt				Bluetooth Transfer Wizard
 hdwwiz				Add Hardware Wizard
