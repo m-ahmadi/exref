@@ -24,13 +24,13 @@ toEn = s => +[...s].map(i => en[i]).join('');
 
 window.scrollTo(0,0);
 r = [];
-postsContainer = document.querySelector('.wf3858'); // prev: .browse-post-list
+postsContainer = document.querySelector('.browse-post-list-_-f3858'); // prev: .wf3858
 prevY = -1;
 tot = 0;
 ignores = [ ...IGNORES, ...IGNORES.filter(i=> (/\s+/g).test(i)).map(i=> i.replace(/\s/g, '\u200C')) ];
 while (window.scrollY > prevY && tot < MAX_ITEMS) {
 	prevY = window.scrollY;
-	let posts = [...postsContainer.querySelectorAll('.waf972.wbee95.we9d46')]; // prev: .post-card-item
+	let posts = [...postsContainer.querySelectorAll('.post-card-item-_-af972.kt-col-6-_-bee95.kt-col-xxl-4-_-e9d46')]; // prev: .waf972.wbee95.we9d46
 	let links = posts.map(i => {
 		let title = i.querySelector('a .kt-post-card__title').innerText;
 		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
