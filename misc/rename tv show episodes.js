@@ -62,8 +62,9 @@ writeFileSync('rename-pairs.txt', readFileSync('episodes.txt', 'utf8').split('\r
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // rename subs to vids
 dir = fs.readdirSync('.').slice(0,-1);
-vids = dir.slice(0,13);
-subs = dir.slice(13);
+numEpisodes = 13;
+vids = dir.slice(0,numEpisodes);
+subs = dir.slice(numEpisodes);
 subs.forEach((sub,i)=> console.log(sub, '    ===>    ', vids[i].slice(0,-3)+'srt'));
 //subs.forEach((sub,i)=> fs.renameSync(sub, vids[i].slice(0,-3)+'srt'));
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
