@@ -48,6 +48,34 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 	postsContainer.querySelector(':scope > div:last-child').scrollIntoView();
 	await sleep(WAIT_AFTER_EACH_SCROLL);
 }
+/** another way (incomplete) *//*
+ts = [];
+for (let i=0; i<10; i++) {
+  let a = ts.length === 0 ? new Date() : ts[ts.length-1][1];
+  let b = new Date(+a);
+  b.setDate(b.getDate()-8);
+  ts.push([a,b]);
+}
+
+r = [];
+for (let [t0, t1] of ts) {
+	let body = {"json_schema":{"category":{"value":"apartment-rent"},"districts":{"vacancies":["315"]},"cities":["1"]},
+		//"first_post_date": +t0*1000,
+		//"last-post-date":  +t1*1000
+		"last-post-date":  +t0*1000
+	};
+	let res = await (await fetch('https://api.divar.ir/v8/web-search/4/apartment-rent', {method:'POST', body: JSON.stringify(body), headers: {'Content-Type':'application/json'}})).json();
+	let collects = res.web_widgets.post_list.map(i => ({
+		link: `https://divar.ir/v/${i.data.title}/${i.data.token}`,
+		textTop: i.data.top_description_text,
+		textMid: i.data.middle_description_text,
+		textBot: i.data.bottom_description_text,
+	}));
+	r.push(collects);
+	await new Promise(r => setTimeout(r, 4000));
+}
+tmp = new Set(r.flat().map(i=>i.link));
+*/
 
 
 t = Date.now();
