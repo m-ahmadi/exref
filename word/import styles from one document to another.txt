@@ -1,2 +1,2 @@
-File -> Options > Custom Ribbon -> Developer
+File -> Options -> Custom Ribbon -> Developer
 Developer -> Document Template -> Templates -> Organizer -> Close File -> Open File -> Copy
