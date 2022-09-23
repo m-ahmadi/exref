@@ -1,0 +1,22 @@
+echo {"foo":2} | jq .foo
+echo [1,2,3] | jq .[0]
+
+type file.json | jq .foo
+type file.json | jq .[0]
+
+.
+.foo			obj prop
+.foo.bar		...
+.["foo"]		...
+.foo?			... optional
+.[2]			arr item
+.[10:15]		arr slice
+.foo, .bar		multiple filters
+.[] | .foo		combine filters
+
+https://stedolan.github.io/jq/manual/#Basicfilters
+
+--------------------------------------------------------------------------------
+install
+powershell -C "wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe -O jq.exe;mi jq.exe -D $Env:windir;"
+--------------------------------------------------------------------------------

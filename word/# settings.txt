@@ -1,0 +1,14 @@
+File -> Options ->
+
+Advanced
+	!Use smart paragraph selection
+
+Proofing -> AutoCorrect Options... -> AutoFormat As You Type ->
+	!Border lines
+
+--------------------------------------------------------------------------------
+custom paper size for mobile
+
+width:		4.2
+margins:	0.1
+--------------------------------------------------------------------------------

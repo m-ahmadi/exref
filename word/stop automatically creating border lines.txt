@@ -1,0 +1,2 @@
+File -> Options -> Proofing -> AutoCorrect Options... -> AutoFormat As You Type -> Apply as you type
+	!Border lines
