@@ -22,3 +22,6 @@ x	next
 
 my settings
 Continue playback		never
+
+cli
+"C:\Program Files\VideoLAN\VLC\vlc.exe" "myvideo.mp4"
