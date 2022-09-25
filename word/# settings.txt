@@ -9,6 +9,6 @@ Proofing -> AutoCorrect Options... -> AutoFormat As You Type ->
 --------------------------------------------------------------------------------
 custom paper size for mobile
 
-width:		4.2
+width:		4.2 or 4.4
 margins:	0.1
 --------------------------------------------------------------------------------
