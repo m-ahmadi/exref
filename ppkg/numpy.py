@@ -509,7 +509,7 @@ np.rollaxis
 np.roots
 np.rot90
 np.round
-np.round_(a=[], ?decimals=0, ?out=None)
+np.round_(a=∂, decimals=0, out=None|<ndarray>)
 np.row_stack
 np.s_
 np.safe_eval
@@ -522,7 +522,7 @@ np.sctype2char
 np.sctypeDict
 np.sctypeNA
 np.sctypes
-np.searchsorted
+np.searchsorted(a=∂, v=∂, side='left|right', sorter=None|[])
 np.select
 np.set_numeric_ops
 np.set_printoptions
