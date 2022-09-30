@@ -54,6 +54,19 @@ function interpolate(x=[], xp=[], yp=[]) {/*naive*/
 	});
 }
 
+function searchsorted(ascSortedNums=[], inserts=[]) {/*naive*/
+	let a = ascSortedNums;
+	let b = [...new Set(inserts)];
+	let m = new Map(b.map(i=> [i, 0]));
+	
+	a.forEach((n,i) =>
+		b.filter(j => j > a[i-1] && j <= n)
+			.forEach(j => m.set(j, i))
+	);
+	
+	return inserts.map(i => m.get(i));
+}
+
 function areaUnderCurve(x=[], y=[]) {
 	return sum(x.map((v,i,a)=> y[i] * (i > 0 ? Math.abs(v - a[i-1]) : 0)));
 }
