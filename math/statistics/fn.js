@@ -39,7 +39,7 @@ function interpolate(x=[], xp=[], yp=[]) {/*naive*/
 	return x.map(i => {
 		if (i < xp0) return yp0;
 		if (i > xp1) return yp1;
-			
+		
 		let xa = xp.filter(j => j < i).slice(-1)[0] || xp0;
 		let xb = xp.filter(j => j > i)[0]           || xp1;
 		
