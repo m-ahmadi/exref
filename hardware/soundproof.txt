@@ -1,0 +1,65 @@
+﻿stone wool
+	used for:		thermal, sound
+	densities: 		10, 12, 14, 30, 50, 60, 80, 100, 120, 130, 150, 200, 250, 300, 400
+	depths (cm):		2, 2.5, 3, 4, 5, 6, 7, 7.5, 8, 9, 10, 11, 12
+	for sound:		density: 80|100+,  depth: 5+ cm (depth matters more)
+	aka:			rock|slag|mineral wool
+	forms:
+		————————————————————————————————————————————————————————max depth———————width*height cm
+		with wire mesh on both sides (پتویی، توری دار)		12		——— x 100, 120, 130
+		pre cut panels (تخته ایی، پانلی)				10		120 x 060
+		with foil (or a galvanized sheet) backing (لحافی، رولی)	5		——— x 120
+		pipe shaped (لوله ایی)					3.5		-
+
+elastomer			thermal, sound (wall)
+polyurethane			airborne sound (acoustic foams)
+extruded polystyrene (xps)	wide range
+polyethylene			wide range
+glass wool			thermal (aka fiberglass)
+ceramic wool			thermal
+
+--------------------------------------------------------------------------------
+4 elements of design
+
+decoupling	(vibration)
+absorption 	(air)
+mass 		(weight)
+damping		
+
+--------------------------------------------------------------------------------
+double-glazed window
+
+profile
+	the structure/frame/thing that holds the glasses (white stuff in upvc case)
+	material types:			upvc,  thermal break aluminum,  aluwood,  aluminum,  iron
+	depth:				3-10 mm
+	thikness of profile itself:	1-1.5 mm
+	galvanized reinforced:		a profile that's been reinforced with a galvanized material inside
+	laminated:			only to make colors available (has minor acoustic qualities)
+
+profile types
+	frame:		the profile of not-moving parts (قاب)
+	sachet:		the profile of moving     parts (سش)
+	rim:		helper profile to stabilize the glass on base profile (زهوار)
+	others:		two-layer-rim, fixed-mullion, ...
+
+glass
+	thickness: 3-10 mm
+
+gap
+	filled with argon gas (hermetic seal)
+	space: 6-20 mm (or 12-16 mm in ir)
+
+fittings (یراق آلات)
+	opening types:	single way, double way, horizontal, rails, vulex wagon, accordion, ...
+
+sealant/gasket
+	between opening section and frame and around the frame as well
+	commonly used material:	EPDM (a type of elastomer)
+
+brand (ir)
+	wintech
+	vistabest
+	ideal
+	hofman
+--------------------------------------------------------------------------------

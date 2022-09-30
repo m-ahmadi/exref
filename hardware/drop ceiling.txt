@@ -1,0 +1,11 @@
+﻿perimeter bars	screwed to wall
+mid       bars 	hanged by wire  (wire is connected to screw in ceiling)
+
+
+tiles (usually 20x20 feet or 60x60 cm)
+
+screw
+	drywall screw (پیچ پنل)
+
+profile (نبشی):
+	F47, UH36, L25
