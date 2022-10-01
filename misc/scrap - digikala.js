@@ -1,6 +1,7 @@
-PAGES = 238;
+PAGES = 15;
 URL = 'https://api.digikala.com/v1/categories/webcam/search/?has_selling_stock=1';
 URL = 'https://api.digikala.com/v1/providers-products/?has_selling_stock=1&category_code=casual-shoes-for-men';
+URL = 'https://api.digikala.com/v1/categories/binoculars/search/?has_selling_stock=1';
 SLEEP = 500;
 
 r = [];
@@ -24,6 +25,7 @@ for (let i=0, j=step; i<max; i+=step, j+=step) {
 	if (!m.has(name)) m.set(name, 0);
 	m.set(name, m.get(name) + chunkSize);
 }
-notzeros = [...m].filter(i=> i[1] > 0);
-table = Object.fromEntries(notzeros);
+nonzeros = [...m].filter(i=> i[1] > 0);
+ents = nonzeros.map(([k,v])=> [k, [v, +(v / r.length).toFixed(2)] ]);
+table = Object.fromEntries(ents); // [key, count, pct]
 console.table(table);
