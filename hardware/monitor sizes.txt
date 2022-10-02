@@ -3,3 +3,11 @@ size(ar)	min res		width	height (cm)
 27' (16:9)	2560 x 1440	59.79	33.7058
 34' (21:9)	3440 x 1440	86.6	45.1
 49' (32:9)	5120 x 1440	110.4	64.6
+
+
+about "Pixel Pitch" in monitor specs (smaller = higher pixel density)
+	size  @ res			pixel pitch (mm)
+	23.6' 1920 x 1080		0.2715
+	23.8' 1920 x 1080		0.2745
+	27'   1920 x 1080		0.3114
+	27'   2560 x 1440		0.233

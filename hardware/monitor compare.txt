@@ -1,0 +1,13 @@
+			24MP400-B				24MP59G-P
+================================================================================
+Color Gamut		NTSC 72%				sRBG over 99%
+Response Time		5ms (GtG at Faster)			5ms, 1ms MBR
+Viewing Angle		178					170/160
+Color Depth		16.7M					16.7M + A-FRC
+Surface Treatment	Anti Glare				Anti-Glare 3H
+Weight (kg)		2.3					2.8
+Weight + Stand		2.6					3.2
+Power Consumption (W)	19-22					22
+Dimension (W*H*D cm)	53.99 * 32.14 * 5.62			55.1 * 33.27 * 8.63
+Dimension + Stand	53.99 * 41.44 * 19			55.1 * 41.9  * 20.32
+Stand H*D		---      9.3  * 13.38			---     8.63 * 11.69
