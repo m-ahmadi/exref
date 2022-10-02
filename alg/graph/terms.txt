@@ -1,6 +1,6 @@
-self-loop:            a link that connects a node to itself. (anomaly)
+﻿self-loop:            a link that connects a node to itself. (anomaly)
 ———————————————————————————————————————————————————————————————————————————————
-parallel links:       two links that connect the same pair of vertices. (anomaly)
+parallel links:       two links that connect the same pair of nodes. (anomaly)
 ———————————————————————————————————————————————————————————————————————————————
 multigraphs:          graphs with parallel links.
 ———————————————————————————————————————————————————————————————————————————————

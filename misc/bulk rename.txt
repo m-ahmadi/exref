@@ -1,3 +1,5 @@
+rename using a "rename-pairs" file:
+
 Actions -> Import Rename-Pairs -> Import Rename-Pairs...
 select .txt file with content like:
 	old name.mkv|new name.mkv	(.ext is required)
