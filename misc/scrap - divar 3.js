@@ -17,6 +17,7 @@ MAKE_HTML = true;
 MAKE_CSV = true;
 MAKE_CSV_ROWNUM_COL = true;
 UTF8_BOM_CSV = true;
+FILENAME = 'out';
 
 sleep = ms => new Promise(r=> setTimeout(r,ms));
 en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9', '.':'.'};
@@ -130,7 +131,7 @@ table = new Tabulator('#mytable');
 table.setSort(${ JSON.stringify(COLUMN_SORTS.map(([column,,desc]) => ({column, dir: desc?'desc':'asc'}))) });
 </script>`;
 	
-	download('out.html', html);
+	download(FILENAME+'.html', html);
 }
 
 if (MAKE_CSV) {
@@ -159,7 +160,7 @@ if (MAKE_CSV) {
 		i.map(j => typeof j === 'string' && j.includes(',') ? JSON.stringify(j) : j).join(',')
 	).join('\n');
 	
-	download('out.csv', text);
+	download(FILENAME+'.csv', text);
 }
 
 
