@@ -3,7 +3,7 @@ it's basically a way of encoding binary data in ascii text.
 sending binary data over a network in a raw format causes problems:
 
 	some protocols may interpret binary data as control characters (like a modem),
-	underlying protocol might corrupted the binary data because it thinks you've entered a special character combination (ftp line endings translation)
+	underlying protocol might corrupt the binary data because it thinks you've entered a special character combination (ftp line endings translation)
 
 So to get around this, we encode the binary data into characters.
 base64 is one of these types of encodings.
