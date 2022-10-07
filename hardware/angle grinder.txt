@@ -1,0 +1,40 @@
+power (W)
+
+rpm free
+
+disc diameter
+	larger needs more power, smaller for finer detail
+	sizes (inch): 4.5 (most common), 5, 6, 7, 9
+
+dimmer (speed control)
+
+handle size (small, large)
+
+2nd handle
+
+adjustable positions of 2nd handle
+
+weight
+
+ease of coal replacement
+
+switch type
+	sliding swithc (most basic type)
+	padle trigger
+	trigger grip (common in larger size grinders)
+
+slow start
+
+safety clutch (auto-stop under heavy load)
+--------------------------------------------------
+hands-on specs
+
+
+rpm under load
+
+cutting speed (time to cut X mm of <MATERIAL> with Y kg pulling weight)
+
+time to stop (time it takes for disc to come to a full stop)
+
+noise (dB)
+--------------------------------------------------
