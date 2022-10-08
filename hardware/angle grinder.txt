@@ -3,8 +3,16 @@ power (W)
 rpm free
 
 disc diameter
-	larger needs more power, smaller for finer detail
-	sizes (inch): 4.5 (most common), 5, 6, 7, 9
+	smaller: higher rpm
+	larger:  lower  rpm, higher wattage
+	mm	inch	use
+	======================
+	100	4.9	misc
+	115	4.5	misc (most common size)
+	125	5	misc
+	150	6	
+	180	7	iron
+	230	9	stone
 
 dimmer (speed control)
 
