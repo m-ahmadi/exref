@@ -1,0 +1,4 @@
+File -> Options ->
+
+Formulas
+	! Enable background error checking

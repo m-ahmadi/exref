@@ -1,10 +1,10 @@
 File -> Options ->
 
 Advanced
-	!Use smart paragraph selection
+	! Use smart paragraph selection
 
 Proofing -> AutoCorrect Options... -> AutoFormat As You Type ->
-	!Border lines
+	! Border lines
 
 --------------------------------------------------------------------------------
 custom paper size for mobile
