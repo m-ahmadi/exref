@@ -1,10 +1,10 @@
 power (W)
 
-rpm free
+rpm free load
 
 disc diameter
-	smaller: higher rpm
-	larger:  lower  rpm, higher wattage
+	smaller = higher rpm
+	largers = lower  rpm, higher wattage
 	mm	inch	use
 	======================
 	100	4.9	misc
@@ -16,18 +16,16 @@ disc diameter
 
 dimmer (speed control)
 
-handle size (small, large)
-
-2nd handle
-
-adjustable positions of 2nd handle
+handle (some don't have handle at all)
+	size (small, large)
+	number of positions (most have 2, some 3)
 
 weight
 
 ease of coal replacement
 
 switch type
-	sliding swithc (most basic type)
+	sliding switch (most basic type)
 	padle trigger
 	trigger grip (common in larger size grinders)
 
@@ -40,7 +38,7 @@ hands-on specs
 
 rpm under load
 
-cutting speed (time to cut X mm of <MATERIAL> with Y kg pulling weight)
+cutting speed (time to cut X mm of <MATERIAL> with Y kg pushing weight)
 
 time to stop (time it takes for disc to come to a full stop)
 
