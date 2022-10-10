@@ -1,0 +1,32 @@
+1. copy long url (starts with vmess://)
+2. v2rayN.exe -> Servers -> Import bulk URL from clipboard
+3. restart v2rayN.exe (close & open)
+4. systray (win+b) -> v2rayN -> rclick -> System proxy -> Set system proxy
+
+done.
+
+--------------------------------------------------------------------------------
+install "v2rayN" software
+
+https://github.com/2dust/v2rayN/releases
+https://github.com/v2fly/v2ray-core/releases	extract in "v2rayN" dir
+https://github.com/XTLS/Xray-core/releases	...
+
+--------------------------------------------------------------------------------
+install "v2rayN" software - using powershell
+
+wget https://github.com/2dust/v2rayN/releases/download/5.36/v2rayN.zip -O x.zip;
+Expand-Archive x.zip -D .\;
+ri x.zip;
+
+cd v2rayN;
+
+wget https://github.com/v2fly/v2ray-core/releases/download/v5.1.0/v2ray-windows-64.zip -O x.zip;
+Expand-Archive x.zip -D .\;
+ri x.zip;
+
+wget https://github.com/XTLS/Xray-core/releases/download/v1.6.0/Xray-windows-64.zip -O x.zip;
+Expand-Archive x.zip -D .\ -Force;
+ri x.zip;
+
+--------------------------------------------------------------------------------
