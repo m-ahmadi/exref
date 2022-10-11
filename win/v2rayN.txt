@@ -6,14 +6,15 @@
 done.
 
 --------------------------------------------------------------------------------
-install "v2rayN" software
+install "v2rayN"
 
 https://github.com/2dust/v2rayN/releases
 https://github.com/v2fly/v2ray-core/releases	extract in "v2rayN" dir
 https://github.com/XTLS/Xray-core/releases	...
 
---------------------------------------------------------------------------------
-install "v2rayN" software - using powershell
+
+or with powershell:
+
 
 wget https://github.com/2dust/v2rayN/releases/download/5.36/v2rayN.zip -O x.zip;
 Expand-Archive x.zip -D .\;
@@ -29,4 +30,13 @@ wget https://github.com/XTLS/Xray-core/releases/download/v1.6.0/Xray-windows-64.
 Expand-Archive x.zip -D .\ -Force;
 ri x.zip;
 
+--------------------------------------------------------------------------------
+on android
+
+1. install "v2rayNG" app
+	https://github.com/2dust/v2rayNG/releases
+2. + button
+3. Import config from Clipboard
+
+done.
 --------------------------------------------------------------------------------
