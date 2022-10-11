@@ -1,0 +1,2 @@
+ctrl 4		file management
+ctrl 5		apk install
