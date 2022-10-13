@@ -13,7 +13,7 @@ random.randbytes(n)
 random.randrange(stop)
 random.randrange(start, stop, ?step)
 random.randint(a, b)
-random.getrandbits(k
+random.getrandbits(k)
 
 # sequence
 random.choice(seq)
@@ -41,3 +41,9 @@ random.weibullvariate(alpha, beta)
 a = [1,2,3]
 random.shuffle(a)
 a # [2,1,3]
+
+# int between 2 nums
+random.randrange(5, 10) # 8
+
+# float between 2 nums
+random.uniform(1.5, 2) # 1.850423389168346

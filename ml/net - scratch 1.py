@@ -1,36 +1,37 @@
-def update_w_and_b(spendings, sales, w, b, alpha):
+def update_w_and_b(x, y, w, b, alpha):
 	dl_dw = 0.0
 	dl_db = 0.0
-	N = len(spendings)
+	N = len(x)
 	
 	for i in range(N):
-		dl_dw += -2*spendings[i]*(sales[i] - (w*spendings[i] + b))
-		dl_db += -2*(sales[i] - (w*spendings[i] + b))
+		dl_dw += -2 * x[i] * ( y[i] - (w*x[i] + b) )
+		dl_db += -2 * ( y[i] - (w * x[i] + b) )
 		
 		# update w and b
-		w = w - (1/float(N))*dl_dw*alpha
-		b = b - (1/float(N))*dl_db*alpha
+		frac = 1 / float(N)
+		w = w - frac * dl_dw * alpha
+		b = b - frac * dl_db * alpha
 	
 	return w, b
 
 
-def train(spendings, sales, w, b, alpha, epochs):
+def train(x, y, w, b, alpha, epochs):
 	for e in range(epochs):
-		w, b = update_w_and_b(spendings, sales, w, b, alpha)
+		w, b = update_w_and_b(x, y, w, b, alpha)
 		
 		# log the progress
 		if e % 400 == 0:
-		print("epoch:", e, "loss: ", avg_loss(spendings, sales, w, b))
+		print('epoch:', e, 'loss: ', avg_loss(x, y, w, b))
 	
 	return w, b
 
 
-def avg_loss(spendings, sales, w, b):
-	N = len(spendings)
+def avg_loss(x, y, w, b):
+	N = len(x)
 	total_error = 0.0
 	
 	for i in range(N):
-		total_error += (sales[i] - (w*spendings[i] + b))**2
+		total_error += ( y[i] - (w * x[i] + b) ) ** 2
 	
 	return total_error / float(N)
 
@@ -38,6 +39,11 @@ def avg_loss(spendings, sales, w, b):
 def predict(x, w, b):
 	return w*x + b
 
+
+x = np.cumsum(np.random.randn(200))
+x = x[x > 0]
+y = np.random.normal(np.mean(x), np.std(x), len(x))
+y = np.round(y, 1)
 
 train(x, y, w=0.0, b=0.0, alpha=0.001, epoch=15000)
 
