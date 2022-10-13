@@ -4,12 +4,16 @@ from statsmodels.tsa.stattools import adfuller
 
 # time series from i.i.d. gaussian random process
 np.random.seed(0)
-s = np.random.randn(2520)
+s = np.random.randn(500)
 s_cum = np.cumsum(s)
-_, axs = plt.subplots(2, figsize=(8,7), sharex=True, constrained_layout=True)
+s_cum_pos = np.abs(s_cum) # filter negatives
+_, axs = plt.subplots(3, figsize=(12,7), sharex=True, constrained_layout=True)
 axs[0].plot(s)
 axs[1].plot(s_cum)
+axs[2].plot(s_cum_pos)
 plt.show()
+
+plt.plot( np.abs(np.cumsum(np.random.randn(200))) )
 
 # how stationary becomes non-stationary
 np.random.seed(0)

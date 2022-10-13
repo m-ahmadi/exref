@@ -289,7 +289,8 @@ np.random.random_sample() # ...
 np.random.permutation(4)         # [3,1,0,2]
 np.random.permutation([6,7,8,9]) # [7,9,6,8]
 
-np.random.normal(0.5, .1, 3) # [0.72124197, 0.48887206, 0.51517659]
+distr_mean, dist_stdv = 20, 50
+np.random.normal(distr_mean, distr_stdv, 3) # [86.2179375 , 11.38996037, 56.51758952]
 
 np.random.randn(2, 2) # [ [-0.35007154,  0.60158319], [1.05053568, -0.22653905] ]
 
@@ -299,7 +300,10 @@ np.random.choice(4, 6, p=[.1,.1,.4,.4])          # [2, 2, 2, 3, 3, 3]
 np.random.choice(['a','b','c'], 6, p=[.6,.2,.2]) # ['b', 'a', 'a', 'a', 'c', 'a']
 
 # round
-np.round(np.random.uniform(1,5,5), 2) # [4.87, 3.47, 1.61, 4.99, 3.85]
+a = [1.111, 2.222, 3.333, 4.444]
+np.round(a, 1)  # [1.1, 2.2, 3.3, 4.4]
+np.round_(a, 1) # ...
+np.around(a, 1) # ...
 
 # trim mean
 def avgtrim(arr, percent):

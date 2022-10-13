@@ -70,7 +70,7 @@ np.argmin(a=∂, ?axis=None|0, ?out=None|[])
 np.argpartition
 np.argsort
 np.argwhere
-np.around
+np.around(a=∂, decimals=0, out=None)
 np.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0, like=None)
 np.array_equal
 np.array_equiv
@@ -341,7 +341,7 @@ np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=
 np.little_endian
 np.load
 np.loads
-np.loadtxt
+np.loadtxt(fname, dtype='float', comments='#', delimiter=None, converters=None, skiprows=0, usecols=None, unpack=False, ndmin=0, encoding='bytes', max_rows=None, *, quotechar=None, like=None)
 np.log
 np.log10
 np.log1p
@@ -476,11 +476,11 @@ np.rad2deg
 np.radians
 np.RAISE
 np.random
-np.random.normal(loc=0.0|[0.,..], scale=1.0|[0.,..], size=None|0|(0,..)) # Gaussian distribution
+np.random.normal(loc=0.0|[0.,..], scale=1.0|[0.,..], size=None|0|(0,..)) # normal distr (gaussian)
 np.random.permutation(x=0|∂)
-np.random.rand(?d0=0, ?d1=0, ..., ?dn=0) # uniform distribution
+np.random.rand(?d0=0, ?d1=0, ..., ?dn=0) # uniform distr
 np.random.randint(low=0, ?high=None|0, ?size=None|0|(0,..), ?dtype=np.int)  |  random_integers() # low: inclusive, high: exclusive
-np.random.randn(?d0=0, ?d0, ..., ?dn=0) # "standard normal" distribution
+np.random.randn(?d0=0, ?d0, ..., ?dn=0) # normal distr (gaussian)
 np.random.random(size=None|0|(0,..))  |  random_sample()
 np.random.uniform(?low=0.0, ?high=1.0, ?size=None|0|(0,..))
 np.random.choice(a=[]|0, size=None|0|(0,..), replace=True, p=None|[])
@@ -508,8 +508,7 @@ np.roll
 np.rollaxis
 np.roots
 np.rot90
-np.round
-np.round_(a=∂, decimals=0, out=None|<ndarray>)
+np.round_(a=∂, decimals=0, out=None|<ndarray>) | round
 np.row_stack
 np.s_
 np.safe_eval
