@@ -15,3 +15,10 @@ npm config set loglevel="http"				change default logslevel
 npm config set loglevel="warn"				...
 
 npm config set ignore-scripts true			disable running postinstall/preinstall/etc scripts
+
+npm config set proxy http://127.0.0.1:10811		set http proxy
+npm config set https-proxy <URL>			... https
+
+
+reference:
+	npm help config -> config(7)
