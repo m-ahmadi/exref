@@ -14,3 +14,6 @@ char firstLetter = 'C';
 var limit = 3;
 int[] source = { 0, 1, 2, 3, 4, 5 };
 long[] numArr = { 22645269567765904, 20190807, 1 };
+
+// type casting
+(int) 23.32 // 23
