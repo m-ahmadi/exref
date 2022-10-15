@@ -1,2 +1,2 @@
-sometimes -s stop or -s quit flags don't work and you have to kill nginx.exe manually from taks manager.
+sometimes `nginx -s stop` or `nginx -s quit` don't work and you have to kill nginx.exe manually
 (multiple times if it keeps showing up)
