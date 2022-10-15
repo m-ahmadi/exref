@@ -40,3 +40,16 @@ on android
 
 done.
 --------------------------------------------------------------------------------
+turn connection into vpn (https://github.com/2dust/v2rayN/issues/1092)
+
+1. https://github.com/githello123/sstap
+2. download "SSTap-beta-setup-1.1.0.1.exe.7z", extract, install and open app
+3. Add new proxy server (+ button)
+	Type:		SOCKS 5
+	Server IP:	127.0.0.1
+	Port:		10808
+4. Save
+5. Connect
+
+done.
+--------------------------------------------------------------------------------
