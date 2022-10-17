@@ -75,3 +75,8 @@ volumouse options
 	Alt key is down				2000
 	Mouse cursor is over the taskbar	2000
 --------------------------------------------------------------------------------
+"7+ taskbar tweaker" settings
+
+Other taskbar options ->
+	Middle click on empty space:	Task Manager
+--------------------------------------------------------------------------------
