@@ -25,6 +25,15 @@ distribution moments
 	variability	second moment
 	skewness	third  moment	(whether data is skewed to larger or smaller values)
 	kurtosis	fourth moment	(propensity of the data to have extreme values)
+
+sample:				a subset of data from a larger data set
+population:			the larger data set (sometimes imaginary)
+random sampling:		each member of population has equal chance of being chosen at each draw
+	with    replacement:	observations are put back in the population after each draw for possible future reselection
+	without replacement:	observations, once selected, are unavailable for future draws
+stratified sampling:		divide population into subgroups and randomly sample from each group
+unbiased process		has error, but error is due to random chance
+biased   process:		has error, but error tends strongly in one direction
 --------------------------------------------------------------------------------
 univariate analysis
 
@@ -44,7 +53,7 @@ standard deviation
 	the lower the standard deviation  =  the closer values are to mean
 
 frequency table
-	variable range devided into equally spaced segments with count of values in each segment
+	variable's range devided into equally spaced segments with count of values in each segment
 	histogram is a way to visualize a frequency table
 
 bar chart vs histogram
