@@ -1,1 +1,1 @@
-Window > Properties > Transform > More Options
+Window -> Properties -> Transform -> More Options

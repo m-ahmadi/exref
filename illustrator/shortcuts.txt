@@ -17,5 +17,5 @@ quit			ctrl q
 --------------------------------------------------
 custom
 
-ctrl e			window > swatches
-ctrl alt t		object > path > split into grid
+ctrl e			window -> swatches
+ctrl alt t		object -> path -> split into grid

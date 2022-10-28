@@ -1,1 +1,1 @@
-Effects > Document Raster Effects Settings
+Effects -> Document Raster Effects Settings
