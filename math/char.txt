@@ -1,7 +1,14 @@
-﻿–	dash alternative	alt 0150
-—	like _ but middle	alt 0151
-
+﻿				alt code	unicode hex
+–	en dash			0150		2013
+—	em dash			0151		2014
 ‾	like _ but top		---		203E
+×	multiplication		0215		00D7
+÷	division		0247		00F7
+│	box horizontal		179		2502
+─	box vertical		196		2500
+┌ ┐	box up corners		218 191		250C 2510
+└ ┘	box down corners	192 217		2414 2518
+
 
 suP
 ⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁺ ⁻ ⁼ ⁽ ⁾
