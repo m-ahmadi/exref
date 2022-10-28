@@ -15,3 +15,4 @@ Garamond
 Jenson
 Minion
 Palatino
+Centaur

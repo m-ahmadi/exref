@@ -1,0 +1,26 @@
+﻿upper	lower	name		eng	phonetic
+==================================================
+Α	α	alpha		a	al-fah
+Β	β	beta		b	bay-tah
+Γ	γ	gamma		g	gam-mah
+Δ	δ	delta		d	del-tah
+Ε	ε	epsilon		e	ep-si-lon
+Ζ	ζ	zêta		z	zee-tah
+Η	η	êta		ê,h	ay-tay
+Θ	θ	thêta		th	thay-tah
+Ι	ι	iota		i	eye-o-tah
+Κ	κ	kappa		k	cap-ah
+Λ	λ	lambda		l	lam-dah
+Μ	μ	mu		m	mew
+Ν	ν	nu		n	new
+Ξ	ξ	xi		x	zz-eye
+Ο	ο	omicron		o	om-e-cron
+Π	π	pi		p	pie
+Ρ	ρ	rho		r	roe
+Σ	σ,ς	sigma		s	sig-mah
+Τ	τ	tau		t	taw
+Υ	υ	upsilon		y,u	opp-si-lon
+Φ	φ	phi		f,ph	fie
+Χ	χ	chi		ch,k	k-eye
+Ψ	ψ	psi		ps	sigh
+Ω	ω	omega		ô	o-may-gah
