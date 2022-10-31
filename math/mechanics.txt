@@ -1,0 +1,57 @@
+stress
+
+force acting on a body (measured in pascal)
+more force  OR  less cross-sectional area  =  greater stress
+
+tension			pulling force (tensile)
+compression		pushing force
+shear			force on 1 end only
+bending			2 forces on 2 ends, 1 opposite force on middle
+torsion			rotational force
+--------------------------------------------------
+load
+
+a force, deformation or acceleration applied to structural elements
+
+dead			static force (constant over time)
+live			moving force (may involve: impact, momentum, vibration, fluid slosh dynamics)
+impact			force applied over short time (less than 1/3 of total vibration time)
+cyclic			repeated force
+axial			force along an axis (aka normal force)
+lateral			force on side
+shear			force on 1 end only
+radial			force in radial direction
+
+https://en.wikipedia.org/wiki/Structural_load
+--------------------------------------------------
+misc
+
+tensile strength	max stress a material can stand against tension or compression force
+shear strength		...                             against shear                  force
+yield point		point on stress-strain curve where elastic becomes plastic (materials science)
+
+column			structural element that carries axial   load
+beam			structural element that carries lateral load
+
+bending moment		places accross the beam where torque force is in action
+reaction moment		...                           normal force ...
+
+torque (moment)		rotational equivalent of linear force
+
+support types		prevents					allows
+	pinned		vertical & horizontal displacement		rotation
+	roller		vertical displacement				horizontal displacement & rotation
+	fixed		all displacements & rotation			---
+	spring		total disconnect from foundation		slight movement
+
+concentrated force	force that is in a small section         of whole area
+distributed force	force that is spreaded in larger section of whole area
+--------------------------------------------------
+ductility
+
+how much a material can sustain plastic deformation under tensile stress before failing
+
+brittle			breaks clean into two
+ductile			deforms then breaks
+super ductile		almost turns into wire, then breaks
+--------------------------------------------------
