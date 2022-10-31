@@ -1,0 +1,9 @@
+semicolon groups many independent but related sentences into one sentece
+
+examples:
+
+I ordered a cheeseburger for lunch. life's too short for counting calories.
+I ordered a cheeseburger for lunch; life's too short for counting calories.
+
+I saw a snake today, and it was eating a mouse.
+I saw a snake today; it was eating a mouse.

@@ -1,0 +1,15 @@
+used to express afterthoughts (something you forgot to mention in main body)
+
+abbr		latin			meaning			preferred in
+================================================================================
+p.s.		postscriptum		written after		us
+ps		...			...			uk
+
+(express further afterthoughts with pps, ppps, ...)
+
+examples
+	PS You suck.
+	P.S. You suck.
+	PS: You suck.
+	P.s.: You suck.
+
