@@ -35,6 +35,7 @@ ctrl alt
 	`	conemu
 ctrl `		deskpins
 ctrl shift `	everything
+ctrl shift d	babylon (mouse: shift midclick)
 ctrl  alt `	conemu
 --------------------------------------------------------------------------------
 alarm sound
