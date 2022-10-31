@@ -1,0 +1,4 @@
+	latin			meaning
+==================================================
+e.g.	exempli gratia		"for example", "for the sake of example"
+i.e.	id est			"that is", "in other words", "that is to say"
