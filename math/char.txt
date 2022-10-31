@@ -20,15 +20,12 @@ suB
 ₐ - - - ₑ - - - ᵢ - - - - - ₒ - - ᵣ - - ᵤ ᵥ - ₓ ᵧ -		ₕ ₖ ₗ ₘ ₙ ₚ ₛ ₜ
 
 
-suP look-alike
-
-
 suP digit			2070
 suB digit 			2080
 suP uppercase letter		1D2C
 suB lowercase letter		1D43
 combining chars			0305
-other hyphens			2010, 2011
+other hyphens			2010 2011
 
 zero-width space		200B
 zero-width non-joiner		200C
