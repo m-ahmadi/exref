@@ -3,6 +3,7 @@
 —	em dash			0151		2014
 ‾	like _ but top		---		203E
 ×	multiplication		0215		00D7
+·	...			0183		00B7
 ÷	division		0247		00F7
 │	box horizontal		179		2502
 ─	box vertical		196		2500
