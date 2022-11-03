@@ -29,6 +29,9 @@ misc
 tensile strength	max stress a material can stand against tension or compression force
 shear strength		...                             against shear                  force
 yield point		point on stress-strain curve where elastic becomes plastic (materials science)
+stiffness		object's resistance to elastic deformation under stress
+young's modulus		measure of tensile or compressive stiffness of a solid material when force applied lengthwise (stress ÷ strain)
+
 
 column			structural element that carries axial   load
 beam			structural element that carries lateral load
