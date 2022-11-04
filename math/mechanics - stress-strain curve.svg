@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 800 600" enable-background="new 0 0 800 600" xml:space="preserve">
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-width="2.8346" stroke-miterlimit="10" x1="111.85" y1="54.91" x2="111.85" y2="515.58"/>
+		<g>
+			<path d="M111.85,29.25c-4.48,12.07-12.12,27.06-20.22,36.34l20.22-7.31l20.22,7.31C123.97,56.31,116.33,41.33,111.85,29.25z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		
+			<line fill="none" stroke="#000000" stroke-width="2.8346" stroke-linecap="square" stroke-miterlimit="10" x1="628.03" y1="515.58" x2="111.85" y2="515.58"/>
+		<g>
+			<path d="M653.69,515.58c-12.07-4.48-27.06-12.12-36.34-20.22l7.31,20.22l-7.31,20.22C626.63,527.7,641.62,520.05,653.69,515.58z"
+				/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(0 -1 1 0 79.847 396.2935)" font-family="'Garamond'" font-size="48px">σ = P÷A (Pa)</text>
+<text transform="matrix(1 0 0 1 306.3476 556.0291)" font-family="'Garamond'" font-size="48px">ε = δ÷L</text>
+<line fill="none" stroke="#000000" stroke-width="0.8504" stroke-linecap="square" stroke-miterlimit="10" x1="162.38" y1="87.32" x2="111.85" y2="515.58"/>
+<line fill="none" stroke="#000000" stroke-width="0.8504" stroke-linecap="square" stroke-miterlimit="10" x1="304.25" y1="140.26" x2="111.85" y2="515.58"/>
+<line fill="none" stroke="#000000" stroke-width="0.8504" stroke-linecap="square" stroke-miterlimit="10" x1="491.04" y1="266.95" x2="111.85" y2="515.58"/>
+<line fill="none" stroke="#000000" stroke-width="0.8504" stroke-linecap="square" stroke-miterlimit="10" x1="552.09" y1="359" x2="111.85" y2="515.58"/>
+<text transform="matrix(1 0 0 1 167.0373 114.4769)" font-family="'Garamond'" font-size="36px">E=10¹¹</text>
+<text transform="matrix(1 0 0 1 307.6325 175.9385)"><tspan x="0" y="0" font-family="'Garamond'" font-size="36px">E=10</tspan><tspan x="81.37" y="0" font-family="'MyriadPro-Regular'" font-size="36px">⁹</tspan></text>
+<text transform="matrix(1 0 0 1 495.3884 302.4472)"><tspan x="0" y="0" font-family="'Garamond'" font-size="36px">E=10</tspan><tspan x="81.37" y="0" font-family="'MyriadPro-Regular'" font-size="36px">⁶</tspan></text>
+<text transform="matrix(1 0 0 1 556.2577 397.2937)"><tspan x="0" y="0" font-family="'Garamond'" font-size="36px">E=10</tspan><tspan x="81.37" y="0" font-family="'MyriadPro-Regular'" font-size="36px">⁵</tspan></text>
+<text transform="matrix(1 0 0 1 166.5636 86.1378)" font-family="'Garamond'" font-size="24px">steel</text>
+<text transform="matrix(1 0 0 1 308.2027 134.6031)" font-family="'Garamond'" font-size="24px">plastics</text>
+<text transform="matrix(1 0 0 1 495.8029 266.8118)" font-family="'Garamond'" font-size="24px">rubber</text>
+<text transform="matrix(1 0 0 1 556.9601 356.114)" font-family="'Garamond'" font-size="24px">gels, biological tissues</text>
+</svg>

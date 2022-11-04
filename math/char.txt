@@ -5,8 +5,10 @@
 ×	multiplication		0215		00D7
 ·	...			0183		00B7
 ÷	division		0247		00F7
-│	box horizontal		179		2502
-─	box vertical		196		2500
+	tab			09		NA
+│	box vertical		179		2502
+─	box horizontal		196		2500
+═	box horizontal double	205		2550		
 ┌ ┐	box up corners		218 191		250C 2510
 └ ┘	box down corners	192 217		2414 2518
 
