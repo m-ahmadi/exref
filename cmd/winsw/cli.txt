@@ -1,7 +1,12 @@
 winsw install myapp.xml [options]	install service
-winsw start myapp.xml			start service
-winsw status myapp.xml			see if service is up and running
 winsw refresh myapp.xml			reapply conf without reinstall
+winsw uninstall myapp.xml		uninstall service
+
+winsw start myapp.xml			start service
+winsw stop  myapp.xml			stop service
+winsw restart myapp.xml			stop & start service
+winsw status myapp.xml			see if service is up and running
+
 
 commands:
   install <conf>      Installs the service.
