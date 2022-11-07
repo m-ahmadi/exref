@@ -1,0 +1,14 @@
+moments of a function are quantitative measures related to shape of function's graph
+
+for example:
+
+function representing mass density
+	zeroth moment		total mass
+	first moment		center of mass
+	second moment		moment of inertia
+
+function is probabilty distribution
+	first moment		expected value
+	second moment		variance
+	third moment		skewness
+	fourth moment		kurtosis
