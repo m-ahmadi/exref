@@ -1,13 +1,23 @@
-nssm install MyService node file.js
+nssm install MyService node file.js		install service
 
 nssm install MyService py file.py
 nssm install MyService c:\python39\python.exe c:\file.py
 nssm install MyService c:\python39\Scripts\uvicorn.exe --app-dir e:\bar --port 4456 main:app
 
-nssm remove MyService confirm
+nssm remove MyService confirm			delete service
+nssm remove MyService				delete service gui
 
-nssm start MyService
-nssm stop MyService
+nssm edit MyService				edit gui
+nssm set MyService Application c:\app.exe	edit exe path
+nssm set MyService AppParameters start		edit exe args
+
+nssm start MyService				start
+nssm stop MyService				stop
+nssm restart MyService				stop & start
+nssm status MyService				see status
+
+
+https://nssm.cc/usage
 --------------------------------------------------------------------------------
 install
 powershell -C "wget https://nssm.cc/release/nssm-2.24.zip -O x.zip; Expand-Archive x.zip -D .; mi nssm-2.24\win64\nssm.exe -D $Env:windir; ri x.zip; ri nssm-2.24 -Force -Recurse;"

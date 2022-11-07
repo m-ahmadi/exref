@@ -7,8 +7,17 @@ nginx -s reopen			reopening the log files
 --------------------------------------------------------------------------------
 install as service
 
-not yet supported in windows
+not yet supported in windows (must use nssm, winsw, ...)
 
+using nssm
+	nssm install nginx c:\nginx\nginx.exe
+	net start nginx
+
+using winsw (stopping has issues)
+	copy winsw-config.xml c:\nginx\nginx.xml
+	pushd c:\nginx
+	winsw install nginx.xml
+	net start nginx
 --------------------------------------------------------------------------------
 flags
 
@@ -23,3 +32,12 @@ flags
 
 -v			show version and exit
 -V			show version and configure options then exit
+
+
+--------------------------------------------------------------------------------
+install (c:\nginx)
+
+powershell -C "wget http://nginx.org/download/nginx-1.22.1.zip -O x.zip; Expand-Archive x.zip -D t; cd t; dir | %{rni $_.Name -NewName nginx}; mi nginx -D C:\; cd ../; ri t; ri x.zip;"
+
+add to path manually
+--------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-append entry to path env variable
+append entry to path env variable (needs restart)
 
 powershell -C "$k='HKCU:Environment'; $v='Path'; sp -Path $k -Name $v -Value ((gpv $k $v)+';D:\foo') -Type ExpandString;"
 powershell -C "$k='HKLM:SYSTEM\CurrentControlSet\Control\Session Manager\Environment'; $v='Path'; sp -Path $k -Name $v -Value ((gpv $k $v)+';D:\foo') -Type ExpandString;"

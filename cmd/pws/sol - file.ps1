@@ -47,7 +47,8 @@ gci -dir                             # ...
 gci | ?{$_.PsIsContainer -eq $true}  # ...
 gci -File                            # list files only
 gci | ?{$_.PsIsContainer -eq $false} # ...
-gci | select -ExpandProperty Name    # dir /b
+gci | %{$_.Name}                     # dir /b
+gci | select -ExpandProperty Name    # ...
 gci | select Name                    # ... (but with col header)
 gci | select FullName                # abs path
 gci -dir | select Name               # dir /a:d /b
@@ -75,7 +76,8 @@ gci $src -Recurse | ?{$_.PSIsContainer -eq $False} | %{cpi -Path $_.Fullname -De
 
 # unzip
 Expand-Archive -Path C:\file.zip -DestinationPath C:\out
-tar xzf file.zip -C C:\out # available on win10
+Expand-Archive file.zip -D .\ # extract directly into current dir ("Extract Here")
+tar xzf file.zip -C C:\out    # win10+
 
 # check if folder exists + 2 blocks
 if (Test-Path 'mydir') {
