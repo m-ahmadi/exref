@@ -9,5 +9,7 @@ record audio when screen recoding
 
 Task settings -> Capture -> Screen recorder -> Screen recording options...
 	Install recorder devices
-	Audio source: virtual-audio-capturer
+	Audio source:
+		virtual-audio-capturer		(record system sound)
+		Microphone			(record mic)
 --------------------------------------------------------------------------------
