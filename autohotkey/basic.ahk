@@ -10,3 +10,13 @@
 
 :: ; end of statement
 {} ; escape
+
+; loop
+Loop 3 {
+	MsgBox %A_Index%
+
+	Loop %A_Index% {
+		MsgBox "here ".%A_Index%
+	}
+}
+return
