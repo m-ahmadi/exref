@@ -1,8 +1,7 @@
-win r			run
+﻿win r			run
 win e			my computer
 win m			minimize all windows
 win 1-9 (not calc)	open window or tab through
-win t (+ enter)		tab through taskbar
 win f			search window
 win p			monitor modes
 win l			log off
@@ -14,11 +13,17 @@ win +			magnifier
 win esc			magnifier exit
 win v			clipboard history (win+i -> System -> Clipboard)
 win printscreen		screenshot saved to %userprofile%\Pictures\Screenshots
-win < v > ^		window snapping
+win ← ↓ → ↑		window snapping
 win shift s		screen snip (copied to clipboard)
 win a			action center
 win b			focus taskbar
 win pause		control panel -> system
+win t			task view
+win ctrl ↑		maximize window
+win ctrl ↓		minimize window
+win ctrl d		create new desktop
+win ctrl ← →		switch desktop
+win ctrl shift b	refresh graphics driver
 
 ctrl w			close window
 ctrl shift esc		task manager
@@ -31,7 +36,4 @@ ctx<file> m		rename
 ctx<file> s		create shortcut
 ctx<file> h		open with
 ctx<file> shift d	delete
-ctrl win left/right	switch desktops
 ctrl shift f10		context-menu
-
-ctrl shift win b	refresh graphics driver

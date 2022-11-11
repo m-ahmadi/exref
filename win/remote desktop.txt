@@ -1,0 +1,6 @@
+sysdm.cpl ,5 -> Remote Desktop -> Allow remote connections to this computer
+
+
+note:
+pc on      lan can   connect
+pc outside lan can't connect unless you have accessible public ip
