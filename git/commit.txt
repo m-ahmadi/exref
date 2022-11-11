@@ -6,17 +6,15 @@ git commit -a				stage already added files that have been modified and deleted (
 git commit -am "message"		-a and commit with message in one command
 git commit -m "foo" --no-verify		skip pre-commit and commit-msg hooks
 
-git commit -c <commit_hash>
-	creates new commit.
-	opens editor to edit the commit message from the specified commit and use it as the new commit message.
+git commit -C <commit_hash>		use msg of another commit (including time & author)
+git commit -c <commit_hash>		... but open editor
 
-git commit --amend
-	deletes previous commit and creates new commit. (figuratively)
-	reality: creates new commit and makes current branch to point to it. 
-	previous commit still exists but will die eventualiy. (git gc or automatically on github)
-	opens editor to edit the 2nd last commit message and use it as the new commit message.
+git commit --amend -m "a"		git reset HEAD~ && git add . && git commit -m "hi"
+git commit --amend			... open editor with msg of prev commit
+git commit --amend --no-edit		... use prev commit msg
+git commit --amend --reset-author	renew time
+git commit --amend --date=now		...
 
-git commit --amend -m "message"		--ammend with message argument (doesn't open editor)
 --------------------------------------------------------------------------------
 delete commit and do again
 
@@ -37,13 +35,4 @@ github needs at least 7
 git default is 7
 
 git rev-parse --short=4 <commit_hash>		ask for shortest and yet unique sha1
---------------------------------------------------------------------------------
-change past commit (avoid unless no commits inbetween)
-
-git rebase --interactive HEAD~4
-	edit b6ef812 2
-	pick 9b13034 3
-	pick 6cd95d2 4
-git commit --ammend
-git rebase --continue		(bail: rebase --abort)
 --------------------------------------------------------------------------------

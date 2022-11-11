@@ -1,15 +1,55 @@
-git rebase master			use state of some branch as new base of work
-git rebase --onto master
-git rebase --onto master~2
+git rebase master		use state of some branch as new base of work
+git rebase --onto master	?
+git rebase --onto master~2	?
 
-git rebase --interactive HEAD~4		rebase previous 4 commits (opens editor)
-	p, pick   <commit>	use commit
-	r, reword <commit>	use commit, but edit commit message
-	e, edit   <commit>	use commit, but stop for amending
-	s, squash <commit>	use commit, but meld into previous commit
-	f, fixup  <commit>	like "squash", but discard this commit's log message
-	x, exec   <command>	run command (the rest of the line) using shell
-	b, break		stop here (continue rebase later with 'git rebase --continue')
-	d, drop   <commit>	remove commit
-	l, label  <label>	label current HEAD with a name
-	t, reset  <label>	reset HEAD to a label
+git rebase -i HEAD~3				rebase prev 3 commits
+git rebase -i HEAD~3 --ignore-date		... update time of effected commits
+git rebase -i HEAD~3 --reset-author-date	...
+git rebase --continue				after `e, edit`, `m, merge`, ...
+git rebase --abort				cancel
+
+--------------------------------------------------------------------------------
+example with unchanged timestamps
+
+git rebase -i HEAD~5 --ignore-date
+	reword abc1111 1	change msg (in opened editor)
+	squash abc2222 2	make part of 1
+	drop abc2222 3		its files are deleted/modified immediately (best to backup)
+	edit abc3333 4		edit commit changes (operation breaks midway to allow edit)
+	pick abc4444 5		don't touch
+
+		now edit commit 3: (remove a file)
+git rm file.txt
+git commit -m "3 corrected" --amend
+
+git rebase --continue		finish
+
+done.
+--------------------------------------------------------------------------------
+-i, --interactive commands:
+
+note:
+	lines executed top to down (can be reordered)
+	commit will be lost if not mentioned (picked, reworded, ...)
+	abort on empty file
+
+p, pick <commit>	use commit
+r, reword <commit>	use commit, edit msg (opens separate editor for msg)
+e, edit <commit>	use commit, edit msg & content
+s, squash <commit>	use commit, add its changes to prev commit (prev line in this file, not commit's parent)
+x, exec <command>	run command (rest of line) using shell
+b, break		stop here (continue rebase later with `git rebase --continue`)
+d, drop <commit>	remove commit
+l, label <label>	label current HEAD with a name
+t, reset <label>	reset HEAD to a label
+
+f, fixup [-C|-c] <commit>
+	like "squash" but keep only prev commit log msg
+	-C	keep only this commit's message
+	-c	... but opens editor
+
+m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
+	create a merge commit using original merge commit's message
+	(or the oneline, if no original merge commit was specified)
+	use -c <commit> to reword commit message
+--------------------------------------------------------------------------------
