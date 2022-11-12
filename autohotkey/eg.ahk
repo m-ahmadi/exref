@@ -25,8 +25,27 @@ return
 
 
 
-; list of all windows (unique)
+; list of all windows
 ^q::
+DetectHiddenWindows, Off
+WinGet, WinList, List,,, Program Manager
+List = 
+Loop, %WinList% {
+	Current := WinList%A_Index%
+	WinGetTitle, WinTitle, ahk_id %Current%
+	
+	If WinTitle AND WinTitle !== "A window to exclude" {
+		List .= "`n" WinTitle
+	}
+}
+MsgBox %List%
+return
+
+
+
+; list of all windows - unique
+^q::
+DetectHiddenWindows, Off
 WinGet, WinList, List,,, Program Manager
 List = 
 Loop, %WinList% {
@@ -44,10 +63,16 @@ return
 
 ; snap all windows (mvp 😂)
 ^q::
+DetectHiddenWindows, Off
 WinGet, WinList, List,,, Program Manager
 arr := []
 Loop, %WinList% {
-	arr.Push(WinList%A_Index%)
+	Current := WinList%A_Index%
+  WinGetTitle, WinTitle, ahk_id %Current%
+  
+  If WinTitle AND WinTitle !== "A window to exclude" {
+		arr.Push(Current)
+  }
 }
 
 len := arr.Length()
