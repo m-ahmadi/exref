@@ -1,0 +1,6 @@
+wget --help
+wget http://ipv6.download.thinkbroadband.com/5MB.zip
+
+
+install
+powershell -C "iwr https://eternallybored.org/misc/wget/1.21.3/64/wget.exe -O $Env:windir\wget.exe"
