@@ -4,7 +4,7 @@ cmdow "Local Disk (D:)" /siz 200 200		resize window
 
 
 one-liner install
-powershell -C "mkdir tmp;cd tmp;wget https://codeload.github.com/ritchielawrence/cmdow/legacy.zip/master -O x.zip;Expand-Archive x.zip -D .;$p=dir -dir | select -ExpandProperty Name;mi \"$($p)/bin/Release/cmdow.exe\" -D $Env:windir;cd ../; ri tmp -R;"
+powershell -C "mkdir tmp;cd tmp;iwr https://codeload.github.com/ritchielawrence/cmdow/legacy.zip/master -O x.zip;Expand-Archive x.zip -D .;$p=dir -dir | select -ExpandProperty Name;mi \"$($p)/bin/Release/cmdow.exe\" -D $Env:windir;cd ../; ri tmp -R;"
 
 (curl and 7z)
 mkdir tmp && cd tmp && curl https://codeload.github.com/ritchielawrence/cmdow/legacy.zip/master -o x.zip && 7z x x.zip && for /f "tokens=*" %v IN ('dir /a:d /b') do set p=%v && move %p%\bin\Release\cmdow.exe %windir% && cd ../ && rmdir tmp /s /q

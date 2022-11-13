@@ -1,5 +1,5 @@
-wget https://jsonplaceholder.typicode.com/posts/1 -O f.json;
-wget http://ipv4.download.thinkbroadband.com/5MB.zip -O f.zip
+iwr https://jsonplaceholder.typicode.com/posts/1 -O f.json;
+iwr http://ipv4.download.thinkbroadband.com/5MB.zip -O f.zip
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # more

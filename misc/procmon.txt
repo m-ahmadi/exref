@@ -1,2 +1,2 @@
 install
-powershell -C "wget https://download.sysinternals.com/files/ProcessMonitor.zip -O x.zip; Expand-Archive x.zip -D t; mi t\Procmon.exe -D $Env:windir\Procmon.exe; ri x.zip; ri t -Force -Recurse;"
+powershell -C "iwr https://download.sysinternals.com/files/ProcessMonitor.zip -O x.zip; Expand-Archive x.zip -D t; mi t\Procmon.exe -D $Env:windir\Procmon.exe; ri x.zip; ri t -Force -Recurse;"
