@@ -2,6 +2,7 @@ git log					show all commit logs
 git log -1				how many to show from last (this prints last)
 git log --pretty=oneline		each in one line
 git log --oneline			same as: --pretty=oneline --abbrev-commit
+git log --pretty=fuller			show full date info (AuthorDate & CommitDate)
 
 git log -1 --pretty=%B			just commit message (use --pretty=%%B in .bat file)
 git log -1 --format=%s <commit_hash>	show commit message from specified commit
