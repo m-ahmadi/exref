@@ -4,7 +4,7 @@ youtube-dl <URL> -f 18 --write-auto-sub		auto generated subs
 
 
 install
-wget 'https://yt-dl.org/latest/youtube-dl.exe' -OutFile  $env:windir\youtube-dl.exe
+iwr 'https://yt-dl.org/latest/youtube-dl.exe' -OutFile  $env:windir\youtube-dl.exe
 --------------------------------------------------------------------------------
 remove karaoke effects from  auto generated .vtt
 <[\d:.]+>

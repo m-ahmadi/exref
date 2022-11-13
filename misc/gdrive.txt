@@ -7,5 +7,5 @@ gdrive upload -p <PARENT_ID> myfile.txt		upload file to specific folder
 
 --------------------------------------------------------------------------------
 install
-powershell -C "wget https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_windows_amd64.tar.gz -O f.tar.gz; winrar x f.tar.gz *; mi gdrive.exe -D $Env:windir\gdrive.exe; ri f.tar.gz;"
+powershell -C "iwr https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_windows_amd64.tar.gz -O f.tar.gz; winrar x f.tar.gz *; mi gdrive.exe -D $Env:windir\gdrive.exe; ri f.tar.gz;"
 --------------------------------------------------------------------------------

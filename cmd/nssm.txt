@@ -20,5 +20,5 @@ nssm status MyService				see status
 https://nssm.cc/usage
 --------------------------------------------------------------------------------
 install
-powershell -C "wget https://nssm.cc/release/nssm-2.24.zip -O x.zip; Expand-Archive x.zip -D .; mi nssm-2.24\win64\nssm.exe -D $Env:windir; ri x.zip; ri nssm-2.24 -Force -Recurse;"
+powershell -C "iwr https://nssm.cc/release/nssm-2.24.zip -O x.zip; Expand-Archive x.zip -D .; mi nssm-2.24\win64\nssm.exe -D $Env:windir; ri x.zip; ri nssm-2.24 -Force -Recurse;"
 --------------------------------------------------------------------------------

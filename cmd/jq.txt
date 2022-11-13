@@ -18,5 +18,5 @@ https://stedolan.github.io/jq/manual/#Basicfilters
 
 --------------------------------------------------------------------------------
 install
-powershell -C "wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe -O jq.exe;mi jq.exe -D $Env:windir;"
+powershell -C "iwr https://github.com/stedolan/jq/releases/download/jq-1.6/jq-win64.exe -O jq.exe;mi jq.exe -D $Env:windir;"
 --------------------------------------------------------------------------------

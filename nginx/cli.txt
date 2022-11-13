@@ -37,7 +37,7 @@ flags
 --------------------------------------------------------------------------------
 install (c:\nginx)
 
-powershell -C "wget http://nginx.org/download/nginx-1.22.1.zip -O x.zip; Expand-Archive x.zip -D t; cd t; dir | %{rni $_.Name -NewName nginx}; mi nginx -D C:\; cd ../; ri t; ri x.zip;"
+powershell -C "iwr http://nginx.org/download/nginx-1.22.1.zip -O x.zip; Expand-Archive x.zip -D t; cd t; dir | %{rni $_.Name -NewName nginx}; mi nginx -D C:\; cd ../; ri t; ri x.zip;"
 
 add to path manually
 --------------------------------------------------------------------------------
