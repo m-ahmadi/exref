@@ -5,6 +5,8 @@ git commit -F file.txt			read commit message from file
 git commit -a				stage already added files that have been modified and deleted (not new files you haven't added)
 git commit -am "message"		-a and commit with message in one command
 git commit -m "foo" --no-verify		skip pre-commit and commit-msg hooks
+git commit -m "a" --date 1668312096	set custom author date
+git commit -m "a" --date "2 day ago"	...
 
 git commit -C <commit_hash>		use msg of another commit (including time & author)
 git commit -c <commit_hash>		... but open editor
