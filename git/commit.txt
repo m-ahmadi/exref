@@ -1,13 +1,13 @@
-git commit				creates new commit (opens editor)
-git commit -m "message"			message argument
-git commit -c ORIG_HEAD			message from last message (opens editor)
-git commit -F file.txt			read commit message from file
+git commit				create new commit (opens editor)
+git commit -m "hi"			commit msg
+git commit -c ORIG_HEAD			use msg of last commit (opens editor)
+git commit -F file.txt			read commit msg from file
 git commit -a				stage already added files that have been modified and deleted (not new files you haven't added)
-git commit -am "message"		-a and commit with message in one command
+git commit -am "hi"			same as: -a -m "hi"
 git commit -m "foo" --no-verify		skip pre-commit and commit-msg hooks
-git commit -m "a" --date 1668312096	set custom author date (won't change commit date)
-git commit -m "a" --date "2 day ago"	... in relative string format ("yesterday", "2 day ago", "2 days ago", ...)
-git commit --date "2007-12-29 12:35:05"	... in "YYYY-MM-DD hh:mm:ss" format
+git commit --date 1668312096		set custom author date (won't change commit date)
+git commit --date "2 days ago"		... relative-to-now human-readable format ("yesterday", "2 days ago", "2 day ago", ...)
+git commit --date "2007-12-30 12:35:01"	... in "YYYY-MM-DD hh:mm:ss" format
 
 git commit -C <commit_hash>		use msg of another commit (including time & author)
 git commit -c <commit_hash>		... but open editor
@@ -26,7 +26,6 @@ git reset HEAD~
 git add .
 git commit -m "new message"
 git push -f
-
 --------------------------------------------------------------------------------
 50/72 commit message format
 first line 50 chars
@@ -48,4 +47,13 @@ git commit -m "foo"
 set GIT_AUTHOR_DATE="2007-12-29 12:35:05"
 set GIT_COMMITTER_DATE="2007-12-29 12:35:05"
 git commit -m "bar"
+
+git log -1 --pretty=%at > _
+set /p GIT_AUTHOR_DATE=<_
+set /p GIT_COMMITTER_DATE=<_
+del _
+git commit -m "baz"
+
+git log -1 --pretty=%at > _ && set /p GIT_AUTHOR_DATE=<_ && set /p GIT_COMMITTER_DATE=<_ && del _
+git commit -m "baz"
 --------------------------------------------------------------------------------

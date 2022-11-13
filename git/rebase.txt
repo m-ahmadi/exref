@@ -7,9 +7,10 @@ git rebase -i HEAD~3 --ignore-date		... update time of effected commits
 git rebase -i HEAD~3 --reset-author-date	...
 git rebase --continue				after `e, edit`, `m, merge`, ...
 git rebase --abort				cancel
+git rebase --edit-todo				edit the "rebase instructions" file
 
 --------------------------------------------------------------------------------
-example with unchanged timestamps
+example - basic
 
 git rebase -i HEAD~5 --ignore-date
 	reword abc1111 1	change msg (in opened editor)
@@ -25,6 +26,37 @@ git commit -m "3 corrected" --amend
 git rebase --continue		finish
 
 done.
+
+notes:
+this will reset the AuthorDate of all rebased commits to now
+without `--ignore-date` AuthorDate is kept same but CommitDate still is changed
+--------------------------------------------------------------------------------
+example - re-commit with fully changed date (AuthorDate & CommitDate)
+
+git rebase -i HEAD~2
+	edit abc1111 1
+	edit abc2222 2
+
+git log -1 --pretty=%at > _ && set /p GIT_AUTHOR_DATE=<_ && set /p GIT_COMMITTER_DATE=<_ && del _
+git commit -m "1" --amend
+git rebase --continue
+
+git log -1 --pretty=%at > _ && set /p GIT_AUTHOR_DATE=<_ && set /p GIT_COMMITTER_DATE=<_ && del _
+git commit -m "2" --amend
+git rebase --continue
+
+done.
+
+note:
+if `commit -C <hash> --ammend`, commit's date still comes from env vars (due to higher precedence)
+==================================================
+another way (avoid since not shown correctly in github)
+
+git rebase -i HEAD~2 --committer-date-is-author-date
+git commit -m "1" --amend
+git rebase --continue
+git commit -m "2" --amend
+git rebase --continue
 --------------------------------------------------------------------------------
 -i, --interactive commands:
 

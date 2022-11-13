@@ -4,8 +4,20 @@ git log --pretty=oneline		each in one line
 git log --oneline			same as: --pretty=oneline --abbrev-commit
 git log --pretty=fuller			show full date info (AuthorDate & CommitDate)
 
-git log -1 --pretty=%B			just commit message (use --pretty=%%B in .bat file)
+git log --date=local			default:  Sun Jan 30 08:45:01 2007 +0330
+git log --date=raw			timestamp
+git log --date=relative			"2 hours ago"
+git log --date=iso			2007-12-30 08:45:01 +0330
+git log --date=iso-strict		2007-12-30T08:45:01+03:30
+git log --date=rfc			Sun, 30 Jan 2022 08:45:01 +0330
+git log --date=short			2007-12-30
+
+git log -1 --pretty=%h			short commit hash (git help log -> format:<string>)
+git log -1 --pretty=%B			body of commit msg (use --pretty=%%B in .bat file)
+git log -1 --pretty=%at			author date timestamp
+git log -1 --prety=%ct			commiter date timestamp
 git log -1 --format=%s <commit_hash>	show commit message from specified commit
+
 git log -1 ORIG_HEAD			ORIG_HEAD is prev state of HEAD set only by commands that move HEAD more than one commit
 git log -1 HEAD@{1}			using reflogs
 
