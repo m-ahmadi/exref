@@ -5,8 +5,9 @@ git commit -F file.txt			read commit message from file
 git commit -a				stage already added files that have been modified and deleted (not new files you haven't added)
 git commit -am "message"		-a and commit with message in one command
 git commit -m "foo" --no-verify		skip pre-commit and commit-msg hooks
-git commit -m "a" --date 1668312096	set custom author date
-git commit -m "a" --date "2 day ago"	...
+git commit -m "a" --date 1668312096	set custom author date (won't change commit date)
+git commit -m "a" --date "2 day ago"	... in relative string format ("yesterday", "2 day ago", "2 days ago", ...)
+git commit --date "2007-12-29 12:35:05"	... in "YYYY-MM-DD hh:mm:ss" format
 
 git commit -C <commit_hash>		use msg of another commit (including time & author)
 git commit -c <commit_hash>		... but open editor
@@ -37,4 +38,14 @@ github needs at least 7
 git default is 7
 
 git rev-parse --short=4 <commit_hash>		ask for shortest and yet unique sha1
+--------------------------------------------------------------------------------
+commit in the past (AuthorDate & CommitDate)
+
+set GIT_AUTHOR_DATE=1198919105
+set GIT_COMMITTER_DATE=1198919105
+git commit -m "foo"
+
+set GIT_AUTHOR_DATE="2007-12-29 12:35:05"
+set GIT_COMMITTER_DATE="2007-12-29 12:35:05"
+git commit -m "bar"
 --------------------------------------------------------------------------------
