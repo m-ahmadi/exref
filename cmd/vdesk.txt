@@ -1,0 +1,12 @@
+vdesk create:3				create total of 3 desktops (2 new ones)
+vdesk on:3 run:notepad			open notepad on 3rd dekstop
+vdesk on:3 run:notepad c:\file.txt	... & open file
+vdesk on:2 run:cmd /c			only switch to 2nd desktop
+vdesk run:notepad			create new desktop & open notepad in it
+vdesk run:notepad noswitch:true		... but don't switch to the new desktop
+
+--------------------------------------------------
+install
+
+https://github.com/eksime/VDesk/releases
+--------------------------------------------------
