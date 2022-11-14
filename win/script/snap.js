@@ -26,7 +26,7 @@ handles.forEach((handle, i) => {
 });
 
 
-s = `@echo off;
+s = `@echo off
 
 cmdow /tv
 
