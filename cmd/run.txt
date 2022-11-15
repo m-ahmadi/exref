@@ -403,6 +403,7 @@ shell:SystemX86				-
 shell:Templates				-
 shell:TreePropertiesFolder		-
 shell:User Pinned			-
+shell:User Pinned\Taskbar		pinned-to-taskbar programs (HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Taskband)
 shell:UserProfiles			-
 shell:UsersFilesFolder			-
 shell:UsersLibrariesFolder		-
