@@ -17,7 +17,7 @@ getopt.getopt(args, shortopts='', ?longopts=['',..])
 		'o:'  | 'o='  # opt with required value
 		'o'   | 'opt' # boolean opt 
 opts, args = getopt.getopt(sys.argv[1:], 'hi:o:', ['help','input=','output='])
-	
+
 ([('--help', ''), ('--input', '2'), ('-o', '3')], ['foo', 'bar']) # py t.py --help --input 2 -o 3 foo bar
 
 # python version
