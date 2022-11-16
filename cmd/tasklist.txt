@@ -1,3 +1,6 @@
-tasklist				list all processes
-tasklist /fi "IMAGENAME eq cmd*"	filter by program name
-tasklist /fi "WINDOWTITLE eq html" /nh	filter by window title and don't show headers
+tasklist					list all processes
+tasklist /v					... all columns
+tasklist /fi "IMAGENAME eq cmd*"		match program name + wildcard
+tasklist /fi "IMAGENAME eq chrome.exe" /nh	... no header
+tasklist /fi "WINDOWTITLE eq html"		match window title
+tasklist /fo csv				csv result
