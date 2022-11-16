@@ -16,6 +16,19 @@ len('foo')                  # 5
 'foo' in 'football'         # containment: True
 # https://docs.python.org/3/library/stdtypes.html#string-methods
 
+# split
+'1,,2'.split(',')     # ['1', '',  '2']  consecutives are separated
+' 1 2'.split(' ')     # ['', '1', '2']   no strip first
+'1<>2<>3'.split('<>') # ['1', '2', '3']  multi-char
+''.split(',')         # ['']
+# split - no sep (sep=' ', another alg)
+'1  2'.split()        # ['1', '2']       consecutives are merged
+' 1 2 '.split()       # ['1', '2']       strip first
+''.split()            # []
+# split - maxsplit
+'1 2 3'.split(' ', 1)  # ['1', '2 3']
+'1 2 3'.split(None, 1) # ...
+
 # str format using % opr
 'hello, %s' % 101        # 'hello, 101'
 'a %s b %x c' % (1, 2)   # 'a 1 b 2 c'
