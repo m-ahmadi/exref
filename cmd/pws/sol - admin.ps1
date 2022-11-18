@@ -1,6 +1,8 @@
 Get-Process                     # show all processes
 Get-Process system              # show the process named system
 Get-Process system | Get-Member # list all members of a process
+Get-Process | ?{$_.MainWindowtitle} | select Id,Name,MainWindowtitle
+
 Get-Service "ap*"               # list services with filter
 Stop-Process -Name "Explorer"   # taskkill
 

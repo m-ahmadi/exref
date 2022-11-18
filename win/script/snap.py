@@ -22,8 +22,8 @@ s2 = ''
 
 for handle, zone in zip(handles, zones):
 	x, y, w, h = zone
-	s1 += f'cmdow {handle} /siz {w} {h}\n';
-	s2 += f'cmdow {handle} /mov {x} {y}\n';
+	s1 += f'cmdow {handle} /siz {w} {h}\n'
+	s2 += f'cmdow {handle} /mov {x} {y}\n'
 
 
 s = f'''@echo off
