@@ -2,5 +2,6 @@ wmic os get caption			print system information
 wmic os get osarchitecture		...
 
 wmic process where name="mspaint.exe" CALL setpriority "above normal"
+wmic process get ProcessID,ExecutablePath
 
 wmic useraccount get name,sid		show all local users
