@@ -1,0 +1,2 @@
+Tools -> Preferences -> Output File ->
+	MP4 File Extension:	Always use MP4

@@ -35,6 +35,12 @@ kat	katal 			1 mol/s
 
 
 non-si units
+abbr		name					equals to
+================================================================================
+kgf		kilogram-force				1 kg × 9.80665 N (acceleration on earth)
+kgf/m²		kilogram-force-per-square-metre		1 kg / 1 m²
+kgf/cm²		kilogram-force-per-square-centimetre	1 kg / 1 cm²
+
 https://en.wikipedia.org/wiki/List_of_metric_units#Metric_units_that_are_not_part_of_the_SI
 
 
