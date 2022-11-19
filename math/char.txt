@@ -5,6 +5,7 @@
 ×	multiplication		0215		00D7
 ·	...			0183		00B7
 ÷	division		0247		00F7
+²³ⁿ	some suP		0178 0179 252	00B2 00B3 207F
 	tab			09		NA
 │	box vertical		179		2502
 ─	box horizontal		196		2500
