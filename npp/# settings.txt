@@ -2,7 +2,7 @@ set target="D:\Program Files\Notepad++"
 pushd %r%\npp
 copy /b stylers\#* %target%\stylers.xml
 copy userDefinedLangs %target%\userDefinedLangs\
-cd autoCompletion
+pushd %target%\autoCompletion
 copy /b javascript.xml myJSX.xml
 --------------------------------------------------------------------------------
 Settings -> Preferences

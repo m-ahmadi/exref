@@ -1,2 +1,5 @@
-Tools -> Preferences -> Output File ->
+Tools -> Preferences ->
+
+Output File
+	Default Path:		D:\xampp\htdocs
 	MP4 File Extension:	Always use MP4
