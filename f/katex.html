@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.css"    crossorigin="anonymous">
+</head>
+
+<text id="element">c = \\pm\\sqrt{a^2 + b^2}</text>
+
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/katex.min.js"               crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.3/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+<script>
+
+// automatically render math in text elements
+renderMathInElement(document.body);
+
+// render tex expression into element
+katex.render('c = \\pm\\sqrt{a^2 + b^2}', element, {throwOnError: false});
+
+// generate htmlstr of rendered math
+var html = katex.renderToString('c = \\pm\\sqrt{a^2 + b^2}', {throwOnError: false});
+
+</script>

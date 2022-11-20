@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mathquill/build/mathquill.css"/>
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.11.0/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathquill/build/mathquill.min.js"></script>
+
+
+<p>Solve <span id="e1">ax^2 + bx + c = 0</span>.</p>
+<p>Solve <span id="e2">2^{\frac{3}{2}}</span>.</p>
+
+<div id="e3"></div>
+
+<p>Type math here: <span id="e4">\sum_{i=32}^ndx^2</span></p>
+<p>LaTeX of what you typed: <span id="e5"></span></p>
+
+
+<script>
+var MQ = MathQuill.getInterface(2); // for backcompat
+
+// static render
+MQ.StaticMath(e1);
+MQ.StaticMath(e2);
+
+
+// math field
+var mathField = MQ.MathField(e3, {restrictMismatchedBrackets: true});
+mathField.latex('2^{\\frac{3}{2}}'); // render latex in field
+mathField.latex();                   // '2^{\\frac{3}{2}}'
+
+
+// editable math field
+var mathField = MQ.MathField(e4, {
+	spaceBehavesLikeTab: true,
+  handlers: {
+    edit: () => e5.textContent = mathField.latex()
+  }
+});
+</script>
