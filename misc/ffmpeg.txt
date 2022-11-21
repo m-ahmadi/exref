@@ -28,7 +28,7 @@ ffmpeg -i i.ts -c:v libx264 -c:a aac o.mp4				re-encode both video and audio
 ffmpeg -i i.ts -c:v libx264 -crf 0 -c:a copy o.mp4			lossless H.264 (huge file)
 
 cut part & re-encode
-ffmpeg -ss 00:01:00 -to 00:02:00 -i i.mkv -c:v libx265 -c:a aac o.mp4	do this, not "cut" first then "convert" (cuz after cut, video is not same as original)
+ffmpeg -ss 00:01:00 -to 00:02:00 -i i.mkv -c:v libx265 -c:a aac o.mp4	same as if cut first, then convert
 ffmpeg -ss 00:01:00 -to 00:02:00 -i i.mkv -c:v libx265 -c:a copy o.mp4	re-encode video but not audio (audio slightly out of sync)
 --------------------------------------------------------------------------------
 install
