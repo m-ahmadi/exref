@@ -1,0 +1,31 @@
+﻿supported:	mp4-x264
+not supported:	mkv, mp4-x265-10bit
+
+--------------------------------------------------
+handbrake
+
+✔ Fast 1080p30
+✔ Fast 1080p30 !"Align A/V Start"
+✔ HQ 1080p30 Surround
+❌ Fast 1080p30 "H.265 10-bit(x265)"
+
+--------------------------------------------------
+ffmpeg
+
+❌ avcopy of already cut: `ffmpeg -ss .. -to .. -i i.mkv -c copy o.mkv`
+❌ cut+avcopy
+❌ vcode64
+❌ vcode65
+❌ cut+vcode+acopy
+❌ cut+vcode+acode
+❌ cut+vcode65+acode
+
+terms:
+	avcopy:	stream copy video & audio
+	acopy:	stream copy audio
+	vcode:	re-encode video
+	acode:	re-encode audio
+--------------------------------------------------
+
+
+
