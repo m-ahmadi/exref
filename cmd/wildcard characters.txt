@@ -1,25 +1,33 @@
-*	zero or more characters.
-?	exactly one character.
-<	zero or more characters until encountering and matching the final period in the name. (DOS_STAR)
->	any single character, or zero if to the left of a period or the end of the string- or contiguous to other > that are in said position. (DOS_QM)
-"	a period or zero characters at the end of the string. (DOS_DOT)
+*	0 or more chars		regex: .?
+?	1 char			regex: .{1}
 
+<	0 or more chars		match in name, not in ext. must provide `.ext` (DOS_STAR)
+				matches until encountering the final period in the name
+
+>	1 char			can be after `.` to prevent `.` from matching end of name (DOS_QM)
+				upon encountering a period or end of name string, advances the expression to the end of the set of contiguous DOS_QMs
+
+"	a `.` or zero chars at the end of string (DOS_DOT)
+
+
+https://referencesource.microsoft.com/system/services/io/system/io/PatternMatcher.cs.html
+note about > <:
+	must be quoted
+	only with:  CACLS, CIPHER, COPY, DEL, DIR, FINDSTR, IF EXIST, MOVE, TYPE
 
 
 examples:
 
-dir c?mp
+dir ?ear.txt /b		fear.txt  dear.txt  near.txt
+dir *ar.txt /b		car.txt   far.txt   star.txt  popular.txt
+dir * /b		everything
+dir "<.<" /b		...
 
 dir *.mp3
-
 dir *data
-
 dir he??.*
-
 rename *.txt *.jpg
-
-del comp*.txt
-
+del test*.txt
 --------------------------------------------------------------------------------
 find and replace (word, excel, etc)
 
