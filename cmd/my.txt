@@ -5,6 +5,7 @@ mklink /d C:\#htdocs D:\xampp\htdocs
 mklink /d C:\dev "J:\...\Dev"
 mklink /d C:\ac  "J:\...\accounts"
 mklink /d C:\inf "J:\...\info"
+mklink /d C:\as "L:\...\Programs"
 mklink /d C:\usr C:\Users\NYC
 
 C:\node.lnk	...\node.exe
@@ -36,7 +37,7 @@ ctrl alt
 ctrl `		deskpins
 ctrl shift `	everything
 ctrl shift d	babylon (mouse: shift midclick)
-ctrl  alt `	conemu
+ctrl alt `	conemu
 --------------------------------------------------------------------------------
 alarm sound
 
