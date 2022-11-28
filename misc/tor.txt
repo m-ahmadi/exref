@@ -1,0 +1,29 @@
+Settings ->
+
+General
+	Startup
+		Restore previous session
+	Downloads
+		Save files to:		...
+
+Search
+	Default Search Engine		Google
+
+Privacy & Security
+	Onion Services			Always
+	Cookies and Site Data
+		! Delete cookies and site data when Tor Browser is closed
+	History
+		Tor Browser will:	Remember history	(needs restart)
+
+Connection
+	Always connect automatically
+
+--------------------------------------------------------------------------------
+More tools -> Extensions for developers
+	uBlock Origin
+	AdBlocker Ultimate
+	AdBlocker for YouTube
+
+Bookmarks -> Import and Backup -> Import Data from another Browser
+--------------------------------------------------------------------------------
