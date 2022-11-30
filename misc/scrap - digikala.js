@@ -1,12 +1,15 @@
-PAGES = 15;
-URL = 'https://api.digikala.com/v1/categories/webcam/search/?has_selling_stock=1';
-URL = 'https://api.digikala.com/v1/providers-products/?has_selling_stock=1&category_code=casual-shoes-for-men';
-URL = 'https://api.digikala.com/v1/categories/binoculars/search/?has_selling_stock=1';
+PAGES = 15; // max 100
+u = 'https://api.digikala.com/v1/categories/webcam/search/?has_selling_stock=1';
+u = 'https://api.digikala.com/v1/providers-products/?has_selling_stock=1&category_code=casual-shoes-for-men';
+u = 'https://api.digikala.com/v1/categories/binoculars/search/?has_selling_stock=1';
+u = 'https://api.digikala.com/v1/categories/mobile-phone/search/?sort=21';
 SLEEP = 500;
 
 r = [];
 for (let i=1; i<=PAGES; i++) {
-	let res = await (await fetch(URL+'&page='+i)).json();
+	let url = new URL(u);
+	url.searchParams.set('page', i);
+	let res = await (await fetch(url)).json();
 	let items = res.data.products.map(i=> i.default_variant);
 	let availables = items.filter(i=> !Array.isArray(i)).map(i=> i.price.selling_price / 10);
 	r.push(...availables);

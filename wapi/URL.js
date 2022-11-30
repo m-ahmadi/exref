@@ -36,3 +36,9 @@ new URL('/bar', '') // TypeError invalid url: ''
 new URL('/bar')     // TypeError invalid url: '/bar'
 
 new URL('//foo.com', 'https://example.com') // http://foo.com
+
+
+// set params on a url
+var u = new URL('http://example.com');
+u.searchParams.set('foo', 32);
+''+u; // 'http://example.com/?foo=32'
