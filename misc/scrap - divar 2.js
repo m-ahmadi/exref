@@ -267,7 +267,7 @@ function download(filename, text) {
 	el.setAttribute('href', 'data:text/plain;charset=utf-8,' + (MAKE_CSV && UTF8_BOM_CSV ? '\ufeff' : '')+encodeURIComponent(text));
 	el.setAttribute('download', filename);
 	el.style.display = 'none';
-	document.body.appendChild(el);
+	document.body.append(el);
 	el.click();
-	document.body.removeChild(el);
+	el.remove();
 }
