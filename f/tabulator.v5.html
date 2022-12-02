@@ -1,6 +1,12 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
+</head>
+
+
 
 <div id="t1"></div>
+
 
 <!-- needs HtmlTableImportModule -->
 <table id="t2">
@@ -10,7 +16,18 @@
 	<tr><td>Mark</td><td>36</td><td>Red</td></tr>
 </table>
 
+
+<!-- ↑... control props https://tabulator.info/docs/5.4/data#table -->
 <table id="t3">
+	<thead>
+		<tr><th>foo</th><th tabulator-formatter="html">link</th></tr>
+	</thead>	
+	<tr><td>bar</td><td><a href="#">open page</a></td></tr>
+	<tr><td>bar</td><td><a href="#">open page</a></td></tr>
+</table>
+
+
+<table id="t4">
 	<thead>
 		<tr><th>Name</th><th>Age</th><th>Color</th></tr>
 	</thead>
@@ -19,12 +36,18 @@
 	<tr><td>Mark</td><td>36</td><td>Red</td></tr>
 </table>
 
-<div id="t4"></div>
+
+<div id="t5"></div>
+
+
 
 <script type="module">
-import { Tabulator, SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule } from 'https://cdn.jsdelivr.net/npm/tabulator-tables@5.0.3/dist/js/tabulator_esm.min.js';
+import {
+	Tabulator, SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule, InteractionModule
+} from 'https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator_esm.min.js';
 
-Tabulator.registerModule([SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule]);
+Tabulator.registerModule([SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule, InteractionModule]);
+
 
 var tabledata = [
 	{id: 1, name: 'Oli Bob',            age: '12',  col: 'red',    dob: ''},
@@ -34,6 +57,8 @@ var tabledata = [
 	{id: 5, name: 'Margret Marmajuke',  age: '16',  col: 'yellow', dob: '31/01/1999'},
 ];
 var table = new Tabulator('#t1', {
+	height: 200,
+	rowHeight: 30,
 	data: tabledata,
 	layout: 'fitColumns',
 	columns: [
@@ -42,14 +67,20 @@ var table = new Tabulator('#t1', {
 	 	{title: 'Favourite Color', field: 'col'},
 	 	{title: 'Date of Birth',   field: 'dob',  sorter: 'date',   hozAlign: 'center'},
 	],
-	rowClick: function (e, row) {
-		alert('row ' + row.getData().id + ' clicked');
-	},
+});
+table.on('rowClick', function (e, row) { // needs InteractionModule
+	alert('row ' + row.getData().id + ' clicked');
 });
 
 new Tabulator('#t2');
 
-new Tabulator('#t3', {columns: [{title: 'Age', formatter: 'progress'}]}); // {title:'Name'},
+new Tabulator('#t3');
+
+new Tabulator('#t4', {
+	height: 200,
+	rowHeight: 50,
+	columns: [{title: 'Age', formatter: 'progress'}], // {title:'Name'},
+});
 
 var tabledata = [
 	{id:1,  name:'Oli Bob',            location:'United Kingdom', gender:'male',   rating:1, col:'red',    dob:'14/04/1984'},
@@ -63,8 +94,11 @@ var tabledata = [
 	{id:9,  name:'Emily Sykes',        location:'South Korea',    gender:'female', rating:1, col:'maroon', dob:'11/11/1970'},
 	{id:10, name:'James Newman',       location:'Japan',          gender:'male',   rating:5, col:'red',    dob:'22/03/1998'},
 ];
-var table = new Tabulator('#t4', {
+var table = new Tabulator('#t5', {
+	height: 250,
+	rowHeight: 20,
 	data: tabledata,
 	autoColumns: true,
+	layout:"fitData",
 });
 </script>
