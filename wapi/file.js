@@ -5,7 +5,7 @@ function download(filename, text) {
   a.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   a.setAttribute('download', filename);
   a.style.display = 'none';
-  document.body.appendChild(a);
+  document.body.append(a);
   a.click();
   a.remove();
 }
@@ -18,7 +18,7 @@ function download(filename, text){
 	a.style.display = 'none';
 	a.setAttribute('href', url)
 	a.setAttribute('download', filename)
-	document.body.appendChild(a);
+	document.body.append(a);
 	a.click();
 	URL.revokeObjectURL(url);
 	a.remove();
