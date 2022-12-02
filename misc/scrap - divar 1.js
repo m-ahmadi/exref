@@ -66,11 +66,11 @@ if (makeHTML) {
 }
 
 function download(filename, text) {
-  var el = document.createElement('a');
-	el.setAttribute('href', 'data:text/plain;charset=utf-8,' + (makeCSV && UTF8_BOM_CSV ? '\ufeff' : '')+encodeURIComponent(text));
-  el.setAttribute('download', filename);
-  el.style.display = 'none';
-  document.body.append(el);
-  el.click();
-  el.remove();
+  let a = document.createElement('a');
+	a.setAttribute('href', 'data:text/plain;charset=utf-8,' + (makeCSV && UTF8_BOM_CSV ? '\ufeff' : '')+encodeURIComponent(text));
+  a.setAttribute('download', filename);
+  a.style.display = 'none';
+  document.body.append(a);
+  a.click();
+  a.remove();
 }

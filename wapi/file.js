@@ -1,7 +1,7 @@
 // NOTE: impossible to download a file into a folder other than user's default "Download" folder unless writing an extension
 
 function download(filename, text) {
-  var a = document.createElement('a');
+  let a = document.createElement('a');
   a.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   a.setAttribute('download', filename);
   a.style.display = 'none';
@@ -13,8 +13,8 @@ download('test.txt', 'Hello world!');
 
 // another way
 function download(filename, text){
-	var url = URL.createObjectURL( new Blob([text], {type:'text/plain'}) );
-	var a = document.createElement('a');
+	let url = URL.createObjectURL( new Blob([text], {type:'text/plain'}) );
+	let a = document.createElement('a');
 	a.style.display = 'none';
 	a.setAttribute('href', url)
 	a.setAttribute('download', filename)
