@@ -1,24 +1,12 @@
-/* includes:
-full
-	tabulator.css
-	tabulator.js
-
-core + modules
-	dist/js/tabulator_core.js
-	dist/js/modules/sort.js
-	...
+/*
+https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css
+https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator_esm.min.js
 	
-cdn
-	https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css
-	https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js
-	
-	https://unpkg.com/browse/tabulator-tables/
-	https://cdn.jsdelivr.net/npm/tabulator-tables/
-
 npm i tabulator-tables
 */
 
 const options = {
+	// https://tabulator.info/docs/5.4/options
 	data:                   [],           // assign data to table
 	
 	// loading data
@@ -98,11 +86,14 @@ const options = {
 			...
 		}
 	],
-	rowClick: function (e, row) { // event handler
-		row.getData().id
-	},
+	
 };
 var table = new Tabulator('#mytable', options);
+
+// https://tabulator.info/docs/5.4/events
+table.on('rowClick', function (e, row) {
+	row.getData().id
+});
 
 table.addColumn(t,e,o)
 table.addData(data=[], addToTop=false, o)
