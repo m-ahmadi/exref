@@ -1,22 +1,23 @@
-/* includes:
-full
-	tabulator.css
-	tabulator.js
+/*
+	tabulator.min.css       css
+	tabulator_esm.min.js    js esm    (core + modules or full)
+	tabulator.min.js        js global (only full)
 
-core + modules
-	dist/js/tabulator_core.js
-	dist/js/modules/sort.js
-	...
-	
 cdn
-	https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css
-	https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js
+	https://cdn.jsdelivr.net/npm/tabulator-tables/
+	https://unpkg.com/tabulator-tables/
 
 node
 	npm i tabulator-tables
 */
 
+import {TabulatorFull as Tabulator} from 'tabulator-tables'; // full
+
+import {Tabulator, FormatModule} from 'tabulator-tables';    // core + modules
+Tabulator.registerModule([FormatModule]);
+
 const options = {
+	// https://tabulator.info/docs/5.4/options
 	data:                   [],           // assign data to table
 	
 	// loading data
@@ -96,11 +97,14 @@ const options = {
 			...
 		}
 	],
-	rowClick: function (e, row) { // event handler
-		row.getData().id
-	},
+	
 };
 var table = new Tabulator('#mytable', options);
+
+// https://tabulator.info/docs/5.4/events
+table.on('rowClick', function (e, row) {
+	row.getData().id
+});
 
 table.addColumn(t,e,o)
 table.addData(data=[], addToTop=false, o)
