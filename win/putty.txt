@@ -1,0 +1,7 @@
+ssh to vps (with private key)
+
+Session
+	Host Name (or IP address): ...
+
+Connection -> SSH -> Auth -> Credentials
+	Private key file for authentication: ...

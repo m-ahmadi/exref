@@ -46,7 +46,11 @@ request.xml file:
   </soap:Body>
 </soap:Envelope>
 --------------------------------------------------------------------------------
-Usage: curl [options...] <url>
+help
+
+curl -h			summary help
+curl -h category	overview of all categories
+curl -h all		full help
 
 flags
 
@@ -61,3 +65,7 @@ flags
 -i, --include				Include protocol response headers in the output
 -D, --dump-header <filename>		Write the received headers to <filename>
 -L, --location				Follow redirects
+
+-S, --show-error			Show error even when -s is used
+-s, --silent				Silent mode
+--------------------------------------------------------------------------------
