@@ -1,9 +1,20 @@
 /*
-https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css
-https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator_esm.min.js
-	
-npm i tabulator-tables
+	tabulator.min.css       css
+	tabulator_esm.min.js    js esm    (core + modules or full)
+	tabulator.min.js        js global (only full)
+
+cdn
+	https://cdn.jsdelivr.net/npm/tabulator-tables/
+	https://unpkg.com/tabulator-tables/
+
+node
+	npm i tabulator-tables
 */
+
+import {TabulatorFull as Tabulator} from 'tabulator-tables'; // full
+
+import {Tabulator, FormatModule} from 'tabulator-tables';    // core + modules
+Tabulator.registerModule([FormatModule]);
 
 const options = {
 	// https://tabulator.info/docs/5.4/options

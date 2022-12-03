@@ -9,13 +9,11 @@ core + modules
 	...
 	
 cdn
-	https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css
-	https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js
-	
-	https://unpkg.com/browse/tabulator-tables/
-	https://cdn.jsdelivr.net/npm/tabulator-tables/
+	https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css
+	https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js
 
-npm i tabulator-tables
+node
+	npm i tabulator-tables
 */
 
 const options = {
