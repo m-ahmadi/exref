@@ -1,3 +1,0 @@
-Open PuTTy
-Host Name (or IP address): VPS IP address
-done.

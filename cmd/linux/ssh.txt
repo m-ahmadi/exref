@@ -1,0 +1,16 @@
+ssh		-
+sshd		-
+ssh-add		add keys
+ssh-copy-id	-
+ssh-agent	-
+ssh-keyscan	-
+ssh-keygen	generate keys
+ssh-pageant	-
+
+
+eval $(ssh-agent -s)			ensure program is running
+
+ssh-add -l				list added keys
+ssh-add ~/.ssh/id_rsa			add key
+
+ssh-keygen -t rsa -b 4096 -C "foo"	gen key
