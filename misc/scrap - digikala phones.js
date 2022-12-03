@@ -44,20 +44,20 @@ for (let k of Object.keys(r)) {
 
 
 rows = Object.keys(r).map(k => {
-  let p = r[k];
+	let p = r[k];
 	
-  let price = +(p.price_selling / 1e7).toFixed(1);
-  let url   = 'https://digikala.com' + p.url;
+	let price = +(p.price_selling / 1e7).toFixed(1);
+	let url   = 'https://digikala.com' + p.url;
 	let rank  = p.chip_bestmatch_rank || -1;
 	let acc   = p.chip_bestmatch_accuracy || -1;
 	let match = p.chip_bestmatch_name || '';
 	let real  = p.chip || '';
 	let brand = p.brand_title_en;
 	
-  return [price, rank, acc, match, real, brand, url];
+	return [price, rank, acc, match, real, brand, url];
 });
 
-COLUMN_SORTS.map(([header, ascend]) => {
+COLUMN_SORTS.forEach(([header, ascend]) => {
 	let j = COLUMN_HEADERS.indexOf(header);
 	ascend
 		? rows.sort((a,b)=> a[j] - b[j])
@@ -67,26 +67,32 @@ COLUMN_SORTS.map(([header, ascend]) => {
 if (MAKE_HTML) {
 	linkIdx = COLUMN_HEADERS.length - 1;
 		
-	html = rows.map(i =>
-		'<tr>'+ i.map((v,j) => j===linkIdx ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
-	).join('');
-
 	html = `<meta charset="utf-8" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
-<table id="mytable">
-	<thead>
-		<tr> ${COLUMN_HEADERS.map((v,i)=> '<th' + (i===linkIdx ? ' tabulator-formatter="html"' : '') +'>'+ v +'</th>').join('')} </tr>
-	</thead>	
-	${html}
-</table>
+<div id="mytable"></div>
 <script type="module">
 import {
-	Tabulator, SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule
+	Tabulator, SortModule, FormatModule, ResizeColumnsModule
 } from 'https://cdn.jsdelivr.net/npm/tabulator-tables@5.4.2/dist/js/tabulator_esm.min.js';
-Tabulator.registerModule([SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule]);
-new Tabulator('#mytable', {layout:'fitData'});
-</script>`;
+Tabulator.registerModule([SortModule, FormatModule, ResizeColumnsModule]);
 
+let columns = ${ JSON.stringify(
+	COLUMN_HEADERS.map((v,i)=> {
+		let o = {title: v, field: ''+i};
+		if (i === linkIdx) o.formatter = 'html';
+		return o;
+	})
+) };
+
+let data = ${ JSON.stringify(
+	rows.map(i => Object.fromEntries(
+		i.map((v,j) => [j, j===linkIdx ? '<a href="'+v+'" target="_blank">لینک</a>' : v])
+	))
+) };
+
+new Tabulator('#mytable', {columns, data, layout:'fitData'});
+</script>`;
+	
 	download(FILENAME+'.html', html);
 }
 
