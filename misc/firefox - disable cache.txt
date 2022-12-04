@@ -2,4 +2,3 @@ about:config
 
 browser.cache.disk.enable = false
 browser.cache.memory.enable = false
-9
