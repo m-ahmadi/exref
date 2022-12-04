@@ -237,9 +237,13 @@ df = pd.DataFrame([ [1, np.nan], [3,4] ])
 df1 = df.dropna()          # [ [3,4] ]
 df1 = df.dropna(how='all') # [ [1,nan], [3,4] ]
 
-df = pd.DataFrame({'a':[1,2,np.nan], 'b': [4,np.nan,6]})
-df1 = df.dropna(subset=['a']) # { 'a': [1,2],   'b': [4,nan] }
-df1 = df.dropna(subset=['b']) # { 'a': [1,nan], 'b': [4,6] }
+# remove missing value - consider specific column (drop row only if certain column contains na)
+na = float('nan')
+df = pd.DataFrame([ [1,  2],
+										[3,  na],
+										[na, 6] ], columns=['a','b'])
+df.dropna(subset=['a']) # [ [1,2], [3,na] ]
+df.dropna(subset=['b']) # [ [1,2], [na,6] ]
 
 # searchsorted (index of where to insert each num so serie remains sorted)
 s = pd.Series([1,2,3])
