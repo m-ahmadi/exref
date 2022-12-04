@@ -1,0 +1,20 @@
+v2raya --help
+
+
+https://v2raya.org/en/docs/prologue/introduction
+
+--------------------------------------------------------------------------------
+# install v2ray & xray (mirror script)
+curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash
+
+# turn off the service after installation
+sudo systemctl disable v2ray --now		# failed
+
+# install v2raya (manual with deb pkg)
+wget https://github.com/v2rayA/v2rayA/releases/download/v1.5.9.1698.1/installer_debian_amd64_1.5.9.1698.1.deb
+sudo apt install ./installer_debian_amd64_1.5.9.1698.1.deb
+
+# start v2raya service & allow auto start
+sudo systemctl start v2raya.service
+sudo systemctl enable v2raya.service
+--------------------------------------------------------------------------------

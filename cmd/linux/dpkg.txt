@@ -1,0 +1,3 @@
+dpkg -l				list all installed pkgs
+dpkg -l iptables		check if specific pkg is installed
+dpkg -l | grep iptables		...
