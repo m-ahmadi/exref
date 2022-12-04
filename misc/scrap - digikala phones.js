@@ -1,6 +1,7 @@
 MAKE_HTML = true;
 MAKE_CSV = true;
 UTF8_BOM_CSV = true;
+ADD_ROWNUM_COLUMN = true;
 FILENAME = 'out';
 
 COLUMN_HEADERS = ['قیمت (میلیون تومان)', 'رنک تراشه', 'دقت رنک', 'تراشه حدس زده شده', 'تراشه واقعی', 'برند', 'لینک',];
@@ -63,6 +64,11 @@ COLUMN_SORTS.forEach(([header, ascend]) => {
 		? rows.sort((a,b)=> a[j] - b[j])
 		: rows.sort((a,b)=> b[j] - a[j]);
 });
+
+if (ADD_ROWNUM_COLUMN) {
+	COLUMN_HEADERS = ['ردیف', ...COLUMN_HEADERS];
+	rows = rows.map((v,i) => [i+1, ...v]);
+}
 
 if (MAKE_HTML) {
 	linkIdx = COLUMN_HEADERS.length - 1;
