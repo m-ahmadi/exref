@@ -227,17 +227,17 @@ df = pd.DataFrame({'a':[2,4]})
 df1 = df.assign(bbb=lambda x: x.a * 4)
 df1 # {'a':[2,4], 'bbb':[4,16]}
 
-# replace missing value
+# fillna (replace missing value)
 df = pd.DataFrame([ [1,np.nan], [np.nan,4] ])
 df = df.fillna(8)
 df # [ [1,8], [8,4] ]
 
-# remove missing value
+# dropna (remove missing value)
 df = pd.DataFrame([ [1, np.nan], [3,4] ])
 df1 = df.dropna()          # [ [3,4] ]
 df1 = df.dropna(how='all') # [ [1,nan], [3,4] ]
 
-# remove missing value - consider specific column (drop row only if certain column contains na)
+# dropna - consider specific column (drop row only if certain column contains na)
 na = float('nan')
 df = pd.DataFrame([ [1,  2],
 										[3,  na],
