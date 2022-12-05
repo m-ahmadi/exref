@@ -1,7 +1,7 @@
 // different syntaxes:
 $(handler)                       // recommended. only use this
 $(document).ready(handler)       // still works but deprecated
-$(document).on('ready', handler) // deprecated in v1.8. removed in v3
+$(document).on('ready', handler) // v1.8 deprecated, v3 removed
 $('document').ready(handler)     // works but deprecated (note that 'document' selects nothing)
 $('img').ready(handler)          // still works but deprecated (incorrectly implies that it waits for images to become ready)
 $().ready(handler)               // still works but deprecated

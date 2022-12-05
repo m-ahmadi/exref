@@ -28,8 +28,8 @@ $('#el').resizable({
 	maxWidth:        null|number,
 	minHeight:       10|number,
 	minWidth:        10|number,
-	delay:           0, // 1.12 deprecated
-	distance:        1, // 1.12 deprecated
+	delay:           0, // v1.12 deprecated
+	distance:        1, // v1.12 deprecated
 	create: function (event, ui) {}, ... // events
 });
 
