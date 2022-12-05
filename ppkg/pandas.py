@@ -83,6 +83,11 @@ df[ [0] ]   # ...
 df[1]       # [2,5,8]
 df[ [1,2] ] # [ [2,3], [5,6], [8,9] ]
 
+# iteration
+s = pd.Series([4,7,9])
+[*s.items()]     # [ [0,4], [1,7], [2,9] ]
+[*s.iteritems()] # ... v1.5 deprecated
+
 # df from list of rows
 df = pd.DataFrame([ [1,2], [3,4] ])
 df = pd.DataFrame([ ['a','b'], [1,2], [3,4] ])
