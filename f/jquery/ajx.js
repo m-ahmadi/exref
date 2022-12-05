@@ -20,9 +20,9 @@ $.ajax({
 	method: 'GET',
 	data: {},
 	beforeSend: function (jqXhr, settings) {},
-	success:    function () {},		// 1.8 deprecated, use .done()
-	error:      function () {},		// 1.8 deprecated, use .fail()
-	complete:   function () {}		// 1.8 deprecated, use .always()
+	success:    function () {},		// v1.8 deprecated, use .done()
+	error:      function () {},		// v1.8 deprecated, use .fail()
+	complete:   function () {}		// v1.8 deprecated, use .always()
 	
 }).done  (function (data,       textStatus, jqXhr)             {})
 	.fail  (function (jqXhr,      textStatus, errorThrown)       {})

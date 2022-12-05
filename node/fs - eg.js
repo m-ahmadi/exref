@@ -113,8 +113,8 @@ files[0] instanceof fs.Dirent // true
 fs.rmSync('mydir', {recursive: true, force: true}); // rm -rf mydir
 fs.rmdirSync('mydir')                               // path must be an empty folder
 await fs.promises.rmdir('mydir')                    // ...
-await fs.promises.rmdir('mydir', {recursive: true}).catch(err => }) // deprecated. non-empty folder, but subdirs must be empty (ENOTEMPTY: subdir not empty)
-fs.rmdirSync('mydir', {recursive: true})                            // deprecated.
+await fs.promises.rmdir('mydir', {recursive: true}).catch(err => ) // deprecated. non-empty folder, but subdirs must be empty (ENOTEMPTY: subdir not empty)
+fs.rmdirSync('mydir', {recursive: true})                           // deprecated.
 
 
 

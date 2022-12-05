@@ -17,8 +17,8 @@ $('#el').droppable({
 	greedy:      false,
 	scope:       'default'|string,
 	tolerance:   'intersect'|'fit'|'pointer'|'touch',
-	activeClass: false|'css class', // 1.12 deprecated
-	hoverClass:  false|'css class', // 1.12 deprecated
+	activeClass: false|'css class', // v1.12 deprecated
+	hoverClass:  false|'css class', // v1.12 deprecated
 	activate: function (event, ui) {}, ... // events
 });
 

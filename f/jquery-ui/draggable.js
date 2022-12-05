@@ -64,8 +64,8 @@ $('#draggable').draggable({
 	snapTolerance:     20,
 	stack:             false|'selector',
 	zIndex:            false,
-	delay:             0, // 1.12 deprecated
-	distance:          1, // 1.12 deprecated
+	delay:             0, // v1.12 deprecated
+	distance:          1, // v1.12 deprecated
 	create: function (event, ui) {}, ... // events
 });
 

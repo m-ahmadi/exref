@@ -16,8 +16,8 @@ $('#el').selectable({
 	disabled:    false,
 	filter:      '*'|'selector',
 	tolerance:   'touch'|'fit',
-	delay:       0|int,    // 1.12 deprecated
-	distance:    0|number, // 1.12 deprecated
+	delay:       0|int,    // v1.12 deprecated
+	distance:    0|number, // v1.12 deprecated
 	create: function (event, ui) {}, ... // events
 });
 
