@@ -1,0 +1,3 @@
+﻿                 price per share
+P/E ratio = ———————————————————————————
+             earnings per share (EPS)
