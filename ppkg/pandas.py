@@ -308,7 +308,7 @@ df2.join(df1, how='right') # { 'b':[9,8,NaN], 'a':[1,2,3] }
 
 # min
 df = pd.DataFrame({'a':[1,2,3,4], 'b':[5,6,7,8]})
-df.min(axis=0) # {'a':[1], 'b':[5]}
+df.min(axis=0) # {'a':1, 'b':5}
 df.min(axis=1) # [1,2,3,4]
 
 pd.DataFrame({'a':[2,2], 'b':[1,3]}).min(axis=1) # [1,2]
