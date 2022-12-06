@@ -153,13 +153,16 @@ df.filter(regex='e$', axis=1)
 df.filter(like='bbi', axis=0)
 
 # drop
-df = pd.DateFrame([ [1,2], [3,4], [5,6], [7,8] ])
-df = df.drop([2,3])
-df # [ [1,2], [3,4] ]
+df = pd.DataFrame([ [1,2], [3,4], [5,6], [7,8] ])
+df.drop([2,3]) # [ [1,2], [3,4] ]
 
 df = pd.DataFrame({'a': [1,2,3,4], 'b':[5,6,7,8], 'c':[9,10,11,12]})
-df.drop(columns='c')
-df # { 'a': [1,2,3,4], 'b':[5,6,7,8] }
+df.drop(columns='c') # { 'a': [1,2,3,4], 'b':[5,6,7,8] }
+
+df = pd.DataFrame({'x':[1,2,3], 'y':[5,6,7]}, index=['a','b','c'])
+df.drop(columns='x') # {            'y':[5,6,7] }
+df.drop('a')         # { 'x':[2,3], 'y':[6,7]   }
+df.drop(['b','c'])   # { 'x':[1],   'y':[5]     }
 
 # to csv
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=None) # '1,2\r\n3,4\r\n5,6\r\n'
