@@ -272,11 +272,14 @@ df = df.fillna(8)
 df # [ [1,8], [8,4] ]
 
 # dropna (remove missing value)
-df = pd.DataFrame([ [1, np.nan], [3,4] ])
-df1 = df.dropna()          # [ [3,4] ]
-df1 = df.dropna(how='all') # [ [1,nan], [3,4] ]
+na = floor('nan')
+df1 = pd.DataFrame([ [1, na],  [3, 4] ])
+df2 = pd.DataFrame([ [na, na], [2, na] ])
+df1.dropna()          # [ [3,4] ]
+df1.dropna(how='all') # [ [1,na], [3,4] ]
+df2.dropna(how='all') # [ [2,na] ]
 
-# dropna - consider specific column (drop row only if certain column contains na)
+# dropna - consider specific column (drop row only if that column contains na)
 na = float('nan')
 df = pd.DataFrame([ [1,  2],
 										[3,  na],
