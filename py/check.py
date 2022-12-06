@@ -24,11 +24,13 @@ if (len(a)): print()
 1 if [0]   else 0
 1 if ('0') else 0
 
-# `is` checks "point to same obj" (identity check, not equality)
-3 is 3      # True
-[3] is [3]  # False
+# identity (same memory location)
+3 is 3             # True
+id(3) == id(3)     # ...
+[3] is [3]         # False
+id([3]) == id([3]) # ...
 
-# check for None (or NoneType) True False with `is` instead of `==`
+# check identity (not equality) for None, True, False, NoneType
 x == None  # bad
 x == True  # ..
 x == False # ..
@@ -44,18 +46,16 @@ type(True) == bool           # True
 type(1) == int               # True
 type(1.) == float            # True
 
-# check for type with `is`
+# check for inheritance
 class Animal():
 	def __init__(self): pass
 class Dog(Animal):
 	def __init__(self): super(Dog, self)
-
 dog = Dog()
 type(dog) == Dog        # True
 type(dog) == Animal     # False (violates liskov substitution)
 isinstance(dog, Dog)    # True
 isinstance(dog, Animal) # True (correct)
-
 
 isinstance([], list)  # True
 isinstance((), tuple) # True
