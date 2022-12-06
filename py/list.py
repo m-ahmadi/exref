@@ -2,9 +2,11 @@ a = [1,2]
 a.append(3)
 a[4]                    # err
 len(a)                  # 2
-[1,2] == [1,2]          # val equal: True
+[1,2] == [1,2]          # vals equal: True
+[] is []                # identity: False (arrays have different locations in memory)
+[3] is [3]              # ...
 [1,2] * 2               # list repeat: [1,2,1,2]
-3 in [1,2,3]            # contain: True  O(N)
+3 in [1,2,3]            # containment: True  O(N)
 [*a]                    # list unpack: [1,2]
 [*range(4)]             # ...: [1,2,3,4]
 [1,2] + [3,4]           # list concat: [1,2,3,4]

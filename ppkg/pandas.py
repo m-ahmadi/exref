@@ -33,7 +33,8 @@ DataFrame.describe(percentiles=None|[], include=None|'all'|[dtype,..], exclude=N
 DataFrame.pop(item='')
 DataFrame.fillna(value=None, method=None|'backfill|bfill|pad|ffill', axis=None|0|'', inplace=False, limit=None|0, downcast=None|{})
 DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], inplace=False)
-DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right’|outer|inner', lsuffix='', rsuffix='', sort=False)
+DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right|outer|inner', lsuffix='', rsuffix='', sort=False)
+DataFrame.equals(other=DataFrame|Series)
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -87,6 +88,39 @@ df[ [1,2] ] # [ [2,3], [5,6], [8,9] ]
 s = pd.Series([4,7,9])
 [*s.items()]     # [ [0,4], [1,7], [2,9] ]
 [*s.iteritems()] # ... v1.5 deprecated
+
+# copy
+s1 = pd.Series([1, 2])
+s2 = s1.copy(deep=False) # data & index shared with orig
+s2[0] = 3
+s1[0] # 3
+s1.values is s2.values # True
+s1.index is s2.index   # True
+
+s1 = pd.Series([1, 2])
+s2 = s1.copy(deep=True) # has own copy of data & index
+s2[0] = 3
+s1[0] # 1
+s1.values is s2.values # False
+s1.index is s2.index   # False
+
+s1 = pd.Series([[1, 2], [3, 4]])
+s2 = s1.copy(deep=True) # ↑... but not for nested objects (they still share ref)
+s2[0][0] = 7
+s0[0][0] # 7
+
+# equality
+s1 = pd.Series([1,2,3])
+s2 = pd.Series([1,2,3])
+s1.equals(s2)        # True
+np.all(s1 == s2)     # ...
+s1.equals(s1.copy()) # ...
+
+df1 = pd.DataFrame({'a':[1,3], 'b':[2,4]})
+df2 = pd.DataFrame({'a':[1,3], 'b':[2,4]})
+df1.equals(df2)        # True
+np.all(df1 == df2)     # ...
+df1.equals(df2.copy()) # ...
 
 # df from list of rows
 df = pd.DataFrame([ [1,2], [3,4] ])

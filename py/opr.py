@@ -8,7 +8,8 @@
 &= |= ^= >>= <<= # ...
 == != > < >= <=  # comparison
 and or not       # logical
-in is            # containment & identity
+in               # containment
+is               # identity (check if operands point to same memory location)
 & | ^ ~ << >>    # bitwise
 
 []  # index/literal

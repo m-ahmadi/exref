@@ -34,7 +34,7 @@ hasattr(object, name)
 hash(object)
 help(object)
 hex(x)
-id(object)
+id(object) # "identity" of object
 input(?prompt)
 int(?x, ?base=10)
 isinstance(object, classinfo)
