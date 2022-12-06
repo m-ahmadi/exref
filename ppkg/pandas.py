@@ -161,6 +161,7 @@ df.drop(columns='c') # { 'a': [1,2,3,4], 'b':[5,6,7,8] }
 
 df = pd.DataFrame({'x':[1,2,3], 'y':[5,6,7]}, index=['a','b','c'])
 df.drop(columns='x') # {            'y':[5,6,7] }
+df.drop('x', axis=1) # ...
 df.drop('a')         # { 'x':[2,3], 'y':[6,7]   }
 df.drop(['b','c'])   # { 'x':[1],   'y':[5]     }
 
