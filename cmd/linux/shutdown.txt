@@ -1,1 +1,2 @@
-sudo shutdown now -h
+sudo shutdown now -r		restart
+sudo shutdown now -h		power off
