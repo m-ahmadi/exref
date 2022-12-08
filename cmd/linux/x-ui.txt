@@ -1,0 +1,23 @@
+
+http://SERVER_IP_ADDRESS:54321
+
+sudo x-ui		Display the management menu
+sudo x-ui start		Start the X-UI panel
+sudo x-ui stop		Stop the X-UI panel
+sudo x-ui restart	Restart the X-UI panel
+sudo x-ui status	View X-UI status
+sudo x-ui enable	Set X-UI to start automatically after boot
+sudo x-ui disable	Cancel X-UI boot from start
+sudo x-ui log		View X-UI log
+sudo x-ui update	Update the X-UI panel
+sudo x-ui install	Install X-UI panel
+sudo x-ui uninstall	Uninstall X-UI panel
+
+https://seakfind.github.io/2021/10/10/X-UI
+--------------------------------------------------------------------------------
+install
+
+sudo apt update && sudo apt upgrade -y
+sudo apt install curl socat -y
+curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh | sudo bash
+--------------------------------------------------------------------------------

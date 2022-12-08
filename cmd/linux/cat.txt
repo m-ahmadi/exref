@@ -1,0 +1,4 @@
+cat file.txt			print content of file
+cat file1 file2			print concatenated content of two files
+
+cat --help
