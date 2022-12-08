@@ -2,11 +2,11 @@ top
 
 htop	(sudo apt-get install htop)
 
+ps aux
 ps -A
-
 ps -A | less	(q to exit)
-
 ps -A | grep firefox
+ps --help all
 
 pstree
 

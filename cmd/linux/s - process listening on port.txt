@@ -1,0 +1,5 @@
+sudo ss -lptn
+
+sudo lsof -n -i
+
+netstat -plnt		(not in newer linux)
