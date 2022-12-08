@@ -1,0 +1,4 @@
+touch file.txt			create file
+mkdir foo			create dir
+mv old.txt new.txt		rename file
+rename 's\.jpeg/\.jpg/' *	rename all .jpeg to .jpg (not in all distros)
