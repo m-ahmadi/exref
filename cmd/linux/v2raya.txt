@@ -1,14 +1,19 @@
-v2raya --help
 
+http://SERVER_IP_ADDRESS:2017
+
+/etc/v2raya/config.json				default config
+sudo service v2raya.service restart		restart service
+sudo v2raya --reset-password			reset panel's user pass
 
 https://v2raya.org/en/docs/prologue/introduction
-
 --------------------------------------------------------------------------------
+install
+
 # install v2ray & xray (mirror script)
 curl -Ls https://mirrors.v2raya.org/go.sh | sudo bash
 
-# turn off the service after installation
-sudo systemctl disable v2ray --now		# failed
+# turn off v2ray service after installation
+sudo systemctl disable v2ray --now
 
 # install v2raya (manual with deb pkg)
 wget https://github.com/v2rayA/v2rayA/releases/download/v1.5.9.1698.1/installer_debian_amd64_1.5.9.1698.1.deb

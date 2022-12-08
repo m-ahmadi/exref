@@ -1,4 +1,7 @@
 touch file.txt			create file
 mkdir foo			create dir
+cp src dest			copy file
+mv src dest			move file
 mv old.txt new.txt		rename file
 rename 's\.jpeg/\.jpg/' *	rename all .jpeg to .jpg (not in all distros)
+cat file.txt			print content of file
