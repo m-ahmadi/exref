@@ -2,6 +2,7 @@ MAKE_HTML = true;
 MAKE_CSV = true;
 UTF8_BOM_CSV = true;
 ADD_ROWNUM_COLUMN = true;
+MAKE_GRID_PAGE = true;
 FILENAME = 'out';
 
 COLUMN_HEADERS = ['قیمت (میلیون تومان)', 'رنک تراشه', 'دقت رنک', 'تراشه حدس زده شده', 'تراشه واقعی', 'برند', 'لینک',];
@@ -65,15 +66,75 @@ COLUMN_SORTS.forEach(([header, ascend]) => {
 		: rows.sort((a,b)=> b[j] - a[j]);
 });
 
+if (MAKE_GRID_PAGE) {
+	let ranks = [...new Set(rows.map(i=>i[1]))]
+	let rowsByRanks = ranks.map(i => rows.filter(j=> j[1] === i));
+	
+	
+	let gridItems = rowsByRanks.map(rows => {
+		let rank = rows[0][1];
+		
+		let trs = rows.map(row => {
+			let price = row[0];
+			let link  = row[row.length-1];
+			let tr = ''
+				+'<tr>'
+				+	`<td>${ price }</td>`
+				+	'<td>'
+				+		`<a href="${link}" target="_blank"><strong>➚</strong></a>`
+				+	'</td>'
+				+'</tr>';
+			return tr;
+		}).join('');
+		
+		let item =  ''
+			+'<div>'
+			+`<h3>${ rank }</h3>`
+			+	'<table>'
+			+		`${ trs }`
+			+	'</table>'
+			+'</div>';
+		
+		return item;
+	}).join('');
+	
+	let html = `
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=yes" />
+<meta charset="utf-8" />
+<style>
+table { border-collapse: collapse; }
+tr { border-bottom: 1px solid black; }
+
+#_g > div {
+	float: left;
+	margin: 2px 3px;
+	border: 1px solid black;
+}
+
+#_g > div > h3 {
+	margin: 0;
+	text-align: center;
+	background: black;
+	color: white;
+}
+</style>
+
+<div id="_g">
+	${ gridItems }
+</div>`;
+	
+	download(FILENAME+'.grid.html', html);
+}
+
 if (ADD_ROWNUM_COLUMN) {
 	COLUMN_HEADERS = ['ردیف', ...COLUMN_HEADERS];
 	rows = rows.map((v,i) => [i+1, ...v]);
 }
 
 if (MAKE_HTML) {
-	linkIdx = COLUMN_HEADERS.length - 1;
+	let linkIdx = COLUMN_HEADERS.length - 1;
 		
-	html = `<meta charset="utf-8" />
+	let html = `<meta charset="utf-8" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
 <div id="mytable"></div>
 <script type="module">

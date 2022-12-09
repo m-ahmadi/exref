@@ -74,6 +74,14 @@ td {
 	white-space: pre
 }
 
+/* add border-bottom to tr */
+table {
+	border-collapse: collapse;
+}
+tr {
+	border-bottom: 1px solid black;
+}
+
 /* same font-size regardless of font-family ("verdana" has the aspect value 0.58) */
 html {
 	font-size-adjust: 100%;
