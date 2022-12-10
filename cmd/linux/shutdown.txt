@@ -1,2 +1,2 @@
 sudo shutdown now -r		restart
-sudo shutdown now -h		power off
+sudo shutdown now -p		power off
