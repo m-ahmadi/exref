@@ -470,7 +470,7 @@ function cusum(x=[], _h=0) {
 		neg = Math.min(0, neg + v);
 		if (neg < -h) {
 			neg = 0;
-			res.push(i)
+			res.push(i);
 		} else if (pos > h) {
 			pos = 0;
 			res.push(i);
