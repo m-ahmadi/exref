@@ -207,6 +207,17 @@ ranks = [...document.querySelector('.table-list tbody').querySelectorAll('tr')].
 	i.querySelector('a[style]').innerText,
 	+i.querySelector('div.table-list-score-box').innerText,
 ]).map(([a,b,c])=> [a+' '+b, c]);
+ranks.push(...[
+	["MediaTek Dimensity 810",46],
+	["Qualcomm Snapdragon 680",37],
+	["MediaTek Helio P20",28],
+	["MediaTek Helio P35",24],
+	["MediaTek Helio G25",23],
+	["MediaTek Helio A25",22],
+	["MediaTek Helio A22",21],
+	["Qualcomm Snapdragon 450",21],
+	["Qualcomm Snapdragon 430",18],
+]);
 download('ranks.json', JSON.stringify(ranks));
 
 
