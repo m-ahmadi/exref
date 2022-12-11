@@ -4,6 +4,8 @@ UTF8_BOM_CSV = true;
 ADD_ROWNUM_COLUMN = true;
 MAKE_GRID_PAGE = true;
 FILENAME = 'out';
+CORRECTIONS = []; // [ [correctRank, rowRange], ... ]
+try { CORRECTIONS = await (await fetch('CORRECTIONS.json')).json(); } catch {}
 
 COLUMN_HEADERS = ['قیمت (میلیون تومان)', 'رنک تراشه', 'دقت رنک', 'تراشه حدس زده شده', 'تراشه واقعی', 'برند', 'لینک',];
 COLUMN_SORTS   = [  ['دقت رنک'], ['قیمت (میلیون تومان)',1], ['رنک تراشه'],  ]; // [header='', ascend=0|1]
@@ -59,12 +61,15 @@ rows = Object.keys(r).map(k => {
 	return [price, rank, acc, match, real, brand, url];
 });
 
-COLUMN_SORTS.forEach(([header, ascend]) => {
-	let j = COLUMN_HEADERS.indexOf(header);
-	ascend
-		? rows.sort((a,b)=> a[j] - b[j])
-		: rows.sort((a,b)=> b[j] - a[j]);
-});
+sort();
+for (let [correctRank, rowRange] of CORRECTIONS) {
+	let [start, end] = rowRange;
+	let _end = end || start;
+	for (let i=start; i<=_end; i++) {
+		rows[i-1][1] = correctRank;
+	}
+}
+sort();
 
 if (MAKE_GRID_PAGE) {
 	let ranks = [...new Set(rows.map(i=>i[1]))]
@@ -171,7 +176,14 @@ if (MAKE_CSV) {
 	download(FILENAME+'.csv', text, MAKE_CSV && UTF8_BOM_CSV);
 }
 
-
+function sort() {
+	COLUMN_SORTS.forEach(([header, ascend]) => {
+		let j = COLUMN_HEADERS.indexOf(header);
+		ascend
+			? rows.sort((a,b)=> a[j] - b[j])
+			: rows.sort((a,b)=> b[j] - a[j]);
+	});
+}
 
 function download(filename,text,utf8bom) {let a=document.createElement('a');a.setAttribute('href',
 'data:text/plain;charset=utf-8,'+(utf8bom?'\ufeff':'')+encodeURIComponent(text));a.setAttribute('download',filename);
