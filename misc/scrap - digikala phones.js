@@ -4,7 +4,7 @@ UTF8_BOM_CSV = true;
 ADD_ROWNUM_COLUMN = true;
 MAKE_GRID_PAGE = true;
 FILENAME = 'out';
-CORRECTIONS = []; // [ [correctRank, rowRange], ... ]
+CORRECTIONS = []; // [ [correctRank, rowRange], ... ]    (row numbers must be from original table)
 try { CORRECTIONS = await (await fetch('CORRECTIONS.json')).json(); } catch {}
 
 COLUMN_HEADERS = ['قیمت (میلیون تومان)', 'رنک تراشه', 'دقت رنک', 'تراشه حدس زده شده', 'تراشه واقعی', 'برند', 'لینک',];
