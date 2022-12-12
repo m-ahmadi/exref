@@ -1,10 +1,12 @@
 youtube-dl -F <URL>				list formats
 youtube-dl <URL> -f 18 --write-sub		write en subs
 youtube-dl <URL> -f 18 --write-auto-sub		auto generated subs
+yt-dlp ...					a fork of youtube-dl with more features
 
 
 install
 iwr 'https://yt-dl.org/latest/youtube-dl.exe' -OutFile  $env:windir\youtube-dl.exe
+iwr 'https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe' -OutFile  $env:windir\yt-dlp.exe
 --------------------------------------------------------------------------------
 remove karaoke effects from  auto generated .vtt
 <[\d:.]+>

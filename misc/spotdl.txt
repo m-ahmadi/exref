@@ -1,0 +1,9 @@
+pip install spotdl			install
+spotdl web				start web gui
+
+spotdl download [trackUrl]		download a song
+spotdl download [albumUrl]		download an album
+spotdl download [playlistUrl]		download a playlist
+spotdl download [artistUrl]		download all songs from an artist
+
+https://spotdl.readthedocs.io/en/latest/usage
