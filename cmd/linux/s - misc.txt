@@ -1,1 +1,2 @@
 passwd		set new password
+hostname	show host name

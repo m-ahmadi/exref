@@ -5,3 +5,4 @@ mv src dest			move file
 mv old.txt new.txt		rename file
 rename 's\.jpeg/\.jpg/' *	rename all .jpeg to .jpg (not in all distros)
 cat file.txt			print content of file
+echo "foo" >> file.txt		append to file

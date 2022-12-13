@@ -5,3 +5,4 @@ iptables --help
 --delete-chain	-X [chain]		Delete a user-defined chain
 --policy	-P chain target		Change policy on chain to target
 --table		-t table		table to manipulate (default: `filter')
+--list-rules	-S [chain [rulenum]]	Print the rules in a chain or all chains
