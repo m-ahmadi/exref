@@ -8,3 +8,16 @@ fat32format utility		worked
 compmgmt.msc			fail (only shows exFAT)
 format F: /fs:FAT32 /q		fail (The volume is too big for FAT32)
 --------------------------------------------------
+note
+
+FAT32
+	published 1977
+	supported everywhere
+	files no larger than 4GB
+exFAT
+	published 2006
+	successor to FAT32
+	widely supported (but not very old devices)
+	files larger than 4GB
+	without overhead of NTFS
+--------------------------------------------------

@@ -1,0 +1,8 @@
+apt -h			help
+
+apt list		list all pkgs
+apt list foo*		list pkgs starting with foo
+
+apt install ...		install pkg(s)
+apt update		update list of available packages
+apt upgrade -y		upgrade the system by removing/installing/upgrading pkgs
