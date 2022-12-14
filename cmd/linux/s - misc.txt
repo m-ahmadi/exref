@@ -1,2 +1,3 @@
 passwd		set new password
 hostname	show host name
+sudo su		make yourself superuser
