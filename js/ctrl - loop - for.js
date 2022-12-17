@@ -22,7 +22,7 @@ for (let i=0; i<10; i++) {
 }
 for (let i=0; i<50; i+=1) {
 	console.log(i); // 0 1 2 48 49
-	if (i===2) i = 47
+	if (i===2) i = 47;
 }
 
 // dynamic index incrementation:
@@ -33,7 +33,7 @@ for (let i=0,j=1; i<10; i+=j) {
 
 // note: don't do the following:
 for (let i=j=0; i<10; i+=j) // variable j is not scoped and exists after loop ends
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // all 3 expressions in the head of the for loop are optional
 
 // no init:
@@ -55,36 +55,16 @@ for (;;) {
 	console.log(i);
 	i++;
 }
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// for without a statement:
-function bar() {
-	var i, j, k;
-	for (
-		i=0, j=0, k=0;    // initialization
-		i<50;             // condition
-		i+=1, j+=2, k+=4  // increment
-	);                  // mandatory semicolon (without it, the following line is considered a statement)
-	console.log(i, j, k);
-}
-bar();
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// for without a statement
+var i, j, k;
+for (
+	i=0, j=0, k=0;    // init
+	i<50;             // condition
+	i+=1, j+=2, k+=4  // increment
+);                  // without this semicolon, next line is considered as loop body
+console.log(i, j, k);
 
-// error:
-function bar() {
-	for (
-		let i=0;
-		i<50;
-		i+=1
-	);                   
-	console.log(i);
-}
-bar(); // ReferenceError: i is not defined
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// weird usage of break:
-var cars = ['BMW', 'Volvo', 'Saab', 'Ford'];
-list: {
-  text += cars[0] + '<br>'; 
-  text += cars[1] + '<br>'; 
-  break list;
-  text += cars[2] + '<br>'; 
-  text += cars[3] + '<br>'; 
-}
+for (let i=0; i<50; i+=1);
+console.log(i); // err (since using let)
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
