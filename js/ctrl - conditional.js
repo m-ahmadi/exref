@@ -16,7 +16,7 @@ if (condition1) {
 	
 }
 
-switch(expression) {
+switch (expression) {
 	case x:
 		// code block
 		break;
@@ -31,7 +31,7 @@ switch(expression) {
 // switch fallthrough
 var t = 1;
 
-// Fall-through:
+// fall-through:
 switch (t) {
 	case 1:
 		alert('One');
@@ -43,7 +43,7 @@ switch (t) {
 		alert('Not in Range.');
 }
 
-// Correct Way:
+// correct way:
 switch (t) {
 	case 1:
 		alert('One');
