@@ -7,8 +7,8 @@ f5
 show more than default 300 items
 
 cmd /c pushd %userprofile%\.vscode\extensions\ms-python.python-* && pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py
-MAX_ITEMS_TO_HANDLE = 4000
+MAX_ITEMS_TO_HANDLE = 100000
 
 auto:
-cmd /c pushd %userprofile%\.vscode\extensions\ms-python.python-* && fart pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py "MAX_ITEMS_TO_HANDLE = 300" "MAX_ITEMS_TO_HANDLE = 4000"
+cmd /c pushd %userprofile%\.vscode\extensions\ms-python.python-* && fart pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py "MAX_ITEMS_TO_HANDLE = 300" "MAX_ITEMS_TO_HANDLE = 100000"
 --------------------------------------------------------------------------------
