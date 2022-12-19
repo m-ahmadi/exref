@@ -2,7 +2,7 @@ NUMBER_OF_COLUMNS = 6;
 IMAGE_WIDTH = 300;
 IMAGE_HEIGHT = 200;
 BACKGROUND = 'black';
-OUTPUT_FILE = './news.html';
+OUTPUT_FILE = __dirname+'/news.html';
 
 let https = require('https');
 let fs = require('fs');
