@@ -3,7 +3,7 @@ git rebase --onto master	?
 git rebase --onto master~2	?
 
 git rebase -i HEAD~3				rebase prev 3 commits
-git rebase -i HEAD~3 --ignore-date		... update time of effected commits
+git rebase -i HEAD~3 --ignore-date		... update time of affected commits
 git rebase -i HEAD~3 --reset-author-date	...
 git rebase --continue				after `e, edit`, `m, merge`, ...
 git rebase --abort				cancel
