@@ -1,4 +1,5 @@
 import datetime as dt
+# https://docs.python.org/3/library/datetime.html
 
 # date and time
 d = dt.datetime(2021,1,1)
@@ -21,13 +22,16 @@ str(d)                 # '2021-10-26'
 
 # date obj from timestamp
 ts = dt.datetime(2021,1,1).timestamp()
-d = dt.datetime.fromtimestamp(ts) # dt.datetime(2021, 1, 1, 0, 0)
+d = dt.datetime.fromtimestamp(ts) # datetime(2021, 1, 1, 0, 0)
+
+dt.datetime.utcfromtimestamp(1254130200) # datetime(2009, 9, 28, 9, 30)
+dt.datetime.fromtimestamp(1254130200)    # datetime(2009, 9, 28, 13, 0)
 
 # str
 dt.datetime(2021,1,1).strftime('%Y %m %d')     # format:  '2021 01 01'
 dt.datetime.today().strftime('%Y%m')           # format:  '202202'
-dt.datetime.strptime('2021 01 01', '%Y %m %d') # parse:   dt.datetime(2021,1,1,0,0)
-dt.datetime.strptime('20220101', '%Y%m%d')     # parse:   dt.datetime(2022,1,1,0,0)
+dt.datetime.strptime('2021 01 01', '%Y %m %d') # parse:   datetime(2021,1,1,0,0)
+dt.datetime.strptime('20220101', '%Y%m%d')     # parse:   datetime(2022,1,1,0,0)
 # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 
 # change date
