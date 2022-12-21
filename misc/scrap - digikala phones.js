@@ -1,14 +1,12 @@
 MAKE_HTML = true;
-MAKE_CSV = true;
+MAKE_CSV = false;
 UTF8_BOM_CSV = true;
 ADD_ROWNUM_COLUMN = true;
 MAKE_GRID_PAGE = true;
 FILENAME = 'out';
-CORRECTIONS = []; // [ [correctRank, rowRange], ... ]    (row numbers must be from original table)
-try { CORRECTIONS = await (await fetch('CORRECTIONS.json')).json(); } catch {}
 
-COLUMN_HEADERS = ['قیمت (میلیون تومان)', 'رنک تراشه', 'دقت رنک', 'تراشه حدس زده شده', 'تراشه واقعی', 'برند', 'لینک',];
-COLUMN_SORTS   = [  ['دقت رنک'], ['قیمت (میلیون تومان)',1], ['رنک تراشه'],  ]; // [header='', ascend=0|1]
+COLUMN_HEADERS = ['قیمت (میلیون تومان)', 'رنک تراشه', 'تراشه حدس زده شده', 'تراشه واقعی', 'برند', 'لینک',];
+COLUMN_SORTS   = [  ['قیمت (میلیون تومان)',1], ['رنک تراشه'],  ]; // [header='', ascend=0|1]
 
 ranks = await (await fetch('ranks.json')).json();
 chips = ranks.map(i=>i[0]);
@@ -24,15 +22,11 @@ for (let k of Object.keys(r)) {
 	let cchip = chip
 		.replace(/(chipset)|(chispet)|(chipest)/gi, '')
 		.replace(/\(.*\)/g, '')
+		.replace(/(4|5)G/g, '')
 		.trim();
 	
-	let distances = chips.map((v,i) => [levdistance(cchip, v), i]);
-	let sortedDistances = distances.sort((a,b)=>a[0]-b[0]);
-	
-	let least = sortedDistances[0][0];
-	let leastCount = sortedDistances.filter(i => i[0] === least).length;
-	let accuracy = least === 0 ? 1 : 1 / (least * leastCount);
-	let finalAccuracy = Math.round(accuracy * 100);
+	let distances = chips.map((v,i) => [wordmatch(cchip, v), i]);
+	let sortedDistances = distances.sort((a,b)=>b[0]-a[0]);
 	
 	let bestMatchIdx = sortedDistances[0][1];
 	let bestMatch = ranks[bestMatchIdx];
@@ -41,7 +35,6 @@ for (let k of Object.keys(r)) {
 	
 	r[k].chip_bestmatch_rank = rank;
 	r[k].chip_bestmatch_name = name;
-	r[k].chip_bestmatch_accuracy = finalAccuracy;
 	
 	r[k].chip = cchip;
 }
@@ -58,23 +51,19 @@ rows = Object.keys(r).map(k => {
 	let real  = p.chip || '';
 	let brand = p.brand_title_en;
 	
-	return [price, rank, acc, match, real, brand, url];
+	return [price, rank, match, real, brand, url];
 });
 
-sort();
-for (let [correctRank, rowRange] of CORRECTIONS) {
-	let [start, end] = rowRange;
-	let _end = end || start;
-	for (let i=start; i<=_end; i++) {
-		rows[i-1][1] = correctRank;
-	}
-}
-sort();
+COLUMN_SORTS.forEach(([header, ascend]) => {
+	let j = COLUMN_HEADERS.indexOf(header);
+	ascend
+		? rows.sort((a,b)=> a[j] - b[j])
+		: rows.sort((a,b)=> b[j] - a[j]);
+});
 
 if (MAKE_GRID_PAGE) {
 	let ranks = [...new Set(rows.map(i=>i[1]))]
 	let rowsByRanks = ranks.map(i => rows.filter(j=> j[1] === i));
-	
 	
 	let gridItems = rowsByRanks.map(rows => {
 		let rank = rows[0][1];
@@ -103,8 +92,8 @@ if (MAKE_GRID_PAGE) {
 		return item;
 	}).join('');
 	
-	let html = `
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=yes" />
+	let html = `<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
 <meta charset="utf-8" />
 <style>
 table { border-collapse: collapse; }
@@ -138,8 +127,9 @@ if (ADD_ROWNUM_COLUMN) {
 
 if (MAKE_HTML) {
 	let linkIdx = COLUMN_HEADERS.length - 1;
-		
-	let html = `<meta charset="utf-8" />
+	
+	let html = `<!DOCTYPE html>
+<meta charset="utf-8" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
 <div id="mytable"></div>
 <script type="module">
@@ -176,26 +166,14 @@ if (MAKE_CSV) {
 	download(FILENAME+'.csv', text, MAKE_CSV && UTF8_BOM_CSV);
 }
 
-function sort() {
-	COLUMN_SORTS.forEach(([header, ascend]) => {
-		let j = COLUMN_HEADERS.indexOf(header);
-		ascend
-			? rows.sort((a,b)=> a[j] - b[j])
-			: rows.sort((a,b)=> b[j] - a[j]);
-	});
+function wordmatch(a='', b='') {
+	[a, b] = [a, b].map(i=> i.split(' '));
+	return a.map(i=> b.map(j=>i.match(new RegExp(j,'i'))).filter(i=>i).length).filter(i=>i).length / b.length;
 }
 
 function download(filename,text,utf8bom) {let a=document.createElement('a');a.setAttribute('href',
 'data:text/plain;charset=utf-8,'+(utf8bom?'\ufeff':'')+encodeURIComponent(text));a.setAttribute('download',filename);
 a.style.display='none';document.body.append(a);a.click();a.remove();}
-
-function levdistance(r,f){if(r===f)return 0;if(r.length>f.length){let t=r;r=f,f=t}let[t,e]=[r.length,f.length];
-for(;t>0&&r.charCodeAt(t-1)===f.charCodeAt(e-1);)t--,e--;let n=0;for(;n<t&&r.charCodeAt(n)===f.charCodeAt(n);)n++;
-if(t-=n,e-=n,0===t||e<3)return e;let o,i,l,u,c,a,d,s,v,b,g,h,j=0,k=[];for(o=0;o<t;o++)k.push(o+1),
-k.push(r.charCodeAt(n+o));let m=k.length-1;for(;j<e-3;)for(v=f.charCodeAt(n+(i=j)),b=f.charCodeAt(n+(l=j+1)),
-g=f.charCodeAt(n+(u=j+2)),h=f.charCodeAt(n+(c=j+3)),a=j+=4,o=0;o<m;o+=2)d=k[o],s=k[o+1],i=p(d,i,l,v,s),
-l=p(i,l,u,b,s),u=p(l,u,c,g,s),a=p(u,c,a,h,s),k[o]=a,c=u,u=l,l=i,i=d;for(;j<e;)for(v=f.charCodeAt(n+(i=j)),
-a=++j,o=0;o<m;o+=2)d=k[o],k[o]=a=p(d,i,a,v,k[o+1]),i=d;return a;function p(r,f,t,e,n){return r<f||t<f?r>t?t+1:r+1:e===n?f:f+1}}
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // get data
@@ -208,15 +186,42 @@ ranks = [...document.querySelector('.table-list tbody').querySelectorAll('tr')].
 	+i.querySelector('div.table-list-score-box').innerText,
 ]).map(([a,b,c])=> [a+' '+b, c]);
 ranks.push(...[
-	["MediaTek Dimensity 810",46],
-	["Qualcomm Snapdragon 680",37],
-	["MediaTek Helio P20",28],
-	["MediaTek Helio P35",24],
-	["MediaTek Helio G25",23],
-	["MediaTek Helio A25",22],
-	["MediaTek Helio A22",21],
-	["Qualcomm Snapdragon 450",21],
-	["Qualcomm Snapdragon 430",18],
+
+["Samsung Exynos 1200",50],
+["MediaTek Dimensity 810",46],
+["Qualcomm Snapdragon 680",37],
+["MediaTek Helio P70",29],
+["MediaTek Helio P20",28],
+["Samsung Exynos 850",28],
+["Unisoc T606",26],
+["Unisoc T610",26],
+["MediaTek Helio P35 MT6765",24],
+["MediaTek Helio G35",24],
+["MediaTek Helio G25",23],
+["HiSilicon Kirin 950",23],
+["Qualcomm Snapdragon 630",23],
+["JLQ JR510",23],
+["MediaTek Helio A25",22],
+["MediaTek Helio A22 MT6761",21], ["MT6761VWB",21],
+["Qualcomm Snapdragon 450",21],
+["Mediatek Helio A20 MT6761D",19],
+["Unisoc SC9863A",19],
+["Qualcomm Snapdragon 430",18],
+["Qualcomm Snapdragon 616 MSM8939",16],
+["Qualcomm Snapdragon 615 MSM8939",14],
+["Qualcomm Snapdragon 425",14],
+["Mediatek MT6739",14],
+["Unisoc SC7731E",13],
+["Unisoc SC7331E",12],
+["Mediatek MT6735",12],
+["Qualcomm Snapdragon 210 MSM8909",9],
+["Mediatek MT6260A",5],
+["Unisoc SC6553",2],
+["Unisoc SC6531E",2], ["6531E",2],
+["Unisoc 6531F",2],
+["Unisoc T107",2],
+["Mediatek MT6261",1]
+
 ]);
 download('ranks.json', JSON.stringify(ranks));
 

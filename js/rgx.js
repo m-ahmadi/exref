@@ -18,7 +18,8 @@ result = /([A-Z])/g.test('AB'); // true
 'the lord of The rings'.match(/the/g)  // global, case-sensitive    ['the']
 'the lord of The rings'.match(/the/ig) // global, case-insensitive  ['the', 'the']
 
-// regex object:
+// regex object
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp#syntax
 var pattern = 'salam'
 new RegExp(pattern, 'g') // /salam/g
 
