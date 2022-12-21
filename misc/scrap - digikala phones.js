@@ -204,6 +204,7 @@ ranks.push(...[
 ["MediaTek Helio A25",22],
 ["MediaTek Helio A22 MT6761",21], ["MT6761VWB",21],
 ["Qualcomm Snapdragon 450",21],
+["Qualcomm Snapdragon 429",20],
 ["Mediatek Helio A20 MT6761D",19],
 ["Unisoc SC9863A",19],
 ["Qualcomm Snapdragon 430",18],
@@ -229,20 +230,41 @@ download('ranks.json', JSON.stringify(ranks));
 // get mobile prices, specs, etc
 // https://www.digikala.com/search/category-mobile-phone/product-list/
 PAGES = 100;
+sorts = {HIGHEST_PRICE: 21, MOST_SELLS: 7, NEWEST: 1};
+sort = sorts.HIGHEST_PRICE;
 r = {};
 for (let i=1; i<=PAGES; i++) {
-	let url = new URL('https://api.digikala.com/v1/categories/mobile-phone/search/?sort=21'); // has_selling_stock=1
+	let url = new URL('https://api.digikala.com/v1/categories/mobile-phone/search/');
+	url.searchParams.set('sort', sort);
+	//url.searchParams.set('has_selling_stock', 1);
 	url.searchParams.set('page', i);
 	let res = await (await fetch(url)).json();
 	
-	let itemsWithPrice = res.data.products.filter(i=> Array.isArray(i.default_variant) ? 0 : i);
+	let products = res.data.products;
+	//let productsWithPrice = products.filter(i=> !Array.isArray(i.default_variant));
 	
-	for (let i of itemsWithPrice) {
+	for (let i of products) {
 		let id = i.id;
-		let price_selling_firstpage = i.default_variant.price.selling_price;
-		r[id] = {price_selling_firstpage};
+		let dv = i.default_variant;
+		
+		if (!Array.isArray(dv)) {/*currently in stock*/
+			let price_selling_firstpage = dv.price.selling_price;
+			r[id] = {price_selling_firstpage};
+			continue;
+		}
+		// currently not in stock
+		
+		let targ = i.properties.min_price_in_last_month;
+		let hasHadPriceInLastMonth = typeof targ !== 'undefined' && targ ! == 0;
+		
+		if (hasHadPriceInLastMonth) {
+			// but has been in stock in last month
+			r[id] = {};
+		}
 	}
 }
+
+avg = a => a.reduce((r,i) => r+i) / a.length;
 
 for (let id of Object.keys(r)) {
 	let res = await (await fetch(`https://api.digikala.com/v1/product/${id}/`)).json();
@@ -266,7 +288,38 @@ for (let id of Object.keys(r)) {
 		specs: p?.specifications[0]?.attributes,
 	};
 	
-	r[id] = {...r[id], ...o};
+	let dv = p.default_variant;
+	let inStock = !Array.isArray(dv);
+	
+	if (inStock) {
+		r[id] = {...r[id], ...o};
+		continue;
+	}
+	
+	if (!inStock) {
+		let res = await (await fetch(`https://api.digikala.com/v1/product/${id}/price-chart/`)).json();
+		let pc = res.data.price_chart;
+		
+		if (pc.length) {
+		
+			let prices = pc.map(i => {
+				let hist = i.history;
+				if (!hist.length) return '';
+				let histPrices = hist.map(i=> +i.selling_price);
+				let price = avg(histPrices); // hist[hist.length-1].selling_price;
+				return +price;
+			}).filter(i=>i!=='');
+			
+			if (prices.length) {
+				let finalPrice = avg(prices);
+				o.price_selling = finalPrice;
+				r[id] = {...r[id], ...o};
+				continue;
+			}
+		}
+	}
+	
+	delete r[id];
 }
 
 download('products.json', JSON.stringify(r));
