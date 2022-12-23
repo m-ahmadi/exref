@@ -18,7 +18,7 @@ for (let i of [...Array(totalScrolls).keys()]) {
 	await new Promise(r=>setTimeout(r,wait));
 
 	r.push(
-		[...document.querySelectorAll('.post-card-item-_-af972.kt-col-6-_-bee95.kt-col-xxl-4-_-e9d46'/* prev: .waf972.wbee95.we9d46 */)].map(i => {
+		[...document.querySelectorAll('.post-card-item-af972.kt-col-6-bee95.kt-col-xxl-4-e9d46')].map(i => {
 		
 			let [ credit, rent ] = i.querySelector('a .kt-post-card__description').innerText.split('\n').flat();
 			credit = credit.match(/ودیعه: (.*) تومان/)[1].match(/^(.{1,4}),/)[1];
