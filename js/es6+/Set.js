@@ -1,6 +1,6 @@
 const set1 = new Set([1, 2, 3, 4, 5]);
 
-// a set is a collection of unique values (unlike array which can have duplicates).
+// a set is a collection of unique values (unlike array which can have duplicates)
 
 set1.has(1)     // true
 set1.has(6)     // false
@@ -20,7 +20,6 @@ for (let item of set1) console.log(item)
 
 // type check
 Set.prototype.toString.call(set1) == '[object Set]'
-
 
 // equality
 a = new Set(1,2,3);
