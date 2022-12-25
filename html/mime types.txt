@@ -1,0 +1,16 @@
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+
+text/plain
+text/css
+text/html
+text/javascript
+text/csv
+text/xml
+
+image/png
+image/jpeg
+image/svg+xml
+image/gif
+
+text/html; charset=UTF-8
