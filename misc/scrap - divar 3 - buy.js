@@ -7,6 +7,7 @@ IGNORES = [];
 COLUMNS        = ['price', 'priceMeter', 'when', 'title', 'hood', 'lastfloor', 'floor', 'totalfloors', 'parking', 'elevator', 'singlefloor', 'url'];
 COLUMN_HEADERS = ['قیمت', 'متری', 'زمان', 'عنوان', 'محل', 'طبقه‌آخر', 'طبقه', 'کل‌طبقات', 'پارکینگ', 'آسانسور', 'تک‌واحدی', 'لینک'];
 COLUMN_SORTS   = [  ['تک‌واحدی'], ['آسانسور'], ['پارکینگ'], ['زمان',1], ['قیمت',1], ['طبقه',1,1], ['طبقه‌آخر'],  ];
+COLUMN_FILTERS = [];
 
 MAX_ITEMS = Infinity;
 WAIT_AFTER_EACH_SCROLL = 1000;
@@ -73,6 +74,15 @@ while (links.size > 0) {
 console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 
+COLUMN_FILTERS.forEach(([col, eq, val]) => {
+	let j = COLUMN_HEADERS.indexOf(col);
+	if (eq) {
+		rr = rr.filter(i => i[j] === val);
+	} else {
+		rr = rr.filter(i => i[j] !== val);
+	}
+});
+
 if (MAKE_HTML) {
 	linkIdx = COLUMN_HEADERS.length - 1;
 	
@@ -101,7 +111,7 @@ table.setSort(${ JSON.stringify(COLUMN_SORTS.map(([column,,desc]) => ({column, d
 }
 
 if (MAKE_CSV) {
-	COLUMN_SORTS.map(([header, numericalSort, descSort]) => {
+	COLUMN_SORTS.forEach(([header, numericalSort, descSort]) => {
 		let j = COLUMN_HEADERS.indexOf(header);
 		if (numericalSort) {
 			descSort
