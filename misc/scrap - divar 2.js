@@ -32,6 +32,7 @@ calcConvCredit = (credit=0, rent=0) => (
 	''
 );
 
+
 window.scrollTo(0,0);
 r = [];
 postsContainer = document.querySelector('.browse-post-list-f3858');
