@@ -24,6 +24,13 @@ FILENAME = 'out';
 sleep = ms => new Promise(r=> setTimeout(r,ms));
 en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9', '.':'.'};
 toEn = s => +[...s].map(i => en[i]).join('');
+calcConvCredit = (credit=0, rent=0) => (
+	credit >  0 && rent >  0 ?  +(credit + rent / 0.03).toFixed() :
+	credit >  0 && rent <= 0 ?  credit :
+	credit <= 0 && rent >  0 ?  +(rent / 0.03).toFixed() :
+	credit <= 0 && rent <= 0 ?  'توافقی' :
+	''
+);
 
 window.scrollTo(0,0);
 r = [];
@@ -250,16 +257,6 @@ table.setSort(${ JSON.stringify(COLUMN_SORTS.map(([column,,desc]) => ({column, d
 </script>`;
 	
 	download(FILENAME+'.html', html);
-}
-
-function calcConvCredit(credit=0, rent=0) {
-	return (
-		credit >  0 && rent >  0 ?  +(credit + rent / 0.03).toFixed() :
-		credit >  0 && rent <= 0 ?  credit :
-		credit <= 0 && rent >  0 ?  +(rent / 0.03).toFixed() :
-		credit <= 0 && rent <= 0 ?  'توافقی' :
-		''
-	);
 }
 
 function download(filename, text) {
