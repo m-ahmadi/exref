@@ -19,6 +19,10 @@ Tabulator.registerModule([FormatModule]);
 const options = {
 	// https://tabulator.info/docs/5.4/options
 	data:                   [],           // assign data to table
+	initialSort:            [ Sorter{}, ... ],
+	columnHeaderSortMulti:  true,
+	headerSortClickElement: 'header|icon',
+	sortOrderReverse:       false,
 	
 	// loading data
 	autoColumns:            false,
@@ -76,24 +80,27 @@ const options = {
 	
 	columns: [            // define table columns
 		{
-			title:           '',
-			field:           '',
-			width:           0,
-			widthGrow:       0,
-			widthShrink:     0,
-			responsive:      0,
-			resizable:       false,
-			frozen:          false,
-			hozAlign:        '',
-			headerSort:      false,
-			sorter:          '',
-			formatter:       'plaintext|textarea|html|money|image|link|datetime|tickCross|color|star|traffic|progress|lookup|buttonTick|buttonCross|rownum|handle|...'|(cell, formatterParams, onRendered)=>,
-			formatterParams: {},
-			formatterPrint:  false,
-			titleFormatter:  '',
-			titleFormatterParams: {},
-			cellClick:       ()=>
-			tooltip:         false
+			title:                 '',
+			field:                 '',
+			width:                 0,
+			widthGrow:             0,
+			widthShrink:           0,
+			responsive:            0,
+			resizable:             false,
+			frozen:                false,
+			hozAlign:              '',
+			headerSort:            false,
+			headerSortStartingDir: 'asc|desc',
+			headerSortTristate:    true
+			sorter:                '|string|number|alphanum|boolean|exists|array|...' | (a, b, aRow, bRow, column, dir, sorterParams)=>, // https://tabulator.info/docs/5.4/sort#func-builtin
+			sorterParams:          {},
+			formatter:             'plaintext|textarea|html|money|image|link|datetime|tickCross|color|star|traffic|progress|lookup|buttonTick|buttonCross|rownum|handle|...'|(cell, formatterParams, onRendered)=>,
+			formatterParams:       {},
+			formatterPrint:        false,
+			titleFormatter:        '',
+			titleFormatterParams:  {},
+			cellClick:             ()=>
+			tooltip:               false
 			...
 		}
 	],
@@ -102,9 +109,8 @@ const options = {
 var table = new Tabulator('#mytable', options);
 
 // https://tabulator.info/docs/5.4/events
-table.on('rowClick', function (e, row) {
-	row.getData().id
-});
+table.on('rowClick', (e, row)=>);
+table.on('tableBuilding|tableBuilt|tableDestroyed', ()=>);
 
 table.addColumn(t,e,o)
 table.addData(data=[], addToTop=false, o)
