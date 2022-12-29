@@ -27,8 +27,8 @@ calcConvCredit = (credit=0, rent=0) => (
 	credit >  0 && rent >  0 ?  +(credit + rent / 0.03).toFixed() :
 	credit >  0 && rent <= 0 ?  credit :
 	credit <= 0 && rent >  0 ?  +(rent / 0.03).toFixed() :
-	credit <= 0 && rent <= 0 ?  'توافقی' :
-	''
+	credit <= 0 && rent <= 0 ?  -1 : // توافقی
+	-2
 );
 
 
@@ -234,7 +234,7 @@ function extractRow(text='', url='') {
 		}
 		n = n * K;
 	}
-	when = n % 1 ? n.toFixed(2) : n;
+	when = n % 1 ? +n.toFixed(2) : n;
 	
 	
 	let [sqmeter, builtyear, rooms] = [..._document.querySelector('.kt-group-row').querySelectorAll('.kt-group-row-item__value')].map(i=> i.innerText);

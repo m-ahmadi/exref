@@ -192,7 +192,7 @@ function extractRow(text='', url='') {
 		}
 		n = n * K;
 	}
-	when = n % 1 ? n.toFixed(2) : n;
+	when = n % 1 ? +n.toFixed(2) : n;
 	
 	
 	let [sqmeter, builtyear, rooms] = [..._document.querySelector('.kt-group-row').querySelectorAll('.kt-group-row-item__value')].map(i=> i.innerText);
