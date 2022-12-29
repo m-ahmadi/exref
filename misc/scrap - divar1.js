@@ -251,21 +251,30 @@ if (MAKE_HTML) {
 		'<tr>'+ i.map((v,j) => j===linkIdx ? `<td><a href="${v}" target="_blank">لینک</a></td>` : `<td>${v}</td>`).join('') +'</tr>'
 	).join('');
 	
-	html = `<meta charset="utf-8" />
+	html = `<!DOCTYPE html>
+<meta charset="utf-8" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/css/tabulator.min.css" />
+
 <table id="mytable">
 	<thead>
-		<tr> ${COLUMN_HEADERS.map(i=> '<th>'+ i +'</th>').join('')} </tr>
+		<tr>
+			${ COLUMN_HEADERS.map((v,i)=> '<th'+ (i===linkIdx?' tabulator-formatter="html"':'') +'>'+ v +'</th>').join('') }
+		</tr>
 	</thead>	
 	${html}
 </table>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/tabulator_core.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/sort.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/resize_columns.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@4.9.3/dist/js/modules/html_table_import.js"></script>
-<script>
-table = new Tabulator('#mytable');
-table.setSort(${ JSON.stringify(COLUMN_SORTS.map(([column,,desc]) => ({column, dir: desc?'desc':'asc'}))) });
+
+<script type="module">
+import {
+	Tabulator, SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule
+} from 'https://cdn.jsdelivr.net/npm/tabulator-tables@5.4.3/dist/js/tabulator_esm.min.js';
+Tabulator.registerModule([SortModule, FormatModule, ResizeColumnsModule, HtmlTableImportModule]);
+
+let table = new Tabulator('#mytable', {
+	initialSort: ${ JSON.stringify(
+		COLUMN_SORTS.map(([column,,desc]) => ({column, dir: desc?'desc':'asc'}))
+	) }
+});
 </script>`;
 	
 	download(FILENAME+'.html', html);
