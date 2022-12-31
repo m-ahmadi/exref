@@ -1,7 +1,7 @@
 ﻿win r			run
 win e			my computer
 win m			minimize all windows
-win 1-9 (not calc)	open window or tab through
+win 1-9 (not numpad)	open window or tab through
 win f			search window
 win p			monitor modes
 win l			log off

@@ -1,9 +1,29 @@
-shortcuts
+﻿shortcuts
 
+ctrl 1			zoom mode
 ctrl 2			start draw
-esc			clear draw
-ctrl 3			break draw
-ctrl shift click	arrow
+ctrl 3			countdown timer
+ctrl 4			live zoom (ctrl ↑↓)
+esc | rclick		exit
+
+		in draw
+e			clear
+ctrl z			clear last
+ctrl			rectangle
+shift			line
+tab			circle
+ctrl shift		arrow
+r g b y o p		pen colors
+t | shift t		type | right-aligned (fontsize:  ctrl scroll ↑↓)
+w | k			white|black board
+space			center the cursor
+ctrl s			save screenshot
+
+		in zoom
+rclick			start drawing
+click			stop drawing
+scroll ↑↓		zoom in out
+
 
 https://docs.microsoft.com/en-us/sysinternals/downloads/zoomit#shortcuts
 --------------------------------------------------------------------------------
