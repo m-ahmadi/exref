@@ -105,11 +105,12 @@ a[:]     # copy of arr
 [1,2,3,4,5,6][::-1] # [6,5,4,3,2,1]
 
 # list comprehension
-nums = [1,2,3,4]
-x = [x*x for x in nums]               # [1,4,9,16]
-y = [x*x for x in nums if x % 2 == 0] # [4,16]
-arr = [ [1,2], [3,4] ]
-[[j*2 for j in i] for i in arr]       # [ [2,4], [6,8] ]
+a = [1,2,3,4]
+[i*i for i in a]                     # [1,4,9,16]
+[i for i in a if i % 2 == 0]         # [4,16]
+[i if i % 2 == 0 else '' for i in a] # ['', 2, '', 4]
+a = [ [1,2], [3,4] ]
+[[j*2 for j in i] for i in a]        # [ [2,4], [6,8] ]
 
 # map
 def add(n): return n + n
