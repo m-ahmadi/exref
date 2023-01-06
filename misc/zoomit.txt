@@ -7,8 +7,6 @@ ctrl 4			live zoom (ctrl ↑↓)
 esc | rclick		exit
 
 		in draw
-e			clear
-ctrl z			clear last
 ctrl			rectangle
 shift			line
 tab			circle
@@ -17,11 +15,13 @@ r g b y o p		pen colors
 t | shift t		type | right-aligned (fontsize:  ctrl scroll ↑↓)
 w | k			white|black board
 space			center the cursor
+e			clear
+ctrl z			clear last
 ctrl s			save screenshot
 
 		in zoom
-rclick			start drawing
-click			stop drawing
+click			start drawing
+rclick			stop drawing
 scroll ↑↓		zoom in out
 
 
