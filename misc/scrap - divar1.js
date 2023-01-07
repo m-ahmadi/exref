@@ -50,7 +50,7 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 		let title = i.querySelector('a .kt-post-card__title').innerText;
 		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
 		let link = decodeURI(i.querySelector('a').href);
-		if (USE_RESULT_SAVING_MECHANISM && store.get(link)) return;
+		if (USE_RESULT_SAVING_MECHANISM && store.has(link)) return;
 		let [credit, rent] = [...i.querySelectorAll('.kt-post-card__body .kt-post-card__description')].map(i=>i.innerText);
 		[credit, rent] = [credit, rent].map(i => i.includes('رایگان') || i.includes('توافقی') ? 0 : toEn(i) / 1e6);
 		let convcredit = calcConvCredit(credit, rent);
@@ -211,8 +211,10 @@ for (let [idx, text] of texts.entries()) {
 
 if (USE_RESULT_SAVING_MECHANISM) {
 	let m = new Map(rr.map(i => [i[i.length-1], i]));
-	let ents = r.map(i => [i, m.get(i) || 0]);
-	localStorage[STORAGE_KEY] = JSON.stringify(ents);
+	r.forEach(i => store.set(i, m.get(i) || 0));
+	let storeEnts = [...store];
+	localStorage[STORAGE_KEY] = JSON.stringify(storeEnts);
+	rr = storeEnts.map(([,v]) => v).filter(i=>i);
 }
 
 

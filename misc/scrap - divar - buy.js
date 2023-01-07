@@ -38,7 +38,7 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 		let title = i.querySelector('a .kt-post-card__title').innerText;
 		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
 		let link = decodeURI(i.querySelector('a').href);
-		if (USE_RESULT_SAVING_MECHANISM && store.get(link)) return;
+		if (USE_RESULT_SAVING_MECHANISM && store.has(link)) return;
 		if ( ignores.some(i=> title.includes(i) || time.includes(i)) ) return;
 		return link;
 	}).filter(i=>i);
@@ -79,8 +79,10 @@ console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
 
 if (USE_RESULT_SAVING_MECHANISM) {
 	let m = new Map(rr.map(i => [i[i.length-1], i]));
-	let ents = r.map(i => [i, m.get(i) || 0]);
-	localStorage[STORAGE_KEY] = JSON.stringify(ents);
+	r.forEach(i => store.set(i, m.get(i) || 0));
+	let storeEnts = [...store];
+	localStorage[STORAGE_KEY] = JSON.stringify(storeEnts);
+	rr = storeEnts.map(([,v]) => v).filter(i=>i);
 }
 
 
