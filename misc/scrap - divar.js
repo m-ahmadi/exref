@@ -65,10 +65,10 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 /** another way (incomplete) *//*
 ts = [];
 for (let i=0; i<10; i++) {
-  let a = ts.length === 0 ? new Date() : ts[ts.length-1][1];
-  let b = new Date(+a);
-  b.setDate(b.getDate()-8);
-  ts.push([a,b]);
+	let a = ts.length === 0 ? new Date() : ts[ts.length-1][1];
+	let b = new Date(+a);
+	b.setDate(b.getDate()-8);
+	ts.push([a,b]);
 }
 
 r = [];
