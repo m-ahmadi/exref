@@ -19,6 +19,9 @@ MAKE_CSV = true;
 MAKE_CSV_ROWNUM_COL = true;
 UTF8_BOM_CSV = true;
 FILENAME = 'out';
+USE_RESULT_SAVING_MECHANISM = false;
+STORAGE_KEY = 'mydivar';
+store = new Map(JSON.parse(localStorage[STORAGE_KEY] || '[]'));
 
 sleep = ms => new Promise(r=> setTimeout(r,ms));
 en = {'۰':'0', '۱':'1', '۲':'2', '۳':'3', '۴':'4', '۵':'5', '۶':'6', '۷':'7', '۸':'8', '۹':'9', '.':'.'};
@@ -45,6 +48,7 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 		let title = i.querySelector('a .kt-post-card__title').innerText;
 		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
 		let link = decodeURI(i.querySelector('a').href);
+		if (USE_RESULT_SAVING_MECHANISM && store.get(link)) return;
 		let [credit, rent] = [...i.querySelectorAll('.kt-post-card__body .kt-post-card__description')].map(i=>i.innerText);
 		[credit, rent] = [credit, rent].map(i => i.includes('رایگان') || i.includes('توافقی') ? 0 : toEn(i) / 1e6);
 		let convcredit = calcConvCredit(credit, rent);
@@ -114,6 +118,12 @@ while (links.size > 0) {
 	await Promise.allSettled(proms);
 }
 console.log('took', (((Date.now()-t) / 1000) / 60).toFixed(2), ' min');
+
+if (USE_RESULT_SAVING_MECHANISM) {
+	let m = new Map(rr.map(i => [i[i.length-1], i]));
+	let ents = r.map(i => [i, m.get(i) || 0]);
+	localStorage[STORAGE_KEY] = JSON.stringify(ents);
+}
 
 
 COLUMN_FILTERS.forEach(([col, eq, val]) => {
