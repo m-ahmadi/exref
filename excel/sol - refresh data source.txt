@@ -1,0 +1,2 @@
+Data -> Existing Connections -> rclick on connection -> Edit Connection Properties
+	Refresh data when opening the file
