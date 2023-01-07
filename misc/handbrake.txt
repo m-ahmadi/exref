@@ -3,3 +3,15 @@ Tools -> Preferences ->
 Output File
 	Default Path:		D:\xampp\htdocs
 	MP4 File Extension:	Always use MP4
+
+--------------------------------------------------------------------------------
+keep embedded subtitle
+
+Subtitles ->
+	select something other than "Foreign Audio Scan"
+	check "Burn In" or "Default"
+
+note:
+with "Default", some sections of the subtitle didn't show up in the
+converted file, but with "Burn In", they all showed up
+--------------------------------------------------------------------------------
