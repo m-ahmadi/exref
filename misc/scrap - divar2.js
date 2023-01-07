@@ -66,11 +66,11 @@ if (makeHTML) {
 }
 
 function download(filename, text) {
-  let a = document.createElement('a');
+	let a = document.createElement('a');
 	a.setAttribute('href', 'data:text/plain;charset=utf-8,' + (makeCSV && UTF8_BOM_CSV ? '\ufeff' : '')+encodeURIComponent(text));
-  a.setAttribute('download', filename);
-  a.style.display = 'none';
-  document.body.append(a);
-  a.click();
-  a.remove();
+	a.setAttribute('download', filename);
+	a.style.display = 'none';
+	document.body.append(a);
+	a.click();
+	a.remove();
 }
