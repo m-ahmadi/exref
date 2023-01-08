@@ -1,6 +1,6 @@
 how to extend vlookup to other cells:
 
-=VLOOKUP(B1,Prices!A$5:A$10,2)
+=VLOOKUP(B1, Prices!A$5:A$10, 2, FALSE)
 
 $ will lock the range
 
