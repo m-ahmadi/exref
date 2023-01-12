@@ -3,6 +3,8 @@ u = 'https://api.digikala.com/v1/categories/webcam/search/?has_selling_stock=1';
 u = 'https://api.digikala.com/v1/providers-products/?has_selling_stock=1&category_code=casual-shoes-for-men';
 u = 'https://api.digikala.com/v1/categories/binoculars/search/?has_selling_stock=1';
 u = 'https://api.digikala.com/v1/categories/mobile-phone/search/?sort=21';
+u = 'https://api.digikala.com/v1/categories/washing-machines/search/?has_selling_stock=1';
+u = 'https://api.digikala.com/v1/categories/refrigerator-freezer/search/?has_selling_stock=1';
 SLEEP = 500;
 
 r = [];
