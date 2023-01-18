@@ -35,7 +35,7 @@ app.get('/', function (req, res) {
 
 // access post request parameters
 app.use( express.urlencoded({extended: true}) );   // to support JSON-encoded bodies
-app.use( express.json() )                          // to support URL-encoded bodies
+app.use( express.json() );                         // to support URL-encoded bodies
 app.post('/foo', function (req, res) {
 	var bod = req.body;
 });
@@ -66,9 +66,9 @@ app.use( '/static', express.static(__dirname + '/public') );
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.get('/', function(req, res, next) {
-	res.render('index', { title: 'Express', layout: false });            // no layout
-	res.render('index', { title: 'Express', layout: 'second' });         // views/second.hbs
-	res.render('index', { title: 'Express', layout: 'layouts/main' });   // views/layouts/main.hbs
+	res.render('index', { title: 'Express', layout: false });          // no layout
+	res.render('index', { title: 'Express', layout: 'second' });       // views/second.hbs
+	res.render('index', { title: 'Express', layout: 'layouts/main' }); // views/layouts/main.hbs
 });
 
 
@@ -89,25 +89,30 @@ function requestTime(req, res, next) { req.requestTime = Date.now(); next(); }
 // async middleware
 function asyncUtil(fn) {
 	return function (...args) {
-		const fnReturn = fn(...args)
-		const next = args[args.length-1]
-		return Promise.resolve(fnReturn).catch(next)
+		const fnReturn = fn(...args);
+		const next = args[args.length-1];
+		return Promise.resolve(fnReturn).catch(next);
 	};
 }
 app.get('/', asyncUtil(async (req, res, next) => {
 	const bar = await foo.findAll();
-	res.send(bar)
-}))
+	res.send(bar);
+}));
+// or simply
+app.get('/', (req, res, next) => {
+	const bar = await foo.findAll().catch(next);
+	res.send(bar);
+});
 
 
 
 // cors
 var cors = require('cors');
 // enable for all requests
-app.use(cors())
-app.get('/products/:id', (q,res) => res.json({msg: 'foo'}))
+app.use(cors());
+app.get('/products/:id', (q,res) => res.json({msg: 'foo'}));
 // enable for a single route
-app.get('/products/:id', cors(), (q,res) => res.json({msg: 'foo'}))
+app.get('/products/:id', cors(), (q,res) => res.json({msg: 'foo'}));
 
 
 
@@ -117,25 +122,25 @@ app.set('port', process.env.PORT || 3000);
 
 
 // redirect
-res.redirect('/admin')
-res.redirect('../login')
-res.redirect('..')
-res.redirect('post/new')
-res.redirect('http://example.com')
-res.redirect(301, 'http://example.com')
-res.redirect('back')
+res.redirect('/admin');
+res.redirect('../login');
+res.redirect('..');
+res.redirect('post/new');
+res.redirect('http://example.com');
+res.redirect(301, 'http://example.com');
+res.redirect('back');
 
 
 
 // render view
-res.render('index')
-res.render('index', (err, html) => res.send(html))
-res.render('user', {name: 'Tobi'}, (err,html)=> res.send(html)) // pass local variable to view
+res.render('index');
+res.render('index', (err, html) => res.send(html));
+res.render('user', {name: 'Tobi'}, (err,html)=> res.send(html)); // pass local variable to view
 
 
 
 // router
 var router = express.Router();
-router.use((req, res, next) => next())     // all requests passed to this router
-router.get('/events', (req, res, next) =>) // only request that ends in /events
-app.use('/foo', router)
+router.use((req, res, next) => next());     // all requests passed to this router
+router.get('/events', (req, res, next) =>); // only request that ends in /events
+app.use('/foo', router);
