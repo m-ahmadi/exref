@@ -25,7 +25,7 @@ tag                    a specific version tagged and published as tag See npm-di
 path/path/path         local path
 */
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// tell npm to use a specific branch of a github repository.
+// use specific branch of a github repository
 "repository": {
 	"type": "git",
 	"url": "git+https://github.com/username/repo.git#branch-name"
