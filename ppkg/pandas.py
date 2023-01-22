@@ -41,6 +41,7 @@ DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|''
 DataFrame.div(other=0|[]|Series|DataFrame, axis='columns|index'|0, level=None|0|'', fill_value=None)
 DataFrame.add(↑...)
 DataFrame.mul(↑...)
+DataFrame.min(axis=<no_default>, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
 
 Index.duplicated(keep='first|last'|False)
 
@@ -316,6 +317,15 @@ df = pd.DataFrame([ [1,4],
 										[3,6] ], columns=['a','b'])
 df.min(axis=0) # {'a':1, 'b':4}
 df.min(axis=1) # [1,5,3]
+
+# min - skipna
+na = float('nan')
+df = pd.DataFrame([ [1,3],
+										[2,na] ], columns=['a','b'])
+df.min(axis=0)               # {'a':1, 'b':3}
+df.min(axis=0, skipna=False) # {'a':1, 'b':na}
+df.min(axis=1)               # [1,2]
+df.min(axis=1, skipna=False) # [1,na]
 
 # index
 idx = pd.Index(['a','b','c','c'])
