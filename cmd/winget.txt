@@ -1,0 +1,7 @@
+winget list					show installed apps
+winget install Google.Chrome			install chrome
+winget install -e --id Google.Chrome		... exact match
+winget search chrome				search pkg
+
+winget --help
+winget install --help
