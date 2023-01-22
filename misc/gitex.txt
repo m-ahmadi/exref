@@ -12,3 +12,7 @@ custom command setup
 mklink %windir%\gitx "C:\Program Files (x86)\GitExtensions\GitExtensions.exe"
 echo @start "" "C:\Program Files (x86)\GitExtensions\GitExtensions.exe" %* > %windir%\gitx.cmd
 --------------------------------------------------------------------------------
+make shortcut command for `gitex openrepo .`
+
+echo @start "" "C:\Program Files (x86)\GitExtensions\GitExtensions.exe" openrepo %* > %windir%\gx.cmd
+--------------------------------------------------------------------------------
