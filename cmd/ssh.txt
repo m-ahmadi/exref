@@ -1,0 +1,9 @@
+ssh foo@168.44.22.5		ssh to address
+
+--------------------------------------------------
+install
+
+ms-settings:optionalfeatures ->
+	OpenSSH Client
+	OpenSSH Server (%programdata%\ssh\sshd_config)
+--------------------------------------------------
