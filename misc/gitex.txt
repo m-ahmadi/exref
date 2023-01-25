@@ -2,7 +2,7 @@ gitex help
 gitex openrepo path/to/dir
 
 --------------------------------------------------------------------------------
-remove shell extension
+remove shell extension (v3.x)
 
 pushd "C:\Program Files (x86)\GitExtensions"
 regsvr32 /u GitExtensionsShellEx64.dll
