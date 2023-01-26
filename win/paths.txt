@@ -1,0 +1,2 @@
+apps pinned to taskbar		%appdata%\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar
+start menu items		%appdata%\Microsoft\Windows\Start Menu\Programs

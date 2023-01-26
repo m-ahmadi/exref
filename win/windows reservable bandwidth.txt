@@ -1,11 +1,9 @@
 gpedit.msc
-
 Local Computer Policy
 Computer Configuration
-Administrative Templates
-Network
-QOS Packet Scheduler
-Limit Reservable Bandwidth
-
-Enabled
-0%
+	Administrative Templates
+		Network
+			QOS Packet Scheduler
+				Limit Reservable Bandwidth
+					Enabled
+					Bandwidth limit (%): 0
