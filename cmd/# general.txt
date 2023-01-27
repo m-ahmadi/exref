@@ -1,5 +1,6 @@
 title windowtitle		change title of console window
 exit				exit the console
+exit /b 0			... with exitCode 0
 
 systeminfo			print system information
 date /t				show current date
