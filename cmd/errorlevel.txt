@@ -5,3 +5,19 @@ echo %errorlevel%	(0)
 
 node -p "x+2"
 echo %errorlevel%	(1)
+
+https://ss64.com/nt/errorlevel.html
+--------------------------------------------------
+reset %errorlevel%
+
+cd .
+call;
+type nul > nul
+ver > nul
+verify > nul
+cmd /c "exit /b 0"
+
+won't work:
+	echo. > nul
+	cls > nul
+--------------------------------------------------
