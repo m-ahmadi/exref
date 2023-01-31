@@ -1,0 +1,22 @@
+show battery indicator
+
+ms-settings:taskbar -> Turn system icons on or off -> Power
+
+--------------------------------------------------
+battery health report
+
+powercfg /batteryreport
+--------------------------------------------------
+refresh driver
+
+devmgmt.msc -> Batteries -> rclick on driver ->
+	Disable device, then, Enable device
+restart
+--------------------------------------------------
+enable battery indicator (haven't tried, wasn't disabled in win1809)
+
+set k=HKLM\SYSTEM\CurrentControlSet\Control\Power
+reg delete %k% /v UserBatteryDischargeEstimator /f
+reg delete %k% /v EnergyEstimationDisabled /f
+reg add %k%  /v EnergyEstimationEnabled /t REG_DWORD /d 1
+--------------------------------------------------
