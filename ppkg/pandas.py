@@ -35,6 +35,9 @@ DataFrame.fillna(value=None, method=None|'backfill|bfill|pad|ffill', axis=None|0
 DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], inplace=False)
 DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right|outer|inner', lsuffix='', rsuffix='', sort=False)
 DataFrame.equals(other=DataFrame|Series)
+DataFrame.isna() | isnull()
+DataFrame.all(axis=0|1|'index'|'columns'|None, bool_only=None|bool, skipna=True|bool, level=None|0|'', **kwargs)
+DataFrame.any(*, ↑...)
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -147,11 +150,62 @@ df = pd.DataFrame({'foo':[1,2,3,4,5,6], 'bar':[9,8,7,6,5,4]})
 grouped = df.groupby('foo')
 grouped.filter(lambda i: i['foo'] > 3)
 
+# filter by content - consider all columns (like `subset` or `how`)
+df = pd.DataFrame([ [0,0,1],
+										[0,0,0],
+										[0,0,0] ])
+df[(df == 0).all(axis=1)].shape[0] # 2 (2 rows contain 0 in all cols)
+
+n = float('nan')
+df = pd.DataFrame([ [n,n,1],
+										[n,n,n],
+										[n,n,n] ])
+df[df.isna().all(axis=1)].shape[0] # 2 (2 rows contain nan in all cols)
+
+# filter by content - consider specific column
+df = pd.DataFrame([ [1,1,1],
+										[1,1,1],
+										[1,0,1] ], columns=['a','b','c'])
+df[df['b'] == 0].shape[0]   # 1 (1 row with col b equal to 0)
+
+n = float('nan')
+df = pd.DataFrame([ [1,1,1],
+										[1,1,1],
+										[1,n,1] ], columns=['a','b','c'])
+df[df['b'].isna()].shape[0] # 1 (1 row with col b equal to nan)
+
 # filter by labels (not on contents)
 df = pd.DataFrame([[1,2,3], [4,5,6]], index=['mouse','rabbit'], columns=['one','two','three'])
 df.filter(items=['one', 'three'])
 df.filter(regex='e$', axis=1)
 df.filter(like='bbi', axis=0)
+
+# filter by bool logic - all
+pd.Series([True, True]).all()         # True
+pd.Series([True, False]).all()        # False
+pd.Series([]).all()                   # True
+pd.Series([np.nan]).all()             # True
+pd.Series([np.nan]).all(skipna=False) # ...
+
+df = pd.DataFrame([ [True, True],
+										[True, False] ], columns=['a','b'])
+df.all()               # { 'a': True, 'b': False }
+df.all(axis='columns') # [True, False]
+df.all(axis=None)      # False
+
+# filter by bool logic - any
+pd.Series([False, False]).any()       # False
+pd.Series([True, False]).any()        # True
+pd.Series([]).any()                   # False
+pd.Series([np.nan]).any()             # False
+pd.Series([np.nan]).any(skipna=False) # True
+
+df = pd.DataFrame([ [1,0,0],
+										[2,2,0] ], columns=['a','b','c'])
+df.any()               # { 'a': True, 'b': True, 'c': False }
+df.any(axis='columns') # [True, True]
+df.any(axis=None)      # True
+pd.DataFrame([]).any() # []
 
 # drop
 df = pd.DataFrame([ [1,2], [3,4], [5,6], [7,8] ])
