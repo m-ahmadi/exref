@@ -37,6 +37,7 @@ ctrl alt
 ctrl `		deskpins
 ctrl shift `	everything
 ctrl shift d	babylon (mouse: shift midclick)
+ctrl shift a	ncpa.cpl
 ctrl alt `	conemu
 --------------------------------------------------------------------------------
 alarm sound
