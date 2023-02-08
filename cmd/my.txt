@@ -39,6 +39,8 @@ ctrl shift `	everything
 ctrl shift d	babylon (mouse: shift midclick)
 ctrl shift a	ncpa.cpl
 ctrl alt `	conemu
+shift alt 1	eth1
+shift alt 2	eth2
 --------------------------------------------------------------------------------
 alarm sound
 

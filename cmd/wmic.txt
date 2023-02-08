@@ -5,3 +5,6 @@ wmic process where name="mspaint.exe" CALL setpriority "above normal"
 wmic process get ProcessID,ExecutablePath
 
 wmic useraccount get name,sid		show all local users
+
+wmic nic get Name, NetConnectionID	show all network adapters
+wmic nic get /?				... all possible properties
