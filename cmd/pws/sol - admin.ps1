@@ -16,3 +16,8 @@ $params = @{
 	Description = 'Description of my service'
 }
 New-Service @params
+
+# control network adapters
+Get-NetAdapter                                 # list all adapters
+Disable-NetAdapter -Name "foo" -Confirm:$false # disable adapter
+Enable-NetAdapter -Name "foo" -Confirm:$false  # enable adapter
