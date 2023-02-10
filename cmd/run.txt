@@ -29,6 +29,7 @@ osk				On-Screen Keyboard
 perfmon				Performance Monitor
 PresentationSettings		Presentation Settings (only available on mobile pcs)
 pwcreator			Create a Windows To Go workspace
+quickassist			Quick Assist
 regedit				Registry Editor
 resmon				Resource Monitor
 sigverif			File Signature Verification
