@@ -1,6 +1,7 @@
 ﻿win r			run
 win e			my computer
 win m			minimize all windows
+win home		... except the one currently focused (alt: shake window with mouse)
 win 1-9 (not numpad)	open window or tab through
 win f			search window
 win p			monitor modes

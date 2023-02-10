@@ -1,0 +1,12 @@
+install programs in isolated sandbox (available on win "v1903 build 18305" or above)
+
+enable:
+	appwiz.cpl ,2 -> Windows Sandbox
+	or
+	dism /online /Enable-Feature /FeatureName: "Containers-DisposableClientVM" -All
+
+how to use:
+	1. copy .exe file
+	2. open "Windows Sandbox"
+	3. paste
+	4. install
