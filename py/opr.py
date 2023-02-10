@@ -1,11 +1,13 @@
+# https://docs.python.org/3/library/operator.html#mapping-operators-to-functions
+
 + - * / %        # arithmeic
 **               # ... exponentiation
 //               # ... floor division
 @                # ... matrix multiplication
 = : :=           # assignment
 += -= *= /= %=   # ...
-//= **= @=       # ...
-&= |= ^= >>= <<= # ...
+**= //= @=       # ...
+&= |= ^= >>= <<= # ... logical: and, or, xor, right-shift, left-shift
 == != > < >= <=  # comparison
 and or not       # logical
 in               # containment

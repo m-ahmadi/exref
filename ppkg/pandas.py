@@ -75,6 +75,7 @@ s = pd.Series([1,2,3,4])
 s = pd.Series([1,2,3], index=['a','b','c'])
 
 # index access
+# https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html
 df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
 df.a
 df['a']
@@ -145,12 +146,26 @@ _sorted = df.sort_values(by='b', ascending=False)
 _sorted.iloc[0]  # {'a': 3, 'b': 5}  (         top item)
 _sorted.index[0] # 2                 (index of top item)
 
-# filter by content
-df = pd.DataFrame({'foo':[1,2,3,4,5,6], 'bar':[9,8,7,6,5,4]})
-grouped = df.groupby('foo')
-grouped.filter(lambda i: i['foo'] > 3)
+# filter
+df = pd.DataFrame({'a':[1,2,3,4,5,6], 'b':[9,8,7,6,5,4]})
+df[df['a'] > 3]                              # {'a': [4,5,6], 'b': [6,5,4]}
+df.groupby('a').filter(lambda i: i['a'] > 3) # ...
 
-# filter by content - consider all columns (like `subset` or `how`)
+# filter - boolean indexing
+s = pd.Series([1,2,3,4,5,6,7,8,9,10])
+s[s > 7]             # [8,9,10]
+s[(s < 7) & (s > 4)] # and:  [5,6]
+s[(s < 4) | (s < 5)] # or:   [1,2,3,4]
+s[~(s > 4)]          # not:  [1,2,3,4]
+
+df = pd.DataFrame([ [1,5],
+										[2,6],
+										[3,7],
+										[4,8] ], columns=['a','b'])
+df[ (df['a'] < 3) & (df['b'] < 7) ] # { 'a': [1,2], 'b': [5,6] }
+df[ df['a'].map(lambda i: i > 3) ]  # { 'a': [4],   'b': [8]   }
+
+# filter - consider all columns (like `subset` or `how`)
 df = pd.DataFrame([ [0,0,1],
 										[0,0,0],
 										[0,0,0] ])
@@ -162,7 +177,7 @@ df = pd.DataFrame([ [n,n,1],
 										[n,n,n] ])
 df[df.isna().all(axis=1)].shape[0] # 2 (2 rows contain nan in all cols)
 
-# filter by content - consider specific column
+# filter - consider specific column
 df = pd.DataFrame([ [1,1,1],
 										[1,1,1],
 										[1,0,1] ], columns=['a','b','c'])
@@ -174,13 +189,7 @@ df = pd.DataFrame([ [1,1,1],
 										[1,n,1] ], columns=['a','b','c'])
 df[df['b'].isna()].shape[0] # 1 (1 row with col b equal to nan)
 
-# filter by labels (not on contents)
-df = pd.DataFrame([[1,2,3], [4,5,6]], index=['mouse','rabbit'], columns=['one','two','three'])
-df.filter(items=['one', 'three'])
-df.filter(regex='e$', axis=1)
-df.filter(like='bbi', axis=0)
-
-# filter by bool logic - all
+# filter - truthy logic - all
 pd.Series([True, True]).all()         # True
 pd.Series([True, False]).all()        # False
 pd.Series([]).all()                   # True
@@ -193,7 +202,7 @@ df.all()               # { 'a': True, 'b': False }
 df.all(axis='columns') # [True, False]
 df.all(axis=None)      # False
 
-# filter by bool logic - any
+# filter - truthy logic - any
 pd.Series([False, False]).any()       # False
 pd.Series([True, False]).any()        # True
 pd.Series([]).any()                   # False
@@ -206,6 +215,12 @@ df.any()               # { 'a': True, 'b': True, 'c': False }
 df.any(axis='columns') # [True, True]
 df.any(axis=None)      # True
 pd.DataFrame([]).any() # []
+
+# filter by labels (not on values)
+df = pd.DataFrame([[1,2,3], [4,5,6]], index=['mouse','rabbit'], columns=['one','two','three'])
+df.filter(items=['one', 'three'])
+df.filter(regex='e$', axis=1)
+df.filter(like='bbi', axis=0)
 
 # drop
 df = pd.DataFrame([ [1,2], [3,4], [5,6], [7,8] ])
