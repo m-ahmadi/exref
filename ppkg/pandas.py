@@ -408,10 +408,10 @@ idx = pd.DatetimeIndex([dt.datetime(2022,1,1), dt.datetime(2022,1,2), dt.datetim
 df = pd.DataFrame({'foo': [1,2,3]}, index=idx)
 
 # index - reindex
-df = pd.DataFrame({'a':[3,4,5]}, index=[0,1,2])
-df2 = df.reindex([1,2,0])
-df  # {'a':[3,4,5]}
-df2 # {'a':[4,5,3]}
+df = pd.DataFrame({'a':[4,5,3]}, index=[0,1,2])
+df2 = df.reindex([2,0,1,3])
+df  # {'a':[4,5,3]}
+df2 # {'a':[3,4,5,nan], 'index':[2,0,1,3]}
 
 # read_csv - DatetimeIndex
 ''' file.csv
