@@ -5,10 +5,16 @@ Object.keys(object)
 Object.keys(object).forEach(key => {
 	var prop = object[key];
 });
+
+// get inherited non-enumerable props
+Object.getOwnPropertyNames([].__proto__)
+Object.getOwnPropertyNames(''.__proto__)
+Object.getOwnPropertyNames(new Date().__proto__)
+Object.getOwnPropertyNames(new Date().__proto__).filter(i => (/getUTC.+/).test(i)) // ['getUTCDate', 'getUTCDay', 'getUTCFullYear', ...]
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // for in
 
-for (prop in obj) {
+for (let prop in obj) {
 	// iterates over inherited members as well
 	
 	if ( obj.hasOwnPorperty(prop) ) {
