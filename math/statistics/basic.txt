@@ -32,7 +32,7 @@ random sampling:		each member of population has equal chance of being chosen at 
 	with    replacement:	observations are put back in the population after each draw for possible future reselection
 	without replacement:	observations, once selected, are unavailable for future draws
 stratified sampling:		divide population into subgroups and randomly sample from each group
-unbiased process		has error, but error is due to random chance
+unbiased process:		has error, but error is due to random chance
 biased   process:		has error, but error tends strongly in one direction
 --------------------------------------------------------------------------------
 univariate analysis
