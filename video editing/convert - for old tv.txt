@@ -26,6 +26,10 @@ terms:
 	vcode:	re-encode video
 	acode:	re-encode audio
 --------------------------------------------------
+supported vs unsupported mkv file on old tv (mediainfo)
 
-
-
+		✔			❌
+Complete name:	I_Am_Legend_2007.mkv	The_Last_Kingdom_S01E01.mkv
+Format:		AVC			HEVC
+Format/Info:	Advanced Video Codec	High Efficiency Video Coding
+--------------------------------------------------
