@@ -39,6 +39,8 @@ DataFrame.isna() | isnull()
 DataFrame.all(axis=0|1|'index'|'columns'|None, bool_only=None|bool, skipna=True|bool, level=None|0|'', **kwargs)
 DataFrame.any(*, ↑...)
 DataFrame.isin(values=[]|Series|DataFrame|{})
+DataFrame.count(axis=0, level=None|0|'', numeric_only=False)
+DataFrame.value_counts(subset=None|[], normalize=False, sort=True, ascending=False, dropna=True)
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -46,6 +48,9 @@ DataFrame.div(other=0|[]|Series|DataFrame, axis='columns|index'|0, level=None|0|
 DataFrame.add(↑...)
 DataFrame.mul(↑...)
 DataFrame.min(axis=<no_default>, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
+
+Series.value_counts(normalize=False, sort=True, ascending=False, bins=None|0, dropna=True)
+Series.count(level=None|0|'')
 
 Index.duplicated(keep='first|last'|False)
 Index.union(other=Index|[], sort=None|bool)
@@ -435,6 +440,15 @@ df = pd.read_csv('file.csv', index_col=0, parse_dates=True)
 df.index   # [Timestamp('2022-01-01 08:15:00'), Timestamp('2022-01-01 08:45:00'), Timestamp('2022-01-01 09:15:00')]
 df.values  # [100, 150, 200]
 df.columns # ['count']
+
+# misc - count
+s = pd.Series([1,2,3,3,4,4,4, np.nan])
+s.value_counts() # pd.Series([3,2,1,1], index=[4,3,1,2])
+s.count() # 7
+
+df = pd.DataFrame({'a': [1,2,3,3,4,4,4]})
+df.value_counts() # pd.Series([3,2,1,1], index=[4,3,1,2])
+df.count()        # {'a':4, 'b':4}
 
 # math
 df = pd.DataFrame({'a':[2,4,6], 'b':[8,10,12]})
