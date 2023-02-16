@@ -540,7 +540,7 @@ np.SHIFT_OVERFLOW
 np.SHIFT_UNDERFLOW
 np.short
 np.show_config
-np.sign
+np.sign(x=∂, out=None|[]|([]|None,...), *, where=True|[bool,...], **kwargs)
 np.signbit
 np.signedinteger
 np.sin
