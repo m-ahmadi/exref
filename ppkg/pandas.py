@@ -2,6 +2,7 @@ import pandas as pd # pip install pandas
 
 pd.read_csv('file.csv', header='infer'|0|[0,..]|None, names=['',..], nrows=0, sep=',', index_col=None|0|''|False, parse_dates=False|[0|''|[],..], dtype=''|{}, ...)
 pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
+pd.date_range(start=None|''|datetime, end=None|''|datetime, periods=None|0, freq='D'|DateOffset, tz=None|''|tzinfo, normalize=False, name=None|'', inclusive=None, **kwargs)
 
 DataFrame(data=None|ndarray|[]|{}|DataFrame, index=None|[], columns=None|[], dtype=None, copy=None|bool)
 DataFrame.columns
@@ -425,6 +426,16 @@ df2 = df.reindex([2,0,1,3])
 df  # {'a':[4,5,3]}
 df2 # {'a':[3,4,5,nan], 'index':[2,0,1,3]}
 
+# index - reindex - method of how to fill holes in new index (holes in orig index are untouched)
+idx1 = pd.date_range(start='2022/1/4', end='2022/1/6')
+idx2 = pd.date_range(start='2022/1/2', end='2022/1/8')
+na = float('nan')
+df = pd.DataFrame({'prices': [1,na,2]}, index=idx1)
+df.reindex(idx2)                   # [na,na,  1,na,2,  na,na]    don't fill
+df.reindex(idx2, method='bfill')   # [1,1,    1,na,2,  na,na]    fill with next    valid
+df.reindex(idx2, method='ffill')   # [na,na,  1,na,2,  2,2]      fill with prev    valid
+df.reindex(idx2, method='nearest') # [1,1,    1,na,2,  2,2]      fill with nearest valid
+
 # index - union
 idx1 = pd.Index([1,2,3,4])
 idx2 = pd.Index([3,4,5,6])
@@ -450,6 +461,11 @@ s.count() # 7
 df = pd.DataFrame({'a': [1,2,3,3,4,4,4]})
 df.value_counts() # pd.Series([3,2,1,1], index=[4,3,1,2])
 df.count()        # {'a':4, 'b':4}
+
+# misc - date range
+pd.date_range(start='2022/1/1', periods=4)      # ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04']
+pd.date_range(start='2022/1/1', end='2022/1/4') # ...
+pd.date_range(end='2022/1/4', periods=4)        # ...
 
 # math
 df = pd.DataFrame({'a':[2,4,6], 'b':[8,10,12]})
