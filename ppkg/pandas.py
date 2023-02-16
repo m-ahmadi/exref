@@ -38,6 +38,7 @@ DataFrame.equals(other=DataFrame|Series)
 DataFrame.isna() | isnull()
 DataFrame.all(axis=0|1|'index'|'columns'|None, bool_only=None|bool, skipna=True|bool, level=None|0|'', **kwargs)
 DataFrame.any(*, ↑...)
+DataFrame.isin(values=[]|Series|DataFrame|{})
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -222,6 +223,10 @@ df = pd.DataFrame([[1,2,3], [4,5,6]], index=['mouse','rabbit'], columns=['one','
 df.filter(items=['one', 'three'])
 df.filter(regex='e$', axis=1)
 df.filter(like='bbi', axis=0)
+
+# isin
+df = pd.DataFrame({'a': [1,2,3], 'b': [3,4,5]})
+df.isin([3,4]) # { 'a': [False,False,True], 'b': [True,True,False] }
 
 # drop
 df = pd.DataFrame([ [1,2], [3,4], [5,6], [7,8] ])
