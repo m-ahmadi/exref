@@ -47,6 +47,7 @@ DataFrame.mul(↑...)
 DataFrame.min(axis=<no_default>, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
 
 Index.duplicated(keep='first|last'|False)
+Index.union(other=Index|[], sort=None|bool)
 
 DatetimeIndex(data=None, freq, tz=None, normalize=False, closed=None, ambiguous='raise', dayfirst=False, yearfirst=False, dtype=None, copy=False, name=None)
 
@@ -412,6 +413,11 @@ df = pd.DataFrame({'a':[4,5,3]}, index=[0,1,2])
 df2 = df.reindex([2,0,1,3])
 df  # {'a':[4,5,3]}
 df2 # {'a':[3,4,5,nan], 'index':[2,0,1,3]}
+
+# index - union
+idx1 = pd.Index([1,2,3,4])
+idx2 = pd.Index([3,4,5,6])
+idx1.union(idx2) # [1,2,3,4,5,6]
 
 # read_csv - DatetimeIndex
 ''' file.csv
