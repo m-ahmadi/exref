@@ -32,3 +32,8 @@ Follow the white rabbit." The Matrix (1999)
 
 "The combination of some data and an aching desire for an answer does not ensure
 that a reasonable answer can be extracted from a given body of data." John Tukey
+
+"Good architecture allows major architectural decisions to be deferred. The job
+of an architect is not to make decisions, but to defer decisions as long as
+possible, to allow the program to be built in the absence of decisions so that
+decisions can be made later with the most possible information." - Bob Martin (from "Clean Code" book)
