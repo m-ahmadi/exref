@@ -1,0 +1,13 @@
+vd /?
+vd / list
+vd "-Switch:Desktop 2"
+
+--------------------------------------------------------------------------------
+install
+
+git clone git@github.com:MScholtes/VirtualDesktop.git
+cd VirtualDesktop
+compile.bat
+move VirtualDesktop.exe %windir%\vd.exe
+cd ../ && rd VirtualDesktop /s/q
+--------------------------------------------------------------------------------
