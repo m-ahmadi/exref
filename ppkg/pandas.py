@@ -409,6 +409,11 @@ df.min(axis=0, skipna=False) # {'a':1, 'b':na}
 df.min(axis=1)               # [1,2]
 df.min(axis=1, skipna=False) # [1,na]
 
+# argmin argmax
+s = [1,2,3,4]
+pd.Series(s).argmin() # 0
+pd.Series(s).argmax() # 3
+
 # index
 idx = pd.Index(['a','b','c','c'])
 idx.duplicated(keep='first') # [False, False, False, True]
