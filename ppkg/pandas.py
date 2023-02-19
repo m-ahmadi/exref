@@ -462,6 +462,11 @@ df = pd.DataFrame({'a': [1,2,3,3,4,4,4]})
 df.value_counts() # pd.Series([3,2,1,1], index=[4,3,1,2])
 df.count()        # {'a':4, 'b':4}
 
+s = pd.Series([0,0,1,1,1,1])
+s.value_counts()                          # [ 2,  4]
+s.value_counts(normalize=True)            # [.3, .6] relative frequency (count of item / sum of counts)
+s.value_counts() / s.value_counts().sum() # ...
+
 # misc - date range
 pd.date_range(start='2022/1/1', periods=4)      # ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04']
 pd.date_range(start='2022/1/1', end='2022/1/4') # ...
