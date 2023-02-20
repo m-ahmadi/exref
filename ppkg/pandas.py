@@ -459,13 +459,13 @@ df.values  # [100, 150, 200]
 df.columns # ['count']
 
 # misc - count
-s = pd.Series([1,2,3,3,4,4,4, np.nan])
-s.value_counts() # pd.Series([3,2,1,1], index=[4,3,1,2])
-s.count() # 7
+s = pd.Series([0,0,1,1,1,1, np.nan])
+s.value_counts() # {1:4, 0:2}
+s.count() # 6
 
-df = pd.DataFrame({'a': [1,2,3,3,4,4,4]})
-df.value_counts() # pd.Series([3,2,1,1], index=[4,3,1,2])
-df.count()        # {'a':4, 'b':4}
+df = pd.DataFrame({'a': [0,0,1,1,1,1]})
+df.value_counts() # { 'a': {1:4, 0:2} }
+df.count()        # { 'a': 6 }
 
 s = pd.Series([0,0,1,1,1,1])
 s.value_counts()                          # [ 2,  4]
