@@ -1,13 +1,52 @@
-vd /?
-vd / list
-vd "-Switch:Desktop 2"
+vd /?			help
+vd li			list dekstops
+vd s 2			switch to desktop 2
+vd n s			create new desktop and switch
+vd q n maw s		create new desktop and move active window to it
+vd gd:1 mw:notepad s	move notepad window from desktop 1 to current desktop
 
 --------------------------------------------------------------------------------
-install
+help
 
-git clone git@github.com:MScholtes/VirtualDesktop.git
-cd VirtualDesktop
-compile.bat
-move VirtualDesktop.exe %windir%\vd.exe
-cd ../ && rd VirtualDesktop /s/q
+v	Verbose
+q	Quiet
+b	Break
+co	Continue
+li	List
+c	Count
+gd	GetDesktop
+gcd	GetCurrentDesktop
+na	Name
+iv	IsVisible
+s	Switch
+l	Left
+ri	Right
+w	Wrap
+nw	NoWrap
+n	New
+r	Remove
+sd	SwapDesktop
+id	InsertDesktop
+mw	MoveWindow
+mwh	MoveWindowHandle
+maw	MoveActiveWindow
+gdfw	GetDesktopFromWindow
+gdfwh	GetDesktopFromWindowHandle
+iwod	IsWindowOnDesktop
+iwhod	IsWindowHandleOnDesktop
+pw	PinWindow
+pwh	PinWindowHandle
+upw	UnPinWindow
+upwh	UnPinWindowHandle
+iwp	IsWindowPinned
+iwhp	IsWindowHandlePinned
+pa	PinApplication
+upa	UnPinApplication
+iap	IsApplicationPinned
+ca	Calc
+wk	WaitKey
+sl	Sleep
+--------------------------------------------------------------------------------
+install
+git clone git@github.com:MScholtes/VirtualDesktop.git t && cd t && compile.bat && move VirtualDesktop.exe %windir%\vd.exe && cd ../ && rd t /s/q
 --------------------------------------------------------------------------------
