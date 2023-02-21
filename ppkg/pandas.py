@@ -381,17 +381,17 @@ s.searchsorted([1.5, 2.5]) # [1,2]
 
 # join - simple
 df1 = pd.DataFrame({'a': [1,2,3]})
-df2 = pd.DataFrame({'b': [9,8,7]})
-df3 = df1.join(df2) # { 'a':[1,2,3], 'b':[9,8,7] }
-df3 = df2.join(df1) # { 'b':[9,8,7], 'a':[1,2,3] }
+df2 = pd.DataFrame({'b': [4,5,6]})
+df1.join(df2) # { 'a':[1,2,3], 'b':[4,5,6] }
+df2.join(df1) # { 'b':[4,5,6], 'a':[1,2,3] }
 
-# join - index-based
-df1 = pd.DataFrame({'a': [1,2,3]}, index=['i0','i1','i2'])
-df2 = pd.DataFrame({'b': [9,8]},   index=['i0','i1'])
-df1.join(df2)              # { 'a':[1,2,3],   'b':[9,8,NaN] }
-df1.join(df2, how='right') # { 'a':[1,2],     'b':[9,8] }
-df2.join(df1)              # { 'b':[9,8],     'a':[1,2] }
-df2.join(df1, how='right') # { 'b':[9,8,NaN], 'a':[1,2,3] }
+# join - which index to use
+df1 = pd.DataFrame({'a': [1,2,3]})
+df2 = pd.DataFrame({'b': [4,5]})
+df1.join(df2)              # { 'a':[1,2,3],   'b':[4,5,NaN] }    caller
+df1.join(df2, how='right') # { 'a':[1,2],     'b':[4,5]     }    other
+df2.join(df1)              # { 'b':[4,5],     'a':[1,2]     }    caller
+df2.join(df1, how='right') # { 'b':[4,5,NaN], 'a':[1,2,3]   }    other
 
 # min
 df = pd.DataFrame([ [1,4],
