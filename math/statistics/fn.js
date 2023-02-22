@@ -803,9 +803,9 @@ function randn() {/*random from gaussian distribution*/
 	return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
 
-function randomChoice(events=[], size=0, p=[]) {/*numpy.random.choice*/
+function randomChoice(events=[], size=0, p=[], epsMultp=1) {/*numpy.random.choice*/
 	let [N, M] = [events.length, p.length];
-	let EPS = Number.EPSILON;
+	let EPS = Number.EPSILON * epsMultp;
 	
 	if (M) {
 		if (N !== M)                   throw Error('Events have to be same length as probability.');
@@ -813,7 +813,7 @@ function randomChoice(events=[], size=0, p=[]) {/*numpy.random.choice*/
 		if (p.some(i => i < 0))        throw Error('Probability cannot contain negative numbers.');
 		
 		let pSum = p.reduce((r,i) => r+i, 0);
-		if (pSum < 1-EPS || pSum > 1+EPS) throw Error('Overall probability has to be 1.');
+		if (pSum < 1-EPS || pSum > 1+EPS) throw Error('Probabilities do not sum to 1.');
 	} else {
 		p = Array(N).fill(1 / N);
 	}
