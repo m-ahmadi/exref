@@ -1,0 +1,33 @@
+<h1>hello</h1>
+
+<img id="image" alt="pic"/>
+
+<script>
+(async () => {
+
+response = await fetch('pic.jpg');
+reader = response.body.getReader();
+
+stream = new ReadableStream({
+	start(controller) {
+		return pump();
+		
+		async function pump() {
+			let {done, value} = await reader.read();
+			if (done) {
+				controller.close();
+				return;
+			}
+			controller.enqueue(value);
+			return pump();
+		}
+	}
+});
+
+response = new Response(stream);
+blob = await response.blob();
+url = URL.createObjectURL(blob);
+image.src = url;
+
+})();
+</script>
