@@ -1,0 +1,71 @@
+layman terminology		energy grade ballpark
+
+digital inverter		a++
+oldy with high efficiency	a+
+oldy				a
+--------------------------------------------------------------------------------
+compressor type
+
+reciprocating (piston)		common
+scroll				-
+screw				-
+centrifugal			-
+rotary screw			-
+rotary vane			-
+
+
+extra features
+	seal type
+		hermetic	common
+		semi-hermetic	-
+	digital inverter	variable speed compressor instead of on/off
+--------------------------------------------------------------------------------
+energy label mistake
+
+the label only grades the energy consumption of the product. (kWh/year: kilowatt hour per year)
+do not equate this grade with the quality of the compressor.
+energy consumption is affected by many things. (compressor output, capacity, structure's seal quality, power save features, ...)
+consider 2 parameters:
+	efficiency of compressor itself
+	total capacity litre (fridge + freez)
+so a bad compressor in a low-capacity fridge can pass as "A+".
+the important note is to look at a fridge's energy label in relation to fridge's capacity.
+to be even more exact, consider fridge & freez capacities separately when comparing 2 products.
+cuz a product can have better label due to lower freez capacity, not better compressor.
+for example:
+	c1 c2	o1 o2 o		label
+	15 5	1  2  25	a++
+	15 5	2  4  50	a+
+	15 5	3  6  75	a
+c1: fridge capacity litre
+c2: freez  capacity litre
+o1: compressor output per 1 unit of fridge
+o2: compressor output per 1 unit of freez
+o:  total output
+--------------------------------------------------------------------------------
+freshness features
+
+dual evaporators	maintain higher humidity in refrigerated areas
+			prevent freezer odors from spreading
+	
+air purifiers		eliminate bacteria and mold spores
+sealed drawers		keep food fresh longer
+--------------------------------------------------------------------------------
+compressor brands
+
+Robertshaw					-	1899
+Kuber Refrigeration Co.				India	2014
+Appson 						India	2017
+Jain Refrigeration & Air Conditioning		India	2002
+Uniqe Electricals and Refrigeration		India	2010
+Laxmi Refrigeration				-	-
+Arman Fitting Works				India	1972
+Bitzer						Germany	1934
+Chintamani Thermal Technologies			India	1993
+Panasonic					-	-
+DORIN						-	1918
+Danfoss						Denmark	1933
+Compressors Huayi				Spain	1962
+Hitech						USA	-
+Secop						Germany	2010
+--------------------------------------------------------------------------------
