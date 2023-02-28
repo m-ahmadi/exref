@@ -15,6 +15,7 @@ Subtitles -> Font
 General ->
 	Auto check for updates:		Never
 		!Auto download files if an update is available
+	Taskbar/Tray icon:		Show taskbar icon in normal and tray in minimized state only
 --------------------------------------------------
 cli
 
