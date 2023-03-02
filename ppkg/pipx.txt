@@ -1,0 +1,9 @@
+install
+	py -m pip install --user pipx
+	pushd %appdata%\Python\Python39\Scripts && pipx ensurepath
+
+uninstall
+	py -m pip uninstall -y pipx argcomplete userpath
+
+upgrade
+	py -m pip install --user -U pipx
