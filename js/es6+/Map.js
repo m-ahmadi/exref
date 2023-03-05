@@ -26,6 +26,11 @@ var arr = [...map.values()] // convert values to array
 
 // check for map
 Map.prototype.toString.call(map) === '[object Map]'
+
+// merge
+var m1 = new Map([ [1,3], [2,6] ]);
+var m2 = new Map([ [1,4], [3,9] ]);
+new Map([...m1, ...m2]) // {1:4, 2:6, 3:9}
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
