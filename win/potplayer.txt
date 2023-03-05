@@ -16,6 +16,11 @@ General ->
 	Auto check for updates:		Never
 		!Auto download files if an update is available
 	Taskbar/Tray icon:		Show taskbar icon in normal and tray in minimized state only
+
+General -> Keyboard -> Hotkeys
+	ctrl alt shift z	Playback -> Play/Pause Playback
+	ctrl alt shift x	Playback -> Play Next Item
+	ctrl alt shift c	Playback -> Play Previous Item
 --------------------------------------------------
 cli
 
