@@ -65,7 +65,7 @@ worker.on('error', () => {
 	console.log('worker threw uncaught exception');
 });
 worker.on('exit', code => {
-	if (code !== 0) consolw.log('worker exited with non-zero exit code');
+	if (code !== 0) console.log('worker exited with non-zero exit code');
 });
 await worker.terminate()
 
