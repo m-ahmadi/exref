@@ -255,7 +255,7 @@ for (let i=1; i<=PAGES; i++) {
 		// currently not in stock
 		
 		let targ = i.properties.min_price_in_last_month;
-		let hasHadPriceInLastMonth = typeof targ !== 'undefined' && targ ! == 0;
+		let hasHadPriceInLastMonth = typeof targ !== 'undefined' && targ !== 0;
 		
 		if (hasHadPriceInLastMonth) {
 			// but has been in stock in last month
