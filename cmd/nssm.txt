@@ -8,8 +8,14 @@ nssm remove MyService confirm			delete service
 nssm remove MyService				delete service gui
 
 nssm edit MyService				edit gui
-nssm set MyService Application c:\app.exe	edit exe path
-nssm set MyService AppParameters start		edit exe args
+nssm set MyService Application c:\app.exe	exe path
+nssm set MyService AppDirectory c:\		exe startup dir
+nssm set MyService AppParameters start		exe args
+nssm set MyService AppStderr e:\err.txt		exe stderr output
+nssm set MyService AppStdout e:\out.txt		exe stdout output
+
+nssm get MyService Application			view service conf
+nssm get MyService AppDirectory			...
 
 nssm start MyService				start
 nssm stop MyService				stop
