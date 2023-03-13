@@ -3,13 +3,19 @@ User Defined Language Dialogue -> Styler Dialogue
 right click on Foreground or Background color rectangle, and it will become hatched.
 this allows it to use "Default Style" colors in "Global Styles" for this section.
 
-exclude folders in find in files
-make folders hidden (check "Apply changes to this folder, subfolders and files")
-or specify only what to search using windows wildcards
-*.sql ; *.asp ; *.html ; *.as ; *.mxml
+find in files -> filters
+	exclude pattern
+		*.* !*.exe !*.zip
+	exclude folder
+		make folder hidden (and subdirs)
+		or specify only what to search: *.js *.py
+	syntax
+		*.js *.py
+		*.js; *.py
+		*.js;*.py
 
 issue: notepad++ window won't get focus when file is opened
-happens when run as admin. unchck "Run as administrator"
+happens when run as admin. uncheck "Run as administrator"
 
 replace LF with CRLF
 Replace Dialogue -> Search Mode: Extended (\n, \r, \t, \0, \x...)
