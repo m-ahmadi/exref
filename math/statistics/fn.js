@@ -366,6 +366,7 @@ function erf(x=0) {
 	}
 	
 	let res = t * Math.exp(-x * x + 0.5 * (cof[0] + ty * d) - dd);
+	
 	return isneg ? res - 1 : 1 - res;
 }
 
