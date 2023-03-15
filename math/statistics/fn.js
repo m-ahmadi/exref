@@ -359,7 +359,7 @@ function erf(x=0) {
 	let ty = 4 * t - 2;
 	let tmp;
 	
-	for(let i=cof.length-1; i>0; i--) {
+	for (let i=cof.length-1; i>0; i--) {
 		tmp = d;
 		d = ty * d - dd + cof[i];
 		dd = tmp;
