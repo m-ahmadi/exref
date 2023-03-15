@@ -22,10 +22,6 @@ General -> Keyboard -> Hotkeys
 	ctrl alt shift x	Playback -> Play Next Item
 	ctrl alt shift c	Playback -> Play Previous Item
 --------------------------------------------------
-cli
-
-PotPlayerMini64.exe path/to/file.mkv
---------------------------------------------------
 fix overlay issue
 
 del C:\Program Files\DAUM\PotPlayer\Logos\potplayer.png
