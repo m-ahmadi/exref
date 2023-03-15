@@ -310,6 +310,12 @@ function shapiroWilk(_x=[]) {
 	return W;
 }
 
+function normpdf(x=[]) {
+	let { exp } = Math;
+	let denom = Math.sqrt(2 * Math.PI);
+	return x.map(i => exp(-sqr(i)/2) / denom);
+}
+
 function norminv(p, mean=0, stdv=1) {
 	return -1.41421356237309505 * stdv * erfcinv(2 * p) + mean;
 }
