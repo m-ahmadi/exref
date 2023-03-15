@@ -1,0 +1,58 @@
+pot path/to/file.mkv			play file
+pot file.mkv /seek=00:18:00		open & play from min 18
+
+--------------------------------------------------------------------------------
+command setup
+
+mklink %windir%\pot "C:\Program Files\DAUM\PotPlayer\PotPlayerMini64.exe"			for win+r
+echo @start "" "C:\Program Files\DAUM\PotPlayer\PotPlayerMini64.exe" %* > %windir%\pot.cmd	for within cmd
+--------------------------------------------------------------------------------
+help
+
+Usage: PotPlayerMini64.exe ["content"] [/switch]
+
+"content"	:You can specify a file, folder or URL as content.
+		-You can specify multiple contents by separating them with a space.
+		-You can specify titles for URLs by separating them with a backslash (\) at the end of URLs. ("http://...\title of this url")
+		-Wildcards (*,?) are allowed.
+		-The setting "Misc > When Files Opened" affects this when a file is specified.
+
+-		:Plays streaming media from stdin
+		-Example usage: youtube-dl.exe -o - -f best[ext=webm] https://www.youtube.com/watch?v=l22sS8DEiVU | PotPlayerMini64.exe -
+
+/filedlg	:Opens the open file dialog box.
+/urldlg		:Opens the open URL dialog box.
+/folderdlg	:Opens the open folder dialog box.
+/simple		:Opens file navigator.
+/cap		:Runs screen capture.
+/cam		:Runs webcam/Other devices.
+/atv[:ch]	:Runs Analog TV device from the specified channel.
+/dtv[:ch[-idx]]	:Runs Digital TV device from the specified channel.
+/dvd		:Runs DVD device.
+/cd[:drive]	:Runs the specified drive.
+/add		:Appends the specified content(s) into playlist.
+/insert		:Inserts the specified content(s) just below the item being played in playlist.(Or adds at the end of playlist if there is nothing playing at the time)
+/autoplay	:Plays the last played item.
+/same		:Loads and plays the specified contents as multiple streams.
+		-You can independently select loaded video and audio streams under Video/Audio/Filters context menus.
+/sort		:Sorts the specified contents by name before adding them into playlist.
+/randomize	:Sorts the specified contents by randomly before adding them into playlist.
+/new		:Plays the specified content(s) within a new instance of the program.
+		-The setting "F5 > General > Multiple instances" does not affect this.
+/current	:Plays the specified content(s) within an existing instance of the program.
+		-The setting "F5 > General > Multiple instances" does not affect this.
+/clipboard	:Appends content(s) from clipboard into playlist and starts playback immediately.
+/seek=time	:Starts playback of the specified/last played content from the specified time point.
+		-time format is: hh:mm:ss.ms (OR specify seconds only e.g. /seek=1800 to start at 30th min)
+/sub="subfile"	:Loads the specified subtitle(s) from the specified paths or URLs.
+/user_agent="ua":Sets user agent header for HTTP(S) requests.
+/referer="ref"	:Sets referer header for HTTP(S) requests.
+/headers="hdrs"	:Appends the specified header(s) to HTTP(S) requests.
+/title="title"	: Use title
+config="name"	:Activates the specified preset.
+
+
+note:
+got this help from "forum.videohelp.com/threads/406490-Potplayer-Command-line-switches-not-working"
+don't know how to get this help on the cli itself (no /help option)
+--------------------------------------------------------------------------------
