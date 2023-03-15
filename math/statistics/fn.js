@@ -316,6 +316,11 @@ function normpdf(x=[]) {
 	return x.map(i => exp(-sqr(i)/2) / denom);
 }
 
+function normcdf(x=[], mean=0, stdv=1) {
+	let denom1 = Math.sqrt(2) * stdv;
+	return x.map(i => (1 - erf((mean-i) / denom1)) / 2);
+}
+
 function norminv(p, mean=0, stdv=1) {
 	return -1.41421356237309505 * stdv * erfcinv(2 * p) + mean;
 }
