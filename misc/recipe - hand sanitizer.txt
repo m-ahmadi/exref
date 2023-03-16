@@ -1,0 +1,11 @@
+300 ml		alcohol
+			%:	best=90+, good=70+, min=60
+			type:	best=isopropyl, good=ethanol
+1 drop		hand washing soap
+1 drop		dish washing soap
+
+optional (1 or 2 drops):
+	glycerin
+	moisturizer gel
+	acetone
+	essential oil
