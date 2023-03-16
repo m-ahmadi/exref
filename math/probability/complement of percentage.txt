@@ -1,0 +1,3 @@
+percentage = 0.25
+
+complement = 1 - percentage	= 1 - 0.25 = 0.75
