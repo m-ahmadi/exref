@@ -24,7 +24,7 @@ energy label mistake
 
 the label only grades the energy consumption of the product. (kWh/year: kilowatt hour per year)
 do not equate this grade with the quality of the compressor.
-energy consumption is affected by many things. (compressor output, capacity, structure's seal quality, power save features, ...)
+energy consumption is affected by many things. (compressor output, capacity, structure's seal quality, power-saving features, ...)
 consider 2 parameters:
 	efficiency of compressor itself
 	total capacity litre (fridge + freez)
