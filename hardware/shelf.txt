@@ -1,0 +1,18 @@
+wire mesh shelf
+
+panel sizes (L x W, cm)
+	26 x 26
+	
+	30 x 30
+	
+	32 x 16
+	32 x 26
+	32 x 32
+	
+	38 x 38
+	
+	48 x 16
+	48 x 32
+
+common configs (L x W x H, cm)
+	32 x 26 x 26
