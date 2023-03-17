@@ -4,7 +4,7 @@ mklink /d C:\#htdocs D:\xampp\htdocs
 
 mklink /d C:\dev "J:\...\Dev"
 mklink /d C:\ac  "J:\...\accounts"
-mklink /d C:\nf "J:\...\info"
+mklink /d C:\nf "J:\...\info"		(if you delete this link's src, all direct children files in the link's destination will be lost)
 mklink /d C:\as "L:\...\Programs"
 mklink /d C:\usr C:\Users\NYC
 

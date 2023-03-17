@@ -1,7 +1,8 @@
 mklink /d C:\src E:\dest	create dir symlink
 mklink src.txt E:\dest.txt	create file symlink
 
-rmdir c:\src /s /q		delete dir symlink
+rmdir C:\src /s /q		delete dir symlink
+del C:\src /q			delete all direct children files in link's destination
 del src.txt			delete file symlink
 
 ---------------------------------------------------------------------
