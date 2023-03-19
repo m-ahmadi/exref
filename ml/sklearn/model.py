@@ -15,11 +15,23 @@ reg.predict(np.array([[3, 5]])), # [16.]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # support vector machine
 from sklearn.svm import SVC
-SVC(*, C=1.0, kernel='rbf|linear|poly|sigmoid|precomputed'|fn, degree=3,
-	gamma='scale|auto', # for non linear hyperplanes (higher = more overfit)
-	coef0=0.0, shrinking=True, probability=False,
-	tol=0.001, cache_size=200, class_weight=None, verbose=False,
-	max_iter=-1, decision_function_shape='ovr', break_ties=False, random_state=None)
+SVC(
+	*,
+	C=1.,
+	kernel='rbf|linear|poly|sigmoid|precomputed'|fn,
+	degree=3,
+	gamma='scale|auto'|0., # for non linear hyperplanes (higher = more overfit)
+	coef0=0.,
+	shrinking=True,
+	probability=False,
+	tol=0.001,
+	cache_size=200,
+	class_weight=None|{}|'balanced',
+	verbose=False,
+	max_iter=-1,
+	decision_function_shape='ovr|ovo',
+	break_ties=False,
+	random_state=None|0|RandomState)
 # https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
 
 x = [ [-1, -1], [-2, -1], [1, 1], [2, 1] ]
@@ -44,8 +56,23 @@ from sklearn.pipeline import make_pipeline
 clf = make_pipeline(StandardScaler(), SVC(gamma='auto'))
 clf.fit(X, y)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# decision tree classifier
+# decision tree
 # https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html
+DecisionTreeClassifier(
+	*,
+	criterion='gini|entropy|log_loss',
+	splitter='best|random',
+	max_depth=None|0,
+	min_samples_split=2|0.,
+	min_samples_leaf=1|0.,
+	min_weight_fraction_leaf=0.,
+	max_features=None|0|0.|'auto|sqrt|log2',
+	random_state=None|RandomState|0,
+	max_leaf_nodes=None|0,
+	min_impurity_decrease=0.,
+	class_weight=None|{}|[]|'balanced',
+	ccp_alpha=+0.)
+
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.datasets import load_iris
 from sklearn.model_selection import cross_val_score
@@ -57,6 +84,26 @@ cross_val_score(clf, iris.data, iris.target, cv=10)
 # random forest
 # https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
 from sklearn.ensemble import RandomForestClassifier # univariate only
+RandomForestClassifier(
+	n_estimators=100,
+	*,
+	criterion='gini|entropy|log_loss',
+	max_depth=None|0,
+	min_samples_split=2|0.,
+	min_samples_leaf=1|0.,
+	min_weight_fraction_leaf=0.,
+	max_features='sqrt|log2'|None,
+	max_leaf_nodes=None|0,
+	min_impurity_decrease=0.,
+	bootstrap=True,
+	oob_score=False,
+	n_jobs=None|0,
+	random_state=None|0|RandomState,
+	verbose=0,
+	warm_start=False,
+	class_weight=None|'balanced|balanced_subsample'|{}|[{},..],
+	ccp_alpha=+0.,
+	max_samples=None|0.)
 
 x = [ [0,0], [0,1], [1,0], [1,1] ]
 y = [  0,     1,     1,     0    ]
@@ -71,6 +118,29 @@ x_train_3d = [ [[1,1],[9,9]], [[2,2],[8,8]], [[3,3],[7,7]], [[4,4],[6,6]] ]
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # gradient boosting
 # https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html
+GradientBoostingClassifier(
+	*,
+	loss='log_loss|deviance|exponential',
+	learning_rate=0.1,
+	n_estimators=100,
+	subsample=1.,
+	criterion='friedman_mse|squared_error',
+	min_samples_split=2|0.,
+	min_samples_leaf=1|0.,
+	min_weight_fraction_leaf=0.,
+	max_depth=3|None,
+	min_impurity_decrease=0.,
+	init=None|Estimator|'zero',
+	random_state=None|0|RandomState,
+	max_features=None|'auto|sqrt|log2'|0|0.,
+	verbose=0,
+	max_leaf_nodes=None|0,
+	warm_start=False,
+	validation_fraction=0.1,
+	n_iter_no_change=None|0,
+	tol=0.0001,
+	ccp_alpha=+0.)
+
 from sklearn.datasets import make_hastie_10_2
 from sklearn.ensemble import GradientBoostingClassifier
 
@@ -82,8 +152,24 @@ clf = GradientBoostingClassifier(n_estimators=100, learning_rate=1.0, max_depth=
 clf.fit(x_train, y_train)
 clf.score(x_test, y_test) # 0.913
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# bagging classifier
+# bootstrap aggregating
 # https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.BaggingClassifier.html
+BaggingClassifier(
+	estimator=None|Estimator,
+	n_estimators=10,
+	*,
+	max_samples=1.|0,
+	max_features=1.|0,
+	bootstrap=True,
+	bootstrap_features=False,
+	oob_score=False,
+	warm_start=False,
+	n_jobs=None|0,
+	random_state=None|0|RandomState,
+	verbose=0,
+	base_estimator=Estimator # v1.2 deprecated (v1.4 remove)
+)
+
 from sklearn.ensemble import BaggingClassifier
 from sklearn.svm import SVC
 from sklearn.datasets import make_classification
@@ -95,8 +181,10 @@ clf = BaggingClassifier(base_estimator=SVC(), n_estimators=10, random_state=0)
 clf.fit(x, y)
 clf.predict([[0,0,0,0]])
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# one v rest classifier
+# one v rest
 # https://scikit-learn.org/stable/modules/generated/sklearn.multiclass.OneVsRestClassifier.html
+OneVsRestClassifier(estimator=Estimator, *, n_jobs=None|0, verbose=0)
+
 import numpy as np
 from sklearn.multiclass import OneVsRestClassifier
 from sklearn.svm import SVC
