@@ -34,7 +34,7 @@ tf.keras.
 			x=None | arr<numpy> | list< arr<numpy> > | {'input':[]|Tensor} | tf.data | Sequence | DatasetCreator | ParameterServerStrategy,
 			y=None | ...,
 			batch_size=None, epochs=1, verbose=1|0|2|'auto',
-			callbacks=None, validation_split=0.0, validation_data=None, shuffle=True|'batch',
+			callbacks=None, validation_split=0., validation_data=None, shuffle=True|'batch',
 			class_weight=None, sample_weight=None, initial_epoch=0, steps_per_epoch=None,
 			validation_steps=None, validation_batch_size=None, validation_freq=1,
 			max_queue_size=10, workers=1, use_multiprocessing=False
@@ -110,7 +110,7 @@ tf.keras.layers.
 		bias_initializer='zeros', kernel_regularizer=None,
 		recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None,
 		kernel_constraint=None, recurrent_constraint=None, bias_constraint=None,
-		dropout=0.0, recurrent_dropout=0.0, return_sequences=False, return_state=False,
+		dropout=0., recurrent_dropout=0., return_sequences=False, return_state=False,
 		go_backwards=False, stateful=False, unroll=False, **kwargs)
 	LSTM(
 		units=+0, activation='tanh', recurrent_activation='sigmoid',
@@ -119,7 +119,7 @@ tf.keras.layers.
 		bias_initializer='zeros', unit_forget_bias=True,
 		kernel_regularizer=None, recurrent_regularizer=None, bias_regularizer=None,
 		activity_regularizer=None, kernel_constraint=None, recurrent_constraint=None,
-		bias_constraint=None, dropout=0.0, recurrent_dropout=0.0,
+		bias_constraint=None, dropout=0., recurrent_dropout=0.,
 		return_sequences=False, return_state=False, go_backwards=False, stateful=False,
 		time_major=False, unroll=False, **kwargs)
 	GRU(
@@ -129,7 +129,7 @@ tf.keras.layers.
 		bias_initializer='zeros', kernel_regularizer=None,
 		recurrent_regularizer=None, bias_regularizer=None, activity_regularizer=None,
 		kernel_constraint=None, recurrent_constraint=None, bias_constraint=None,
-		dropout=0.0, recurrent_dropout=0.0, return_sequences=False, return_state=False,
+		dropout=0., recurrent_dropout=0., return_sequences=False, return_state=False,
 		go_backwards=False, stateful=False, unroll=False, time_major=False,
 		reset_after=True, **kwargs)
 	
@@ -142,7 +142,7 @@ tf.keras.activations.
 	gelu(x, approximate=False)
 	hard_sigmoid(x)
 	linear(x)
-	relu(x, alpha=0.0, max_value=None, threshold=0)
+	relu(x, alpha=0., max_value=None, threshold=0)
 	selu(x)
 	sigmoid(x)
 	softmax(x, axis=-1)
@@ -185,12 +185,12 @@ tf.keras.optimizers.
 	Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, amsgrad=False, name='Adam', **kwargs)
 	Adamax(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, name='Adamax', **kwargs )
 	Ftrl(learning_rate=0.001, learning_rate_power=-0.5, initial_accumulator_value=0.1,
-		l1_regularization_strength=0.0, l2_regularization_strength=0.0,
-		name='Ftrl', l2_shrinkage_regularization_strength=0.0, beta=0.0, **kwargs)
+		l1_regularization_strength=0., l2_regularization_strength=0.,
+		name='Ftrl', l2_shrinkage_regularization_strength=0., beta=0., **kwargs)
 	Nadam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, name='Nadam', **kwargs)
 	Optimizer(name, gradient_aggregator=None, gradient_transformers=None, **kwargs)
-	RMSprop(learning_rate=0.001, rho=0.9, momentum=0.0, epsilon=1e-07, centered=False, name='RMSprop', **kwargs)
-	SGD(learning_rate=0.01, momentum=0.0, nesterov=False, name='SGD', **kwargs)
+	RMSprop(learning_rate=0.001, rho=0.9, momentum=0., epsilon=1e-07, centered=False, name='RMSprop', **kwargs)
+	SGD(learning_rate=0.01, momentum=0., nesterov=False, name='SGD', **kwargs)
 
 tf.keras.callbacks.
 	Callback()
@@ -243,9 +243,9 @@ tf.keras.initializers.
 	LecunUniform(seed=None)
 	Ones()
 	Orthogonal(gain=1.0, seed=None)
-	RandomNormal(mean=0.0, stddev=0.05, seed=None)
+	RandomNormal(mean=0., stddev=0.05, seed=None)
 	RandomUniform(minval=-0.05, maxval=0.05, seed=None)
-	TruncatedNormal(mean=0.0, stddev=0.05, seed=None)
+	TruncatedNormal(mean=0., stddev=0.05, seed=None)
 	VarianceScaling(scale=1.0, mode='fan_in', distribution='truncated_normal', seed=None)
 	Zeros()
 	
@@ -316,9 +316,9 @@ tf.keras.metrics.
 	MSE(...)
 	MSLE(...)
 	binary_accuracy(..., threshold=0.5)
-	binary_crossentropy(..., from_logits=False, label_smoothing=0.0, axis=-1)
+	binary_crossentropy(..., from_logits=False, label_smoothing=0., axis=-1)
 	categorical_accuracy(...)
-	categorical_crossentropy(..., from_logits=False, label_smoothing=0.0, axis=-1)
+	categorical_crossentropy(..., from_logits=False, label_smoothing=0., axis=-1)
 	hinge(...)
 	kl_divergence(...)
 	kld(...)
