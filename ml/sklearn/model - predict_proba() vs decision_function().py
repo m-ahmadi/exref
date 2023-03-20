@@ -22,10 +22,11 @@ clf = OneVsRestClassifier(svm.SVC(kernel='linear', probability=True, random_stat
 clf.fit(x_train, y_train)
 
 
-''' desicion_function()
+''' decision_function()
 output numbers in [-inf,inf] range
 distance of sample from separating hyperplane
 higher distance = higher probability
+(in multiclass, its result is the output from each of the pairwise classifiers)
 '''
 y_pred = clf.decision_function(x_test)
 
@@ -33,7 +34,7 @@ y_pred = clf.decision_function(x_test)
 ''' predict_proba()
 output numbers in [0,1] range
 probability of sample belonging to class
-in multiclass outputs probability for each class (sums to 1)
+in multiclass, outputs probability for each class (sums to 1)
 '''
 y_prob = clf.predict_proba(x_test)
 
