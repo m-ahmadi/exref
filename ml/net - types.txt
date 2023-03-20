@@ -3,12 +3,12 @@ decision tree
 
 bagging (bootstrap aggregating)
 	randomly generated training sets are created for multiple models in an ensemble
-	"random forest" use it at core
+	"random forest" uses this at core
 
 boosting
 	multiple models are trained sequentially,
 	then, each model focuses on correcting the error made by previous model
-	"gradient boosting" use it at core
+	"gradient boosting" uses this at core
 
 random forest
 	a collection of decision trees
