@@ -48,6 +48,10 @@ a == b # True
 {i: i*i for i in range(3)}          # {0: 0, 1: 1, 2: 4}
 {f'foo-{i}': i*i for i in range(3)} # {'foo-0': 0, 'foo-1': 1, 'foo-2': 4}
 
+d = {'a':1, 'b':2}
+{k: d[k]*2 for k in d}       # {'a':2, 'b':4}
+{f'x{k}': d[k]*3 for k in d} # {'xa':3, 'xb':6}
+
 # filter
 d = {'a':1, 'bb':2, 'bc':3}
 {k:v for k,v in d.items() if 'b' in k}         # {'bb': 2, 'bc': 3}
