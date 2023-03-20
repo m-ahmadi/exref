@@ -36,6 +36,14 @@ dict({'a':1}, b=2)          # ...
 dict(a=1, b=2)              # ...
 # https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 
+# equality
+a = {'a':1}
+b = {'a':1}
+a == b # True
+a = {'a':1, 'b':[1,2,3]}
+b = {'a':1, 'b':[1,2,3]}
+a == b # True
+
 # dict comprehension
 {i: i*i for i in range(3)}          # {0: 0, 1: 1, 2: 4}
 {f'foo-{i}': i*i for i in range(3)} # {'foo-0': 0, 'foo-1': 1, 'foo-2': 4}
