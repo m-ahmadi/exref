@@ -1,7 +1,9 @@
 Array.isArray()
 
-Array.isArray({})       // false
-Array.isArray([])       // true
+Array.isArray({})   // false
+Array.isArray([])   // true
+
+[] instanceof Array // true
 //------------------------------------------------
 // mutate
 

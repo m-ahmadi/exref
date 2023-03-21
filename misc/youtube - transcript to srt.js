@@ -7,7 +7,8 @@ to be messy. And yet, we can observe occasions of spontaneous order, the synchro
 00:18
 of metronomes, the perfectly timed orbits of moons, the simultaneous flashes of fireflies,`;
 
-texts = str.split('\n').filter((v,i)=> i%2===1)
-times = str.split('\n').filter((v,i)=> i%2===0)
-times = times.map((v,i,a) => `00:${v} --> 00:${a[i+1]}`)
-texts.map((v,i) => [ ''+(i+1), times[i], v, ''].join('\n') ).flat().join('\n')
+texts = str.split('\n').filter((v,i)=> i%2===1);
+times = str.split('\n').filter((v,i)=> i%2===0);
+times = times.map((v,i,a) => `00:${v} --> 00:${a[i+1]}`);
+res = texts.map((v,i) => [ ''+(i+1), times[i], v, ''].join('\n') ).flat().join('\n');
+console.log(res);
