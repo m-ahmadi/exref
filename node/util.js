@@ -1,5 +1,9 @@
 const util = require('util');
 
+util.isDeepStrictEqual({a:1}, {a:1}) // true
+util.isDeepStrictEqual({a:1}, {a:2}) // false
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // promisify
 util.promisify(original)
 
