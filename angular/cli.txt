@@ -77,3 +77,4 @@ s	service				generic service definition
 --------------------------------------------------------------------------------
 ng help
 ng [command name] --help
+ng version
