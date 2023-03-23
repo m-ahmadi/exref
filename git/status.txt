@@ -1,1 +1,2 @@
-git status		show the working tree status
+git status			show the working tree status
+git status --porcelain		... parsable and standard output (stable across git versions)
