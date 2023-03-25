@@ -14,3 +14,4 @@ ssh-add -l				list added keys
 ssh-add ~/.ssh/id_rsa			add key
 
 ssh-keygen -t rsa -b 4096 -C "foo"	gen key
+ssh-keygen -R github.com		remove all keys that belong to "github.com" host
