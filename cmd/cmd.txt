@@ -1,6 +1,6 @@
 ﻿cmd /k cd /d E:\dir		keep and change dir
 cmd /k pushd E:\dir		same as above
-cmd.exe /s /k pushd "%V"	??
+cmd /s /k pushd "%V"		??
 --------------------------------------------------------------------------------
 run as admin
 
@@ -53,9 +53,10 @@ some flags
 /k	keep secondary session, do not close session after execution.
 /d	AUTOEXEC.BAT not executed. MS-DOS 6+
 /f	fail by default (no more "Abort, Retry, Fail?" messages) MS-DOS 6+, OS/2 Warp 4 DOS box
-/p	Permanent in memory. also called parent or primary process; COMMAND.COM cannot be removed from memory using EXIT
+/p	permanent in memory. also called parent or primary process; COMMAND.COM cannot be removed from memory using EXIT
 /y	debug switch, step through batch files one step at a time. MS-DOS 6+
 /z	display the errorlevel of every (external) command executed. MS-DOS 7.* (Windows 95/98)
+/v:on	enable delayed expansion
 /e:nnn	environment size in bytes. minimum value for n is 160 bytes, maximum is 32768, values outside this range are ignored.
 /msg	message files in memory. valid with /P only; to be used when booting from removable disk
 --------------------------------------------------------------------------------

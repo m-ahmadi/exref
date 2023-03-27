@@ -1,6 +1,6 @@
 write the command output to a file first, and delete the file afterward.
 
-echo salam > file.txt
+echo hello > file.txt
 set /p VARNAME=<file.txt		if file.txt contains: hello
 del file.txt
 echo %VARNAME%				outputs: hello
