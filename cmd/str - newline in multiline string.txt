@@ -1,0 +1,9 @@
+set a=foo;bar;baz;
+
+				using string substituation
+echo %a:;=&echo.%		substitute on echo		escape not needed
+set b=%a:;=^&echo.%		put into another var		escape     needed
+set "c=%a:;=&echo.%"		put into another var using ""	escape not needed
+
+
+for %i in (%a%) do @echo %i	using for (only if no other delimiter char exists in the line)

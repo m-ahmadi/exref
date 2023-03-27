@@ -1,5 +1,10 @@
 @echo off
 
+echo This ^
+is a single ^
+line!
+echo.
+
 echo normal!
 echo escape percent and double-qoute by doubling them:
 echo   25%% of my share
