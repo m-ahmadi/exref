@@ -1,0 +1,42 @@
+pip install yapf				install
+yapf file.py					fromat and print output
+yapf -i file.py 				format in-place
+yapf --style="google" file.py			formatting rules
+yapf --style="{use_tabs:True}" file.py		...
+yapf --style=.style.yapf file.py		... from a file
+yapf -i -r .					format in-place all files under current dir recursively
+
+yapf --style-help				print default rules (minus "based_on_style")
+yapf --style-help > f && ren f .style.yapf	... save to file
+for /f %i in ('yapf --style-help') do @if %i neq # echo %i>> .style.yapf	... without comment
+
+
+format all files using certain style
+yapf -i -r . --style="{based_on_style:google, indent_width:2, column_limit:160, indent_blank_lines:True, use_tabs:True}"
+--------------------------------------------------------------------------------
+flags
+
+-i, --in-place		change files in place
+-r, --recursive		subdirs too
+-l, --lines START-END	range of lines to reformat (one-based)
+-e, --exclude PATTERN	files to exclude
+
+--style STYLE		STYLE="pep8|google|yapf|facebook" | .style.yapf | setup.cfg | pyproject.toml
+--style-help		show style settings and exit
+
+--no-local-style	don't search for local style definition
+-p, --parallel		run in parallel when formatting multiple files
+-d, --diff		print diff for the fixed source
+-q, --quiet		output nothing and set return value
+-vv, --verbose		print out file names while processing
+--------------------------------------------------------------------------------
+.style.yapf
+
+[style]
+based_on_style=google
+indent_width=2
+column_limit=160
+indent_blank_lines=True
+use_tabs=True
+
+--------------------------------------------------------------------------------
