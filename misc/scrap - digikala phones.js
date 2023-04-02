@@ -203,6 +203,8 @@ ranks.push(...[
 ["JLQ JR510",23],
 ["MediaTek Helio A25",22],
 ["MediaTek Helio A22 MT6761",21], ["MT6761VWB",21],
+["Mediatek Helio P23",21],
+["Mediatek Helio P22",21],
 ["Qualcomm Snapdragon 450",21],
 ["Qualcomm Snapdragon 429",20],
 ["Mediatek Helio A20 MT6761D",19],
