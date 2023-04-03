@@ -1,3 +1,6 @@
+vscode python debugger requires python version 7.0 or higher
+
+--------------------------------------------------------------------------------
 setup env
 
 "RUN AND DEBUG" -> "create a launch.json file" -> Python -> "Python File ..."
