@@ -16,7 +16,7 @@ https://github.com/XTLS/Xray-core/releases	extract in "v2rayN/bin/Xray" dir
 or with powershell:
 
 
-iwr https://github.com/2dust/v2rayN/releases/download/6.19/v2rayN.zip -O x.zip;
+iwr https://github.com/2dust/v2rayN/releases/download/6.20/v2rayN.zip -O x.zip;
 Expand-Archive x.zip -D .\;
 ri x.zip;
 
