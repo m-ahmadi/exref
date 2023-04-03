@@ -3,7 +3,7 @@ py -0		list all python installations
 py -0p		... with paths
 
 py -2		launch latest 2.x
-py -3		launch latest 2.x
+py -3		launch latest 3.x
 
 py -3.6		launch specified version
 py -3.6-64	... 64bit
