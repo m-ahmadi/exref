@@ -1,0 +1,2 @@
+Settings -> Size and location
+	Maximum menu height	225
