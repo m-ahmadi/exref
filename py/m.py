@@ -122,6 +122,7 @@ version='0.0.1'
 description='foo'
 author='bar'
 license='MIT'
+python_requires = ~=3.6    https://peps.python.org/pep-0440/#version-specifiers
 '''# https://setuptools.pypa.io/en/latest/references/keywords.html
 
 setup(
