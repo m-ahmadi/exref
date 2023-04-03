@@ -110,4 +110,21 @@ setup(
 )
 
 # pip install -e .
+
+
+# or using `setup.cfg` file instead of passing args to `setup()`
+
+# setup.cfg
+'''
+[metadata]
+name='mypkg'
+version='0.0.1'
+description='foo'
+author='bar'
+license='MIT'
+'''# https://setuptools.pypa.io/en/latest/references/keywords.html
+
+setup(
+	packages=find_packages()
+)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
