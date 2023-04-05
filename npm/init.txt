@@ -3,6 +3,7 @@ npm init [--force|-f|--yes|-y|--scope]	use defaults
 npm init <@scope>			same as `npx <@scope>/create`
 npm init [<@scope>/]<name>		same as `npx [<@scope>/]create-<name>`
 
+alias: create, innit
 --------------------------------------------------------------------------------
 init to npx transformation
 
