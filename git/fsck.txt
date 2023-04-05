@@ -1,0 +1,4 @@
+git fsck				verify commits in commit graph
+git fsck --unreachable 			print unreachable objects
+git fsck --no-reflogs			consider commits referenced only from a reflog entry unreachable
+git fsck --unreachable --no-reflogs	...

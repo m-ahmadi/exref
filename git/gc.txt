@@ -1,1 +1,3 @@
-git gc		cleanup
+git gc				cleanup
+git gc --aggressive		cleanup more (takes more time)
+git gc --prune=now		remove unreachable objects (commits, trees, blobs)
