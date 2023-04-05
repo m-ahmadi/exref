@@ -1,0 +1,8 @@
+font
+	Home -> Font (ctrl d) -> Set As Default -> "All documents ..." -> OK
+
+margin
+	Layout -> Margins -> Custom Margins... -> Set As Default -> Yes
+
+page dir
+	Home -> Paragraph -> click bottom-right arrow -> Set As Default -> "All documents ..." -> OK

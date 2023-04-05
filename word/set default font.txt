@@ -1,1 +1,0 @@
-Home -> Font (Ctrl + D) -> Select Font for "Latin text" and "Complex scripts" -> Set As Default -> This document only? -> Ok
