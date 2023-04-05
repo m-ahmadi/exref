@@ -1,0 +1,4 @@
+ctrl d | ctrl shift f		Font
+
+
+File -> Options -> Customize Ribbon -> Keyboard shortcuts: Customize -> Categories: All Commands
