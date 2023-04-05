@@ -1,3 +1,9 @@
-git reflog show		 reflogs are when branch tip is updated (in local repo)
+git reflog show					show recent actions
+git reflog show --all				... for all references
 
-git reflog delete master@{2}
+git reflog delete master@{2}			delete single entry from reflog
+git reflog delete master@{1}			...
+git reflog delete HEAD@{1}			...
+
+git reflog expire --expire=now			remove old entries (older than a specified time)
+git reflog expire --expire-unreachable=now	remove unreachable old entries (drops all stashes too)

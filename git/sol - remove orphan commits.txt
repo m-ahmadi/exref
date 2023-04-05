@@ -1,11 +1,11 @@
-git reflog delete master@{1}
-git reflog delete HEAD@{1}
+git reflog expire --expire-unreachable=now --all
+git gc --prune=now
 
-git gc --prune=now --aggressive
-git fsck
+worked (but drops all stashes too)
+--------------------------------------------------
+related commands
 
 git reflog show
 git log --reflog
-
-
-did not work (something is still points to those commits which prevents them to be garbage collected)
+git fsck
+--------------------------------------------------

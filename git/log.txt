@@ -24,6 +24,6 @@ git log -1 HEAD@{1}			using reflogs
 git log --grep=<pattern>		search in commit messages
 git log --grep=add\w+			...
 
-git log --reflog			show "lost" commits too
+git log --reflog			show "lost|orphan" commits too
 
 git log --graph --oneline		draw railroad graph of commit history
