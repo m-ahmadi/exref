@@ -16,7 +16,7 @@ npm i -g --prefix ./mydir		install to a custom location. installs in: ./mydir/no
 npm i --only=production | prod		install only the dependencies
 npm i --only=dev			install only the devDependencies
 --------------------------------------------------------------------------------
-install from filesystem (npm 2+)
+install from filesystem (npm v2+)
 
 npm i ./path/to/dir			install from local path (must contain package)
 npm i .					... current dir
@@ -35,8 +35,8 @@ npm i git+https://git@github.com/user/repo.git		correct
 npm i git+ssh://git@github.com/user/repo.git		correct
 npm i https://github.com/user/repo.git			wrong
 npm i git+ssh://....repo.git#branch			from a specific branch
-npm i user/repo						npm 1.1.65+
+npm i user/repo						npm v1.1.65+
 
 note:
-the repository must be an npm module (contain a package.json with name & version key)
+the repository must be an npm module (contains a package.json with name & version key)
 --------------------------------------------------------------------------------
