@@ -77,21 +77,34 @@ np.linspace(1, 2, 5)             # [1, 1.25, 1.5, 1.75, 2]
 np.zeros(4)                      # [0., 0., 0., 0.]
 np.zeros_like([1,2,3,4])         # [0, 0, 0, 0]
 
-# index of
-np.argmax([1,2,3,4]) # 3
-np.argmax([4,3,2,1]) # 3
-
+# indexOf | findIndex | arr.filter().map(arr.indexOf.bind(arr))
 a = np.array([1,2,3,4])
-a.argmin() # 0
-a.argmax() # 3
+np.where(a == 3)[0]    # [2]
+np.where(a > 2)[0]     # [2, 3]
+np.argwhere(a > 2)     # [[2], [3]]
 np.where(a == a.min()) # [0]
 np.where(a == a.max()) # [3]
 
-# min max
+# map indexOf
+a = np.array([ [0,1,0], [1,0,0], [0,0,1], [1,0,0] ])
+np.where(a == 1)[1] # [1,0,2,0]
+
+# first indexOf
+np.argmax(a > 2)      # 0
+np.where(a > 2)[0][0] # ...
+
+# min max value
 np.min == np.amin # True
 np.max == np.amax # True
 np.min([4,6]) # 4
 np.max([4,6]) # 6
+
+# min max index
+a = np.array([1,2,3,4])
+np.argmin(a) # 0
+a.argmin()   # ...
+np.argmax(a) # 3
+a.argmax()   # ...
 
 # map
 a = np.array([1,2,3,4,5])
@@ -127,9 +140,10 @@ np.all(a == c) # False
 np.any(a == c) # True
 
 # filter
-a = np.arange(10)
-a[a%2==0] # [0,2,4,6,8]
-a[a%2==1] # [1,3,5,7,9]
+a = np.array([0,1,2,3,4,5,6,7,8,9])
+a[a % 2 == 0] # [0,2,4,6,8]
+a[a % 2 == 1] # [1,3,5,7,9]
+
 a = np.array([ [1,2,3,4], [5,6,7,8], [9,10,11,12] ])
 b = np.array([0,1,0])
 a[:, :2][b == 0] # [ [1,2], [9,10] ]
