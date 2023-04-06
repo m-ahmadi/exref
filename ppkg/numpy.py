@@ -69,7 +69,7 @@ np.argmax(a=∂, ?axis=None|0, ?out=None|[])
 np.argmin(a=∂, ?axis=None|0, ?out=None|[])
 np.argpartition
 np.argsort
-np.argwhere
+np.argwhere(a=∂)
 np.around(a=∂, decimals=0, out=None)
 np.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0, like=None)
 np.array_equal
