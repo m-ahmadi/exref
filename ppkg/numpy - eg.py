@@ -98,6 +98,7 @@ np.min == np.amin # True
 np.max == np.amax # True
 np.min([4,6]) # 4
 np.max([4,6]) # 6
+np.max([[1,2],[3,4]], axis=1) # [2,4]
 
 # min max index
 a = np.array([1,2,3,4])
@@ -105,6 +106,7 @@ np.argmin(a) # 0
 a.argmin()   # ...
 np.argmax(a) # 3
 a.argmax()   # ...
+np.argmax([[1,2],[2,1]], axis=1) # [1,0]
 
 # map
 a = np.array([1,2,3,4,5])
