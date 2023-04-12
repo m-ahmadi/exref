@@ -37,7 +37,7 @@ DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], 
 DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right|outer|inner', lsuffix='', rsuffix='', sort=False)
 DataFrame.equals(other=DataFrame|Series)
 DataFrame.isna() | isnull()
-DataFrame.all(axis=0|1|'index'|'columns'|None, bool_only=None|bool, skipna=True|bool, level=None|0|'', **kwargs)
+DataFrame.all(axis=0|1|'index|columns'|None, bool_only=None|bool, skipna=True|bool, level=None|0|'', **kwargs)
 DataFrame.any(*, ↑...)
 DataFrame.reindex(labels=None|[], index=None|[], columns=None|[], axis=None|{}, method=None|'backfill/bfill|pad/ffill|nearest', copy=True, level=None|0|'', fill_value=np.NaN, limit=None|0, tolerance=None|0|[0,..])
 DataFrame.isin(values=[]|Series|DataFrame|{})
@@ -50,6 +50,7 @@ DataFrame.div(other=0|[]|Series|DataFrame, axis='columns|index'|0, level=None|0|
 DataFrame.add(↑...)
 DataFrame.mul(↑...)
 DataFrame.min(axis=<no_default>, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
+DataFrame.apply(func, axis=0|1|'index|columns', raw=False, result_type=None|'expand|reduce|broadcast', args=[], **kwargs)
 
 Series.value_counts(normalize=False, sort=True, ascending=False, bins=None|0, dropna=True)
 Series.count(level=None|0|'')
@@ -476,6 +477,18 @@ s.value_counts() / s.value_counts().sum() # ...
 pd.date_range(start='2022/1/1', periods=4)      # ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04']
 pd.date_range(start='2022/1/1', end='2022/1/4') # ...
 pd.date_range(end='2022/1/4', periods=4)        # ...
+
+# misc - apply
+df = pd.DataFrame([ [4,9],
+										[4,9] ], columns=['a','b'])
+df.apply(np.sqrt)        # [ [2,3], [2,3] ]
+np.sqrt(df)              # ...
+df.apply(np.sum)         # {'a':8, 'b':18}
+df.apply(np.sum, axis=1) # [13, 13]
+
+df.apply(lambda x: [1,2])         # [ [1,1], [2,2] ]
+df.apply(lambda x: [1,2], axis=1) # [ [1,2], [1,2] ]
+df.apply(lambda x: x-1, axis=1)   # [ [3,8], [3,8] ]
 
 # math
 df = pd.DataFrame({'a':[2,4,6], 'b':[8,10,12]})
