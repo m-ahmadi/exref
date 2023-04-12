@@ -15,6 +15,8 @@ copy file \\computer\printer	... shared printers
 
 
 robocopy src dest /e /r:0				copy subdirs including empty ones (0 retries)
+robocopy src dest /e /r:0 /xf *.js *.py			... exclude files that match the wildcards
+robocopy src dest /e /r:0 /xd foo* bar*			... exclude dirs ...
 robocopy src dest file.txt				copy one file
 robocopy src dest /ns /nc /nfl /ndl /np /njh /njs	don't log anything
 robocopy src dest /xf * /r:0				copy dir hierarchy without files

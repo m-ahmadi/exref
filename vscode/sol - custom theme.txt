@@ -1,0 +1,9 @@
+<INSTALL_DIR>\resources\app\extensions\theme-defaults\themes
+	
+	light_defaults.json
+	light_plus.json
+	...
+	light_vs.json
+		regex: 8000ff
+
+(grammer files: <INSTALL_DIR>\*.tmLanguage.json)

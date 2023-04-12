@@ -1,12 +1,12 @@
 vscode python debugger requires python version 7.0 or higher
 
---------------------------------------------------------------------------------
+--------------------------------------------------
 setup env
 
 "RUN AND DEBUG" -> "create a launch.json file" -> Python -> "Python File ..."
 
 f5
---------------------------------------------------------------------------------
+--------------------------------------------------
 show more than default 300 items
 
 cmd /c pushd %userprofile%\.vscode\extensions\ms-python.python-* && pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py
@@ -14,4 +14,4 @@ MAX_ITEMS_TO_HANDLE = 100000
 
 auto:
 cmd /c pushd %userprofile%\.vscode\extensions\ms-python.python-* && fart pythonFiles\lib\python\debugpy\_vendored\pydevd\_pydevd_bundle\pydevd_resolver.py "MAX_ITEMS_TO_HANDLE = 300" "MAX_ITEMS_TO_HANDLE = 100000"
---------------------------------------------------------------------------------
+--------------------------------------------------

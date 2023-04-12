@@ -1,0 +1,7 @@
+robocopy %appdata%\Code\User D:\Code\User /e /r:0
+
+code . --user-data-dir D:\Code
+
+
+note:
+delete the folder afterward:  rd D:\code /s/q

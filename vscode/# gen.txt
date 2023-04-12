@@ -1,0 +1,12 @@
+%appdata%\Code\User\
+	settings.json
+	keybindings.json
+
+--------------------------------------------------------------------------------
+ui shortcuts
+
+f1					command pallete
+ctrl shift p				...
+ctrl ,					user settings
+select text > f1 > "Join Lines"		format multiline code to single line
+--------------------------------------------------------------------------------
