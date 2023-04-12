@@ -1,7 +1,13 @@
-code file.txt
-code .
-code --install-extension <extension_name>
-code --list-extensions
+code file.txt					open file
+code .						open project dir
+code --install-extension <extension_name>	install extension
+code --list-extensions				list all installed extensions
+
+for /f %i in ('code --list-extensions') do @code --install-extension %i		install multiple extensions
+code --list-extensions | xargs -L 1 echo code --install-extension		... bash
+
+code . --user-data-dir %appdata%		specify where to store user data
+						opens new instance of vscode if no content exists in path
 
 --------------------------------------------------------------------------------
 win+r command setup

@@ -1,0 +1,13 @@
+vincaslt.highlight-matching-tag
+vscode-icons-team.vscode-icons
+MikeBovenlander.formate
+aeschli.vscode-css-formatter
+fcrespo82.markdown-table-formatter
+mechatroner.rainbow-csv
+
+ms-vscode.powershell
+ionutvmi.reg
+
+Keno.uikit-3-snippets
+octref.vetur
+Leopotam.csharpfixformat
