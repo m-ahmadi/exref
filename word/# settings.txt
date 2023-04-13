@@ -2,10 +2,16 @@ File -> Options ->
 
 Advanced
 	! Use smart paragraph selection
+	Pasting between documents:	Keep Text Only
+	Pasting from other programs:	Keep Text Only
 
-Proofing -> AutoCorrect Options... -> AutoFormat As You Type ->
-	! Border lines
-
+Proofing -> AutoCorrect Options... ->
+	AutoFormat As You Type
+		! Border lines
+	AutoCorrect
+		! Capitalize first letter of sentences
+		! Capitalize first letter of table cells
+		! Capitalize names of days
 --------------------------------------------------------------------------------
 custom paper size for mobile
 
