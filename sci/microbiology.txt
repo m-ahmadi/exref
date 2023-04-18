@@ -1,0 +1,30 @@
+microbe		aka "microorganism"
+		an organism of microscopic size
+
+pathogen	aka "germ"
+		any organism that can produce disease
+		
+virus		simplest of germs, genetic material encased in protein
+		by itself, a virus can accomplish nothing
+		its only function is to replicate (once inside a living thing)
+
+bacteria	bigger and more complex than viruses
+		a single cell
+		can live and reproduce on its own
+		:		
+		gram-negative:		cell walls made of thick layer of peptidoglycan
+
+fungi		more complicated organisms than viruses and bacteria
+
+bacterial spores
+		most dormant form of bacteria
+		they exhibit minimal metabolism, respiration & enzyme production
+
+gram- positive vs negative bacteria
+						positive	negative
+	===============================================================================
+	peptidoglycan layer in cell wall	thick		thin
+	lipopolysaccharide membrane		yes		no
+	produce exotoxins			yes		no
+	produce endotoxins			no		yes
+	stained color by gram-staining		purple		red/pink

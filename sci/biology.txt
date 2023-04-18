@@ -1,0 +1,26 @@
+cell		basic unit of life, all living organisms are composed of cells
+		a cytoplasm inside membrane, which contains dna, rna, ...
+		unicellular:	single cell organisms
+		multicellular:	multi  cell organisms
+
+gene		traits are inherited through gene transmission
+		genes are located on chromosomes and consist of dna
+
+evolution	any genetic change in a population that is inherited over several generations
+		these changes may be small or large, noticeable or not so noticeable
+
+homeostasis	ability to maintain a constant internal environment in response to environmental changes
+
+thermodynamics	energy is constant and energy transformation is not completely efficient
+
+
+sub-disciplines
+	microbiology	study of microorganisms
+	botany		study of plants
+	zoology		study of animals
+	
+	sub-disciplines
+		anatomy
+		cell biology
+		genetics
+		physiology

@@ -1,0 +1,15 @@
+﻿disinfectant	destroys microorganisms on inert surfaces
+		destroys microbe's cell wall or interferes with its metabolism
+
+antiseptic	destroys microorganisms on living tissue
+antibiotic	destroys microorganisms within body
+sterilization	kills all types of life
+
+
+hydrogen peroxide		sterilization of various surfaces
+sodium hypochlorite		whitex, bleach, colorx, ...
+hydrochloric acid		acidum salis (جوهرنمک) (+sodium hypochlorite = chlor gas = poisonous)
+chloroxyleno			dettol
+povidone-iodine			betadine
+chlorhexidine gluconate		-
+chlorhexidine			-
