@@ -1,0 +1,41 @@
+mixture		combination of 2|N substances
+		each substance retains its own chemical identity
+		e.g. salt+water, sugar+salt
+
+compound	chemical substance with many identical molecules
+		molecules with atoms from many chemical elements
+		everything is held together by chemical bonds
+		e.g. water
+		
+molecule	made-up of atoms of 1|N elements
+		1 atom-type:		2 oxygen atoms = O2
+		N atom-type:		protein
+
+periodic table	rows & columns arrangement of chemical elements
+		rows:			periods
+		columns:		groups
+		blocks:			4 rectangles which table is divided into
+		periodic law:		periodic dependence of elements on their atomic numbers
+		elements of same group have similar characteristics
+
+element		chemical substance which cannot be broken down into other substances (pure)
+		made-up of one type of atom
+		2 types of elements:	natural (oxygen, nitrogen, carbon) & synthetic
+
+atom		basic unit of matter
+		central nucleus surrounded by negatively charged electrons
+		nucleus contains protons and neutrons
+		electrons revolve around nucleus in different orbits
+
+subatomic particles
+		electron		+  charge
+		proton			-  charge
+		neutron			no charge
+
+nucleus		central part of atom
+		particles inside are called nucleons (protons & neutrons)
+		has + charge
+
+--------------------------------------------------------------------------------
+substance	physical material from which something is made
+alkali		basic ionic salt of an alkali metal or an alkaline earth metal
