@@ -3,13 +3,22 @@
 
 antiseptic	destroys microorganisms on living tissue
 antibiotic	destroys microorganisms within body
-sterilization	kills all types of life
+sterilant	kills all types of life
+		hydrogen peroxide gas plasma
+		ethylene oxide gas
 
 
-hydrogen peroxide		sterilization of various surfaces
+hydrogen peroxide		disinfection and sterilization applications	
 sodium hypochlorite		whitex, bleach, colorx, ...
 hydrochloric acid		acidum salis (جوهرنمک) (+sodium hypochlorite = chlor gas = poisonous)
-chloroxyleno			dettol
-povidone-iodine			betadine
+isopropyl alchohol		- aka: 2-propanol, 2-propoxypropanol, isopropanol
+ethanol				-
 chlorhexidine gluconate		-
 chlorhexidine			-
+chloroxyleno			dettol
+benzalkonium chloride		dettol sprays, vegetable disinfectant products
+povidone-iodine			betadine
+lactic acid			some dettol products
+sodium bicarbonate		baking soda
+sodium borate			borax
+ammonium hydroxide		-
