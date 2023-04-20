@@ -43,7 +43,7 @@ var list: Array<number>;
 let two: number[][] = [ [1,2], [1,2], [1,2] ];
 let some: string[][] = [ ['name','value'], ['name','value'] ];
 
-let three: number[][][] = [  [ [1,2], [1, 2] ], [ [1,2], [1,2] ], [ [1,2], [1,2] ]  ];
+let three: number[][][] = [  [ [1,2], [1,2] ], [ [1,2], [1,2] ], [ [1,2], [1,2] ]  ];
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	any
 
@@ -62,7 +62,7 @@ let list: any[] = [1, true, 'free'];
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //	void
 function warnUser(): void {
-	alert('this function dosn't return anything dude!');
+	alert('this function dos not return anything');
 }
 
 let unusable: void = undefined;
