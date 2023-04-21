@@ -21,4 +21,5 @@ povidone-iodine			betadine
 lactic acid			some dettol products
 sodium bicarbonate		baking soda
 sodium borate			borax
+sodium percarbonate		laundry cleaning products (oxiclean, tide, ...)
 ammonium hydroxide		-

@@ -1,4 +1,7 @@
-medical-grade:	peroxide=3% water=97% 
+hydrogen peroxide is water (H2O) with an extra oxygen molecule (H2O2)
+the extra oxygen molecule oxidizes, which is how peroxide gets its power
+
+medical-grade:	peroxide=3% water=97%
 food-grade:	peroxide=35%
 	toxic to inhale, irritates skin & eyes
 	not necessary for cleaning and disinfecting
@@ -7,10 +10,11 @@ extra oxygen breaks down over time
 stays full strength for 3 years in brown container
 once opened, only effective for a few months
 once not foaming anymore (no bubbles), it's just water
-to discard, pour in sink
+use in a well-ventilated area and wear gloves (not sure, for 3% or 35% ?)
 use inside solid-colored bottles (no exposure to light)
 do not use on wounds or acne
 do not mix with vinegar (produces peracetic acid with harmful vapors)
+to discard, pour in sink
 --------------------------------------------------------------------------------
 https://www.maids.com/blog/how-to-clean-and-disinfect-with-hydrogen-peroxide
 
@@ -40,13 +44,19 @@ H: how to apply
 --------------------------------------------------------------------------------
 https://health.clevelandclinic.org/what-is-hydrogen-peroxide-good-for
 
-peroxide 3%	water		use			apply
+A			B  C	D
+================================================================================
+disinfect		1  1	clean dirt with soap & water, spray, wait 5 min, rinse only if food touching surface, airdry
+wash fruit, vegatable	1  63	wash in mixture, rinse with clean water, dry
+whiten carpet		1  -	spray, rub with clean cloth
+remove cloth stain	1  16	soak 30 min
+...			1  -	add to washing machine compartment
+ceramic cookware	1  -	sprinkle baking soda, spray, wait 10 min, rinse, dry
 
-1		1		disinfect		first clean dirt with soap & water, spray, wait 5 min, rinse only if food touching surface, airdry
-1		60		wash fruit, vegatable	wash in mixture, rinse with clean water, dry
-1		-		whiten carpet		spray, rub with cloth
-1		15		remove cloth stain	soak 30 min
-1		-		ceramic cookware	sprinkle baking soda, spray, wait 10 min, rinse, dry
+A: application
+B: hydrogen peroxide 3%
+C: water
+D: how to apply
 --------------------------------------------------------------------------------
 https://acultivatednest.com/hydrogen-peroxide-cleaning-recipes
 
