@@ -16,7 +16,7 @@ ethanol				-
 chlorhexidine gluconate		-
 chlorhexidine			-
 chloroxyleno			dettol
-benzalkonium chloride		dettol sprays, vegetable disinfectant products
+benzalkonium chloride		dettol sprays, vegetable disinfectant products, antibacterial products, ...
 povidone-iodine			betadine
 lactic acid			some dettol products
 sodium bicarbonate		baking soda
