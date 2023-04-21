@@ -1,4 +1,0 @@
-it	water	use		apply
-1	-	toilet		pour, wait 2 hour, rinse
-1	10	bath wall	spray, wait 2 hour, rinse
-1	20	floor		mop, airdry

@@ -1,3 +1,0 @@
-
-it	water		use		apply
-1	10		surface		mop, wait?
