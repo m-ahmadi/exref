@@ -14,20 +14,29 @@ do not mix with vinegar (produces peracetic acid with harmful vapors)
 --------------------------------------------------------------------------------
 https://www.maids.com/blog/how-to-clean-and-disinfect-with-hydrogen-peroxide
 
-peroxide 3%	water		distilled water		lemon juice		dish soap	baking soda	use (*clean ^disinfect)		apply
+A			B  C  D  E  F  G	H
+================================================================================
+all-purpose	*	1  -  2  2  -  -	spray
+makeup brush	*	1  1  -  -  -  -	soak 10 min, airdry overnight
+patio furniture *	1  63 -  -  f  -	scrub metal,fabric,... parts with nylon brush, rinse with hose
+mattress	*	1  1  -  -  -  -	scrub with brush, wait 5 min, dry with hair dryer
+tile grout	*	1  -  -  -  f  2	spread (with glove), wait 5 min, rinse
+tub & shower	*	1  -  -  -  -  1	rub paste, wait 30 min, rinse
+hard surface	^	1  -  -  -  -  -	spray, wait 5 min, wipe away
+hard floor	^	1  1  -  -  -  -	mop, let floor airdry
+dishwasher	^	1  -  -  -  -  -	spray, run 1 empty short cycle
+toilet		^	1  -  -  -  -  -	pour, wait 30 min, scrub with brush, rinse (pour on brush and let airdry)
+trashcan	^	1  1  -  -  -  -	wash with soapy water, spray inside & out, airdry or clothdry after 20 min
+toothbrush	^	1  -  -  -  -  -	soak 20 min, airdry
 
-1		-		2			2 tablespoon		-		-		*all-purpose			spray
-1		1		-			-			-		-		*makeup brush			soak 10 min, airdry overnight
-1		60		-			-			few drops	-		*patio furniture		scrub metal,fabric,... parts with nylon brush, rinse with hose
-1		1		-			-			-		-		*mattress			scrub with brush, wait 5 min, dry with hair dryer
-1		-		-			-			few drops	2		*tile grout			spread (with glove), wait 5 min, rinse
-1		-		-			-			-		1		*tub & shower			rub paste, wait 30 min, rinse
-1		-		-			-			-		-		^hard surface			spray, wait 5 min, wipe away
-1		1		-			-			-		-		^hard floor			mop, let floor airdry
-1		-		-			-			-		-		^dishwasher			spray, run 1 empty short cycle
-1		-		-			-			-		-		^toilet				pour, wait 30 min, scrub with brush, rinse (pour on brush and let airdry)
-1		1		-			-			-		-		^trashcan			wash with soapy water, spray inside & out, airdry or clothdry after 20 min
-1		-		-			-			-		-		^toothbrush			soak 20 min, airdry
+A: application (*clean ^disinfect)
+B: hydrogen peroxide 3%
+C: water
+D: distilled water
+E: lemon juce (tablespoon)
+F: dish soap (drops, f for a few drops)
+G: baking soda
+H: how to apply
 --------------------------------------------------------------------------------
 https://health.clevelandclinic.org/what-is-hydrogen-peroxide-good-for
 
