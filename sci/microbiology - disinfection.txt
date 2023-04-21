@@ -9,9 +9,9 @@ sterilant	kills all types of life
 
 
 hydrogen peroxide		disinfection and sterilization applications	
-sodium hypochlorite		whitex, bleach, colorx, ...
-hydrochloric acid		acidum salis (جوهرنمک) (+sodium hypochlorite = chlor gas = poisonous)
-isopropyl alchohol		- aka: 2-propanol, 2-propoxypropanol, isopropanol
+sodium hypochlorite		bleach (colorx, whitex, ...)
+hydrochloric acid		acidum salis (جوهرنمک)
+isopropyl alchohol		disinfectant (usually at 70%), aka: 2-propanol, 2-propoxypropanol, isopropanol
 ethanol				-
 chlorhexidine gluconate		-
 chlorhexidine			-
@@ -23,3 +23,8 @@ sodium bicarbonate		baking soda
 sodium borate			borax
 sodium percarbonate		laundry cleaning products (oxiclean, tide, ...)
 ammonium hydroxide		-
+detergent solution		no disinfectant capability. only cleaning dirt, grime, grease
+
+
+great video:
+https://www.youtube.com/watch?v=ArWyKfR4h54

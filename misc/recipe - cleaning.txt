@@ -1,4 +1,37 @@
-cleaning tips
+surface cleaning mechanism
+
+method 1
+	apply sol.
+	wait 2 min
+	dry
+method 2
+	apply sol.
+	wait 2 min
+	dry
+	apply sol.
+	wait 2 min
+	dry
+method 3
+	apply sol.
+	wait 4 min
+	apply sol.
+	wait 4 min
+	dry
+
+apply solution to surface
+	spray/pour solution on surface
+	make sure all surface area is in contant with solution
+	(wipe around the solution if not spread evenly)
+drying
+	wipe dry for solution A
+	wait to dry for solution B C D
+
+A: detergent solution	2%
+B: isopropyl alcohol	70%
+C: bleach		5%
+D: hydrogen peroxide	3%
+
+src: https://www.youtube.com/watch?v=ArWyKfR4h54
 
 ------------------------------
 wall stain
@@ -47,7 +80,7 @@ run 2 washing machine cycles
 1 cycle with hot water + 1 cup of white vinegar
 1 cycle with 1 cup of baking soda
 ------------------------------
-clean stainless steel mog
+clean stainless steel mug
 
 fill half the cup with hot water
 add 1 tablespoon with baking soda
