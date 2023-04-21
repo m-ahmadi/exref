@@ -1,0 +1,11 @@
+found in standard "Dettol" product (with the brown liquid)
+https://www.dettol.co.uk/personal-hygiene/antiseptics/dettol-liquid
+
+dettol	water	use		apply
+1	-	toilet		pour, wait 2 hour, rinse
+1	10	bath wall	spray, wait 2 hour, rinse
+1	16	spots & pimple	bathe affected area daily with solution
+1	16	minor wound	wash area, cover wth dry gauze
+1	20	floor		mop, airdry
+1	31	dandruff	saturate hair and scalp for 10 min, then shampoo
+1	96	showering	pour (i guess)
