@@ -39,4 +39,5 @@ nucleus		central part of atom
 --------------------------------------------------------------------------------
 substance	physical material from which something is made
 solvent		substance that dissolves something. it can be liquid|solid|gas|supercritical fluid
+surfactant	substance that reduces surface tension of liquid and increases its spreading properties
 alkali		basic ionic salt of an alkali metal or an alkaline earth metal

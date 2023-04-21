@@ -33,7 +33,15 @@ D: hydrogen peroxide	3%
 
 src: https://www.youtube.com/watch?v=ArWyKfR4h54
 
-------------------------------
+--------------------------------------------------------------------------------
+water break test (check if surface has thin layer of dirt/grease)
+
+1. pour water on surface
+	no water droplets forming (water sliding off)	clean
+	water droplets forming				not clean
+
+--------------------------------------------------------------------------------
+
 wall stain
 
 baking soda
