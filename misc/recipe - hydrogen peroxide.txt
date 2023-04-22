@@ -19,7 +19,6 @@ to discard, pour in sink
 https://www.maids.com/blog/how-to-clean-and-disinfect-with-hydrogen-peroxide
 
 A			B  C  D  E  F  G	H
-================================================================================
 all-purpose	*	1  -  2  2  -  -	spray
 makeup brush	*	1  1  -  -  -  -	soak 10 min, airdry overnight
 patio furniture *	1  63 -  -  f  -	scrub metal,fabric,... parts with nylon brush, rinse with hose
@@ -45,11 +44,10 @@ H: how to apply
 https://health.clevelandclinic.org/what-is-hydrogen-peroxide-good-for
 
 A			B  C	D
-================================================================================
 disinfect		1  1	clean dirt with soap & water, spray, wait 5 min, rinse only if food touching surface, airdry
-wash fruit, vegatable	1  63	wash in mixture, rinse with clean water, dry
+fruit,vegatable		1  63	wash in mixture, rinse with clean water, dry
 whiten carpet		1  -	spray, rub with clean cloth
-remove cloth stain	1  16	soak 30 min
+clothes stain		1  16	soak 30 min
 ...			1  -	add to washing machine compartment
 ceramic cookware	1  -	sprinkle baking soda, spray, wait 10 min, rinse, dry
 
@@ -61,11 +59,10 @@ D: how to apply
 https://acultivatednest.com/hydrogen-peroxide-cleaning-recipes
 
 A		B	C	D	E	F	G
-================================================================================
 all-purpose	1	2	2?	e?	-	if using on porous stone, leave out D & E (even then, only use on light-colored stone)
 bleach		1	8	.25	10	.5	add 1 cup of solution to washing machine and set to use hot water
 rinse aid	.25	-	-	6-10 	-	add to dishwasher's rinse aid compartment
-mold, mildew	1	2	-	-	-	spray, wait 15 min, scrub with brush
+mold,mildew	1	2	-	-	-	spray, wait 15 min, scrub with brush
 floor		1	1*	-	-	-	spray on floor (not hardwood) before mopping (or put in bucket & dip mop into it)
 toilet bowl	1	1	-	-	-	spray into toilet (coating the bowl), scrub with brush, rinse
 grout		1	-	-	-	1	smear the paste, wait 1 hour, scrub with brush, wipe away with damp paper towel
@@ -81,51 +78,21 @@ G: how to apply
 --------------------------------------------------------------------------------
 https://www.youtube.com/watch?v=1M2RZKGIR_A
 
-remove stain
+A			B C D E		F
+clothes stain		2 - 1 -		remove stain's materials, scrub with brush, rinse with clean cloth & water
+fruit,vegatable		1 4 - -		put produce in, wait few min, rinse
+grout			1 - - 2		apply paste, wait few min, scrub with brush, rinse
+toilet stain		1 - - -		pour in, wait 2 hour, scrub with brush, rinse
+whiten laundry		1 - - -		add to bleech compartment of washing machine
+toothbrush		1 - - -		fill container, put toothbrush in, wait 30 min, rinse
+disinfect countertop	1 - - -		spray, wait 10 min, wipe clean, rinse
 
-2 part peroxide
-1 part dish soap
-remove stain materials first
-scrub with brush
-rinse with clean cloth and water
-------------------------------
-wash produce
-
-1 litre water
-1 cup peroxide
-leave produce in for a few min
-rinse
-------------------------------
-clean grout
-
-1 part peroxide
-2 part baking soda
-apply paste and leave it for a few min
-scrub with brush
-rinse well
-------------------------------
-remove toilet stain
-
-pour 1 cup (or half cup)
-leave it for a couple of hours
-scrub with brush
-rinse
-------------------------------
-whiten laundry
-
-add 1 cup of peroxide to bleech compartment of washing machine
-------------------------------
-soak toothbrush
-
-fill container with peroxide
-leave toothbrush in it for 30 min
-------------------------------
-disinfect countertop
-
-spray peroxide on surface
-leave it for 10 min
-wipe surface clean
-rinse
+A: application
+B: hydrogen peroxide 3%
+C: water
+D: dish soap
+E: baking soda
+F: how to apply
 --------------------------------------------------------------------------------
 
 https://www.thespruce.com/hydrogen-peroxide-uses-home-4174809
