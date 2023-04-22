@@ -42,86 +42,29 @@ water break test (check if surface has thin layer of dirt/grease)
 
 --------------------------------------------------------------------------------
 
-wall stain
+A			B C D E F G H	I
+wall stain		- - - 1 - - -	put on damp sponge, scrub, wipe with clean damp cloth
+clothes stain		2 - 1 - - - -	remove stain's materials, scrub with brush, rinse with clean cloth & water
+shoe stink		- - - - - - h	put on cotton ball, put in shoe over night
+flexible ice pack	- 2 - - 1 - -	pour in ziploc bag, put in freezer
+blinds			- - - - 1 - -	spray, wipe (e.g. with sock on hand)
+shower head		- - - - - 1 -	fill bag, put shower head in, tighten bag with rubber band, leave over night
+refresh towels		- - - 1 - 1 -	run 2 washing machine cycles, 1 with G & hotwater, 1 with E
+stainless-steel mug	- # - 1 - - -	fill mug, let soak overnight, scrub with sponge|brush|microfiber cloth
+pot			- - - - - - -	crumble tin foil, scrub pot
+laundry booster		- - - - - 1 -	add to washing machine compartment (can add detergent too)
+all-purpose scrub	- - 1 1 - - #	add little water, mix till pouding-like consistency (make on-demand, not lots ahead of time), scrub with dampen sponge
+cutting board		1 - - - - - -	spray on surface, wait 5-10 min, wash with soap & water, rinse well, let dry
 
-baking soda
-damp sponge
-scrub
-wipe with clean damp cloth
-------------------------------
-remove stain on clothes
-
-2 part hydrogen peroxide
-1 part dish soap
-remove stain materials first
-scrub with brush
-rinse with clean cloth and water
-------------------------------
-stinky shoes
-
-put essential oil on cotton balls
-put cotoon balls in shoe over night
-------------------------------
-flexible ice pack
-
-ziploc bag
-2 part water
-1 part rubbing alchohol
-put in freezer
-------------------------------
-cleaning blinds
-
-put rubbing alchohol in spray bottle
-put sock on hand
-spray and clean
-------------------------------
-clean shower head
-
-fill bag with white vinegar
-put shower head in bag
-tighten bag with rubber band
-leave over night
-------------------------------
-refresh towels (from being crunchy or smelly)
-
-run 2 washing machine cycles
-1 cycle with hot water + 1 cup of white vinegar
-1 cycle with 1 cup of baking soda
-------------------------------
-clean stainless steel mug
-
-fill half the cup with hot water
-add 1 tablespoon with baking soda
-fill rest of the cup with hot water
-let soak overnight
-scrub with sponge|brush|microfiber cloth
-------------------------------
-clean pot
-
-crumble tin foil
-scrub pot
-------------------------------
-laundry booster
-
-put detergent in washing machine
-put white vinegar in washing machine compartment
-------------------------------
-all-purpose scrub
-
-make amount of product you need on demand (not a bulk amount ahead of time)
-mix equal parts dish soap and baking soda
-add little bit of water
-mix until you get a pouding like consistency
-you can add up to 10 drops of essential oil
-scrub with dampen sponge
-------------------------------
-cutting board
-
-spray hydrogen peroxide on sruface
-let it sit for 5 to 10 min
-clean cutting board with soap and water
-rinse well and let dry
-
+A: application
+B: hydrogen peroxide 3%
+C: water (# = 16)
+D: dish saop
+E: baking soda
+F: 70% isopropyl alchohol
+G: white vinegar
+H: essential oil (drop, h = few, # = 0-10)
+I: how to apply
 --------------------------------------------------------------------------------
 general tips
 
