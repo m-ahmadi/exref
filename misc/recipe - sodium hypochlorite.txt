@@ -7,5 +7,5 @@ use		bleach	water	apply
 floor		1	10	mop, wait 5-10 min, rinse, airdry
 clothes		1	5.5	wash as usual first, soak in solution, wait 15 min, rinse
 ...		1	5.5	wash usual cycle first, add to washing machine compartment
-surfaces	1	5.5	add solution to cloth, wipe on surface, wait 5 min, rinse
+surface		1	5.5	add solution to cloth, wipe on surface, wait 5 min, rinse
 object		1	5.5	drown object in solution, wait 15 min, rinse
