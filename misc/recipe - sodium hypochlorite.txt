@@ -9,38 +9,29 @@ oxidizes very fast in hot water
 use cold water for solutions as it looses potency in hot water quickly (before you have time to apply)
 
 
-A			B	C	D
-blood spill		1^	-	-
-lab utensils		1	-	-
-disinfect		1	5	remove dirt, coat surface, wait 10 min, airdry
-bathroom wall|sink	1	9	wait 5-10 min
-generic antiseptic	1	10	-
-floor			1	16	remove dirt (vacuum|sweep), mop, wait 5-10 min, rinse (mop too), airdry
-toilet			1	-	spray (coat surfaces), wait 5-10 min, scrub, rinse (spray on brush, let airdry)
-clothes			1	5.5	wash as usual first, soak in solution, wait 15 min, rinse
-...			1	5.5	wash usual cycle first, add to washing machine compartment
-surface			1	5.5	add solution to cloth, wipe on surface, wait 5 min, rinse
-object			1	5.5	drown object in solution, wait 15 min, rinse
-all surfaces		1	49	wait 1 min
+A				B	C	D
+blood spill			1^	-	-
+lab utensils			1	-	-
+kitchen sink			1	-	coat, brush, wait 5 min, rinse
+cutting board, dish		1	-	coat, wait 5 min, rinse
+disinfect			1	5	remove dirt, coat surface, wait 10 min, airdry
+bathroom wall|sink		1	9	wait 5-10 min
+generic antiseptic		1	10	-
+floor				1	16	remove dirt (vacuum|sweep), mop, wait 5-10 min, rinse (mop too), airdry
+floor|wall			1	83	wipe with solution, airdry
+toilet bowl			1	-	coat surface, wait 5-10 min, scrub, rinse (spray on brush, let airdry)
+toilet bowl 2			1	-	coat surface, leave over night
+toilet sink|floor|wall, tub	1	-	coat surface, wait 5 min, rinse
+shower drain			1	-	pour into drain
+clothes				1	5.5	wash as usual first, soak in solution, wait 15 min, rinse
+clothes 2			1	250	soak, wait 5 min, rinse
+washing machine			1	5.5	wash usual cycle first, add to washing machine compartment
+washing machine 2		.75	-	add to compartment (5 min after adding normal detergents)
+surface				1	5.5	add solution to cloth, wipe on surface, wait 5 min, rinse
+object				1	5.5	drown object in solution, wait 15 min, rinse
+all surfaces			1	49	wait 1 min
 
 A: application
 B: bleach 5% (^ = 20% solution)
 C: cold water
 D: how to apply
-
---------------------------------------------------------------------------------
-from label of some products
-
-"Golrang"
-
-A				B	C	D
-kitchen sink			1	-	coat, brush, wait 5 min, rinse
-cutting board, dish		1	-	pour, wait 5 min, rinse
-clothes				1	250	soak, wait 5 min, rinse
-washing machine			.75	-	add to compartment (5 min after adding normal detergents)
-toilet bowl			1	-	coat surface, leave over night
-toilet sink|floor|wall, tub	1	-	caot surface, wait 5 min, rinse
-shower drain			1	-	pour into drain
-other surfaces			1	83	-
-
---------------------------------------------------------------------------------
