@@ -2,10 +2,27 @@
 found in "Clorox" products
 usually in concentration of 5%
 never mix with "hydrochloric acid" (جوهرنمک) as it produces "chlorine gas" which is poisonous
+works most effectively in hot water (oxidizes quickly)
+use cold water for solutions as it looses its potency in hot water quickly (cuz you have no time to apply)
+could damage ceramic glazing if used regularly
+could corrode pipes if poured in toilet regularly
 
-use		bleach	water	apply	
-floor		1	10	mop, wait 5-10 min, rinse, airdry
-clothes		1	5.5	wash as usual first, soak in solution, wait 15 min, rinse
-...		1	5.5	wash usual cycle first, add to washing machine compartment
-surface		1	5.5	add solution to cloth, wipe on surface, wait 5 min, rinse
-object		1	5.5	drown object in solution, wait 15 min, rinse
+A			B	C	D
+blood spill		1^	-	-
+lab utensils		1	-	-
+disinfect		1	5	remove dirt, coat surface, wait 10 min, airdry
+bathroom wall/sink	1	9	wait 5-10 min
+generic antiseptic	1	10	-
+floor			1	16	remove dirt (vacuum/sweep), mop, wait 5-10 min, rinse (mop too), airdry
+toilet			1	-	spray (coat surfaces), wait 5-10 min, scrub, rinse (spray on brush, let airdry)
+clothes			1	5.5	wash as usual first, soak in solution, wait 15 min, rinse
+...			1	5.5	wash usual cycle first, add to washing machine compartment
+surface			1	5.5	add solution to cloth, wipe on surface, wait 5 min, rinse
+object			1	5.5	drown object in solution, wait 15 min, rinse
+all surfaces		1	49	wait 1 min
+
+A: application
+B: bleach 5% (^ = 20% solution)
+C: cold water
+D: how to apply
+
