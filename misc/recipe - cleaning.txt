@@ -31,8 +31,8 @@ B: isopropyl alcohol	70%
 C: bleach		5%
 D: hydrogen peroxide	3%
 
-src: https://www.youtube.com/watch?v=ArWyKfR4h54
-
+source:
+https://www.youtube.com/watch?v=ArWyKfR4h54
 --------------------------------------------------------------------------------
 water break test (check if surface has thin layer of dirt/grease)
 
@@ -41,6 +41,7 @@ water break test (check if surface has thin layer of dirt/grease)
 	water droplets forming				not clean
 
 --------------------------------------------------------------------------------
+https://www.youtube.com/watch?v=8OKyJZUn0UA
 
 A			B C D E F G H	I
 wall stain		- - - 1 - - -	put on damp sponge, scrub, wipe with clean damp cloth
@@ -53,7 +54,7 @@ refresh towels		- - - 1 - 1 -	run 2 washing machine cycles, 1 with G & hotwater,
 stainless-steel mug	- # - 1 - - -	fill mug, let soak overnight, scrub with sponge|brush|microfiber cloth
 pot			- - - - - - -	crumble tin foil, scrub pot
 laundry booster		- - - - - 1 -	add to washing machine compartment (can add detergent too)
-all-purpose scrub	- - 1 1 - - #	add little water, mix till pouding-like consistency (make on-demand, not lots ahead of time), scrub with dampen sponge
+all-purpose scrub	- - 1 1 - - #	add little water, mix till pouding-like consistency (make on-demand, not lots ahead of time), scrub with damp sponge
 cutting board		1 - - - - - -	spray on surface, wait 5-10 min, wash with soap & water, rinse well, let dry
 
 A: application
@@ -66,7 +67,7 @@ G: white vinegar
 H: essential oil (drop, h = few, # = 0-10)
 I: how to apply
 --------------------------------------------------------------------------------
-general tips
+https://www.youtube.com/watch?v=-C-ic2H24OU
 
 1. clean top to bottom, left to right (e.g. top cabinet, countertop, floor)
 2. have everything with you
@@ -82,7 +83,3 @@ general tips
 	wipe stuff with a S pattern, left-right-bottom-left-bottom-right-...
 
 --------------------------------------------------------------------------------
-
-sources:
-https://www.youtube.com/watch?v=8OKyJZUn0UA
-https://www.youtube.com/watch?v=-C-ic2H24OU
