@@ -1,6 +1,6 @@
 aka "bleach", found in commercial products like "Clorox", usually in concentration of 5%
 use in well-ventilated area
-do not use on metal
+do not use on metal (except steel)
 could damage ceramic glazing if used regularly
 could corrode pipes if poured in toilet regularly
 never use directly on clothes (must be diluted)
@@ -13,7 +13,7 @@ A				B	C	D
 blood spill			1^	-	-
 lab utensils			1	-	-
 kitchen sink			1	-	coat, brush, wait 5 min, rinse
-cutting board, dish		1	-	coat, wait 5 min, rinse
+cutting board, dish		1	-	coat, wait 5 min, rinse (dish can be china|plastic|melamine|steel)
 disinfect			1	5	remove dirt, coat surface, wait 10 min, airdry
 bathroom wall|sink		1	9	wait 5-10 min
 generic antiseptic		1	10	-
