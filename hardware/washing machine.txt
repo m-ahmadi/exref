@@ -1,0 +1,12 @@
+to level:
+	1. zero out the back legs (or do not touch them)
+	2. level using only the front legs
+	3. level along width axis (sit in front of machine (where door is), place level on top)
+	4. slant slightly toward the back wall (along length axis)
+
+	note: the reason machine should be slanted slightly toward the back wall is so
+	that water does not pour out of the drum and the door does not swing open by itself
+
+adjust leg:
+	upper nut locks the current height
+	lower nut adjusts height
