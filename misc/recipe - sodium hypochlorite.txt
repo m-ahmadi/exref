@@ -1,6 +1,7 @@
 aka "bleach", found in commercial products like "Clorox", usually in concentration of 5%
 use in well-ventilated area
 do not use on metal (except steel)
+do not use on clothes of type: wool|silk|leather|synthetic-fabric
 could damage ceramic glazing if used regularly
 could corrode pipes if poured in toilet regularly
 never use directly on clothes (must be diluted)
@@ -13,19 +14,19 @@ A				B	C	D
 blood spill			1^	-	-
 lab utensils			1	-	-
 kitchen sink			1	-	coat, brush, wait 5 min, rinse
-cutting board, dish		1	-	coat, wait 5 min, rinse (dish can be china|plastic|melamine|steel)
-dish				1	33	put dish in solution, wait 5 min, rinse
+cutting board, dish		1	-	coat, wait 5 min, rinse. (dish can be china|plastic|melamine|steel)
+dish 2				1	33	put dish in solution, wait 5 min, rinse
 disinfect			1	5	remove dirt, coat surface, wait 10 min, airdry
 bathroom wall|sink		1	9	wait 5-10 min
-generic antiseptic		1	10	-
-floor				1	16	remove dirt (vacuum|sweep), mop, wait 5-10 min, rinse (mop too), airdry
+generic antiseptic		1	10	- (burns throat)
+floor				1	16	remove dirt (vacuum|sweep), mop, wait 5-10 min, rinse (mop too), airdry. (does not burn throat)
 floor|wall			1	83	wipe with solution, airdry
 toilet bowl			1	-	coat surface, wait 5-10 min, scrub, rinse (spray on brush, let airdry)
 toilet bowl 2			1	-	coat surface, leave over night
 toilet sink|floor|wall, tub	1	-	coat surface, wait 5 min, rinse
 ceramic|mosaic			1	-	coat surface, wait 20 min, scrub (optional), rinse
 shower drain			1	-	pour into drain
-clothes				1	5.5	wash as usual first, soak in solution, wait 15 min, rinse
+clothes				1	5.5	wash as usual first, soak in solution, wait 15 min, rinse. (can use on cotton|linen|towel|white-sheets)
 clothes 2			1	250	soak, wait 5 min, rinse
 washing machine			1	5.5	wash usual cycle first, add to washing machine compartment
 washing machine 2		.75	-	add to compartment (5 min after adding normal detergents)
