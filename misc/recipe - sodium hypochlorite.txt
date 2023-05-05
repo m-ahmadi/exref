@@ -1,4 +1,5 @@
 aka "bleach", found in commercial products like "Clorox", usually in concentration of 5%
+note that bleaching powder is "calcium hypochlorite" and has 65-70% chlorine content
 use in well-ventilated area
 do not use on metal (except steel)
 do not use on clothes of type: wool|silk|leather|synthetic-fabric
@@ -8,34 +9,59 @@ never use directly on clothes (must be diluted)
 never mix with "hydrochloric acid" (or any acid) as it produces "chlorine gas" which is poisonous
 oxidizes very fast in hot water
 use cold water for solutions as it looses potency in hot water quickly (before you have time to apply)
+use 1% solution within 1 month of creation (store in cool dark place and inside air-tight container)
 
 
 A				B	C	D
-blood spill			1^	-	-
-lab utensils			1	-	-
-kitchen sink			1	-	coat, brush, wait 5 min, rinse
-cutting board, dish		1	-	coat, wait 5 min, rinse. (dish can be china|plastic|melamine|steel)
-dish 2				1	33	put dish in solution, wait 5 min, rinse
-disinfect			1	5	remove dirt, coat surface, wait 10 min, airdry
-bathroom wall|sink		1	9	wait 5-10 min
-generic antiseptic		1	10	- (burns throat)
-floor				1	16	remove dirt (vacuum|sweep), mop, wait 5-10 min, rinse (mop too), airdry. (does not burn throat)
-floor|wall			1	83	wipe with solution, airdry
 toilet bowl			1	-	coat surface, wait 5-10 min, scrub, rinse (spray on brush, let airdry)
 toilet bowl 2			1	-	coat surface, leave over night
 toilet sink|floor|wall, tub	1	-	coat surface, wait 5 min, rinse
 ceramic|mosaic			1	-	coat surface, wait 20 min, scrub (optional), rinse
 shower drain			1	-	pour into drain
-clothes				1	5.5	wash as usual first, soak in solution, wait 15 min, rinse. (can use on cotton|linen|towel|white-sheets)
-clothes 2			1	250	soak, wait 5 min, rinse
+kitchen sink			1	-	coat, brush, wait 5 min, rinse
+cutting board, dish		1	-	coat, wait 5 min, rinse. (dish can be china|plastic|melamine|steel)
+washing machine			1	-	add 3/4 of cup to compartment (5 min after adding normal detergents)
+washing machine			1	-	225 ml for 7 kg machine, 150 for 5, 75 for less than 5
 washing machine			1	5.5	wash usual cycle first, add to washing machine compartment
-washing machine 2		.75	-	add to compartment (5 min after adding normal detergents)
-washing machine 3		1	-	225 ml for 7 kg machine, 150 for 5, 75 for less than 5
 surface				1	5.5	add solution to cloth, wipe on surface, wait 5 min, rinse
 object				1	5.5	drown object in solution, wait 15 min, rinse
-all surfaces			1	49	wait 1 min
+clothes				1	5.5	wash as usual first, soak in solution, wait 15 min, rinse. (can use on cotton|linen|towel|white-sheets)
+floor				1	16	remove dirt (vacuum|sweep), mop, wait 5-10 min, rinse (mop too), airdry. (does not burn throat)
+mold growth on hard surface	1	17	wash surface, scrub (optional), rinse, airdry
+dish				1	33	put dish in solution, wait 5 min, rinse
+surface				1	80	wash with soap & warm water, apply, airdry
+floor|wall			1	83	wipe with solution, airdry
+clothes				1	250	soak, wait 5 min, rinse
+surface				1	253	wash with soap & warm water, rinse, apply, airdry
 
 A: application
-B: bleach 5% (^ = 20% solution)
+B: bleach 5%
 C: cold water
 D: how to apply
+
+--------------------------------------------------------------------------------
+by solution percentages
+      A
+X = (———) - 1
+      B
+	X:	number of water parts needed
+	A:	% of chlorine in bleach
+	B:	desired % of diluted solution
+
+
+A	B  C 	D				E
+0.01	1  4	blood spill			coat surface, wait 10 min, airdry
+0.005	1  9	bathroom wall|sink		wait 5-10 min (burns throat)
+0.0025	1  19	lab utensils			wait 10
+0.001	1  49	generic disinfectant		wait at least 1 min, airdry
+0.0005	1  99	disinfect surface|clothes	wipe surface, wait 10 min | drown item, wait 30 min | drown clothes, wait 15 min
+0.00025	1  199	-
+
+note
+	any surface must be cleaned from dirt first
+
+A: % of solution (1 = 100%)
+B: n part bleach 5%
+C: n part cold water
+D: applications
+E: instructions
