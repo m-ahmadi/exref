@@ -5,6 +5,16 @@ shift  enter		open url in new window
 ctrl shift j, f12	devtool
 ctrl shift c		element inspector
 ctrl shit r		hard refresh
+
+context menu
+i	Open image in new tab
+v	Save image as...
+y	Copy image
+o	Copy image address
+c	Create QR code for this image
+s	Search image with Google
+d	Download with IDM
+n	Inspect
 --------------------------------------------------
 custom
 
