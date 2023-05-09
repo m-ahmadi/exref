@@ -1,13 +1,14 @@
-\mklink /d C:\r "J:\...\exref"
-mklink /d C:\h D:\xampp\htdocs
+mklink /d C:\r "J:\...\exref"
+mklink /d C:\h  D:\xampp\htdocs
+mklink /d C:\d "L:\...Download"
 mklink /d C:\#htdocs D:\xampp\htdocs
 
 mklink /d C:\dev "J:\...\Dev"
 mklink /d C:\s   "D:\...\secret"
 mklink /d C:\ac  "D:\...\secret\accounts"
-mklink /d C:\nf "J:\...\info"		(if delete with `del c:\nf /q` all direct children files in destination are lost, delete with `rd c:\nf`)
-mklink /d C:\as "L:\...\Programs"
-mklink /d C:\usr C:\Users\NYC
+mklink /d C:\nf  "J:\...\info"		(if delete with `del c:\nf /q` all direct children files in destination are lost, delete with `rd c:\nf`)
+mklink /d C:\as  "L:\...\Programs"
+mklink /d C:\usr  C:\Users\NYC
 
 C:\node.lnk	...\node.exe
 C:\net.lnk	control ncpa.cpl
