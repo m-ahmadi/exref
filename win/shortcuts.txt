@@ -38,6 +38,7 @@ ctx<file> s		create shortcut
 ctx<file> h		open with
 ctx<file> shift d	delete
 ctrl shift f10		context-menu
+ctrl alt right-click	open context menu with shortcut keys underlined
 
 alt space		window menu
 alt printscreen		window-only screenshot
