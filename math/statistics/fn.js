@@ -310,13 +310,19 @@ function shapiroWilk(_x=[]) {
 	return W;
 }
 
-function normpdf(x=[]) {
-	let { exp } = Math;
-	let denom = Math.sqrt(2 * Math.PI);
+function norm(x=[]) {/*normal probability distribution*/
+	let { sqrt, exp, PI } = Math;
+	let denom = sqrt(2 * PI);
 	return x.map(i => exp(-sqr(i)/2) / denom);
 }
 
-function normcdf(x=[], mean=0, stdv=1) {
+function normpdf(x=[], mean=0, stdv=1) {/*probability density function*/
+	let { sqrt, exp, PI } = Math;
+	let expr1 = 1 / (stdv * sqrt(2 * PI));
+	return x.map(i => expr1 * exp(-(1/2) * sqr((i - mean) / stdv)));
+}
+
+function normcdf(x=[], mean=0, stdv=1) {/*cumulative distribution function*/
 	let denom1 = Math.sqrt(2) * stdv;
 	return x.map(i => (1 - erf((mean-i) / denom1)) / 2);
 }
