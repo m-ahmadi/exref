@@ -5,9 +5,10 @@ joint probability		probability of two events occurring together
 bayes theory
 	P(A|B) = P(A) * P(B|A) / P(B)
 
-probability distribution	probability of possible values of a variable
-				number of times each possible value of a variable occurs in the dataset (like a frequency table)
-				it's an idealized frequency distribution
+probability distribution		probability of all possible values of a variable
+					number of times each possible value of a variable occurs in the dataset (like a frequency table)
+					it's an idealized frequency distribution
 
-probability density function	probability distribution of a continuous variable
-probability mass    function	probability distribution of a discrete   variable
+probability density function		describes probability distribution of a continuous          variable
+probability mass    function		describes probability distribution of a discrete            variable
+cumulative distribution function	describes probability distribution of a discrete|continuous variable (in a cumulative manner)
