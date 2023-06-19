@@ -1,0 +1,27 @@
+a dirty oven with spots of dried/hardened food reduces lifespan of device
+do not use dishes that have cracks or cuts
+--------------------------------------------------
+test if dish/container is microwave safe
+
+1. pour a cup of cold water (250ml) into a microwave-safe container and place it in the oven
+2. put the dish you want to test alongside/on/inside the safe container
+3. run microwave for 1 min with 100% power
+
+	dish	water	result
+	======================
+	cool	warm	safe
+	warm	cool	unsafe
+
+note: if safe cup is on dish, dish can get warm beneath the cup, this does not count as dish being warm.
+--------------------------------------------------
+cleaning spots of hardened food
+
+1. cut lemon/lime in half
+2. put a half inside bowl
+3. fill bowl with 300ml of water
+4. run microwave with 100% power for 10 min
+--------------------------------------------------
+microwaves with convection
+
+they have fans inside the oven that spread the heat around for even temperature
+--------------------------------------------------
