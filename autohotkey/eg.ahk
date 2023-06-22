@@ -1,3 +1,20 @@
+; generic
+
+; click on coordinates
+Send {Click 100 200}        ; left click
+Send +{Click 100 200}       ; shift + left click
+Send ^{Click 100 200 Right} ; ctrl  + right click
+
+; press win + d
+Send #d
+
+; sleep
+sleep, 1000 ; 1 second
+
+;@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+; shortcut assigned
+
+
 ; open new tab in firefox
 #t::
 SetTitleMatchMode, 2
@@ -22,7 +39,6 @@ return
 #q::
 Send !{F4}
 return
-
 
 
 ; list of all windows
