@@ -1,5 +1,4 @@
 ; copy a file and then delete it
-Send #d                     ; show desktop
 Send {Click 1710 940 Right} ; right-click on file
 Send {Click 1710 827}       ; click copy
 Send {Click 1710 860 Right} ; right-click on empty space
@@ -10,7 +9,6 @@ WinWaitActive ,"Delete Shortcut",, 0.1, ahk_exe Explorer.EXE ; wait for confirm 
 Send {Enter}                ; press enter
 
 ; undo and then cancel
-Send #d    ; show desktop
 Send ^z    ; press undo
 WinWaitActive ,"Item Not Found",, 0.1, ahk_class OperationStatusWindow
 Send {Esc} ; press escape
