@@ -8,6 +8,9 @@
 (/<div id="a">(.*)<\/div>/)  // ...            (until I don't know what closing div)
 (\/\*\*\s*\n([^\*]|\*[^\/])*\*\/) // jsdoc comments
 
+// logical AND multiword search
+(word1[\s\S\n]*word2)|(word2[\s\S\n]*word1)
+(word1[\s\S]*word2)|(word2[\s\S]*word1) // on same line
 
 // replace comma with dot
 (/(\d+),(\d{1,})/g, '$1.$2')
