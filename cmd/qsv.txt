@@ -1,0 +1,5 @@
+qsv --list		list all commands
+
+
+install
+powershell -C "iwr https://github.com/jqnatividad/qsv/releases/download/0.108.0/qsv-0.108.0-i686-pc-windows-msvc.zip -O x.zip; Expand-Archive x.zip -D t; mi t\qsv.exe -D $Env:windir; ri x.zip; ri t -Force -Recurse;"
