@@ -1,0 +1,5 @@
+1. ctrl f -> search 1st word -> alt enter (Open in editor)
+
+2. alt L (Toggle Context Lines) -> increase number (higher = more lines but more non-relevant)
+
+3. ctrl f -> search 2nd word

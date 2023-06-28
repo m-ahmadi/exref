@@ -23,7 +23,7 @@
 'x x'                .replace(/(x)/g, '$1y')    'xy xy'                  // ...
 'x y'                .replace(/(x) y/g, 'L$&')  'Lx y'                   // ...   whole match backref
 
-// emulating and
+// emulating logical AND
 var str = 'all the leaves are brown and the sky is grey';
 str.match(/the(=?.*and)/ig)   ['the leaves are brown and']
 str.match(/brown(=?.*sky)/ig) ['brown and the sky']
