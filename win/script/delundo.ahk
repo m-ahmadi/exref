@@ -9,8 +9,10 @@ WinWaitActive ,"Delete Shortcut",, 0.1, ahk_exe Explorer.EXE ; wait for confirm 
 Send {Enter}                ; press enter
 
 ; undo and then cancel
+Send #d    ; show desktop
 Send ^z    ; press undo
 WinWaitActive ,"Item Not Found",, 0.1, ahk_class OperationStatusWindow
+sleep, 500
 Send {Esc} ; press escape
 
 ; clear clipboard
