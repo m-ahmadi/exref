@@ -1,0 +1,29 @@
+﻿ADMIN			معرفی مدیر دستگاه
+PSS#newpass		تغییر رمز مدیر دستگاه (فقط توسط مدیر)
+N1=+989121112233	معرفی کاربر 1
+N1D=D			حذف کاربر 1
+AIO			گزارشگیری میزان آنتن دهی، ورودی ها، خروجی ها، مد آلارم
+MDQ			اطلاع از کابران و مدیریت دستگاه
+TCI			اطلاع از میزان شارژ همراه اول فارسی
+*141*1#			اطلاع از میزان شارژ ایرانسل
+*140*11#		اطلاع از میزان شارژ همراه اول
+RSTSSY			ریست کردن دستگاه (فقط توسط مدیر)
+--------------------------------------------------
+general modes (v+ = inputs have voltage, v! = not)
+
+enable	disable
+OPT#19	OPT#20		if v+, call
+OPT#21	OPT#22		if v!, call
+OPT#23	OPT#24		if v!, sms
+
+--------------------------------------------------
+3 modes of input2 (msg = sms|call|both)
+
+alarm#3			تنظیم زمان آلارم بر حسب دقیقه (اینجا 3 دقیقه انتخاب شده است)
+
+enable			action					disable
+OPT#31 + ALARMOFF	if v changes, msg			-
+OPT#15 + ALARMON	if v+, msg, o2=0 for x time		ALARMOFF
+OPT#16 + ALARMON	if v+, o2=0 for x time			ALARMOFF
+
+--------------------------------------------------
