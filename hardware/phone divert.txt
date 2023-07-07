@@ -1,0 +1,2 @@
+*21*PHONE_NUMBER#	divert calls to PHONE_NUMBER to this phone (not sms)
+#21#			disable
