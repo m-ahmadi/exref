@@ -9,3 +9,5 @@
 =OFFSET(A1, 0, 0, 2, 1)		A1:A2
 =OFFSET(A1, 0, 0, 2, 2)		A1:B2
 =OFFSET(A1, 0, 0, 1, 2)		A1:B1
+
+=SUM(OFFSET(A1, 0, 0, 2, 2))	4 (if all cells contain 1)
