@@ -1,0 +1,7 @@
+		thickness	wrist
+==================================================
+F.P.SH		good		good
+Penguin		medium		good
+RAFOONEH	medium		good
+AROK		good		small
+SHIK		low		small
