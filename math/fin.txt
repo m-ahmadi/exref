@@ -1,3 +1,6 @@
-﻿                 price per share
+﻿EPS	earnings per share
+DPS	dividend per share (a part of EPS that's paid to shareholders)
+
+                 price per share
 P/E ratio = ———————————————————————————
              earnings per share (EPS)
