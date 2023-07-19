@@ -1,0 +1,5 @@
+1. drag first image in the app (Layer 1)
+2. drag next images & click checkmark (Layer 2,3,...)
+3. select all layers except 1
+4. select "Darker|Darker Color|Difference" blending mode
+5. select all layers, rclick, "Merge Layers"

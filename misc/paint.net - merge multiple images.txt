@@ -1,0 +1,7 @@
+1. drag first image in the app
+2. add next images as layers
+3. select layer, click "Properties" (f4), "Blend Mode: Darken|Multiply"
+4. repeat 3 for all layers except first layer
+5. select top layer
+6. click "Merge Layer Down" (ctrl m)
+7. repeat 6 until 1 layer remains

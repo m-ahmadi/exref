@@ -1,0 +1,1 @@
+ctrl alt shift w		export as
