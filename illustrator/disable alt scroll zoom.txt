@@ -1,1 +1,0 @@
-ctrl k -> General -> Zoom with Mouse Wheel

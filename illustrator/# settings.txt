@@ -1,0 +1,6 @@
+General
+	Zoom with Mouse Wheel		disable alt scroll zoom
+	! Scale Strokes & Effects	don't scale strokes
+
+Type
+	Show Indic Options		farsi type (not needed in v2023)

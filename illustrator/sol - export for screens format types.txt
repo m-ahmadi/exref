@@ -10,6 +10,7 @@ jpg 20		lowest quality
 
 -------------------------------------------------------------
 png
+
 5 color types
 what differ in different types:
 	color types
