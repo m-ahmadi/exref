@@ -7,12 +7,15 @@ program
 		// desc: description string that appears on help
 	
 	
-	.action((cmdArg1 [, cmdArg2, ..., ] options) => )
+	.action((args, opts, command) => ) // v7+
+	
+	.action((cmdArg1 [, cmdArg2, ..., ] options) => ) // before v7
 		// a callback to be invoked when command name is specified via ARGV
 		// cmdArg:      argument(s) of sub-command
 		// options:     options passed after the sub-command
-	
-	.action((args, opts, command) => ) // v7
+
+var command = program.command(name);
+var command = new commander.Command(name);
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 const program = require('commander');
 
@@ -92,6 +95,27 @@ if (cmdValue === undefined) {
   console.error('no command given!');
   process.exit(1);
 }
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// nested commands
+
+var a = program.command('a');
+a
+	.command('a1')
+	.action(() => console.log('a1'));
+a
+	.command('a2')
+	.action(() => console.log('a2'));
+
+
+var a = program.command('a').action(() => console.log('a'));
+a
+	.command('a1').action(() => console.log('a1'))
+	.command('a2').action(() => console.log('a2'));
+
+var b = program.command('b').action(() => console.log('b'));
+b
+	.command('b1').action(() => console.log('b1'))
+	.command('b2').action(() => console.log('b2'));
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // separate files for sub-commands
 program.command(name, description, options); // options should be handled in the separate file
