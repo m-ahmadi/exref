@@ -22,6 +22,5 @@ npm star <pkg>				star a package
 npm unstar <pkg>			unstar a package
 npm whoami				username config
 
-npm cache verify			clean cache (npm v5+)
-npm cache clean				deprecated
-npm cache clear				deprecated
+npm cache verify			verify cache
+npm cache clean --force			clean cache
