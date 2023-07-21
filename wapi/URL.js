@@ -1,3 +1,5 @@
+// https://developer.mozilla.org/en-US/docs/Web/API/URL
+
 new URL(url='', ?base='')
 URL {
 	hash:         ''
@@ -20,7 +22,9 @@ URL {
 URL.createObjectURL(object=File|Blob|MediaSource): ''
 URL.revokeObjectURL('')
 
-// example
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// examples
+
 new URL('http://google.com')
 
 // base urls
