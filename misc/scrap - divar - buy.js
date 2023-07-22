@@ -60,15 +60,14 @@ while (links.size > 0) {
 		let prom = fetch(link).then(resp => {
 			if (resp.status === 200) {
 				links.delete(link);
-				console.log(tot-links.size+'/'+tot);
 				resp.text().then(text => {
 					let row = extractRow(text, link);
 					if (row) rr.push(row);
 				});
 			} else if (resp.status === 404) {
 				links.delete(link);
-				console.log(tot-links.size+'/'+tot);
 			}
+			console.log(tot-links.size+'/'+tot);
 		}).catch(()=> undefined);
 		proms.push(prom);
 		await sleep(WAIT_AFTER_EACH_REQUEST);
