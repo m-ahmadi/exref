@@ -1,3 +1,5 @@
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+
 Intl.Collator()
 Intl.DateTimeFormat(locales=''|['',..], ?options={
 	dateStyle:       'full|long|medium|short',
