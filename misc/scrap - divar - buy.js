@@ -58,7 +58,7 @@ while (links.size > 0) {
 	let proms = [];
 	for (let link of links.keys()) {
 		let prom = fetch(link).then(resp => {
-			if (resp.status == 200) {
+			if (resp.status === 200) {
 				links.delete(link);
 				console.log(tot-links.size+'/'+tot);
 				resp.text().then(text => {
