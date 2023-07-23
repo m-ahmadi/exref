@@ -1,0 +1,13 @@
+win10
+
+(win i -> Time & Language -> Language) | ms-settings:keyboard
+	Add a language
+
+--------------------------------------------------
+win7
+
+(control -> "Region and Language") | intl.cpl
+	Location -> Iran
+	Keyboards and Languages -> Change keyboards -> Add -> Persian
+	Administrative -> Change system locale -> Persian
+--------------------------------------------------
