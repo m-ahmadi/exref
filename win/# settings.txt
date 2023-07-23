@@ -30,3 +30,5 @@ ms-settings:colors -> Transparency effect: Off
 
 ms-settings:multitasking
 	"When I snap a windows, show what I can snap next to it": Off
+
+ms-settings:keyboard -> Add a language
