@@ -6,7 +6,7 @@ http://www.tsetmc.com/tsev2/data/instinfofast.aspx?
 	return: text/html
 */
 
-var str = await fetch('http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=46348559193224090&c=57+').then(async r => await r.text());
+var str = await (await fetch('http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=46348559193224090&c=57+')).text();
 var groups = str.split(';');
 
 groups[0].split(',')
