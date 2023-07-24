@@ -14,7 +14,7 @@ http://www.tsetmc.com/tsev2/chart/data/Financial.aspx?i=<InsCode>&t=ph&a=1						
 http://www.tsetmc.com/tsev2/data/Export-txt.aspx?t=i&a=1&b=0&i=<InsCode>						12 col ClosingPrices (text/plain)
 http://www.tsetmc.com/tse/data/Export-txt.aspx?a=InsTrade&InsCode=<InsCode>&DateFrom=<DEven>&DateTo=<DEven>&b=0		11 col ClosingPrices (text/plain)
 
-http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=<InsCode>&c=57+			9 groups live data		(text/html)
+http://www.tsetmc.com/tsev2/data/instinfofast.aspx?i=<InsCode>&c=<CSecVal>+		9 groups live data		(text/html)
 http://www.tsetmc.com/tsev2/chart/data/IntraDayPrice.aspx?i=<InsCode>			6  col Intraday last day	(text/csv)
 http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=<InsCode>				4  col IntraTrade last day	(text/xml)
 http://www.tsetmc.com/tsev2/data/clienttype.aspx?i=<InsCode>				13 col ClientType		(text/csv)
@@ -33,7 +33,7 @@ https://platform.tgju.org/fa/tvdata/history?symbol=PRICE_DOLLAR_RL&resolution=1D
 page
 
 http://www.tsetmc.com/Loader.aspx?ParTree=111C1417		instruments
-http://www.tsetmc.com/Loader.aspx?ParTree=151313&Flow=1&...	messages (...: &Lval18AFC=<FaSymbol>&DevenPersian=YYYY-MM-DD)
+http://www.tsetmc.com/Loader.aspx?ParTree=151313&Flow=1&...	messages (...: &Lval18AFC=<FaSymbol>&DEvenPersian=YYYY-MM-DD)
 http://www.tsetmc.com/Loader.aspx?ParTree=15131I&t=0		all shareholders share changes last day
 http://www.tsetmc.com/Loader.aspx?Partree=15131M&i=<InsCode>	instrument
 http://www.tsetmc.com/Loader.aspx?Partree=15131H&i=<InsCode>	instrument capital increases
@@ -44,19 +44,50 @@ http://www.tsetmc.com/Loader.aspx?ParTree=15131J&i=<InsCode>	index-only page
 --------------------------------------------------------------------------------
 rest api
 
-... = :inscode/:deven
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/:InsCode/:DEven		InstrumentHistory of specific day (old InstSimpleData)
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentInfo/:InsCode				InstrumentInfo
 
-http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/...				InstSimpleData
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/:InsCode/:DEven			(old InstrumentStateData)
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentStateTop/:int				-
 
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/...			ClosingPriceData
-http://cdn.tsetmc.com/api/BestLimits/...						BestLimitData
-http://cdn.tsetmc.com/api/Trade/GetTradeHistory/.../:bool				IntraTradeData
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/:InsCode			ClosingPriceInfo of today
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/:InsCode/:DEven		ClosingPrice history (old ClosingPriceData)
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/:InsCode/:DEven		ClosingPrice of single   day
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyList/:InsCode/:Top?<int>	ClosingPrice of multiple days (if no :Top, returns all)
+http://cdn.tsetmc.com/api/ClosingPrice/GetRelatedCompany/:CSecVal			ClosingPriceInfo of instruments in specific industry sector
+http://cdn.tsetmc.com/api/ClosingPrice/GetChartData/:InsCode/:Resolution<str>=D		chart data OHLCVT
 
-http://cdn.tsetmc.com/api/ClientType/GetClientTypeHistory/...				ClientTypeData
-http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/...				StaticTreshholdData
-http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/...				InstrumentStateData
-http://cdn.tsetmc.com/api/Shareholder/...						ShareHolderData
+http://cdn.tsetmc.com/api/BestLimits/:InsCode/:DEven					orders of specific day (old BestLimitData)
+http://cdn.tsetmc.com/api/BestLimits/:InsCode						orders of now
 
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/...				ClosingPrice  single day
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyList/:inscode/:top<int>	ClosingPrices multiple days
+http://cdn.tsetmc.com/api/ClientType/GetClientTypeHistory/:InsCode/:DEven		ClientType of specific day (old ClientTypeData)
+http://cdn.tsetmc.com/api/ClientType/GetClientType/:InsCode/:int=1/:int=0		ClientType of now
+
+http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/:InsCode/:DEven			(old StaticTreshholdData)
+http://cdn.tsetmc.com/api/MarketData/GetMarketOverview/:int				-
+
+http://cdn.tsetmc.com/api/StaticData/GetStaticData					<CSecVal|YVal|...> descriptions or names
+http://cdn.tsetmc.com/api/StaticData/GetTime						date and time
+
+http://cdn.tsetmc.com/api/Codal/GetPreparedData/:ResLimit<int>				-
+http://cdn.tsetmc.com/api/Codal/GetPreparedDataByInsCode/:ResLimit<int>/:InsCode	-
+
+http://cdn.tsetmc.com/api/Trade/GetTradeHistory/:InsCode/:DEven/:bool			(old IntraTradeData)
+
+http://cdn.tsetmc.com/api/Shareholder/:InsCode/:DEven					(old ShareHolderData)
+
+http://cdn.tsetmc.com/api/Msg/GetMsgByFlow/:Flow/:NumberOfMsgs				supervisor messages (if :Flow == 0, msgs of all flows)
+
+
+notation guide:
+
+:Foo		param's name
+:Foo<int>	param with value of type int
+:Foo?		optional param (can be omitted)
+:Foo=1		param with default value
+:Foo?<int>=3	optional param of type int with default value of 3
+:int		nameless param
+:int?		optional nameless param
+:int=1		nameless param with default value
+:int?=1		optional nameless param with default value
 --------------------------------------------------------------------------------
