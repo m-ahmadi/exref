@@ -1,4 +1,4 @@
-http://service.tsetmc.com/WebService/TseClient.asmx			soap
+﻿http://service.tsetmc.com/WebService/TseClient.asmx			soap
 
 http://service.tsetmc.com/tsev2/data/TseClient2.aspx			v2 (http get)
 
@@ -44,39 +44,45 @@ http://www.tsetmc.com/Loader.aspx?ParTree=15131J&i=<InsCode>	index-only page
 --------------------------------------------------------------------------------
 rest api
 
-http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/:InsCode/:DEven		InstrumentHistory of specific day (old InstSimpleData)
-http://cdn.tsetmc.com/api/Instrument/GetInstrumentInfo/:InsCode				InstrumentInfo
+http://cdn.tsetmc.com/api/BestLimits/:InsCode/:DEven							orders of specific day (old BestLimitData)
+http://cdn.tsetmc.com/api/BestLimits/:InsCode								orders of now
 
-http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/:InsCode/:DEven			single   instrumentState of specific instrument & day (old InstrumentStateData)
-http://cdn.tsetmc.com/api/MarketData/GetInstrumentStateTop/:Top?<int>			multiple instrumentState of instruments that recently changed state
+http://cdn.tsetmc.com/api/ClientType/GetClientType/:InsCode/:GetClientTypeData<int>=1/:TCS<int>=0	ClientType of now
+http://cdn.tsetmc.com/api/ClientType/GetClientTypeHistory/:InsCode/:DEven				ClientType of specific day (old ClientTypeData)
 
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/:InsCode			ClosingPriceInfo of today
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/:InsCode/:DEven		ClosingPrice history (old ClosingPriceData)
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/:InsCode/:DEven		ClosingPrice of single   day
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyList/:InsCode/:Top?<int>	ClosingPrice of multiple days (if no :Top, returns all)
-http://cdn.tsetmc.com/api/ClosingPrice/GetRelatedCompany/:CSecVal			ClosingPriceInfo of instruments in specific industry sector
-http://cdn.tsetmc.com/api/ClosingPrice/GetChartData/:InsCode/:Resolution<str>=D		chart data OHLCVT
+http://cdn.tsetmc.com/api/ClosingPrice/GetChartData/:InsCode/:Resolution<str>=D				chart data OHLCVT
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/:InsCode					ClosingPriceInfo of today
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/:InsCode/:DEven				ClosingPrice of single day
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyAllInst					ClosingPrice of today of all instruments
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyList/:InsCode/:Top?<int>			ClosingPrice of multiple days (if no :Top, returns all)
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/:InsCode/:DEven				ClosingPrice history (old ClosingPriceData)
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyListCSV/:InsCode/:PrependCol?<str>		ClosingPrice of all days as csv file
+http://cdn.tsetmc.com/api/ClosingPrice/GetInstrumentCalendar/:InsCode					instrument calender
+http://cdn.tsetmc.com/api/ClosingPrice/GetMarketWatch							market watch
+http://cdn.tsetmc.com/api/ClosingPrice/GetPriceAdjustList/:InsCode					list of instrument's "price adjustment events"
+http://cdn.tsetmc.com/api/ClosingPrice/GetRelatedCompany/:CSecVal					ClosingPriceInfo of instruments in specific industry sector
 
-http://cdn.tsetmc.com/api/BestLimits/:InsCode/:DEven					orders of specific day (old BestLimitData)
-http://cdn.tsetmc.com/api/BestLimits/:InsCode						orders of now
+http://cdn.tsetmc.com/api/Codal/GetPreparedData/:Top<int>						codal notifications
+http://cdn.tsetmc.com/api/Codal/GetPreparedDataByInsCode/:Top<int>/:InsCode				codal notifications of specific instrument
 
-http://cdn.tsetmc.com/api/ClientType/GetClientTypeHistory/:InsCode/:DEven		ClientType of specific day (old ClientTypeData)
-http://cdn.tsetmc.com/api/ClientType/GetClientType/:InsCode/:int=1/:int=0		ClientType of now
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/:InsCode/:DEven				InstrumentHistory of specific day (old InstSimpleData)
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentInfo/:InsCode						InstrumentInfo
 
-http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/:InsCode/:DEven			(old StaticTreshholdData)
-http://cdn.tsetmc.com/api/MarketData/GetMarketOverview/:int				-
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/:InsCode/:DEven					single   instrumentState of specific instrument & day (old InstrumentStateData)
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentStateTop/:Top?<int>					multiple instrumentState of instruments that recently changed state
 
-http://cdn.tsetmc.com/api/StaticData/GetStaticData					<CSecVal|YVal|...> descriptions or names
-http://cdn.tsetmc.com/api/StaticData/GetTime						date and time
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentStatistic/:InsCode					instrument stats
+http://cdn.tsetmc.com/api/MarketData/GetMarketOverview/:Flow<int>					-
+http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/:InsCode/:DEven					(old StaticTreshholdData)
 
-http://cdn.tsetmc.com/api/Codal/GetPreparedData/:ResLimit<int>				-
-http://cdn.tsetmc.com/api/Codal/GetPreparedDataByInsCode/:ResLimit<int>/:InsCode	-
+http://cdn.tsetmc.com/api/Msg/GetMsgByFlow/:Flow/:Top							supervisor messages (if :Flow == 0, msgs of all flows)
 
-http://cdn.tsetmc.com/api/Trade/GetTradeHistory/:InsCode/:DEven/:bool			(old IntraTradeData)
+http://cdn.tsetmc.com/api/Trade/GetTradeHistory/:InsCode/:DEven/:isGrouped<bool>			(old IntraTradeData)
 
-http://cdn.tsetmc.com/api/Shareholder/:InsCode/:DEven					(old ShareHolderData)
+http://cdn.tsetmc.com/api/Shareholder/:InsCode/:DEven							(old ShareHolderData)
 
-http://cdn.tsetmc.com/api/Msg/GetMsgByFlow/:Flow/:NumberOfMsgs				supervisor messages (if :Flow == 0, msgs of all flows)
+http://cdn.tsetmc.com/api/StaticData/GetStaticData							<CSecVal|YVal|...> descriptions or names
+http://cdn.tsetmc.com/api/StaticData/GetTime								date and time
 
 
 notation guide:
@@ -90,4 +96,11 @@ notation guide:
 :int?		optional nameless param
 :int=1		nameless param with default value
 :int?=1		optional nameless param with default value
+
+common params guide:
+
+:InsCode<int64>	instrument code
+:DEeven<int32>	date as 8 digit integer e.g. 20170101
+:CSecVal<int>	industry sector group e.g. 27 for iron
+:Top<int>	limit returned result
 --------------------------------------------------------------------------------
