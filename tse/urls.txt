@@ -47,8 +47,8 @@ rest api
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/:InsCode/:DEven		InstrumentHistory of specific day (old InstSimpleData)
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentInfo/:InsCode				InstrumentInfo
 
-http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/:InsCode/:DEven			(old InstrumentStateData)
-http://cdn.tsetmc.com/api/MarketData/GetInstrumentStateTop/:int				-
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/:InsCode/:DEven			single   instrumentState of specific instrument & day (old InstrumentStateData)
+http://cdn.tsetmc.com/api/MarketData/GetInstrumentStateTop/:Top?<int>			multiple instrumentState of instruments that recently changed state
 
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/:InsCode			ClosingPriceInfo of today
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/:InsCode/:DEven		ClosingPrice history (old ClosingPriceData)
