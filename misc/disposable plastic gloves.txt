@@ -1,7 +1,19 @@
-		thickness	wrist
+brand		A B C D E	rank
 ==================================================
-F.P.SH		good		good
-Penguin		medium		good
-RAFOONEH	medium		good
-AROK		good		small
-SHIK		low		small
+penguin		5,5,5,5,5	25
+pilgoosh	4,3,4,5,5	21
+f.p.sh		1,5,4,5,5	20
+koala		4,3,4,5,3	19
+rafooneh	5,2,2,5,5	19
+arok		1,4,1,1,5	12
+shik		1,1,1,1,5	9
+
+A: plastic softness
+B: plastic thickness
+C: waterproof score
+D: fit wrist
+E: fit hand
+
+note:
+softer + thicker = better waterproof ability
+the softer the plastic, the harder to rip accidentally
