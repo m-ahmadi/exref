@@ -17,7 +17,7 @@ import {Tabulator, FormatModule} from 'tabulator-tables';    // core + modules
 Tabulator.registerModule([FormatModule]);
 
 const options = {
-	// https://tabulator.info/docs/5.4/options
+	// https://tabulator.info/docs/5.5/options
 	data:                   [],           // assign data to table
 	initialSort:            [ Sorter{}, ... ],
 	columnHeaderSortMulti:  true,
@@ -92,7 +92,7 @@ const options = {
 			headerSort:            false,
 			headerSortStartingDir: 'asc|desc',
 			headerSortTristate:    true
-			sorter:                '|string|number|alphanum|boolean|exists|array|...' | (a, b, aRow, bRow, column, dir, sorterParams)=>, // https://tabulator.info/docs/5.4/sort#func-builtin
+			sorter:                '|string|number|alphanum|boolean|exists|array|...' | (a, b, aRow, bRow, column, dir, sorterParams)=>, // https://tabulator.info/docs/5.5/sort#func-builtin
 			sorterParams:          {},
 			formatter:             'plaintext|textarea|html|money|image|link|datetime|tickCross|color|star|traffic|progress|lookup|buttonTick|buttonCross|rownum|handle|...'|(cell, formatterParams, onRendered)=>,
 			formatterParams:       {},
@@ -108,7 +108,7 @@ const options = {
 };
 var table = new Tabulator('#mytable', options);
 
-// https://tabulator.info/docs/5.4/events
+// https://tabulator.info/docs/5.5/events
 table.on('rowClick', (e, row)=>);
 table.on('tableBuilding|tableBuilt|tableDestroyed', ()=>);
 
@@ -347,12 +347,16 @@ validate
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // example
 
-table.setSort('age', 'asc')
+table.on('tableBuilt', ()=> {
+	
+	table.setSort('age', 'asc');
 
-table.setSort([
-	{column:'age', dir:'asc'},
-	{column:'height', dir:'desc'},
-])
+	table.setSort([
+		{column:'age', dir:'asc'},
+		{column:'height', dir:'desc'},
+	]);
+
+});
 
 table.getData('active')
 
