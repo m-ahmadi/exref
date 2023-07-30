@@ -1,1 +1,5 @@
-sc /?
+sc				help
+
+sc query | find "My_Service"	look for a service
+sc stop My_Service		stop service
+sc delete My_Service		uninstall service
