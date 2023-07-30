@@ -280,6 +280,19 @@ np.diff(a) / a[1:] * 100   # [50, 33.33, 25, 20]
 b = np.array([ [1,2,3], [1,2,3] ])
 np.diff(b) / b[:,1:] * 100 # [ [.5, .33], [.5, .33] ]
 
+# sol - is array in ascending order
+a = np.array([1,2,3,4])
+d = np.diff(a) # [1,1,1]
+(d >= 0).all() # True
+a = np.array([1,2,1,4])
+d = np.diff(a) # [1,-1,3]
+(d >= 0).all() # False
+
+# sol - is array in descending order
+a = np.array([4,3,2,1])
+d = np.diff(a)
+(d <= 0).all() # True
+
 # sol - split array
 np.array_split([1,2,3,4,5,6], 2) # [ [1,2,3], [4,5,6] ]
 np.array_split([1,2,3,4,5,6], 3) # [ [1,2], [3,4], [5,6] ]
