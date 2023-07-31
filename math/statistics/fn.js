@@ -837,6 +837,17 @@ function range(...a) {
 	}
 	return r;
 }
+function arraySplit(arr=[], size=0) {
+	let a = [...arr];
+	let r = [];
+	for (let i=0; i<size; i++) {
+		let k = Math.ceil(a.length / (size-i));
+		let chunk = a.slice(0, k);
+		r.push(chunk);
+		a = a.slice(k);
+	}
+	return r;
+}
 
 // tmp
 function polyval2(x=[], y=[], order=3) {
