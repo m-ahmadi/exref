@@ -421,7 +421,7 @@ np.nested_iters
 np.newaxis
 np.nextafter
 np.NINF | -np.inf 
-np.nonzero
+np.nonzero()
 np.not_equal
 np.nper
 np.npv
@@ -684,7 +684,7 @@ a.max()
 a.mean()
 a.min()
 a.newbyteorder()
-a.nonzero()
+a.nonzero(a=∂)
 a.partition()
 a.prod()
 a.ptp()
