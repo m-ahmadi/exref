@@ -80,7 +80,9 @@ np.zeros_like([1,2,3,4])         # [0, 0, 0, 0]
 # indexOf | findIndex | arr.filter().map(arr.indexOf.bind(arr))
 a = np.array([1,2,3,4])
 np.where(a == 3)[0]    # [2]
+np.nonzero(a == 3)[0]  # ...
 np.where(a > 2)[0]     # [2, 3]
+np.nonzero(a > 2)[0]   # ...
 np.argwhere(a > 2)     # [[2], [3]]
 np.where(a == a.min()) # [0]
 np.where(a == a.max()) # [3]
