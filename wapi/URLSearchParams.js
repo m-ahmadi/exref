@@ -42,11 +42,11 @@ for (const [key, value] of mySearchParams) {}
 for (const [key, value] of mySearchParams.entries()) {}
 
 // does not parse full urls
-var p = new URLSearchParams('http://example.com/search?query=%40')
+var p = new URLSearchParams('http://example.com/search?query=@')
 p.has('query') // false 
 p.get('query') // null
 // instead:
-var url = new URL('http://example.com/search?query=%40')
+var url = new URL('http://example.com/search?query=@')
 var p = new URLSearchParams(url.search)
 p.has('query') // true
 p.get('query') // '@'
