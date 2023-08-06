@@ -46,3 +46,7 @@ new URL('//foo.com', 'https://example.com') // http://foo.com
 var u = new URL('http://example.com');
 u.searchParams.set('foo', 32);
 ''+u; // 'http://example.com/?foo=32'
+
+var u = new URL('http://example.com');
+u.search = new URLSearchParams({foo: 32, bar: 7});
+''+u; // 'http://example.com/?foo=32&bar=7'
