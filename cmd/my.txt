@@ -25,27 +25,28 @@ pws	C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 shortcut keys
 
 ctrl alt
-	1 	exref
-	2 	htdocs
-	3 	J:\dev
-	4 	paint
-    	5 	notepad			Target: %comspec% /c start notepad
-	6	kidkeylock (exit:qq, setup:kk, no key lock)
-	7	keyboardlocker (lock: ctrl alt L, unlock: unlock)
-	8 	paint.net
-	e 	cmd			Target: %comspec% /c start "cmd" /d D:\xampp\htdocs /i
-	r 	powershell admin	Target: %comspec% /c start powershell -NoExit -Command "pushd $env:h; $Host.ui.RawUI.WindowTitle='pws';"
-	`	conemu
-ctrl `		deskpins
-ctrl shift `	everything
-ctrl shift d	babylon (mouse: shift midclick)
-ctrl shift a	ncpa.cpl
-ctrl alt `	conemu
+	1 		exref
+	2 		htdocs
+	3 		J:\dev
+	4 		paint
+    	5 		notepad			Target: %comspec% /c start notepad
+	6		kidkeylock (exit:qq, setup:kk, no key lock)
+	7		keyboardlocker (lock: ctrl alt L, unlock: unlock)
+	8 		paint.net
+	e 		cmd			Target: %comspec% /c start "cmd" /d D:\xampp\htdocs /i
+	r 		powershell admin	Target: %comspec% /c start powershell -NoExit -Command "pushd $env:h; $Host.ui.RawUI.WindowTitle='pws';"
+	`		conemu
+ctrl `			deskpins
+ctrl shift `		everything
+ctrl shift d		babylon (mouse: shift midclick)
+ctrl shift a		ncpa.cpl
+ctrl alt `		conemu
+ctrl alt shift `	dngrep
 shift alt
-	1	eth1
-	2	eth2
-	3	wf-on
-	ctrl 3	wf-off
+	1		eth1
+	2		eth2
+	3		wf-on
+	ctrl 3		wf-off
 --------------------------------------------------------------------------------
 alarm sound
 
