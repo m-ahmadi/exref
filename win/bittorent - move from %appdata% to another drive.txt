@@ -1,19 +1,19 @@
 go to %APPDATA%
----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 move BitTorrent folder to wherever you want
 
----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 to restore the previous installation settings:
 
 copy settings.dat from previous installation folder to the new folder
 
----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 to resume all previous torrents:
 
 copy resume.dat from previous installation folder to the new folder
 
----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 note about torrent files:
 
 this will resume the previous download session,
@@ -21,7 +21,7 @@ but you'll need all the torrent files used in that session too,
 otherwise it says "can't open torrent file"
 (it's ok to add the torrent files to your installation folder later)
 P.S. torrent files should be in the root installation folder.
----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 (justincase)
 dht.dat
 dht.dat.old

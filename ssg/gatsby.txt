@@ -4,7 +4,7 @@ cd gatsby-site
 gatsby develop
 
 browse: localhost:8000
---------------------------------------------------------------------------
+--------------------------------------------------
 
 gatsby build			create production build
 gatsby serve			Serve production build locally
