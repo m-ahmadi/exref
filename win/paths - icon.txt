@@ -22,7 +22,7 @@ C:\Windows\system32\dmdskres.dll
 C:\Windows\system32\dsuiext.dll
 C:\Windows\system32\mstscax.dll
 C:\Windows\system32\wiashext.dll
-------------------------------------------------
+--------------------------------------------------
 old style
 
 C:\Windows\System32\PifMgr.dll
