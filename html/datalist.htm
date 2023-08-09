@@ -1,9 +1,97 @@
-<input list="browsers" />
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist" target="_blank">ref</a>
 
-<datalist id="browsers">
-	<option value="Internet Explorer" />
-	<option value="Firefox" />
-	<option value="Chrome" />
-	<option value="Opera" />
-	<option value="Safari" />
+<pre><h4>basic</h4></pre>
+<input list="e1" />
+<datalist id="e1">
+	<option value="a"/>
+	<option value="b" />
+	<option value="c" />
 </datalist>
+<br><br>
+
+<pre><h4>with clear button</h4></pre>
+<input type="search" list="e2" />
+<datalist id="e2">
+	<option value="John"/>
+	<option value="Mike" />
+	<option value="Robert" />
+	<option value="Simon" />
+</datalist>
+<br><br>
+
+
+<pre><h4>label</h4></pre>
+<input list="e3" />
+<datalist id="e3">
+	<option value="y" label="Year" />
+	<option value="m" label="Month" />
+	<option value="d" label="Day" />
+</datalist>
+<!--  [...e4.options].map(i=>i.value) // ['x', '', '']  -->
+<br><br>
+
+
+<pre><h4>element's text content acts as `value` or `label` or both</h4></pre>
+<input list="e4" />
+<datalist id="e4">
+	<option value="a">foo</option>  <!-- label = textContent -->
+	<option value="b" />            <!-- no label -->
+	<option label="bar">c</option>  <!-- value = textContent -->
+	<option>d</option>              <!-- value & label = textContent -->
+</datalist>
+<!--
+	[...e2.options].map(i=>i.value) // ['a', 'b', 'c', 'd']
+	[...e2.options].map(i=>i.label) // ['foo', '', 'bar', 'd']
+-->
+<br><br>
+
+
+<pre><h4>disabled option</h4></pre>
+<input list="e5" />
+<datalist id="e5">
+	<option value="foo" />
+	<option value="bar" disabled />
+	<option value="baz" />
+</datalist>
+<!--  [...e3.options].map(i=>i.disabled) // [false, true, false]  -->
+<br><br>
+
+
+<pre><h4>predefined colors</h4></pre>
+<input type="color" list="e6" value="#ff00ff" />
+<datalist id="e6">
+  <option value="#ff0000"></option>
+  <option value="#0000ff"></option>
+  <option value="#00ff40"></option>
+  <option value="#ff0040"></option>
+</datalist>
+<br><br>
+
+
+<pre><h4>predefined range step marks</h4></pre>
+<input type="range" list="e7" min="0" max="100" />
+<datalist id="e7">
+  <option value="20"></option>
+  <option value="40"></option>
+  <option value="60"></option>
+  <option value="80"></option>
+</datalist>
+<br><br>
+
+
+<pre><h4>get list from server</h4></pre>
+<input type="search" list="e8" onclick />
+<datalist id="e8"></datalist>
+<button onclick="fetch('https://jsonplaceholder.typicode.com/users').then(r => r.json().then(j => e8.innerHTML = j.map(i => `<option value='${i.username}'>`).join('\n') )), this.disabled=1">load</button>
+<br><br>
+
+
+<pre><h4>get info about selected item from server</h4></pre>
+<input type="search" list="e9"
+onchange="new Set([...e9.options].map(i=>i.value)).has(this.value)
+	? (fetch('https://jsonplaceholder.typicode.com/posts?userId='+[...e9.options].find(i=>i.value===this.value).dataset.userId).then(r=>r.json().then(j=>(e9b.innerHTML=j.map(i=>i.title).join('\n'), this.disabled=0))), this.disabled=1)
+	: e9b.innerHTML='no such user'" />
+<datalist id="e9"></datalist>
+<button onclick="fetch('https://jsonplaceholder.typicode.com/users').then(r => r.json().then(j => e9.innerHTML = j.map(i => `<option value='${i.name}' data-user-id=${i.id}>`).join('\n') )), this.disabled=1">load</button>
+<pre id="e9b"></pre>
+<br><br>
