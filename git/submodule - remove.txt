@@ -4,7 +4,7 @@ submodule_folder
 .git/config
 .git/modules/
 
---------------------------------------------------------------------
+--------------------------------------------------
 one approach (in order, worked like a charm)
 
 git submodule deinit -f path_to_submodule
@@ -12,7 +12,7 @@ rm -rf .git/modules/path_to_submodule
 git rm -f path_to_submodule
 
 
---------------------------------------------------------------------
+--------------------------------------------------
 for older git
 other approach (in order):
 

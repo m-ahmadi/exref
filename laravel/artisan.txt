@@ -10,7 +10,7 @@ rollback problems:
 	php artisan migrate:rollback
 	
 	composer update
---------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 php artisan make:seeder
 php artisan db:seed

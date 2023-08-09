@@ -3,7 +3,7 @@
 cut-and-paste it from the compiled bootstrap css file
 manually change the path to fonts in @font-face
 
------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 			2nd way:
 
 get bootstrap-sass
@@ -27,4 +27,4 @@ either put the fonts in the default path or change the default path
 to change the default path:
 	go to _variables.scss
 	change the $icon-font-path variable (line 83)
------------------------------------------------------------------------
+--------------------------------------------------------------------------------

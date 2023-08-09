@@ -18,7 +18,7 @@ and when response returns you don't see all of it either
 	fudge
 
 you only see the body of response message in browsers
-----------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 				end of line
 
 new line characters play an important part in request and response
@@ -35,4 +35,4 @@ windows
 linux
 	GET /test.htm HTTP/1.1\n
 	Host: www.site.com\n\n
-----------------------------------------------------------------------------
+--------------------------------------------------------------------------------

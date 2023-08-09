@@ -5,10 +5,10 @@ rmdir C:\src /s /q		delete dir symlink (same as shift delete in explorer)
 del C:\src /q			delete all direct children files in link's destination
 del src.txt			delete file symlink
 
----------------------------------------------------------------------
+--------------------------------------------------------------------------------
 another way of adding to path:
 create symlink to binaries in a dir that's already in path
 
 cd bin
 mklink %windir%\mybin.exe mybin.exe
----------------------------------------------------------------------
+--------------------------------------------------------------------------------

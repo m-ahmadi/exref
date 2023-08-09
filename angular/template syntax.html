@@ -64,7 +64,7 @@ property binding
 <p [target]="expression"   | bind-target="expression" />    ↑ ...
 <p (target)="statement"    | on-target="statement" />       target-to-src (event)
 <p [(target)]="expression" | bindon-target="expression" />  target-to-src-to-target (two-way)
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 possible binding targets: (something in the dom)
 
 1. property of htmlelement|component|directive
@@ -82,7 +82,7 @@ possible binding targets: (something in the dom)
 5. class property          <div [class.special]="isSpecial">Special</div>
 6. style property          <button [style.color]="isSpecial ? 'red' : 'green'">
 7. "unknown directive"
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 note:
 the binding is to the property of htmlelement,component,directive and not html attributes.

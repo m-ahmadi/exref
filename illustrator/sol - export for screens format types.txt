@@ -8,7 +8,7 @@ jpg 80		losses becoming apparent
 jpg 50		above the lowest quality
 jpg 20		lowest quality
 
--------------------------------------------------------------
+--------------------------------------------------
 png
 
 5 color types

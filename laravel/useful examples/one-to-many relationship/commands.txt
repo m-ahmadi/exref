@@ -7,7 +7,7 @@ App\User::get()->toArray()
 App\User::all()->toArray()
 App\Comment::all()->toArray()
 
--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 App\User::find(1)->comments
 App\Comment::find(1)->user
