@@ -48,12 +48,12 @@ RewriteRule (.*) $1 [L]				then do this line
 
 RewriteCond %{REQUEST_URI} "views/"		otherwise if this condition is true...
 RewriteRule (.*) $1 [L]				then do this line
----------------------------------------
+--------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} -f		if this is true
 RewriteRule (.*) $1 [R=404,L]			do this
 
 RewriteRule (.*) $1 [L]				otherwise do this
----------------------------------------
+--------------------------------------------------
 RewriteCond %{REQUEST_URI} "views/" [OR]	if this
 RewriteCond %{REQUEST_URI} "app/"			or this is true
 RewriteRule (.*) $1 [R=404]			do this

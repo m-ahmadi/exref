@@ -11,7 +11,7 @@ main segments
 	needs
 
 example:
------------------------------
+------------------------------
 	picture
 	name
 
@@ -19,7 +19,7 @@ example:
 
 	goal
 
------------------------------
+------------------------------
 	sketch
 	name
 
@@ -30,7 +30,7 @@ example:
 	needs
 
 	solutions
------------------------------
+------------------------------
 	name
 	sketch
 
@@ -41,7 +41,7 @@ example:
 	needs
 
 	solutions
------------------------------
+------------------------------
 
 pitfalls
 	using photos of celebrities

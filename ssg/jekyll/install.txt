@@ -3,10 +3,10 @@ ridk install
 
 gem install bundler jekyll
 
----------------------------------------
+--------------------------------------------------
 for me these steps were required one time, but not other times:
 
 curl -sSL https://get.rvm.io | bash
 path = %path%;%USERPROFILE%\.rvm\bin
 gem install bundler
----------------------------------------
+--------------------------------------------------
