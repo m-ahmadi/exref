@@ -1,3 +1,4 @@
+// https://tradingview.github.io/lightweight-charts/docs/3.8
 // https://cdn.jsdelivr.net/npm/lightweight-charts/
 
 LightweightCharts.
@@ -108,14 +109,13 @@ var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, {
 	},
 })
 
+chart.applyOptions(options={})
+chart.remove()
 chart.resize(width, height)
-chart.applyOptions(opts={})
-chart.subscribeCrosshairMove()
 chart.subscribeClick((param={time:Time, point:{x:0,y:0}, seriesPrices:Map<ISeriesApi,number|OHLC>}) => void)
 chart.unsubscribeClick(↑...)
 chart.subscribeCrosshairMove(↑...)
 chart.unsubscribeCrosshairMove(↑...)
-chart.remove()
 
 var timeScale = chart.timeScale()
 timeScale.scrollPosition()
