@@ -115,6 +115,7 @@ chart.subscribeClick((param={time:Time, point:{x:0,y:0}, seriesPrices:Map<ISerie
 chart.unsubscribeClick(↑...)
 chart.subscribeCrosshairMove(↑...)
 chart.unsubscribeCrosshairMove(↑...)
+chart.remove()
 
 var timeScale = chart.timeScale()
 timeScale.scrollPosition()
