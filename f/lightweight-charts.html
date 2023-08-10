@@ -81,7 +81,7 @@ areaSeries.setData(randLines(tot));
 [document.body, chartContainer, legend, legendRow].forEach((v,i,a) => i>0 && a[i-1].append(v)); // must be after `.createChart()` cuz that wipes container div
 chart6.subscribeCrosshairMove(param => {
 	if (param.time) {
-		const price = param.seriesData.get(areaSeries).value;
+		const price = param.seriesData.get(areaSeries).value; // v3.8: `param.seriesPrices.get(areaSeries)`
 		legendRow.innerText = 'ETC USD 7D VWAP'+' '+price.toFixed(2);
 	} else {
 		legendRow.innerText = 'ETC USD 7D VWAP';
