@@ -11,12 +11,13 @@ LightweightCharts.
 
 
 // https://tradingview.github.io/lightweight-charts/docs/api#type-aliases
-Time = UTCTimestamp | BusinessDay
+Time = UTCTimestamp | BusinessDay | ''
 	UTCTimestamp = 0
 	BusinessDay  = 'YYYY-MM-DD' | {year:0, month:0, day:0}
 LineWidth = 1|2|3|4
 HorzAlign = 'left|center|right'
 VertAlign = 'top|center|bottom'
+PriceScaleMargins = {top:0, bottom:0}
 
 
 // https://tradingview.github.io/lightweight-charts/docs/api#enumerations
@@ -60,13 +61,13 @@ var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, ?options={
 		shiftVisibleRangeOnNewBar:    true,
 		tickMarkFormatter:            (time, tickMarkType, locale)=>'' | undefined,
 	},
-	[('left'|'right'|'overlay')+'PriceScale']: {
+	['left|right|overlay'+'PriceScale']: {
 		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/PriceScaleOptions
 		autoScale:      true,
 		mode:           PriceScaleMode.Normal,
 		invertScale:    false,
 		alignLabels:    true,
-		scaleMargins:   {top:0.2, bottom:0.1},
+	//scaleMargins:   {top:0.2, bottom:0.1}, // v4 removed. use `series.priceScale().applyOptions({ scaleMargins: {...} })`
 		borderVisible:  true,
 		borderColor:    '#2B2B43',
 		textColor:      undefined | '',
