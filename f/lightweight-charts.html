@@ -41,16 +41,6 @@ volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
 
 
-/* chart5 in v3.8
-var chart5 = LightweightCharts.createChart(charts, {width,height,
-	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
-	layout: {backgroundColor:c[1], textColor:c[2]},
-	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
-});
-var areaSeries = chart5.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
-areaSeries.setData(randLines(tot));
-var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
-volSeries.setData(randVolumes(tot)); */
 // volume study
 var chart5 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
@@ -62,6 +52,16 @@ areaSeries.setData(randLines(tot));
 var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
+/* chart5 in v3.8
+var chart5 = LightweightCharts.createChart(charts, {width,height,
+	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
+	layout: {backgroundColor:c[1], textColor:c[2]},
+	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
+});
+var areaSeries = chart5.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
+areaSeries.setData(randLines(tot));
+var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
+volSeries.setData(randVolumes(tot)); */
 
 
 // legend
@@ -87,6 +87,8 @@ chart6.subscribeCrosshairMove(param => {
 		legendRow.innerText = 'ETC USD 7D VWAP';
 	}
 });
+
+
 
 
 // utils
