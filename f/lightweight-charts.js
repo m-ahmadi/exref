@@ -342,5 +342,17 @@ var baselineSeries = chart.addBaselineSeries({
 });
 
 
+// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/MouseEventParams
+interface MouseEventParams{
+	time?:            Time,
+	logical?:         Logical,
+	point?:           Point,
+	seriesData?:      Map<ISeriesApi<keyof SeriesOptionsMap>, BarData|HistogramData|LineData>,
+	hoveredSeries?:   ISeriesApi<keyof SeriesOptionsMap>,
+	hoveredObjectId?: undefined,
+	sourceEvent?:     TouchMouseEventData,
+}
+
+
 // ps
 console.log([...document.querySelectorAll('h3.anchor.anchorWithStickyNavbar_LWe7')].map(i=>i.textContent).join('\n'))
