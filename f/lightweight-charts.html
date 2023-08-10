@@ -48,12 +48,11 @@ var volSeries = chart5.addHistogramSeries({color:'#26a69a',priceFormat:{type:'vo
 volSeries.setData(randVolumes(tot)); */
 
 var chart5 = LightweightCharts.createChart(charts, {width,height,
-	rightPriceScale: {borderVisible:false},
+	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
 	layout: {background:{color:'#131722'}, textColor:'#d1d4dc'},
 	grid: {vertLines:{color:'rgba(42,46,57,0)'}, horzLines:{color:'rgba(42,46,57,.6)'}},
 });
 var areaSeries = chart5.addAreaSeries({topColor:'rgba(38,198,218,.56)',bottomColor:'rgba(38,198,218,.04)',lineColor:'rgba(38,198,218,1)',lineWidth:2});
-areaSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
 areaSeries.setData(randLines(tot));
 var volSeries = chart5.addHistogramSeries({color:'#26a69a',priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});

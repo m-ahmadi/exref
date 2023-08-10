@@ -67,7 +67,7 @@ var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, ?options={
 		mode:           PriceScaleMode.Normal,
 		invertScale:    false,
 		alignLabels:    true,
-	//scaleMargins:   {top:0.2, bottom:0.1}, // v4 removed. use `series.priceScale().applyOptions({ scaleMargins: {...} })`
+		scaleMargins:   {top:0.2, bottom:0.1},
 		borderVisible:  true,
 		borderColor:    '#2B2B43',
 		textColor:      undefined | '',
@@ -242,6 +242,7 @@ SeriesOptionsCommon = {
 	baseLineWidth:         LineWidth,
 	baseLineStyle:         LineStyle.Solid,
 	autoscaleInfoProvider: undefined | ()=>,
+//scaleMargins:          PriceScaleMargins, // v4 removed. use `series.priceScale().applyOptions({ scaleMargins: {...} })`
 };
 
 
