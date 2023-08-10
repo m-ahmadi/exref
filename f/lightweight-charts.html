@@ -1,10 +1,10 @@
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
 
 <a href="https://www.tradingview.com/lightweight-charts/" target="_blank">demos</a>
-<div id="charts" style="display: grid; grid-template-columns: auto "></div>
+<div id="charts" style="display: grid; grid-template-columns: auto auto auto;"></div>
 
-<script>width=1850; height=300; tot=300;
-	
+<script>width=600; height=300; tot=300;
+
 var chart1 = LightweightCharts.createChart(charts, {width,height});
 var lineSeries = chart1.addLineSeries();
 lineSeries.setData(randLines(tot));
@@ -27,9 +27,59 @@ var barSeries = chart3.addBarSeries({thinBars:false});
 barSeries.setData(randCandles(tot));
 
 
+var chart4 = LightweightCharts.createChart(charts, {width,height});
+var areaSeries = chart4.addLineSeries();
+areaSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
+areaSeries.setData(randLines(tot));
+var volSeries = chart4.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
+volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
+volSeries.setData(randVolumes(tot));
 
 
-function randLines(n) { return [...Array(n)].map((d,i)=> (d=new Date, d=d.setDate(d.getDate()-n+i), {time: d/1000, value: randInt(n*-i*.1,n*i*.1) })) }
+/* chart5 in v3.8
+var chart5 = LightweightCharts.createChart(charts, {width,height,
+	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
+	layout: {backgroundColor:'#131722', textColor:'#d1d4dc'},
+	grid: {vertLines:{color:'rgba(42,46,57,0)'}, horzLines:{color:'rgba(42,46,57,.6)'}},
+});
+var areaSeries = chart5.addAreaSeries({topColor:'rgba(38,198,218,.56)',bottomColor:'rgba(38,198,218,.04)',lineColor:'rgba(38,198,218,1)',lineWidth:2});
+areaSeries.setData(randLines(tot));
+var volSeries = chart5.addHistogramSeries({color:'#26a69a',priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
+volSeries.setData(randVolumes(tot)); */
+
+var chart5 = LightweightCharts.createChart(charts, {width,height,
+	rightPriceScale: {borderVisible:false},
+	layout: {background:{color:'#131722'}, textColor:'#d1d4dc'},
+	grid: {vertLines:{color:'rgba(42,46,57,0)'}, horzLines:{color:'rgba(42,46,57,.6)'}},
+});
+var areaSeries = chart5.addAreaSeries({topColor:'rgba(38,198,218,.56)',bottomColor:'rgba(38,198,218,.04)',lineColor:'rgba(38,198,218,1)',lineWidth:2});
+areaSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
+areaSeries.setData(randLines(tot));
+var volSeries = chart5.addHistogramSeries({color:'#26a69a',priceFormat:{type:'volume'},priceScaleId:''});
+volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
+volSeries.setData(randVolumes(tot));
+
+
+// utils
+function randLines(n) {
+	let cumsum = 0;
+	return [...Array(n)].map(() => Math.random()*(Math.random()<.5?-100:100)).map((v, i, a) => {
+		let value = cumsum += i>0 ? v+a[i-1] : 0;
+		let d = new Date();
+		let time = Math.floor(d.setDate(d.getDate()-n+i) / 1e3);
+		return {time, value};
+	});
+}
+function randVolumes(n) {
+	let cumsum = 0;
+	return [...Array(n)].map(() => Math.random()*1_000_000).map((v,i) => {
+			let value = Math.round(v);
+			let d = new Date();
+			let time = Math.floor(d.setDate(d.getDate()-n+i) / 1e3);
+			let color = ['rgba(0,150,136,.8)', 'rgba(255,82,82,.8)'][Math.round(Math.random()*1)];
+			return {time, value, color};
+	});
+}
 function randCandles(len=100, {open=70,high=120,low=80,close=100}={}) {
 	let r = [{open,high,low,close}];
 	let f = (n,p) => n*p+n; 
@@ -37,12 +87,11 @@ function randCandles(len=100, {open=70,high=120,low=80,close=100}={}) {
 		let d = new Date();
 		d.setDate(d.getDate()-len+i);
 		let time = [d.getFullYear(), d.getMonth()+1, d.getDate()].map(i=>(i=''+i, i.length>1?i:'0'+i)).join('-');
-		if (i===0) { r[i].time = time; continue; }
+		if (i===0) { r[i].time=time; continue; }
 		let prev = r[i-1].close;
 		let [min, max] = [f(prev,-.03), f(prev,.03)];
-		let n = randInt(min, max);
-		let k = 2;
-		while (n===prev) {n = randInt(min, max+k); k*=2;}
+		let [n, k] = [randInt(min, max), 2];
+		while (n===prev) { n=randInt(min,max+k); k*=2; }
 		r.push({
 			time,
 			open:  randInt(f(n,-.1), f(n,.1)),
