@@ -4,6 +4,11 @@
 <div id="charts" style="display: grid; grid-template-columns: auto auto auto;"></div>
 
 <script>width=600; height=300; tot=300;
+c = [null,
+	'#131722', '#d1d4dc', '#26a69a', '#000000',
+	'rgba(42,46,57,0)', 'rgba(42,46,57,.6)', 'rgba(38,198,218,.56)', 'rgba(38,198,218,.04)',
+	'rgba(38,198,218,1)', 'rgba(0,150,136,.8)', 'rgba(255,82,82,.8)', 'rgba(224,227,235,.1)'
+];
 
 var chart1 = LightweightCharts.createChart(charts, {width,height});
 var lineSeries = chart1.addLineSeries();
@@ -39,24 +44,49 @@ volSeries.setData(randVolumes(tot));
 /* chart5 in v3.8
 var chart5 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
-	layout: {backgroundColor:'#131722', textColor:'#d1d4dc'},
-	grid: {vertLines:{color:'rgba(42,46,57,0)'}, horzLines:{color:'rgba(42,46,57,.6)'}},
+	layout: {backgroundColor:c[1], textColor:c[2]},
+	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
 });
-var areaSeries = chart5.addAreaSeries({topColor:'rgba(38,198,218,.56)',bottomColor:'rgba(38,198,218,.04)',lineColor:'rgba(38,198,218,1)',lineWidth:2});
+var areaSeries = chart5.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart5.addHistogramSeries({color:'#26a69a',priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
+var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot)); */
-
+// volume study
 var chart5 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
-	layout: {background:{color:'#131722'}, textColor:'#d1d4dc'},
-	grid: {vertLines:{color:'rgba(42,46,57,0)'}, horzLines:{color:'rgba(42,46,57,.6)'}},
+	layout: {background:{color:c[1]}, textColor:c[2]},
+	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
 });
-var areaSeries = chart5.addAreaSeries({topColor:'rgba(38,198,218,.56)',bottomColor:'rgba(38,198,218,.04)',lineColor:'rgba(38,198,218,1)',lineWidth:2});
+var areaSeries = chart5.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart5.addHistogramSeries({color:'#26a69a',priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
+
+
+// legend
+var [chartContainer, legend, legendRow] = [...Array(3)].map(()=> document.createElement('div'));
+chartContainer.style.position = 'relative';
+Object.assign(legend.style, {position:'absolute',left:'12px',top:'12px',zIndex:'1',fontSize:'16px'});
+legendRow.innerText = 'ETC USD 7D VWAP';
+legendRow.style.color = 'white';
+var chart6 = LightweightCharts.createChart(chartContainer, {width,height,
+	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}},
+	layout: {background:{color:c[4]}, textColor:c[2]},
+	grid: {vertLines:{color:c[4]}, horzLines:{color:c[4]}},
+	crosshair: {vertLine:{width:5,color:c[12],style:0}, horzLine:{visible:false,labelVisible:false}},
+});
+var areaSeries = chart6.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2,crossHairMarkerVisible:false});
+areaSeries.setData(randLines(tot));
+[document.body, chartContainer, legend, legendRow].forEach((v,i,a) => i>0 && a[i-1].append(v)); // must be after `.createChart()` cuz that wipes container div
+chart6.subscribeCrosshairMove(param => {
+	if (param.time) {
+		const price = param.seriesData.get(areaSeries).value;
+		legendRow.innerText = 'ETC USD 7D VWAP'+' '+price.toFixed(2);
+	} else {
+		legendRow.innerText = 'ETC USD 7D VWAP';
+	}
+});
 
 
 // utils
@@ -75,7 +105,7 @@ function randVolumes(n) {
 			let value = Math.round(v);
 			let d = new Date();
 			let time = Math.floor(d.setDate(d.getDate()-n+i) / 1e3);
-			let color = ['rgba(0,150,136,.8)', 'rgba(255,82,82,.8)'][Math.round(Math.random()*1)];
+			let color = [c[10],c[11]][Math.round(Math.random()*1)];
 			return {time, value, color};
 	});
 }
