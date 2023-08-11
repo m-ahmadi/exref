@@ -10,6 +10,7 @@ c = [null,
 	'rgba(38,198,218,1)', 'rgba(0,150,136,.8)', 'rgba(255,82,82,.8)', 'rgba(224,227,235,.1)'
 ];
 
+
 var chart1 = LightweightCharts.createChart(charts, {width,height});
 var lineSeries = chart1.addLineSeries();
 lineSeries.setData(randLines(tot));
@@ -25,7 +26,7 @@ addTitle(charts.children[1], 'candles');
 
 
 var chart3 = LightweightCharts.createChart(charts, {width,height,
-	layout: {backgroundColor:'#fff', textColor:'black'},
+	layout: {background:{color:'white'}, textColor:'black'},
 	crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
 	rightPriceScale: {borderColor:'grey'},
 	timeScale: {borderColor:'grey'},
@@ -45,7 +46,6 @@ volSeries.setData(randVolumes(tot));
 addTitle(charts.children[3], 'volume');
 
 
-// volume study
 var chart5 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
 	layout: {background:{color:c[1]}, textColor:c[2]},
@@ -69,7 +69,6 @@ var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'
 volSeries.setData(randVolumes(tot)); */
 
 
-// legend
 var [chartContainer, legend, legendRow] = [...Array(3)].map(()=> document.createElement('div'));
 chartContainer.style.position = 'relative';
 Object.assign(legend.style, {position:'absolute',left:'12px',top:'12px',zIndex:'1',fontSize:'16px'});
