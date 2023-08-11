@@ -54,36 +54,43 @@ chart4.addLineSeries({color:'black', lineWidth:2}).setData(randLines(tot));
 addTitle(charts.children[3], 'format time axis');
 
 
-var chart5 = LightweightCharts.createChart(charts, {width,height});
-var areaSeries = chart5.addLineSeries();
+var chart5 = LightweightCharts.createChart(charts, {width,height,
+	timeScale: {timeVisible:true, secondsVisible:false},
+});
+chart5.addLineSeries({color:'magenta', lineWidth:2}).setData(randLines(tot,'min'))
+addTitle(charts.children[4], 'intraday data');
+
+
+var chart6 = LightweightCharts.createChart(charts, {width,height});
+var areaSeries = chart6.addLineSeries();
 areaSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
 areaSeries.setData(randLines(tot));
-var volSeries = chart5.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart6.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
-addTitle(charts.children[4], 'volume');
+addTitle(charts.children[5], 'volume');
 
 
-var chart6 = LightweightCharts.createChart(charts, {width,height,
+var chart7 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
 	layout: {background:{color:c[1]}, textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
 });
-var areaSeries = chart6.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
+var areaSeries = chart7.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart6.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart7.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
-addTitle(charts.children[5], 'volume 2', 'white');
-/* chart6 in v3.8
-var chart6 = LightweightCharts.createChart(charts, {width,height,
+addTitle(charts.children[6], 'volume 2', 'white');
+/* chart7 in v3.8
+var chart7 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
 	layout: {backgroundColor:c[1], textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
 });
-var areaSeries = chart6.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
+var areaSeries = chart7.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart6.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
+var volSeries = chart7.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot)); */
 
 
@@ -92,16 +99,16 @@ chartContainer.style.position = 'relative';
 Object.assign(legend.style, {position:'absolute',left:'12px',top:'12px',zIndex:'1',fontSize:'16px'});
 legendRow.innerText = 'ETC USD 7D VWAP';
 legendRow.style.color = 'white';
-var chart7 = LightweightCharts.createChart(chartContainer, {width,height,
+var chart8 = LightweightCharts.createChart(chartContainer, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}},
 	layout: {background:{color:c[4]}, textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[4]}},
 	crosshair: {vertLine:{width:5,color:c[12],style:0}, horzLine:{visible:false,labelVisible:false}},
 });
-var areaSeries = chart7.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2,crossHairMarkerVisible:false});
+var areaSeries = chart8.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2,crossHairMarkerVisible:false});
 areaSeries.setData(randLines(tot));
 [charts, chartContainer, legend, legendRow].forEach((v,i,a) => i>0 && a[i-1].append(v)); // must be after `.createChart()` cuz that wipes container div
-chart7.subscribeCrosshairMove(param => {
+chart8.subscribeCrosshairMove(param => {
 	if (param.time) {
 		const price = param.seriesData.get(areaSeries).value; // v3.8: `param.seriesPrices.get(areaSeries)`
 		legendRow.innerText = 'ETC USD 7D VWAP'+' '+price.toFixed(2);
@@ -109,7 +116,7 @@ chart7.subscribeCrosshairMove(param => {
 		legendRow.innerText = 'ETC USD 7D VWAP';
 	}
 });
-addTitle(charts.children[6], 'legend', 'white');
+addTitle(charts.children[7], 'legend', 'white');
 
 
 
@@ -122,12 +129,13 @@ function addTitle(chartContainer, title='', color='black', left=width/2.5) {
 	Object.assign(h4.style, {position:'absolute',zIndex:'1',top:'0',margin:'0', left,color});
 	chartContainer.append(h4);
 }
-function randLines(n) {
+function randLines(n, interval='day') {
+	let ttype = {day:'Date', min:'Minutes'}[interval];
 	let cumsum = 0;
 	return [...Array(n)].map(() => Math.random()*(Math.random()<.5?-100:100)).map((v, i, a) => {
 		let value = cumsum += i>0 ? v+a[i-1] : 0;
 		let d = new Date();
-		let time = Math.floor(d.setDate(d.getDate()-n+i) / 1e3);
+		let time = Math.floor(d['set'+ttype](d['get'+ttype]()-n+i) / 1e3);
 		return {time, value};
 	});
 }
