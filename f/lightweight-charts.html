@@ -115,13 +115,39 @@ areaSeries.setData(randLines(tot));
 [charts, chartContainer, legend, legendRow].forEach((v,i,a) => i>0 && a[i-1].append(v)); // must be after `.createChart()` cuz that wipes container div
 chart9.subscribeCrosshairMove(param => {
 	if (param.time) {
-		const price = param.seriesData.get(areaSeries).value; // v3.8: `param.seriesPrices.get(areaSeries)`
+		let price = param.seriesData.get(areaSeries).value; // v3.8: `param.seriesPrices.get(areaSeries)`
 		legendRow.innerText = 'ETC USD 7D VWAP'+' '+price.toFixed(2);
 	} else {
 		legendRow.innerText = 'ETC USD 7D VWAP';
 	}
 });
 addTitle(chart9.Nm.cv, 'legend', 'white');
+
+
+var [container, btn] = ['div', 'button'].map(i => document.createElement(i));
+container.style.position = 'relative';
+Object.assign(btn.style, {
+	left:     width - (width*.1) + 'px',
+	top:      height - (height*.1) + 'px',
+	position: 'absolute',
+	display:  'none',
+	zIndex:   '2'
+});
+btn.innerHTML = 'go to now';
+var chart9 = LightweightCharts.createChart(container, {width,height,
+	rightPriceScale: {scaleMargins:{top:0.2, bottom:0.1}},
+	timeScale: {rightOffset:2},
+});
+chart9.addAreaSeries({lineColor:'purple',topColor:'yellow',bottomColor:'pink'}).setData(randLines(tot));
+chart9.timeScale().scrollToPosition(-20, false);
+[charts, container, btn].forEach((v,i,a) => i>0 && a[i-1].append(v));
+var timeScale = chart9.timeScale();
+timeScale.subscribeVisibleTimeRangeChange(() => {
+	let buttonVisible = timeScale.scrollPosition() < 0;
+	btn.style.display = buttonVisible ? 'block' : 'none';
+});
+btn.addEventListener('click', ()=> timeScale.scrollToRealTime());
+addTitle(chart9.Nm.cv, 'go to now button');
 
 
 
