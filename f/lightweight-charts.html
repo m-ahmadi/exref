@@ -12,16 +12,14 @@ c = [null,
 
 
 var chart1 = LightweightCharts.createChart(charts, {width,height});
-var lineSeries = chart1.addLineSeries();
-lineSeries.setData(randLines(tot));
+chart1.addLineSeries().setData(randLines(tot));
 addTitle(charts.children[0], 'basic');
 
 
 var chart2 = LightweightCharts.createChart(charts, {width,height,
 	crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
 });
-var candleSeries = chart2.addCandlestickSeries();
-candleSeries.setData(randCandles(tot));
+chart2.addCandlestickSeries().setData(randCandles(tot));
 addTitle(charts.children[1], 'candles');
 
 
@@ -31,8 +29,7 @@ var chart3 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {borderColor:'grey'},
 	timeScale: {borderColor:'grey'},
 });
-var barSeries = chart3.addBarSeries({thinBars:false});
-barSeries.setData(randCandles(tot));
+chart3.addBarSeries({thinBars:false}).setData(randCandles(tot));
 addTitle(charts.children[2], 'bars');
 
 
