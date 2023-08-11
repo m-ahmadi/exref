@@ -39,7 +39,7 @@ LightweightCharts.isBusinessDay(t)
 LightweightCharts.isUTCTimestamp(t)
 LightweightCharts.version()
 
-var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, ?options={
+var chart = LightweightCharts.createChart(container=''|HTMLElement, ?options={
 	// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/ChartOptions
 	width:    0,
 	height:   0,
@@ -154,6 +154,8 @@ var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, ?options={
 		vertAlign:  VertAlign,
 	},
 })
+
+chart.Nm.cv = container<HTMLElement>
 
 
 // https://tradingview.github.io/lightweight-charts/docs/api/interfaces/IChartApi

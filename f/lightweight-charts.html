@@ -13,14 +13,14 @@ c = [null,
 
 var chart1 = LightweightCharts.createChart(charts, {width,height});
 chart1.addLineSeries().setData(randLines(tot));
-addTitle(charts.children[0], 'basic');
+addTitle(chart1.Nm.cv, 'basic');
 
 
 var chart2 = LightweightCharts.createChart(charts, {width,height,
 	crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
 });
 chart2.addCandlestickSeries().setData(randCandles(tot));
-addTitle(charts.children[1], 'candles');
+addTitle(chart2.Nm.cv, 'candles');
 
 
 var chart3 = LightweightCharts.createChart(charts, {width,height,
@@ -30,7 +30,7 @@ var chart3 = LightweightCharts.createChart(charts, {width,height,
 	timeScale: {borderColor:'grey'},
 });
 chart3.addBarSeries({thinBars:false}).setData(randCandles(tot));
-addTitle(charts.children[2], 'bars');
+addTitle(chart3.Nm.cv, 'bars');
 
 
 var chart4 = LightweightCharts.createChart(charts, {width,height,
@@ -51,14 +51,14 @@ var chart4 = LightweightCharts.createChart(charts, {width,height,
 	}
 });
 chart4.addLineSeries({color:'black', lineWidth:2}).setData(randLines(tot));
-addTitle(charts.children[3], 'format time axis');
+addTitle(chart4.Nm.cv, 'format time axis');
 
 
 var chart5 = LightweightCharts.createChart(charts, {width,height,
 	timeScale: {timeVisible:true, secondsVisible:false},
 });
 chart5.addLineSeries({color:'magenta', lineWidth:2}).setData(randLines(tot,'min'))
-addTitle(charts.children[4], 'intraday data');
+addTitle(chart5.Nm.cv, 'intraday data');
 
 
 var chart6 = LightweightCharts.createChart(charts, {width,height});
@@ -68,7 +68,7 @@ areaSeries.setData(randLines(tot));
 var volSeries = chart6.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
-addTitle(charts.children[5], 'volume');
+addTitle(chart6.Nm.cv, 'volume');
 
 
 var chart7 = LightweightCharts.createChart(charts, {width,height,
@@ -81,7 +81,7 @@ areaSeries.setData(randLines(tot));
 var volSeries = chart7.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
-addTitle(charts.children[6], 'volume 2', 'white');
+addTitle(chart7.Nm.cv, 'volume 2', 'white');
 /* chart7 in v3.8
 var chart7 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
@@ -116,7 +116,7 @@ chart8.subscribeCrosshairMove(param => {
 		legendRow.innerText = 'ETC USD 7D VWAP';
 	}
 });
-addTitle(charts.children[7], 'legend', 'white');
+addTitle(chart8.Nm.cv, 'legend', 'white');
 
 
 
