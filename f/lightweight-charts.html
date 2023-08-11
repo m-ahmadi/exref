@@ -13,6 +13,7 @@ c = [null,
 var chart1 = LightweightCharts.createChart(charts, {width,height});
 var lineSeries = chart1.addLineSeries();
 lineSeries.setData(randLines(tot));
+addTitle(charts.children[0], 'basic');
 
 
 var chart2 = LightweightCharts.createChart(charts, {width,height,
@@ -20,6 +21,7 @@ var chart2 = LightweightCharts.createChart(charts, {width,height,
 });
 var candleSeries = chart2.addCandlestickSeries();
 candleSeries.setData(randCandles(tot));
+addTitle(charts.children[1], 'candles');
 
 
 var chart3 = LightweightCharts.createChart(charts, {width,height,
@@ -30,6 +32,7 @@ var chart3 = LightweightCharts.createChart(charts, {width,height,
 });
 var barSeries = chart3.addBarSeries({thinBars:false});
 barSeries.setData(randCandles(tot));
+addTitle(charts.children[2], 'bars');
 
 
 var chart4 = LightweightCharts.createChart(charts, {width,height});
@@ -39,6 +42,7 @@ areaSeries.setData(randLines(tot));
 var volSeries = chart4.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
+addTitle(charts.children[3], 'volume');
 
 
 // volume study
@@ -52,6 +56,7 @@ areaSeries.setData(randLines(tot));
 var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
+addTitle(charts.children[4], 'volume 2', 'white');
 /* chart5 in v3.8
 var chart5 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
@@ -87,11 +92,19 @@ chart6.subscribeCrosshairMove(param => {
 		legendRow.innerText = 'ETC USD 7D VWAP';
 	}
 });
+addTitle(charts.children[5], 'legend', 'white');
 
 
 
 
 // utils
+function addTitle(chartContainer, title='', color='black', left=width/2.5) {
+	chartContainer.style.position = 'relative';
+	let h4 = document.createElement('h4');
+	h4.innerText = title;
+	Object.assign(h4.style, {position:'absolute',zIndex:'1',top:'0',margin:'0', left,color});
+	chartContainer.append(h4);
+}
 function randLines(n) {
 	let cumsum = 0;
 	return [...Array(n)].map(() => Math.random()*(Math.random()<.5?-100:100)).map((v, i, a) => {
