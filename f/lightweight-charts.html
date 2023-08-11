@@ -36,36 +36,57 @@ barSeries.setData(randCandles(tot));
 addTitle(charts.children[2], 'bars');
 
 
-var chart4 = LightweightCharts.createChart(charts, {width,height});
-var areaSeries = chart4.addLineSeries();
+var chart4 = LightweightCharts.createChart(charts, {width,height,
+	localization: {
+		timeFormatter: time => {
+			let date;
+			if (typeof time === 'string') {
+				let [y, m, d] = time.split('-').map(parseFloat);
+				date = new Date(y, m-1, d);
+			} else {
+				date = new Date(time * 1e3);
+			}
+			let [jy, jm, jd] = new Intl.DateTimeFormat('fa-IR', {numberingSystem:'latn'}).format(date).split('/').map(parseFloat);
+			let faWeek = ['یکشنبه', 'دوشنبه', 'سه شنبه', 'چهارشنبه', 'پنجشنبه', 'جمعه', 'شنبه'];
+			let weekday = date.getDay();
+			return faWeek[weekday] +' '+ [jy, jm, jd].join('/');
+		},
+	}
+});
+chart4.addLineSeries({color:'black', lineWidth:2}).setData(randLines(tot));
+addTitle(charts.children[3], 'format time axis');
+
+
+var chart5 = LightweightCharts.createChart(charts, {width,height});
+var areaSeries = chart5.addLineSeries();
 areaSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
 areaSeries.setData(randLines(tot));
-var volSeries = chart4.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart5.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
-addTitle(charts.children[3], 'volume');
+addTitle(charts.children[4], 'volume');
 
 
-var chart5 = LightweightCharts.createChart(charts, {width,height,
+var chart6 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
 	layout: {background:{color:c[1]}, textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
 });
-var areaSeries = chart5.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
+var areaSeries = chart6.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart6.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
-addTitle(charts.children[4], 'volume 2', 'white');
-/* chart5 in v3.8
-var chart5 = LightweightCharts.createChart(charts, {width,height,
+addTitle(charts.children[5], 'volume 2', 'white');
+/* chart6 in v3.8
+var chart6 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
 	layout: {backgroundColor:c[1], textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
 });
-var areaSeries = chart5.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
+var areaSeries = chart6.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart5.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
+var volSeries = chart6.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot)); */
 
 
@@ -74,16 +95,16 @@ chartContainer.style.position = 'relative';
 Object.assign(legend.style, {position:'absolute',left:'12px',top:'12px',zIndex:'1',fontSize:'16px'});
 legendRow.innerText = 'ETC USD 7D VWAP';
 legendRow.style.color = 'white';
-var chart6 = LightweightCharts.createChart(chartContainer, {width,height,
+var chart7 = LightweightCharts.createChart(chartContainer, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}},
 	layout: {background:{color:c[4]}, textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[4]}},
 	crosshair: {vertLine:{width:5,color:c[12],style:0}, horzLine:{visible:false,labelVisible:false}},
 });
-var areaSeries = chart6.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2,crossHairMarkerVisible:false});
+var areaSeries = chart7.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2,crossHairMarkerVisible:false});
 areaSeries.setData(randLines(tot));
 [charts, chartContainer, legend, legendRow].forEach((v,i,a) => i>0 && a[i-1].append(v)); // must be after `.createChart()` cuz that wipes container div
-chart6.subscribeCrosshairMove(param => {
+chart7.subscribeCrosshairMove(param => {
 	if (param.time) {
 		const price = param.seriesData.get(areaSeries).value; // v3.8: `param.seriesPrices.get(areaSeries)`
 		legendRow.innerText = 'ETC USD 7D VWAP'+' '+price.toFixed(2);
@@ -91,7 +112,7 @@ chart6.subscribeCrosshairMove(param => {
 		legendRow.innerText = 'ETC USD 7D VWAP';
 	}
 });
-addTitle(charts.children[5], 'legend', 'white');
+addTitle(charts.children[6], 'legend', 'white');
 
 
 

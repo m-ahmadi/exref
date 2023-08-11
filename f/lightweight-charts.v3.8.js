@@ -76,7 +76,7 @@ var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, {
 			'MM'   // numeric month: 03  (with leading zero if needed)
 			'dd'   // day of  month: 15  (with leading zero if needed)
 		locale:         'en-US',
-		timeFormatter:  (time=0|'')=>'',
+		timeFormatter:  (time=BusinessDay|UTCTimestamp)=>'',
 		priceFormatter: (price=0)=>'',
 	},
 	layout: {

@@ -102,7 +102,7 @@ var chart = LightweightCharts.createChart(container=''|HTMLEelemnt, ?options={
 		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/LocalizationOptions
 		locale:         navigator.language | 'en-US|...',
 		priceFormatter: undefined | (price=0)=>'',
-		timeFormatter:  undefined | (time=0|'')=>'',
+		timeFormatter:  undefined | (time=Time)=>'',
 		dateFormat:     'dd MMM \'yy',
 			'yyyy' // full    year:  2020
 			'yy'   // short   year:  20
