@@ -47,6 +47,19 @@ let c = obj.champion;
 // another example
 var obj = { foo: 28, bar: {x:2,y:4} };
 var { bar: {y} } = obj; // y = obj.bar.y
+
+// throws when nested obj doesn't exist (unless default value provided)
+var { b:{x} } = { b:{x:3} }, x; // 3
+var { b:{x} } = {}, x;          // throws
+var { b:{x}={} } = {}, x;       // undefined
+
+// doesn't throw when nested obj is of another type
+var { b:{x} } = { b:{x:3} }, x; // 3
+var { b:{x} } = { b:2 }, x;     // undefined
+var { b:{x} } = { b:'' }, x;    // undefined
+var { b:{x} } = { b:true }, x;  // undefined
+var { b:{x} } = { b:[] }, x;    // undefined
+var { b:{x} } = { b:/\d/ }, x;  // undefined
 //------------------------------------------------
 // combined array and object
 let props = [

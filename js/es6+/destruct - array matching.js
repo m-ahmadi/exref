@@ -75,6 +75,24 @@ b // 2
 c // 3
 d // 4
 //------------------------------------------------
+// when assumed nested arr is not of array type
+
+// without default value (only string is valid)
+let [ [x] ] = [ [2,3] ];     // x=2
+let [ [x] ] = [ '' ];        // x=''
+let [ [x] ] = [ undefined ]; // throws
+let [ [x] ] = [ 2 ];         // throws
+let [ [x] ] = [ false ];     // throws
+let [ [x] ] = [ {} ];        // throws
+
+// with default value (only undefined,string are valid)
+let [ [x]=[] ] = [ [2,3] ];     // x=2
+let [ [x]=[] ] = [ undefined ]; // x=undefined
+let [ [x]=[] ] = [ '' ];        // x=undefined
+let [ [x]=[] ] = [ 2 ];         // throws
+let [ [x]=[] ] = [ false ];     // throws
+let [ [x]=[] ] = [ {} ];        // throws
+//------------------------------------------------
 // alt target
 let a = [1,2];
 let o = {a:0, b:0};
