@@ -18,6 +18,8 @@ LineWidth = 1|2|3|4
 HorzAlign = 'left|center|right'
 VertAlign = 'top|center|bottom'
 PriceScaleMargins = {top:0, bottom:0}
+Point = {x:0, y:0}
+Logical = 0 // to|from number in a range
 
 
 // https://tradingview.github.io/lightweight-charts/docs/api#enumerations
