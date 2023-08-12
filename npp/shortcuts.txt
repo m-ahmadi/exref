@@ -1,9 +1,19 @@
-ctrl b			light explorer
-ctrl t			space to tab (leading)
-alt  ~			show white space and tab
-alt shift ~		show end of line
-alt e			move to other view
-alt d			clone to other view
+default:
+
+ctrl f		find
+ctrl h		replace
+ctrl g		goto
+ctrl w		close tab
+ctrl shift t	reopen closed tab
+
+custom:
+
+ctrl b		light explorer
+ctrl t		space to tab (leading)
+alt  ~		show white space and tab
+alt shift ~	show end of line
+alt e		move to other view
+alt d		clone to other view
 
 plugins:
 
