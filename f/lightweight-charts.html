@@ -78,7 +78,7 @@ var chart8 = LightweightCharts.createChart(charts, {width,height,
 	timeScale: {timeVisible:true, secondsVisible:false},
 });
 chart8.addLineSeries({color:'magenta', lineWidth:2}).setData(randLines(tot,'min'))
-addTitle(chart8.Nm.cv, 'intraday data');
+addTitle(chart8.Nm.cv, 'show minutes on time axis');
 
 
 var chart9 = LightweightCharts.createChart(charts, {width,height});
@@ -168,11 +168,11 @@ addTitle(chart11.Nm.cv, 'go to now button');
 
 
 // utils
-function addTitle(chartContainer, title='', color='black', left=width/2.5) {
+function addTitle(chartContainer, title='', color='black', left=width/2) {
 	chartContainer.style.position = 'relative';
 	let h4 = document.createElement('h4');
 	h4.innerText = title;
-	Object.assign(h4.style, {position:'absolute',zIndex:'1',top:'0',margin:'0', left,color});
+	Object.assign(h4.style, {position:'absolute',zIndex:'1',top:'0',margin:'0', left: left-title.length*5, color});
 	chartContainer.append(h4);
 }
 function randLines(n, interval='day') {
