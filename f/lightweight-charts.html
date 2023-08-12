@@ -149,20 +149,20 @@ Object.assign(btn.style, {
 	zIndex:   '2'
 });
 btn.innerHTML = 'go to now';
-var chart11 = LightweightCharts.createChart(container, {width,height,
+var chart12 = LightweightCharts.createChart(container, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.2, bottom:0.1}},
 	timeScale: {rightOffset:2},
 });
-chart11.addAreaSeries({lineColor:'purple',topColor:'yellow',bottomColor:'pink'}).setData(randLines(tot));
-chart11.timeScale().scrollToPosition(-20, false);
+chart12.addAreaSeries({lineColor:'purple',topColor:'yellow',bottomColor:'pink'}).setData(randLines(tot));
+chart12.timeScale().scrollToPosition(-20, false);
 [charts, container, btn].forEach((v,i,a) => i>0 && a[i-1].append(v));
-var timeScale = chart11.timeScale();
+var timeScale = chart12.timeScale();
 timeScale.subscribeVisibleTimeRangeChange(() => {
 	let buttonVisible = timeScale.scrollPosition() < 0;
 	btn.style.display = buttonVisible ? 'block' : 'none';
 });
 btn.addEventListener('click', ()=> timeScale.scrollToRealTime());
-addTitle(chart11.Nm.cv, 'go to now button');
+addTitle(chart12.Nm.cv, 'go to now button');
 
 
 
