@@ -1,7 +1,7 @@
 // includes: localforage.js
 /* cdn:
 	https://cdn.jsdelivr.net/npm/localforage
-	https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.min.js
+	https://cdnjs.cloudflare.com/ajax/libs/localforage/1.10.0/localforage.min.js
 */
 localforage.method(...): <Promise>  |  localforage.method(..., ?cb)
 
