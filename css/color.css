@@ -1,3 +1,36 @@
+/* palletes */
+.gray-like {
+	color: ghostwhite;
+	color: whitesmoke;
+	color: gainsboro;
+	color: lightgray;
+	color: silver;
+	color: darkgray;
+	color: gray;
+}
+.red-like {
+	color: lightcoral;
+	color: indianred;
+	color: tomato;
+	color: orangered;
+	color: red;
+	color: crimson;
+	color: firebrick;
+}
+.green-like {
+	color: lightgreen;
+	color: greenyellow;
+	color: chartreuse;
+	color: lawngreen;
+	color: lime;
+	color: limegreen;
+	color: springgreen;
+	color: yellowgreen;
+	color: darkseagreen;
+	color: forestgreen;
+	color: green;
+}
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 .aliceblue { background: aliceblue }
 .antiquewhite { background: antiquewhite }
 .aqua { background: aqua }
