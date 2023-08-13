@@ -170,9 +170,9 @@ function template(price=0, time=0) {
 	let d = new Date(time * 1e3);
 	let dateStr = [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-');
 	return ''+
-	'<div><strong>AEROSPACE</strong></div>'+
-	'<div>'+ price.toFixed(2) +'</div>'+
-	'<div>'+ dateStr +'</div>';
+		'<div><strong>AEROSPACE</strong></div>'+
+		'<div>'+ price.toFixed(2) +'</div>'+
+		'<div>'+ dateStr +'</div>';
 }
 function setLastBarText() {
 	let last = data[data.length-1];
