@@ -180,7 +180,7 @@ function setLastBarText() {
 }
 setLastBarText(); 
 chart13.subscribeCrosshairMove(param => {
-	let { time, point:{x,y}={} } = param; // note: `time` could be 0|''|{year,month,day}
+	let { time, point:{x,y}={} } = param; // note: `time` has same type supplied to `.setData()`
 	if (param === undefined || time === undefined || x < 0 || x > width || y < 0 || y > height) {
 		setLastBarText();   
 	} else {
