@@ -217,6 +217,59 @@ btn.addEventListener('click', ()=> timeScale.scrollToRealTime());
 addTitle(chart14.Nm.cv, 'go to now button');
 
 
+var [wrap, container, tooltip] = [...Array(3)].map(()=> document.createElement('div'));
+wrap.style.position = 'relative';
+var tooltipWidth = 100;
+Object.assign(tooltip.style, {
+	width:         tooltipWidth+'px',
+	height:        height+'px',
+	position:      'absolute',
+	display:       'none',
+	boxSizing:     'border-box',
+	pointerEvents: 'none',
+	zIndex:        '2',
+	boxShadow:     '0 2px 5px 0 rgba(117,134,150,.45)',
+	// non-essential (styling only):
+	top:'12px',left:'12px',padding:'8px',fontSize:'12px',borderRadius:'5px 5px 0px 0px',fontFamily:'Trebuchet MS',
+});
+var chart15 = LightweightCharts.createChart(container, {width,height,
+	leftPriceScale: {scaleMargins:{top:0.2,bottom:0.2}, visible:true, borderVisible:false},
+  rightPriceScale: {visible:false},
+	timeScale: {borderVisible:false},
+	grid: {horzLines:{color:'whitesmoke'}, vertLines:{visible:false}},
+  crosshair: {horzLine:{visible:false,labelVisible:false},vertLine:{visible:true,labelVisible:false,style:0,width:2,color:'gainsboro'}},
+});
+[charts, wrap, container, tooltip].forEach((v,i,a) => i>0 && a[i-1].append(v));
+var blu = n => 'rgba(0,120,255,'+n+')';
+var series2 = chart15.addAreaSeries({topColor:blu(.2), bottomColor:blu(0), lineColor:blu(1), lineWidth:3});
+series2.setData(randLines(tot));
+chart15.subscribeCrosshairMove(param => {
+	let { time, point, point:{x,y}={} } = param;
+	if (!time || point === undefined || x < 0 || x > container.clientWidth || y < 0 || y > container.clientHeight) {
+		tooltip.style.display = 'none';
+	} else {
+		tooltip.style.display = 'block';
+		let d = new Date(time * 1e3);
+		let dateStr = [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-');
+		let price = param.seriesData.get(series2).value;
+		tooltip.innerHTML = ''+
+			'<div style="color: '+blu(1)+'">⬤ ABC Inc.</div>'+
+			'<div style="font-size: 20px; margin: 4px 0px;">'+ price.toFixed(2) +'</div>'+
+			'<div>'+ dateStr +'</div>';
+		let left = x; // relative to timeScale
+		let timeScaleWidth = chart15.timeScale().width();
+		let priceScaleWidth = chart15.priceScale('left').width();
+		let halftooltipWidth = tooltipWidth / 2;
+		left += priceScaleWidth - halftooltipWidth;
+		left = Math.min(left, priceScaleWidth + timeScaleWidth - tooltipWidth);
+		left = Math.max(left, priceScaleWidth);
+		tooltip.style.left = left + 'px';
+		tooltip.style.top = 0 + 'px';
+	}
+});
+addTitle(chart15.Nm.cv, 'magnifier tooltip');
+
+
 
 
 // utils
