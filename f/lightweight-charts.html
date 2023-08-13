@@ -154,11 +154,6 @@ addTitle(chart12.Nm.cv, 'legend', 'white');
 
 var [wrap, container, legend] = [...Array(3)].map(()=> document.createElement('div'));
 wrap.style.position = 'relative';
-var chart13 = LightweightCharts.createChart(container, {width,height});
-var series = chart13.addAreaSeries();
-var data = randLines(tot);
-series.setData(data);
-[charts, wrap, container, legend].forEach((v,i,a) => i>0 && a[i-1].append(v));
 Object.assign(legend.style, {
 	display:  'block',
 	left:     '3px',
@@ -166,6 +161,11 @@ Object.assign(legend.style, {
 	position: 'absolute',
 	zIndex:   '2',
 });
+[charts, wrap, container, legend].forEach((v,i,a) => i>0 && a[i-1].append(v)); // can be before `.createChart()` cuz of wrap element (not using chart's container div)
+var chart13 = LightweightCharts.createChart(container, {width,height});
+var series = chart13.addAreaSeries();
+var data = randLines(tot);
+series.setData(data);
 function template(price=0, time=0) {
 	let d = new Date(time * 1e3);
 	let dateStr = [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-');
@@ -232,6 +232,7 @@ Object.assign(tooltip.style, {
 	// non-essential (styling only):
 	top:'12px',left:'12px',padding:'8px',fontSize:'12px',borderRadius:'5px 5px 0px 0px',fontFamily:'Trebuchet MS',
 });
+[charts, wrap, container, tooltip].forEach((v,i,a) => i>0 && a[i-1].append(v));
 var chart15 = LightweightCharts.createChart(container, {width,height,
 	leftPriceScale: {scaleMargins:{top:0.2,bottom:0.2}, visible:true, borderVisible:false},
   rightPriceScale: {visible:false},
@@ -239,7 +240,6 @@ var chart15 = LightweightCharts.createChart(container, {width,height,
 	grid: {horzLines:{color:'whitesmoke'}, vertLines:{visible:false}},
   crosshair: {horzLine:{visible:false,labelVisible:false},vertLine:{visible:true,labelVisible:false,style:0,width:2,color:'gainsboro'}},
 });
-[charts, wrap, container, tooltip].forEach((v,i,a) => i>0 && a[i-1].append(v));
 var blu = n => 'rgba(0,120,255,'+n+')';
 var series2 = chart15.addAreaSeries({topColor:blu(.2), bottomColor:blu(0), lineColor:blu(1), lineWidth:3});
 series2.setData(randLines(tot));
