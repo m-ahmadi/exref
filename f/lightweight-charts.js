@@ -231,7 +231,7 @@ timeScale.width()
 
 // https://tradingview.github.io/lightweight-charts/docs/api/interfaces/SeriesOptionsCommon
 SeriesOptionsCommon = {
-	lastValueVisible:      ,
+	lastValueVisible:      true,
 	title:                 '',
 	priceScaleId:          'left|right',
 	visible:               true,

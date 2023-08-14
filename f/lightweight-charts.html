@@ -95,8 +95,8 @@ addTitle(chart9.Nm.cv, 'show minutes on time axis');
 
 
 var chart10 = LightweightCharts.createChart(charts, {width,height});
-chart10.addLineSeries({lastValueVisible:false}).setData(randLines(tot));
-addTitle(chart10.Nm.cv, 'no last value highlight');
+chart10.addLineSeries({color:'darkorange', lastValueVisible:false, priceLineVisible:false}).setData(randLines(tot));
+addTitle(chart10.Nm.cv, 'no last value label & line');
 
 
 var chart11 = LightweightCharts.createChart(charts, {width,height});
