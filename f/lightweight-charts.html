@@ -68,7 +68,7 @@ var chart8 = LightweightCharts.createChart(charts, {width,height,
 });
 chart8.addLineSeries({color:'black'}).setData(randLines(tot));
 chart8.addCandlestickSeries({priceScaleId:'left'}).setData(randCandles(tot));
-addTitle(chart8.Nm.cv, 'two x scales');
+addTitle(chart8.Nm.cv, 'two scales');
 
 
 var chart9 = LightweightCharts.createChart(charts, {width,height,
@@ -311,8 +311,7 @@ chart17.timeScale().fitContent();
 addTitle(chart17.Nm.cv, 'price lines');
 
 
-
-
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // utils
 function addTitle(chartContainer, title='', color='black', letterWeight=5) {
 	chartContainer.style.position = 'relative';
@@ -365,4 +364,10 @@ function randCandles(len=100, {open=70,high=120,low=80,close=100}={}) {
 	return r;
 }
 function randInt(n,x) { return n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n }
+/* p.s. replace node snippet
+f = 'f/lightweight-charts.html'
+s = fs.readFileSync(f, 'utf8')
+ss = [17,16,15,14,13,12,11,10,9,8,7,6].reduce((r,i)=> r.replaceAll('chart'+i, 'chart'+(i+1)), s)
+fs.writeFileSync(f, ss)
+*/
 </script>
