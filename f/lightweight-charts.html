@@ -275,6 +275,42 @@ chart16.subscribeCrosshairMove(param => {
 addTitle(chart16.Nm.cv, 'magnifier tooltip');
 
 
+var chart17 = LightweightCharts.createChart(charts, {width,height});
+var data2 = randLines(tot);
+var series3 = chart17.addLineSeries({
+	color: 'black',
+	crosshairMarkerVisible: false,
+	lastValueVisible: false,
+	priceLineVisible: false,
+});
+series3.setData(data2);
+var seriesPrices = data2.map(i => i.value);
+var commonOpts = {lineWidth:2, lineStyle:LightweightCharts.LineStyle.Solid, axisLabelVisible:true};
+var maxPriceLine = {
+	price: Math.max(...seriesPrices),
+	color: '#00ff00',
+	title: 'max',
+	...commonOpts
+};
+var avgPriceLine = {
+	price: seriesPrices.reduce((r,i) => r+=i) / seriesPrices.length,
+	color: 'blue',
+	title: 'avg',
+	...commonOpts
+};
+var minPriceLine = {
+	price: Math.min(...seriesPrices),
+	color: 'red',
+	title: 'min',
+	...commonOpts
+};
+series3.createPriceLine(minPriceLine);
+series3.createPriceLine(avgPriceLine);
+series3.createPriceLine(maxPriceLine);
+chart17.timeScale().fitContent();
+addTitle(chart17.Nm.cv, 'price lines');
+
+
 
 
 // utils

@@ -347,7 +347,7 @@ var baselineSeries = chart.addBaselineSeries({
 
 
 // https://tradingview.github.io/lightweight-charts/docs/api/interfaces/MouseEventParams
-interface MouseEventParams{
+MouseEventParams {
 	time?:            Time,
 	logical?:         Logical,
 	point?:           Point,
@@ -355,6 +355,21 @@ interface MouseEventParams{
 	hoveredSeries?:   ISeriesApi<keyof SeriesOptionsMap>,
 	hoveredObjectId?: undefined,
 	sourceEvent?:     TouchMouseEventData,
+}
+
+
+// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/PriceLineOptions
+PriceLineOptions {
+	id?:                 '',
+	price:               0,
+	color?:              '',
+	lineWidth?:          LineWidth,
+	lineStyle?:          LineStyle,
+	lineVisible?:        true,
+	axisLabelVisible?:   true,
+	title?:              '',
+	axisLabelColor?:     '',
+	axisLabelTextColor?: '',
 }
 
 
