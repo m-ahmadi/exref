@@ -52,21 +52,26 @@ addTitle(chart5.Nm.cv, 'styling of grid, crosshair, scale border, etc', undefine
 
 
 var chart6 = LightweightCharts.createChart(charts, {width,height});
-chart6.addLineSeries({color:'deeppink', lineWidth:2}).setData(randLines(tot));
-chart6.addLineSeries({color:'cyan', lineWidth:2}).setData(randLines(tot));
-addTitle(chart6.Nm.cv, 'multiple series');
+chart6.addLineSeries({color:'darkorange', lastValueVisible:false, priceLineVisible:false}).setData(randLines(tot));
+addTitle(chart6.Nm.cv, 'no last value label & line');
 
 
-var chart7 = LightweightCharts.createChart(charts, {width,height,
-	leftPriceScale: {visible:true},
-	crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
-});
-chart7.addLineSeries({color:'black'}).setData(randLines(tot));
-chart7.addCandlestickSeries({priceScaleId:'left'}).setData(randCandles(tot));
-addTitle(chart7.Nm.cv, 'two x scales');
+var chart7 = LightweightCharts.createChart(charts, {width,height});
+chart7.addLineSeries({color:'deeppink', lineWidth:2}).setData(randLines(tot));
+chart7.addLineSeries({color:'cyan', lineWidth:2}).setData(randLines(tot));
+addTitle(chart7.Nm.cv, 'multiple series');
 
 
 var chart8 = LightweightCharts.createChart(charts, {width,height,
+	leftPriceScale: {visible:true},
+	crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
+});
+chart8.addLineSeries({color:'black'}).setData(randLines(tot));
+chart8.addCandlestickSeries({priceScaleId:'left'}).setData(randCandles(tot));
+addTitle(chart8.Nm.cv, 'two x scales');
+
+
+var chart9 = LightweightCharts.createChart(charts, {width,height,
 	localization: {
 		timeFormatter: time => {
 			let date;
@@ -83,20 +88,15 @@ var chart8 = LightweightCharts.createChart(charts, {width,height,
 		},
 	}
 });
-chart8.addLineSeries({color:'black', lineWidth:2}).setData(randLines(tot));
-addTitle(chart8.Nm.cv, 'format time axis');
+chart9.addLineSeries({color:'black', lineWidth:2}).setData(randLines(tot));
+addTitle(chart9.Nm.cv, 'format time axis');
 
 
-var chart9 = LightweightCharts.createChart(charts, {width,height,
+var chart10 = LightweightCharts.createChart(charts, {width,height,
 	timeScale: {timeVisible:true, secondsVisible:false},
 });
-chart9.addLineSeries({color:'magenta', lineWidth:2}).setData(randLines(tot,'min'))
-addTitle(chart9.Nm.cv, 'show minutes on time axis');
-
-
-var chart10 = LightweightCharts.createChart(charts, {width,height});
-chart10.addLineSeries({color:'darkorange', lastValueVisible:false, priceLineVisible:false}).setData(randLines(tot));
-addTitle(chart10.Nm.cv, 'no last value label & line');
+chart10.addLineSeries({color:'magenta', lineWidth:2}).setData(randLines(tot,'min'))
+addTitle(chart10.Nm.cv, 'show minutes on time axis');
 
 
 var chart11 = LightweightCharts.createChart(charts, {width,height});
