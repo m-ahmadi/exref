@@ -1,8 +1,9 @@
 function simple1(n) {
 	return (
-		n > 999       && n < 1e6 ? (n / 1e3).toFixed(2) + ' K' :
-		n > 999999    && n < 1e9 ? (n / 1e6).toFixed(2) + ' M' :
-		n > 999999999            ? (n / 1e9).toFixed(2) + ' B' : n;
+		n > 999         && n < 1e6 ? (n / 1e3).toFixed(2) + ' K' :
+		n > 999_999     && n < 1e9 ? (n / 1e6).toFixed(2) + ' M' :
+		n > 999_999_999            ? (n / 1e9).toFixed(2) + ' B' :
+		n
 	);
 }
 
