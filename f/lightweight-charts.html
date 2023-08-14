@@ -95,35 +95,40 @@ addTitle(chart9.Nm.cv, 'show minutes on time axis');
 
 
 var chart10 = LightweightCharts.createChart(charts, {width,height});
-var areaSeries = chart10.addLineSeries();
+chart10.addLineSeries({lastValueVisible:false}).setData(randLines(tot));
+addTitle(chart10.Nm.cv, 'no last value highlight');
+
+
+var chart11 = LightweightCharts.createChart(charts, {width,height});
+var areaSeries = chart11.addLineSeries();
 areaSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
 areaSeries.setData(randLines(tot));
-var volSeries = chart10.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart11.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
-addTitle(chart10.Nm.cv, 'volume');
+addTitle(chart11.Nm.cv, 'volume');
 
 
-var chart11 = LightweightCharts.createChart(charts, {width,height,
+var chart12 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
 	layout: {background:{color:c[1]}, textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
 });
-var areaSeries = chart11.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
+var areaSeries = chart12.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart11.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart12.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
-addTitle(chart11.Nm.cv, 'volume 2', 'white');
-/* chart11 in v3.8
-var chart11 = LightweightCharts.createChart(charts, {width,height,
+addTitle(chart12.Nm.cv, 'volume 2', 'white');
+/* chart12 in v3.8
+var chart12 = LightweightCharts.createChart(charts, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}, borderVisible:false},
 	layout: {backgroundColor:c[1], textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[6]}},
 });
-var areaSeries = chart11.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
+var areaSeries = chart12.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart11.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
+var volSeries = chart12.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot)); */
 
 
@@ -132,16 +137,16 @@ chartContainer.style.position = 'relative';
 Object.assign(legend.style, {position:'absolute',left:'12px',top:'12px',zIndex:'1',fontSize:'16px'});
 legendRow.innerText = 'ETC USD 7D VWAP';
 legendRow.style.color = 'white';
-var chart12 = LightweightCharts.createChart(chartContainer, {width,height,
+var chart13 = LightweightCharts.createChart(chartContainer, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.3,bottom:0.25}},
 	layout: {background:{color:c[4]}, textColor:c[2]},
 	grid: {vertLines:{color:c[4]}, horzLines:{color:c[4]}},
 	crosshair: {vertLine:{width:5,color:c[12],style:0}, horzLine:{visible:false,labelVisible:false}},
 });
-var areaSeries = chart12.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2,crossHairMarkerVisible:false});
+var areaSeries = chart13.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2,crossHairMarkerVisible:false});
 areaSeries.setData(randLines(tot));
 [charts, chartContainer, legend, legendRow].forEach((v,i,a) => i>0 && a[i-1].append(v)); // must be after `.createChart()` cuz that wipes container div
-chart12.subscribeCrosshairMove(param => {
+chart13.subscribeCrosshairMove(param => {
 	if (param.time) {
 		let price = param.seriesData.get(areaSeries).value; // v3.8: `param.seriesPrices.get(areaSeries)`
 		legendRow.innerText = 'ETC USD 7D VWAP'+' '+price.toFixed(2);
@@ -149,7 +154,7 @@ chart12.subscribeCrosshairMove(param => {
 		legendRow.innerText = 'ETC USD 7D VWAP';
 	}
 });
-addTitle(chart12.Nm.cv, 'legend', 'white');
+addTitle(chart13.Nm.cv, 'legend', 'white');
 
 
 var [wrap, container, legend] = [...Array(3)].map(()=> document.createElement('div'));
@@ -162,8 +167,8 @@ Object.assign(legend.style, {
 	zIndex:   '2',
 });
 [charts, wrap, container, legend].forEach((v,i,a) => i>0 && a[i-1].append(v)); // can be before `.createChart()` cuz of wrap element (not using chart's container div)
-var chart13 = LightweightCharts.createChart(container, {width,height});
-var series = chart13.addAreaSeries();
+var chart14 = LightweightCharts.createChart(container, {width,height});
+var series = chart14.addAreaSeries();
 var data = randLines(tot);
 series.setData(data);
 function template(price=0, time=0) {
@@ -179,7 +184,7 @@ function setLastBarText() {
 	legend.innerHTML = template(last.value, last.time);
 }
 setLastBarText(); 
-chart13.subscribeCrosshairMove(param => {
+chart14.subscribeCrosshairMove(param => {
 	let { time, point:{x,y}={} } = param; // note: `time` has same type supplied to `.setData()`
 	if (param === undefined || time === undefined || x < 0 || x > width || y < 0 || y > height) {
 		setLastBarText();   
@@ -188,7 +193,7 @@ chart13.subscribeCrosshairMove(param => {
 		legend.innerHTML = template(price, time);
 	}
 });
-addTitle(chart13.Nm.cv, 'legend multi-line');
+addTitle(chart14.Nm.cv, 'legend multi-line');
 
 
 var [container, btn] = ['div', 'button'].map(i => document.createElement(i));
@@ -201,20 +206,20 @@ Object.assign(btn.style, {
 	zIndex:   '2'
 });
 btn.innerHTML = 'go to now';
-var chart14 = LightweightCharts.createChart(container, {width,height,
+var chart15 = LightweightCharts.createChart(container, {width,height,
 	rightPriceScale: {scaleMargins:{top:0.2, bottom:0.1}},
 	timeScale: {rightOffset:2},
 });
-chart14.addAreaSeries({lineColor:'purple',topColor:'yellow',bottomColor:'pink'}).setData(randLines(tot));
-chart14.timeScale().scrollToPosition(-20, false);
+chart15.addAreaSeries({lineColor:'purple',topColor:'yellow',bottomColor:'pink'}).setData(randLines(tot));
+chart15.timeScale().scrollToPosition(-20, false);
 [charts, container, btn].forEach((v,i,a) => i>0 && a[i-1].append(v));
-var timeScale = chart14.timeScale();
+var timeScale = chart15.timeScale();
 timeScale.subscribeVisibleTimeRangeChange(() => {
 	let buttonVisible = timeScale.scrollPosition() < 0;
 	btn.style.display = buttonVisible ? 'block' : 'none';
 });
 btn.addEventListener('click', ()=> timeScale.scrollToRealTime());
-addTitle(chart14.Nm.cv, 'go to now button');
+addTitle(chart15.Nm.cv, 'go to now button');
 
 
 var [wrap, container, tooltip] = [...Array(3)].map(()=> document.createElement('div'));
@@ -233,7 +238,7 @@ Object.assign(tooltip.style, {
 	top:'12px',left:'12px',padding:'8px',fontSize:'12px',borderRadius:'5px 5px 0px 0px',fontFamily:'Trebuchet MS',
 });
 [charts, wrap, container, tooltip].forEach((v,i,a) => i>0 && a[i-1].append(v));
-var chart15 = LightweightCharts.createChart(container, {width,height,
+var chart16 = LightweightCharts.createChart(container, {width,height,
 	leftPriceScale: {scaleMargins:{top:0.2,bottom:0.2}, visible:true, borderVisible:false},
   rightPriceScale: {visible:false},
 	timeScale: {borderVisible:false},
@@ -241,9 +246,9 @@ var chart15 = LightweightCharts.createChart(container, {width,height,
   crosshair: {horzLine:{visible:false,labelVisible:false},vertLine:{visible:true,labelVisible:false,style:0,width:2,color:'gainsboro'}},
 });
 var blu = n => 'rgba(0,120,255,'+n+')';
-var series2 = chart15.addAreaSeries({topColor:blu(.2), bottomColor:blu(0), lineColor:blu(1), lineWidth:3});
+var series2 = chart16.addAreaSeries({topColor:blu(.2), bottomColor:blu(0), lineColor:blu(1), lineWidth:3});
 series2.setData(randLines(tot));
-chart15.subscribeCrosshairMove(param => {
+chart16.subscribeCrosshairMove(param => {
 	let { time, point, point:{x,y}={} } = param;
 	if (!time || point === undefined || x < 0 || x > container.clientWidth || y < 0 || y > container.clientHeight) {
 		tooltip.style.display = 'none';
@@ -257,8 +262,8 @@ chart15.subscribeCrosshairMove(param => {
 			'<div style="font-size: 20px; margin: 4px 0px;">'+ price.toFixed(2) +'</div>'+
 			'<div>'+ dateStr +'</div>';
 		let left = x; // relative to timeScale
-		let timeScaleWidth = chart15.timeScale().width();
-		let priceScaleWidth = chart15.priceScale('left').width();
+		let timeScaleWidth = chart16.timeScale().width();
+		let priceScaleWidth = chart16.priceScale('left').width();
 		let halftooltipWidth = tooltipWidth / 2;
 		left += priceScaleWidth - halftooltipWidth;
 		left = Math.min(left, priceScaleWidth + timeScaleWidth - tooltipWidth);
@@ -267,7 +272,7 @@ chart15.subscribeCrosshairMove(param => {
 		tooltip.style.top = 0 + 'px';
 	}
 });
-addTitle(chart15.Nm.cv, 'magnifier tooltip');
+addTitle(chart16.Nm.cv, 'magnifier tooltip');
 
 
 
