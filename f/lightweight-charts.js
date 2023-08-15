@@ -233,7 +233,7 @@ timeScale.width()
 SeriesOptionsCommon = {
 	lastValueVisible:      true,
 	title:                 '',
-	priceScaleId:          'left|right',
+	priceScaleId:          'right|left',
 	visible:               true,
 	priceLineVisible:      true,
 	priceLineSource:       PriceLineSource.LastBar,
