@@ -20,6 +20,8 @@ VertAlign = 'top|center|bottom'
 PriceScaleMargins = {top:0, bottom:0}
 Point = {x:0, y:0}
 Logical = 0 // to|from number in a range
+SeriesMarkerPosition = 'aboveBar|belowBar|inBar'
+SeriesMarkerShape = 'circle|square|arrowUp|arrowDown'
 
 
 // https://tradingview.github.io/lightweight-charts/docs/api#enumerations
@@ -370,6 +372,18 @@ PriceLineOptions {
 	?title:              '',
 	?axisLabelColor:     '',
 	?axisLabelTextColor: '',
+}
+
+
+// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/SeriesMarker
+SeriesMarker {
+	time:     Time,
+	position: SeriesMarkerPosition,
+	shape:    SeriesMarkerShape,
+	color:    '',
+	?id:      '',
+	?text:    '',
+	?size:    1,
 }
 
 
