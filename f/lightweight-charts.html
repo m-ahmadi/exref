@@ -103,7 +103,7 @@ var chart11 = LightweightCharts.createChart(charts, {width,height});
 var lineSeries = chart11.addLineSeries();
 lineSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
 lineSeries.setData(randLines(tot));
-var volSeries = chart11.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart11.addHistogramSeries({priceScaleId:'',priceFormat:{type:'volume'}});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
 addTitle(chart11.Nm.cv, 'volume');
@@ -115,7 +115,7 @@ var chart12 = LightweightCharts.createChart(charts, {width,height,
 });
 var lineSeries = chart12.addLineSeries({color:'black'});
 lineSeries.setData(randLines(tot));
-var volSeries = chart12.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:'left'});
+var volSeries = chart12.addHistogramSeries({priceScaleId:'left',priceFormat:{type:'volume'}});
 volSeries.setData(randVolumes(tot,'#FEA6A7','#A7D2A8'));
 addTitle(chart12.Nm.cv, 'volume - two scales');
 
@@ -127,7 +127,7 @@ var chart13 = LightweightCharts.createChart(charts, {width,height,
 });
 var areaSeries = chart13.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart13.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:''});
+var volSeries = chart13.addHistogramSeries({priceScaleId:'',priceFormat:{type:'volume'},color:c[3]});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
 addTitle(chart13.Nm.cv, 'volume - area + styling', 'white');
@@ -139,7 +139,7 @@ var chart13 = LightweightCharts.createChart(charts, {width,height,
 });
 var areaSeries = chart13.addAreaSeries({topColor:c[7],bottomColor:c[8],lineColor:c[9],lineWidth:2});
 areaSeries.setData(randLines(tot));
-var volSeries = chart13.addHistogramSeries({color:c[3],priceFormat:{type:'volume'},priceScaleId:'',scaleMargins:{top:0.8,bottom:0}});
+var volSeries = chart13.addHistogramSeries({priceScaleId:'',priceFormat:{type:'volume'},scaleMargins:{top:0.8,bottom:0},color:c[3]});
 volSeries.setData(randVolumes(tot)); */
 
 
