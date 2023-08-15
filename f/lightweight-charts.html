@@ -100,9 +100,9 @@ addTitle(chart10.Nm.cv, 'show minutes on time axis');
 
 
 var chart11 = LightweightCharts.createChart(charts, {width,height});
-var areaSeries = chart11.addLineSeries();
-areaSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
-areaSeries.setData(randLines(tot));
+var lineSeries = chart11.addLineSeries();
+lineSeries.priceScale().applyOptions({scaleMargins:{top:0.3,bottom:0.25}});
+lineSeries.setData(randLines(tot));
 var volSeries = chart11.addHistogramSeries({priceFormat:{type:'volume'},priceScaleId:''});
 volSeries.priceScale().applyOptions({scaleMargins:{top:0.8,bottom:0}});
 volSeries.setData(randVolumes(tot));
