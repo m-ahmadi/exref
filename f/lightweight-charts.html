@@ -170,13 +170,7 @@ addTitle(chart14.Nm.cv, 'legend', 'white');
 
 var [wrap, container, legend] = [...Array(3)].map(()=> document.createElement('div'));
 wrap.style.position = 'relative';
-Object.assign(legend.style, {
-	display:  'block',
-	left:     '3px',
-	top:      '3px',
-	position: 'absolute',
-	zIndex:   '2',
-});
+legend.style = 'position:absolute; top:3px; left:3px; z-index:2; display:block;';
 [charts, wrap, container].forEach((v,i,a) => i>0 && a[i-1].append(v)); // can be before `.createChart()` cuz of wrap element (not using chart's container div)
 wrap.append(legend);
 var chart15 = LightweightCharts.createChart(container, {width,height});
