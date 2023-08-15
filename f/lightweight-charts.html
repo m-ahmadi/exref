@@ -322,6 +322,23 @@ chart18.timeScale().fitContent();
 addTitle(chart18.Nm.cv, 'price lines');
 
 
+var chart19 = LightweightCharts.createChart(charts, {width,height});
+var lineSeries = chart19.addLineSeries({color:'black', lineWidth:1});
+var data3 = randLines(tot);
+lineSeries.setData(data3);
+var getT = negIdx => data3.slice(negIdx)[0].time;
+var markers = [
+	{time:getT(-60), position:'aboveBar', shape:'arrowDown', color:'green',              size:2},
+	{time:getT(-40), position:'belowBar', shape:'arrowUp',   color:'red',                size:2},
+	{time:getT(-20), position:'belowBar', shape:'circle',    color:'orange',             size:2, text:'D'},
+	{time:getT(-10), position:'inBar',    shape:'square',    color:'rgba(255,0,128,.5)', size:3, text:'here'},
+	// `marker.id` can be used in `MouseEventParams.hoveredObjectId`
+	// e.g. `chart.subscribeClick(param => param.hoveredObjectId);`
+];
+lineSeries.setMarkers(markers);
+addTitle(chart19.Nm.cv, 'markers');
+
+
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // utils
 function addTitle(chartContainer, title='', color='black', letterWeight=5) {
