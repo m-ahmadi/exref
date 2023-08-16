@@ -195,7 +195,18 @@ chart15.subscribeCrosshairMove(param => {
 	if (param === undefined || time === undefined || x < 0 || x > width || y < 0 || y > height) {
 		setLastBarText();   
 	} else {
-		let price = param.seriesData.get(series).value;
+		let dataItem = param.seriesData.get(series);
+		/* note:
+		if you supply `{time: String<BusinessDay>}` to `.setData()`,
+		then here `dataItem.type` is sometimes `String<BusinessDay>` and sometimes `Object<BusinessDay>`
+		but that doesn't happen with `Number<Timestamp>`
+		
+		`dataItem.time` type                         type supplied to `.setData()`
+		============================================================================
+		Number<Timestamp>                            Number<Timestamp>
+		String<BusinessDay> | Object<BusinessDay>    String<BusinessDay>
+		*/
+		let price = dataItem.value;
 		legend.innerHTML = template(price, time);
 	}
 });

@@ -203,6 +203,58 @@ series.removePriceLine(line)
 series.seriesType()
 
 
+// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/SeriesDataItemTypeMap
+SingleValueData = {time:Time, value:0}
+OhlcData = {
+	time:  Time,
+		// type here              vs    type in `series.getData(candleSeries).time`
+		// Number<Timestamp>            Number<Timestamp>
+		// String<BusinessDay>          String<BusinessDay> | Object<BusinessDay>
+	open:  0,
+	high:  0,
+	low:   0,
+	close: 0,
+}
+BarData {
+	?color: '',
+	...OhlcData
+}
+CandlestickData {
+	?color:       '',
+	?borderColor: '',
+	?wickColor:   '',
+	...OhlcData
+}
+AreaData {
+	?lineColor:   '',
+	?topColor:    '',
+	?bottomColor: '',
+	...SingleValueData
+}
+BaselineData {
+	?topFillColor1:    '',
+	?topFillColor2:    '',
+	?topLineColor:     '',
+	?bottomFillColor1: '',
+	?bottomFillColor2: '',
+	?bottomLineColor:  '',
+	...SingleValueData,
+}
+LineData {
+	?color: '',
+	...SingleValueData,
+}
+HistogramData {
+	?color: '',
+	...SingleValueData,
+}
+WhitespaceData {
+	time: Time,
+}
+seriesDataItem = BarData | CandlestickData | AreaData | BaselineData | LineData | HistogramData | WhitespaceData
+seriesData = [ seriesDataItem, ... ]
+
+
 // https://tradingview.github.io/lightweight-charts/docs/api/interfaces/ITimeScaleApi
 var timeScale = chart.timeScale()
 timeScale.applyOptions(options={})
