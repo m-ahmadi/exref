@@ -62,7 +62,7 @@ minmov: 1,         // minmov/pricescale is a fraction.
 pricescale: 128,
 minmove2: 4,       // used in 2nd form: yy'zz / (pricescale/minmove2)
 fractional: true,
-// example with minmov: 1, pricescale: 128 minmove2: 4
+// example with minmov: 1, pricescale: 128, minmove2: 4
 119'16'0 // 119 + 16/32
 119'16'2 // 119 + 16.25/32
 119'16'5 // 119 + 16.5/32

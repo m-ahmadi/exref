@@ -220,6 +220,9 @@ BarData {
 	...OhlcData
 }
 CandlestickData {
+	// default logic for candle coloring:
+	// 	if candle.close > candle.open, then candle is up, otherwise down
+	// (not sure what happens when equal)
 	?color:       '',
 	?borderColor: '',
 	?wickColor:   '',
@@ -300,7 +303,7 @@ SeriesOptionsCommon = {
 	baseLineWidth:         LineWidth,
 	baseLineStyle:         LineStyle.Solid,
 	autoscaleInfoProvider: undefined | ()=>,
-//scaleMargins:          PriceScaleMargins, // v4 removed. use `series.priceScale().applyOptions({ scaleMargins: {...} })`
+//scaleMargins:          PriceScaleMargins, // v4 removed. use `series.priceScale(priceScaleId).applyOptions({ scaleMargins: {...} })`
 };
 
 
