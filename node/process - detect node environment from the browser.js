@@ -1,13 +1,35 @@
-// better
-const isNode    = (function(){return typeof global!=='undefined'&&this===global})();
-const isBrowser = (function(){return typeof window!=='undefined'&&this===window})();
+const isBrowser =
+	typeof window !== 'undefined' &&
+	typeof window.document !== 'undefined';
 
-// simple
-const isNode    = typeof process !== 'undefined' && process.versions && typeof process.versions.node !== 'undefined';
-const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
+const isBrowserNonESM = (function () {
+	return typeof window !== 'undefined' && this === window
+})();
 
-// webworker
-typeof self === 'object' && self.constructor && self.constructor.name === 'DedicatedWorkerGlobalScope';
+const isNode =
+	typeof process !== 'undefined' &&
+	process.versions &&
+	process.versions.node;
+
+const isNodeNonESM = (function () {
+	return typeof global !== 'undefined' && this === global
+})();
+
+const isWebWorker =
+	typeof self === 'object' &&
+	self.constructor &&
+	self.constructor.name === 'DedicatedWorkerGlobalScope';
+
+const isJsDom =
+	(typeof window !== 'undefined' && window.name === 'nodejs') ||
+	(typeof navigator !== 'undefined' &&
+		(navigator.userAgent.includes('Node.js') ||
+			navigator.userAgent.includes('jsdom')));
+
+const isDeno =
+	typeof Deno !== 'undefined' &&
+	typeof Deno.version !== 'undefined' &&
+	typeof Deno.version.deno !== 'undefined';
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // other bad node detections
 
