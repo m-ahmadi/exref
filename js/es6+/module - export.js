@@ -1,3 +1,4 @@
+// https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export
 // exported values can be: function/object/class/generator/primitive (string/number/boolean/symbol/bigint/undefined/null).
 // exported modules are in strict mode whether you declare them as such or not.
 // default export: (only one per script, no semicolon needed unless it's an expression, can be used as fallback value)
@@ -38,7 +39,12 @@ export { variable1 as name1, variable2 as name2 }; // exports value of variable1
 export * from 'module.js';
 export { name1, name2 } from 'module.js';
 export { import1 as name1, import2 as name2 } from 'module.js';
-// example:
+// aggregate - default export
+export bar from 'bar.js';                // invalid
+export { default as bar } from 'bar.js'; // ok (re-export default export of 'bar.js' as named export)
+export { default } from 'bar.js';        // ok (re-export default export of 'bar.js' as default export)
+export { default, name2 } from 'bar.js'; // ok (↑... + named export the named export of 'bar.js')
+// aggregate - example:
 // shapes.js:
 export { Square } from './shapes/square.js';
 export { Triangle } from './shapes/triangle.js';
