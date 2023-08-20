@@ -1,3 +1,4 @@
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
 import defaultMember                       from './module.js';
 import * as name                           from './module.js';
 import { member }                          from './module.js';
