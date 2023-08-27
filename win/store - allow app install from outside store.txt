@@ -1,0 +1,2 @@
+(win+i -> Update & Security -> For developers) | ms-settings:developers ->
+	Developer mode
