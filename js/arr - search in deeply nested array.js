@@ -1,6 +1,6 @@
 // asumption: ids are unique in the tree.
 
-searchWithTrail(nestedData, 9)    // { found: {id: 9}, path: "3/5/8/9" } ( for using the sample data structre: prev.push(obj.id) )
+searchWithTrail(nestedData, 9)    // { found: {id: 9}, path: '3/5/8/9' } ( for using the sample data structre: prev.push(obj.id) )
 searchWithoutTrail(nestedData, 9) // {id: 9}
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // number of iterations: nested vs linked list style
@@ -35,7 +35,7 @@ function searchWithTrail(arr, id, prev=[]) {
 		}
 	}
 	if (found && found.id) { // this check is very assumptive based on the data structure.
-		return { found, path: prev.join("/") };
+		return { found, path: prev.join('/') };
 	} else {
 		prev.pop();
 		return found;
@@ -104,9 +104,9 @@ var nestedData = [
 ];
 
 var linkedlistData = [
-	{ id: 1,  parent: "#" },
-	{ id: 2,  parent: "#" },
-	{ id: 3,  parent: "#" },
+	{ id: 1,  parent: '#' },
+	{ id: 2,  parent: '#' },
+	{ id: 3,  parent: '#' },
 	{ id: 4,  parent: 3   },
 	{ id: 5,  parent: 3   },
 	{ id: 6,  parent: 5   },
@@ -115,10 +115,10 @@ var linkedlistData = [
 	{ id: 9,  parent: 8   },
 	{ id: 10, parent: 8   },
 	{ id: 11, parent: 3   },
-	{ id: 12, parent: "#" },
-	{ id: 13, parent: "#" },
-	{ id: 14, parent: "#" },
-	{ id: 15, parent: "#" },
+	{ id: 12, parent: '#' },
+	{ id: 13, parent: '#' },
+	{ id: 14, parent: '#' },
+	{ id: 15, parent: '#' },
 	{ id: 16, parent: 15  },
 	{ id: 17, parent: 15  }
 ];
