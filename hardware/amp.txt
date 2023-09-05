@@ -1,0 +1,5 @@
+amp ohm must be equal or less than speaker ohm
+amp wat mustn't be too below speaker wat
+amp wat is different from amp continous power (cp)
+amp cp must be 1.5 to 2 times the speaker cp
+not all speakers specify cp ranking
