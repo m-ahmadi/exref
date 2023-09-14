@@ -39,3 +39,8 @@ set 3:
 	bicycle crunch
 	high knee
 --------------------------------------------------------------------------------
+A: pull up full power, hold for at least 5 seconds, relax for 4 seconds, repeat 5 times.
+B: pull up half power, hold for as long as you can, relax for at least 10 seconds.
+C: pull up as quickly and hard as you can, relax and repeat 5 times.
+do [Ax5, Bx2, Cx5] 4-6 time a day
+--------------------------------------------------------------------------------
