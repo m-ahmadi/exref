@@ -107,7 +107,7 @@ http://cdn.tsetmc.com/api/Instrument/GetInstrumentSearch/						-
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentShareChange/						-
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentShareChangeByFlow/					-
 
-http://cdn.tsetmc.com/api/Learning/GetLearningTopics
+http://cdn.tsetmc.com/api/Learning/GetLearningTopics							-
 
 http://cdn.tsetmc.com/api/MarketData/GetContractBreakDownByFlow/					-
 http://cdn.tsetmc.com/api/MarketData/GetInstrumentState/:InsCode/:DEven					single   instrumentState of specific instrument & day (old InstrumentStateData)
