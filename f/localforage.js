@@ -12,7 +12,7 @@ localforage.clear()
 localforage.length()                         : int
 localforage.key(keyIndex) // 👎
 localforage.keys()                           : ['',...]
-localforage.iterate(iterator=(value,key,i)=>): [] // keeps iterating if iterator returns undefined (or returns what iterator's return)
+localforage.iterate(iterator=(value,key,i)=>): [] // keeps iterating if `iterator` returns `undefined` otherwise returns value (the non-undefined value)
 localforage.setDriver(driverName)                 // force usage of driver(s) if available
 localforage.setDriver([driverName, nextDriverName])
 localforage.config(options={

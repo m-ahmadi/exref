@@ -21,7 +21,7 @@ http://www.tsetmc.com/tsev2/data/clienttype.aspx?i=<InsCode>				13 col ClientTyp
 http://www.tsetmc.com/tsev2/data/ClientTypeAll.aspx					8  col ClientType of all?	(text/csv)
 http://www.tsetmc.com/tsev2/data/search.aspx?skey=<keyword>				11 col symbol search		(text/html)
 http://www.tsetmc.com/tsev2/data/MarketWatchInit.aspx?h=0&r=0				Instruments & ClientTypeAll?	(text/csv)
-http://www.tsetmc.com/tsev2/data/ShareHolder.aspx?i=<HolderCode>,<HeldCIsin>		share holder history		(text/html)
+http://www.tsetmc.com/tsev2/data/ShareHolder.aspx?i=<HolderCode>,<HeldCIsin>		shareholder history		(text/html)
 
 http://tse.ir/archive/IndicesArchiveDate.json						all indexes info last day 	(application/json)
 http://www.tsetmc.com/tsev2/chart/data/IndexFinancial.aspx?i=<InsCode>&t=ph		7 col index-only data		(text/csv)
@@ -68,7 +68,7 @@ http://cdn.tsetmc.com/api/ClosingPrice/GetMarketCap/							-
 http://cdn.tsetmc.com/api/ClosingPrice/GetMarketMap							-
 http://cdn.tsetmc.com/api/ClosingPrice/GetMarketWatch							market watch
 http://cdn.tsetmc.com/api/ClosingPrice/GetMarketWatchExcel/						-
-http://cdn.tsetmc.com/api/ClosingPrice/GetPriceAdjustByFlow/						-
+http://cdn.tsetmc.com/api/ClosingPrice/GetPriceAdjustByFlow/:Flow<int>/:Top<int>			-
 http://cdn.tsetmc.com/api/ClosingPrice/GetPriceAdjustList/:InsCode					list of instrument's "price adjustment events"
 http://cdn.tsetmc.com/api/ClosingPrice/GetRelatedCompany/:CSecVal					ClosingPriceInfo of instruments in specific industry sector
 http://cdn.tsetmc.com/api/ClosingPrice/GetTradeTop/							-
