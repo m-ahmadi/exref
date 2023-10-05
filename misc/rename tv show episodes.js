@@ -54,7 +54,7 @@ Silicon Valley - 2x02 - Runaway Devaluation
 
 // ren.js
 var fs = require('fs');
-var { join } = require('path');
+var { join, extname } = require('path');
 var seasons = fs.readFileSync('./episodes.txt', 'utf8').split('\r\n\r\n').map( i => i.split('\r\n').filter(i=>i) );
 fs.readdirSync('./')
 	.filter(i=>fs.statSync(i).isDirectory())
@@ -63,8 +63,8 @@ fs.readdirSync('./')
 		var names = seasons[i];
 		var files = fs.readdirSync(folder).filter(i => i !=='sub');
 		files.forEach((file, j) => {
-			console.log(join(folder,file), '    ===>    ', join(folder, names[j]+'.mkv'));
-			//fs.renameSync(join(folder,file), join(folder, names[j]+'.mkv'))
+			console.log(join(folder,file), '    ===>    ', join(folder, names[j]+extname(file)));
+			//fs.renameSync(join(folder,file), join(folder, names[j]+extname(file)))
 		});
 	});
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
