@@ -1,6 +1,6 @@
 // imdb automatic
 r = [];
-seasonBtns = document.querySelector('.ipc-tabs--inherit').children[1].children;
+seasonBtns = [...document.querySelector('.ipc-tabs--inherit').children[1].children].slice(0,-1);
 for (let btn of seasonBtns) {
 	btn.dispatchEvent(new Event('click',{bubbles:true}));
 	await new Promise(r => setTimeout(r, 2000));
