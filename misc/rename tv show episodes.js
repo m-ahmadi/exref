@@ -1,9 +1,28 @@
 // imdb automatic
+r = [];
+seasonBtns = document.querySelector('.ipc-tabs--inherit').children[1].children;
+for (let btn of seasonBtns) {
+	btn.dispatchEvent(new Event('click',{bubbles:true}));
+	await new Promise(r => setTimeout(r, 2000));
+	let seasonEpisodes = [...document.querySelectorAll('.sc-1318654d-8.bglHll')].map(i=>i.innerText);
+	r.push(seasonEpisodes);
+}
+showName = document.querySelector('.sc-a885edd8-9.LwvnX').innerHTML;
+formatted = r.map(season => season.map(i => {
+	let s = i.match(/^S(\d)/)[1];
+	let e = i.match(/E(\d+)/)[1];
+	if (e<10) e = '0'+e;
+	let episodeTitle = i.split('∙')[1].trim();
+	return `${showName} - ${s}x${e} - ${episodeTitle}`;
+}));
+console.log(formatted.map(i=>i.join('\n')).join('\n\n'))
+
+// imdb automatic (old site)
 name = document.querySelector('.subpage_title_block__right-column a').innerText;
 r = [];
 for (let [i] of [...bySeason.options].entries()) {
 	bySeason.options[i].selected = true;
-	bySeason.dispatchEvent(new Event('change',{bubble:true}));
+	bySeason.dispatchEvent(new Event('change',{bubbles:true}));
 	await new Promise(r => setTimeout(r, 4000));
 	var season = [...document.querySelectorAll('#episodes_content strong a')].map((v,i) => {
 		var n = i+1;
