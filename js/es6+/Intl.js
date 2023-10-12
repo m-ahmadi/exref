@@ -14,12 +14,12 @@ Intl.DateTimeFormat(locales=''|['',..], ?options={
 	formatMatcher:   'best fit|basic',
 	weekday:         'long|short|narrow',
 	era:             'long|short|narrow',
-	year:            'numeric|2-digi',
+	year:            'numeric|2-digit',
 	month:           'numeric|2-digit|long|short|narrow',
-	day:             'numeric|2-digi',
-	hour:            'numeric|2-digi',
-	minute:          'numeric|2-digi',
-	second:          'numeric|2-digi',
+	day:             'numeric|2-digit',
+	hour:            'numeric|2-digit',
+	minute:          'numeric|2-digit',
+	second:          'numeric|2-digit',
 	fractionalSecondDigits: 0|1|2|3|4,
 	timeZoneName:    'long|short|shortOffset|longOffset|shortGeneric|longGeneric',
 })
@@ -37,11 +37,19 @@ Intl.supportedValuesOf()
 // examples
 
 var d = new Date(2022,2,21);
-new Intl.DateTimeFormat('fa-IR').format(d)                                                   // ۱۴۰۱/۱/۱
-new Intl.DateTimeFormat('fa-IR',{numberingSystem:'latn'}).format(d)                          // 1401/1/1
-new Intl.DateTimeFormat('fa-IR', {dateStyle:'full',timeStyle:'long'}).format(d)              // ۱۴۰۱ فروردین ۱, دوشنبه، ساعت ۰:۰۰:۰۰ (‎+۳:۳۰ گرینویچ)
-new Intl.DateTimeFormat('fa-IR-u-nu-latn', {dateStyle:'full',timeStyle:'long'}).format(d)    // 1401 فروردین 1, دوشنبه، ساعت 0:00:00 (‎+3:30 گرینویچ)
-new Intl.DateTimeFormat('en-US-u-ca-persian', {dateStyle:'full',timeStyle:'long'}).format(d) // Monday, Farvardin 1, 1401 AP at 12:00:00 AM GMT+3:30
-new Intl.DateTimeFormat('en-US-u-ca-persian', {year:'numeric'}).format(d)                    // 1401 AP
-new Intl.DateTimeFormat('en-US-u-ca-persian', {month:'short'}).format(d)                     // Farvardin
-new Intl.DateTimeFormat('en-US-u-ca-persian', {day:'numeric'}).format(d)                     // 1
+
+new Intl.DateTimeFormat().format(d)                   // '21/03/2022'
+Intl.DateTimeFormat().format(d)                       // ...
+Intl.DateTimeFormat(0,{timeStyle:'medium'}).format(d) // '00:00:00'
+
+var [date,time] = Intl.DateTimeFormat(0,{dateStyle:'short',timeStyle:'medium'}).format(d).split(', ');
+date.split('/').reverse().join('') +'-'+ time.replaceAll(':','') // '20220321-000000'
+
+Intl.DateTimeFormat('fa-IR').format(d)                                                   // ۱۴۰۱/۱/۱
+Intl.DateTimeFormat('fa-IR',{numberingSystem:'latn'}).format(d)                          // 1401/1/1
+Intl.DateTimeFormat('fa-IR', {dateStyle:'full',timeStyle:'long'}).format(d)              // ۱۴۰۱ فروردین ۱, دوشنبه، ساعت ۰:۰۰:۰۰ (‎+۳:۳۰ گرینویچ)
+Intl.DateTimeFormat('fa-IR-u-nu-latn', {dateStyle:'full',timeStyle:'long'}).format(d)    // 1401 فروردین 1, دوشنبه، ساعت 0:00:00 (‎+3:30 گرینویچ)
+Intl.DateTimeFormat('en-US-u-ca-persian', {dateStyle:'full',timeStyle:'long'}).format(d) // Monday, Farvardin 1, 1401 AP at 12:00:00 AM GMT+3:30
+Intl.DateTimeFormat('en-US-u-ca-persian', {year:'numeric'}).format(d)                    // 1401 AP
+Intl.DateTimeFormat('en-US-u-ca-persian', {month:'short'}).format(d)                     // Farvardin
+Intl.DateTimeFormat('en-US-u-ca-persian', {day:'numeric'}).format(d)                     // 1
