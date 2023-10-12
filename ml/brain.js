@@ -150,12 +150,12 @@ net.run([2,4]) // 0.96 (96% chance of winnning for team 4)
 net.run([3,4]) // 0.01
 net.run([1,2]) // 0.48
 
-// nn - 4 teams play football (alternative)
+// nn - 4 teams play football (alternative output format)
 var net = new brain.NeuralNetwork();
 net.train([
-	{ input: [1,1,0,0], output: [0,1,0,0] },
-	{ input: [1,0,1,0], output: [0,0,1,0] },
-	{ input: [0,1,1,0], output: [0,1,0,0] },
+	{ input: [1,1,0,0], output: [0,1,0,0] }, // team 2 won
+	{ input: [1,0,1,0], output: [0,0,1,0] }, // team 3 won
+	{ input: [0,1,1,0], output: [0,1,0,0] }, // ...
 	{ input: [0,1,0,1], output: [0,0,0,1] },
 	{ input: [1,1,0,0], output: [1,0,0,0] },
 	{ input: [1,0,1,0], output: [1,0,0,0] },
