@@ -24,3 +24,21 @@ function download(filename, text){
 	a.remove();
 }
 download('test.txt', 'Hello world!');
+
+
+// download binary file
+download('file.xlsx', str2ab('lorem ipsum'));
+function downloadBinary(filename, buffer) {
+	let a = document.createElement('a');
+	let fileNew = new Blob([buffer], {type: 'application/octet-stream'});
+	a.href = URL.createObjectURL(fileNew);
+	a.download = filename;
+	a.click();
+	a.remove();
+}
+function str2ab(str) {
+	let buf = new ArrayBuffer(str.length);
+	let bufView = new Uint8Array(buf);
+	for (let i=0, len=str.length; i<len; i++) bufView[i] = str.charCodeAt(i);
+	return bufView;
+}
