@@ -4,7 +4,7 @@ seasonBtns = [...document.querySelector('.ipc-tabs--inherit').children[1].childr
 for (let btn of seasonBtns) {
 	btn.dispatchEvent(new Event('click',{bubbles:true}));
 	await new Promise(r => setTimeout(r, 2000));
-	let seasonEpisodes = [...document.querySelectorAll('.sc-1318654d-8.bglHll')].map(i=>i.innerText);
+	let seasonEpisodes = [...document.querySelectorAll('div.ipc-title__text')].map(i=>i.innerText);
 	r.push(seasonEpisodes);
 }
 showName = document.querySelector('.sc-a885edd8-9.LwvnX').innerHTML;
