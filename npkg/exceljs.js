@@ -235,7 +235,7 @@ await workbook.xlsx.writeFile('new.xlsx');
 var workbook = new ExcelJS.Workbook();
 var worksheet = workbook.addWorksheet('Sheet1');
 worksheet.addTable({
-	name: 'MyTable',
+	name: 'Table1',
 	ref: 'A1',
 	headerRow: true,
 	totalsRow: true,
