@@ -1,0 +1,18 @@
+HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.mp3\OpenWithList
+	add REG_SZ
+		name: 1-letter name (b,c,...)
+		value: MyApp.exe
+
+HKCR\Local Settings\Software\Microsoft\Windows\Shell\MuiCache
+	must be 2 REG_SZ entries
+		.FriendlyAppName
+		.ApplicationCompany
+	for example
+		C:\Program Files\TagScanner\Tagscan.exe.ApplicationCompany		Sergey Serkov
+		C:\Program Files\TagScanner\Tagscan.exe.FriendlyAppName			TagScanner
+
+
+
+solution source
+https://superuser.com/questions/1303165/editing-the-open-with-menu-in-windows-10
+https://superuser.com/questions/1199648/strange-open-with-list-inconsistent-with-registry/1256482#1256482
