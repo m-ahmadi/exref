@@ -1,0 +1,10 @@
+
+npx create-docusaurus@latest foo classic	create site
+npm init docusaurus@latest foo classic		...
+npx create-docusaurus@latest --help		see all flags
+
+cd foo
+npm run start			run dev server
+npm run build			build for production
+
+cd build && npm run serve	test production build locally
