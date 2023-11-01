@@ -5,11 +5,21 @@
 
 
 
-<div id="t1"></div>
+
+<table id="t1">
+	<thead>
+		<tr><th>Item</th><th>Price</th></tr>
+	</thead>	
+	<tr><td>Dildo</td><td>12.3$</td></tr>
+	<tr><td>Vibrator</td><td>18.5$</td></tr>
+</table>
+
+
+<div id="t2"></div>
 
 
 <!-- needs HtmlTableImportModule -->
-<table id="t2">
+<table id="t3">
 	<thead>
 		<tr><th>Name</th><th>Age</th><th>Color</th></tr>
 	</thead>	
@@ -17,8 +27,8 @@
 </table>
 
 
-<!-- ↑... control props https://tabulator.info/docs/5.4/data#table -->
-<table id="t3">
+<!-- ↑... control props https://tabulator.info/docs/5.5/data#table -->
+<table id="t4">
 	<thead>
 		<tr><th>foo</th><th tabulator-formatter="html">link</th></tr>
 	</thead>	
@@ -27,7 +37,7 @@
 </table>
 
 
-<table id="t4">
+<table id="t5">
 	<thead>
 		<tr><th>Name</th><th>Age</th><th>Color</th></tr>
 	</thead>
@@ -37,8 +47,15 @@
 </table>
 
 
-<div id="t5"></div>
+<div id="t6"></div>
 
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables/dist/js/tabulator.min.js"></script>
+<script>
+new Tabulator('#t1');
+</script>
 
 
 <script type="module">
@@ -56,7 +73,7 @@ var tabledata = [
 	{id: 4, name: 'Brendon Philips',    age: '125', col: 'orange', dob: '01/08/1980'},
 	{id: 5, name: 'Margret Marmajuke',  age: '16',  col: 'yellow', dob: '31/01/1999'},
 ];
-var table = new Tabulator('#t1', {
+var table = new Tabulator('#t2', {
 	height: 200,
 	rowHeight: 30,
 	data: tabledata,
@@ -72,11 +89,11 @@ table.on('rowClick', function (e, row) { // needs InteractionModule
 	alert('row ' + row.getData().id + ' clicked');
 });
 
-new Tabulator('#t2');
-
 new Tabulator('#t3');
 
-new Tabulator('#t4', {
+new Tabulator('#t4');
+
+new Tabulator('#t5', {
 	height: 200,
 	rowHeight: 50,
 	columns: [{title: 'Age', formatter: 'progress'}], // {title:'Name'},
@@ -94,7 +111,7 @@ var tabledata = [
 	{id:9,  name:'Emily Sykes',        location:'South Korea',    gender:'female', rating:1, col:'maroon', dob:'11/11/1970'},
 	{id:10, name:'James Newman',       location:'Japan',          gender:'male',   rating:5, col:'red',    dob:'22/03/1998'},
 ];
-var table = new Tabulator('#t5', {
+var table = new Tabulator('#t6', {
 	height: 250,
 	rowHeight: 20,
 	data: tabledata,
