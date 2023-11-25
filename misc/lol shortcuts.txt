@@ -1,0 +1,21 @@
+	Mouse Button (1=Left, 2=Right, 3=Middle)
+Ctrl 	1 2 3
+Alt	1 2 3
+Shift	1 2 3
+--------------------------------------------------
+pings
+
+Caution		C1
+Retreat		C3
+
+On My Way	A1
+Assist Me	A2
+Push		A3
+All In		S3
+
+Alert		S1
+Enemy Vision	C2
+Need Vision	S2
+
+Enemy Missing	CS1
+--------------------------------------------------
