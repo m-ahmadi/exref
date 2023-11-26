@@ -8,12 +8,12 @@ pings
 Caution		C1
 Retreat		C3
 
-On My Way	A1
+On My Way	S1
 Assist Me	A2
 Push		A3
 All In		S3
 
-Alert		S1
+Alert		A1
 Enemy Vision	C2
 Need Vision	S2
 
