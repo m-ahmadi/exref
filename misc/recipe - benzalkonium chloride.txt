@@ -1,0 +1,34 @@
+usage proportions
+
+"Dettol Disinfectant Liquid Menthol Cool" product
+sol.	water	use				note
+1	332	bathing				hygienically clean water for bathing
+1	65	shaving				hygienically clean water for shaving
+1	65	laundry disinfection		-
+1	65	floor cleaning			-
+1	65	kitchen & bathroom cleaning	-
+1	65	refrigerator			-
+
+"Dettol Multipurpose Floor Cleaner" product
+sol.	water	use			note
+1	15	all hard surfaces	gently mop the surface
+1	7	extra disinfection	leave diluted mixture for 5 minutes on surface before wiping
+1	-	tough stain cleaning	apply with cloth/sponge & wipe surface clean
+
+--------------------------------------------------------------------------------
+product examples
+
+"Dettol Disinfectant Liquid Menthol Cool"
+	https://www.dettol.co.in/household-disinfection/disinfectant-liquid/dettol-disinfectant-liquid-menthol-cool-500ml
+
+"Dettol Multipurpose Floor Cleaner"
+	https://www.dettolarabia.com/household-disinfection/floors/dettol-multi-purpose-floor-cleaner-lemon-900-ml/
+	https://www.dettolarabia.com/household-disinfection/floors/dettol-multi-purpose-floor-cleaner-pine-900-ml/
+
+"Astonish Concentrated Disinfectant ..." products
+	https://astonish.co.uk/products/concentrated-disinfectant-linen-fresh?variant=40253843767475
+
+fruit & vegetable cleaners
+
+some other surface cleaner products
+--------------------------------------------------------------------------------
