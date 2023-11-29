@@ -1,11 +1,34 @@
-found in standard "Dettol" product (with the brown liquid)
-https://www.dettol.co.uk/personal-hygiene/antiseptics/dettol-liquid
+aka xylenol
 
-dettol	water	use		apply
-1	-	toilet		pour, wait 2 hour, rinse
-1	10	bath wall	spray, wait 2 hour, rinse
-1	16	spots & pimple	bathe affected area daily with solution
-1	16	minor wound	wash area, cover wth dry gauze
-1	20	floor		mop, airdry
+--------------------------------------------------------------------------------
+usage proportions
+
+"DirPol" product
+sol.	water	use			apply
+1	-	toilet bowl		pour, wait 2 hour, rinse
+1	9	bathroom floor & wall	spray, wait 2 hour, rinse
+1	19	floor			mop, airdry
+
+"Dettol" product - printed on bottle
+sol.	water	use		note
+1	2.3	midwifery	2.5% solution
+1	19	first aid	-
+1	39	baby diaper	-
+1	39	epidemics	treat linen, floors, and for spraying rooms
+-	-	bathing		1 tablespoon to a bucket
+
+"Dettol" product - from official website
+sol.	water	use		apply
+1	15	spots & pimple	bathe affected area daily with solution
+1	15	minor wound	wash area, cover wth dry gauze (wounds like: cuts, bites, grazes, insect stings)
 1	31	dandruff	saturate hair and scalp for 10 min, then shampoo
-1	96	showering	pour (i guess)
+1	95	showering	-
+
+--------------------------------------------------------------------------------
+product examples
+
+"Dettol Liquid"
+	https://www.dettol.co.uk/personal-hygiene/antiseptics/dettol-liquid
+
+some other antiseptic products
+--------------------------------------------------------------------------------
