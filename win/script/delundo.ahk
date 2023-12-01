@@ -1,5 +1,6 @@
 ; copy a file and then delete it
-Send #d                ; show desktop
+Run, %comspec% /c cmdow /ma ; show desktop (not using win+d to avoid toggling it back)
+sleep, 300             ; wait
 Send {Click 1900 1024} ; click empty space on desktop (deselect anything else)
 Send {Click 1710 940}  ; click on file
 Send ^c                ; copy file
@@ -7,11 +8,12 @@ Send ^v                ; paste file
 Send {Click 40 340}    ; click on copied file
 Send +{Delete}         ; press shift delete
 WinWaitActive ,"Delete Shortcut",, 0.1, ahk_exe Explorer.EXE ; wait for confirm box
-sleep, 100             ; wait a bit more
+sleep, 200             ; wait a bit more
 Send {Enter}           ; press enter
 
 ; undo and then cancel
-Send #d                ; show desktop
+Run, %comspec% /c cmdow /ma
+sleep, 200             ; wait
 Send {Click 1900 1024} ; click empty space on desktop (deselect anything else)
 Send ^z                ; press undo
 WinWaitActive ,"Item Not Found",, 0.1, ahk_class OperationStatusWindow
