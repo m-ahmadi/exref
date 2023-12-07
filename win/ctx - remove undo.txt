@@ -1,3 +1,14 @@
+works great
+
+reg add HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v MaxUndoItems /t REG_DWORD /d 0
+undo:
+reg delete HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced /v MaxUndoItems /f
+
+src:
+https://www.winhelponline.com/blog/disable-undo-redo-feature-in-windows
+--------------------------------------------------------------------------------
+haven't tried
+
 %windir%\en-US\explorer.exe.mui
 %windir%\SysWOW64\en-US\explorer.exe.mui
 
@@ -16,4 +27,6 @@ cmd /k mcbuilder
 restart
 
 
+src:
 https://superuser.com/questions/397795/how-do-i-remove-the-undo-option-from-windows-right-click-context-menu
+--------------------------------------------------------------------------------
