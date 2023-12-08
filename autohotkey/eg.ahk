@@ -40,6 +40,14 @@ return
 Send !{F4}
 return
 
+; activate hotstring programmatically
+::foo::football
+^1::
+SendLevel 1
+SendEvent foo{Space} ; generates "football"
+SendLevel 0
+return
+
 
 ; list of all windows
 ^q::

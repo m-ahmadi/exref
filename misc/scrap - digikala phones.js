@@ -12,10 +12,11 @@ ranks = await (await fetch('ranks.json')).json();
 chips = ranks.map(i=>i[0]);
 
 r = await (await fetch('products.json')).json();
-// Object.keys(r).map(k=>r[k].specs.find(i=>i.title=='تراشه')?.values[0]).filter(i=>i)
+// Object.keys(r).map(k=>r[k].specs.find(i=>i.title=='پردازنده')?.attributes.find(i=>i.title=='تراشه')?.values[0]).filter(i=>i)
 
 for (let k of Object.keys(r)) {
-	let chip = r[k].specs.find(i=>i.title=='تراشه')?.values[0];
+	// let chip = r[k].specs.find(i=>i.title=='تراشه')?.values[0]; // prev structure
+	let chip = r[k].specs.find(i=>i.title=='پردازنده')?.attributes.find(i=>i.title=='تراشه')?.values[0];
 	
 	if (!chip) continue;
 	
@@ -189,6 +190,7 @@ ranks.push(...[
 
 ["Samsung Exynos 1200",50],
 ["MediaTek Dimensity 810",46],
+["هشت هسته‌ای",39],
 ["Qualcomm Snapdragon 680",37],
 ["MediaTek Helio P70",29],
 ["MediaTek Helio P20",28],
@@ -223,7 +225,8 @@ ranks.push(...[
 ["Unisoc SC6531E",2], ["6531E",2],
 ["Unisoc 6531F",2],
 ["Unisoc T107",2],
-["Mediatek MT6261",1]
+["Mediatek MT6261",1],
+["Qualcomm Snapdragon 215",1]
 
 ]);
 download('ranks.json', JSON.stringify(ranks));
@@ -287,7 +290,8 @@ for (let id of Object.keys(r)) {
 		
 		url: p?.url?.uri,
 		
-		specs: p?.specifications[0]?.attributes,
+		// specs: p?.specifications[0]?.attributes, // prev structure
+		specs: p?.specifications,
 	};
 	
 	let dv = p.default_variant;
