@@ -7,9 +7,9 @@ let dom = new jsdom.JSDOM(html='', ?options={
 	contentType:          'text/html',
 	includeNodeLocations: false,
 	storageQuota:         5000000,
-	runScripts:           'dangerously',
+	runScripts:           'outside-only|dangerously',
 	pretendToBeVisual:    false,
-	resources:            ResourceLoader{},
+	resources:            'usable' | ResourceLoader{},
 	virtualConsole:       VirtualConsole{},
 	cookieJar:            CookieJar{},
 	beforeParse(window) {
