@@ -1,0 +1,14 @@
+nvm arch		show current arch
+nvm current		show active version
+
+nvm list available	list all available versions to install
+nvm list		list all installed versions
+
+nvm install 16.20.2	install specific version
+nvm install latest	... latest current version
+nvm install lts		... latest lts version
+nvm install lts 32	... 32 arch
+
+nvm on			enable nvm
+nvm off			disable nvm
+nvm --version		show nvm version
