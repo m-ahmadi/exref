@@ -47,6 +47,7 @@ while (window.scrollY > prevY && tot < MAX_ITEMS) {
 	prevY = window.scrollY;
 	let posts = [...postsContainer.querySelectorAll('.post-card-item-af972.kt-col-6-bee95.kt-col-xxl-4-e9d46')];
 	let links = posts.map(i => {
+		if (i.querySelectorAll('[class*=placeholder]').length) return;
 		let title = i.querySelector('a .kt-post-card__title').innerText;
 		let time = i.querySelector('a .kt-post-card__bottom-description').innerText;
 		let link = decodeURI(i.querySelector('a').href);
