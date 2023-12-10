@@ -21,7 +21,7 @@ stats.isFile()
 var data = await fs.promises.readFile('file.txt', 'utf8')
 var data = await fs.promises.readFile('file.txt', {encoding:'ascii', flag:'w+'})
 var data = fs.readFileSync('temp.txt', 'utf8')
-var json = JSON.parse(fs.readFileSync('file.json')) // pass buffer directly (no need for encoding arg)
+var json = JSON.parse(fs.readFileSync('file.json')) // pass buffer directly (no need for `encoding` arg, but only if utf8 file, error if utf8bom file)
 
 
 
@@ -125,3 +125,4 @@ fs.writeFileSync('file.txt', 'Hello', 'utf8')
 fs.writeFileSync('file.txt', 'Hello', 'ascii')
 fs.writeFileSync('file.txt', 'Hello')                         // defaults to 'utf8'
 fs.writeFileSync('utf8bom.txt', '\ufeff'+'hello bom', 'utf8') // utf8 bom (prepend \ufeff to the string)
+
