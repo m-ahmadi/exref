@@ -54,32 +54,24 @@ async function f() {
 	console.log(inced);
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// rejected promise is thrown
-async function f() {
-  try {
-    var z = await Promise.reject(30);
-  } catch (e) {
-    console.log(e); // 30
-  }
-}
-f()
-
-// handle rejected promise without try block
-async function f() {
-	var value = await makePromise().catch(console.log)
-	return value; // value will be undefined if promise is rejected.
+// rejected promise is thrown (if not caught)
+try {
+	var z = await Promise.reject('cuz i hate u');
+} catch (e) {
+	console.log(e); // 30
 }
 
-async function f() {
-	return await Promise.reject(30).catch(console.log);
-}
-f()
+// handle rejected promise without try/catch block
+var value = await new Promise((_,rej)=>setTimeout(rej,1000)).catch(err => (console.log(err), 'thrown & caught'));
+value; // value will be 'thrown & caught' if promise is rejected
+
+await Promise.reject('cuz i hate u').catch(err => (console.log(err), 31)) // 31
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // automatic conversion to promise
 async function f() {
 	return 1;
 }
-f() // Promise {<resolved>: 1}
+f() // Promise{<resolved>: 1}
 f().then(console.log)
 
 async function f() {
