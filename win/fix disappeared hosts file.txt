@@ -1,0 +1,10 @@
+pushd %windir%\system32\drivers\etc
+takeown /f hosts && icacls hosts /grant administrators:F
+attrib -r -h -s hosts
+--------------------------------------------------
+why this happens?
+
+probably due to scripts in some program's crack that try to disable
+access to some servers, so they modify the `hosts` file, and perhaps
+some even take ownership and permissions of the file as well.
+--------------------------------------------------
