@@ -58,12 +58,15 @@ async function f() {
 try {
 	var z = await Promise.reject('cuz i hate u');
 } catch (e) {
-	console.log(e); // 30
+	console.log(e); // 'cuz i hate u'
 }
 
 // handle rejected promise without try/catch block
 var value = await new Promise((_,rej)=>setTimeout(rej,1000)).catch(err => (console.log(err), 'thrown & caught'));
-value; // value will be 'thrown & caught' if promise is rejected
+value; // 'thrown & caught'
+
+var value = await new Promise((_,rej)=>setTimeout(rej,1000,'cuz i hate u')).catch(err=>err);
+value; // 'cuz i hate u'
 
 await Promise.reject('cuz i hate u').catch(err => (console.log(err), 31)) // 31
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
