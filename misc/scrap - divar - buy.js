@@ -228,7 +228,7 @@ function extractRow(text='', url='') {
 	let priceMeter = itms.get('قیمت هر متر');
 	let floor      = itms.get('طبقه');
 	
-	price      = price      === 'توافقی' ? 0 : +(toEn(price) / 1e9).toFixed(1);
+	price      = price      === 'توافقی' ? 0 : +(toEn(price) / 1e9).toFixed(3);
 	priceMeter = priceMeter === 'توافقی' ? 0 : +(toEn(priceMeter) / 1e6).toFixed(1);
 	
 	let totalfloors, lastfloor;
