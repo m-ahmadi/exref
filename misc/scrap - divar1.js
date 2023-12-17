@@ -153,7 +153,7 @@ for (let [idx, text] of texts.entries()) {
 	let convertSlider = _document.querySelector('.convert-slider');
 	
 	if (convertSlider) {
-		[credit, rent] = [..._document.querySelectorAll('.convert-slider .kt-group-row-item--info-row .kt-group-row-item__value')].map(i=>i.innerText);
+		[credit, rent] = [..._document.querySelectorAll('.convert-slider .kt-group-row-item__value.kt-group-row-item--info-row')].map(i=>i.innerText);
 	}
 	
 	credit = ['مجانی','توافقی'].includes(credit) ? 0 : toEn(credit);
