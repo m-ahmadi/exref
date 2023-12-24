@@ -42,3 +42,9 @@ Object.fromEntries( new Map([ ['c',3], ['d',4] ]) ) // { c: 3, d: 4 }         ma
 Object.fromEntries( [ ['0',7], ['1',8], ['2',9] ] ) // { 0: 7, 1: 8, 2:9 }    arr to obj
 Object.fromEntries( Object.entries({a:1,b:2,c:3}).map(([k,v])=>[k,v*2]) ) // { a: 2, b: 4, c: 6 }
 
+
+Object.is(NaN, NaN) // true
+Object.is(+0, -0)   // false
+NaN === NaN // false
++0 === -0   // true
+
