@@ -7,7 +7,7 @@ for (let btn of seasonBtns) {
 	let seasonEpisodes = [...document.querySelectorAll('div.ipc-title__text')].map(i=>i.innerText);
 	r.push(seasonEpisodes);
 }
-showName = document.querySelector('.sc-a885edd8-9.LwvnX').innerHTML;
+showName = document.querySelector('.sc-a885edd8-9.dcErWY').innerHTML;
 formatted = r.map(season => season.map(i => {
 	let s = i.match(/^S(\d)/)[1];
 	let e = i.match(/E(\d+)/)[1];
