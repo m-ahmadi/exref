@@ -20,7 +20,7 @@ method 3
 
 apply solution to surface
 	spray/pour solution on surface
-	make sure all surface area is in contant with solution
+	make sure all surface area is in contact with solution
 	(wipe around the solution if not spread evenly)
 drying
 	wipe dry for solution A
