@@ -24,7 +24,7 @@ var response = page.goto(url).catch(err => `possible error causes:
 5. main resource failed to load`)
 page.setViewport({width, height, ...})
 page.type(selector, text)
-page.waitForNavigation()
+page.waitForNavigation({timeout:30000, waitUntil:'load|domcontentloaded|networkidle0|networkidle2'|['',..]})
 page.click(selector)
 
 // https://pptr.dev/api/puppeteer.elementhandle
@@ -46,11 +46,14 @@ await browser.close();
 
 // goto page
 var resp = await page.goto('https://jsonplaceholder.typicode.com/').catch(()=>console.log('other errors'));
-// or
-let [resp] = await Promise.all([// wait to load (not sure)
+// or (wait to load)
+let [resp] = await Promise.all([
 	page.waitForNavigation(),
 	page.goto('https://jsonplaceholder.typicode.com/'),
 ]).catch(()=> console.log('other errors'));
+// or (... alt syntax)
+var resp = await page.goto('https://jsonplaceholder.typicode.com/');
+await page.waitForNavigation();
 
 if (resp.status() === 200) {
 	var text = await page.evaluate(() => document.querySelector('.mt-two.text-lg').innerText);
