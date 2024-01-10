@@ -1,1 +1,0 @@
-=MATCH(lookup_value, lookup_array, [match_type])
