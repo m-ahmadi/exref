@@ -16,3 +16,8 @@ netsh wlan disconnect					disconnect from wireless network
 netsh int show interface				show network adapters
 netsh int set interface "foo" disable			disable adapter
 netsh int set interface "foo" enable			enable adapter
+
+add firewall entry
+netsh advfirewall firewall add rule name=Foo dir=in action=block remoteip=<IP> enable=yes
+netsh advfirewall firewall delete rule name=Foo		undo
+
