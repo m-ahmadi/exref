@@ -1,0 +1,6 @@
+not tested
+
+netsh advfirewall firewall add rule name=YouTubeTweak dir=in action=block remoteip=173.194.55.0/24,206.111.0.0/16 enable=yes
+
+undo:
+netsh advfirewall firewall delete rule name=YouTubeTweak
