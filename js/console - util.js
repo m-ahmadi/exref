@@ -9,3 +9,5 @@ $_  // last evaluated expression
 $(selector, ?startNode)  // querySelector()
 $$(selector, ?startNode) // querySelectorAll()
 $x(xPathSelector)        // https://devhints.io/xpath
+
+// holding shift in network tab requests will highlight initiator in green and dependencies in red
