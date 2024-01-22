@@ -1,3 +1,11 @@
+using package managers
+
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
+yum install -y nodejs
+--------------------------------------------------
 download binary manually and add env variable
 
 sudo tar -xJvf node-v14.16.0-linux-x64.tar.xz
@@ -15,14 +23,6 @@ ln -s /usr/local/lib/node/nodejs/bin/npx  /usr/bin/npx
 
 node -v
 npm config set prefix /usr/local
---------------------------------------------------
-using package managers
-
-curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
-yum install -y nodejs
-
-curl -sL https://deb.nodesource.com/setup_19.x | sudo -E bash -
-sudo apt-get install -y nodejs
 --------------------------------------------------
 on linux mint
 
