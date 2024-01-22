@@ -1,14 +1,25 @@
 butterfly
 
 two kicks for every stroke cycle
-	1. when hands enter water
-		less forceful
-		for maintaing body position (like preventing legs to go under water too much)
-	2. when hands exit water
+	1. when hands exit water (full body kick, or big kick)
 		must be powerful
 		for maintaining momentum (keep you traveling forward as head is lifted to breathe)
+	2. when hands enter water (half body kick, from waist down, or little kick)
+		less forceful
+		for maintaing body position (like preventing legs to go under water too much)
+		(or simply just to reduce sinking of lower body)
 
 breathing
 	lift head as hands are pulling water (hands are near waste)
 	lift head only enough to get air (chin should remain in water)
+	lifting head too much causes sinking of lower body
 	ideal is to breath every other stroke (but fine if breathe every stroke)
+
+alternative way of thinking about butterfly
+	remove breathing and u got big kick when pull, little kick when pull ends
+--------------------------------------------------------------------------------
+breaststroke
+
+pull,breathe,kick,glide (simple: pull,kick,pull,kick,...)
+kick at near end of pull (when hands lock, start of extending the hands)
+--------------------------------------------------------------------------------
