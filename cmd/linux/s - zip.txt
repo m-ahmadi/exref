@@ -1,4 +1,4 @@
 gunzip file.gz --keep		extract gz file (keep src file)
 zcat file.gz > file		...
 
-unzip file.zip -d out		extract zip file
+unzip file.zip -d out		extract zip file (sudo apt-get install unzip)
