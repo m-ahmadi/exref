@@ -13,6 +13,7 @@
 			"numbers": "#ff0000"
 		}
 	},
+	"git.inputValidation": "always",
 	
 	
 	/** tab size and spaces */
