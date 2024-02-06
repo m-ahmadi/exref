@@ -2,7 +2,7 @@
 x = 7 // expression with side effects
 3 + 4
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // 5 categories of expression:
 
 // arithmetic (evaluates to a number)
@@ -20,12 +20,12 @@ false
 0 && 1
 0 || 1
 
-// primary:
+// primary
 ( )
 this
 
-// left-hand-side:
+// left-hand-side
 new 
 super
 [...Array(4)] // spread operator
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
