@@ -451,6 +451,14 @@ idx1 = pd.Index([1,2,3,4])
 idx2 = pd.Index([3,4,5,6])
 idx1.union(idx2) # [1,2,3,4,5,6]
 
+# read_csv - from string
+from io import StringIO
+buf = StringIO('A,B,C\n1,2,3\n4,5,6')
+df = pd.read_csv(buf) # or parse manually like below (assuming a clean str)
+
+csvstr = 'A,B,C\n1,2,3\n4,5,6'
+df = pd.DataFrame([i.split(',') for i in csvstr.split('\n')])
+
 # read_csv - DatetimeIndex
 ''' file.csv
 ,count
