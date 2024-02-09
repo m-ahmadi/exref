@@ -137,6 +137,10 @@ df1.equals(df2)        # True
 np.all(df1 == df2)     # ...
 df1.equals(df2.copy()) # ...
 
+# emptiness
+df = pd.DataFrame({})
+df.empty # True
+
 # df from list of rows
 df = pd.DataFrame([ [1,2], [3,4] ])
 df = pd.DataFrame([ ['a','b'], [1,2], [3,4] ])
