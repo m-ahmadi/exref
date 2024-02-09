@@ -15,6 +15,10 @@ f = open('file.txt')
 _str = f.read()
 f.close()
 
+# read bom (ignore bom char)
+f = open('file.txt', encoding='utf-8-sig')
+_str = f.read()
+
 # write
 f = open('file.txt', 'w', encoding='utf-8')
 f.write('hi')
