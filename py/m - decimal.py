@@ -1,6 +1,7 @@
-from decimal import Decimal
+import decimal
 # https://docs.python.org/3/library/decimal.html
 
+from decimal import Decimal
 Decimal(value='0'|0|()|0.|Decimal, context=None)
 # https://docs.python.org/3/library/decimal.html#decimal.Decimal
 
@@ -18,3 +19,8 @@ Decimal(2) ** Decimal('0.5') # '1.414213562373095048801688724'
 
 Decimal('NaN')       # Decimal('NaN')
 Decimal('-Infinity') # Decimal('-Infinity')
+
+# rounding
+# https://docs.python.org/3/library/decimal.html#rounding-modes
+rm = decimal.ROUND_HALF_EVEN
+Decimal('7.325').quantize(Decimal('.01'), rounding=rm) # '7.32'
