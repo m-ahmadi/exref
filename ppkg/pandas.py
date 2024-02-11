@@ -43,6 +43,7 @@ DataFrame.reindex(labels=None|[], index=None|[], columns=None|[], axis=None|{}, 
 DataFrame.isin(values=[]|Series|DataFrame|{})
 DataFrame.count(axis=0, level=None|0|'', numeric_only=False)
 DataFrame.value_counts(subset=None|[], normalize=False, sort=True, ascending=False, dropna=True)
+DataFrame.insert(loc=0, column=''|0|{}, value=0|[], allow_duplicates=bool)
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -83,6 +84,14 @@ df = pd.DataFrame(0, index=range(6), columns=range(6)) # 5x5 matrix init to 0
 
 s = pd.Series([1,2,3,4])
 s = pd.Series([1,2,3], index=['a','b','c'])
+
+# add column
+df = pd.DataFrame({'A':[1,2],'B':[3,4]})
+df.insert(2, 'C', [5,6])
+df # {'A':[1,2], 'B':[3,4], 'C':[5,6]}
+
+df.insert(3, 'D', pd.Series([7,8], index=[1,2])) # index alignment
+df # {'A':[1,2], 'B':[3,4], 'C':[5,6], 'D':[nan,7]}
 
 # index access
 # https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html
