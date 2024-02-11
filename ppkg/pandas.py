@@ -86,12 +86,15 @@ s = pd.Series([1,2,3,4])
 s = pd.Series([1,2,3], index=['a','b','c'])
 
 # add column
-df = pd.DataFrame({'A':[1,2],'B':[3,4]})
-df.insert(2, 'C', [5,6])
+df = pd.DataFrame({'A':[1,2],'C':[5,6]})
+df.insert(1, 'B', [3,4])           # add before last col
 df # {'A':[1,2], 'B':[3,4], 'C':[5,6]}
 
-df.insert(3, 'D', pd.Series([7,8], index=[1,2])) # index alignment
-df # {'A':[1,2], 'B':[3,4], 'C':[5,6], 'D':[nan,7]}
+df.insert(df.shape[1], 'D', [7,8]) # add after last col
+df # {... 'D':[7,8]}
+
+df.insert(4, 'E', pd.Series([7,8], index=[1,2])) # index alignment
+df # {... 'E':[nan,7]}
 
 # index access
 # https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html
