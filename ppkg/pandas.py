@@ -30,6 +30,7 @@ DataFrame.to_json(path_or_buf=None, orient=None|'split|records|index|columns|val
 
 DataFrame.copy(deep=True)
 DataFrame.head(n=5)
+DataFrame.tail(n=5)
 DataFrame.describe(percentiles=None|[], include=None|'all'|[dtype,..], exclude=None|[dtype,..], datetime_is_numeric=False)
 DataFrame.pop(item='')
 DataFrame.fillna(value=None, method=None|'backfill|bfill|pad|ffill', axis=None|0|'', inplace=False, limit=None|0, downcast=None|{})
@@ -332,6 +333,11 @@ df.loc[[0,1], [0,1]] # ...
 df = pd.DataFrame([1,2,3,4,5,6,7,8,9])
 df1 = df.head(4)
 df1 # 1 2 3 4
+
+# last n rows
+df = pd.DataFrame([1,2,3,4,5,6,7,8,9])
+df1 = df.tail(4)
+df1 # 6 7 8 9
 
 # convert dict-like df to list
 df = pd.DataFrame([ [1,2], [3,4] ], columns=['a','b'])
