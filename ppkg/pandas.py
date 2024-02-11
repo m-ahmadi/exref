@@ -31,8 +31,8 @@ DataFrame.to_json(path_or_buf=None, orient=None|'split|records|index|columns|val
 DataFrame.copy(deep=True)
 DataFrame.head(n=5)
 DataFrame.tail(n=5)
+DataFrame.pop(item=''|0)
 DataFrame.describe(percentiles=None|[], include=None|'all'|[dtype,..], exclude=None|[dtype,..], datetime_is_numeric=False)
-DataFrame.pop(item='')
 DataFrame.fillna(value=None, method=None|'backfill|bfill|pad|ffill', axis=None|0|'', inplace=False, limit=None|0, downcast=None|{})
 DataFrame.dropna(axis=0, how='any|all', ?thresh=None|0, subset=None|''|['',..], inplace=False)
 DataFrame.join(other=DataFrame|Series|[DataFrame,..], on=None, how='left|right|outer|inner', lsuffix='', rsuffix='', sort=False)
@@ -266,6 +266,29 @@ df.drop('x', axis=1) # ...
 df.drop('a')         # { 'x':[2,3], 'y':[6,7]   }
 df.drop(['b','c'])   # { 'x':[1],   'y':[5]     }
 
+# delete column inplace
+df = pd.DataFrame({'A':[1,2,3], 'B':[4,5,6]})
+df.pop('B')
+df # {'A':[1,2,3]}
+
+# delete row - inplace
+df = pd.DataFrame([[1,1],[2,2],[3,3]])
+df_t = df.T
+df_t.pop(1) # index of the row to be deleted
+df2 = df_t.T
+df2 # # [[1,3], [1,3]]
+
+# delete row - construct wanted rows (not good)
+index_to_delete = 2
+df = pd.DataFrame([[1,1],[2,2],[3,3],[4,4]])
+prev = df.iloc[0: index_to_delete]
+next = df.iloc[index_to_delete+1:]
+df2 = pd.concat([prev, next])
+
+# int location - with columns vs without
+df1 = pd.DataFrame({ 'A':[1,2,3], 'B':[1,2,3], 'C':[1,2,3] })
+df2 = pd.DataFrame([ [1,1,1], [2,2,2], [3,3,3] ])
+
 # to csv
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=False) # '1,2\r\n3,4\r\n5,6\r\n'
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.csv', index=False, header=False)
@@ -292,8 +315,8 @@ np.where(df['foo'] == 4)[0].tolist() # [3]
 
 # int location
 df = pd.DataFrame([ [1,1,1], [2,2,2], [4,4,4] ])
-df.iloc[0:1] # 1  1  1
-df.iloc[-1:] # 4  4  4
+df.iloc[0:1] # 1 1 1
+df.iloc[-1:] # 4 4 4
 # ... single value
 df.iat[0,0] # 1
 df.iat[1,0] # 2
@@ -332,12 +355,14 @@ df.loc[[0,1], [0,1]] # ...
 # first n rows
 df = pd.DataFrame([1,2,3,4,5,6,7,8,9])
 df1 = df.head(4)
-df1 # 1 2 3 4
+df1          # 1 2 3 4
+df.iloc[0:4] # ...
 
 # last n rows
 df = pd.DataFrame([1,2,3,4,5,6,7,8,9])
 df1 = df.tail(4)
-df1 # 6 7 8 9
+df1          # 6 7 8 9
+df.iloc[-4:] # ...
 
 # convert dict-like df to list
 df = pd.DataFrame([ [1,2], [3,4] ], columns=['a','b'])
