@@ -19,7 +19,7 @@ DataFrame.drop(labels=None|L, axis=0, index=None|L, columns=None|L, level=None, 
 
 DataFrameGroupBy.filter(func, dropna=True, *args, **kwargs)
 
-DataFrame.to_csv(path_or_buf=None|''|file_handle, sep=',', na_rep='', float_format=None|'', columns=None|[], header=True|['',..],
+DataFrame.to_csv(path_or_buf=None|''|file_handle, sep=',', na_rep='', float_format=None|''|fn, columns=None|[], header=True|['',..],
 	index=True, index_label=None|''|[], mode='w', ?encoding='utf-8', compression='infer'|{}, quoting=csv.QUOTE_MINIMAL,
 	quotechar='"', line_terminator=os.linesep, chunksize=None|0, date_format=None|'', doublequote=True, escapechar=None|'',
 	decimal='.', errors='strict', storage_options=None|{})
@@ -266,9 +266,10 @@ df.drop('a')         # { 'x':[2,3], 'y':[6,7]   }
 df.drop(['b','c'])   # { 'x':[1],   'y':[5]     }
 
 # to csv
-pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=None) # '1,2\r\n3,4\r\n5,6\r\n'
-pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.csv', index=False, header=None)
+pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=False) # '1,2\r\n3,4\r\n5,6\r\n'
+pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.csv', index=False, header=False)
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.txt', sep='\t', index=False)
+pd.DataFrame([ [1.60,2.456] ]).to_csv('myfile.txt', sep='\t', float_format=lambda i: f'{i:.2f}')
 
 # to json
 pd.Series([1,2,3]).to_json('out.json', orient='values')     # [1,2,3]
