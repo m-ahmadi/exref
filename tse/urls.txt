@@ -89,10 +89,9 @@ http://cdn.tsetmc.com/api/Energy/GetAuctionTradeById/							-
 http://cdn.tsetmc.com/api/Energy/GetGetAuctionListItemByType/						-
 http://cdn.tsetmc.com/api/Energy/GetPowerOverview/							-
 
-http://cdn.tsetmc.com/api/Fund/GetETFByInsCode/								-
-http://cdn.tsetmc.com/api/Fund/GetFundInDetail/								-
-http://cdn.tsetmc.com/api/Fund/GetFunds/								-
-http://cdn.tsetmc.com/api/Fund/GetFunds/								-
+http://cdn.tsetmc.com/api/Fund/GetETFByInsCode/:InsCode							-
+http://cdn.tsetmc.com/api/Fund/GetFundInDetail/:No<int>							get fund detail base on an int arg (only 0 or 1)
+http://cdn.tsetmc.com/api/Fund/GetFunds/:Type<int>							get funds base on `fixIncome` (if :Type == 0, get all funds)
 
 http://cdn.tsetmc.com/api/Index/GetInstEffect/								-
 
