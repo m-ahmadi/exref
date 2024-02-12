@@ -545,6 +545,7 @@ df.apply(np.sum, axis=1) # [13, 13]
 df.apply(lambda x: [1,2])         # [ [1,1], [2,2] ]
 df.apply(lambda x: [1,2], axis=1) # [ [1,2], [1,2] ]
 df.apply(lambda x: x-1, axis=1)   # [ [3,8], [3,8] ]
+df.apply(lambda x,a: a, args=[7]) # [ [7],   [7]   ]
 
 # math
 df = pd.DataFrame({'a':[2,4,6], 'b':[8,10,12]})
