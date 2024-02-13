@@ -45,6 +45,7 @@ DataFrame.isin(values=[]|Series|DataFrame|{})
 DataFrame.count(axis=0, level=None|0|'', numeric_only=False)
 DataFrame.value_counts(subset=None|[], normalize=False, sort=True, ascending=False, dropna=True)
 DataFrame.insert(loc=0, column=''|0|{}, value=0|[], allow_duplicates=bool)
+DataFrame.compare(other=DataFrame, align_axis=1|0|'columns|index', keep_shape=False, keep_equal=False, result_names=['self','other'])
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -441,6 +442,11 @@ df1.join(df2)              # { 'a':[1,2,3],   'b':[4,5,NaN] }    caller
 df1.join(df2, how='right') # { 'a':[1,2],     'b':[4,5]     }    other
 df2.join(df1)              # { 'b':[4,5],     'a':[1,2]     }    caller
 df2.join(df1, how='right') # { 'b':[4,5,NaN], 'a':[1,2,3]   }    other
+
+# compare two dfs
+df1 = pd.DataFrame([[1,3,5],[2,4,6]])
+df2 = pd.DataFrame([[1,3,5],[2,7,8]])
+df1.compare(df2) # [4,7, 6,8]
 
 # min
 df = pd.DataFrame([ [1,4],
