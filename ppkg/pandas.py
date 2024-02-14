@@ -46,6 +46,7 @@ DataFrame.count(axis=0, level=None|0|'', numeric_only=False)
 DataFrame.value_counts(subset=None|[], normalize=False, sort=True, ascending=False, dropna=True)
 DataFrame.insert(loc=0, column=''|0|{}, value=0|[], allow_duplicates=bool)
 DataFrame.compare(other=DataFrame, align_axis=1|0|'columns|index', keep_shape=False, keep_equal=False, result_names=['self','other'])
+DataFrame.reindex(labels=None|[], *, index=None|[], columns=None|[], axis=None|0|'', method=None|'backfill|bfill|pad|ffill|nearest', copy=None|bool, level=None|0|'', fill_value=np.NaN, limit=None|0, tolerance=None|0|[])
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -112,6 +113,11 @@ df[0]       # [1,4,7]
 df[ [0] ]   # ...
 df[1]       # [2,5,8]
 df[ [1,2] ] # [ [2,3], [5,6], [8,9] ]
+
+# re-arrange columns
+df1 = pd.DataFrame({'A':[1,2], 'C':[5,6], 'B':[3,4]})
+df2 = df1[['A','B','C']]
+df2 = df1.reindex(columns=['A','B','C'])
 
 # iteration
 s = pd.Series([4,7,9])
