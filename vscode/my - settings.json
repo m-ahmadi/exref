@@ -4,6 +4,7 @@
 	"editor.fontSize": 15,
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingQuotes": "never",
+	"editor.autoSurround": "never",
 	"editor.mouseWheelZoom": true,
 	"editor.minimap.enabled": false,
 	"editor.bracketPairColorization.enabled": false,
@@ -14,6 +15,8 @@
 		}
 	},
 	"git.inputValidation": "always",
+	"git.openRepositoryInParentFolders": "never",
+	"security.workspace.trust.untrustedFiles": "open",
 	
 	
 	/** tab size and spaces */
