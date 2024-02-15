@@ -1,0 +1,115 @@
+0. unlock "Developer Options" and enable "USB Debugging" (or "Android Debugging")
+
+phone -> Settings -> About Phone -> Tap many times on "Android version"
+(or tap on "Build number" if already in custom rom)
+-------------------------------------------------------------------------------
+1. get android sdk
+
+https://developer.android.com/tools/releases/platform-tools
+
+gives you `adb` and `fastboot` binaries
+-------------------------------------------------------------------------------
+2. unlock phone's bootloader
+	https://nerdschalk.com/unlock-bootloader-via-fastboot-android/
+	
+adb reboot bootloader		(or hold voldown + power)
+fastboot oem unlock 		for newer devices `fastboot flashing unlock`
+fastboot oem device-info	must show "Device unlocked: true"
+fastboot reboot			reboot to os again
+
+==============================
+alt way is using "Mi Unlock" app (didn't work)
+https://en.miui.com/unlock/download_en.html
+https://mi-globe.com/download-xiaomi-mi-unlock-tool-all-versions/
+==============================
+
+--------------------------------------------------------------------------------
+3. setup twrp on phone
+
+download .img file base on phone's model
+	https://twrp.me/Devices/
+
+adb devices			must show status of device as "device" and not "attached" ("attached" is when usb connection is set as "file transfer" on phone)
+adb reboot bootloader		(or hold voldown + power)
+fastboot devices
+fastboot flash recovery twrp-3.7.0_9-0-ferrari.img
+fastboot boot twrp-3.7.0_9-0-ferrari.img
+
+adb devices			must show status of device as "recovery"
+
+now twrp is ready on phone
+--------------------------------------------------------------------------------
+4.1. get flashable files - rom
+
+==============================
+for lineage os 14
+post:	https://xdaforums.com/t/rom-kernel-unofficial-lineageos-14-1-opengl3-2-7-1-1-sdclang.3568271/
+files:	https://androidfilehost.com/?w=files&flid=91616
+	https://androidfilehost.com/?fid=745425885120716528		firmware-lp-8.1.5.0.zip
+	https://androidfilehost.com/?fid=457095661767158454		lineage-14.1-20170501-UNOFFICIAL-ferrari.zip
+==============================
+for lineage os 15
+post:	https://rootmygalaxy.net/download-and-install-lineage-os-15-on-xiaomi-mi-4i-android-8-0-oreo/
+files:	https://androidfilehost.com/?w=files&flid=214784
+==============================
+for lineage os 16
+post:	https://theupgradeguide.com/install-android-9-0-on-xiaomi-mi-4i-lineageos-16-how-to-guide/
+files:	https://sourceforge.net/projects/rfdforce/files/ferrari/
+==============================
+
+--------------------------------------------------------------------------------
+4.2. get flashable files - gapps
+
+https://opengapps.org/
+
+open_gapps-arm64-7.1-micro-20180803.zip
+open_gapps-arm64-9.0-pico-20220215.zip
+--------------------------------------------------------------------------------
+4.3. get flashable files - rooter (optional)
+
+Magisk-v16.7.zip					https://github.com/topjohnwu/Magisk/releases/tag/v16.7
+	or
+SuperSU-v2.82-201705271822.zip				https://supersuroot.org/download/
+--------------------------------------------------------------------------------
+5. move flashable files to phone and and flash it to 
+
+==============================
+for lineage os 14
+adb push firmware-lp-8.1.5.0.zip /sdcard
+adb push lineage-14.1-20170501-UNOFFICIAL-ferrari.zip /sdcard
+adb push open_gapps-arm64-7.1-pico-20220215.zip /sdcard
+adb push Magisk-v16.7.zip /sdcard
+==============================
+for lineage os 15
+adb push lineage-15.0-20171031-UNOFFICIAL-ferrari.zip /sdcard
+adb push open_gapps-arm64-8.0-pico-20220215.zip /sdcard
+==============================
+for lineage os 16
+adb push lineage-16.0-20190330-UNOFFICIAL-ferrari.zip /sdcard
+adb push open_gapps-arm64-9.0-pico-20220215.zip /sdcard
+==============================
+
+--------------------------------------------------------------------------------
+6. wipe and flash
+
+in phone and in the twrp
+common order:
+	1. wipe system,data,cache,dalvik-cache
+	2. flash rom
+	3. flash gapps
+	4. "Wipe Cache/Dalvik"
+	5. "Reboot system"
+
+==============================
+for lineage os 14
+1. wipe system,data,cache,dalvik-cache
+2. flash firmware
+3. flash lineage rom
+4. flash gapps
+5. flash magisk
+6. "Wipe cache/dalvik"		(i added myself)
+6. "Reboot System"
+==============================
+
+done.
+--------------------------------------------------------------------------------
