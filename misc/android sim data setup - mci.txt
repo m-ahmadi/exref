@@ -1,0 +1,5 @@
+Settings -> SIM card -> Mobile network settings -> SIM 1 settings -> Access Point Names -> + (add new apn)
+	Name:	MCI-Internet
+	APN:	mcinet
+	
+	... -> Save
