@@ -1,6 +1,6 @@
 import pandas as pd # pip install pandas
 
-pd.read_csv('file.csv', header='infer'|0|[0,..]|None, names=['',..], nrows=0, sep=',', index_col=None|0|''|False, parse_dates=False|[0|''|[],..], dtype=''|{}, ...)
+pd.read_csv('file.csv', header='infer'|0|[0,..]|None, names=['',..], nrows=0, sep=',', index_col=None|0|''|False, parse_dates=False|[0|''|[],..], dtype=''|{}, converters={}, ...)
 pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
 pd.date_range(start=None|''|datetime, end=None|''|datetime, periods=None|0, freq='D'|DateOffset, tz=None|''|tzinfo, normalize=False, name=None|'', inclusive=None, **kwargs)
 
@@ -526,6 +526,22 @@ df = pd.read_csv('file.csv', index_col=0, parse_dates=True)
 df.index   # [Timestamp('2022-01-01 08:15:00'), Timestamp('2022-01-01 08:45:00'), Timestamp('2022-01-01 09:15:00')]
 df.values  # [100, 150, 200]
 df.columns # ['count']
+
+# read_csv - dtype
+# https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#dtypes
+from io import StringIO
+s = 'A\n7.123456'
+pd.read_csv(StringIO(s))                  # 7.123456
+pd.read_csv(StringIO(s), dtype='float16') # 7.123047
+pd.read_csv(StringIO(s), dtype='string')  # '7.123456'
+
+df = pd.read_csv(StringIO('A,B\n1,2.5'), dtype={'A':'int','B':'float'})
+df.dtypes # A: int32  B: float64
+
+# read_csv - converters
+from decimal import Decimal
+df = pd.read_csv(StringIO(s), converters={'A':Decimal})
+df.dtypes # A: object
 
 # misc - count
 s = pd.Series([0,0,1,1,1,1, np.nan])
