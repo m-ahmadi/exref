@@ -35,3 +35,12 @@ n != n        # True
 
 2.3 == int(2.3) # False
 2.0 == int(2.0) # True
+
+# generate 1 in different negative order-of-magnitudes
+f = lambda n: float('1e-'+str(n)) if n > 0 else 1       # sci notation
+g = lambda n: float('0.'+(n-1)*'0'+'1') if n > 0 else 1 # manual construction
+f(0) # 1
+f(1) # 0.1
+f(2) # 0.01
+f(3) # 0.001
+g(3) # ...
