@@ -1,0 +1,14 @@
+solution percentages
+
+A	B  C	D
+0.01	1  99	generic surface cleaner (no rinse needed)
+0.02	1  49	generic surface cleaner (can go without rinse)
+0.05    1  19	generic surface cleaner (definitely needs rinse)
+0.10	1  9	hand washing soap
+0.20	1  4	hand washing soap
+
+
+A: % of solution (1 = 100%)
+B: n part detergent
+C: n part water
+D: application
