@@ -26,7 +26,7 @@ iwr https://github.com/v2fly/v2ray-core/releases/download/v5.13.0/v2ray-windows-
 Expand-Archive x.zip -D .\;
 ri x.zip;
 
-iwr https://github.com/XTLS/Xray-core/releases/download/v1.8.7/Xray-windows-64.zip -O x.zip;
+iwr https://github.com/XTLS/Xray-core/releases/download/v1.8.8/Xray-windows-64.zip -O x.zip;
 Expand-Archive x.zip -D .\bin\Xray;
 ri x.zip;
 
