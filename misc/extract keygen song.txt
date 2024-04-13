@@ -25,5 +25,5 @@ Fast Module Extractor v2.1
 	c:
 	cd FM-EXT
 	FM-EXT.EXE				(launch "fm-ext")
-		FM-EXT ..\Dumped.exe		(start extracting)
+		FM-EXT ..\Dumped.exe		(start extracting, note: no need to type "FM-EXT")
 --------------------------------------------------------------------------------
