@@ -11,7 +11,7 @@ sol.	water	use			apply
 
 "Dettol" product - printed on bottle
 sol.	water	use		note
-1	2.3	midwifery	2.5% solution
+1	1	midwifery	2.5% solution (assuming 5% undiluted, dettol is 4.8%)
 1	19	first aid	-
 1	39	baby diaper	-
 1	39	epidemics	treat linen, floors, and for spraying rooms
