@@ -270,9 +270,11 @@ for (let i=1; i<=PAGES; i++) {
 }
 
 avg = a => a.reduce((r,i) => r+i) / a.length;
+sleep = ms => new Promise(r=> setTimeout(r,ms));
 
 for (let id of Object.keys(r)) {
-	let res = await (await fetch(`https://api.digikala.com/v1/product/${id}/`)).json();
+	//let res = await (await fetch(`https://api.digikala.com/v1/product/${id}/`)).json();
+	let res = await (await fetch(`https://api.digikala.com/v2/product/${id}/`)).json();
 	
 	let p = res.data.product;
 	
@@ -303,8 +305,16 @@ for (let id of Object.keys(r)) {
 	}
 	
 	if (!inStock) {
-		let res = await (await fetch(`https://api.digikala.com/v1/product/${id}/price-chart/`)).json();
-		let pc = res.data.price_chart;
+		//let res = await (await fetch(`https://api.digikala.com/v1/product/${id}/price-chart/`)).json();
+		// let pc = res.data.price_chart;
+		let mkReq = async () => (await (await fetch(`https://api.digikala.com/v1/product/${id}/price-chart/`)).json());
+		let res = await mkReq();
+		while (res.status === 400 && res.message === 'بیش از حد مجاز تلاش کرده‌اید') {
+			await sleep(20_000);
+			res = await mkReq();
+		}
+		let pc;
+		try { pc = res.data.price_chart } catch (e) { console.log(e) };
 		
 		if (pc.length) {
 		
