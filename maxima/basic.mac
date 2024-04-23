@@ -7,7 +7,7 @@
 2+5$              // hide immediate result
 
 a:4               // define variable
-a:4; b:4          // define multiple variable
+a:4; b:4          // define multiple variables
 f(x):=x^2         // define function
 f(4)              // call function
 kill(a)           // clear variable
@@ -17,8 +17,8 @@ kill(all)         // clear all variables and functions
 %i                // -1^2
 cos(%pi)
 factor(x^2+4*x+4) // (x+2)^2
-float(sqrt(2));	  // 1.414213562373095
-example(factor);  // show list of examples
+float(sqrt(2))    // 1.414213562373095
+example(factor)   // show list of examples
 
 // if else statement
 f(x):=if x>0 and x<1 then 1 else 0
