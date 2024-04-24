@@ -2,12 +2,13 @@ git rebase master		use state of some branch as new base of work
 git rebase --onto master	?
 git rebase --onto master~2	?
 
-git rebase -i HEAD~3				rebase prev 3 commits
-git rebase -i HEAD~3 --ignore-date		... update time of affected commits
-git rebase -i HEAD~3 --reset-author-date	...
-git rebase --continue				after `e, edit`, `m, merge`, ...
-git rebase --abort				cancel
-git rebase --edit-todo				edit the "rebase instructions" file
+git rebase -i HEAD~3					rebase prev 3 commits                                   (changes "CommitDate")
+git rebase -i HEAD~3 --ignore-date			... use current time as "AuthorDate" of rebased commits (changes both dates)
+git rebase -i HEAD~3 --reset-author-date		... ...
+git rebase -i HEAD~3 --committer-date-is-author-date	... use "AuthorDate" of rebased commits as "CommitDate" (changes no dates)
+git rebase --continue					after `e, edit`, `m, merge`, ...
+git rebase --abort					cancel
+git rebase --edit-todo					edit the "rebase instructions" file
 
 --------------------------------------------------------------------------------
 example - basic
@@ -28,10 +29,21 @@ git rebase --continue		finish
 done.
 
 notes:
-this will reset the AuthorDate of all rebased commits to now
-without `--ignore-date` AuthorDate is kept same but CommitDate still is changed
+this will reset the "AuthorDate" of all rebased commits to now
+without `--ignore-date` "AuthorDate" is kept same but "CommitDate" is still changed
 --------------------------------------------------------------------------------
-example - re-commit with fully changed date (AuthorDate & CommitDate)
+example - recommit without changing "AuthorDate" or "CommitDate"
+
+git rebase -i HEAD~2 --committer-date-is-author-date
+	reword abc1111 2
+	pick abc2222 2
+		reword abc1111 as: 1
+done.
+
+git log --pretty=fuller
+	"AuthorDate" or "CommitDate" of commit abc1111 hasn't changed
+--------------------------------------------------------------------------------
+example - recommit with fully changed dates ("AuthorDate" and "CommitDate")
 
 git rebase -i HEAD~2
 	edit abc1111 1
@@ -50,7 +62,7 @@ done.
 note:
 if `commit -C <hash> --ammend`, commit's date still comes from env vars (due to higher precedence)
 ==================================================
-another way (avoid since not shown correctly in github)
+another way (avoid since not shown correctly in github, not sure)
 
 git rebase -i HEAD~2 --committer-date-is-author-date
 git commit -m "1" --amend
