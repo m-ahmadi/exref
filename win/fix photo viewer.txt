@@ -1,0 +1,17 @@
+"Windows Photo Viewer can't display this picture because there might not be enough memory..." 
+
+fixes
+
+1. 	https://github.com/PaaaulZ/PhotoViewerOutOfMemoryNoMore
+		open "PhotoViewerPatcher.exe" as administrator
+		patch both:
+		"C:\Program Files\Windows Photo Viewer"
+		"C:\Program Files (x86)\Windows Photo Viewer"
+
+2.	open photo with text editor -> replace "ICC_PROFILE" with "ICC_PROFILX" -> save
+
+3.	photoshop -> save as -> uncheck "ICC Profile: sRGB"
+
+...
+
+https://superuser.com/questions/1509194/windows-photo-viewer-cant-run-because-not-enough-memory
