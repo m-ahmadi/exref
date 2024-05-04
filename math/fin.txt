@@ -11,3 +11,6 @@ P/S ratio = ——————————————————————�
                                  total shares        total sales
               sales per share = ——————————————
                                  total sales
+
+derivative	a contract that derives its value from performance of underlying entity,
+		which can be an asset, index, or interest rate
