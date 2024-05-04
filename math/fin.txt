@@ -4,3 +4,10 @@ DPS	dividend per share (a part of EPS that's paid to shareholders)
                  price per share
 P/E ratio = ———————————————————————————
              earnings per share (EPS)
+
+
+                      price per share                market cap
+P/S ratio = ———————————————————————————————————— = ——————————————
+                                 total shares        total sales
+              sales per share = ——————————————
+                                 total sales
