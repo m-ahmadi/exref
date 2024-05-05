@@ -23,4 +23,8 @@ Decimal('-Infinity') # Decimal('-Infinity')
 # rounding
 # https://docs.python.org/3/library/decimal.html#rounding-modes
 rm = decimal.ROUND_HALF_EVEN
-Decimal('7.325').quantize(Decimal('.01'), rounding=rm) # '7.32'
+Decimal('7.325').quantize(Decimal('0.01'), rounding=rm) # '7.32'
+Decimal('7.325').quantize(Decimal(10)**-2, rounding=rm) # ...
+
+Decimal(10) ** -0 # Decimal('1')
+Decimal(10) ** -2 # Decimal('0.01')
