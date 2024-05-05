@@ -13,9 +13,13 @@ import Big from './big.mjs'        // es6
 
 // input values: number|string|Big
 x = new Big(123.4567)
-y = Big('123456.7e-3')             // 'new' is optional
+y = Big('123456.7e-3')             // `new` is optional
 z = new Big(x)
 x.eq(y) && x.eq(z) && y.eq(z)      // true
+n = Big(4).times(4)                // '16'
+n.sqrt()                           // '4'
+n.div(2).pow(2)                    // '64'
+n.times(2)                         // '32'
 
 // immutable
 0.3 - 0.1                          // 0.19999999999999998
@@ -33,20 +37,26 @@ x.toExponential(5)                 // '2.55500e+2'
 x.toFixed(5)                       // '255.50000'
 x.toPrecision(5)                   // '255.50'
 
-// max decimal places and rounding mode
-Big.DP = 10 // default 20
-Big.RM = 1 /*  default 0
+// max decimal places
+// only relevant to the div(), sqrt(), and pow() with negative exponent
+Big.DP = 4; // default 20
+''+Big('1.123456')                 // '1.123456'      has no effect
+''+Big('1.12345').div(1)           // '1.1235'        has effect
+''+Big('1.12345').sqrt()           // '1.0599'        ...
+Big.DP = 6;
+''+Big('1.12345').sqrt()           // '1.059929'      ...
+Big.DP = 3;
+''+Big('1.12345').pow(2)           // '1.2621399025'  has no effect
+''+Big('1.12345').pow(-2)          // '0.7923'        has effect
+
+// rounding mode
+Big.RM = 0 /*  default 0
 	0:  ROUND_DOWN
 	1:  ROUND_HALF_UP
 	2:  ROUND_HALF_EVEN
 	3:  ROUND_UP */
-x = new Big(2);
-y = new Big(3);
-z = x.div(y)                       // '0.6666666667'
-z.sqrt()                           // '0.8164965809'
-z.pow(-3)                          // '3.3749999995'
-z.times(z)                         // '0.44444444448888888889'
-z.times(z).round(10)               // '0.4444444445'
+Big('1.125').round(2)              // '1.13'
+Big('1.125').round(2, 2)           // '1.12'
 
 // storage structure
 x = new Big(-123.456);
