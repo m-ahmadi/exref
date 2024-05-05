@@ -30,6 +30,12 @@ Decimal(10) ** -0 # Decimal('1')
 Decimal(10) ** -2 # Decimal('0.01')
 
 # set defaults - decimal places (on the fly)
+from decimal import getcontext
+getcontext().prec                 # 28
+Decimal('0.123456789123456789')*1 # '0.123456789123456789'
+getcontext().prec = 4
+Decimal('0.123456789123456789')*1 # '0.1235'
+
 from decimal import setcontext, Context
 Decimal('0.123456789123456789')*1 # '0.123456789123456789'
 setcontext(Context(prec=4))
