@@ -22,11 +22,11 @@ ri x.zip;
 
 cd v2rayN;
 
-iwr https://github.com/v2fly/v2ray-core/releases/download/v5.15.1/v2ray-windows-64.zip -O x.zip;
+iwr https://github.com/v2fly/v2ray-core/releases/download/v5.16.1/v2ray-windows-64.zip -O x.zip;
 Expand-Archive x.zip -D .\;
 ri x.zip;
 
-iwr https://github.com/XTLS/Xray-core/releases/download/v1.8.10/Xray-windows-64.zip -O x.zip;
+iwr https://github.com/XTLS/Xray-core/releases/download/v1.8.11/Xray-windows-64.zip -O x.zip;
 Expand-Archive x.zip -D .\bin\Xray;
 ri x.zip;
 
