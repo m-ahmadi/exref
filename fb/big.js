@@ -78,5 +78,5 @@ x.e                                // 2                exponent
 x.s                                // -1               sign
 
 // passable to Math.methods (Big object similliar to Number objects)
-Math.ceil( Big('32.5') )  // 33
-Math.floor( Big('32.5') ) // 32
+Math.ceil( Big('32.5') )           // 33
+Math.floor( Big('32.5') )          // 32
