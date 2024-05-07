@@ -1,0 +1,3 @@
+w32tm /?
+
+w32tm /resync		resync clock
