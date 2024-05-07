@@ -5,6 +5,7 @@
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingQuotes": "never",
 	"editor.autoSurround": "never",
+	"editor.autoIndent": "keep",
 	"editor.mouseWheelZoom": true,
 	"editor.minimap.enabled": false,
 	"editor.bracketPairColorization.enabled": false,
@@ -14,7 +15,7 @@
 			"numbers": "#ff0000"
 		}
 	},
-	"git.inputValidation": "always",
+	"git.inputValidation": true,
 	"git.openRepositoryInParentFolders": "never",
 	"security.workspace.trust.untrustedFiles": "open",
 	
