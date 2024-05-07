@@ -1,14 +1,3 @@
-open(file, mode='r|w|x|a|b|t|+', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
-	mode=
-		'r' # read (default)
-		'w' # write (truncate file first)
-		'x' # create file, err if exists
-		'a' # write, append if exists
-		'b' # binary mode
-		't' # text mode (default)
-		'+' # update (read and write)
-	encoding= locale.getpreferredencoding(False) # default encoding (platform-dependent): 'cp1252'
-
 # manual (file never closes if exception thrown)
 # read
 f = open('file.txt')
@@ -23,6 +12,8 @@ _str = f.read()
 f = open('file.txt', 'w', encoding='utf-8')
 f.write('hi')
 f.close()
+
+print('a', 'b', 2+3, file=open('file.txt', 'w'))
 
 # append
 f = open('file.txt', 'a')
@@ -93,5 +84,11 @@ with open('file.json', 'w', encoding='utf-8') as f:
 
 # std
 import sys
-sys.stdout.write(f'1/100\r')
-sys.stdout.write(f'2/100\r')
+sys.stdout.write(f'\r1/100')
+sys.stdout.write(f'\r2/100')
+
+import time
+tot = 20
+for i in range(tot):
+	sys.stdout.write(f'\r{i+1}/{tot}')
+	time.sleep(0.1)

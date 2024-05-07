@@ -64,7 +64,7 @@ open(file, mode='r|w|x|a|b|t|+', buffering=-1, encoding=None, errors=None, newli
 		# https://docs.python.org/3.9/library/codecs.html#standard-encodings
 ord(c)
 pow(base, exp, ?mod)
-print(*objects, sep=' ', end='\n', file=sys.stdout, flush=False)
+print(*objects, sep=' ', end='\n', file=<sys.stdout>, flush=False)
 property(fget=None, fset=None, fdel=None, doc=None)
 range(stop=0) | range(start=0, stop=0, ?step=1)
 repr(object)
