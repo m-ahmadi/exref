@@ -1,6 +1,7 @@
 import pandas as pd # pip install pandas
 
-pd.read_csv('file.csv', header='infer'|0|[0,..]|None, names=['',..], nrows=0, sep=',', index_col=None|0|''|False, parse_dates=False|[0|''|[],..], dtype=''|{}, converters={}, ...)
+pd.read_csv(filepath_or_buffer, header='infer'|0|[0,..]|None, names=['',..], nrows=0, sep=',', index_col=None|0|''|False, parse_dates=False|[0|''|[],..], dtype=''|{}, converters={}, ...)
+pd.read_json(path_or_buf, orient=None|'split|records|index|columns|values|table', typ='frame|series', dtype=None|bool|{}, convert_axes=None|bool, convert_dates=True|['',..], precise_float=False, encoding='utf-8', ...)
 pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
 pd.date_range(start=None|''|datetime, end=None|''|datetime, periods=None|0, freq='D'|DateOffset, tz=None|''|tzinfo, normalize=False, name=None|'', inclusive=None, **kwargs)
 
@@ -542,6 +543,15 @@ df.dtypes # A: int32  B: float64
 from decimal import Decimal
 df = pd.read_csv(StringIO(s), converters={'A':Decimal})
 df.dtypes # A: object
+
+# read_json
+from io import StringIO                       # idxs    cols    vals
+pd.read_json('[1,2]')                         # 0 1     0       [[1],[2]]
+pd.read_json('[1,2]', typ='series')           # 0 1     na      [1,2]
+pd.read_json('{"a":[1,3],"b":[2,4]}')         # 0 1     a b     [[1,2],[3,4]]]
+pd.read_json('[{"a":1,"b":2},{"a":3,"b":4}]') # ...
+pd.read_json('{"index":[0,1], "columns":["a","b"], "data": [[1,2],[3,4]]}', orient='split') # ...
+pd.read_json('{"a":1,"b":2}', orient='index') # a b     0       [[1],[2]]
 
 # misc - count
 s = pd.Series([0,0,1,1,1,1, np.nan])
