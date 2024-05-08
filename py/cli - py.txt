@@ -22,6 +22,11 @@ or to set & undo
 	reg add HKCU\Environment /v PY_PYTHON /d "3.8"
 	reg delete HKCU\Environment /f /v PY_PYTHON
 
-alternative
+alt 1
+type > %localappdata%\py.ini
+	[defaults]
+	python=3.7
+
+alt 2
 #!C:/python2/python.exe		at first line of script
 --------------------------------------------------------------------------------
