@@ -100,7 +100,7 @@ df # {... 'D':[7,8]}
 df.insert(4, 'E', pd.Series([7,8], index=[1,2])) # index alignment
 df # {... 'E':[nan,7]}
 
-# index access
+# indexing
 # https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html
 df = pd.DataFrame({'a':[1,2,3], 'b':[4,5,6]})
 df.a
@@ -114,6 +114,17 @@ df[0]       # [1,4,7]
 df[ [0] ]   # ...
 df[1]       # [2,5,8]
 df[ [1,2] ] # [ [2,3], [5,6], [8,9] ]
+
+# indexing - "SettingWithCopyWarning"
+# https://pandas.pydata.org/docs/user_guide/indexing.html#returning-a-view-versus-a-copy
+df0 = pd.DataFrame({'a':[1,2,3]})
+df = df0
+df = df.iloc[0:-1]
+df.a = df.a.apply(lambda i: i*2) # warning: "A value is trying to be set on a copy of a slice from a DataFrame."
+
+df = df0.copy()
+df = df.iloc[0:-1]
+df.a = df.a.apply(lambda i: i*2) # ok
 
 # re-arrange columns
 df1 = pd.DataFrame({'A':[1,2], 'C':[5,6], 'B':[3,4]})
