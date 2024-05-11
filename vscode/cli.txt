@@ -2,6 +2,7 @@ code file.txt					open file
 code .						open project dir
 code --install-extension <extension_name>	install extension
 code --list-extensions				list all installed extensions
+code --list-extensions --show-versions		... with versions
 
 for /f %i in ('code --list-extensions') do @code --install-extension %i		install multiple extensions
 code --list-extensions | xargs -L 1 echo code --install-extension		... bash
