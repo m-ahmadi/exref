@@ -101,16 +101,15 @@
 	"editor.snippetSuggestions": "top", // show prev history at bottom
 	
 	/** yapf formatter opts */
-	"[python]": {
-		"editor.defaultFormatter": "eeyore.yapf",
-	},
+	"[python]": { "editor.defaultFormatter": "eeyore.yapf", },
 	"yapf.args": ["--style","{based_on_style: google, indent_width: 2, column_limit: 160, indent_blank_lines: True, use_tabs: True}"],
 	// https://github.com/google/yapf#knobs
 	
 	/** autopep8 formatter opts */
 	//"[python]": { "editor.defaultFormatter": "ms-python.autopep8", },
-	//"autopep8.args": ["--indent-size=2", "--max-line-length=160"],
-	// hacky alt: fart C:\python39\Lib\site-packages\autopep8.py "DEFAULT_INDENT_SIZE = 4" "DEFAULT_INDENT_SIZE = 2"
+	// "autopep8.args": ["--indent-size=2", "--ignore=E121", "--max-line-length=160"],
+	// see all args:  py -m autopep8 --help
+	// hacky alt:  fart C:\python39\Lib\site-packages\autopep8.py "DEFAULT_INDENT_SIZE = 4" "DEFAULT_INDENT_SIZE = 2"
 	
 	// vscode auto detect, not me:
 	"workbench.editorAssociations": {
