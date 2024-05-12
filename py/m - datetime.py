@@ -29,6 +29,7 @@ dt.datetime.fromtimestamp(1254130200)    # datetime(2009, 9, 28, 13, 0)
 
 # str
 dt.datetime(2021,1,1).strftime('%Y %m %d')     # format:  '2021 01 01'
+dt.datetime(2021,1,1).strftime('%Y%m%d')       # format:  '20210101'
 dt.datetime.today().strftime('%Y%m')           # format:  '202202'
 dt.datetime.strptime('2021 01 01', '%Y %m %d') # parse:   datetime(2021,1,1,0,0)
 dt.datetime.strptime('20220101', '%Y%m%d')     # parse:   datetime(2022,1,1,0,0)
