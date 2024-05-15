@@ -18,6 +18,8 @@ git commit --amend --no-edit		... use prev commit msg
 git commit --amend --reset-author	renew time
 git commit --amend --date=now		...
 
+git commit -m "1" --date <timestamp>	override author date
+
 --------------------------------------------------------------------------------
 delete commit and do again
 
@@ -28,6 +30,7 @@ git commit -m "new message"
 git push -f
 --------------------------------------------------------------------------------
 50/72 commit message format
+
 first line 50 chars
 rest 72 chars
 --------------------------------------------------------------------------------
