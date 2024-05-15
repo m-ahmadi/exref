@@ -70,6 +70,18 @@ git rebase --continue
 git commit -m "2" --amend
 git rebase --continue
 --------------------------------------------------------------------------------
+example - auto squash
+
+git commit -a --fixup abc1111		imagine this commit becomes abc2222
+git rebase -i HEAD~2 --autosquash	todo list automatically puts abc2222 after abc1111
+
+git commit -a --squash abc1111		...
+git rebase -i HEAD~2 --autosquash	... but opens editor with combined commit messages
+
+note:
+--fixup  commit message is discarded automatically in rebase
+--squash commit message is combined with parent message and therefore opens editor for final edit
+--------------------------------------------------------------------------------
 -i, --interactive commands:
 
 note:
