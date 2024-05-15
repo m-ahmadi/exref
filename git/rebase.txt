@@ -6,6 +6,7 @@ git rebase -i HEAD~3					rebase prev 3 commits                                  
 git rebase -i HEAD~3 --ignore-date			... use current time as "AuthorDate" of rebased commits (changes both dates)
 git rebase -i HEAD~3 --reset-author-date		... ...
 git rebase -i HEAD~3 --committer-date-is-author-date	... use "AuthorDate" of rebased commits as "CommitDate" (changes no dates)
+git rebase -i <commit-hash>				rebase to 1 commit after the specified commit
 git rebase --continue					after `e, edit`, `m, merge`, ...
 git rebase --abort					cancel
 git rebase --edit-todo					edit the "rebase instructions" file
