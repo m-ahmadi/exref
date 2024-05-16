@@ -3,6 +3,14 @@ git merge origin/master		merge the remote branch with local branch
 git merge --abort		abort current conflict resolution process (can only be run after the merge has resulted in conflicts)
 
 --------------------------------------------------------------------------------
+example - basic
+
+git checkout -b hotfix		create branch and swith to it (or `git switch -c hotfix`)
+git commit -a -m "fix bug"	commit in branch
+git checkout master		go back to master (or `git switch master`)
+git merge hotfix		merge branch
+git branch -d hotfix		delete branch afterward
+--------------------------------------------------------------------------------
 merge two repos
 merge test2 into test1
 
