@@ -1,0 +1,4 @@
+git help switch				new command added in git v2.23
+git switch dev				switch to another branch (like `git checkout dev`)
+git switch -c dev			create new branch and switch to it (like `git checkout -b dev`)
+git switch -c dev <commit_hash>		... from specific commit

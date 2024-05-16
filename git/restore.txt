@@ -3,6 +3,7 @@ git restore --staged a.txt	restore staged file
 
 --------------------------------------------------
 example
+
 git add a.txt
 
 git rm a.txt			remove & stage

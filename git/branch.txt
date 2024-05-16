@@ -7,9 +7,9 @@ git branch dev <commit_hash>		...               (...  specific commit ...)
 git branch dev HEAD~3			... symolic ref   (...  3rd last commit ...)
 git checkout --orphan tmp		... "git init"-like state (on a non-new repository)
 
-git checkout -b dev			create new branch and switch
+git checkout -b dev			create new branch and switch to it
 git switch -c dev			... v2.23+
-git switch -c dev <commit>		... from specific commit
+git switch -c dev <commit_hash>		... from specific commit
 
 git checkout dev			switch to another branch	
 git switch dev				... v2.23+
@@ -24,14 +24,19 @@ git push -u origin dev			push branch to remote
 
 git branch --set-upstream-to=origin/master master	set upstream
 --------------------------------------------------------------------------------
-basic branching
+basic - create branch
+
+git checkout -b iss53			create branch and switch to it
+git commit -a -m "fix iss53"		commit in branch
+git checkout master			go back to master
+
+
+basic - create branch and push it to remote
 
 git branch cooler [<start-point>]	create new branch
-git switch cooler
-edit some files...			go wild in another direction...
-git add .
-git commit -m "cooler way"
-git push origin cooler
+git switch cooler			switch to it
+git commit -a -m "cooler way"		commit in branch
+git push origin cooler			push branch to remote
 --------------------------------------------------------------------------------
 rename branch
 
