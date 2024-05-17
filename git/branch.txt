@@ -49,22 +49,6 @@ git push -u origin newname		make again + upstream
 git push origin :<oldname> <newname>	delete remote and make again
 git push origin -u <newname>		+ upstream
 --------------------------------------------------------------------------------
-change base
-
-git switch -c cool-feature
-git switch master
-
-if master contains new commits (otherwise no issue)
-
-option 1
-	git merge cool-feature		dummy commit "Merge branch ..."		(not sure)
-
-option 2 (if new master commits don't relate to feature)
-	git switch cool-feature
-	git rebase master		set tip of master as new base
-	git switch master
-	git merge cool-feature		no dummy commit
---------------------------------------------------------------------------------
 clone all remote branches
 
 git clone <repo_url>
@@ -81,17 +65,16 @@ git checkout origin b2
 --------------------------------------------------------------------------------
 move master to another branch and start new master
 
-git branch 1.x
-git checkout 1.x
-git push origin 1.x
+git checkout -b 1.x		create branch and switch to it
+git push origin 1.x		push branch to remote
 github-repo -> Settings -> Branches -> Default branch -> change default branch to 1.x (or any non-master)
-git push origin :master		(deletes remote master)
+git push origin :master		deletes remote master
 
 git checkout 1.x		(if not already on non-master)
-git branch master -d
-git checkout --orphan master
-git commit -m "init"
-git push origin master
+git branch -d master		delete master branch
+git checkout --orphan master	create copy of master but with no parent
+git commit -m "init"		commit in fresh master
+git push origin master		push it to remote
 
 github-repo -> ... change default branch back to master
 --------------------------------------------------------------------------------

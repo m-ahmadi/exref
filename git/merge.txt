@@ -3,12 +3,12 @@ git merge origin/master		merge the remote branch with local branch
 git merge --abort		abort current conflict resolution process (can only be run after the merge has resulted in conflicts)
 
 --------------------------------------------------------------------------------
-basic - fast forward (master not progressed while branch being developed)
+basic - fast-forward merge (master not progressed while branch being developed)
 
 git checkout -b hotfix		create branch and switch to it
 git commit -a -m "fix bug"	commit in branch
 git checkout master		go back to master
-git merge hotfix		merge branch (no "Merge branch 'hotfix'" commit)
+git merge hotfix		merge branch (no "Merge branch ..." commit)
 git branch -d hotfix		delete branch afterward
 
 
@@ -18,7 +18,7 @@ git checkout -b hotfix		...
 git commit -a -m "fix bug"	...
 git checkout master		...
 git commit -a -m "base moves"	commit in master
-git merge hotfix		merge branch after resolving conflicts ("Merge branch 'hotfix'" commit)
+git merge hotfix		merge branch after resolving conflicts ("Merge branch ..." commit)
 git branch -d hotfix		...
 --------------------------------------------------------------------------------
 merge two repos

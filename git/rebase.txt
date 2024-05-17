@@ -83,6 +83,43 @@ note:
 --fixup  commit message is discarded automatically in rebase
 --squash commit message is combined with parent message and therefore opens editor for final edit
 --------------------------------------------------------------------------------
+example - resolve conflicts, then rebase
+
+git commit -a -m "1"		abc1111
+git commit -a -m "3"		abc2222
+git rebase -i HEAD~2
+	edit abc1111
+	pick abc2222
+git commit -a -m "2"
+git rebase --continue		error
+git add conflict_resolved.txt	add file after resolving conflicts
+git rebase --continue		done
+--------------------------------------------------------------------------------
+rebase and merge - set branch base to newer commit in master (if non-conflicting)
+
+git switch master		first in master
+git add a.txt			progress in master
+git commit -m "1"		...
+
+git checkout -b feat		create branch and switch to it
+git add b.txt			progress in branch
+git commit -m "2b"		...
+
+git switch master		go to master
+git add a.txt			non conflicting progress in master
+git commit -m "2"		...
+
+git switch feat			go to branch
+git rebase master		set tip of master as new base
+git switch master		switch to master
+git merge feat			fast-forward merge
+
+note:
+if master progressed with conflicting commits,
+then must resolve conflicts,
+then `git add conflict_resolved.txt && git rebase --continue`,
+then continue
+--------------------------------------------------------------------------------
 -i, --interactive commands:
 
 note:
