@@ -33,6 +33,7 @@ dt.datetime(2021,1,1).strftime('%Y%m%d')       # format:  '20210101'
 dt.datetime.today().strftime('%Y%m')           # format:  '202202'
 dt.datetime.strptime('2021 01 01', '%Y %m %d') # parse:   datetime(2021,1,1,0,0)
 dt.datetime.strptime('20220101', '%Y%m%d')     # parse:   datetime(2022,1,1,0,0)
+dt.datetime.strptime('2023-12-27 14:42:00', '%Y-%m-%d %H:%M:%S') # parse:  datetime(2023,12,27,14,42)
 # https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 
 # change date
