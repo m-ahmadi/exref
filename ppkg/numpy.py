@@ -476,12 +476,12 @@ np.rad2deg
 np.radians
 np.RAISE
 np.random
-np.random.normal(loc=0.0|[0.,..], scale=1.0|[0.,..], size=None|0|(0,..)) # normal distr (gaussian)
+np.random.normal(loc=0.0|[0.,..], scale=1.0|[0.,..], size=None|0|(0,..))                         # normal distr (gaussian)
 np.random.permutation(x=0|∂)
-np.random.rand(?d0=0, ?d1=0, ..., ?dn=0) # uniform distr
+np.random.rand(?d0=0, ?d1=0, ..., ?dn=0)                                    | *random_sample()   # uniform distr
 np.random.randint(low=0, ?high=None|0, ?size=None|0|(0,..), ?dtype=np.int)  |  random_integers() # low: inclusive, high: exclusive
-np.random.randn(?d0=0, ?d0, ..., ?dn=0) # normal distr (gaussian)
-np.random.random(size=None|0|(0,..))  |  random_sample()
+np.random.randn(?d0=0, ?d0, ..., ?dn=0)                                     | *standard_normal() # normal distr (gaussian)
+np.random.random(size=None|0|(0,..))                                        |  random_sample()
 np.random.uniform(?low=0.0, ?high=1.0, ?size=None|0|(0,..))
 np.random.choice(a=[]|0, size=None|0|(0,..), replace=True, p=None|[])
 np.RankWarning
