@@ -29,6 +29,8 @@ DataFrame.to_json(path_or_buf=None, orient=None|'split|records|index|columns|val
 	date_format=None, double_precision=10, force_ascii=True, date_unit='ms', default_handler=None,
 	lines=False, compression='infer', index=True, indent=None, storage_options=None)
 
+DataFrame.to_dict(orient='dict|list|series|split|tight|records|index', *, into={}, index=True)
+
 DataFrame.copy(deep=True)
 DataFrame.head(n=5)
 DataFrame.tail(n=5)
@@ -394,6 +396,12 @@ df = pd.DataFrame([ {'a':1,'b':2}, {'a':3,'b':4} ])
 df.values.tolist()     # [ [1,2], [3,4] ]
 df.to_numpy().tolist() # ...
 df.columns.tolist()    # ['a','b']
+
+# convert "listy" df to dict (obj of arrs -> arr of objs)
+df1 = pd.DataFrame({'a': [1,2]})
+df2 = pd.DataFrame([ [1],[2] ], columns=['a'])
+df1.to_dict('records') # [ {'a':1}, {'a':2} ]
+df2.to_dict('records') # ...
 
 # concat two dfs
 df1 = pd.DataFrame([ ['a','b'], [1,2], [3,4] ])
