@@ -5,7 +5,7 @@
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingQuotes": "never",
 	"editor.autoSurround": "never",
-	"editor.autoIndent": "none",
+	"editor.autoIndent": "keep",
 	"editor.trimAutoWhitespace": false,
 	"editor.mouseWheelZoom": true,
 	"editor.minimap.enabled": false,
