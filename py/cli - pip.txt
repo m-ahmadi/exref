@@ -13,6 +13,10 @@ pip show <pkg>				show info of installed pacakge
 pip uninstall -y <pkg> 			delete package
 pip freeze > requirements.txt		output installed pkgs in requirements format
 
+delete all packages
+	pip freeze > requirements.txt
+	pip uninstall -y -r requirements.txt
+
 --------------------------------------------------------------------------------
 <requirements>
 
