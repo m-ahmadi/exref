@@ -1,0 +1,6 @@
+for %i in (HKCR\*\shell\AnyCode, HKCR\Directory\shell\AnyCode, HKCR\Directory\Background\shell\AnyCode, HKCR\Drive\shell\AnyCode) do @reg delete %i /f
+
+reg delete HKCR\*\shell\AnyCode /f				files
+reg delete HKCR\Directory\shell\AnyCode /f			folders
+reg delete HKCR\Directory\Background\shell\AnyCode /f		desktop
+reg delete HKCR\Drive\shell\AnyCode /f				drives
