@@ -16,3 +16,14 @@ make shortcut command for `gitex openrepo .`
 
 echo @start "" "C:\Program Files (x86)\GitExtensions\GitExtensions.exe" openrepo %* > %windir%\gx.cmd
 --------------------------------------------------------------------------------
+config mergetool & difftool
+
+Settings -> Git -> Config ->
+	Mergetool		vscode
+	Path to mergetool	/.../VSCode/Code.exe
+	
+	Difftool		vscode
+	Path to difftool	/.../VSCode/Code.exe
+
+note: can't use `code`, must provide path to exe like `C:/.../Code.exe`
+--------------------------------------------------------------------------------
