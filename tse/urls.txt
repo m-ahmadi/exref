@@ -57,7 +57,7 @@ http://cdn.tsetmc.com/api/ClosingPrice/GetChartData/:InsCode/:Resolution<str>=D	
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPrice/							n/a
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/:InsCode/:DEven				ClosingPrice of single day
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyAllInst					ClosingPrice of today of all instruments
-http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyList/:InsCode/:Top?<int>			ClosingPrice of multiple days (if no :Top, returns all)
+http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyList/:InsCode/:Top?<int>			ClosingPrice of multiple days (if :Top == 0, returns all)
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyListCSV/:InsCode/:PrependCol?<str>		ClosingPrice of all days as csv file
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/:InsCode/:DEven				ClosingPrice history (old ClosingPriceData)
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/:InsCode					ClosingPriceInfo of today
