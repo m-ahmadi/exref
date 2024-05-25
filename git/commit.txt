@@ -12,7 +12,7 @@ git commit --date "2007-12-30 12:35:01"	... in "YYYY-MM-DD hh:mm:ss" format
 git commit -C <commit_hash>		use msg of another commit (including time & author)
 git commit -c <commit_hash>		... but open editor
 
-git commit --amend -m "hi"		git reset HEAD~ && git add . && git commit -m "hi"
+git commit --amend -m "hi"		like `git reset HEAD~ & git commit -am "hi"`, but only changes CommitDate and not AuthorDate
 git commit --amend			... open editor with msg of prev commit
 git commit --amend --no-edit		... use prev commit msg
 git commit --amend --reset-author	renew time
