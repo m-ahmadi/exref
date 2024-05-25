@@ -5,7 +5,7 @@ git commit -F file.txt			read commit msg from file
 git commit -a				stage already added files that have been modified and deleted (not new files you haven't added)
 git commit -am "hi"			same as: -a -m "hi"
 git commit -m "foo" --no-verify		skip pre-commit and commit-msg hooks
-git commit --date 1668312096		set custom author date (won't change commit date)
+git commit --date 1668312096		set custom AuthorDate (won't change CommitDate)
 git commit --date "2 days ago"		... relative-to-now human-readable format ("yesterday", "2 days ago", "2 day ago", ...)
 git commit --date "2007-12-30 12:35:01"	... in "YYYY-MM-DD hh:mm:ss" format
 
@@ -18,7 +18,7 @@ git commit --amend --no-edit		... use prev commit msg
 git commit --amend --reset-author	renew time
 git commit --amend --date=now		...
 
-git commit -m "1" --date <timestamp>	override author date
+git commit -m "1" --date <timestamp>	override AuthorDate
 
 --------------------------------------------------------------------------------
 delete commit and do again
