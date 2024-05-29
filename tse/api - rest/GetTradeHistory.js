@@ -1,4 +1,4 @@
-let r = await (await fetch('http://cdn.tsetmc.com/api/Trade/GetTradeHistory/46348559193224090/20220221/true')).json();
+let r = await (await fetch('https://cdn.tsetmc.com/api/Trade/GetTradeHistory/46348559193224090/20220221/true')).json();
 r = r.tradeHistory;
 
 var IntraTradeData = [
