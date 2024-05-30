@@ -546,7 +546,7 @@ df = pd.DataFrame([i.split(',') for i in csvstr.split('\n')])
 '''
 df = pd.read_csv('file.csv', index_col=0, parse_dates=True)
 df.index   # [Timestamp('2022-01-01 08:15:00'), Timestamp('2022-01-01 08:45:00'), Timestamp('2022-01-01 09:15:00')]
-df.values  # [100, 150, 200]
+df.values  # [[100], [150], [200]]
 df.columns # ['count']
 
 # read_csv - dtype
