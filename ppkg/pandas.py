@@ -549,6 +549,18 @@ df.index   # [Timestamp('2022-01-01 08:15:00'), Timestamp('2022-01-01 08:45:00')
 df.values  # [[100], [150], [200]]
 df.columns # ['count']
 
+# read_csv - parse specific column(s) as date
+from io import StringIO
+s = '''
+100,2022-01-01
+200,2022-01-02
+300,2022-01-03
+'''
+df1 = pd.read_csv(StringIO(s))
+df2 = pd.read_csv(StringIO(s), parse_dates=[1])
+df1.values # [ ['100','2022-01-01'], ['200','2022-01-02'], ['300','2022-01-03'] ]
+df2.values # [ [100,Timestamp('2022-01-01')], [200,Timestamp('2022-01-02')], [300,Timestamp('2022-01-03')] ]
+
 # read_csv - dtype
 # https://pandas.pydata.org/pandas-docs/stable/user_guide/basics.html#dtypes
 from io import StringIO
