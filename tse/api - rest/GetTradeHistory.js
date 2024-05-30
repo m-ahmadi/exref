@@ -1,4 +1,6 @@
-let r = await (await fetch('https://cdn.tsetmc.com/api/Trade/GetTradeHistory/46348559193224090/20220221/true')).json();
+IS_GROUPED = false; // if true, only returns last tick of a timestamp (not all ticks in that timestamp)
+
+let r = await (await fetch('https://cdn.tsetmc.com/api/Trade/GetTradeHistory/46348559193224090/20220221/'+IS_GROUPED)).json();
 r = r.tradeHistory;
 
 var IntraTradeData = [
