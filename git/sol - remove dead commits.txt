@@ -1,11 +1,11 @@
 git reflog expire --expire-unreachable=now --all
 git gc --prune=now
 
-worked (but drops all stashes too)
+worked (but drops all stashes too, like `git stash clear`)
 --------------------------------------------------
 related commands
 
-git reflog show
-git log --reflog
-git fsck
+git fsck --unreachable --no-reflogs	list dead commits (to see before & after)
+git reflog show				see reflog (to see before & after)
+git log --reflog			...
 --------------------------------------------------
