@@ -1,0 +1,3 @@
+https://www.google.com/?udm=14			no-ai search
+
+https://www.google.com/advanced_search		custom search
