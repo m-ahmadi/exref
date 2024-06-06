@@ -24,4 +24,8 @@ https://www.youtube.com/channel/<channel-hash>/videos?view=0&sort=p
 shortcut
 
 t	theater mode
+>	increase playback speed
+<	decrease playback speed
+.	next frame (while video is paused)
+,	prev frame ...
 --------------------------------------------------------------------------------
