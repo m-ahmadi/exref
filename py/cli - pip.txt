@@ -17,6 +17,9 @@ delete all packages
 	pip freeze > requirements.txt
 	pip uninstall -y -r requirements.txt
 
+install pkg and save it in requirements.txt
+	pip install foo && pip freeze | findstr foo >> requirements.txt
+
 --------------------------------------------------------------------------------
 <requirements>
 
