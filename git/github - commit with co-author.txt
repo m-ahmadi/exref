@@ -1,0 +1,23 @@
+single co-author
+
+git commit
+
+	Commit Title
+	
+	Commit Body
+	
+	Co-authored-by: NAME <NAME@EXAMPLE.COM>
+
+--------------------------------------------------------------------------------
+multiple co-authors (do not add blank lines between each co-author line)
+
+git commit
+
+	Commit Title
+	
+	Commit Body
+	
+	Co-authored-by: NAME <NAME@EXAMPLE.COM>
+	Co-authored-by: ANOTHER-NAME <ANOTHER-NAME@EXAMPLE.COM>
+
+--------------------------------------------------------------------------------
