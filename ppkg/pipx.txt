@@ -1,9 +1,15 @@
-install
-	py -m pip install --user pipx
-	pushd %appdata%\Python\Python39\Scripts && pipx ensurepath
+pipx list
+pipx install <pkg>
 
-uninstall
-	py -m pip uninstall -y pipx argcomplete userpath
+--------------------------------------------------------------------------------
+setup
 
-upgrade
-	py -m pip install --user -U pipx
+py -m pip install --user pipx				install
+
+py -m pipx ensurepath					add to path
+pushd C:\Python39\Scripts && pipx ensurepath		... (alt way, not sure)
+
+py -m pip uninstall -y pipx argcomplete userpath	uninstall
+
+py -m pip install --user -U pipx			upgrade
+--------------------------------------------------------------------------------

@@ -1,0 +1,18 @@
+pip install sphinx			install
+
+py -m sphinx --help			show help
+py -m sphinx source build -j auto	build docs
+
+--------------------------------------------------------------------------------
+fix "Extension error" issue
+
+after trying to build the docs, you might get an error like:
+
+	Extension error (sphinx.ext.autosummary):
+	Handler ... for event 'builder-inited' threw an exception (exception: no module named foo)
+
+you can fix it by adding the name of the modules in the error to an array named `autodoc_mock_imports` in `docs/source/conf.py`
+for example:
+	autodoc_mock_imports = ["foo"]
+
+--------------------------------------------------------------------------------
