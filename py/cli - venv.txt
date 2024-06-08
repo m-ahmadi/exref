@@ -1,6 +1,6 @@
 py -m venv --help
 
-py -m venv env				create new venv named env
+py -m venv env				create new venv named env (common dir names: "venv", "env", ".venv")
 py -m venv env --clear			... but delete existing contents
 
 env\Scripts\activate.bat		activate it
