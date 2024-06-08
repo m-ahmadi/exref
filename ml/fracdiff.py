@@ -18,12 +18,12 @@ fd.sklearn.FracDiffStat(mode='same', window=None|int>0, window_policy='fixed',
 a = np.array([1,2,4,7,0])
 fd.fdiff(a, 0.5) # [1., 1.5, 2.875, 4.6875, -4.1640625]
 
-# like numpy
+# if `n` is integer, same result as `np.diff()`
 np.array_equal(fd.fdiff(a,n=1), np.diff(a,n=1)) # True
 
 # 2d array
 a = np.array([[1,3,6,10], [0,5,6,8]])
-fd.fdiff(a, 0.5, axis=0)  # [ [ 1.,3.,6.,10.], [-0.5,3.5,3.,3.] ]
+fd.fdiff(a, 0.5, axis=0)  # [ [1.,3.,6.,10.], [-0.5,3.5,3.,3.] ]
 fd.fdiff(a, 0.5, axis=-1) # [ [1.,2.5,4.375,6.5625], [0.,5.,3.5,4.375] ]
 
 

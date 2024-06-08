@@ -447,7 +447,7 @@ function matSubtract(a=[], b=[]) {
 function vecPow(a=[], n=2) {
 	let pow = i => Math.pow(i,n);
 	if ( Array.isArray(a[0]) ) {
-		return a.map(i=> i.map(pow))
+		return a.map(i=> i.map(pow));
 	} else {
 		return a.map(pow);
 	}
@@ -455,7 +455,7 @@ function vecPow(a=[], n=2) {
 
 function vecMul(a=[], b=[]) {
 	if ( Array.isArray(a[0]) ) {
-		return a.map((v,i)=> v.map((w,j)=> w * b[i][j]) )
+		return a.map((v,i)=> v.map((w,j)=> w * b[i][j]) );
 	} else {
 		return a.map((v,i)=> v * b[i]);
 	}
@@ -463,7 +463,7 @@ function vecMul(a=[], b=[]) {
 
 function vecDiv(a=[], b=[]) {
 	if ( Array.isArray(a[0]) ) {
-		return a.map((v,i)=> v.map((w,j)=> w / b[i][j]) )
+		return a.map((v,i)=> v.map((w,j)=> w / b[i][j]) );
 	} else {
 		return a.map((v,i)=> v / b[i]);
 	}
