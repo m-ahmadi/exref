@@ -1,0 +1,19 @@
+poetry install		install dependencies from `poetry.lock` if found or `pyprojet.toml`
+
+poetry --help		show generic help
+poetry list		show all commands
+poetry install --help	show help for a command
+
+--------------------------------------------------------------------------------
+install
+
+manual
+py -m venv env				make venv
+env\Scripts\Activate.bat		activate it
+py -m pip install -U pip		update pip itself
+pip install -U setuptools		update setuptools
+pip install poetry			rdy to install poetry itself
+
+powershell
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+--------------------------------------------------------------------------------
