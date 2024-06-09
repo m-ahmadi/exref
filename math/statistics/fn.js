@@ -54,6 +54,54 @@ function interpolate(x=[], xp=[], yp=[]) {/*naive*/
 	});
 }
 
+function convolve(a=[], b=[]) {
+	if (!a.length || !b.length) return;
+	const [volume, kernel] = [a, b];
+	const [len1, len2] = [a, b].map(i => i.length);
+	const r = new Float32Array((len1 + len2) - 1);
+	
+	let i = 0;
+	for (let j=0; j<len1; j++) {
+		r[j] = volume[0] * kernel[j];
+	}
+	
+	for (let i=1; i<len1; i++) {
+		for (let j=0; j<len2; j++) {
+			r[i+j] += volume[i] * kernel[j];
+		}
+	}
+	return [...r];
+}
+function convolve2(a=[], b=[]) {/*naive*/
+	if (!a.length || !b.length) return;
+	let len = a.length;
+	let last = len - 1;
+	let backHalf = false;
+	let idxs = [];
+	let r = [];
+	for (let i=0; i<len; i++) {
+		if (!backHalf) {
+			idxs.push(i);
+			let ia = idxs.slice(0,i+1);
+			let ib = ia.toReversed();
+			let va = ia.map(i=>a[i]);
+			let vb = ib.map(i=>b[i]);
+			r.push(dot(va,vb));
+			if (i === last) {
+				i = 0;
+				backHalf = true;
+			}
+		} else {
+			let ia = idxs.slice(i);
+			let ib = ia.toReversed();
+			let va = ia.map(i=>a[i]);
+			let vb = ib.map(i=>b[i]);
+			r.push(dot(va,vb));
+		}
+	}
+	return r;
+}
+
 function searchsorted(ascSortedNums=[], inserts=[]) {/*naive*/
 	let a = ascSortedNums;
 	let b = [...new Set(inserts)];
