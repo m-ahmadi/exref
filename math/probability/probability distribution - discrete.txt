@@ -1,0 +1,37 @@
+bascially it means the random variable being analyzed is discrete
+
+--------------------------------------------------------------------------------
+example
+
+X = number of heads after 3 coin flips?
+
+sample data:
+	flip results	number of heads
+	H H H		3
+	H H T		2
+	H T H		2
+	H T T		1
+	T H H		2
+	T H T		1
+	T T H		1
+	T T T		0
+
+probability of all possible outcomes: (in the sample data)
+	P(x = 0) = 1/8
+	P(x = 1) = 3/8
+	P(x = 2) = 3/8
+	P(x = 3) = 1/8
+
+so the random variable being analyzed here is "number of heads" in the sample data
+and below is the "discrete probability distribution" of it
+
+4 |	-	-	-	-
+3 |	-	#	#	-
+2 |	-	-	-	-
+1 |	#	-	-	#
+  |__________________________________
+	0	1	2	3
+
+x axis:	value for X (the random variable)
+y axis:	probability of its occurrence (in the sample data)
+--------------------------------------------------------------------------------
