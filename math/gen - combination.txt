@@ -1,0 +1,27 @@
+a subset, selected from elements of a set
+in the selection, order does not matter (can violate original order of the set)
+in the selection, repetition is not allowed (but can be allowed)
+if repetition is allowed it's called "combination with repetition"
+
+--------------------------------------------------------------------------------
+formula of "how many different ways a subset of a set can be selected"
+
+           n!
+nCr = —————————————		without repetition
+       r! (n - r)!
+
+
+       (r + n - 1)!
+nCr = ———————————————		with repetition
+        r! (n - 1)!
+
+	n = length of the set
+	r = length of the combination subset
+
+example
+x = [1,2,3,4]
+n = len(x)
+
+nCr(n,1) = 4		[1] [2] [3] [4]
+nCr(n,2) = 6		[1,2] [1,3] [1,4] [2,2] [2,4] [3,4]
+--------------------------------------------------------------------------------
