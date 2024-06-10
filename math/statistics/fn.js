@@ -1,3 +1,19 @@
+function factorial(n=0) {
+	return n > 1 ? range(n, 1, -1).reduce((r,i) => r * i) : 1;
+}
+
+function permutations(n=0, r=0, repetitionAllowed=false) {
+	return !repetitionAllowed
+		? factorial(n) / factorial(n-r)
+		: Math.pow(n, r);
+}
+
+function combinations(n=0, r=0, repetitionAllowed=false) {
+	return !repetitionAllowed
+		? factorial(n) / ( factorial(r) * factorial(n-r) )
+		: factorial(r+n-1) / ( factorial(r) * factorial(n-1) );
+}
+
 function sqr(n=0) {
 	return Math.pow(n, 2);
 }
