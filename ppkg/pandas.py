@@ -30,6 +30,7 @@ DataFrame.to_json(path_or_buf=None, orient=None|'split|records|index|columns|val
 	lines=False, compression='infer', index=True, indent=None, storage_options=None)
 
 DataFrame.to_dict(orient='dict|list|series|split|tight|records|index', *, into={}, index=True)
+DataFrame.to_numpy(dtype=None|..., copy=False, na_value=<no_default>)
 
 DataFrame.copy(deep=True)
 DataFrame.head(n=5)
@@ -315,6 +316,7 @@ pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv(index=False, header=False) # '1,2\r
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.csv', index=False, header=False)
 pd.DataFrame([ [1,2], [3,4], [5,6] ]).to_csv('myfile.txt', sep='\t', index=False)
 pd.DataFrame([ [1.60,2.456] ]).to_csv('myfile.txt', sep='\t', float_format=lambda i: f'{i:.2f}')
+pd.DataFrame([ [1.60,2.456] ]).to_csv('myfile.txt', sep='\t', float_format='%.2f')
 
 # to json
 pd.Series([1,2,3]).to_json('out.json', orient='values')     # [1,2,3]
