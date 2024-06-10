@@ -1,3 +1,8 @@
-sequence:	a collection of things
-	repetitions are allowed
-	order matters
+a sequence is an enumerated collection of things
+	(enumerated means all items are explicitly listed and not defined by a property or rule)
+
+like a set, it contains elements (aka members or terms)
+unlike a set, same elements can appear multiple times at different positions
+unlike a set, order does matter
+
+number of elements is called the length of the sequence

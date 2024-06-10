@@ -1,3 +1,11 @@
+random variable			a quantity measured
+random process			a sequence of random variables in a probability space (sequence's index is often time)
+
+probability space		a formal model of a random process or "experiment", consists of three elements:
+	sample space		a set of all possible outcomes
+	event space		a set of events (an event being a set of outcomes in the "sample space")
+	probability function	a func which assigns a probability (0, 1] to each event in "event space"
+
 independent events		occurrence of one event does not affect probability of occurrence of the other
 conditional probability		probability of an  event  occurring, given that another event has already occurred
 joint probability		probability of two events occurring together
@@ -9,6 +17,10 @@ probability distribution		probability of all possible values of a variable
 					number of times each possible value of a variable occurs in the dataset (like a frequency table)
 					it's an idealized frequency distribution
 
-probability density function		describes probability distribution of a continuous          variable
-probability mass    function		describes probability distribution of a discrete            variable
-cumulative distribution function	describes probability distribution of a discrete|continuous variable (in a cumulative manner)
+probability density function		describes probability distribution of a absolutely continuous	random variable
+probability mass    function		describes probability distribution of a discrete		random variable
+cumulative distribution function	describes probability distribution of a discrete|continuous|... random variable in a cumulative manner
+
+independent and identically distributed random variables (iid)
+	each random variable has the same probability distribution as the others
+	all random variables are mutually (two-way) independent
