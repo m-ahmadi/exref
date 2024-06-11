@@ -1,10 +1,29 @@
-copy files from os
+set up shared folders and clipboard
 
-in virtualbox
-Devices -> "Insert Guest Additions CD image..."
-install "VBoxWindowsAdditions" from cd drive of virtual machine
-reboot machine
-Machine -> Settings -> Shared Folders
-Add folder
-check Auto-mount and Permanent
-done
+1. Devices -> "Insert Guest Additions CD image..."
+	install "VBoxWindowsAdditions"
+
+2. reboot machine
+
+3. Devices -> Shared Folders -> Shared Folders Settings... -> + button
+	Folder Path:	...
+	check "Auto-mount"
+	check "Make Permanent"
+	OK
+
+4. Devices -> Shared Clipboard -> Bidirectional
+
+done.
+
+--------------------------------------------------
+set up shared folders in v5
+
+1. Devices -> "Insert Guest Additions CD image..."
+	install "VBoxWindowsAdditions" from cd drive of virtual machine
+
+2. reboot machine
+
+3. Machine -> Settings -> Shared Folders
+	Add folder
+	check Auto-mount and Permanent
+--------------------------------------------------
