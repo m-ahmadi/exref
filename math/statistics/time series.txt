@@ -21,8 +21,34 @@ non-stationary		mean & variance change over time
 cyclostationary		statistical properties that vary cyclically with time
 unit root		non-stationary process that does not always have a trend (aka difference-stationary)
 --------------------------------------------------------------------------------
+types of phenomenons
 
 autocorrelation
 	correlation of a signal with a delayed copy of itself as a function of delay
+
 autocovariance
 	given a stochastic process, a function that gives covariance of process with itself at pairs of time points
+
+heteroscedasticity
+	when variance changes in a sequence of random variables (a series with non-stationary variance)
+
+homoscedasticity
+	when all random variables in a sequence have the same variance (a series with stationary variance)
+
+--------------------------------------------------------------------------------
+types of models
+
+ar	auto regressive
+	a linear regression model that uses its own lags as predictors
+	predicts next value base on previous prediction (predict t+1, then predict t+2 with predicted t+1)
+
+ma	moving average model
+	predicts future values based on past forecast erros
+
+arma	auto regressive moving average
+	predicts future values using both past values and past errors
+
+arima	auto regressive integrated moving average
+	combines ar, ma, and differencing (to make series stationary) to predict future values
+
+--------------------------------------------------------------------------------
