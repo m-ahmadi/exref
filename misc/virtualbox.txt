@@ -1,3 +1,5 @@
+copy files from os
+
 in virtualbox
 Devices -> "Insert Guest Additions CD image..."
 install "VBoxWindowsAdditions" from cd drive of virtual machine
