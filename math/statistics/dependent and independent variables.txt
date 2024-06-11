@@ -1,15 +1,28 @@
-relationship between 2 numeric variables (each on 1 axis)
+a study of the relationship between two (numeric) variables
+a variable is considered dependent if it depends on an independent variable
 
-Y = dependent   variable (y-axis)
-X = independent variable (x-axis)
+dependent variable
+	it depends on the values of other variables (by some law or rule)
 
-relationship between X and Y
+independent variable
+	does not depend any other variabes (in the scope of the study)
+	some common independent variables are time, space, density, mass, fluid flow rate
 
-	Y's value depends on value of X
-	Y has multiple values for each value of X
 
+variables are plotted each on one axis (scatter plot)
+	X = independent variable (x-axis)
+	Y = dependent   variable (y-axis)
 
-example:
-y = "examp score"	(depends on x)
-x = "hours studying"
+--------------------------------------------------------------------------------
+example
 
+does "exam score" depends on "hours studying"?
+
+Y = "exam score"
+X = "hours studying"
+
+hours_studying = [2,3,2,1,5,4,3,6,3]
+exam_score = [14,16,12,11,18,17,15,19,15]
+plt.scatter(hours_studying, examp_score); plt.show();
+
+--------------------------------------------------------------------------------
