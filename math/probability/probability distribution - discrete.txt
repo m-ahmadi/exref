@@ -32,6 +32,6 @@ and below is the "discrete probability distribution" of it
   |__________________________________
 	0	1	2	3
 
-x axis:	value for X (the random variable)
-y axis:	probability of its occurrence (in the sample data)
+x axis:  value for X (the random variable)
+y axis:  probability of its occurrence (in the sample data)
 --------------------------------------------------------------------------------
