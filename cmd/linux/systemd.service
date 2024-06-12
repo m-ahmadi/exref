@@ -1,0 +1,157 @@
+# reference
+# https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
+
+--------------------------------------------------
+# example - simplest
+
+[Unit]
+Description=My App
+
+[Service]
+Type=oneshot
+ExecStart=/home/foo/myapp/app.js
+WorkingDirectory=/home/foo/myapp
+
+[Install]
+WantedBy=multi-user.target
+--------------------------------------------------
+# example - simple binary
+
+[Unit]
+Description=My Script
+
+[Service]
+ExecStart=/usr/local/bin/script.js
+WorkingDirectory=/usr/local/bin
+Environment=PATH=/usr/bin:/usr/local/bin
+Restart=always
+RestartSec=10
+RestartSteps=60
+RestartMaxDelaySec=600
+
+[Install]
+WantedBy=default.target
+--------------------------------------------------
+# example - express.js server
+# did not work (but works if `Group=` and `User=` lines are removed)
+
+[Unit]
+Description=My app
+
+[Service]
+ExecStart=/var/www/myapp/app.js
+WorkingDirectory=/var/www/myapp
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production PORT=8080
+Restart=always
+User=nobody
+Group=nogroup
+
+[Install]
+WantedBy=multi-user.target
+--------------------------------------------------
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# all section identifiers (extracted from reference page)
+[Unit] [Install] [Service] [0]
+
+# all params sorted alphabetically (extracted from reference page)
+
+After=
+AmbientCapabilities=
+Before=
+BusName=
+CapabilityBoundingSet=
+Conflicts=
+DefaultDependencies=
+DefaultOOMPolicy=
+DefaultTimeoutAbortSec=
+DefaultTimeoutStartSec=
+DefaultTimeoutStopSec=
+Delegate=
+Description=
+DevicePolicy=
+DynamicUser=
+Environment=
+EnvironmentFile=
+Exec=
+ExecCondition=
+ExecReload=
+ExecStart=
+ExecStartPost=
+ExecStartPre=
+ExecStop=
+ExecStopPost=
+ExitType=
+EXTEND_TIMEOUT_USEC=
+FDSTORE=
+FileDescriptorStoreMax=
+FileDescriptorStorePreserve=
+FinalKillSignal=
+Group=				# note: Debian/Ubuntu uses 'nogroup', RHEL/Fedora uses 'nobody'
+GuessMainPID=
+KillMode=
+KillSignal=
+ListenUSBFunction=
+MONOTONIC_USEC=
+Name=
+NonBlocking=
+NotifyAccess=
+ONE=
+OnFailure=
+OnSuccess=
+OOMPolicy=
+OOMScoreAdjust=
+OpenFile=
+PIDFile=
+PrivateDevices=
+PrivateTmp=
+READY=
+RELOADING=
+ReloadSignal=
+RemainAfterExit=
+Requires=
+Restart=no|always|on-success|on-failure|on-abnormal|on-abort|on-watchdog
+RestartForceExitStatus=
+RestartKillSignal=
+RestartMaxDelaySec="infinity"
+RestartMode=normal|direct
+RestartPreventExitStatus=
+RestartSec=100ms # unit-less value == seconds
+RestartSteps=0
+RootDirectory=
+RootDirectoryStartOnly=
+RuntimeDirectory=
+RuntimeMaxSec=
+RuntimeRandomizedExtraSec=
+Service=
+Slice=
+Sockets=
+StartLimitBurst=
+StartLimitIntervalSec=
+STOPPING=
+SuccessExitStatus=
+SupplementaryGroups=
+SystemCallFilter=
+SystemdService=
+THREE=
+TimeoutAbortSec=
+TimeoutSec=
+TimeoutStartFailureMode=
+TimeoutStartSec=
+TimeoutStopFailureMode=
+TimeoutStopSec=
+TWO=
+Type=simple|oneshot|exec|forking|notify|notify-reload|idle
+USBFunctionDescriptors=
+USBFunctionStrings=
+User=nobody|root|...
+WantedBy=
+	default.target		# alias for either `graphical.target` or `multi-user.target`
+	multi-user.target	# most common
+Wants=
+WATCHDOG_USEC=
+WATCHDOG=
+WatchdogSec=
+WatchdogSignal=
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

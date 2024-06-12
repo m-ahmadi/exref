@@ -1,8 +1,25 @@
-printf "" > file.txt			no trailing newline
-echo -n > file.txt			no trailing newline
-printf salam > file.txt			write text to file
+touch file.txt			empty (no trailing newline)
+echo -n > file.txt		...
+>file.txt			...
+printf '' > file.txt		...
 
+echo '' > file			with trailing newline
+printf '\n' > file		...
 
-cat > myfile.txt
-Hello World!
+echo 'text' > file		write text to file
+printf 'text\n' > file.txt	... with newline
+
+--------------------------------------------------
+write multi-line text to file
+
+cat > file.txt <<END \
+hi, my name is, what?
+my name is, who?
+END
+--------------------------------------------------
+interactively write text to file
+
+cat > file.txt
+hello kitty
 CTRL-D to save and exit
+--------------------------------------------------

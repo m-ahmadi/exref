@@ -1,10 +1,19 @@
-systemctl --type=service		list all services
+systemctl --type=service	list all services
 
-systemctl status httpd			service status
-service httpd status			...
+systemctl status httpd		service status
+service httpd status		...
 
-sudo service httpd start		start   service
-sudo service httpd stop			stop    ...
-sudo service httpd restart		restart ...
+service httpd start		start   service
+service httpd stop		stop    ...
+service httpd restart		restart ...
 
-systemctl enable --now			set service to auto-start on boot
+systemctl enable		set service to auto-start on boot
+systemctl enable --now		.. and start it
+systemctl status foo		show runtime status
+systemctl show foo		show properties
+
+systemctl clean foo		clean runtime, cache, state, logs, config of a unit
+systemctl reload foo		reload unit
+systemctl kill foo		send signal to processes of a unit
+
+systemctl daemon-reload		soft reload (e.g. needed after changing `systemd/system/foo.service`)
