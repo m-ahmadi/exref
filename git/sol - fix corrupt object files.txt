@@ -1,0 +1,8 @@
+check the repo:
+	git fsck --full
+
+solutions
+
+delete all files in .git\* that have a size 0		did not work
+
+delete .git and clone remote and use its .git dir	worked
