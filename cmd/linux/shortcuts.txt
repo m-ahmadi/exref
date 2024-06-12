@@ -1,1 +1,2 @@
 ctrl l		show full address bar in file explorer
+ctrl shift f	find text in terminal

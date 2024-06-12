@@ -1,0 +1,12 @@
+getent passwd			show all users
+cat /etc/passwd			...
+
+getent group			show all groups
+cat /etc/group			...
+
+getent group | grep root	all groups with a specific user
+
+--------------------------------------------------
+in linux, there is a "group", and a "user"
+each "user" belongs to one or more groups
+--------------------------------------------------

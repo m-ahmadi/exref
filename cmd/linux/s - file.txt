@@ -1,5 +1,6 @@
 touch file.txt			create file
 mkdir foo			create dir
+mkdir -p foo/bar		... create parent dirs if not exists
 cp src dest			copy file
 mv src dest			move file
 mv old.txt new.txt		rename file

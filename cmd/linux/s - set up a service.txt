@@ -1,0 +1,61 @@
+﻿1. create script file
+	/usr/local/bin/app.js
+	
+	first line must be:
+		#!/usr/bin/env node
+	make sure file does not have \r\n line-endings, or you'll see
+	"/usr/bin/env: ‘node\r’: No such file or directory" error
+
+
+2. make script file executable
+	sudo chmod +x app.js			set file as executable
+	
+	optional:
+		sudo chmod 744 app.js
+	which allow "read,write,execute" for "owner", and "read" for "group,other"
+
+
+3. create service config file
+	/etc/systemd/system/myapp.service
+	(look in .\systemd.service file for syntax examples)
+	
+	if file is not directly in /etc/systemd/system/
+	then must first run:
+		sudo systemctl enable /absolute/path/to/myapp.service
+	which creates a symlink in the orig path
+	
+	optional:
+		sudo chmod 664 /path/to/myapp.service
+		sudo chmod 644 ...
+	which allows "read,write" for "user,group", and "read" for "other"
+
+
+4. enable service to run on boot, start it, and see its status and full logs
+	sudo systemctl daemon-reload		read latest .service file (not necessary the first time)
+	sudo systemctl enable myapp		enable run on boot
+	sudo systemctl start myapp		start service
+	sudo systemctl status myapp		see status after start
+	journalctl -u myapp			see full logs
+
+done.
+
+--------------------------------------------------
+note
+
+after modifying the `app.js`, must run:
+	sudo systemctl restart myapp
+
+after modifying the `myapp.service` file, must run:
+	sudo systemctl daemon-reload
+	sudo systemctl start myapp
+--------------------------------------------------
+user service
+
+~/myapp/app.js				script must be somewhere under ~/
+~/.config/systemd/user/myapp.service
+systemctl --user daemon-reload
+systemctl --user enable myapp
+systemctl --user start myapp
+systemctl --user status myapp
+journalctl --user -u myapp
+--------------------------------------------------
