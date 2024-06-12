@@ -17,6 +17,7 @@ for /d %i in (*) do type %i/file.txt >> .\out.txt		cat all file.txt in all dirs 
 
 for /r %i in (*.csv) do @type "%i" | find /c /v ""		count lines of all *.csv files
 (for /r %i in (*.csv) do @type "%i") | find /c /v ""		sum of above
+for /r %F in (*) do @if %~zF==0 del "%F"			delete all files that have a size of 0 (recursively)
 
 for %i in (*.csv) do @echo %~ni					get file name without extension
 for /f %i in ('dir *.zip /b') do @winrar x %~ni.zip * %~ni\	... extract all .zip files
