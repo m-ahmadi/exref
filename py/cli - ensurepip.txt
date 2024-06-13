@@ -1,0 +1,15 @@
+installs pip in way that it best matches the python installation it was invoked with
+(better to use this module instead of manually installing pip)
+
+
+py -m ensurepip			install pip if not already installed (otherwise does nothing)
+py -m ensurepip --upgrade	... and upgrade to latest
+
+py -m ensurepip --root <path>	install pip relative to specified path (instead of currently active py)
+py -m ensurepip --user		install pip in user's `site-packages` dir (instead of next to currently active py)
+
+py -m ensurepip --altinstall	do not install pipX (by default installs pipX and pipX.Y where X.Y is version of py used)
+py -m ensurepip --default-pip	install pip, pipX, pipX.Y
+
+
+https://docs.python.org/3/library/ensurepip.html

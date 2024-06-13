@@ -12,6 +12,7 @@ pip list				show installed packages
 pip show <pkg>				show info of installed pacakge
 pip uninstall -y <pkg> 			delete package
 pip freeze > requirements.txt		output installed pkgs in requirements format
+pip -V					show version and where pip comes from (depends which python installation is in PATH)
 
 delete all packages
 	pip freeze > requirements.txt
