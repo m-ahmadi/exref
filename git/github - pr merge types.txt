@@ -1,0 +1,5 @@
+"Create a merge commit"		adds branch commits on top of main after a dedicated commit like "Merge branch ..."
+
+"Squash and merge"		squashes branch commits into last commit of main
+
+"Rebase and merge"		adds branch commits on top of main (equivalent of "fast-forward" merge)
