@@ -1,0 +1,25 @@
+aka serial correlation
+
+correlation between observations of a random variable as a function of time lag between them
+
+when two (or more) items of a time-series contain the same information
+
+uncorrelated does not necessarily mean random
+	data with    autocorrelation is not random
+	data without autocorrelation can still have non-randomness (in other ways)
+	autocorrelation is just one measure of randomness
+
+--------------------------------------------------------------------------------
+autocorrelation plot
+
+a tool for checking randomness in data
+
+randomness is ascertained by computing autocorrelations at varying time lags
+	at each time lag d, it computes correlation between X(t) and X(t-d)
+
+if random
+	autocorrelation values are near zero for all lags
+if non-random
+	one or more autocorrelation values are significantly non-zero
+
+--------------------------------------------------------------------------------

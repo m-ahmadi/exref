@@ -7,9 +7,10 @@ pd.DataFrame.plot(data=[]|DataFrame, x=None, y=None, kind='line|bar|...', ax=Non
 # https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# lag plot (used to look for patterns in time-series)
-# plots x[i] with x[i-1] as a scatter plot (dependent & independent variables study)
 pd.plotting.lag_plot(series=[], lag=1, ax=None, **kwds)
+# https://pandas.pydata.org/docs/reference/api/pandas.plotting.lag_plot.html
+# used to look for patterns in time-series
+# plots x[i] with x[i-1] as a scatter plot (dependent & independent variables study)
 
 # example
 import pandas as pd
@@ -36,4 +37,25 @@ plots(x) # correlated
 
 x = [1, 78, 23, 256, 410, 6]
 plots(x) # uncorrelated
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+pd.plotting.autocorrelation_plot(series=[], ax=None, **kwargs)
+# https://pandas.pydata.org/docs/reference/api/pandas.plotting.autocorrelation_plot.html
+
+# example
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+def plots(a):
+	s = pd.Series(a)
+	_, (ax1, ax2) = plt.subplots(2)
+	ax1.plot(s)
+	pd.plotting.autocorrelation_plot(s, ax=ax2)
+	plt.show()
+
+x = np.cumsum(np.random.randn(50))
+plots(x)
+
+x = np.cumsum(np.random.randn(50))
+plots(x)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

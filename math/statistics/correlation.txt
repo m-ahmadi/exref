@@ -1,0 +1,9 @@
+measures linear correlation between two sets of data
+result is between -1 and 1
+	1	high correlation
+	0	no   correlation
+	-1	high correlation (opposite relationship)
+can only measure a linear correlation (ignores other types of relationships or correlations)
+
+example
+age and height of a person from age 5 to 20 are highly correlated
