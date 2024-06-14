@@ -51,6 +51,7 @@ DataFrame.value_counts(subset=None|[], normalize=False, sort=True, ascending=Fal
 DataFrame.insert(loc=0, column=''|0|{}, value=0|[], allow_duplicates=bool)
 DataFrame.compare(other=DataFrame, align_axis=1|0|'columns|index', keep_shape=False, keep_equal=False, result_names=['self','other'])
 DataFrame.reindex(labels=None|[], *, index=None|[], columns=None|[], axis=None|0|'', method=None|'backfill|bfill|pad|ffill|nearest', copy=None|bool, level=None|0|'', fill_value=np.NaN, limit=None|0, tolerance=None|0|[])
+DataFrame.shift(periods=1, freq=None, axis=0, fill_value=<no_default>, suffix=None)
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -62,6 +63,7 @@ DataFrame.apply(func, axis=0|1|'index|columns', raw=False, result_type=None|'exp
 
 Series.value_counts(normalize=False, sort=True, ascending=False, bins=None|0, dropna=True)
 Series.count(level=None|0|'')
+Series.shift(periods=1, freq=None, axis=0, fill_value=<no_default>, suffix=None)
 
 Index.duplicated(keep='first|last'|False)
 Index.union(other=Index|[], sort=None|bool)
@@ -530,6 +532,11 @@ df.reindex(idx2, method='nearest') # [1,1,    1,na,2,  2,2]      fill with neare
 idx1 = pd.Index([1,2,3,4])
 idx2 = pd.Index([3,4,5,6])
 idx1.union(idx2) # [1,2,3,4,5,6]
+
+# shift
+s = pd.Series([1,2,3,4])
+s.shift(2)               # [na, na, 1, 2]
+s.shift(2, fill_value=0) # [0, 0, 1, 2]
 
 # read_csv - from string
 from io import StringIO
