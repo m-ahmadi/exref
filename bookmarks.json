@@ -11846,6 +11846,11 @@
                   "url": "https://git-scm.com/downloads"
                 },
                 {
+                  "name": "git-filter-repo",
+                  "type": "url",
+                  "url": "https://github.com/newren/git-filter-repo"
+                },
+                {
                   "name": "docs",
                   "type": "url",
                   "url": "https://git-scm.com/doc"
