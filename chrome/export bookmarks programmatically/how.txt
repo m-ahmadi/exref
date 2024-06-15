@@ -6,6 +6,26 @@ and there's a Bookmark.bak as well which is a backup file.
 
 --------------------------------------------------------------------------------
 method 1
+
+export:  make a copy of the `Bookmark` file
+import:  replace `Bookmark` file in original path with your copy (then restart chrome)
+
+issues:
+	everytime you visit a bookmark:
+		its "date_last_used" property is updated
+		the "date_modified" property of its parent folder is also updated
+	everytime you add a bookmark:
+		its "date_added" property is updated
+	
+	they can be fixed by unsetting these properties in the file before copying it
+	the script .\copyraw-unsetdate.js does this exact thing
+
+import in another browser:
+	1. import using the mentioned method above
+	2. export using chrome's ui (ctrl shif o) to get `.html` file
+	3. use `.html` file to import in another browser
+--------------------------------------------------------------------------------
+method 2
 using a powershell script that takes the Bookmark file from chrome,
 and converts its content from json to html and writes a new .html file.
 
@@ -20,12 +40,4 @@ diffs:
   chrome outputs ICON attr with data uris (ICON="data:image/png;base64,...) while this script does not
 
 but it works. (imported and tested, could icons be affected on a new chrome install?)
---------------------------------------------------------------------------------
-method 2
-
-just copy and paste the Bookmark file in its path on another computer.
-(not sure how to import from it)
-
-drawback
-you can only move your bookmarks to another chrome, not firefox etc.
 --------------------------------------------------------------------------------
