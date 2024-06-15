@@ -1,0 +1,11 @@
+gfr --invert-paths --path file.txt		remove file from history
+gfr --invert-paths --path-glob my*.txt		... files that math pattern
+
+gfr --help
+
+--------------------------------------------------------------------------------
+install
+
+powershell -C "iwr https://raw.githubusercontent.com/newren/git-filter-repo/main/git-filter-repo -O $Env:windir/gfr"
+echo @py %windir%\gfr %* > %windir%\gfr.cmd
+--------------------------------------------------------------------------------
