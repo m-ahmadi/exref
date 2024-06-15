@@ -13,15 +13,21 @@ if (args.length === 2) {
 
 const bookmarks = JSON.parse(fs.readFileSync(srcpath));
 
-unsetDates(bookmarks.roots['bookmark_bar']);
+delete bookmarks['checksum'];
 
-function unsetDates(o={}) {
-	o['date_added'] = '0';
-	o['date_last_used'] = '0';
-	if (o['type'] === 'folder') o['date_modified'] = '0';
+deleteThings(bookmarks.roots['bookmark_bar']);
+deleteThings(bookmarks.roots['other']);
+deleteThings(bookmarks.roots['synced']);
+
+function deleteThings(o={}) {
+	delete o['date_added'];
+	delete o['date_last_used'];
+	if (o['type'] === 'folder') delete o['date_modified'];
+	delete o['guid'];
+	delete o['id'];
 	let childs = o.children || [];
 	for (let child of childs) {
-		unsetDates(child);
+		deleteThings(child);
 	}
 }
 

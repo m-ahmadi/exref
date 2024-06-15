@@ -16,8 +16,14 @@ issues:
 		the "date_modified" property of its parent folder is also updated
 	everytime you add a bookmark:
 		its "date_added" property is updated
+	when loading the bookmarks for the first time (or when you change too many bookmarks):
+		their "id" property is re-assigned
+	when changing too many bookmarks (specially if changing parent-child relationships):
+		their "guid" property is re-assigned
+	when any change happens:
+		the global "checksum" property is changed
 	
-	they can be fixed by unsetting these properties in the file before copying it
+	they can all be fixed by removing these properties in the file before copying it
 	the script .\copyraw-unsetdate.js does this exact thing
 
 import in another browser:
