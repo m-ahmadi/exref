@@ -1,7 +1,27 @@
 gfr --invert-paths --path file.txt		remove file from history
 gfr --invert-paths --path-glob my*.txt		... files that math pattern
+gfr --replace-message expressions.txt		rewrite commit messages (based on rules defined in a file)
 
 gfr --help
+
+https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html
+
+--------------------------------------------------------------------------------
+expressions.txt syntax
+
+EXPRESSION		REPLACES 	A		WITH		B
+
+p455w0rd				p455w0rd			***REMOVED***
+foo==>bar				foo				bar
+glob:*666*==>				any line containing 666		a blank line
+regex:\bdriver\b==>pilot		driver				pilot 
+literal:MM/DD/YYYY==>YYYY-MM-DD		exact text MM/DD/YYYY		exact text YYYY-MM-DD
+
+regex:([0-9]{2})/([0-9]{2})/([0-9]{4})==>\3-\1-\2
+					date form MM/DD/YYYY		date form YYYY-MM-DD
+
+
+https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_content_based_filtering
 
 --------------------------------------------------------------------------------
 install
