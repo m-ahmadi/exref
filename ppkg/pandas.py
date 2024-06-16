@@ -52,6 +52,7 @@ DataFrame.insert(loc=0, column=''|0|{}, value=0|[], allow_duplicates=bool)
 DataFrame.compare(other=DataFrame, align_axis=1|0|'columns|index', keep_shape=False, keep_equal=False, result_names=['self','other'])
 DataFrame.reindex(labels=None|[], *, index=None|[], columns=None|[], axis=None|0|'', method=None|'backfill|bfill|pad|ffill|nearest', copy=None|bool, level=None|0|'', fill_value=np.NaN, limit=None|0, tolerance=None|0|[])
 DataFrame.shift(periods=1, freq=None, axis=0, fill_value=<no_default>, suffix=None)
+DataFrame.squeeze(axis=None|0|1|'index|columns|rows')
 
 DataFrame.sum(axis=None, skipna=True, level=None|0|'', numeric_only=None|bool, min_count=0, **kwargs)
 DataFrame.mean(axis=<no_default>|'columns|index'|0, skipna=True, level=None|0|'', numeric_only=None|bool, **kwargs)
@@ -429,6 +430,19 @@ s1 = pd.Series([4,5,6], index=[0,1,2])
 s2 = pd.Series([7,8,9], index=[3,4,5])
 cat = pd.concat({'a':s1, 'b':s2}, axis=1)
 cat # { 'a':[4,5,6,nan,nan,nan], 'b':[nan,nan,nan,7,8,9] }
+
+# squeeze
+pd.Series([1,2]).squeeze()          # does nothing
+pd.Series([1]).squeeze()            # 1
+pd.DataFrame({'a':[1,2]}).squeeze() # Series([1,2])
+pd.DataFrame({'a':[1]}).squeeze()   # 1  (think like double squeeze: df => series => scalar)
+
+pd.DataFrame({'a':[1,2],'b':[3,4]}).squeeze('rows')    # does nothing (note: in docs, 'rows' is not mentioned but used in examples)
+pd.DataFrame({'a':[1],'b':[2]}).squeeze('rows')        # Series([1,2], index=['a','b'])
+pd.DataFrame({'a':[1],'b':[2]}).squeeze('index')       # ...
+
+pd.DataFrame({'a':[1,2],'b':[3,4]}).squeeze('columns') # does nothing
+pd.DataFrame({'a':[1,2]}).squeeze('columns')           # Series([1,2])
 
 # assign
 df = pd.DataFrame({'a':[2,4]})
