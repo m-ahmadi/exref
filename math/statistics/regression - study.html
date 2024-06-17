@@ -1,0 +1,71 @@
+<pre><h3>
+One way to think about linear regression is to think about the diff between data points.
+The closer the diff values are to being constant, the more linear the relationship is.
+
+In other words, each data point is at a deviation from the underlying relationship.
+</h3></pre>
+
+<div id="_charts" style="display: grid; grid-template-columns: auto auto auto;"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./fn.js"></script>
+<script>
+x = [10,20,30,40];
+y = [25,35,45,55];
+plot(x, y, 'x and y with constant diffs (perfectly linear)');
+
+x = [10,20,30,40];
+y = [25,30,40,55];
+plot(x, y, 'x with constant diffs, y without it');
+
+x = [10,15,35,40];
+y = [25,35,45,55];
+plot(x, y, 'y with constant diffs, x without it');
+
+difs = [10,20,30,40,50,60,70,80];
+len = 200;
+x = gen(difs, len);
+y = gen(difs, len);
+plot(x, y, 'generated data out of one discrete set of possible diffs for x and y');
+
+len = 200;
+x = gen([10,200,5,40,80], len);
+y = gen([10,20,30,40,50,60,70,80], len);
+plot(x, y, 'generated data out of two discrete sets of possible diffs for x and y');
+
+
+function gen(difs=[10,20,30,40], len=20) {
+	let lasti = difs.length - 1;
+	let sign = () => Math.round(Math.random());
+	let rndif = t => (t=difs[rand(0,lasti)], sign()?+t:-t);
+	return range(len).reduce((r,i,j) => [...r, r[r.length-1] + rndif()], [0]);
+}
+
+function plot(x, y, text='', scale) {
+	let [w, h] = [600,300];
+	let [div,canvas] = ['div','canvas'].map(i=>document.createElement(i));
+	[canvas.width, canvas.height] = [w, h];
+	[div.style.width, div.style.height] = [w, h];
+	div.append(canvas);
+	_charts.append(div);
+	
+	let serie1 = x.map((i,j)=>({x:i, y:y[j]}));
+	let serie2 = regressionLinear(x,y).map((i,j)=>({x:x[j], y:i}));
+	
+	let options = { plugins:{title:{display:true,text}, legend:{display:false}} };
+	if (scale) {
+		let [min,max] = scale;
+		options.plugins.scales = {x:{min,max},y:{min,max}};
+	}
+	new Chart(canvas, {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{data:serie1, backgroundColor:'red', radius:5},
+				{data:serie2, type:'line', fill:false, borderColor:'blue', radius:2, borderWidth:2, lineTension:0},
+			]
+		},
+		options,
+	});
+}
+</script>
