@@ -6,8 +6,8 @@
 
 <script>
 n = 50;
-yTrue = [...Array(n)].map(()=> Math.round(Math.random()));
-yPred = [...Array(n)].map(()=> Math.random());
+yTrue = [...Array(n)].map(()=> rand());
+yPred = [...Array(n)].map(()=> rand(0,1,true));
 
 [fprs, tprs, thresholds] = rocCurve(yTrue, yPred);
 
@@ -37,13 +37,12 @@ classes = [0, 1, 2];
 nClasses = classes.length;
 
 // gen multiclass probability estimates (binarized)
-randFloat = (min,max) => Math.random() * (max-min) + min;
 yPred = y.map(i => {
 	let a = [];
 	let prev;
 	for (let i=0; i<nClasses; i++) {
 		let sm = sum(a);
-		let p = randFloat(0, a.length ? 1-sm : 1);
+		let p = rand(0, a.length ? 1-sm : 1, true);
 		a.push(p);
 		prev = p;
 		if (i === nClasses-1) {// make sure sums to 1

@@ -835,6 +835,15 @@ function ad(prices={high: [], low: [], close: [], volume: []}, decimals=4) {
 }
 
 // random
+function rand(min=0, max=1, decimal=false, inclusiveMax=true) {/*random from uniform distribution*/
+	if (decimal) {
+		return Math.random() * (max - min) + min;
+	} else {
+		[min, max] = [Math.ceil(min), Math.floor(max)];
+		return Math.floor( Math.random() * (max - min + (inclusiveMax?1:0)) ) + min;
+	}
+}
+
 function randn() {/*random from gaussian distribution*/
 	let [u, v] = [0, 0];
 	while (u === 0) u = Math.random();
