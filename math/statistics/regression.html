@@ -70,12 +70,7 @@ chart.update();
 function randomPoints(count=3, ymin=0, ymax=10) {
 	return [...Array(count).keys()].map(x => ({
 		x,
-		y: randInt(ymin, ymax)
+		y: rand(ymin, ymax)
 	}));
-}
-function randInt(min=0, max=10) {
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor( Math.random() * (max - min + 1) ) + min;
 }
 </script>

@@ -13,8 +13,7 @@ x          samples
 <script src="./fn.js"></script>
 <script>
 data = [10, 132, 313, 347, 316, 315, 276, 432, 216, 68, 397, 493, 101, 143, 132, 294, 56, 348, 256, 172];
-var rn = (n,x) => Math.floor(Math.random()*(x-n)+n);
-//var data = [...Array(20)].map(()=>rn(0,500));
+//var data = [...Array(20)].map(()=>rand(0,500));
 
 var cu = data.map((v,i,a)=> i>0 ? mean(a.slice(0,i)) : 0); // must exclude i
 var cs = data.map((v,i,a)=> i>0 ? stdv(a.slice(0,i)) : 0);

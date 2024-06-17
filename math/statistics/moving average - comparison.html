@@ -5,11 +5,10 @@
 
 <script src="./fn.js"></script>
 <script>
-var rn = (n,x) => Math.floor(Math.random()*(x-n)+n);
 data=[300];
 for (let i=1; i<20; i++) {
-	var p=data[i-1], d=p*0.05, v=rn(p-d, p+d), k=2;
-	while (v===p) {v=rn(p-d, p+d*k); k*=2;}
+	var p=data[i-1], d=p*0.05, v=rand(p-d, p+d), k=2;
+	while (v===p) {v=rand(p-d, p+d*k); k*=2;}
 	data.push(v);
 }
 
