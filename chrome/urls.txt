@@ -8,7 +8,7 @@ chrome://apps
 chrome://downloads
 ...
 
-chrome://settings/siteData		all cookies and site data
+chrome://settings/content/all		all cookies
 chrome://settings/passwords
 
 chrome://dino
