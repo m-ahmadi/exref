@@ -12434,6 +12434,11 @@
                   "name": "DevDocs",
                   "type": "url",
                   "url": "https://devdocs.io/"
+                },
+                {
+                  "name": "chatgpt prompt",
+                  "type": "url",
+                  "url": "https://github.com/f/awesome-chatgpt-prompts"
                 }
               ],
               "name": "tool",
