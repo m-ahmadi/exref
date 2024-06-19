@@ -1,0 +1,48 @@
+https://commandos.fandom.com/wiki/Commandos:_Behind_Enemy_Lines
+
+================================================================================
+A	B				C			D		E
+================================================================================
+1	Baptism of Fire			-			-		-
+2	A Quiet Blowup			YS2B7 NS2B7		-		Discret Explosion
+3	Reverse Engineering		YFQBF NMD1T ZDD1T	-		Backward Throttling
+4	Restore Pride			YDNCQ RFF1J		-		An Eye For An Eye
+5	Blind Justice			4U5TL K4TCG		4JJXB		-
+6	Menace of the Leopold		IIR4M MIR4M		5LIMV		Leopold's Menace
+7	Chase of the Wolves		SNYWX			-		Hunting Wolves
+8	Pyrotechnics			K99XC			7QVJV		Fireworks
+9	A Courtesy Call			AAAX1			-		-
+10	Operation Icarus		JSGPW			-		Icare Operation
+11	In the Soup			CMODD			-		-
+12	Up on the Roof			JGHD3			-		On the Roof
+13	David and Goliath		PUUWW			-		-
+14	D-Day Kick Off			WT348			-		-
+15	End of the Butcher		139P0			-		-
+16	Stop Wildfire			L9IPV			-		Fire Halt
+17	Before Dawn			4JJXB			-		-
+18	The Force of Circumstance	YJOJG			-		The Strength of Hazard
+19	Frustrate Retaliation		YFCWJ			-		Frustated Revenge
+20	Operation Valhalla		GDKWT			-		-
+================================================================================
+A: mission number
+B: mission name
+C: codes that work when save is disabled
+D: codes that work when save is enabled
+E: another possible name for the mission
+
+note:
+with save enabled, most codes do not work (except a few)
+
+--------------------------------------------------
+enable save game
+
+<install_dir>\OUTPUT\Comando.cfg
+
+append:
+
+.SIZE [ .INITSIZE 3 ]
+.PROFILE [ .USER 0 ]
+.DEVELOP 1
+
+save
+--------------------------------------------------
