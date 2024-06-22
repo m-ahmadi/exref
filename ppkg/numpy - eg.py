@@ -353,6 +353,13 @@ b = a.copy()
 b[0][0] = 57
 a[0][0] # 1
 
+# "mathy" (aka "Mathy McMatherson")
+x = [ [1,2,3],
+			[4,5,6],
+			[7,8,9], ]
+np.diag(x)     # [1,5,9]
+np.diagonal(x) # ...
+
 # misc
 np.flip([1,2,3]) # [3,2,1]
 np.flip([1,2,3]).tolist() == [*reversed([1,2,3])] # True
