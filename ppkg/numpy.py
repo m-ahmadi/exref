@@ -171,11 +171,11 @@ np.degrees
 np.delete
 np.deprecate
 np.deprecate_with_doc
-np.diag
+np.diag(v=∂, k=0)
 np.diag_indices
 np.diag_indices_from
 np.diagflat
-np.diagonal
+np.diagonal(a=∂, offset=0, axis1=0, axis2=1)
 np.diff(a=∂, ?n=1, ?axis=-1, ?prepend=∂, ?append=∂)
 np.digitize
 np.disp

@@ -14,6 +14,10 @@ function combinations(n=0, r=0, repetitionAllowed=false) {
 		: factorial(r+n-1) / ( factorial(r) * factorial(n-1) );
 }
 
+function diagonal(x=[]) {
+	return x.map((v,i) => v[i]);
+}
+
 function sqr(n=0) {
 	return Math.pow(n, 2);
 }
