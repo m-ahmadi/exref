@@ -277,7 +277,7 @@ np.histogram_bin_edges
 np.histogram2d
 np.histogramdd
 np.hsplit
-np.hstack
+np.hstack(tup=[∂,...], *, dtype=None|''|<dtype>, casting='same_kind|no|equiv|safe|unsafe')
 np.hypot
 np.i0
 np.identity

@@ -18,6 +18,13 @@ function diagonal(x=[]) {
 	return x.map((v,i) => v[i]);
 }
 
+function hstack(...args) {
+	let col = args[0];
+	let r = args.map(a => col.map((_,j)=>a[j]).flat());
+	let is2d = Array.isArray(col[0]);
+	return is2d ? r : r.flat();
+}
+
 function sqr(n=0) {
 	return Math.pow(n, 2);
 }
