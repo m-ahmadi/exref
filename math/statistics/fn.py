@@ -1,19 +1,54 @@
+import scipy as sp
 import numpy as np
 from math import floor
-from scipy import stats
 
 # trim mean
-stats.trim_mean([1,2,3,4,5,6,7,8,9], .1) # 5
+sp.stats.trim_mean([1,2,3,4,5,6,7,8,9], .1) # 5
 
 # linear regression
 x = [0,1,2,3,4]
 y = [4,4,6,9,5]
-res = stats.linregress(x, y)
+res = sp.stats.linregress(x, y)
 y_hat = list(res.intercept + res.slope * np.array(x)) # [4.2, 4.9, 5.6, 6.3, 7]
 
 # pearson corrolation
-r, _ = stats.pearsonr([1,2,3,4], [2,3,2,1])
-print(r)
+res = sp.stats.pearsonr([1,2,3,4], [2,3,2,1])
+res[0]        # -0.6324555320336758
+res.statistic # ...
+
+res = np.corrcoef([1,2,3,4],[2,3,2,1])
+res[0][1]     # -0.6324555320336759
+
+# cross-correlation
+x = [1,2,3,4]
+y = [2,3,2,1]
+sp.signal.correlate(x, y)       # [1,4,10,18,21,18,8]
+np.correlate(x, y, mode='full') # ...
+cross_correlation(x, y)         # ...
+sm.tsa.stattools.ccf(x, y)      # [-0.63, 0.21, 0.95, -0.]  (statistical sense rather than signal processing)
+
+def cross_correlation(x, y):#needs refactor, but ok for now
+	n = len(x)
+	m = len(y)
+	res_len = n + m - 1
+	res = [0] * res_len
+	lags = range(-m+1, n)
+	for lag in lags:
+		sum_product = 0
+		for i in range(n):
+			j = i + lag
+			if j < 0 or j >= m:
+				continue
+			sum_product += x[i] * y[j]
+		res[lag+m-1] = sum_product
+	res.reverse()
+	return res
+
+# autocorrelation and partial autocorrelation
+from statsmodels.tsa.stattools import acf, pacf
+x = [12,5,1,3,79,45,1,36,5,42]
+r1 = acf(x, nlags=1)  # [1.0, -0.031956926307083]
+r2 = pacf(x, nlags=1) # [1.0, -0.03550769589675884]
 
 
 def minmax(nums=[]):
