@@ -1,4 +1,4 @@
-aka serial correlation
+aka serial correlation, acf
 
 correlation between observations of a random variable as a function of time lag between them
 
@@ -9,13 +9,18 @@ uncorrelated does not necessarily mean random
 	data without autocorrelation can still have non-randomness (in other ways)
 	autocorrelation is just one measure of randomness
 
+partial autocorrelation (pacf)
+	acf measures linear relationship between Y[t-d] and Y[t] (including linear influence of in-between items)
+	pacf ignores variables that lie between Y[t-d] and Y[t]
+	pacf is useful for determining the order in AR, MA, ARMA, ARIMA models
+
 --------------------------------------------------------------------------------
 autocorrelation plot
 
 a tool for checking randomness in data
 
 randomness is ascertained by computing autocorrelations at varying time lags
-	at each time lag d, it computes correlation between X(t) and X(t-d)
+	at each time lag d, it computes correlation between Y[t] and Y[t-d]
 
 if random
 	autocorrelation values are near zero for all lags

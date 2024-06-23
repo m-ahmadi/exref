@@ -20,13 +20,17 @@ res = adfuller(x=[], maxlag=None|0, regression='c|ct|ctt|n', autolag='AIC|BIC|t-
 # https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.adfuller.html
 adf, pvalue, usedlag, nobs, critical_values, icbest, resstore = res
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# autocorrelation plot
-from statsmodels.graphics.tsaplots import plot_acf
-plot_acf(x=[], ax=None, lags=None, *, alpha=0.05, use_vlines=True, adjusted=False, fft=False, missing='none', title='Autocorrelation', zero=True, auto_ylims=False, bartlett_confint=True, vlines_kwargs=None, **kwargs)
+# autocorrelation and partial autocorrelation plot
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+
+plot_acf(x=[], ax=None, lags=None|0|[], *, alpha=0.05, use_vlines=True, adjusted=False, fft=False, missing='none', title='Autocorrelation', zero=True, auto_ylims=False, bartlett_confint=True, vlines_kwargs=None, **kwargs)
 # https://www.statsmodels.org/stable/generated/statsmodels.graphics.tsaplots.plot_acf.html
 
+plot_pacf(x=[], ax=None, lags=None|0|[], alpha=0.05, method='ywm', use_vlines=True, title='Partial Autocorrelation', zero=True, vlines_kwargs=None, **kwargs)
+# https://www.statsmodels.org/stable/generated/statsmodels.graphics.tsaplots.plot_pacf.html
+
 # example
-from statsmodels.graphics.tsaplots import plot_acf
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 import numpy as np
 import matplotlib.pyplot as plt
 x = np.cumsum(np.random.randn(50))

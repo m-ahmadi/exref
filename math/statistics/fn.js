@@ -277,6 +277,96 @@ function pearsonR(x=[], y=[]) {
 	return numerator / denominator;
 }
 
+function crossCorrelation(x=[], y=[]) {/*needs refactor to use product() and sum(), but ok for now*/
+	let n = x.length;
+	let m = y.length;
+	let resLen = n + m - 1;
+	let res = Array(resLen).fill(0);
+	let lags = range(-m+1, n);
+	for (let lag of lags) {
+		let sumProduct = 0;
+		for (let i of range(n)) {
+			let j = i + lag;
+			if (j < 0 || j >= m) continue;
+			sumProduct += x[i] * y[j];
+		}
+		res[lag+m-1] = sumProduct;
+	}
+	res.reverse();
+	return res;
+}
+
+function acf(x=[], nlags=1) {/*statsmodels.tsa.stattools.acf()*/
+	let avf = acovf(x);
+	let avf0 = avf[0];
+	let acf = avf.slice(0, nlags+1).map(i => i / avf0);
+	return acf;
+}
+
+function pacf(x=[], nlags=1) {/*statsmodels.tsa.stattools.pacf(mode='ld')*/
+	nlags = Math.max(nlags, 1);
+	let acv = acovf(x, true);
+	let ld = levinsonDurbin(acv, nlags, true);
+	return ld.pacf;
+}
+
+function acovf(x=[], adjusted=false, nlag) {/*statsmodels.tsa.stattools.acovf()*/
+	let n = x.length;
+	
+	if (!nlag) {
+		nlag = n - 1;
+	} else if (nlag > n - 1) {
+		throw Error('nlag must be smaller');
+	}
+	
+	let u = mean(x);
+	let xo = x.map(i => i - u);
+	
+	let d = Array(2 * n-1).fill(n);
+	
+	if (adjusted) {
+		let xi = range(1, n+1);
+		d = xi.concat(xi.slice(0,-1).toReversed());
+	}
+	
+	let cc = crossCorrelation(xo, xo);
+	let acov = vecDiv(cc.slice(n-1), d.slice(n-1));
+	
+	return acov;
+}
+
+function levinsonDurbin(s=[], nlags=1, isacov=false) {/*statsmodels.tsa.statstools.levinson_durbin()*/
+	let order = nlags;
+	
+	let sxxM = isacov ? s : acovf(s).slice(0, order+1);
+	
+	let phi = [...Array(order+1)].map(() => Array(order+1).fill(0) );
+	let sig = Array(order+1).fill(0);
+	
+	// initial points for the recursion
+	phi[1][1] = sxxM[1] / sxxM[0];
+	sig[1] = sxxM[0] - phi[1][1] * sxxM[1];
+	
+	for (let k of range(2, order+1)) {
+		let a = phi.slice(1,k).map(i=>i[k-1]);
+		let b = sxxM.slice(1,k).toReversed();
+		
+		phi[k][k] = (sxxM[k] - dot(a,b)) / sig[k-1];
+		
+		for (let j of range(1, k)) {
+			phi[j][k] = phi[j][k-1] - phi[k][k] * phi[k-j][k-1];
+			sig[k] = sig[k-1] * (1 - phi[k][k] ** 2);
+		}
+	}
+	
+	let sigmaV = sig[sig.length-1];
+	let arcoefs = phi.slice(1).map(i=>i[i.length-1]);
+	let pacf = diagonal(phi);
+	pacf[0] = 1.0;
+	
+	return {sigmaV, arcoefs, pacf, sig, phi};
+}
+
 function durbinWatson(x=[], y=[]) {
 	let e = regressionLinear(x,y).map((v,i)=> y[i]-v);
 	return sum(x.map((v,t)=> t>0 ? sqr(e[t] - e[t-1]) : 0)) / sum(e.map(sqr));

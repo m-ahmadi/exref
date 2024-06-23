@@ -150,8 +150,8 @@ np.copy(a=∂, order='K|C|F|A', subok=False)
 np.copysign
 np.copyto
 np.core
-np.corrcoef
-np.correlate
+np.corrcoef(x=∂, y=None|∂, rowvar=True, bias=<NoValue>, ddof=<NoValue>, *, dtype=None)
+np.correlate(a=∂, v=∂, mode='valid|same|full')
 np.cos
 np.cosh
 np.count_nonzero
