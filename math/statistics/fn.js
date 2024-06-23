@@ -277,18 +277,6 @@ function pearsonR(x=[], y=[]) {
 	return numerator / denominator;
 }
 
-function diff(_x=[], _d=1) {
-	let x = [..._x];
-	
-	for (let d of range(1, _d+1)) {
-		let L = 0;
-		let k = Math.pow(1-L, d);
-		x = range(1, x.length).map(i=> k*x[i] - k*x[i-1] );
-	}
-	
-	return x;
-}
-
 function durbinWatson(x=[], y=[]) {
 	let e = regressionLinear(x,y).map((v,i)=> y[i]-v);
 	return sum(x.map((v,t)=> t>0 ? sqr(e[t] - e[t-1]) : 0)) / sum(e.map(sqr));
@@ -581,6 +569,18 @@ function slope(x=[], y=[]) {
 		m.push(dy / dx);
 	}
 	return m;
+}
+
+function diff(_x=[], _d=1) {
+	let x = [..._x];
+	
+	for (let d of range(1, _d+1)) {
+		let L = 0;
+		let k = Math.pow(1-L, d);
+		x = range(1, x.length).map(i=> k*x[i] - k*x[i-1] );
+	}
+	
+	return x;
 }
 
 function rocCurve(yTrue=[], yPred=[], thresholds=10, posLabel=1) {
