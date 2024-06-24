@@ -296,6 +296,22 @@ function crossCorrelation(x=[], y=[]) {/*needs refactor to use product() and sum
 	return res;
 }
 
+function acfNaive(x=[], nlags=1) {
+	let res = [1];
+	let lags = range(1, nlags+1);
+	let n = x.length;
+	let u = mean(x);
+	for (let lag of lags) {
+		let t1 = range(lag+1, n);
+		let t2 = range(lag, n);
+		let numerator = sum( t1.map(t => (x[t]-u) * (x[t-lag]-u)) );
+		let denominator = sum( t2.map(t => sqr(x[t]-u)) );
+		let autocorr = numerator / denominator;
+		res.push(autocorr);
+	}
+	return res;
+}
+
 function acf(x=[], nlags=1) {/*statsmodels.tsa.stattools.acf()*/
 	let avf = acovf(x);
 	let avf0 = avf[0];
