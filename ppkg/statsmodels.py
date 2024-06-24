@@ -35,5 +35,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 x = np.cumsum(np.random.randn(50))
 plot_acf(x, lags=49)
+plot_pacf(x, lags=25) # lags <= len(x)/2
 plt.show()
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
