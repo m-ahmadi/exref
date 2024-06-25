@@ -43,5 +43,6 @@ d - dt.timedelta(days=1)  # datetime(2021, 9, 30, 0, 0)
 d = dt.date(2021,10,1)
 d - dt.timedelta(days=30) # date(2021, 9, 1)
 
-[dt.date(2021,10,1) - dt.timedelta(days=i) for i in range(1,4)]                 # [date(2021,9,30), date(2021,9,29), date(2021,9,28)]
-[(dt.date(2021,10,1)-dt.timedelta(i)).strftime('%Y-%m-%d') for i in range(1,4)] # ['2021-09-30', '2021-09-29', '2021-09-28']
+[dt.date(2021,1,1) - dt.timedelta(days=i) for i in range(1,4)]                 # [date(2021,9,30), date(2021,9,29), date(2021,9,28)]
+[dt.date(2021,1,1) + dt.timedelta(days=i) for i in range(4)]                   # [date(2021,1,1), date(2021,1,2), date(2021,1,3), date(2021,1,4)]
+[(dt.date(2021,1,1)-dt.timedelta(i)).strftime('%Y-%m-%d') for i in range(1,4)] # ['2021-09-30', '2021-09-29', '2021-09-28']
