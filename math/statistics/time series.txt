@@ -9,6 +9,14 @@ period			time it takes to complete 1 cycle
 frequency		number of cycles occurred in 1 unit (1/period)
 
 --------------------------------------------------------------------------------
+time series components
+
+base level
+trend			increasing or decreasing slope
+seasonality		distinct repeated pattern between fixed calendar-based intervals (due to seasonal factors)
+error			random error in data that is not explained by forecast formula, trend, seasonality, ... (aka residual forecast error)
+cycle			rise and fall pattern not in fixed calendar-based intervals (due to something other than seasonal factors)
+--------------------------------------------------------------------------------
 types of processes
 
 stochastic		process that appear to vary in random manner
