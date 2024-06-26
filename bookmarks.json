@@ -15267,6 +15267,11 @@
                   "url": "https://docs.python.org/3/py-modindex.html"
                 },
                 {
+                  "name": "typing",
+                  "type": "url",
+                  "url": "https://docs.python.org/3/library/typing.html"
+                },
+                {
                   "name": "pip",
                   "type": "url",
                   "url": "https://pip.pypa.io/en/stable/"
