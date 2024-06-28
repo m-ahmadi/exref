@@ -556,7 +556,7 @@ function erf(x=0) {
 	return isneg ? res - 1 : 1 - res;
 }
 
-function polyval(p=[], x=0) {/*Horner*/
+function polyval(p=[], x=0) {/*horner*/
 	let res = p[0];
 	for (let i=1, n=p.length; i<n; i++) res = res * x + p[i];
 	return res;
@@ -968,7 +968,7 @@ function randn() {/*random from gaussian distribution*/
 	return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
 
-function randomChoice(events=[], size=0, p=[], epsMultp=1) {/*numpy.random.choice*/
+function randomChoice(events=[], size=0, p=[], epsMultp=1) {/*numpy.random.choice()*/
 	let [N, M] = [events.length, p.length];
 	let EPS = Number.EPSILON * epsMultp;
 	
