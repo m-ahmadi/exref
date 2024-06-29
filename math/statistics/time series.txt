@@ -23,7 +23,7 @@ stochastic		process that appear to vary in random manner
 stationary		mean & variance do not change over time
 	strong		both mean & variance do not vary (aka strict-sense)
 	weak		only mean & autocovariance do not vary but variance can vary (aka covariance-stationary, wide-sense)
-	trend		stochastic process that becomes stationary when trend removed
+	trend		stationary after trend removed
 	Nth-order	only up to certain order N remain stationary (weaker than weak)
 non-stationary		mean & variance change over time
 cyclostationary		statistical properties that vary cyclically with time
