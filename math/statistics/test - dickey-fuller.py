@@ -8,7 +8,7 @@ adf, pvalue, usedlag, nobs, critical_values, icbest, resstore = res
 # H₁ = unit root does not exist (stationary series)
 
 adf             # "adf statistic"  (the more negative, the stronger rejection of H₀)
-pvalue          # "pvalue"         (the lower,         the stronger rejection of H₀)
+pvalue          # "p-value"        (the lower,         the stronger rejection of H₀)
 critical_values # critical values for "adf statistic" at 1%, 5%, 10% levels
 
 '''
@@ -70,7 +70,7 @@ def interpret(adf_res):
 	print('The ADF Statistic Way:')
 	reports = []
 	for significance_level, critical_value in critical_values.items():
-		significance_level_num = int(significance_level[0:-1])
+		significance_level_num = int(significance_level[:-1])
 		with_confidence_of = str(100 - significance_level_num) + '%'
 		is_stationary = '✅' if adf < critical_value else '❌' if adf > critical_value else '❓'
 		distance_from_succ = round(adf - critical_value, 2)
@@ -81,14 +81,14 @@ def interpret(adf_res):
 	print('      '.join(cols))
 	for report in reports:
 		print('\t\t\t'.join(report))
-	
 	print('')
 	
 	print('The P-Value Way:')
 	reports = []
-	for p in [1, 5, 10]:
-		pct = p / 100
-		with_confidence_of = str(100 - p) + '%'
+	levels = sorted([float(k[:-1]) for k in critical_values], key=int)
+	for level in levels:
+		pct = level / 100
+		with_confidence_of = str(100 - level) + '%'
 		is_stationary = '✅' if pvalue < pct else '❌'
 		distance_from_succ = round(pvalue - pct, 2)
 		report = [with_confidence_of, is_stationary, distance_from_succ]
