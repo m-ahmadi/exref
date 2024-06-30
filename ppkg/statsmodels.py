@@ -85,7 +85,7 @@ x_df.equals(x_reconstructed.round(8)) # True
 res.plot()
 plt.show()
 
-# with x array
+# with `x` as array, `period` must be set
 x_arr = time_series
 res = seasonal_decompose(x_arr, model='multiplicative', extrapolate_trend='freq', period=25)
 x_reconstructed = res.seasonal * res.trend * res.resid
