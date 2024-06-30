@@ -2,6 +2,7 @@ from statsmodels.tsa.stattools import kpss
 
 res = kpss(x=[], regression='c|ct', nlags='auto'|0, store=False)
 kpss_stat, p_value, lags, crit, resstore = res
+# kwiatkowski-phillips-schmidt-shin test for stationarity
 # https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.kpss.html
 
 # H₀ = series is trend-stationary
@@ -13,11 +14,10 @@ p_value   # "p-value"         (the lower,  the stronger rejection of H₀)
 crit      # critical values for "kpss statistic" at 1%, 2.5%, 5%, 10% levels
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# example
+# examples
 import numpy as np
 from statsmodels.tsa.stattools import kpss
 import matplotlib.pyplot as plt
-
 
 def main():
 	x = np.cumsum(np.random.randn(250))
