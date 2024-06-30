@@ -2,6 +2,7 @@ from statsmodels.tsa.stattools import adfuller
 
 res = adfuller(x=[], maxlag=None|0, regression='c|ct|ctt|n', autolag='AIC|BIC|t-stat'|None, store=False, regresults=False)
 adf, pvalue, usedlag, nobs, critical_values, icbest, resstore = res
+# augmented dickey-fuller test
 # https://www.statsmodels.org/dev/generated/statsmodels.tsa.stattools.adfuller.html
 
 # H₀ = unit root exists         (non-stationary series)
@@ -24,7 +25,7 @@ adf < critical_values['5%']  # can reject H₀ with 95% confidence
 adf < critical_values['10%'] # can reject H₀ with 90% confidence
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-# example
+# examples
 import numpy as np
 from statsmodels.tsa.stattools import adfuller
 import matplotlib.pyplot as plt
