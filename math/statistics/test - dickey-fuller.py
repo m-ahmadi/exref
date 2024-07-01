@@ -73,7 +73,7 @@ def interpret(adf_res):
 	for significance_level, critical_value in critical_values.items():
 		significance_level_num = int(significance_level[:-1])
 		with_confidence_of = str(100 - significance_level_num) + '%'
-		is_stationary = '✅' if adf < critical_value else '❌' if adf > critical_value else '❓'
+		is_stationary = '✅' if adf < critical_value else '❌'
 		distance_from_succ = round(adf - critical_value, 2)
 		report = [with_confidence_of, is_stationary, distance_from_succ]
 		reports.append([str(i) for i in report])
