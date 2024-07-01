@@ -60,9 +60,15 @@ def main():
 	perform_test(x)
 	perform_test(np.diff(x))
 	perform_test(np.diff(x, 2))
-	perform_test(np.diff(x, 5))
-	perform_test(np.diff(x, 10))
-	perform_test(np.diff(x, 20))
+	
+	# even deeper
+	linear_function = np.arange(100)
+	white_noise = np.random.rand(100)
+	random_walk = np.cumsum(white_noise - 0.5)
+	
+	perform_test(linear_function)
+	perform_test(white_noise)
+	perform_test(random_walk)
 
 def perform_test(x):
 	res = adfuller(x)
