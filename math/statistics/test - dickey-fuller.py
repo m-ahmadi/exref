@@ -24,6 +24,26 @@ adf < critical_values['1%']  # can reject H₀ with 99% confidence
 adf < critical_values['5%']  # can reject H₀ with 95% confidence
 adf < critical_values['10%'] # can reject H₀ with 90% confidence
 
+''' note about a confusion
+in the following page,
+https://stats.stackexchange.com/questions/317133/how-to-interpret-kpss-test
+it says that when determining the test result, one should see if absolute value
+of "adf stat" is less than the absolute value of a "critical value". the
+explanation is that because the test data had a distribution with a zero mean,
+the "adf stat" could fall at significant distance from "critical values" at both
+directions (positive and negative), therefore one must use absolute values for
+comparison. this means that `critical_values['5%']` could be for example -2.68
+and `adf` be 2.67, which previously meant we reject H₀, now means we accept H₀.
+
+one reference was the following page,
+https://online.stat.psu.edu/statprogram/reviews/statistical-concepts/hypothesis-testing/critical-value-approach
+it is stated in the page that "reject H₀ if test statistic is more extreme in
+the direction of the alternative than the critical value". I don't think what is
+in the page is wrong, but it speaks about the concept generally. I think the
+author of answer is wrong, and you don't need the absolute values, at least not
+in the `adfuller` and `kpss` tests.
+'''
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 import numpy as np
@@ -74,6 +94,7 @@ def interpret(adf_res):
 		significance_level_num = int(significance_level[:-1])
 		with_confidence_of = str(100 - significance_level_num) + '%'
 		is_stationary = '✅' if adf < critical_value else '❌'
+	# is_stationary = '✅' if (abs(adf) < abs(critical_value)) else '❌' # wrong
 		distance_from_succ = round(adf - critical_value, 2)
 		report = [with_confidence_of, is_stationary, distance_from_succ]
 		reports.append([str(i) for i in report])
