@@ -11,6 +11,11 @@ dt.datetime.now()   # <datetime>
 dt.datetime.today() # ...
 dt.datetime.now() == dt.datetime.today() # True
 
+dt.datetime.utcnow()                                  # v3.12 deprecated (naive)
+dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) # ... (naive in v3.12+)
+dt.datetime.now(dt.timezone.utc)                      # aware
+dt.datetime.now(dt.UTC)                               # ... v3.11+
+
 dt.datetime.now().timestamp()   # timestamp (seconds)
 dt.datetime.today().timestamp() # ...
 dt.datetime.now().timestamp() == dt.datetime.today().timestamp() # True
@@ -24,8 +29,11 @@ str(d)                 # '2021-10-26'
 ts = dt.datetime(2021,1,1).timestamp()
 d = dt.datetime.fromtimestamp(ts) # datetime(2021, 1, 1, 0, 0)
 
-dt.datetime.utcfromtimestamp(1254130200) # datetime(2009, 9, 28, 9, 30)
-dt.datetime.fromtimestamp(1254130200)    # datetime(2009, 9, 28, 13, 0)
+dt.datetime.fromtimestamp(1254130200)                                          # Timestamp('2009-09-28 13:00:00')
+dt.datetime.utcfromtimestamp(1254130200)                                       # Timestamp('2009-09-28 09:30:00')  naive, v3.12 deprecated
+dt.datetime.fromtimestamp(1254130200, tz=dt.timezone.utc).replace(tzinfo=None) # ... (naive in v3.12+)
+dt.datetime.fromtimestamp(1254130200, tz=dt.timezone.utc)                      # Timestamp('2009-09-28 09:30:00+0000', tz='UTC')  aware
+dt.datetime.fromtimestamp(1254130200, tz=dt.UTC)                               # ... v3.11+
 
 # str
 dt.datetime(2021,1,1).strftime('%Y %m %d')     # format:  '2021 01 01'
