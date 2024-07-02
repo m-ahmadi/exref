@@ -1,0 +1,15 @@
+java			show help (this is jre)
+java -version		show version
+
+--------------------------------------------------
+java products
+
+Java SE		Java Platform, Standard Edition
+Java EE		Java Platform, Enterprise Edition
+JAVA ME		Java Platform, Micro Edition
+
+JVM		Java Virtual Machine
+JRE		Java Runtime Environment
+JDK		Java Development Kit
+JAVA SDK	Java Software Development Kit
+--------------------------------------------------
