@@ -11,7 +11,7 @@ pick aaabbbf 17
 
 r = [];
 firstNum = undefined;
-prev = undefined;
+prevNum = undefined;
 
 s.trim().split('\n').forEach((line,index) => {
 	let [cmd, hash, msg] = line.split(' ');
@@ -27,12 +27,13 @@ s.trim().split('\n').forEach((line,index) => {
 	let a = prevNum;
 	let b = +msg;
 	let diff = b - a;
+	prevNum = b;
 	
-	if (diff > 1) {
+	if (diff !== 1) {
 		let newMsg = index + firstNum;
 		let extraStep = `exec git commit --amend -m "${newMsg}"`;
 		row.push(...[newMsg, extraStep]);
-		prev = newMsg;
+		prevNum = newMsg;
 	}
 	
 	r.push(row);
