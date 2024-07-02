@@ -5240,12 +5240,12 @@
                           "url": "http://docs.sencha.com/extjs/5.1/5.1.0-apidocs/"
                         },
                         {
-                          "name": "ruby download",
+                          "name": "download - ruby",
                           "type": "url",
                           "url": "http://rubyinstaller.org/downloads/"
                         },
                         {
-                          "name": "JDK 8 download",
+                          "name": "download - JDK 8",
                           "type": "url",
                           "url": "http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"
                         },
@@ -12679,12 +12679,12 @@
                       "url": "https://github.com/gollum/gollum"
                     },
                     {
-                      "name": "Downloads — JRuby.org",
+                      "name": "download - JRuby",
                       "type": "url",
                       "url": "https://www.jruby.org/download"
                     },
                     {
-                      "name": "Java SE Runtime Environment 8 - Downloads",
+                      "name": "download - JRE 8",
                       "type": "url",
                       "url": "https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html"
                     }
@@ -16581,24 +16581,29 @@
             {
               "children": [
                 {
-                  "name": "Java Downloads",
+                  "name": "download - JRE",
+                  "type": "url",
+                  "url": "https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html"
+                },
+                {
+                  "name": "download - JRE (alt link)",
                   "type": "url",
                   "url": "https://java.com/en/download/manual.jsp"
                 },
                 {
-                  "name": "Java SE - Downloads",
+                  "name": "download - Java SE",
                   "type": "url",
-                  "url": "https://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html"
+                  "url": "https://www.oracle.com/java/technologies/downloads/"
                 },
                 {
-                  "name": "Java SE Development Kit 11- - Downloads",
+                  "name": "download - JDK",
                   "type": "url",
                   "url": "https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html"
                 },
                 {
-                  "name": "Java SE Runtime Environment 8 - Downloads",
+                  "name": "docs",
                   "type": "url",
-                  "url": "https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html"
+                  "url": "https://docs.oracle.com/en/java/javase/22/docs/api/index.html"
                 }
               ],
               "name": "java",
