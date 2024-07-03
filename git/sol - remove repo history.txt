@@ -15,7 +15,7 @@ git branch -m master             # rename current branch to master
 git push -f origin master
 
 #3 (me, first commit stays)
-git reset <first_commit_hash>
+git reset <first_commit>
 git add .
 git commit -m "new"
 git push -f
