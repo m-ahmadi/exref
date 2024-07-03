@@ -3,7 +3,7 @@ undo (removes) commits and unstage changes
 git reset file.txt		unstage file
 git reset HEAD~			reset to last     commit
 git reset HEAD~2		reset to 2nd last commit
-git reset <commit_hash>		reset to specific commit
+git reset <commit>		reset to specific commit
 
 git reset HEAD~ --soft		uncommit                    changes (changes are left staged)
 git reset HEAD~ --mixed		uncommit + unstage          changes (changes are left in working tree, default)
