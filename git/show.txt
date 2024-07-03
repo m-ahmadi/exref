@@ -1,3 +1,18 @@
-git show			describes the HEAD commit by default
-git show -1 --oneline		show commit and diff
-git show @~1
+git show		describes the HEAD commit by default
+git show -1		show commit and diff
+git show @~1		... (@ = shortcut for HEAD)
+git show <commit>	... specific commit
+
+git show -1 --no-patch				don't show diff (same output as `git log -1`)
+git show -1 --no-patch --oneline		... one line each
+git show -1 --no-patch --pretty=oneline		... long hashes
+
+git show -1 --no-patch --format=fuller		... AuthorDate and CommitDate
+git show -1 --no-patch --format=%ct	 	... show commit date as timestamp
+git show -1 --no-patch --format="%s %n%h %n%ct"	... show as "message \n hash \n timestamp"
+git show -4 --no-patch --format="%h  %ct    %s"	... show as "hash  timestamp    message"
+
+
+note:
+built-in formats	https://git-scm.com/docs/git-show#_pretty_formats
+format strings		https://git-scm.com/docs/git-show#Documentation/git-show.txt-emnem
