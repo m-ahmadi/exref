@@ -15,7 +15,7 @@ git log --date=short			2007-12-30
 git log -1 --pretty=%h			short commit hash (git help log -> format:<string>)
 git log -1 --pretty=%B			body of commit msg (use --pretty=%%B in .bat file)
 git log -1 --pretty=%at			author date timestamp
-git log -1 --prety=%ct			commiter date timestamp
+git log -1 --pretty=%ct			commiter date timestamp
 git log -1 --format=%s <commit_hash>	show commit message from specified commit
 
 git log -1 ORIG_HEAD			ORIG_HEAD is prev state of HEAD set only by commands that move HEAD more than one commit
