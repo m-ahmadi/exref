@@ -23,6 +23,9 @@
 	
 	/** tab size and spaces */
 	"editor.tabSize": 2,
+	"[plaintext]": {
+		"editor.tabSize": 8
+	},
 	"editor.insertSpaces": false,
 	"editor.detectIndentation": false,
 	
