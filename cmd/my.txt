@@ -50,13 +50,15 @@ shift alt
 --------------------------------------------------------------------------------
 alarm sound
 
-C:\Windows\media\Alarm03.wav
-convert to .mp3
-copy /b Alarm03.mp3 "%appdata%\Simnet\Simple Sticky Notes\Sounds"
+"C:\Program Files (x86)\MultiTimer\snd\bell3.mp3"
 
-2nd fav from "Simple Sticky Notes":
-Amazing Tone
-Bells
+C:\Windows\media\Alarm03.wav
+	convert to .mp3
+	copy /b Alarm03.mp3 "%appdata%\Simnet\Simple Sticky Notes\Sounds"
+
+some other good options
+	MultiTimer:		bell1, bell2, bell4
+	Simple Sticky Notes:	Amazing Tone, Bells
 --------------------------------------------------------------------------------
 colors
 	text		bg
