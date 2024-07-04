@@ -6,15 +6,16 @@ function printTable(rows=[[]]) {
 		cols[j].push(col.toString().length);
 	}));
 	
-	let colsMax = cols.map(col => col.sort((a,b)=>b-a)[0] );
+	let colsMax = cols.map(col => Math.max(...col));
 	
 	let s = '';
 	
 	for (let row of rows) {
 		for (let [colIdx, col] of row.entries()) {
+			col = ''+col;
 			let colMax = colsMax[colIdx];
-			let charLen = col.toString().length;
-			let delta = ' '.repeat(colMax-charLen);
+			let charLen = col.length;
+			let delta = ' '.repeat(colMax - charLen);
 			s += col + delta + '\t';
 		}
 		s = s.slice(0, -1);
