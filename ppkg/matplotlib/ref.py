@@ -2,7 +2,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt # pip install matplotlib
 
 # https://matplotlib.org/stable/api/index.html#modules
-# https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html#functions
+# https://matplotlib.org/stable/api/pyplot_summary.html
 
 fig = plt.figure(num=1|''|Figure, figsize=(6.4,4.8), dpi=100.0, facecolor='white', edgecolor='white', frameon=True, ?FigureClass, clear=False, tight_layout=False|{}, constrained_layout=False, **kwargs)
 	# defaults: plt.rcParams['figure.*']
