@@ -131,3 +131,19 @@ __getstate__
 __setstate__
 __reduce__
 __reduce_ex__
+
+# user-defined - readonly specials
+__globals__
+__closure__
+
+# user-defined - writable specials
+__doc__
+__name__
+__qualname__
+__module__
+__defaults__
+__code__
+__dict__
+__annotations__
+__kwdefaults__
+__type_params__
