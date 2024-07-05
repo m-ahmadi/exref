@@ -1,0 +1,3 @@
+timedatectl					show current timezone
+timedatectl list-timezones			list all timezones
+sudo timedatectl set-timezone Asia/Tehran	set timezone
