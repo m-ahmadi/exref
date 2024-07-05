@@ -26,10 +26,10 @@ def plots(a):
 	plt.show()
 
 np.random.seed(5)
-x = np.cumsum(np.random.normal(loc=1, scale=5, size=50))
+x = np.random.normal(loc=1, scale=5, size=50).cumsum()
 plots(x) # correlated
 
-x = np.cumsum(np.random.randn(50))
+x = np.random.randn(50).cumsum()
 plots(x) # correlated
 
 x = [1,  2,  3,   4,   5,  6]
@@ -53,9 +53,9 @@ def plots(a):
 	pd.plotting.autocorrelation_plot(s, ax=ax2)
 	plt.show()
 
-x = np.cumsum(np.random.randn(50))
+x = np.random.randn(50).cumsum()
 plots(x)
 
-x = np.cumsum(np.random.randn(50))
+x = np.random.randn(50).cumsum()
 plots(x)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

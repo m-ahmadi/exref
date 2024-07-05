@@ -20,7 +20,7 @@ from statsmodels.tsa.stattools import kpss
 import matplotlib.pyplot as plt
 
 def main():
-	x = np.cumsum(np.random.randn(250))
+	x = np.random.randn(250).cumsum()
 	perform_test(x)
 	perform_test(np.diff(x))
 

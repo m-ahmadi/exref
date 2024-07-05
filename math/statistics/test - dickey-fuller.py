@@ -56,7 +56,7 @@ def main():
 	adfuller([1,50,10,70,60,90,150]) # 1.5556828641718772,   0.9977183379488197    non-stationary
 	
 	# more in-depth
-	x = np.cumsum(np.random.randn(250))
+	x = np.random.randn(250).cumsum()
 	perform_test(x)
 	perform_test(np.diff(x))
 	perform_test(np.diff(x, 2))

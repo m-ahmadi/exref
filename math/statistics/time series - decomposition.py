@@ -23,7 +23,7 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 import matplotlib.pyplot as plt
 
 n = 250
-time_series = np.abs(np.cumsum(np.random.randn(n)))
+time_series = np.abs(np.random.randn(n).cumsum())
 
 # with x df
 idxs = pd.DatetimeIndex([dt.datetime(2023,1,1) + dt.timedelta(days=i) for i in range(n)])

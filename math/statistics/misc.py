@@ -13,7 +13,7 @@ axs[1].plot(s_cum)
 axs[2].plot(s_cum_pos)
 plt.show()
 
-plt.plot( np.abs(np.cumsum(np.random.randn(200))) )
+plt.plot( np.abs(np.random.randn(200).cumsum()) )
 
 # how stationary becomes non-stationary
 np.random.seed(0)

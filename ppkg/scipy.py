@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 n = 200
 t = np.arange(n)
-x = np.cumsum(np.random.randn(n))
+x = np.random.randn(n).cumsum()
 
 res_const = detrend(x, type='constant')
 res_linear = detrend(x, type='linear')
