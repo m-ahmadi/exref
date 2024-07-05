@@ -14,7 +14,7 @@ from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
 import numpy as np
 import matplotlib.pyplot as plt
 
-x = np.cumsum(np.random.randn(50))
+x = np.random.randn(50).cumsum()
 plot_acf(x, lags=49)
 plot_pacf(x, lags=25) # lags <= len(x)/2
 plt.show()

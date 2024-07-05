@@ -40,7 +40,7 @@ def predict(x, w, b):
 	return w*x + b
 
 
-x = np.cumsum(np.random.randn(200))
+x = np.random.randn(200).cumsum()
 x = x[x > 0]
 y = np.random.normal(np.mean(x), np.std(x), len(x))
 y = np.round(y, 1)
