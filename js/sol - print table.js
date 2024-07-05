@@ -11,12 +11,14 @@ function printTable(rows=[[]]) {
 	let s = '';
 	
 	for (let row of rows) {
+		let lastIdx = row.length - 1;
 		for (let [colIdx, col] of row.entries()) {
 			col = ''+col;
 			let colMax = colsMax[colIdx];
 			let charLen = col.length;
 			let delta = ' '.repeat(colMax - charLen);
-			s += col + delta + '\t';
+			let notLast = colIdx < lastIdx;
+			s += col + (notLast ? delta : '') + '\t';
 		}
 		s = s.slice(0, -1);
 		s += '\n'
@@ -35,10 +37,10 @@ table = [
 ];
 
 console.log(printTable(table)); /*
-foo	bar   	baz 
-a  	b     	c   
-aa 	bb    	cc  
-x  	y     
+foo	bar   	baz
+a  	b     	c
+aa 	bb    	cc
+x  	y
 z  	yyyyyy
 ini	mini  	miny	moe
 */
