@@ -1,0 +1,13 @@
+commit message abbreviations and use cases
+
+add	add		any addition
+del	delete		any deletion
+fmt	format		any code formatting (even renaming or refactoring if logic stays unchanged)
+opt	optimize	any speed improvement
+btr	better		any improvement other than speed (e.g. readability, organization, etc)
+cmt	comment		anything related to comments
+rfct	refactor	any refactoring that changes logic
+bgfx	bug fix		when a bug is fixed
+edit	-		generic term
+docs	-		anything related to documentation
+note	-		similar to `docs` if proj has note
