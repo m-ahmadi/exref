@@ -1,0 +1,1 @@
+win+i -> Personalization -> Colors -> More options -> Choose your default app mode
