@@ -9,3 +9,4 @@ ls abc* -d			show all dirs that match the pattern
 
 ls | sort			sort output
 ls | sort -r			... reverse
+ls | sort | uniq		sort and remove duplicates
