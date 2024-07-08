@@ -5,6 +5,11 @@
         {
           "children": [
             {
+              "name": "dark mode",
+              "type": "url",
+              "url": "chrome://flags/#enable-force-dark"
+            },
+            {
               "name": "grammar",
               "type": "url",
               "url": "https://app.grammarly.com/"
