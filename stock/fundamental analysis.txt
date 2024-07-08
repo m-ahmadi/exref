@@ -1,0 +1,63 @@
+valuation methods
+
+DCF	discounted cash flow
+DDM	dividend discount model
+RI	residual income
+
+--------------------------------------------------
+DCF (discounted cash flow)
+
+forecast = $100 per year for next 3 year
+discount rate = 10%
+next year's $100 < today's $100
+
+steps:
+	1. forecast expected cash flows
+	2. select discount rate
+	3. discount forecasted cash flows to present day
+
+--------------------------------------------------
+DDM (dividend discount model)
+
+present-day price is worth sum of all future dividends discounted back to present value
+--------------------------------------------------
+RI (residual income)
+
+sum of book value and present value of expected future residual income
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+some measures used in financial analysis
+(inputs to some valuation methods)
+
+--------------------------------------------------
+FCF (free cash flow)
+
+cash generated after accounting for cash outflows to support operations and maintaining capital assets
+money available to repay creditors or pay dividends and interest to investors
+
+--------------------------------------------------
+FCFF (free cash flow to the firm)
+
+profitability after all expenses and reinvestments
+
+amount of cash flow from operations available for distribution after accounting
+for depreciation expenses, taxes, working capital, and investments
+
+--------------------------------------------------
+FCFE (free cash flow to equity)
+
+how much cash is available to shareholders after all expenses, reinvestment, and debt are paid
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+some terms
+
+COGS			cost of goods sold
+CAC			customer acquisition cost 
+net income		sales - COGS
+earnings		after-tax net income (bottom line or profits)
+EBITDA			earnings before interest, taxes, depreciation, and amortization
+working capital		current assets - current liabilities
+current assets		all company-owned assets that can be converted to cash within one year
+current liabilities	short-term financial obligations due within one year (or a normal ccc)
+cash conversion cycle	days it takes to convert cash spent on inventory back into cash (ccc)
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
