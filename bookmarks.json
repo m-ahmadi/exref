@@ -5,14 +5,14 @@
         {
           "children": [
             {
-              "name": "w",
-              "type": "url",
-              "url": "https://github.com/m-ahmadi/cw/wiki/JS-Api"
-            },
-            {
               "name": "grammar",
               "type": "url",
               "url": "https://app.grammarly.com/"
+            },
+            {
+              "name": "w",
+              "type": "url",
+              "url": "https://github.com/m-ahmadi/cw/wiki/JS-Api"
             },
             {
               "children": [
