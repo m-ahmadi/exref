@@ -14302,6 +14302,11 @@
                   "name": "cesium",
                   "type": "url",
                   "url": "https://cesium-ml.org/docs/"
+                },
+                {
+                  "name": "catch22",
+                  "type": "url",
+                  "url": "https://github.com/DynamicsAndNeuralSystems/catch22"
                 }
               ],
               "name": "time-series",
