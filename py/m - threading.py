@@ -1,5 +1,5 @@
-import requests
 import threading
+import requests
 
 url = 'http://example.com'
 
