@@ -12,6 +12,18 @@ part / whole
 percentage change
 
 (B - A) / A
+or
+(B / A) - 1
+
+results are not exactly equal (tiny decimal diff)
+
+n = 10_000_000
+a = np.random.randn(n)
+b = np.random.randn(n)
+r1 = (b - a) / a
+r2 = b / a - 1
+sumdif = sum(abs(r1-r2))
+print(sumdif) # ~ 0
 --------------------------------------------------
 Y is P percentage of what?
 
