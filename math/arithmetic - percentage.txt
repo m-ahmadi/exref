@@ -4,10 +4,10 @@ What is P percentage of N?
 or
 (P / 100) * N
 --------------------------------------------------
-Y is what percentage of N?
-(proportion percentage, Y = part, N = whole)
+proportion percentage
+part is what percentage of whole?
 
-(Y / N) * 100
+(part / whole) * 100
 --------------------------------------------------
 Y is P percentage of what?
 
