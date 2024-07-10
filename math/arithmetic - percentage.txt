@@ -1,17 +1,17 @@
 What is P percentage of N?
 
-(N / 100) * P
+N * (P / 100)
 or
-(P / 100) * N
+(N / 100) * P
 --------------------------------------------------
 proportion percentage
 part is what percentage of whole?
 
-(part / whole) * 100
+part / whole
 --------------------------------------------------
 percentage change
 
-((B - A) / A) * 100
+(B - A) / A
 --------------------------------------------------
 Y is P percentage of what?
 
