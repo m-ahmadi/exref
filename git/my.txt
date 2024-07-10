@@ -11,3 +11,24 @@ bgfx	bug fix		when a bug is fixed
 edit	-		generic term
 docs	-		anything related to documentation
 note	-		similar to `docs` if proj has note
+
+--------------------------------------------------------------------------------
+context narrowing structure
+
+hierarchical context words from left to right before colon
+followed by some information about the changes after colon
+
+context: info about changes
+parent child: info about changes
+parent child grandchild: info about changes
+
+
+examples:
+
+cli: change flag -q to be optional
+docs: fix typo
+docs cli: update dead links
+test: optimize slow test
+test cli: conform to latest changes
+
+--------------------------------------------------------------------------------
