@@ -11,8 +11,8 @@ part is what percentage of whole?
 --------------------------------------------------
 percentage change
 
-diff = n2 - n1
-% change = (diff / n1) * 100
+diff = B - A
+% change = (diff / A) * 100
 --------------------------------------------------
 Y is P percentage of what?
 
