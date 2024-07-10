@@ -11,8 +11,7 @@ part is what percentage of whole?
 --------------------------------------------------
 percentage change
 
-diff = B - A
-% change = (diff / A) * 100
+((B - A) / A) * 100
 --------------------------------------------------
 Y is P percentage of what?
 
