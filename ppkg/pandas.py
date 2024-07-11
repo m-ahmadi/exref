@@ -421,15 +421,40 @@ cat = pd.concat([df1, df2], ignore_index=True)
 cat # { 'a':[1,3,5,7], 'b':[2,4,6,8] }
 
 # concat - series
-s1 = pd.Series([4,5,6])
-s2 = pd.Series([7,8,9])
-cat = pd.concat({'a':s1, 'b':s2}, axis=1)
-cat # { 'a':[4,5,6], 'b':[7,8,9] }
+pd.concat({'a':pd.Series([1,2]), 'b':pd.Series([3,4])}) '''
+i    v
+0    1
+1    2
+0    3
+1    4
+'''
 
-s1 = pd.Series([4,5,6], index=[0,1,2])
-s2 = pd.Series([7,8,9], index=[3,4,5])
-cat = pd.concat({'a':s1, 'b':s2}, axis=1)
-cat # { 'a':[4,5,6,nan,nan,nan], 'b':[nan,nan,nan,7,8,9] }
+# concat - series - y axis
+pd.concat({'a':pd.Series([4,5,6]), 'b':pd.Series([7,8,9])}, axis=1) '''
+i    a  b
+0    4  7
+1    5  8
+2    6  9
+'''
+
+# concat - series - y axis - unequal indexes
+# new index is union of indexes, col is na-filled if has no val at an index
+s1 = pd.Series([4,5], index=[0,1])
+s2 = pd.Series([7,8], index=[2,3])
+cat = pd.concat({'a':s1, 'b':s2}, axis=1) '''
+0    4   na
+1    5   na
+2    na  7
+3    na  8
+'''
+a = pd.Series([1,2], index=[0,1])
+b = pd.Series([1,2], index=[7,8])
+pd.concat({'a': a, 'b': b}, axis=1) '''
+0    1  *
+1    2  *
+7    *  1
+8    *  2
+'''
 
 # squeeze
 pd.Series([1,2]).squeeze()          # does nothing
