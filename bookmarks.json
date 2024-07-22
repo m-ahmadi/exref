@@ -14746,11 +14746,6 @@
                           "url": "https://github.com/boyboi86/AFML"
                         },
                         {
-                          "name": "code 3 - boyboi86/mlfinlab",
-                          "type": "url",
-                          "url": "https://github.com/boyboi86/mlfinlab"
-                        },
-                        {
                           "name": "code 4 - fernandodelacalle",
                           "type": "url",
                           "url": "https://github.com/fernandodelacalle/adv-financial-ml-marcos-exercises"
@@ -14796,9 +14791,14 @@
                           "url": "https://github.com/fracdiff/fracdiff"
                         },
                         {
-                          "name": "code - mlfinlab",
+                          "name": "code - mlfinlab - harvey1673",
                           "type": "url",
                           "url": "https://github.com/harvey1673"
+                        },
+                        {
+                          "name": "code - mlfinlab - boyboi86",
+                          "type": "url",
+                          "url": "https://github.com/boyboi86/mlfinlab"
                         }
                       ],
                       "name": "Advances in Financial Machine Learning",
