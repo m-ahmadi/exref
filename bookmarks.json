@@ -14766,19 +14766,19 @@
                           "url": "https://github.com/JackBrady/Financial-Machine-Learning"
                         },
                         {
-                          "name": "code 7 - rspadim",
+                          "name": "code 7 - WongYatChun",
+                          "type": "url",
+                          "url": "https://github.com/WongYatChun/Advances-in-Financial-Machine-Learning"
+                        },
+                        {
+                          "name": "code 8 - rspadim",
                           "type": "url",
                           "url": "https://github.com/rspadim/Adv_Fin_ML"
                         },
                         {
-                          "name": "code 8 - peng3738",
+                          "name": "code 9 - peng3738",
                           "type": "url",
                           "url": "https://github.com/peng3738/Selfstudy-note-for-advances-in-financial-machine-learning"
-                        },
-                        {
-                          "name": "code 9 - WongYatChun",
-                          "type": "url",
-                          "url": "https://github.com/WongYatChun/Advances-in-Financial-Machine-Learning"
                         },
                         {
                           "name": "code - fracdiff 1",
