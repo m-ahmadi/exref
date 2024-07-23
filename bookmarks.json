@@ -14809,6 +14809,133 @@
         {
           "children": [
             {
+              "children": [
+                {
+                  "name": "book",
+                  "type": "url",
+                  "url": "https://drive.google.com/file/d/1dNz3_5hn7gQUMMsKLUx_vQC5QM45Lu-H/view?usp=sharing"
+                },
+                {
+                  "name": "lectures",
+                  "type": "url",
+                  "url": "https://quantresearch.org/Lectures.htm"
+                },
+                {
+                  "name": "code 0 - BlackArbsCEO",
+                  "type": "url",
+                  "url": "https://github.com/BlackArbsCEO/Adv_Fin_ML_Exercises"
+                },
+                {
+                  "name": "code 1 - jjakimoto",
+                  "type": "url",
+                  "url": "https://github.com/jjakimoto/finance_ml"
+                },
+                {
+                  "name": "code 2 - Rachnog",
+                  "type": "url",
+                  "url": "https://github.com/Rachnog/Advanced-Deep-Trading"
+                },
+                {
+                  "name": "code 3 - boyboi86",
+                  "type": "url",
+                  "url": "https://github.com/boyboi86/AFML"
+                },
+                {
+                  "name": "code 4 - fernandodelacalle",
+                  "type": "url",
+                  "url": "https://github.com/fernandodelacalle/adv-financial-ml-marcos-exercises"
+                },
+                {
+                  "name": "code 5 - doda",
+                  "type": "url",
+                  "url": "https://github.com/doda/advances-in-financial-ml-notes"
+                },
+                {
+                  "name": "code 6 - JackBrady",
+                  "type": "url",
+                  "url": "https://github.com/JackBrady/Financial-Machine-Learning"
+                },
+                {
+                  "name": "code 7 - WongYatChun",
+                  "type": "url",
+                  "url": "https://github.com/WongYatChun/Advances-in-Financial-Machine-Learning"
+                },
+                {
+                  "name": "code 8 - rspadim",
+                  "type": "url",
+                  "url": "https://github.com/rspadim/Adv_Fin_ML"
+                },
+                {
+                  "name": "code 9 - peng3738",
+                  "type": "url",
+                  "url": "https://github.com/peng3738/Selfstudy-note-for-advances-in-financial-machine-learning"
+                },
+                {
+                  "name": "code 10 - robertmartin8",
+                  "type": "url",
+                  "url": "https://github.com/robertmartin8/research"
+                },
+                {
+                  "name": "code - fracdiff 1",
+                  "type": "url",
+                  "url": "https://github.com/philipperemy/fractional-differentiation-time-series"
+                },
+                {
+                  "name": "code - fracdiff 2",
+                  "type": "url",
+                  "url": "https://github.com/fracdiff/fracdiff"
+                }
+              ],
+              "name": "book - afml",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "name": "0.12.3",
+                  "type": "url",
+                  "url": "https://github.com/Sandorabad/mlfinlab_sandorabad"
+                },
+                {
+                  "name": "0.12.3 - nohistory",
+                  "type": "url",
+                  "url": "https://github.com/jmrichardson/mlfinlab"
+                },
+                {
+                  "name": "0.12.0",
+                  "type": "url",
+                  "url": "https://github.com/harvey1673"
+                },
+                {
+                  "name": "0.10.0",
+                  "type": "url",
+                  "url": "https://github.com/boyboi86/mlfinlab"
+                },
+                {
+                  "name": "0.8.0",
+                  "type": "url",
+                  "url": "https://github.com/BryceMeng/mlfinlab"
+                },
+                {
+                  "name": "0.4.1",
+                  "type": "url",
+                  "url": "https://github.com/quantfiction/mlfinlab"
+                },
+                {
+                  "name": "research 1",
+                  "type": "url",
+                  "url": "https://github.com/objectin/mlfinlab-research"
+                },
+                {
+                  "name": "research 2",
+                  "type": "url",
+                  "url": "https://github.com/firmai/research"
+                }
+              ],
+              "name": "mlfinlab",
+              "type": "folder"
+            },
+            {
               "name": "awesome-ai-in-finance",
               "type": "url",
               "url": "https://github.com/georgezouq/awesome-ai-in-finance"
@@ -14845,87 +14972,6 @@
             },
             {
               "children": [
-                {
-                  "children": [
-                    {
-                      "name": "book",
-                      "type": "url",
-                      "url": "https://drive.google.com/file/d/1dNz3_5hn7gQUMMsKLUx_vQC5QM45Lu-H/view?usp=sharing"
-                    },
-                    {
-                      "name": "lectures",
-                      "type": "url",
-                      "url": "https://quantresearch.org/Lectures.htm"
-                    },
-                    {
-                      "name": "code 0 - BlackArbsCEO",
-                      "type": "url",
-                      "url": "https://github.com/BlackArbsCEO/Adv_Fin_ML_Exercises"
-                    },
-                    {
-                      "name": "code 1 - jjakimoto",
-                      "type": "url",
-                      "url": "https://github.com/jjakimoto/finance_ml"
-                    },
-                    {
-                      "name": "code 2 - Rachnog",
-                      "type": "url",
-                      "url": "https://github.com/Rachnog/Advanced-Deep-Trading"
-                    },
-                    {
-                      "name": "code 3 - boyboi86",
-                      "type": "url",
-                      "url": "https://github.com/boyboi86/AFML"
-                    },
-                    {
-                      "name": "code 4 - fernandodelacalle",
-                      "type": "url",
-                      "url": "https://github.com/fernandodelacalle/adv-financial-ml-marcos-exercises"
-                    },
-                    {
-                      "name": "code 5 - doda",
-                      "type": "url",
-                      "url": "https://github.com/doda/advances-in-financial-ml-notes"
-                    },
-                    {
-                      "name": "code 6 - JackBrady",
-                      "type": "url",
-                      "url": "https://github.com/JackBrady/Financial-Machine-Learning"
-                    },
-                    {
-                      "name": "code 7 - WongYatChun",
-                      "type": "url",
-                      "url": "https://github.com/WongYatChun/Advances-in-Financial-Machine-Learning"
-                    },
-                    {
-                      "name": "code 8 - rspadim",
-                      "type": "url",
-                      "url": "https://github.com/rspadim/Adv_Fin_ML"
-                    },
-                    {
-                      "name": "code 9 - peng3738",
-                      "type": "url",
-                      "url": "https://github.com/peng3738/Selfstudy-note-for-advances-in-financial-machine-learning"
-                    },
-                    {
-                      "name": "code 10 - robertmartin8",
-                      "type": "url",
-                      "url": "https://github.com/robertmartin8/research"
-                    },
-                    {
-                      "name": "code - fracdiff 1",
-                      "type": "url",
-                      "url": "https://github.com/philipperemy/fractional-differentiation-time-series"
-                    },
-                    {
-                      "name": "code - fracdiff 2",
-                      "type": "url",
-                      "url": "https://github.com/fracdiff/fracdiff"
-                    }
-                  ],
-                  "name": "Advances in Financial Machine Learning",
-                  "type": "folder"
-                },
                 {
                   "children": [
                     {
@@ -15028,53 +15074,7 @@
                   "type": "folder"
                 }
               ],
-              "name": "book",
-              "type": "folder"
-            },
-            {
-              "children": [
-                {
-                  "name": "0.12.3",
-                  "type": "url",
-                  "url": "https://github.com/Sandorabad/mlfinlab_sandorabad"
-                },
-                {
-                  "name": "0.12.3 - nohistory",
-                  "type": "url",
-                  "url": "https://github.com/jmrichardson/mlfinlab"
-                },
-                {
-                  "name": "0.12.0",
-                  "type": "url",
-                  "url": "https://github.com/harvey1673"
-                },
-                {
-                  "name": "0.10.0",
-                  "type": "url",
-                  "url": "https://github.com/boyboi86/mlfinlab"
-                },
-                {
-                  "name": "0.8.0",
-                  "type": "url",
-                  "url": "https://github.com/BryceMeng/mlfinlab"
-                },
-                {
-                  "name": "0.4.1",
-                  "type": "url",
-                  "url": "https://github.com/quantfiction/mlfinlab"
-                },
-                {
-                  "name": "research 1",
-                  "type": "url",
-                  "url": "https://github.com/objectin/mlfinlab-research"
-                },
-                {
-                  "name": "research 2",
-                  "type": "url",
-                  "url": "https://github.com/firmai/research"
-                }
-              ],
-              "name": "mlfinlab",
+              "name": "book - other",
               "type": "folder"
             }
           ],
