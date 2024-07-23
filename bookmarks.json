@@ -14677,245 +14677,6 @@
             {
               "children": [
                 {
-                  "name": "awesome-ai-in-finance",
-                  "type": "url",
-                  "url": "https://github.com/georgezouq/awesome-ai-in-finance"
-                },
-                {
-                  "name": "financial-machine-learning",
-                  "type": "url",
-                  "url": "https://github.com/firmai/financial-machine-learning"
-                },
-                {
-                  "name": "StockPricePrediction",
-                  "type": "url",
-                  "url": "https://github.com/scorpionhiccup/StockPricePrediction"
-                },
-                {
-                  "name": "Deep-Reinforcement-Stock-Trading",
-                  "type": "url",
-                  "url": "https://github.com/Albert-Z-Guo/Deep-Reinforcement-Stock-Trading"
-                },
-                {
-                  "name": "q-trader",
-                  "type": "url",
-                  "url": "https://github.com/edwardhdlu/q-trader"
-                },
-                {
-                  "name": "stock-prediction-models",
-                  "type": "url",
-                  "url": "https://github.com/huseinzol05/Stock-Prediction-Models"
-                },
-                {
-                  "name": "QuantResearch",
-                  "type": "url",
-                  "url": "https://github.com/letianzj/QuantResearch"
-                },
-                {
-                  "children": [
-                    {
-                      "children": [
-                        {
-                          "name": "book",
-                          "type": "url",
-                          "url": "https://drive.google.com/file/d/1dNz3_5hn7gQUMMsKLUx_vQC5QM45Lu-H/view?usp=sharing"
-                        },
-                        {
-                          "name": "lectures",
-                          "type": "url",
-                          "url": "https://quantresearch.org/Lectures.htm"
-                        },
-                        {
-                          "name": "code 0 - BlackArbsCEO",
-                          "type": "url",
-                          "url": "https://github.com/BlackArbsCEO/Adv_Fin_ML_Exercises"
-                        },
-                        {
-                          "name": "code 1 - jjakimoto",
-                          "type": "url",
-                          "url": "https://github.com/jjakimoto/finance_ml"
-                        },
-                        {
-                          "name": "code 2 - Rachnog",
-                          "type": "url",
-                          "url": "https://github.com/Rachnog/Advanced-Deep-Trading"
-                        },
-                        {
-                          "name": "code 3 - boyboi86",
-                          "type": "url",
-                          "url": "https://github.com/boyboi86/AFML"
-                        },
-                        {
-                          "name": "code 4 - fernandodelacalle",
-                          "type": "url",
-                          "url": "https://github.com/fernandodelacalle/adv-financial-ml-marcos-exercises"
-                        },
-                        {
-                          "name": "code 5 - doda",
-                          "type": "url",
-                          "url": "https://github.com/doda/advances-in-financial-ml-notes"
-                        },
-                        {
-                          "name": "code 6 - JackBrady",
-                          "type": "url",
-                          "url": "https://github.com/JackBrady/Financial-Machine-Learning"
-                        },
-                        {
-                          "name": "code 7 - WongYatChun",
-                          "type": "url",
-                          "url": "https://github.com/WongYatChun/Advances-in-Financial-Machine-Learning"
-                        },
-                        {
-                          "name": "code 8 - rspadim",
-                          "type": "url",
-                          "url": "https://github.com/rspadim/Adv_Fin_ML"
-                        },
-                        {
-                          "name": "code 9 - peng3738",
-                          "type": "url",
-                          "url": "https://github.com/peng3738/Selfstudy-note-for-advances-in-financial-machine-learning"
-                        },
-                        {
-                          "name": "code 10 - robertmartin8",
-                          "type": "url",
-                          "url": "https://github.com/robertmartin8/research"
-                        },
-                        {
-                          "name": "code - fracdiff 1",
-                          "type": "url",
-                          "url": "https://github.com/philipperemy/fractional-differentiation-time-series"
-                        },
-                        {
-                          "name": "code - fracdiff 2",
-                          "type": "url",
-                          "url": "https://github.com/fracdiff/fracdiff"
-                        },
-                        {
-                          "name": "code - mlfinlab - harvey1673",
-                          "type": "url",
-                          "url": "https://github.com/harvey1673"
-                        },
-                        {
-                          "name": "code - mlfinlab - boyboi86",
-                          "type": "url",
-                          "url": "https://github.com/boyboi86/mlfinlab"
-                        }
-                      ],
-                      "name": "Advances in Financial Machine Learning",
-                      "type": "folder"
-                    },
-                    {
-                      "children": [
-                        {
-                          "name": "book",
-                          "type": "url",
-                          "url": "https://drive.google.com/file/d/17bTcgphENcOMjkVJ1fJZd55aV9rV7Fh9/view?usp=sharing"
-                        },
-                        {
-                          "name": "code - 2nd Ed",
-                          "type": "url",
-                          "url": "https://github.com/stefan-jansen/machine-learning-for-trading"
-                        },
-                        {
-                          "name": "code - 1st Ed",
-                          "type": "url",
-                          "url": "https://github.com/PacktPublishing/Hands-On-Machine-Learning-for-Algorithmic-Trading"
-                        }
-                      ],
-                      "name": "Machine Learning for Algorithmic Trading",
-                      "type": "folder"
-                    },
-                    {
-                      "children": [
-                        {
-                          "name": "book",
-                          "type": "url",
-                          "url": "https://drive.google.com/file/d/1TaLl51ya649sFREncW1ZQqZ-FsffEZQv/view?usp=sharing"
-                        },
-                        {
-                          "name": "code",
-                          "type": "url",
-                          "url": "https://github.com/emoen/Machine-Learning-for-Asset-Managers"
-                        }
-                      ],
-                      "name": "Machine Learning for Asset Managers",
-                      "type": "folder"
-                    },
-                    {
-                      "children": [
-                        {
-                          "name": "book",
-                          "type": "url",
-                          "url": "https://drive.google.com/file/d/161FsXK8SY4j6SdOT8CAhImjHy5wsp9TP/view?usp=sharing"
-                        },
-                        {
-                          "name": "code",
-                          "type": "url",
-                          "url": "https://github.com/tatsath/fin-ml"
-                        }
-                      ],
-                      "name": "Machine Learning and Data Science Blueprints for Finance",
-                      "type": "folder"
-                    },
-                    {
-                      "children": [
-                        {
-                          "name": "book",
-                          "type": "url",
-                          "url": "https://drive.google.com/file/d/1w0fa9OWgvSwdSZTu7yd4XVDNKrlxTgn3/view?usp=sharing"
-                        },
-                        {
-                          "name": "code",
-                          "type": "url",
-                          "url": "https://github.com/jasonstrimpel/volatility-trading"
-                        }
-                      ],
-                      "name": "Volatility Trading",
-                      "type": "folder"
-                    },
-                    {
-                      "children": [
-                        {
-                          "name": "book",
-                          "type": "url",
-                          "url": "https://drive.google.com/file/d/1h3jLge4EmLVU4Zm7ZQIDSmzNn5X4udwN/view?usp=sharing"
-                        },
-                        {
-                          "name": "code",
-                          "type": "url",
-                          "url": "https://github.com/LechGrzelak/QuantFinanceBook"
-                        }
-                      ],
-                      "name": "Mathematical Modeling and Computation in Finance",
-                      "type": "folder"
-                    },
-                    {
-                      "children": [
-                        {
-                          "name": "book",
-                          "type": "url",
-                          "url": "https://drive.google.com/file/d/1kJ99PM9nGxyJfxqgbgpiuzyxj_KUlsoE/view?usp=sharing"
-                        },
-                        {
-                          "name": "code",
-                          "type": "url",
-                          "url": "https://github.com/mfrdixon/ML_Finance_Codes"
-                        }
-                      ],
-                      "name": "Machine Learning in Finance",
-                      "type": "folder"
-                    }
-                  ],
-                  "name": "book",
-                  "type": "folder"
-                }
-              ],
-              "name": "fml",
-              "type": "folder"
-            },
-            {
-              "children": [
-                {
                   "name": "gym",
                   "type": "url",
                   "url": "https://gym.openai.com/docs/"
@@ -15043,6 +14804,245 @@
             }
           ],
           "name": "ml",
+          "type": "folder"
+        },
+        {
+          "children": [
+            {
+              "name": "awesome-ai-in-finance",
+              "type": "url",
+              "url": "https://github.com/georgezouq/awesome-ai-in-finance"
+            },
+            {
+              "name": "financial-machine-learning",
+              "type": "url",
+              "url": "https://github.com/firmai/financial-machine-learning"
+            },
+            {
+              "name": "StockPricePrediction",
+              "type": "url",
+              "url": "https://github.com/scorpionhiccup/StockPricePrediction"
+            },
+            {
+              "name": "Deep-Reinforcement-Stock-Trading",
+              "type": "url",
+              "url": "https://github.com/Albert-Z-Guo/Deep-Reinforcement-Stock-Trading"
+            },
+            {
+              "name": "q-trader",
+              "type": "url",
+              "url": "https://github.com/edwardhdlu/q-trader"
+            },
+            {
+              "name": "stock-prediction-models",
+              "type": "url",
+              "url": "https://github.com/huseinzol05/Stock-Prediction-Models"
+            },
+            {
+              "name": "QuantResearch",
+              "type": "url",
+              "url": "https://github.com/letianzj/QuantResearch"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "name": "book",
+                      "type": "url",
+                      "url": "https://drive.google.com/file/d/1dNz3_5hn7gQUMMsKLUx_vQC5QM45Lu-H/view?usp=sharing"
+                    },
+                    {
+                      "name": "lectures",
+                      "type": "url",
+                      "url": "https://quantresearch.org/Lectures.htm"
+                    },
+                    {
+                      "name": "code 0 - BlackArbsCEO",
+                      "type": "url",
+                      "url": "https://github.com/BlackArbsCEO/Adv_Fin_ML_Exercises"
+                    },
+                    {
+                      "name": "code 1 - jjakimoto",
+                      "type": "url",
+                      "url": "https://github.com/jjakimoto/finance_ml"
+                    },
+                    {
+                      "name": "code 2 - Rachnog",
+                      "type": "url",
+                      "url": "https://github.com/Rachnog/Advanced-Deep-Trading"
+                    },
+                    {
+                      "name": "code 3 - boyboi86",
+                      "type": "url",
+                      "url": "https://github.com/boyboi86/AFML"
+                    },
+                    {
+                      "name": "code 4 - fernandodelacalle",
+                      "type": "url",
+                      "url": "https://github.com/fernandodelacalle/adv-financial-ml-marcos-exercises"
+                    },
+                    {
+                      "name": "code 5 - doda",
+                      "type": "url",
+                      "url": "https://github.com/doda/advances-in-financial-ml-notes"
+                    },
+                    {
+                      "name": "code 6 - JackBrady",
+                      "type": "url",
+                      "url": "https://github.com/JackBrady/Financial-Machine-Learning"
+                    },
+                    {
+                      "name": "code 7 - WongYatChun",
+                      "type": "url",
+                      "url": "https://github.com/WongYatChun/Advances-in-Financial-Machine-Learning"
+                    },
+                    {
+                      "name": "code 8 - rspadim",
+                      "type": "url",
+                      "url": "https://github.com/rspadim/Adv_Fin_ML"
+                    },
+                    {
+                      "name": "code 9 - peng3738",
+                      "type": "url",
+                      "url": "https://github.com/peng3738/Selfstudy-note-for-advances-in-financial-machine-learning"
+                    },
+                    {
+                      "name": "code 10 - robertmartin8",
+                      "type": "url",
+                      "url": "https://github.com/robertmartin8/research"
+                    },
+                    {
+                      "name": "code - fracdiff 1",
+                      "type": "url",
+                      "url": "https://github.com/philipperemy/fractional-differentiation-time-series"
+                    },
+                    {
+                      "name": "code - fracdiff 2",
+                      "type": "url",
+                      "url": "https://github.com/fracdiff/fracdiff"
+                    },
+                    {
+                      "name": "code - mlfinlab - harvey1673",
+                      "type": "url",
+                      "url": "https://github.com/harvey1673"
+                    },
+                    {
+                      "name": "code - mlfinlab - boyboi86",
+                      "type": "url",
+                      "url": "https://github.com/boyboi86/mlfinlab"
+                    }
+                  ],
+                  "name": "Advances in Financial Machine Learning",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "book",
+                      "type": "url",
+                      "url": "https://drive.google.com/file/d/17bTcgphENcOMjkVJ1fJZd55aV9rV7Fh9/view?usp=sharing"
+                    },
+                    {
+                      "name": "code - 2nd Ed",
+                      "type": "url",
+                      "url": "https://github.com/stefan-jansen/machine-learning-for-trading"
+                    },
+                    {
+                      "name": "code - 1st Ed",
+                      "type": "url",
+                      "url": "https://github.com/PacktPublishing/Hands-On-Machine-Learning-for-Algorithmic-Trading"
+                    }
+                  ],
+                  "name": "Machine Learning for Algorithmic Trading",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "book",
+                      "type": "url",
+                      "url": "https://drive.google.com/file/d/1TaLl51ya649sFREncW1ZQqZ-FsffEZQv/view?usp=sharing"
+                    },
+                    {
+                      "name": "code",
+                      "type": "url",
+                      "url": "https://github.com/emoen/Machine-Learning-for-Asset-Managers"
+                    }
+                  ],
+                  "name": "Machine Learning for Asset Managers",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "book",
+                      "type": "url",
+                      "url": "https://drive.google.com/file/d/161FsXK8SY4j6SdOT8CAhImjHy5wsp9TP/view?usp=sharing"
+                    },
+                    {
+                      "name": "code",
+                      "type": "url",
+                      "url": "https://github.com/tatsath/fin-ml"
+                    }
+                  ],
+                  "name": "Machine Learning and Data Science Blueprints for Finance",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "book",
+                      "type": "url",
+                      "url": "https://drive.google.com/file/d/1w0fa9OWgvSwdSZTu7yd4XVDNKrlxTgn3/view?usp=sharing"
+                    },
+                    {
+                      "name": "code",
+                      "type": "url",
+                      "url": "https://github.com/jasonstrimpel/volatility-trading"
+                    }
+                  ],
+                  "name": "Volatility Trading",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "book",
+                      "type": "url",
+                      "url": "https://drive.google.com/file/d/1h3jLge4EmLVU4Zm7ZQIDSmzNn5X4udwN/view?usp=sharing"
+                    },
+                    {
+                      "name": "code",
+                      "type": "url",
+                      "url": "https://github.com/LechGrzelak/QuantFinanceBook"
+                    }
+                  ],
+                  "name": "Mathematical Modeling and Computation in Finance",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "book",
+                      "type": "url",
+                      "url": "https://drive.google.com/file/d/1kJ99PM9nGxyJfxqgbgpiuzyxj_KUlsoE/view?usp=sharing"
+                    },
+                    {
+                      "name": "code",
+                      "type": "url",
+                      "url": "https://github.com/mfrdixon/ML_Finance_Codes"
+                    }
+                  ],
+                  "name": "Machine Learning in Finance",
+                  "type": "folder"
+                }
+              ],
+              "name": "book",
+              "type": "folder"
+            }
+          ],
+          "name": "fml",
           "type": "folder"
         },
         {
