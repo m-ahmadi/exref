@@ -24,7 +24,7 @@ issues:
 		the global "checksum" property is changed
 	
 	they can all be fixed by removing these properties in the file before copying it
-	the script .\copyraw-unsetdate.js does this exact thing
+	the script .\copyraw-unset.js does this exact thing
 
 import in another browser:
 	1. import using the mentioned method above
