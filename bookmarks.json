@@ -14921,16 +14921,6 @@
                       "name": "code - fracdiff 2",
                       "type": "url",
                       "url": "https://github.com/fracdiff/fracdiff"
-                    },
-                    {
-                      "name": "code - mlfinlab - harvey1673",
-                      "type": "url",
-                      "url": "https://github.com/harvey1673"
-                    },
-                    {
-                      "name": "code - mlfinlab - boyboi86",
-                      "type": "url",
-                      "url": "https://github.com/boyboi86/mlfinlab"
                     }
                   ],
                   "name": "Advances in Financial Machine Learning",
@@ -15039,6 +15029,22 @@
                 }
               ],
               "name": "book",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "name": "0.12.0",
+                  "type": "url",
+                  "url": "https://github.com/harvey1673"
+                },
+                {
+                  "name": "0.10.0",
+                  "type": "url",
+                  "url": "https://github.com/boyboi86/mlfinlab"
+                }
+              ],
+              "name": "mlfinlab",
               "type": "folder"
             }
           ],
