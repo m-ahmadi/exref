@@ -15034,6 +15034,16 @@
             {
               "children": [
                 {
+                  "name": "0.12.3",
+                  "type": "url",
+                  "url": "https://github.com/Sandorabad/mlfinlab_sandorabad"
+                },
+                {
+                  "name": "0.12.3 - nohistory",
+                  "type": "url",
+                  "url": "https://github.com/jmrichardson/mlfinlab"
+                },
+                {
                   "name": "0.12.0",
                   "type": "url",
                   "url": "https://github.com/harvey1673"
@@ -15042,6 +15052,26 @@
                   "name": "0.10.0",
                   "type": "url",
                   "url": "https://github.com/boyboi86/mlfinlab"
+                },
+                {
+                  "name": "0.8.0",
+                  "type": "url",
+                  "url": "https://github.com/BryceMeng/mlfinlab"
+                },
+                {
+                  "name": "0.4.1",
+                  "type": "url",
+                  "url": "https://github.com/quantfiction/mlfinlab"
+                },
+                {
+                  "name": "research 1",
+                  "type": "url",
+                  "url": "https://github.com/objectin/mlfinlab-research"
+                },
+                {
+                  "name": "research 2",
+                  "type": "url",
+                  "url": "https://github.com/firmai/research"
                 }
               ],
               "name": "mlfinlab",
