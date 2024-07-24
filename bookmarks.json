@@ -14935,6 +14935,11 @@
                   "name": "research - alt",
                   "type": "url",
                   "url": "https://github.com/objectin/mlfinlab-research"
+                },
+                {
+                  "name": "research - trend-follow-question",
+                  "type": "url",
+                  "url": "https://github.com/avs20/FML"
                 }
               ],
               "name": "mlfinlab",
