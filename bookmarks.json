@@ -14894,6 +14894,11 @@
                 {
                   "name": "0.12.3",
                   "type": "url",
+                  "url": "https://github.com/quantopian/mlfinlab"
+                },
+                {
+                  "name": "0.12.3 - alt",
+                  "type": "url",
                   "url": "https://github.com/Sandorabad/mlfinlab_sandorabad"
                 },
                 {
