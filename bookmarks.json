@@ -15619,6 +15619,11 @@
                   "url": "https://tqdm.github.io/"
                 },
                 {
+                  "name": "dask",
+                  "type": "url",
+                  "url": "https://docs.dask.org/en/stable/api.html"
+                },
+                {
                   "name": "PySimpleGUI",
                   "type": "url",
                   "url": "https://github.com/PySimpleGUI/PySimpleGUI"
