@@ -1,4 +1,9 @@
-vscode python debugger requires python version 7.0 or higher
+the "Python Debugger" extension's python version support
+
+extension ver	python ver
+2023.1.xxx	2.7, 3.5+
+2023.3.xxx	3.7+
+2024.8.xxx	3.8+
 
 --------------------------------------------------
 setup env
