@@ -12,7 +12,7 @@ py -3.6-32	... 32bit
 py -X-64	launch latest 64bit
 py -X-32	... 32bit
 --------------------------------------------------------------------------------
-change default (py launcher defaults to latest version of installations)
+change default version
 
 setx PY_PYTHON "3.8"		for `py`
 setx PY_PYTHON3 "3.9"		for `py -3`
@@ -29,4 +29,27 @@ type > %localappdata%\py.ini
 
 alt 2
 #!C:/python2/python.exe		at first line of script
+--------------------------------------------------------------------------------
+how py launcher default python version changes after executing an installer
+
+first, there is the installer file e.g. python-3.12.4-amd64.exe
+the installer automatically installs another program called "Python Launcher" (gives us `py` cli)
+for every version of the installer, there is a version of PL associated with it
+if run an installer with lower  version than installed, it does not install its PL
+if run an installer with higher version than installed, it will     install its PL (multiple PLs)
+	only if PL version of installer is higher than installed PL
+the `py` cli of the higher version of PL installed always takes precedence
+even after uninstalling python itself with installer, PL sticks around
+the py.exe file from PL, is put in %windir% (unless checked "py launcher" during install, which puts it in %localappdata%\...)
+
+two ways that running an installer affects the default version:
+	1. once a new PL version is installed                                       (changes default to its associated python version)
+	2. once an existing PL version is uninstalled, while a lower version exists (changes default to that lower version)
+	(both 3.8 and 3.9 installed, then uninstall 3.9, now default is 3.8)
+
+TLDR:
+default only changes when the default PL is changed
+default PL changes in an upward-aware manner:
+	high on low  = change
+	low  on high = no change
 --------------------------------------------------------------------------------
