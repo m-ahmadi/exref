@@ -15365,6 +15365,11 @@
                   "url": "https://python-poetry.org/docs/#installing-manually"
                 },
                 {
+                  "name": "pyenv-win",
+                  "type": "url",
+                  "url": "https://github.com/pyenv-win/pyenv-win"
+                },
+                {
                   "name": "tools",
                   "type": "url",
                   "url": "https://github.com/ml-tooling/best-of-python-dev"
