@@ -15609,6 +15609,11 @@
                   "url": "https://ipython.org/"
                 },
                 {
+                  "name": "Pandoc",
+                  "type": "url",
+                  "url": "https://pandoc.org/MANUAL.html#using-pandoc"
+                },
+                {
                   "name": "jdatetime",
                   "type": "url",
                   "url": "https://pypi.org/project/jdatetime/"
@@ -17701,6 +17706,11 @@
                   "url": "https://maxima.sourceforge.io/documentation.html"
                 },
                 {
+                  "name": "MiKTeX",
+                  "type": "url",
+                  "url": "https://miktex.org/download"
+                },
+                {
                   "name": "MS Mathematics",
                   "type": "url",
                   "url": "https://www.microsoft.com/en-us/download/details.aspx?id=15702"
@@ -17739,6 +17749,11 @@
                   "name": "GeoGebra",
                   "type": "url",
                   "url": "https://www.geogebra.org/download"
+                },
+                {
+                  "name": "LaTeX",
+                  "type": "url",
+                  "url": "https://www.latex-project.org/get/"
                 },
                 {
                   "name": "top 30 best free math software",
@@ -17780,16 +17795,6 @@
                   "name": "LyX",
                   "type": "url",
                   "url": "https://www.lyx.org/Download#toc3"
-                },
-                {
-                  "name": "MiKTeX",
-                  "type": "url",
-                  "url": "https://miktex.org/download"
-                },
-                {
-                  "name": "LaTeX",
-                  "type": "url",
-                  "url": "https://www.latex-project.org/get/"
                 }
               ],
               "name": "app - editor",
