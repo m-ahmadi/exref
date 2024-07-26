@@ -8,6 +8,9 @@ btr	better		any improvement other than speed (e.g. readability, organization, et
 cmt	comment		anything related to comments
 rfct	refactor	any refactoring that changes logic
 bgfx	bug fix		when a bug is fixed
+pkg	package		any package related thing
+conf	congig		EXPERIMENTAL: any project-wide operation (e.g. automation processes)
+rstc	re-structure	EXPERIMENTAL: when re-structuring the project (e.g. changing file structure)
 edit	-		generic term
 docs	-		anything related to documentation
 note	-		similar to `docs` if proj has note
