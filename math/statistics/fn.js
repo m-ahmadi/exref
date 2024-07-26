@@ -162,6 +162,10 @@ function meanWeighted(x=[], w=[]) {
 	return sum(vecMul(w,x)) / sum(w);
 }
 
+function meanHarmonic(x=[]) {
+	return reciprocal(mean(x.map(reciprocal)));
+}
+
 function statRange(nums=[]) {
 	let [_min, _max] = minmax(nums);
 	return _max - _min;
