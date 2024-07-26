@@ -1,3 +1,7 @@
+function reciprocal(n=0) {
+	return 1 / n;
+}
+
 function factorial(n=0) {
 	return n > 1 ? range(n, 1, -1).reduce((r,i) => r * i) : 1;
 }
