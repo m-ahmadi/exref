@@ -101,7 +101,7 @@
 	"debug.terminal.clearBeforeReusing": true,
 	"debug.console.historySuggestions": false,
 	"python.showStartPage": false,
-	"python.defaultInterpreterPath": "C:\\python39\\python.exe",
+	"python.defaultInterpreterPath": "C:\\python312\\python.exe",
 	"editor.snippetSuggestions": "top", // show prev history at bottom
 	
 	/** yapf formatter opts */
