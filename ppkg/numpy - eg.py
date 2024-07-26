@@ -57,6 +57,15 @@ a / 2  # [.5,1,1.5,2]
 a // 2 # [0,1,1,2]
 a ** 2 # [1,4,9,16]
 
+# bitwise operators: & | ^ ~ (and or xor not)
+a = np.array([1,1,1])
+b = np.array([0,0,0])
+a & b # [0,0,0]
+a & a # [1,1,1]
+a | b # [1,1,1]
+a ^ a # [0,0,0]
+~a    # [0,0,0]
+
 # inverse bool arr (unary invert operator, hacky)
 ~np.array([True, False]) # [False,  True]
 
