@@ -14267,6 +14267,11 @@
               "url": "https://xgboost.readthedocs.io/en/stable/"
             },
             {
+              "name": "PyTorch",
+              "type": "url",
+              "url": "https://pytorch.org/"
+            },
+            {
               "children": [
                 {
                   "name": "sktime",
@@ -14383,11 +14388,6 @@
                   "name": "pycaret",
                   "type": "url",
                   "url": "https://github.com/pycaret/pycaret"
-                },
-                {
-                  "name": "PyTorch",
-                  "type": "url",
-                  "url": "https://pytorch.org/"
                 },
                 {
                   "name": "MXNet",
