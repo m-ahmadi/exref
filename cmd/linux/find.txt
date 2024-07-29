@@ -1,0 +1,5 @@
+find . -type f -name "*.txt" -size -5M -print		show   files with size <  5   mega bytes
+find . -type f -name "*.txt" -size +64c -print		show   ...             >  64  bytes
+find . -type f -name "*.txt" -size 256k -delete		delete ...             == 256 kilo bytes
+
+https://www.gnu.org/software/findutils/manual/html_mono/find.html
