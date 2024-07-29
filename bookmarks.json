@@ -15491,6 +15491,16 @@
                   "url": "https://pypi.org/"
                 },
                 {
+                  "name": "pyreadline",
+                  "type": "url",
+                  "url": "https://pypi.org/project/pyreadline/"
+                },
+                {
+                  "name": "pyreadline3",
+                  "type": "url",
+                  "url": "https://pypi.org/project/pyreadline3/"
+                },
+                {
                   "name": "yapf",
                   "type": "url",
                   "url": "https://github.com/google/yapf"
