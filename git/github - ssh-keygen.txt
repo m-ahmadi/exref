@@ -10,6 +10,7 @@ clip < ~/.ssh/id_rsa.pub
 github account -> settings -> ssh and gpg keys -> add key
 	key name: something
 	content: paste
+
 --------------------------------------------------------------------------------
 note:
 
@@ -24,3 +25,4 @@ on android using "Termux" app
 	pkg install openssh
 	... rest the same
 
+--------------------------------------------------------------------------------
