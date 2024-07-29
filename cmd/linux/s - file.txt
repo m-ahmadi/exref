@@ -7,3 +7,7 @@ mv old.txt new.txt		rename file
 rename 's\.jpeg/\.jpg/' *	rename all .jpeg to .jpg (not in all distros)
 cat file.txt			print content of file
 echo "foo" >> file.txt		append to file
+du -bsh *			show file sizes
+
+operate on multiple files base on filters
+find . -type f -name "*.txt" -size +5M -print		show files larger than a size (refer to .\find.txt)
