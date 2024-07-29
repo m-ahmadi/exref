@@ -15,3 +15,21 @@ ssh-add ~/.ssh/id_rsa			add key
 
 ssh-keygen -t rsa -b 4096 -C "foo"	gen key
 ssh-keygen -R github.com		remove all keys that belong to "github.com" host
+
+--------------------------------------------------------------------------------
+config
+
+/etc/ssh/sshd_config
+
+PermitRootLogin
+	prohibit-password (default)	root not allowed to login with password or keyboard-interactive authentication
+	forced-commands-only		root     allowed to login with public-key only if command option specified
+	yes				root     allowed to login
+	no				root not allowed to login
+
+	https://man7.org/linux/man-pages/man5/sshd_config.5.html
+
+
+service ssh restart			must run after modifying the confif file
+
+--------------------------------------------------------------------------------
