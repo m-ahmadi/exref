@@ -15350,6 +15350,26 @@
                   "url": "https://pip.pypa.io/en/stable/"
                 },
                 {
+                  "name": "pyreadline",
+                  "type": "url",
+                  "url": "https://pypi.org/project/pyreadline/"
+                },
+                {
+                  "name": "pyreadline3",
+                  "type": "url",
+                  "url": "https://pypi.org/project/pyreadline3/"
+                },
+                {
+                  "name": "yapf",
+                  "type": "url",
+                  "url": "https://github.com/google/yapf"
+                },
+                {
+                  "name": "pylint",
+                  "type": "url",
+                  "url": "https://www.pylint.org/"
+                },
+                {
                   "name": "setuptools",
                   "type": "url",
                   "url": "https://setuptools.pypa.io/en/latest/userguide/quickstart.html"
@@ -15489,26 +15509,6 @@
                   "name": "pypi",
                   "type": "url",
                   "url": "https://pypi.org/"
-                },
-                {
-                  "name": "pyreadline",
-                  "type": "url",
-                  "url": "https://pypi.org/project/pyreadline/"
-                },
-                {
-                  "name": "pyreadline3",
-                  "type": "url",
-                  "url": "https://pypi.org/project/pyreadline3/"
-                },
-                {
-                  "name": "yapf",
-                  "type": "url",
-                  "url": "https://github.com/google/yapf"
-                },
-                {
-                  "name": "pylint",
-                  "type": "url",
-                  "url": "https://www.pylint.org/"
                 },
                 {
                   "name": "numpy",
