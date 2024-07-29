@@ -8,6 +8,7 @@ python					enter shell
 lang pkgs
 
 pip install pyreadline			autocomplete in python shell
+pip install pyreadline3			... for python v3.10+
 pip install pylint			linter
 pip install yapf			formatter (best)
 pip install autopep8			formatter (some config)
