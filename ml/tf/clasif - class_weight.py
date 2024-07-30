@@ -31,16 +31,18 @@ data = [
 x_train = [i[0] for i in data]
 y_train = [i[1] for i in data]
 
-use_output_bias = 0
+y_orig = np.array(y_train).reshape(-1)
 
-if use_output_bias:
-	neg, pos = np.bincount(y_org)
+USE_OUTPUT_BIAS = 0
+
+if USE_OUTPUT_BIAS:
+	neg, pos = np.bincount(y_orig)
 	initial_bias = np.log([pos/neg])
 
 model = keras.Sequential([
 	InputLayer(2),
 	Dense(units=8, activation='sigmoid'),
-	Dense(units=1, activation='sigmoid', bias_initializer=keras.initializers.Constant(initial_bias) if use_output_bias else 'zeros')
+	Dense(units=1, activation='sigmoid', bias_initializer=keras.initializers.Constant(initial_bias) if USE_OUTPUT_BIAS else 'zeros')
 ])
 model.compile(optimizer=keras.optimizers.SGD(0.8), loss='binary_crossentropy')
 
@@ -52,12 +54,11 @@ if type == 0:
 	weights = {0: 1., 1: 10.} # every instance of class 1 == 10 instances of class 0
 else:
 	# auto
-	y_org = np.array(y_train).reshape(len(y_train))
-	weights = compute_class_weight('balanced', classes=np.unique(y_train), y=y_org)
+	weights = compute_class_weight('balanced', classes=np.unique(y_train), y=y_orig)
 	weights = dict(enumerate(weights))
 	
 	'''same as:
-	neg, pos = np.bincount(y_org)
+	neg, pos = np.bincount(y_orig)
 	total = neg + pos
 	weight_for_0 = (1 / neg) * (total / 2.0)
 	weight_for_1 = (1 / pos) * (total / 2.0)
