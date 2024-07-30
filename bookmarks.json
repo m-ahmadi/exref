@@ -14254,7 +14254,7 @@
             {
               "name": "scikit-learn",
               "type": "url",
-              "url": "https://scikit-learn.org/stable/modules/classes.html"
+              "url": "https://scikit-learn.org/stable/api/index.html"
             },
             {
               "name": "imbalanced-learn",
