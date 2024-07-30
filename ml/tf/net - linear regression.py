@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 
 model = tf.keras.Sequential()
-model.add(tf.keras.layers.Dense(units=1, input_shape=[1]))
+model.add(tf.keras.layers.Dense(units=1, input_shape=[1])) # no `activation` specified == "linear" activation
 model.compile(optimizer='sgd', loss='mean_squared_error')
 
 x = np.array([ [1], [2], [3], [4] ])
