@@ -60,15 +60,15 @@ def main(proba=False):
 	''')
 
 
-def get_multiclass_roc(classes, y_test, y_pred):
+def get_multiclass_roc(classes, y_true, y_pred):
 	# compute roc curve and area for each class
 	fpr, tpr, roc_auc = {}, {}, {}
 	for i in classes:
-		fpr[i], tpr[i], _ = roc_curve(y_test[:, i], y_pred[:, i])
+		fpr[i], tpr[i], _ = roc_curve(y_true[:, i], y_pred[:, i])
 		roc_auc[i] = auc(fpr[i], tpr[i])
 	
 	# micro
-	fpr['micro'], tpr['micro'], _ = roc_curve(y_test.ravel(), y_pred.ravel()) # `roc_curve` only supports binary classification
+	fpr['micro'], tpr['micro'], _ = roc_curve(y_true.ravel(), y_pred.ravel()) # `roc_curve` only supports binary classification
 	roc_auc['micro'] = auc(fpr['micro'], tpr['micro'])
 	
 	
