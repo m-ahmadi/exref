@@ -175,6 +175,10 @@ a.flatten()    # ...
 a.reshape(-1)  # ... 
 [*a.flat]      # [1,2,3,4]
 
+# flat - method differences
+#                flatten    ravel    reshape
+# return copy    yes        no       no
+
 # transpose
 a = np.array([ [1,2], [3,4] ])
 np.transpose(a) # [ [1,3], [2,4] ]
