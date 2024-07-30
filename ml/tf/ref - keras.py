@@ -343,3 +343,6 @@ tf.keras.metrics.
 	serialize(metric)
 	deserialize(config, custom_objects=None)
 	get(identifier)
+
+tf.keras.utils.
+	to_categorical(x=[], num_classes=None|0)

@@ -38,3 +38,11 @@ pd.DataFrame(history.history).plot(figsize=(8,5))
 plt.grid(True)
 plt.gca().set_ylim(0,1) # set the vertical range to [0-1]
 plt.show()
+
+# convert integer to binary array
+from keras.utils import to_categorical
+# https://www.tensorflow.org/api_docs/python/tf/keras/utils/to_categorical
+to_categorical([0,1])    # [ [1,0],     [0,1]     ]
+to_categorical([0,2])    # [ [1,0,0],   [0,0,1]   ]
+to_categorical([0,1], 4) # [ [1,0,0,0], [0,1,0,0] ]
+to_categorical([1,4], 3) # err
