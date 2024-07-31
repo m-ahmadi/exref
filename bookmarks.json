@@ -1894,14 +1894,14 @@
                   "url": "https://github.com/Hofknecht/SystemTrayMenu/releases"
                 },
                 {
-                  "name": "MultiTimer",
-                  "type": "url",
-                  "url": "https://soft98.ir/software/16107-multi-timer.html"
-                },
-                {
                   "name": "Free Timer",
                   "type": "url",
                   "url": "https://apps.microsoft.com/detail/9nk6zkx5tv0g?amp%3Bgl=US&hl=en-us&gl=US"
+                },
+                {
+                  "name": "MultiTimer",
+                  "type": "url",
+                  "url": "https://soft98.ir/software/16107-multi-timer.html"
                 },
                 {
                   "name": "Desktop Restore",
