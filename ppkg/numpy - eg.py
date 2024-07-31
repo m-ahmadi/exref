@@ -384,7 +384,13 @@ np.flip([1,2,3]).tolist() == [*reversed([1,2,3])] # True
 np.bincount([1,1,1])       # count occurrence: [0,3]
 np.bincount([1,1,1,4,4,4]) # ...               [0,3,0,0,3]
 
-np.array([1.5, 2.5, 3.5]).astype('int') # [1,2,3]
+np.array([1.5, 2.5, 3.5]).astype('int')       # [1,2,3]
+np.array([False, True, True]).astype('int')   # [0,1,1]
+np.array([False, True, True]).astype('float') # [0., 1., 1.]
+
+np.concatenate(([1,0],[True,False]))          # [1,0,1,0]
+np.concatenate(([True,False],[1,0]))          # ...
+np.concatenate(([1,2.0],[True,False]))        # [1., 2., 1., 0.]
 
 np.unique([1,1,2,2,3,3]) # [1,2,3]
 np.unique([[1,1],[2,3]]) # [1,2,3]
