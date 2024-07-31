@@ -374,8 +374,9 @@ np.diag(x)     # [1,5,9]
 np.diagonal(x) # ...
 
 # concat column-wise (only on 2d arrays)
-np.hstack(([1,2], [3,4]))         # [1,2,3,4]  (regular concat on 1d arrays)
-np.hstack(([[1],[2]], [[3],[4]])) # [ [1,3], [2,4] ]
+np.hstack(([1,2], [3,4]))                      # [1,2,3,4]  (regular concat on 1d arrays)
+np.hstack(([[1],[2]], [[3],[4]]))              # [ [1,3], [2,4] ]
+np.concatenate(([[1],[2]], [[3],[4]]), axis=1) # ...
 
 # misc
 np.flip([1,2,3]) # [3,2,1]
