@@ -5,7 +5,7 @@ http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?
 	return: text/xml
 */
 
-var str = await fetch('http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=46348559193224090').then(async r => await r.text());
+var str = await (await fetch('http://www.tsetmc.com/tsev2/data/TradeDetail.aspx?i=46348559193224090')).text();
 var rowsXml = new DOMParser().parseFromString(str, mimeType='text/xml').children[0];
 var rows = [...rowsXml.children].map(i=> [...i.children].map(j=> j.getInnerHTML() ));
 /*

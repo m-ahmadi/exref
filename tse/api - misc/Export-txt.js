@@ -16,7 +16,7 @@ http://tsetmc.com/tsev2/data/Export-txt.aspx?t=i&
 	return: text/plain
 */
 
-var str = await fetch('http://tsetmc.com/tsev2/data/Export-txt.aspx?t=i&a=1&b=0&i=46348559193224090').then(async r => await r.text());
+var str = await (await fetch('http://tsetmc.com/tsev2/data/Export-txt.aspx?t=i&a=1&b=0&i=46348559193224090')).text();
 
 
-var str = await fetch('http://tsetmc.com/tse/data/Export-txt.aspx?a=InsTrade&InsCode=46348559193224090&DateFrom=20000101&DateTo=20210308&b=0').then(async r => await r.text());
+var str = await (await fetch('http://tsetmc.com/tse/data/Export-txt.aspx?a=InsTrade&InsCode=46348559193224090&DateFrom=20000101&DateTo=20210308&b=0')).text();

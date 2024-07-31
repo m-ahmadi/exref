@@ -4,7 +4,7 @@ http://www.tsetmc.com/tsev2/data/clienttype.aspx?
 	
 	return: text/csv
 */
-var str = await fetch('http://www.tsetmc.com/tsev2/data/clienttype.aspx?i=46348559193224090').then(async r => await r.text());
+var str = await (await fetch('http://www.tsetmc.com/tsev2/data/clienttype.aspx?i=46348559193224090')).text();
 var rows = str.split(';'); // rows[0] == last day
 
 var cols = [

@@ -4,7 +4,7 @@ http://www.tsetmc.com/tsev2/data/search.aspx?
 	
 	return: text/html
 */
-var str = await fetch('http://www.tsetmc.com/tsev2/data/search.aspx?skey=فولاد').then(async r => await r.text());
+var str = await (await fetch('http://www.tsetmc.com/tsev2/data/search.aspx?skey=فولاد')).text();
 var row = str.split(';');
 
 var cols = ['Symbol', 'Name', 'InsCode', '???long', '???long', '???long', 'Flow', '???FlowOld', '???int', '???int', 'CGrValCot'];
