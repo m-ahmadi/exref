@@ -277,11 +277,6 @@ np.insert([3,4], 0, [1,2])       # ...  (slowest)
 # splice
 np.insert([3,4], 1, [1,2]) # [3,1,2,4]
 
-# misc
-a = np.array([ [1,2], [3,4], [5,6] ])
-a.shape     # (3,2)
-np.shape(a) # ...
-
 # diff
 a = [2,8,16,28]
 np.diff(a, 0) # [2,8,16,28]
@@ -379,6 +374,10 @@ np.hstack(([[1],[2]], [[3],[4]]))              # [ [1,3], [2,4] ]
 np.concatenate(([[1],[2]], [[3],[4]]), axis=1) # ...
 
 # misc
+a = np.array([ [1,2], [3,4], [5,6] ])
+a.shape     # (3,2)
+np.shape(a) # ...
+
 np.flip([1,2,3]) # [3,2,1]
 np.flip([1,2,3]).tolist() == [*reversed([1,2,3])] # True
 
