@@ -6,7 +6,7 @@ http://tsetmc.com/tsev2/chart/data/Financial.aspx?
 	
 	return: text/csv
 */
-var str = await fetch('http://tsetmc.com/tsev2/chart/data/Financial.aspx?i=46348559193224090&t=ph&a=1').then(async r => await r.text());
+var str = await (await fetch('http://tsetmc.com/tsev2/chart/data/Financial.aspx?i=46348559193224090&t=ph&a=1')).text();
 var rows = str.split(';'); // rows[rows.length-1] == last day
 
 var cols = ['date', 'high', 'low', 'open', 'last', 'volume', 'close'];

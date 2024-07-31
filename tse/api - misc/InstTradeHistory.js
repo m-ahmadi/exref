@@ -6,7 +6,7 @@ http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?
 	
 	return: text/html
 */
-var str = await fetch('http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?i=46348559193224090&Top=999999&A=1').then(async r => await r.text());
+var str = await (await fetch('http://members.tsetmc.com/tsev2/data/InstTradeHistory.aspx?i=46348559193224090&Top=999999&A=1')).text();
 var rows = str.split(';'); // rows[0] == last day
 
 var cols = ['date', 'high', 'low', 'last', 'close', 'open', 'yesterday', 'value', 'volume', 'count'];
