@@ -14,19 +14,35 @@ https://github.com/XTLS/Xray-core/releases	extract in "v2rayN/bin/Xray" dir
 
 
 or with powershell:
+function Get-Last-Ver() { (irm "https://api.github.com/repos/$($args[0])/releases/latest").tag_name }
+
+$i1 = '2dust/v2rayN';
+$i2 = 'v2fly/v2ray-core';
+$i3 = 'XTLS/Xray-core';
+
+Write-Output 'Getting the latest versions...';
+$v1 = Get-Last-Ver $i1;
+$v2 = Get-Last-Ver $i2;
+$v3 = Get-Last-Ver $i3;
+
+$a = @()
+$a += [pscustomobject]@{Repo = $i1; Version = $v1}
+$a += [pscustomobject]@{Repo = $i2; Version = $v2}
+$a += [pscustomobject]@{Repo = $i3; Version = $v3}
+$a | Format-Table
 
 
-iwr https://github.com/2dust/v2rayN/releases/download/6.53/v2rayN.zip -O x.zip;
+iwr "https://github.com/$($i1)/releases/download/$($v1)/v2rayN.zip" -O x.zip;
 Expand-Archive x.zip -D .\;
 ri x.zip;
 
 cd v2rayN;
 
-iwr https://github.com/v2fly/v2ray-core/releases/download/v5.16.1/v2ray-windows-64.zip -O x.zip;
+iwr "https://github.com/$($i2)/releases/download/$($v2)/v2ray-windows-64.zip" -O x.zip;
 Expand-Archive x.zip -D .\;
 ri x.zip;
 
-iwr https://github.com/XTLS/Xray-core/releases/download/v1.8.23/Xray-windows-64.zip -O x.zip;
+iwr "https://github.com/$($i3)/releases/download/$($v3)/Xray-windows-64.zip" -O x.zip;
 Expand-Archive x.zip -D .\bin\Xray;
 ri x.zip;
 
