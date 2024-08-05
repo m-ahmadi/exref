@@ -1,0 +1,10 @@
+set key=HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+set val=ShowSecondsInSystemClock
+
+reg add %key% /v %val% /t REG_DWORD /d 1
+
+undo:
+reg delete %key% /v %val% /f
+
+
+note: restart needed
