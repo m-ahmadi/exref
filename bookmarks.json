@@ -12004,6 +12004,11 @@
                   "url": "https://github1s.com/"
                 },
                 {
+                  "name": "docs - REST API endpoints for releases",
+                  "type": "url",
+                  "url": "https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28"
+                },
+                {
                   "children": [
                     {
                       "name": "Markdown Cheatsheet",
