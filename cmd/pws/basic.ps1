@@ -56,9 +56,22 @@ $y = 3
 $x = 2; $y = 3;
 
 # cast type
+function typ { $args[0].GetType().Name }
 $str = '123'
-$str.GetType().Name          # String
-([array]$str).GetType().Name # Object[]
+typ $str                  # String
+typ ([array]$str)         # Object[]
+typ 32                    # Int32
+typ ([int64]32)           # Int64
+typ ([string]32)          # String
+typ [string]::new(32)     # ...
+
+typ $str                  # ok
+typ [array]$str           # bad: String
+typ [int]32               # bad: String
+
+typ ([int]01234567890)    # Int32
+typ ([int]012345678901)   # err
+typ ([int64]012345678901) # Int64
 
 # single line comment
 <#

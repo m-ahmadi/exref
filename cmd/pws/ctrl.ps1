@@ -25,3 +25,11 @@ exit 1
 throw
 
 Write-Error # non-terminating errors
+
+# exception handling
+try {
+	Start-Something
+} catch {
+    Write-Output 'Something threw an exception'
+    Write-Output $_
+}
