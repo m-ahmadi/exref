@@ -7,7 +7,8 @@ opt	optimize	any speed improvement
 btr	better		any improvement other than speed (e.g. readability, organization, etc)
 cmt	comment		anything related to comments
 rfct	refactor	any refactoring that changes logic
-bgfx	bug fix		when a bug is fixed
+fxbg	fix bug		when a bug is fixed
+fxms	fix mistake	when a mistake is fixed (mistake means a non-fatal wrong thing)
 pkg	package		any package related thing
 cln	cleanup		EXPERIMENTAL: deleting unnecessary things (mix of del & fmt)
 conf	congig		EXPERIMENTAL: any project-wide operation (e.g. automation processes)
