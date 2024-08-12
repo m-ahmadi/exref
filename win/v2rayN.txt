@@ -13,7 +13,15 @@ https://github.com/v2fly/v2ray-core/releases	extract in "v2rayN" dir (can skip i
 https://github.com/XTLS/Xray-core/releases	extract in "v2rayN/bin/Xray" dir
 
 
-or with powershell:
+show installed versions
+set install_dir=C:\path\to\v2rayN\
+pushd %install_dir%
+v2rayN:		check ui
+v2ray-core:	v2ray.exe version
+Xray-core:	bin\Xray\xray.exe version
+
+
+install latest versions with powershell:
 function Get-Last-Ver() { (irm "https://api.github.com/repos/$($args[0])/releases/latest").tag_name }
 
 $i1 = '2dust/v2rayN';
