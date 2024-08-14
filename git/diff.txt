@@ -1,6 +1,14 @@
-git diff			show diff between last commit and current state
-git diff HEAD~ 581936a		show diff of specific commit
-git diff-tree -p 581936a	... same
+shows diff between two commits (hash arg's order determines "from-to" colorization)
+
+				commit A (to)	commit B (from)
+================================================================================
+git diff			working tree	last
+git diff HEAD~                  working tree	2nd last
+git diff abc1111		specific	its prev
+git diff-tree -p abc1111	...		...
+git diff abc1111 abc2222	specific	specific 
+git diff HEAD~ abc1111		last		specific
+
 
 git fetch					won't change the working copy
 git diff master origin/master
