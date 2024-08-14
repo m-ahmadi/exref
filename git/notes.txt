@@ -38,3 +38,17 @@ https://git-scm.com/docs/revisions
 ^	parent
 @	shortcut for head
 --------------------------------------------------------------------------------
+symbolic references
+
+https://git-scm.com/docs/revisions#Documentation/revisions.txt-codeHEADcode
+
+HEAD			base branch of working tree
+FETCH_HEAD		the branch of last `git fetch`
+ORIG_HEAD		recorded head position before drastic operations
+MERGE_HEAD		commits being merged after a `git merge`
+REBASE_HEAD		commit at which rebase is stopped (due to `edit` or conflict)
+REVERT_HEAD		the commit being reverted after a `git revert`
+CHERRY_PICK_HEAD	the commit being cherry picked after a `git cherry-pick`
+BISECT_HEAD		current commit to be tested after a `git bisect --no-checkout`
+AUTO_MERGE		tree object related to merge conflict
+--------------------------------------------------------------------------------
