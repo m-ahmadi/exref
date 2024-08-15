@@ -10,6 +10,7 @@ custom:
 
 ctrl b		light explorer
 ctrl t		space to tab (leading)
+ctrl alt t	tab to space
 alt  ~		show white space and tab
 alt shift ~	show end of line
 alt e		move to other view
