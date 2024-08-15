@@ -90,3 +90,7 @@ f'{{{ "HELLO".lower() }}}'          # eval expression:  '{hello}'
 # format string - backslash not allowed
 f'foo \n bar'     # ok
 f'foo {"\n"} bar' # err
+
+# sol - number grouping
+f'{1234567:,}'         # '1,234,567'
+'{:,}'.format(1234567) # ...
