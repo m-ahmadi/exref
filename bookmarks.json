@@ -11969,44 +11969,44 @@
                   "url": "https://docs.github.com/en"
                 },
                 {
-                  "name": "Dealing with line endings",
+                  "name": "docs - Dealing with line endings",
                   "type": "url",
                   "url": "https://docs.github.com/en/get-started/getting-started-with-git/configuring-git-to-handle-line-endings"
                 },
                 {
-                  "name": "Generating an SSH key",
+                  "name": "docs - Generating an SSH key",
                   "type": "url",
                   "url": "https://docs.github.com/en/authentication/connecting-to-github-with-ssh"
                 },
                 {
-                  "name": "Readme.md as lazy persons html page",
+                  "name": "docs - Autolinked references and URLs",
                   "type": "url",
-                  "url": "http://sudodoki.name/readme-md-as-lazy-persons-html-page/"
+                  "url": "https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests"
                 },
                 {
-                  "name": "Autolinked references and URLs",
+                  "name": "docs - Closing issues via commit messages",
                   "type": "url",
-                  "url": "https://help.github.com/en/github/writing-on-github/autolinked-references-and-urls#issues-and-pull-requests"
-                },
-                {
-                  "name": "Closing issues via commit messages",
-                  "type": "url",
-                  "url": "https://help.github.com/articles/closing-issues-via-commit-messages/"
-                },
-                {
-                  "name": "DownGit",
-                  "type": "url",
-                  "url": "https://minhaskamal.github.io/DownGit/#/home"
-                },
-                {
-                  "name": "GitHub1s",
-                  "type": "url",
-                  "url": "https://github1s.com/"
+                  "url": "https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue"
                 },
                 {
                   "name": "docs - REST API endpoints for releases",
                   "type": "url",
                   "url": "https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28"
+                },
+                {
+                  "name": "article - Readme.md as lazy persons html page",
+                  "type": "url",
+                  "url": "http://sudodoki.name/readme-md-as-lazy-persons-html-page/"
+                },
+                {
+                  "name": "GitHub1s (repo in vscode)",
+                  "type": "url",
+                  "url": "https://github1s.com/"
+                },
+                {
+                  "name": "DownGit (create github resource download link)",
+                  "type": "url",
+                  "url": "https://minhaskamal.github.io/DownGit/#/home"
                 },
                 {
                   "children": [
