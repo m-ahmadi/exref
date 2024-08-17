@@ -11,3 +11,6 @@ du -bsh *			show file sizes
 
 operate on multiple files base on filters
 find . -type f -name "*.txt" -size +5M -print		show files larger than a size (refer to .\find.txt)
+
+unexpand --tabs=2 --first-only	replace spaces with tabs (leading)
+expand --tabs=2 --initial	replace tabs with spaces (leading)
