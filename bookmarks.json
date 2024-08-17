@@ -12011,6 +12011,32 @@
                 {
                   "children": [
                     {
+                      "name": "workflow syntax",
+                      "type": "url",
+                      "url": "https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions"
+                    },
+                    {
+                      "name": "events",
+                      "type": "url",
+                      "url": "https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows"
+                    },
+                    {
+                      "name": "eg - basic",
+                      "type": "url",
+                      "url": "https://docs.github.com/en/actions/writing-workflows/quickstart"
+                    },
+                    {
+                      "name": "eg - node",
+                      "type": "url",
+                      "url": "https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-nodejs"
+                    }
+                  ],
+                  "name": "github actions",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
                       "name": "Markdown Cheatsheet",
                       "type": "url",
                       "url": "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"
