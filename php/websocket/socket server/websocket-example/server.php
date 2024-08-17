@@ -42,13 +42,13 @@ while (true) {
 	}
 	
 	//loop through all connected sockets
-	foreach ($changed as $changed_socket) {	
+	foreach ($changed as $changed_socket) {
 		
 		//check for any incomming data
 		while(socket_recv($changed_socket, $buf, 1024, 0) >= 1)
 		{
 			$received_text = unmask($buf); //unmask data
-			$tst_msg = json_decode($received_text); //json decode 
+			$tst_msg = json_decode($received_text); //json decode
 			$user_name = $tst_msg->name; //sender name
 			$user_message = $tst_msg->message; //message text
 			$user_color = $tst_msg->color; //color

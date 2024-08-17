@@ -12,7 +12,7 @@ class socketWebSocket extends socket
 	private $clients = array();
 	private $handshakes = array();
 	private $users = array();
-	
+
 	//variables added by me
 	private $counter = 0;
 	private $lastTime = 0;
@@ -92,18 +92,18 @@ class socketWebSocket extends socket
 						{
 							$action = $this->unmask($buffer);
 							if($action=='')
-							{	
+							{
 								$this->disconnected($socket);
 								continue;
 							}
-							
+
 							//that was some hack I forgot to properly comment and I dont know what it does
 							if($action==chr(3).chr(233))
-							{	
+							{
 								$this->disconnected($socket);
 								continue;
 							}
-							
+
 							if(($pos=strpos($action,'login'))===0 && $user=='')
 							{
 								$name = substr($action,$pos+7);
@@ -117,7 +117,7 @@ class socketWebSocket extends socket
 								$this->send($socket, json_encode($output));
 							}
 							else
-							{	
+							{
 								$skipSockets = array($this->master,$socket);
 								$them = array_diff($this->allsockets,$skipSockets);
 								$output = array();
@@ -132,7 +132,7 @@ class socketWebSocket extends socket
 					}
 				}
 			}
-			
+
 			$timeDiff =  (microtime(true) - $this->lastTime)*1000;
 			//server messages
 			if($timeDiff>1000)//send messages out every 1000 ms
@@ -158,7 +158,7 @@ class socketWebSocket extends socket
 					$this->send($sock,'/setUsers'.$temp);
 				}
 			}*/
-			
+
 		}
 	}
 
@@ -172,8 +172,8 @@ class socketWebSocket extends socket
 	private function do_handshake($buffer,$socket,$socket_index)
 	{
 		list($resource,$host,$origin,$key) = $this->getheaders($buffer);
-	
-		
+
+
 		$retkey = base64_encode(sha1($key."258EAFA5-E914-47DA-95CA-C5AB0DC85B11",true));
 
 		$upgrade  = "HTTP/1.1 101 Switching Protocols\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Accept: {$retkey}\r\n\r\n";
@@ -237,11 +237,11 @@ class socketWebSocket extends socket
 
 		return array($res,$host,$ori,$key);
 	}
-	
-	private function unmask($payload) 
+
+	private function unmask($payload)
 	{
 		$length = ord($payload[1]) & 127;
-	 
+
 		if($length == 126) {
 			$masks = substr($payload, 4, 4);
 			$data = substr($payload, 8);
@@ -257,14 +257,14 @@ class socketWebSocket extends socket
 			$data = substr($payload, 6);
 			$len = $length;
 		}
-	 
+
 		$text = '';
 		for ($i = 0; $i < $len; ++$i) {
 			$text .= $data[$i] ^ $masks[$i%4];
 		}
 		return $text;
 	}
-	
+
 	/**
 	 * Encode a text for sending to clients via ws://
 	 * @param $text
@@ -273,14 +273,14 @@ class socketWebSocket extends socket
 		// 0x1 text frame (FIN + opcode)
 		$b1 = 0x80 | (0x1 & 0x0f);
 		$length = strlen($text);
-		
+
 		if($length <= 125)
 			$header = pack('CC', $b1, $length);
 		elseif($length > 125 && $length < 65536)
 			$header = pack('CCS', $b1, 126, $length);
 		elseif($length >= 65536)
 			$header = pack('CCN', $b1, 127, $length);
-	 
+
 		return $header.$text;
 	}
 

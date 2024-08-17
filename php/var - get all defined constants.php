@@ -1,7 +1,7 @@
 <?php
 
-get_defined_constants(false);	// default
-get_defined_constants(true);	// multi-dimensional array with categories
+get_defined_constants(false); // default
+get_defined_constants(true);  // multi-dimensional array with categories
 
 
 

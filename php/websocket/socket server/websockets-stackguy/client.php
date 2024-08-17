@@ -4,16 +4,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function() 
+$(document).ready(function()
 {
 	$('#chatLog, input, button, #examples').hide();
-	if(!("WebSocket" in window)){	
-		$('<p>Oh no, you need a browser that supports WebSockets. How about <a href="http://www.google.com/chrome">Google Chrome</a>?</p>').appendTo('#container');		
+	if(!("WebSocket" in window)){
+		$('<p>Oh no, you need a browser that supports WebSockets. How about <a href="http://www.google.com/chrome">Google Chrome</a>?</p>').appendTo('#container');
 	}
 	else
 	{
 		//The user has WebSockets
-		
+	
 	
 		var socket;
 		var host = "ws://109.255.177.28:8080";
@@ -32,7 +32,7 @@ $(document).ready(function()
 				}
 				
 				socket.onerror = function(error){
-					status('<p class="event">Socket Status: '+socket.readyState+' ('+error+')');	
+					status('<p class="event">Socket Status: '+socket.readyState+' ('+error+')');
 				}
 				
 				//receive message
@@ -66,13 +66,13 @@ $(document).ready(function()
 						wsconnect();
 					}
 					status('<p class="event">Socket Status: '+socket.readyState+' (Closed)');
-				}			
-					
+				}
+				
 			} catch(exception){
 				message('<p>Error'+exception);
 			}
 		}
-				
+			
 			function ping()
 			{
 				if(reconnect)
@@ -81,13 +81,13 @@ $(document).ready(function()
 					socket.send('ping');
 				}
 			}
-				
+			
 			function send()
 			{
 				var text = $('#text').val();
 				if(text==""){
 					alert('Please enter a message');
-					return ;	
+					return ;
 				}
 				try{
 					socket.send(text);
@@ -109,12 +109,12 @@ $(document).ready(function()
 				$('#status').html(msg+'</p>');
 			}
 			
-			$('#text').keypress(function(event) 
+			$('#text').keypress(function(event)
 			{
 				if (event.keyCode == '13') {
 					send();
 				}
-			});	
+			});
 			
 			$('#disconnect').click(function()
 			{
@@ -154,7 +154,7 @@ body{font-family:Arial, Helvetica, sans-serif;}
 }
 #chatLog{
 	padding:5px;
-	border:1px solid black;	
+	border:1px solid black;
 	height: 400px;
 	overflow: auto;
 }
