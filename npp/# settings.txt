@@ -6,7 +6,7 @@ pushd %target%\autoCompletion
 copy /b javascript.xml myJSX.xml
 --------------------------------------------------------------------------------
 Settings -> Preferences
-	Language	-> Tab size -> default: 2 normal: 8
+	Language	-> Tab size -> default: 2, normal: 8, yaml: Replace by space
 	Highlighting	-> Use Find dialog settings
 	Auto-Completion	-> html/xml close tag
 	MISC.		-> Update silently (enable), Document Switcher (disable)
