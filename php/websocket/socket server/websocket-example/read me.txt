@@ -4,7 +4,7 @@ Running Server :
 
 2. Go to your shell command-line interface
 
-3. type: 
+3. type:
 	php -q c:\path\server.php
 
 4. Using browser, navigate to index.php location to open chat page, have fun!

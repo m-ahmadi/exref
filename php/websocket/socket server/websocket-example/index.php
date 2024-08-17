@@ -29,25 +29,25 @@
 -->
 </style>
 </head>
-<body>	
-<?php 
+<body>
+<?php
 $colours = array('007AFF','FF7000','FF7000','15E25F','CFC700','CFC700','CF1100','CF00BE','F00');
 $user_colour = array_rand($colours);
 ?>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
-<script language="javascript" type="text/javascript">  
+<script language="javascript" type="text/javascript">
 $(document).ready(function(){
 	//create a new WebSocket object.
-	var wsUri = 'ws://localhost:9000/demo/server.php'; 	
-	websocket = new WebSocket(wsUri); 
+	var wsUri = 'ws://localhost:9000/demo/server.php';
+	websocket = new WebSocket(wsUri);
 	
-	websocket.onopen = function(ev) { // connection is open 
+	websocket.onopen = function(ev) { // connection is open
 		$('#message_box').append('<div class="system_msg">Connected!</div>'); //notify user
 	}
 
-	$('#send-btn').click(function(){ //use clicks message send button	
+	$('#send-btn').click(function(){ //use clicks message send button
 		var mymessage = $('#message').val(); //get message text
 		var myname = $('#name').val(); //get user name
 		

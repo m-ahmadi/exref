@@ -33,8 +33,8 @@
 </head>
 <body>
 	<select size="1" id="productsList">
-        <option>Select an item</option>
-     </select>
+				<option>Select an item</option>
+		 </select>
 	 
 	 <ul id="ul">
 	 </ul>

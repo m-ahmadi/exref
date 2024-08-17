@@ -24,7 +24,7 @@
 			xhr.onreadystatechange = function(){
 				document.getElementById('vasat').innerHTML = xhr.responseText;
 			}
-			xhr.send();	
+			xhr.send();
 		}
 		function fn3(event){
 			var target = event.target;
@@ -34,7 +34,7 @@
 			xhr.onreadystatechange = function(){
 				document.getElementById('hha').innerHTML = xhr.responseText;
 			}
-			xhr.send();		
+			xhr.send();
 		}
 		document.getElementById('bt').addEventListener('click', fn1, false);
 		document.getElementById('first').addEventListener('click', fn2, false);

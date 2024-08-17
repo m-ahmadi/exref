@@ -51,7 +51,7 @@ include('inc/header.php'); ?>
 						</table>
 						<input type="submit" value="Add to Cart" name="submit">
 					</form>
-		
+				
 				<p class="note-designer">*All shirts are designed by Mike the Frog</p>
 			</div>
 			</div>
