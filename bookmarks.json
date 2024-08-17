@@ -11846,6 +11846,22 @@
             {
               "children": [
                 {
+                  "name": "yaml",
+                  "type": "url",
+                  "url": "https://yaml.org/"
+                },
+                {
+                  "name": "docs",
+                  "type": "url",
+                  "url": "https://learnxinyminutes.com/docs/yaml/"
+                }
+              ],
+              "name": "yaml",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
                   "name": "home",
                   "type": "url",
                   "url": "https://git-scm.com/"
