@@ -15351,24 +15351,29 @@
             {
               "children": [
                 {
-                  "name": "ref manual",
+                  "name": "ref",
+                  "type": "url",
+                  "url": "https://www.gnu.org/software/bash/manual/bash.html"
+                },
+                {
+                  "name": "ref2",
                   "type": "url",
                   "url": "https://tiswww.case.edu/php/chet/bash/bashref.html"
                 },
                 {
-                  "name": "man page",
+                  "name": "ref3",
                   "type": "url",
                   "url": "https://linux.die.net/man/1/bash"
                 },
                 {
-                  "name": "howto",
+                  "name": "ref4",
                   "type": "url",
-                  "url": "http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html"
+                  "url": "https://ss64.com/bash/"
                 },
                 {
-                  "name": "if statement examples",
+                  "name": "guide",
                   "type": "url",
-                  "url": "https://www.thegeekstuff.com/2010/06/bash-if-statement-examples/"
+                  "url": "http://tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html"
                 }
               ],
               "name": "bash",
