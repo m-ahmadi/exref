@@ -10192,11 +10192,6 @@
                       "url": "https://www.npmjs.com/package/ipaddr.js"
                     },
                     {
-                      "name": "js-yaml",
-                      "type": "url",
-                      "url": "https://www.npmjs.com/package/js-yaml"
-                    },
-                    {
                       "name": "yocto-queue",
                       "type": "url",
                       "url": "https://www.npmjs.com/package/yocto-queue"
@@ -11854,6 +11849,21 @@
                   "name": "docs",
                   "type": "url",
                   "url": "https://learnxinyminutes.com/docs/yaml/"
+                },
+                {
+                  "name": "js-yaml",
+                  "type": "url",
+                  "url": "https://www.npmjs.com/package/js-yaml"
+                },
+                {
+                  "name": "pyyaml",
+                  "type": "url",
+                  "url": "https://pyyaml.org/wiki/PyYAMLDocumentation"
+                },
+                {
+                  "name": "yamllint",
+                  "type": "url",
+                  "url": "https://github.com/adrienverge/yamllint"
                 }
               ],
               "name": "yaml",
