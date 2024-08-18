@@ -1,4 +1,4 @@
-// git rebase -i HEAD~10 --commiter-date-is-author-date
+// git rebase -i HEAD~10 --committer-date-is-author-date
 
 s = `
 pick aaabbba 2
@@ -61,4 +61,4 @@ exec git commit --amend -m "7"
 `
 
 // run another time without touching the todo list to restore commit dates
-// git rebase -i HEAD~10 --commiter-date-is-author-date
+// git rebase -i HEAD~10 --committer-date-is-author-date
