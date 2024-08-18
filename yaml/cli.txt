@@ -1,0 +1,23 @@
+lint
+
+pipx install yamllint			install cli tool
+
+yamllint file.yml			lint single file
+yamllint file1.yml file2.yml		lint multiple files
+yamllint .				lint all files
+yamllint -d relaxed file.yaml		use pre-defined lint config
+yamllint -c ./myconfig file.yaml	use custom lint config
+yamllint -f parsable file.yaml		output parsable format
+yamllint --help				show help
+
+--------------------------------------------------------------------------------
+check parsed file
+
+npm i js-yaml
+node -p "require('js-yaml').load(fs.readFileSync(0,'utf8'))" < file.yml
+
+pip install pyyaml
+py -c "import yaml, sys; print(yaml.safe_load(sys.stdin))" < file.yml
+
+ruby -ryaml -e "p YAML.load(STDIN.read)" < file.yml
+--------------------------------------------------------------------------------

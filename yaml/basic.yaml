@@ -77,18 +77,29 @@ values:
 - *ref  # Reused content
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # merging keys
-default_settings:
-    install:
+default_settings: &default_settings
+  install:
     dir: /usr/local
     owner: root
   config:
     enabled: false
-
-# Derive settings for 'my_app' from default and change install::owner
+ 
+# derive settings for 'my_app' from default and change install::owner
 my_app_settings:
   <<: *default_settings
   install:
     owner: my_user
+
+# another example
+base: &base
+  name: Everyone has same name
+foo:
+  <<: *base
+  age: 10
+  name: John
+bar:
+  <<: *base
+  age: 20
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # complex mapping
 ---
