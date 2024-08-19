@@ -1,0 +1,25 @@
+1. github.com/settings/pages
+
+2. Add a domain
+	What domain would you like to add?	example.com
+	Add domain
+
+3. add TXT record (in hosting panel)
+	hostname:	_github-pages-challenge-USERNAME.example.com				
+	value:		aaa11bbb22ccc33...
+
+4. verify
+	dig _github-pages-challenge-USERNAME.example.com +nostats +nocomments +nocmd TXT
+
+done.
+
+source:
+https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages
+--------------------------------------------------
+note about proper inserting of TXT dns record
+
+depending on hosting panel ui, how you insert a dns record can differ.
+some panels present user with a textbox for value of dns record,
+but then, they append domain name to what user provided.
+so look out for things like that.
+--------------------------------------------------
