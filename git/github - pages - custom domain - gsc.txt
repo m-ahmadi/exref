@@ -1,0 +1,14 @@
+1. https://search.google.com/search-console
+
+2. input domain name (left box)
+	foo.com
+	CONTINUE
+
+3. add TXT record (in hosting panel)
+	hostname:	foo.com				
+	value:		<VALUE_PROVIDED_BY_GOOGLE>
+
+4. VERIFIY
+
+
+done. (now you can access "google search console")
