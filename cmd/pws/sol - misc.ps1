@@ -14,3 +14,7 @@ $a += [pscustomobject]@{Name = 'John';  Job = 'Doctor'}
 $a += [pscustomobject]@{Name = 'Jason'; Job = 'Engineer'}
 $a += [pscustomobject]@{Name = 'Javad'; Job = 'Plumber'}
 $a | Format-Table
+
+# show dns records
+Resolve-DnsName google.com
+Resolve-DnsName github.com -Type TXT

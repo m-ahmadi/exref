@@ -1,0 +1,9 @@
+dig google.com					show dns records
+dig google.com +nostats +nocomments +nocmd	... minimal
+dig github.com +nostats +nocomments +nocmd TXT	... specific record type
+dig google.com +noall +answer -t A		... another way
+dig google.com +noall +answer -t AAAA		...
+dig -h						help
+
+install:
+sudo apt-get install dnsutils
