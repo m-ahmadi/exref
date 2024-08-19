@@ -27,6 +27,9 @@ TXT	text
 	allows administrators to add limited human and machine-readable notes
 	can be used for email validation, site, and ownership verification, framework policies, etc
 	doesn't require specific formatting
+	example:
+	host.widgets.com   IN   TXT   v=foo; v2=bar;
+	https://www.rfc-editor.org/rfc/rfc1464.txt
 
 SRV	service
 	allows services such as instant messaging or VoIP to be directed to a separate host and port location
