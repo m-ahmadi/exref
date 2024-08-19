@@ -1,0 +1,40 @@
+A	address
+	maps fully qualified domain name (FQDN) to an IPv4 address
+	acts as translator by converting domain names to IP adresses
+
+AAAA	quad A
+	similar to A records but maps to an IPv6 adress (smart phones prefer IPv6, if available)
+
+ANAME	allows to point root of domain to a hostname or FQDN
+
+CNAME	canonical name
+	an alias that points to another domain or subdomain, but never an IP address
+	alias record mapping FQDN to FQDN, multiple hosts to a single location
+	good for changing an IP address over time since allows to make changes without affecting user bookmarks, etc
+
+SOA	start of authority
+	stores information about domains and is used to direct how a DNS zone propagates to secondary name servers
+
+NS	name server
+	specifies which name servers are authoritative for a domain or subdomains
+	should not be pointed to a CNAME
+
+MX	mail exchange
+	uses mail servers to map where to deliver email for a domain
+	should point to a mail server name and not to an IP address
+
+TXT	text
+	allows administrators to add limited human and machine-readable notes
+	can be used for email validation, site, and ownership verification, framework policies, etc
+	doesn't require specific formatting
+
+SRV	service
+	allows services such as instant messaging or VoIP to be directed to a separate host and port location
+
+SPF	sender policy framework
+	helps prevent email spoofing and limits spammers
+
+PTR	pointer
+	a reverse of A and AAAA records
+	maps IP addresses to domain names
+	requires domain authority and can't exist in same zone as other DNS record types (put in reverse zones)
