@@ -1,7 +1,7 @@
 1. buy domain
 2. github.com/user/repo/settings
-	GitHub Pages
-		Custom domain: "foo.com"
+	Code and automation -> Pages
+		Custom domain: foo.com
 		Save (commits CNAME file)
 3. add dns records
 
@@ -11,13 +11,26 @@ foo.com.	A		185.199.109.153
 foo.com.	A		185.199.110.153
 foo.com.	A		185.199.111.153
 www		CNAME		user.github.io
+foo.com.	AAAA		2606:50c0:8000::153
+foo.com.	AAAA		2606:50c0:8001::153
+foo.com.	AAAA		2606:50c0:8002::153
+foo.com.	AAAA		2606:50c0:8003::153
 
 done. test:
 
-dig foo.com +nostats +nocomments +nocmd
+linux
+dig foo.com +nostats +nocomments +nocmd		must show ips set
+dig foo.com +noall +answer -t A			must show ips set for A records
+dig foo.com +noall +answer -t AAAA		... AAAA
+
+windows (powershell)
+Resolve-DnsName foo.com				must show ips set
+
+source:
+https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
 --------------------------------------------------
 note about A record name
 
-. after foo.com important
+. after foo.com is important
 in some hostings it can be @ char (in some it can't)
 --------------------------------------------------
