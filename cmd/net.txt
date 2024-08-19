@@ -13,7 +13,7 @@ telnet
 ftp
 route
 arp
-nslookup
+nslookup			dns related info
 nbtstat
 netsh
 getmac				get physical mac address
