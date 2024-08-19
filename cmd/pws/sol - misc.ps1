@@ -18,3 +18,10 @@ $a | Format-Table
 # show dns records
 Resolve-DnsName google.com
 Resolve-DnsName github.com -Type TXT
+
+# map ipv6 to ipv4
+([ipaddress]'::0A00:1').MapToIPv4().IPAddressToString # 10.0.0.1
+
+[ipaddress]$IPv6Address = "0000:0000:0000:0000:0192:0168:0001:0010";
+$IPv4Mapped = $IPv6Address.MapToIPv4();
+$IPv4Mapped.IPAddressToString # 0.1.0.16
