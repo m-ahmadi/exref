@@ -1,7 +1,0 @@
-once "github pages" is enabled, a deployment action is run on new commits
-
-the action's job is to deploy content to your site
-
-the action also includes a "jekyll build" step (cuz github supports jekyll sites too)
-
-adding a .nojekyll file to root of repo will skip this step and deploy content directly
