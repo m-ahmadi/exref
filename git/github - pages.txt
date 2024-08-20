@@ -1,17 +1,40 @@
-create github pages:
+setup
 
-create new repo: username.github.io
-git clone https://github.com/username/username.github.io
-cd username.github.io
-echo "Hello World" > index.html
-git add --all
-git commit -m "Initial commit"
-git push -u origin master
+1. create new repo: USERNAME.github.io
+	github.com/new
 
-now:
+2. add files to new repo
+	git clone https://github.com/USERNAME/USERNAME.github.io
+	cd username.github.io
+	echo Hello World > index.html
+	git add .
+	git commit -m "init"
+	git push -u origin master
 
-http://username.github.io		serves:  "github.com/username.github.io" files
-https://username.github.io/repo		serves:  "github.com/repo" /docs folder (repo->settings->gh pages must be enabled)
+3. enable pages
+	github.com/USERNAME/USERNAME.github.io/settings/pages
+	Source: Deploy from a branch
+	Branch: master (/ or /docs)
+	Save
 
+done. now:
 
-note: it also can serve .md
+https://USERNAME.github.io         serves:    "github.com/USERNAME.github.io"
+https://USERNAME.github.io/REPO    serves:    "github.com/USERNAME/REPO" (must enable: REPO/settings/pages)
+
+--------------------------------------------------------------------------------
+note
+
+github can serve .md files too
+
+classic deploy vs custom deploy
+	when selecting "Deploy from a branch", a pre-defined action is run on every push
+	its job is to deploy content to the site
+	by selecting "GitHub Actions", you can setup a custom action
+
+the .nojekyll file
+	in "classic deploy" mode
+	the deployment action includes a "jekyll build" step
+	(cuz github supports jekyll sites too)
+	adding a .nojekyll file to root of repo will skip this step
+--------------------------------------------------------------------------------
