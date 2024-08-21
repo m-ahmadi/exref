@@ -16060,11 +16060,6 @@
                   "type": "folder"
                 },
                 {
-                  "name": "In Unix, what is a symbolic link, and how do I create one?",
-                  "type": "url",
-                  "url": "https://kb.iu.edu/d/abbe"
-                },
-                {
                   "name": "How to remotely connect to Linux machines from Windows",
                   "type": "url",
                   "url": "http://www.dedoimedo.com/computers/remote-windows-linux.html"
