@@ -16073,6 +16073,11 @@
                   "name": "Vagrant",
                   "type": "url",
                   "url": "https://www.vagrantup.com/"
+                },
+                {
+                  "name": "Nix",
+                  "type": "url",
+                  "url": "https://github.com/NixOS/nix"
                 }
               ],
               "name": "lin",
