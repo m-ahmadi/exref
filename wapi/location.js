@@ -1,7 +1,7 @@
 // all the same:
 window.location = 'http://www.example.com'
 window.location.href = 'http://www.example.com'
-window.location.assign("http://www.example.com")
+window.location.assign('http://www.example.com')
 
 // different:
 window.location.replace('http://google.com')
