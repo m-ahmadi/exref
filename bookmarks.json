@@ -16024,34 +16024,40 @@
             {
               "children": [
                 {
-                  "name": "CentOS",
-                  "type": "url",
-                  "url": "https://www.centos.org/"
-                },
-                {
-                  "name": "Ubuntu",
-                  "type": "url",
-                  "url": "https://ubuntu.com/download/desktop"
-                },
-                {
-                  "name": "Fedora",
-                  "type": "url",
-                  "url": "https://getfedora.org/"
-                },
-                {
-                  "name": "lubuntu",
-                  "type": "url",
-                  "url": "https://lubuntu.net/"
-                },
-                {
-                  "name": "Kubuntu",
-                  "type": "url",
-                  "url": "https://kubuntu.org/getkubuntu/"
-                },
-                {
-                  "name": "Mint",
-                  "type": "url",
-                  "url": "https://www.linuxmint.com/download.php"
+                  "children": [
+                    {
+                      "name": "CentOS",
+                      "type": "url",
+                      "url": "https://www.centos.org/"
+                    },
+                    {
+                      "name": "Ubuntu",
+                      "type": "url",
+                      "url": "https://ubuntu.com/download/desktop"
+                    },
+                    {
+                      "name": "Fedora",
+                      "type": "url",
+                      "url": "https://getfedora.org/"
+                    },
+                    {
+                      "name": "lubuntu",
+                      "type": "url",
+                      "url": "https://lubuntu.net/"
+                    },
+                    {
+                      "name": "Kubuntu",
+                      "type": "url",
+                      "url": "https://kubuntu.org/getkubuntu/"
+                    },
+                    {
+                      "name": "Mint",
+                      "type": "url",
+                      "url": "https://www.linuxmint.com/download.php"
+                    }
+                  ],
+                  "name": "distro",
+                  "type": "folder"
                 },
                 {
                   "name": "In Unix, what is a symbolic link, and how do I create one?",
