@@ -1,3 +1,5 @@
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set/Set
+
 const set1 = new Set([1, 2, 3, 4, 5]);
 
 // a set is a collection of unique values (unlike array which can have duplicates)
@@ -31,3 +33,11 @@ var set1 = new Set([1,2,3]);
 var set2 = new Set([2,3,4]);
 var union = new Set([...set1, ...set2]);
 union // [1,2,3,4]
+
+// difference
+var a = new Set([1,2,3]);
+var b = new Set([2,3,4]);
+a.difference(b)             // {1} (node v22+)
+b.difference(a)             // {4} ...
+[...a].filter(i=>!b.has(i)) // [1]
+[...b].filter(i=>!a.has(i)) // [4]
