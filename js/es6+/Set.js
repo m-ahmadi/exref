@@ -22,12 +22,12 @@ for (let item of set1) console.log(item)
 Set.prototype.toString.call(set1) == '[object Set]'
 
 // equality
-a = new Set(1,2,3);
-b = new Set(1,2,3);
+var a = new Set(1,2,3);
+var b = new Set(1,2,3);
 a.size === b.size && [...a].every(i => b.has(i)) // true
 
 // union
-let set1 = new Set([1,2,3]);
-let set2 = new Set([2,3,4]);
-let union = new Set([...set1, ...set2]);
+var set1 = new Set([1,2,3]);
+var set2 = new Set([2,3,4]);
+var union = new Set([...set1, ...set2]);
 union // [1,2,3,4]
