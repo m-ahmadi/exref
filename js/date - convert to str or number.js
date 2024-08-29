@@ -11,21 +11,32 @@ Intl.DateTimeFormat().format(d).split('/').reverse().join('') // '20140101'
 // convert str to date
 s = '20240101';
 d1 = new Date(+s.slice(0,4), +s.slice(4,6)-1, +s.slice(6,8));
-sf = [...Array(8)].map((_,i)=> (i===4||i===6||i===8?'-':'') + s[i]).join(''); // '2024-01-01'
-d2 = new Date(sf);
+d2 = new Date(...[[0,4],[4,6],[6,8]].map(([i,j],k)=>+s.slice(i,j)-(k===1?1:0)));
+d3 = new Date([...Array(8)].map((_,i)=>(i===4||i===6||i===8?'-':'')+s[i]).join('')); // UTC
+d4 = new Date([...Array(8)].map((_,i)=>([4,6,8].includes(i)?'-':'')+s[i]).join('')); // ...
 
 // perf comparison
 randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
 ss = [...Array(10_000_000)].map(()=> ''+randInt(19800101, 20240101));
-ssu = [...new Set(ss)];
+ss = [...new Set(ss)];
 f1 = s => new Date(+s.slice(0,4), +s.slice(4,6)-1, +s.slice(6,8));
-f2 = s => new Date([...Array(8)].map((_,i)=> (i===4||i===6||i===8?'-':'') + s[i]).join(''));
+f2 = s => new Date(...[[0,4],[4,6],[6,8]].map(([i,j],k)=>+s.slice(i,j)-(k===1?1:0)));
+f3 = s => new Date([...Array(8)].map((_,i)=>(i===4||i===6||i===8?'-':'')+s[i]).join(''));
+f4 = s => new Date([...Array(8)].map((_,i)=>([4,6,8].includes(i)?'-':'')+s[i]).join(''));
 
 console.time();
-ssu.map(f1) // 457 ms
+ss.map(f1) // 421 ms
 console.timeEnd();
 
 console.time();
-ssu.map(f2) // 984 ms
+ss.map(f2) // 532 ms
+console.timeEnd();
+
+console.time();
+ss.map(f3) // 895 ms
+console.timeEnd();
+
+console.time();
+ss.map(f4) // 1011 ms
 console.timeEnd();
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
