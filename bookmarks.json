@@ -9558,6 +9558,11 @@
                       "url": "https://www.npmjs.com/package/node-fetch"
                     },
                     {
+                      "name": "xmlhttprequest",
+                      "type": "url",
+                      "url": "https://www.npmjs.com/package/xmlhttprequest"
+                    },
+                    {
                       "name": "superagent",
                       "type": "url",
                       "url": "https://www.npmjs.com/package/superagent"
