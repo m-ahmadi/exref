@@ -32,3 +32,12 @@ import EventEmitter from 'node:events';
 console.log(import.meta.filename);
 console.log(import.meta.dirname);
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// dynamic import
+
+// inside cjs
+var fs = require('fs');
+var fs = await import('fs'); // equivalent to above
+
+// inside mjs
+var fs = await import('fs');
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
