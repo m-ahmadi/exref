@@ -1981,6 +1981,17 @@
                 {
                   "children": [
                     {
+                      "name": "SmartTube",
+                      "type": "url",
+                      "url": "https://github.com/yuliskov/SmartTube"
+                    }
+                  ],
+                  "name": "androidtv",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
                       "name": "LineageOS",
                       "type": "url",
                       "url": "https://lineageos.org/"
