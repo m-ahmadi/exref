@@ -5,12 +5,12 @@ var ExcelJS = require('exceljs'); // node
 
 // api:  https://github.com/exceljs/exceljs#interface
 var workbook = new ExcelJS.Workbook()
-workbook.creator        =  ''
-workbook.lastModifiedBy =   ''
-workbook.created        =  Date
-workbook.modified       =  Date
-workbook.lastPrinted    =  Date
-workbook.views          =  []
+workbook.creator        = ''
+workbook.lastModifiedBy = ''
+workbook.created        = Date
+workbook.modified       = Date
+workbook.lastPrinted    = Date
+workbook.views          = []
 workbook.properties.date1904           = boolean // use 1904 date system
 workbook.calcProperties.fullCalcOnLoad = boolean // force workbook calculation on load
 workbook.worksheets     = []
