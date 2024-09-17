@@ -16,8 +16,9 @@ import('./my-module.js').then((module) => {});
 // side-effects only
 await import('./my-module.js');
 
-// default import (must rename `default` to something else)
-const { default: myDefault, foo } = await import('/modules/my-module.js');
+// default import (must rename `default` to something else cuz it's a reserved word)
+const { default: myModule, foo } = await import('./my-module.js'); // or:
+const myModule = (await import('./my-module.js')).default;
 
 // import attributes
 import('./data.json', {with: {type: 'json'}});
