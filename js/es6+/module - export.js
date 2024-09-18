@@ -35,6 +35,14 @@ export { name1, name2 };
 export let name1 = '', name2 = ''; // also var, const
 export { variable1 as name1, variable2 as name2 }; // exports value of variable1 under the name: name1
 
+// conditional export
+export let foo, bar;
+
+if (someCondition) {
+	foo = () => 'hi';
+	bar = () => 'bye';
+}
+
 // aggregate
 export * from 'module.js';
 export { name1, name2 } from 'module.js';

@@ -41,3 +41,20 @@ var fs = await import('fs'); // equivalent to above
 // inside mjs
 var fs = await import('fs');
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// cross-runtime-environment way of writing a module
+// (so that it works in both node & browser)
+
+const isNode = detectNodeEnvironmentSomehow();
+
+export let read, write; // available only in node
+
+if (isNode) {
+	const { readFileSync, writeFileSync } = await import('node:fs');
+	read = p => readFileSync(p, 'utf8');
+	write = (p,c) => writeFileSync(p, c);
+}
+
+export function add(...n) {// available everywhere
+	return n.reduce((r,i),r+=i);
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
