@@ -1735,6 +1735,11 @@
                   "name": "tonkeeper",
                   "type": "url",
                   "url": "https://tonkeeper.com/"
+                },
+                {
+                  "name": "tonkeeper - desktop",
+                  "type": "url",
+                  "url": "https://github.com/tonkeeper/tonkeeper-web/releases"
                 }
               ],
               "name": "crypto",
