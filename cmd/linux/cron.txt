@@ -9,8 +9,9 @@ examples:
 0 12 14 2 *	12:03, 2/14
 0 0 1,15 * 1	00:00, first and fifteenth of each month + every monday
 0 0 * * 1	00:00, every monday
-45 16 * * *	16:45 everyday
-30 5,17 * * *	05:30 and 17:30 everyday
+45 16 * * *	16:45, everyday
+0 0 1 * *	00:00, every month's 1st day
+30 5,17 * * *	05:30 and 17:30, everyday
 
 15 3  *  * 1-5 find "$HOME" -name core -exec rm -f {} + 2>/dev/null	clean up core files every weekday morning at 3:15 am
 0 12 14 2 * mailx john%Happy Birthday!%Time for lunch.			mail a birthday greeting
