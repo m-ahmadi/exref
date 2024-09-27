@@ -42,7 +42,7 @@ Intl.supportedValuesOf()
 
 var d = new Date(2022,2,21);
 
-new Intl.DateTimeFormat().format(d)                         // depends on default locale (which may differ, e.g. on pc is 'en-GB', on laptop is 'en')
+new Intl.DateTimeFormat().format(d)                         // depends on default locale (which may differ, e.g. on pc is 'en-GB', on laptop is 'en-US')
 new Intl.DateTimeFormat('en').format(d)                     // '21/03/2022'
 new Intl.DateTimeFormat('en-GB').format(d)                  // '3/21/2022'
 Intl.DateTimeFormat('en-GB').format(d)                      // ...
