@@ -1,7 +1,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
 
 Intl.Collator()
-Intl.DateTimeFormat(locales=''|['',..], ?options={
+Intl.DateTimeFormat(locales='en|en-US|en-GB|fa|...'|['',..], ?options={
 	dateStyle:       'full|long|medium|short',
 	timeStyle:       'full|long|medium|short',
 	calendar:        'buddhist|chinese|coptic|dangi|ethioaa|ethiopic|gregory|hebrew|indian|islamic|islamic-umalqura|islamic-tbla|islamic-civil|islamic-rgsa|iso8601|japanese|persian|roc|islamicc',
@@ -33,16 +33,22 @@ Intl.Segmenter()
 // static methods
 Intl.getCanonicalLocales()
 Intl.supportedValuesOf()
+
+// how default locale is determined
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation
+
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
 var d = new Date(2022,2,21);
 
-new Intl.DateTimeFormat().format(d)                   // '21/03/2022'
-Intl.DateTimeFormat().format(d)                       // ...
-Intl.DateTimeFormat(0,{timeStyle:'medium'}).format(d) // '00:00:00'
+new Intl.DateTimeFormat().format(d)                         // depends on default locale (which may differ, e.g. on pc is 'en-GB', on laptop is 'en')
+new Intl.DateTimeFormat('en').format(d)                     // '21/03/2022'
+new Intl.DateTimeFormat('en-GB').format(d)                  // '3/21/2022'
+Intl.DateTimeFormat('en-GB').format(d)                      // ...
+Intl.DateTimeFormat('en-GB',{timeStyle:'medium'}).format(d) // '00:00:00'
 
-var [date,time] = Intl.DateTimeFormat(0,{dateStyle:'short',timeStyle:'medium'}).format(d).split(', ');
+var [date,time] = Intl.DateTimeFormat('en-GB',{dateStyle:'short',timeStyle:'medium'}).format(d).split(', ');
 date.split('/').reverse().join('') +'-'+ time.replaceAll(':','') // '20220321-000000'
 
 Intl.DateTimeFormat('fa-IR').format(d)                                                   // ۱۴۰۱/۱/۱
