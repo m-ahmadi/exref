@@ -13607,7 +13607,12 @@
                       "url": "https://chrome.google.com/webstore/detail/full-page-screen-capture/fdpohaocaechififmbbbbbknoalclacl?hl=en"
                     },
                     {
-                      "name": "Minimalist Markdown Editor",
+                      "name": "Markdown Editor",
+                      "type": "url",
+                      "url": "https://chromewebstore.google.com/detail/markdown-editor/ekdcaddpmiodcipjfmffhhefijpdckaf"
+                    },
+                    {
+                      "name": "Minimalist Markdown Editor (gone?)",
                       "type": "url",
                       "url": "https://chrome.google.com/webstore/detail/minimalist-markdown-edito/pghodfjepegmciihfhdipmimghiakcjf"
                     },
