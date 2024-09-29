@@ -1,0 +1,50 @@
+https://learn.microsoft.com/en-us/windows/win32/lwef/-search-2x-wds-aqsreference
+https://learn.microsoft.com/en-us/windows/win32/search/-search-3x-advancedquerysyntax
+
+search terms are not case-sensitive
+search results are related to the beginning of the word
+to search for an exact phrase, use quotation marks
+searches ignore diacritics such as accents and umlauts by default
+windows explorer changes text color to blue when you enter a recognized parameter followed by a colon
+
+main types of search parameters:
+
+file kinds:		folders, documents, music, images, videos, emails, ...
+file stores:		specific databases and locations (containing indexed items)
+file properties:	size, date, title, tags, ...
+file contents:		keywords
+
+syntax:
+
+<scope name>:<value>
+<file kind>:<value>
+<property name>:<value>
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+examples
+
+only .jpg files
+ext:.jpg
+
+only files that were changed recently
+datemodified:last week
+
+only files of certain type
+type:image, type:.doc, type:.pdf, type:excel, type:mp3
+
+only files of certain size
+size:>50			bytes
+size:>50KB
+size:>50MB
+size:>50MB size:<100MB		between 50 and 100 megabytes
+
+only files with no extension
+kind:= -folder type:= -[] extension:= []			recursive search			
+kind:= -folder type:= -[] extension:= [] folder:"C:\foo"	non-recursive
+
+exclude subdirs from search (only search under foo)
+-folder:foo\*
+
+exclude subdirs from search - alternative (windows 7 only)
+Explorer window -> Organize -> Folder and search options -> Search tab
+	uncheck "Include subfolders in search results when searching in file folders"
