@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.min.css">
 <script src="https://cdn.jsdelivr.net/npm/uplot/dist/uPlot.iife.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.min.js"></script>
 
 <a href="https://leeoniya.github.io/uPlot/demos/index.html" target="_blank">demos</a>
 <div id="charts" style="display: grid; grid-template-columns: auto auto auto;"></div>
@@ -28,6 +29,22 @@ new uPlot({width:600, height:400, title:'format value', series:[
 	{},
 	{label:'RAM', value:(s,rawValue)=>rawValue?'$'+rawValue.toFixed(2):'N/A', stroke:'red', fill:'rgba(255,0,0,0.3)', dash:[10,5]},
 	{}]}, data, charts);
+
+new uPlot({width:600, height:400, title:'format time axis',
+	series:[
+		{
+			value:(u,timestamp)=> {
+			if (!timestamp) return 'N/A';
+			const d = new Date(timestamp * 1e3);
+			const {jy,jm,jd} = jalaali.toJalaali(d.getFullYear(), d.getMonth()+1, d.getDate());
+			return `${jy}/${jm}/${jd}`;
+			}
+		},
+		{stroke:'crimson'},
+	]}, [
+		ts(60),
+		[...Array(60).keys()]
+	], charts);
 
 new uPlot({width:600, height:400, title:'seconds',
 	tzDate: ts => uPlot.tzDate(new Date(ts*1e3), 'Asia/Tehran'),
