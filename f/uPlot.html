@@ -26,7 +26,7 @@ new uPlot({width:600, height:400, title:'no cursor,select,legend,grid',
 
 new uPlot({width:600, height:400, title:'format value', series:[
 	{},
-	{label:'RAM', value:(s,rawValue)=>'$'+rawValue.toFixed(2), stroke:'red', fill:'rgba(255,0,0,0.3)', dash:[10,5]},
+	{label:'RAM', value:(s,rawValue)=>rawValue?'$'+rawValue.toFixed(2):'N/A', stroke:'red', fill:'rgba(255,0,0,0.3)', dash:[10,5]},
 	{}]}, data, charts);
 
 new uPlot({width:600, height:400, title:'seconds',
