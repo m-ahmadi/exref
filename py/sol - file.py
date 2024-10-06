@@ -40,6 +40,8 @@ os.listdir()
 os.mkdir()
 os.rmdir()
 os.unlink() | remove()
+os.getcwd()
+os.chdir(path)
 os.path.exists()
 os.path.isfile()
 os.path.isdir()
@@ -47,7 +49,6 @@ os.path.join()
 os.path.dirname()
 os.path.basename()
 os.path.abspath()
-os.path.getcwd()
 
 import shutil
 shutil.rmtree('mydir') # almost equal to `rm -rf mydir`
@@ -67,11 +68,15 @@ path.unlink()
 # https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
 # path of current script
-__file__                                # 'C:\\foo.py'
-pathlib.Path(__file__).resolve()        # WindowsPath('C:/foo.py')
-pathlib.Path(__file__).parent.resolve() # WindowsPath('C:/')    (current script dir)
+__file__                                   # 'C:\\foo.py'
+pathlib.Path(__file__).resolve()           # WindowsPath('C:/foo.py')
+pathlib.Path(__file__).parent.resolve()    # WindowsPath('C:/')    (current script dir)
 import sys
-sys.path[0]                             # 'c:\\'                (current script dir)
+sys.path[0]                                # 'c:\\'                (current script dir)
+os.path.abspath(os.path.dirname(__file__)) # ...
+
+# change cwd to script's dir
+os.chdir(os.path.dirname(__file__))
 
 # json
 import json
