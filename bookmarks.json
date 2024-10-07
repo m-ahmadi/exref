@@ -2038,6 +2038,11 @@
                       "url": "https://www.bignox.com/"
                     },
                     {
+                      "name": "LDPlayer",
+                      "type": "url",
+                      "url": "https://soft98.ir/mobile/emulators-android/4016-ldplayer.html"
+                    },
+                    {
                       "name": "BlueStacks",
                       "type": "url",
                       "url": "https://soft98.ir/mobile/emulators-android/13897-bluestacks.html"
@@ -2053,14 +2058,14 @@
                       "url": "https://soft98.ir/mobile/emulators-android/17808-droid4x.html"
                     },
                     {
-                      "name": "LDPlayer",
-                      "type": "url",
-                      "url": "https://soft98.ir/mobile/emulators-android/4016-ldplayer.html"
-                    },
-                    {
                       "name": "Android-x86",
                       "type": "url",
                       "url": "https://www.android-x86.org/"
+                    },
+                    {
+                      "name": "AMIDuOS (pure garbage)",
+                      "type": "url",
+                      "url": "https://soft98.ir/mobile/emulators-android/17826-amiduos.html"
                     }
                   ],
                   "name": "androidemul",
