@@ -1,0 +1,5 @@
+win+r -> resmon
+
+Processes -> select all (check "Image" checkbox)
+
+Associated Handles -> searchbox -> search for the locked file
