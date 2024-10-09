@@ -13232,7 +13232,7 @@
                     {
                       "name": "IndentByFold",
                       "type": "url",
-                      "url": "https://www.fesevur.com/indentbyfold/"
+                      "url": "https://github.com/ffes/indentbyfold/releases"
                     },
                     {
                       "name": "JSTool",
@@ -13240,9 +13240,9 @@
                       "url": "https://sourceforge.net/projects/jsminnpp/"
                     },
                     {
-                      "name": "XML Tools",
+                      "name": "XML Tools (link to last 32bit ever)",
                       "type": "url",
-                      "url": "https://sourceforge.net/projects/npp-plugins/files/XML%20Tools/"
+                      "url": "https://sourceforge.net/projects/npp-plugins/files/XML%20Tools/Xml%20Tools%202.4.8%20Unicode/"
                     },
                     {
                       "name": "NewFileBrowser",
@@ -13257,7 +13257,7 @@
                     {
                       "name": "Tidy2",
                       "type": "url",
-                      "url": "https://github.com/bruderstein/NppTidy2/downloads"
+                      "url": "https://code.google.com/archive/p/npp-tidy2/downloads"
                     },
                     {
                       "name": "Compare",
