@@ -1,4 +1,4 @@
-let r = await (await fetch('http://cdn.tsetmc.com/api/BestLimits/46348559193224090/20220221')).json();
+var r = await (await fetch('http://cdn.tsetmc.com/api/BestLimits/46348559193224090/20220221')).json();
 r = r.bestLimitsHistory;
 r = r.filter(i=> i.hEven >= 121100 && i.hEven <= 121200 && i.number === 1);
 
