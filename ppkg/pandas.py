@@ -666,6 +666,25 @@ df.apply(lambda i: [1,2], axis=1) # [ [1,2], [1,2] ]
 df.apply(lambda i: i-1, axis=1)   # [ [3,8], [3,8] ]
 df.apply(lambda i,j: j, args=[7]) # [ [7],   [7]   ]
 
+# misc - set time component of timestamp to midnight
+from io import StringIO
+buf = StringIO('''date,value
+2011/07/31 20:14:45.108,1205.0
+2011/07/31 21:40:16.934,1005.0
+2011/07/31 22:38:52.951,1714.75''')
+df = pd.read_csv(buf, parse_dates=[0])
+df.date.dt.normalize() # [Timestamp('2011-07-31 00:00:00'), ...]
+
+# misc - get unique days from datetime timestamps
+from io import StringIO
+buf = StringIO('''date,value
+2011/07/31 20:14:45.108,1205.0
+2011/08/31 21:40:16.934,1005.0
+2011/08/31 22:38:52.951,1714.75''')
+df = pd.read_csv(buf, dtype='string')
+pd.DatetimeIndex(df['date']).normalize().unique()             # ['2011/07/31', '2011/08/31']
+np.unique(df['date'].apply(lambda i: i.split(' ')[0]).values) # ...
+
 # math
 df = pd.DataFrame({'a':[2,4,6], 'b':[8,10,12]})
 df + 1                        # {'a':[3,5,7], 'b':[9,11,13]}
