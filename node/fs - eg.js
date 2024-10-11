@@ -125,4 +125,3 @@ fs.writeFileSync('file.txt', 'Hello', 'utf8')
 fs.writeFileSync('file.txt', 'Hello', 'ascii')
 fs.writeFileSync('file.txt', 'Hello')                         // defaults to 'utf8'
 fs.writeFileSync('utf8bom.txt', '\ufeff'+'hello bom', 'utf8') // utf8 bom (prepend \ufeff to the string)
-
