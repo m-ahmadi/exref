@@ -5,6 +5,7 @@ node -e "fs.mkdirSync('x')"		...
 node -p "2+3"				run js string and print result
 node -p "console.log(path.sep)"		...
 node . -r fs -r path			preload module(s)
+node . --expose-gc			can call `gc()` in script
 --------------------------------------------------------------------------------
 debugging
 
