@@ -1,15 +1,15 @@
-let r = await (await fetch('http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/46348559193224090/20220221')).json();
+var r = await (await fetch('http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDaily/46348559193224090/20220221')).json();
 r = r.closingPriceDaily;
 
-let date  = r.dEven;
-let open  = r.priceFirst;
-let high  = r.priceMax;
-let low   = r.priceMin;
-let last  = r.pDrCotVal;
-let close = r.pClosing;
-let vol   = r.qTotTran5J;
-let count = r.zTotTran;
-let yesterday = r.priceYesterday;
+var date  = r.dEven;
+var open  = r.priceFirst;
+var high  = r.priceMax;
+var low   = r.priceMin;
+var last  = r.pDrCotVal;
+var close = r.pClosing;
+var vol   = r.qTotTran5J;
+var count = r.zTotTran;
+var yesterday = r.priceYesterday;
 
 {
 	dEven:          20220221,
