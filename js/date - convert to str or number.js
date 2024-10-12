@@ -7,6 +7,29 @@ Intl.DateTimeFormat('en-GB').format(d).split('/').reverse().join('') // '2014010
 [d.getFullYear(), d.getMonth()+1, d.getDate()].map(i=>i<10?'0'+i:i).join('-')                  // '2014-01-01'
 [d.getFullYear(), d.getMonth()+1, d.getDate()].map(i=>(i=''+i, i.length>1?i:'0'+i)).join('-'); // '2014-01-01'
 
+// better approach for all-in-one solution
+fmt('yMd')          // '20240812'
+fmt('y-M-d')        // '2024-08-12'
+fmt('y/M/d')        // '2024/08/12'
+fmt('y/M/d h:m:s')  // '2024/08/12 21:32:45'
+fmt('y-M-d h:m')    // '2024-08-12 21:32'
+fmt('y-M-d__h:m:s') // '2024-08-12__21:32:43'
+function fmt(fstr='y/M/d h:m:s', d=new Date()) {
+	const m = {y:'FullYear',M:'Month',d:'Date',h:'Hours',m:'Minutes',s:'Seconds'};
+	let outstr = '';
+	for (let i=0,len=fstr.length; i<len; i++) {
+		const chr = fstr[i];
+		const method = m[chr];
+		if (method) {
+			let n = d['get'+method]();
+			if (method === 'Month') n--;
+			outstr += n < 10 ? '0'+n : n;
+		} else {
+			outstr += chr;
+		}
+	}
+	return outstr;
+}
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // convert str to date
 s = '20240101';
