@@ -54,3 +54,12 @@ d - dt.timedelta(days=30) # date(2021, 9, 1)
 [dt.date(2021,1,1) - dt.timedelta(days=i) for i in range(1,4)]                 # [date(2021,9,30), date(2021,9,29), date(2021,9,28)]
 [dt.date(2021,1,1) + dt.timedelta(days=i) for i in range(4)]                   # [date(2021,1,1), date(2021,1,2), date(2021,1,3), date(2021,1,4)]
 [(dt.date(2021,1,1)-dt.timedelta(i)).strftime('%Y-%m-%d') for i in range(1,4)] # ['2021-09-30', '2021-09-29', '2021-09-28']
+
+# set date
+d = dt.datetime(2024,1,1)
+d2 = d.replace(month=6, day=22)
+str(d2) # '2024-06-22 00:00:00'
+
+d = dt.datetime(2020,1,1,9,18)
+d2 = d.replace(hour=11, minute=36)
+str(d2) # '2020-01-01 11:36:00'
