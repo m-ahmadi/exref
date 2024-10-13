@@ -677,13 +677,15 @@ df.date.dt.normalize() # [Timestamp('2011-07-31 00:00:00'), ...]
 
 # misc - get unique days from datetime timestamps
 from io import StringIO
-buf = StringIO('''date,value
+data = '''date,value
 2011/07/31 20:14:45.108,1205.0
 2011/08/31 21:40:16.934,1005.0
-2011/08/31 22:38:52.951,1714.75''')
-df = pd.read_csv(buf, dtype='string')
-pd.DatetimeIndex(df['date']).normalize().unique()             # ['2011/07/31', '2011/08/31']
-np.unique(df['date'].apply(lambda i: i.split(' ')[0]).values) # ...
+2011/08/31 22:38:52.951,1714.75'''
+df = pd.read_csv(StringIO(data))
+pd.DatetimeIndex(df.date).normalize().unique()        # ['2011-07-31', '2011-08-31']
+np.unique([str(i.date()) for i in df2.date])          # ...
+np.unique([i.date() for i in df2.date]).astype('str') # ...
+np.unique(df.date.astype('string').apply(lambda i: i.split(' ')[0]).values) # ['2011/07/31', '2011/08/31']
 
 # math
 df = pd.DataFrame({'a':[2,4,6], 'b':[8,10,12]})
