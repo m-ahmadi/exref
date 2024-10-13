@@ -142,6 +142,12 @@ s = pd.Series([4,7,9])
 [*s.items()]     # [ [0,4], [1,7], [2,9] ]
 [*s.iteritems()] # ... v1.5 deprecated
 
+df = pd.DataFrame([[1,2,3],
+									 [4,5,6],
+									 [7,8,9], columns=['a','b','c'])
+[*df.items()]    # [ ['a',[1,4,7]], ['b',[2,5,8]], ['c',[3,6,9]] ]
+[*df.iterrows()] # [ [0,  [1,2,3]], [1,  [4,5,6]], [2,  [7,8,9]] ]
+
 # copy
 s1 = pd.Series([1, 2])
 s2 = s1.copy(deep=False) # data & index shared with orig
