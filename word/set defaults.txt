@@ -4,5 +4,8 @@ font
 margin
 	Layout -> Margins -> Custom Margins... -> Set As Default -> Yes
 
-page dir
+page direction
 	Home -> Paragraph -> click bottom-right arrow -> Set As Default -> "All documents ..." -> OK
+
+parapraph spacing
+	Design -> Paragraph Spacing -> Custom Paragraph Spacing... -> New documents based on this template -> OK
