@@ -10,4 +10,3 @@ type file1.txt >> file2.txt		append one file to another
 copy file1.txt + file2.txt /b		...
 
 type con > x.txt			write to file by typing in the console. (end with ctrl+z)
-
