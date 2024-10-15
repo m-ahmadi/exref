@@ -26,3 +26,29 @@ for /f %%i in ('dir /b') do (
 )
 :done
 setlocal DisableDelayedExpansion
+
+:: emulate while loop (a body and a condition)
+set count=0
+:loop
+set /a count=%count%+1
+echo %count%
+echo This is body of loop
+if %count% neq 10 goto loop
+echo This is after loop is done
+
+:: keep calling a script if it does not return with ERRORLEVEL of 0
+:: extra: keep count of runs
+:: extra: sleep between runs (nobreak sleep)
+:: extra: stop loop if ran beyound a threshold
+:: extra: reset ERRORLEVEL to 0 before calling the script (not required though)
+set maxruns=20
+set count=0
+:loop
+set /a count=%count%+1
+echo running for %count% time...
+cd .
+call another_script.bat
+timeout %count% /nobreak
+if %count% lss %maxruns% goto done
+if %ERRORLEVEL% neq 0 goto loop
+:done
