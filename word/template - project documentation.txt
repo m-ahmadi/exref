@@ -1,0 +1,9 @@
+font:			Bahij Nazanin			Home -> Font
+font size:		10				...
+paper size:		Screen				Layout -> Size
+margins:		.5 .2 .1 .1 (TBLR)		Layout -> Margins -> Custom Margins ...
+orientation:		Portrait			Layout -> Orientation
+paragraph spacing:	No Paragraph Space		Design -> Paragraph Spacing
+
+
+File -> Save As -> "Project Documentation.dotx"
