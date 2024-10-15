@@ -1,0 +1,13 @@
+filename patterns:
+WORD		refers to a cli
+WORD - WORD	refers to a solution for a problem
+		if 1st WORD refers to a cli, then refers to another page for that cli
+
+for example:
+ark	architectural
+file	filesystem
+net	netowrk
+sys	system
+sol	generic solutions that do not belong to a specific category
+
+note that, "foo - bar" essentially means "sol - foo - bar", but "sol" is omitted for the sake of briefness
