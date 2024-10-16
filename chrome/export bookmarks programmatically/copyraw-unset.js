@@ -25,6 +25,7 @@ function deleteThings(o={}) {
 	if (o['type'] === 'folder') delete o['date_modified'];
 	delete o['guid'];
 	delete o['id'];
+	delete o['meta_info'];
 	let childs = o.children || [];
 	for (let child of childs) {
 		deleteThings(child);
