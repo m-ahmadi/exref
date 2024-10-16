@@ -12606,7 +12606,7 @@
                   "url": "http://yui.github.io/yuidoc/"
                 }
               ],
-              "name": "doc gen",
+              "name": "docgen",
               "type": "folder"
             },
             {
