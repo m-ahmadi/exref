@@ -12612,6 +12612,21 @@
             {
               "children": [
                 {
+                  "name": "_list",
+                  "type": "url",
+                  "url": "https://jamstack.org/generators/"
+                },
+                {
+                  "name": "Hugo",
+                  "type": "url",
+                  "url": "https://gohugo.io/"
+                },
+                {
+                  "name": "Docusaurus",
+                  "type": "url",
+                  "url": "https://docusaurus.io/docs"
+                },
+                {
                   "children": [
                     {
                       "name": "home",
@@ -12643,34 +12658,9 @@
                   "type": "folder"
                 },
                 {
-                  "name": "Zola",
-                  "type": "url",
-                  "url": "https://www.getzola.org/"
-                },
-                {
-                  "name": "Hugo",
-                  "type": "url",
-                  "url": "https://gohugo.io/"
-                },
-                {
-                  "name": "Harp",
-                  "type": "url",
-                  "url": "http://harpjs.com/"
-                },
-                {
                   "name": "Hexo",
                   "type": "url",
                   "url": "https://hexo.io/"
-                },
-                {
-                  "name": "VuePress",
-                  "type": "url",
-                  "url": "https://vuepress.vuejs.org/"
-                },
-                {
-                  "name": "VitePress",
-                  "type": "url",
-                  "url": "https://vitepress.vuejs.org/"
                 },
                 {
                   "name": "11ty",
@@ -12678,9 +12668,24 @@
                   "url": "https://www.11ty.dev/docs/usage/"
                 },
                 {
-                  "name": "Docusaurus",
+                  "name": "VitePress",
                   "type": "url",
-                  "url": "https://docusaurus.io/docs"
+                  "url": "https://vitepress.vuejs.org/"
+                },
+                {
+                  "name": "Zola",
+                  "type": "url",
+                  "url": "https://www.getzola.org/"
+                },
+                {
+                  "name": "Harp",
+                  "type": "url",
+                  "url": "http://harpjs.com/"
+                },
+                {
+                  "name": "VuePress",
+                  "type": "url",
+                  "url": "https://vuepress.vuejs.org/"
                 },
                 {
                   "name": "Gridsome",
@@ -12802,9 +12807,47 @@
             {
               "children": [
                 {
+                  "name": "Next.js",
+                  "type": "url",
+                  "url": "https://nextjs.org/docs"
+                },
+                {
+                  "name": "Nuxt.js",
+                  "type": "url",
+                  "url": "https://nuxt.com/docs/getting-started/introduction"
+                },
+                {
+                  "name": "GatsbyJS",
+                  "type": "url",
+                  "url": "https://www.gatsbyjs.com/docs/quick-start/"
+                },
+                {
+                  "name": "NestJS",
+                  "type": "url",
+                  "url": "https://docs.nestjs.com/first-steps"
+                },
+                {
+                  "name": "Expo",
+                  "type": "url",
+                  "url": "https://docs.expo.dev/get-started/introduction/"
+                },
+                {
+                  "name": "Blitz.js",
+                  "type": "url",
+                  "url": "https://blitzjs.com/docs/get-started"
+                },
+                {
                   "name": "Ionic",
                   "type": "url",
                   "url": "https://ionicframework.com/docs"
+                },
+                {
+                  "meta_info": {
+                    "power_bookmark_meta": ""
+                  },
+                  "name": "——————",
+                  "type": "url",
+                  "url": "http://foo.com/"
                 },
                 {
                   "name": "FeathersJS",
@@ -12819,42 +12862,12 @@
                 {
                   "name": "donejs",
                   "type": "url",
-                  "url": "https://donejs.com/index.html"
-                },
-                {
-                  "name": "GatsbyJS",
-                  "type": "url",
-                  "url": "https://www.gatsbyjs.org/"
-                },
-                {
-                  "name": "Nuxt.js",
-                  "type": "url",
-                  "url": "https://nuxtjs.org/"
+                  "url": "https://donejs.com/"
                 },
                 {
                   "name": "Quasar",
                   "type": "url",
                   "url": "https://quasar.dev/"
-                },
-                {
-                  "name": "Blitz.js",
-                  "type": "url",
-                  "url": "https://blitzjs.com/"
-                },
-                {
-                  "name": "Next.js",
-                  "type": "url",
-                  "url": "https://nextjs.org/"
-                },
-                {
-                  "name": "Expo",
-                  "type": "url",
-                  "url": "https://docs.expo.io/"
-                },
-                {
-                  "name": "NestJS",
-                  "type": "url",
-                  "url": "https://nestjs.com/"
                 },
                 {
                   "name": "LoopBack",
@@ -12875,6 +12888,14 @@
                   "name": "Analog",
                   "type": "url",
                   "url": "https://analogjs.org/"
+                },
+                {
+                  "meta_info": {
+                    "power_bookmark_meta": ""
+                  },
+                  "name": "——————",
+                  "type": "url",
+                  "url": "http://foo.com/"
                 },
                 {
                   "name": "Node.js Frameworks",
