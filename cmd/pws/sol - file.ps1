@@ -112,7 +112,7 @@ type *.csv | Measure-Object -line              # sum of all files lines
 
 # .lnk shortcut - create 
 $WshShell = New-Object -ComObject WScript.Shell;
-$Shortcut = $WshShell.CreateShortcut('foo.lnk');
+$Shortcut = $WshShell.CreateShortcut('c:\foo.lnk');
 $Shortcut.TargetPath = '%comspec%';
 $Shortcut.Arguments = '/k echo hello';
 # $Shortcut.Description
@@ -125,7 +125,7 @@ $Shortcut.Arguments = '/k echo hello';
 $Shortcut.Save();
 
 # .lnk shortcut - create oneliner
-$s=(New-Object -COM WScript.Shell).CreateShortcut('foo.lnk');$s.TargetPath='%comspec%';$s.Arguments='/k echo hello';$s.Save();
+$s=(New-Object -COM WScript.Shell).CreateShortcut('c:\foo.lnk');$s.TargetPath='%comspec%';$s.Arguments='/k echo hello';$s.Save();
 
 # .lnk shortcut - function
 function Make-Shortcut {
@@ -138,16 +138,16 @@ function Make-Shortcut {
 	$Shortcut.WorkingDirectory = if ($StartIn) {$StartIn} else {''}
 	$Shortcut.Save();
 }
-Make-Shortcut 'foo' '%comspec%' '/k echo hello'
+Make-Shortcut 'c:\foo' '%comspec%' '/k echo hello'
 
 # .lnk shortcut - modify to "Run As Administrator"
-$file = "foo.lnk";
+$file = "c:\foo.lnk";
 $bytes = [System.IO.File]::ReadAllBytes($file);
 $bytes[0x15] = $bytes[0x15] -bor 0x20; # set byte 21 (0x15) bit 6 (0x20) ON (Use –bor to set RunAsAdministrator option and –bxor to unset)
 [System.IO.File]::WriteAllBytes($file, $bytes);
 
 # .lnk shorctut - read target
-$s = (New-Object -ComObject WScript.Shell).CreateShortcut('foo.lnk');
+$s = (New-Object -ComObject WScript.Shell).CreateShortcut('c:\foo.lnk');
 $s.TargetPath
 
 # .lnk shorctut - list target of all shortcuts
