@@ -1,9 +1,15 @@
 font:			Bahij Nazanin			Home -> Font
-font size:		10				...
+font size:		18				...
 paper size:		Screen				Layout -> Size
 margins:		.5 .2 .1 .1 (TBLR)		Layout -> Margins -> Custom Margins ...
 orientation:		Portrait			Layout -> Orientation
 paragraph spacing:	No Paragraph Space		Design -> Paragraph Spacing
 
+styles:			font				Home -> Styles -> rclick on style -> Modify|Remove...
+	Normal:		18
+	Heading 1:	38 bold
+	Heading 2:	30 bold
+	Heading 3:	24 bold
+	remove rest
 
 File -> Save As -> "Project Documentation.dotx"
