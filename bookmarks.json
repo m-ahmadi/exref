@@ -12612,9 +12612,45 @@
             {
               "children": [
                 {
-                  "name": "Docusaurus",
-                  "type": "url",
-                  "url": "https://docusaurus.io/docs"
+                  "children": [
+                    {
+                      "name": "docs",
+                      "type": "url",
+                      "url": "https://docusaurus.io/docs"
+                    },
+                    {
+                      "name": "cli",
+                      "type": "url",
+                      "url": "https://docusaurus.io/docs/cli"
+                    },
+                    {
+                      "name": "cli - create-docusaurus",
+                      "type": "url",
+                      "url": "https://docusaurus.io/docs/api/misc/create-docusaurus"
+                    },
+                    {
+                      "name": "config",
+                      "type": "url",
+                      "url": "https://docusaurus.io/docs/api/docusaurus-config"
+                    },
+                    {
+                      "name": "ref - frontmatter - docs",
+                      "type": "url",
+                      "url": "https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-docs#markdown-front-matter"
+                    },
+                    {
+                      "name": "ref - frontmatter - page",
+                      "type": "url",
+                      "url": "https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-pages#markdown-front-matter"
+                    },
+                    {
+                      "name": "ref - frontmatter - blog",
+                      "type": "url",
+                      "url": "https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-content-blog#markdown-front-matter"
+                    }
+                  ],
+                  "name": "docusaurus",
+                  "type": "folder"
                 },
                 {
                   "children": [
