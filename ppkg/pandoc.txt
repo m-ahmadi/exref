@@ -1,0 +1,40 @@
+docx -> md
+pandoc in.docx -f docx -t markdown -o out.md
+-t	markdown		pandoc's own
+	gfm			gitHub-flavored
+	commonmark		common mark
+	markdown_mmd		multi markdown
+	markdown_phpextra	php markdown extra
+	markdown_strict		original unextended markdown
+
+
+docx -> html
+pandoc in.docx -f docx -t html -s -o out.html
+	 --metadata title=MyDoc		specify title of page
+
+
+txt -> html
+pandoc in.txt -s -o out.html
+
+
+https://pandoc.org/demos.html
+
+--------------------------------------------------------------------------------
+ref
+
+https://pandoc.org/MANUAL.html#options
+
+pancoc --help
+
+-f, --from=FORMAT -r,--read=FORMAT
+-t, --from=FORMAT -w,--write=FORMAT
+-o, --output=FILE
+    --datadir=DIRECTORY
+-M, --metadata=KEY[:VALUE]
+-d, --defaults=FILE
+-s, --standalone[=true|false]
+-V, --variable=KEY[:VALUE]
+-N, --number-sections
+...
+
+--------------------------------------------------------------------------------
