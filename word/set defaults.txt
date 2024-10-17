@@ -8,4 +8,8 @@ page direction
 	Home -> Paragraph -> click bottom-right arrow -> Set As Default -> "All documents ..." -> OK
 
 parapraph spacing
-	Design -> Paragraph Spacing -> Custom Paragraph Spacing... -> New documents based on this template -> OK
+	Design -> Paragraph Spacing -> Custom Paragraph Spacing... -> "New documents based on this template" -> OK
+
+styles
+	Home -> Styles -> rclick on a style -> Modify -> "New documents based on this template" -> OK
+	...                                 -> Remove from Style Gallery
