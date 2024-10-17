@@ -1,0 +1,22 @@
+﻿https://docusaurus.io/docs/installation#project-structure-rundown
+
+my-website
+├── blog				blog thinks, delete if `blog: false` in `docusaurus.config.js`
+│   ├── 2019-05-28-hola.md
+│   ├── 2019-05-29-hello-world.md
+│   └── 2020-05-30-welcome.md
+├── docs				groups of pages connected through sidebar, prev|next nav, versions
+│   ├── doc1.md
+│   ├── doc2.md
+│   ├── doc3.md
+│   └── mdx.md
+├── src					non-documentation files like pages or custom react components
+│   ├── css
+│   │   └── custom.css
+│   └── pages				one-off standalone pages (single md or react file)
+│       ├── styles.module.css
+│       └── index.js
+├── static				static, all gets coppied directly to `build/static`
+│   └── img
+├── docusaurus.config.js		config file
+└── sidebars.js				used by the documentation to specify order of documents in sidebar

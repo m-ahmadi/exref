@@ -1,0 +1,43 @@
+scaffolding actions:
+
+create-docusaurus foo classic -j -p npm -s		create foo site, classic theme, js, npm, skip install
+npm init docusaurus foo classic -- -j -p npm -s		...
+
+
+actions inside created website:
+
+npm start			run dev server
+npm run build			build for production
+cd build && npm run serve	test production build locally
+npm run deploy			publishe site to github pages
+
+--------------------------------------------------------------------------------
+ref
+https://docusaurus.io/docs/api/misc/create-docusaurus
+
+create-docusaurus [name] [template] [rootDir]
+name=STR		name of project (and folder of it)
+template=TEMPLATE|GIT_REPO_URL|PATH
+	TEMPLATE	classic|...nothing else for now
+	GIT_REPO_URL	a repo cloned to destination
+	PATH		files to copy to destination
+rootDir=CWD|PATH	path under which project folder will be created
+
+-p, --package-manager <manager>		select pkg manager (yarn|npm|pnpm|bun)
+-s, --skip-install			skip pkg install
+-t, --typescript			use ts template variant
+-j, --javascript			use js template variant
+
+-g, --git-strategy <strategy>		only used if the template is a git repository
+	deep		preserve full history
+	shallow		clone with --depth=1
+	copy		do shallow clone, not create git repo
+	custom		enter custom git clone command
+--------------------------------------------------------------------------------
+command setup
+
+npm i create-docusaurus -g
+create-docusaurus --help
+or
+npx create-docusaurus --help
+--------------------------------------------------------------------------------
