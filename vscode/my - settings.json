@@ -86,7 +86,7 @@
 		"editor.defaultFormatter": "vscode.html-language-features"
 	},
 	"[javascript]": {
-		"editor.defaultFormatter": "Wscats.eno"
+		"editor.defaultFormatter": "vscode.typescript-language-features"
 	},
 	"[json]": {
 		"editor.defaultFormatter": "vscode.json-language-features"
