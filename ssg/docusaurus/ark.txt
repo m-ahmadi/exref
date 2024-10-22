@@ -1,17 +1,19 @@
 ﻿https://docusaurus.io/docs/installation#project-structure-rundown
 
 my-website
-├── blog				blog thinks, delete if `blog: false` in `docusaurus.config.js`
+├── blog				blog things, delete if `blog: false` in `docusaurus.config.js`
 │   ├── 2019-05-28-hola.md
 │   ├── 2019-05-29-hello-world.md
 │   └── 2020-05-30-welcome.md
 ├── docs				groups of pages connected through sidebar, prev|next nav, versions
-│   ├── doc1.md
-│   ├── doc2.md
+│   ├── doc1.md				in doc-only mode: `slug: /`, and delete `src/pages/index.js`
+│   ├── doc2
+        ├──_foo.json			anyfile starting with _ is ignored
+        └──a.md
 │   ├── doc3.md
 │   └── mdx.md
 ├── src					non-documentation files like pages or custom react components
-│   ├── css
+│   ├── css				site-wide css files
 │   │   └── custom.css
 │   └── pages				one-off standalone pages (single md or react file)
 │       ├── styles.module.css
