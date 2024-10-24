@@ -1,3 +1,19 @@
 hh file.chm
 
 hh is "Microsoft HTML Help Executable"
+
+--------------------------------------------------
+keyhh (3rd party)
+
+open .chm file and search (must run both):
+keyhh -Foo file.chm
+keyhh -Foo -#klink "keyword" file.chm
+
+open .chm file and search in index:
+keyhh -#klink "Keyword" file.chm		aLink = "associative link"
+keyhh -#alink "Keyword" file.chm		klink = "keyword link"
+
+
+install
+https://keyworks.help-info.de/KeyHHSetup.zip
+--------------------------------------------------
