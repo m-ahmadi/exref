@@ -26,7 +26,7 @@ not
 /=
 %=
 
-:: Bitwise 
+:: bitwise 
 & rem  and
 | rem  or
 ^ rem  xor
