@@ -33,34 +33,32 @@ double => ---
 => // lossless cast
 -> // lossful  cast
 
-string foo = "";
-StringSubstr("hello", 0, 4); // "hell"
 
+// bool
 bool foo = false;
 
+// char
+uchar a = 'a';
+uchar z = 'z';
+a // 97
+z // 122
+
+// string
+string foo = "";
+StringSubstr("hello", 0, 4); // "hell"
+StringLen("hello");          // 5
+
+// color (base type)
 color foo = 0xFF0000;   // hex number
 color foo = clrRed;     // predefined constant
 color foo = C'255,0,0'; // rgb constant
 
+// datetime (base type)
 datetime foo = D'2020.01.01 00:00'; // hour & minute
 datetime foo = D'2020.01.01 00';    // hour only
 datetime foo = D'2020.01.01';       // date only
 datetime myDate = D'';              // today's date
 datetime myDate = D'02:00';         // today's date 02:00
-
-// array
-int arr[3];           // static
-int arr[3] = {1,2,3}; // ... init
-arr[3] = 4;           // compile error (arr[2] == last item)
-int arr[];            // dynamic
-int arr[] = {1,2};    // ... init
-ArraySize(arr)        // 2
-int mat[3][3];        // multi-dimensional (matrix)
-
-// constant
-const int saturday = 0;
-const int sunday = 1;
-#define FOO "hi" // constant using preprocessor (placed at begining of file)
 
 // enum
 enum days {
@@ -69,21 +67,44 @@ enum days {
 	monday = 2;
 };
 
+// array
+int arr[3];           // static
+int arr[3] = {1,2,3}; // ... init
+arr[3] = 4;           // not allowed (but no compile error)
+int arr[];            // dynamic
+int arr[] = {1,2};    // ... init
+string a[] = {"hi"};  // ...
+ArraySize(arr)        // 2
+int mat[3][3];        // multi-dimensional (matrix)
+
+// constant
+const int saturday = 0;
+const int sunday = 1;
+#define FOO "hi" // constant using preprocessor (placed at begining of file)
+
+// NULL constant
+string x;
+if (x == NULL) x = "hi";
+x // "hi"
+
+// truthy falsey
+int a = 0;
+int b = 1;
+(bool)a // false
+(bool)b // true
+(string)!!a // "false"
+(string)!!b // "true"
+
 // static variable (local variable that remains in memory even after program exits the variable's scope)
 void DoSome() {
 	static int foo = 0;
 }
 
-// input variables (placed at begining of file)
-input int foo = 10;
-input ENUM_MA_METHOD MAMethod = MODE_SMA;
-sinput int foo; // static (can change but can't be optimized)
-
-// predefined variable
-_Symbol // symbol of current chart
-_Period // period of current chart in minutes
-_Point  // point value            of current symbol
-_Digits // point's decimal digits of current symbol
+// macro                                 e.g.
+__FILE__     // name of file             "foo.mq5"
+__LINE__     // line number              6
+__FUNCTION__ // function currently in    "OnStart"
+// https://www.mql5.com/en/docs/constants/namedconstants/compilemacros
 
 // struct
 struct foo {
@@ -120,7 +141,7 @@ void Foo(int &arr[]) {}              // pass by reference param
 bool Foo(int a, int b=10);
 bool Foo(double a);                  // overload
 
-// control
+// ctrl - conditional - if
 if (something) {
 
 } else if (otherthing) {
@@ -128,8 +149,11 @@ if (something) {
 } else {
 	
 }
+
+// ctrl - conditional - ternery
 int x = something ? 1 : 0;
 
+// ctrl - switch
 int x = 1;
 switch (x) {
 	case 1:
@@ -142,6 +166,20 @@ switch (x) {
 		Print("x is not 1 or 2");
 }
 
+string res = "";
+int i = 0;
+switch(i) {
+	case 1:
+		res = "one"; break;
+	default:
+		res = "none"; break;
+	case 2:
+		res = "two"; break;
+	case 3:
+		res = "three"; break;
+}
+
+// ctrl - loop
 for (int i=1; i<5; i++) {
 	Print(i); // 0, 1, 2, 3, 4
 	continue;
@@ -164,13 +202,20 @@ do {
 }
 while(count < 5)
 
-// naming conv
+// naming convention
 int GlobalVariable;
 void MyFunc() {}
 int localVariable;
 const int MY_CONSTANT;
 
+// comment
 // line
 /*
 	block
 */
+
+// input variables (set from outside, read-only inside program, placed at beginning of file)
+input int foo = 10;
+input ENUM_MA_METHOD MAMethod = MODE_SMA;
+sinput int foo;       // static (can change but can't be optimized)
+static input int foo; // ...

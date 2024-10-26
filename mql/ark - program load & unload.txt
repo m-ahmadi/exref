@@ -1,0 +1,80 @@
+load and unload of each program type
+
+--------------------------------------------------------------------------------
+indicators
+
+load
+	attach to chart
+	terminal start 					(if atached previously before terminal shutdown)
+	load template					(if chart specified in template)
+	change profile					(if attached to a profile chart)
+	change chart's symbol or timeframe		(if attached)
+	change account
+	after indicator's successful recompilation	(if attached)
+	change indicator's input params
+unload
+	detach from chart
+	terminal shutdown 				(if atached previously)
+	load template					(if chart specified in template)
+	close chart					(if attached)
+	change profile					(if attached to a profile chart)
+	change chart's symbol or timeframe		(if attached)
+	change account
+	change indicator's input params
+--------------------------------------------------------------------------------
+expert advisors
+
+load
+	attach to chart
+	terminal start 					(if atached previously before terminal shutdown)
+	load template 					(if chart specified in template)
+	change profile					(if attached to a profile chart)
+	connect to account, even if same account	(if attached previously before authorization of terminal on the server)
+unload
+	detach from chart
+	new one attached to chart
+	terminal shutdown 				(if atached previously)
+	load template 					(if chart specified in template)
+	close chart					(if attached)
+	change profile					(if attached to a profile chart)
+	change account (that terminal is connected) 	(if attached previously before authorization of terminal on the server)
+	call to ExpertRemove() function
+--------------------------------------------------------------------------------
+scripts
+
+load
+	atach to chart
+unload
+	after operation is complete
+
+
+note
+
+deinit in other program types means:
+	delete global variables and events queue
+deinit in context of scripts means:
+	reset of all the string-type variables
+	deallocation of dynamical array objects and calling their destructors if they have one
+	note: OnInit(), OnDeinit() are not called for scripts, here we mean what happens in background
+--------------------------------------------------------------------------------
+services
+
+loaded
+	terminal start (if launched previously before terminal shutdown)
+unloaded
+	immediately after completing their work
+
+
+note
+services must have `#property service` directive
+endless loop inside OnStart() is a common pattern (e.g. data reciving and handling)
+unlike other program types, a service does not need to be atached to a chart to run
+
+manage of service:
+	create new instance:		Navigator -> Services -> rclick on service -> Add Service
+	start|stop|remove instance:	Navigator -> Services -> rclick on service
+	manage all instances		service menu
+
+more:
+https://www.mql5.com/en/book/applications/script_service/services
+--------------------------------------------------------------------------------

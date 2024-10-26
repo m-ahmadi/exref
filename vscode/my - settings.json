@@ -1,4 +1,4 @@
-{
+﻿{
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.colorTheme": "Visual Studio Light",
 	"editor.fontSize": 15,
@@ -114,6 +114,11 @@
 	// "autopep8.args": ["--indent-size=2", "--ignore=E121", "--max-line-length=160"],
 	// see all args:  py -m autopep8 --help
 	// hacky alt:  fart C:\python39\Lib\site-packages\autopep8.py "DEFAULT_INDENT_SIZE = 4" "DEFAULT_INDENT_SIZE = 2"
+	
+	/** mql */
+	"mql_tools.Metaeditor.Metaeditor5Dir": "C:\\Program Files\\MetaTrader 5\\MetaEditor64.exe",
+	"C_Cpp.clang_format_style": "{BasedOnStyle: Google, UseTab: Always, IndentWidth: 2, TabWidth: 2, ColumnLimit: 0}",
+	"mql_tools.Script.CloseME": false,
 	
 	// vscode auto detect, not me:
 	"workbench.editorAssociations": {

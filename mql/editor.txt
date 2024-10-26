@@ -1,0 +1,23 @@
+Tools -> Options
+
+General ->
+	Tab size:			2
+	List names after:		1
+	! Insert spaces
+	Highlight matching brackets
+	Highlight current line
+
+Font ->
+	Font: Consolas
+	Size: 11
+
+Styler ->
+	Style:				Java|Google
+	Spaces per indentation:		2
+	! Convert tabs to spaces
+--------------------------------------------------------------------------------
+shortcut
+
+ctrl + shift + space		param info
+
+--------------------------------------------------------------------------------

@@ -1,0 +1,40 @@
+execution of a .mq5 program is very different than normal c++ programs
+when you open "MetaTrader5", there is an underlying socket connection to the broker server
+this socket connection is called "Client Terminal" [hereinafter CT]
+to run .mq5 programs, they must be compiled and atached to chart of an instrument (except services)
+after a program is atached to a chart, it's uploaded to the CT memory
+more at: https://www.mql5.com/en/docs/runtime/running
+
+program type	must atach to chart	events
+==================================================
+script			y		OnStart
+expert advisor		y		On[Init|Deinit|Timer|(Chart|Book)Event|Tick|Trade|Tester]
+indicator		y		On[Init|Deinit|Timer|(Chart|Book)Event|Calculate]
+service			n		OnStart
+
+--------------------------------------------------------------------------------
+prohibited functions in each program type
+
+indicators
+	OrderCalc(Margin|Profit)()
+	Order(Check|Send)()
+	SendFTP()
+	Sleep()
+	ExpertRemove()
+	MessageBox()
+
+expert advisors and scripts
+	SetIndexBuffer()
+	IndicatorSet(Double|Integer|String)()
+	PlotIndexSet(Double|Integer|String)()
+	PlotIndexGetInteger
+
+services
+	ExpertRemove()
+	EventSet(Timer|MillisecondTimer)()
+	EventKillTimer()
+	SetIndexBuffer()
+	IndicatorSet(Double|Integer|String)()
+	PlotIndexSet(Double|Integer|String)()
+	PlotIndexGetInteger()
+--------------------------------------------------------------------------------
