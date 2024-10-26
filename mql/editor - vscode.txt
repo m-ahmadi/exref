@@ -1,0 +1,23 @@
+extension:	MQL Tools
+
+--------------------------------------------------------------------------------
+setup formatter
+
+rclick inside .mq5 file -> MQL Tools -> Select a formatting style -> Custom
+	"C_Cpp: Clang_format_style":
+		{BasedOnStyle: Google, UseTab: Always, IndentWidth: 2, TabWidth: 2, ColumnLimit: 0}
+	
+	other opts:
+	https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+
+--------------------------------------------------------------------------------
+setup compiler
+
+Extensions -> MQL Tools -> Manage -> Settings
+	"Mql_tools.Metaeditor: Metaeditor5 Dir":	C:\Program Files\MetaTrader 5\MetaEditor64.exe
+	! "Mql_tools.Script: Close ME"
+
+--------------------------------------------------------------------------------
+
+more:
+https://www.mql5.com/en/blogs/post/719548
