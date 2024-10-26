@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#pragma comment (lib, "Ws2_32.lib")
+#pragma comment(lib, "Ws2_32.lib")
 // #pragma comment (lib, "Mswsock.lib")
 #define DEFAULT_BUFLEN 512
 #define DEFAULT_PORT "27015"
@@ -23,7 +23,7 @@ int __cdecl main(void) {
 	char recvbuf[DEFAULT_BUFLEN];
 	int recvbuflen = DEFAULT_BUFLEN;
 	
-	char * buf = recvbuf;
+	char *buf = recvbuf;
 	char newLine[] = "\n";
 	
 	iResult = WSAStartup(MAKEWORD(2,2), &wsaData);
@@ -34,7 +34,7 @@ int __cdecl main(void) {
 	hints.ai_flags = AI_PASSIVE;
 	iResult = getaddrinfo(NULL, DEFAULT_PORT, &hints, &result);
 	ListenSocket = socket(result->ai_family, result->ai_socktype, result->ai_protocol);
-	iResult = bind( ListenSocket, result->ai_addr, (int)result->ai_addrlen);
+	iResult = bind(ListenSocket, result->ai_addr, (int)result->ai_addrlen);
 	freeaddrinfo(result);
 	iResult = listen(ListenSocket, SOMAXCONN);
 	ClientSocket = accept(ListenSocket, NULL, NULL);
@@ -51,23 +51,22 @@ int __cdecl main(void) {
 			printf("Received: %s\n", recvbuf, iResult);
 			
 			strcat(newLine, recvbuf);
-		
-		iSendResult = send( ClientSocket, recvbuf, iResult, 0 );
-		printf("Sent: %s\n\n", recvbuf, iSendResult);
+			
+			iSendResult = send(ClientSocket, recvbuf, iResult, 0);
+			printf("Sent: %s\n\n", recvbuf, iSendResult);
 		} else if (iResult == 0) {
-		printf("Connection closing...\n");
+			printf("Connection closing...\n");
 		} else {
-		printf("recv failed with error: %d\n", WSAGetLastError());
-		closesocket(ClientSocket);
-		WSACleanup();
-		return 1;
+			printf("recv failed with error: %d\n", WSAGetLastError());
+			closesocket(ClientSocket);
+			WSACleanup();
+			return 1;
 		}
 		
-    } while (iResult > 0);
-		
-    iResult = shutdown(ClientSocket, SD_SEND);
-    closesocket(ClientSocket);
-    WSACleanup();
-    return 0;
-		}
-				
+	} while (iResult > 0);
+	
+	iResult = shutdown(ClientSocket, SD_SEND);
+	closesocket(ClientSocket);
+	WSACleanup();
+	return 0;
+}
