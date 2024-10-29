@@ -74,7 +74,9 @@ arr[3] = 4;           // not allowed (but no compile error)
 int arr[];            // dynamic
 int arr[] = {1,2};    // ... init
 string a[] = {"hi"};  // ...
-ArraySize(arr)        // 2
+ArraySize(arr);       // 2
+a.Size();             // ...
+a.Push("bi");         // true, a={"hi","bi"}
 int mat[3][3];        // multi-dimensional (matrix)
 
 // constant
