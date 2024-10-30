@@ -2216,7 +2216,12 @@
                       "url": "http://fart-it.sourceforge.net/"
                     },
                     {
-                      "name": "gdrive",
+                      "name": "gdrive3",
+                      "type": "url",
+                      "url": "https://github.com/glotlabs/gdrive/releases"
+                    },
+                    {
+                      "name": "gdrive2",
                       "type": "url",
                       "url": "https://github.com/prasmussen/gdrive/releases"
                     },

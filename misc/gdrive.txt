@@ -1,11 +1,23 @@
-gdrive help
+gdrive3 help
 
-gdrive list					list files in google drive
-gdrive mkdir foo				make file in google drive
-gdrive upload myfile.txt			upload file
-gdrive upload -p <PARENT_ID> myfile.txt		upload file to specific folder
+gdrive3 account list		list added accounts
+gdrive3 files list		list files of current account
+gdrive3 files help		show subcommand help
+
+--------------------------------------------------------------------------------
+gdrive2 help
+
+gdrive2 list				list files in google drive
+gdrive2 mkdir foo			make file in google drive
+gdrive2 upload f.txt			upload file
+gdrive2 upload -p <PARENT_ID> f.txt	upload file to specific folder
 
 --------------------------------------------------------------------------------
 install
-powershell -C "iwr https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_windows_amd64.tar.gz -O f.tar.gz; winrar x f.tar.gz *; mi gdrive.exe -D $Env:windir\gdrive.exe; ri f.tar.gz;"
+
+v3
+powershell -C "iwr https://github.com/glotlabs/gdrive/releases/download/3.9.1/gdrive_windows-x64.zip -O f.zip; winrar x f.zip *; sleep 1; mi gdrive.exe -D $Env:windir\gdrive3.exe; ri f.zip;"
+
+v2
+powershell -C "iwr https://github.com/prasmussen/gdrive/releases/download/2.1.1/gdrive_2.1.1_windows_amd64.tar.gz -O f.tar.gz; winrar x f.tar.gz *; sleep 1; mi gdrive.exe -D $Env:windir\gdrive2.exe; ri f.tar.gz;"
 --------------------------------------------------------------------------------
