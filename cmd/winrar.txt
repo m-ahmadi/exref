@@ -1,14 +1,22 @@
-winrar a -afzip -m5 output.zip input.csv
+winrar a -afzip -m5 output.zip input.csv	add to archive (file)
+winrar a -afzip -m5 output.zip inputdir		add to archive (directory)
+	-m1	fastest
+	-m2	fast
+	-m3	normal default
+	-m4	good
+	-m5	best
 
-winrar a -afzip -m5 output.zip inputdir
-
--m1 fastest
--m2 fast
--m3 normal default
--m4 good
--m5 best
-
-winrar x file.zip *			extract here
-winrar x file.zip * foo\		extract to foo dir
+winrar x file.zip *				extract here
+winrar x file.zip * foo\			extract to foo dir
 
 Help -> Help topics -> Command line mode
+
+--------------------------------------------------
+rar utils
+
+rar /?
+unrar /?
+--------------------------------------------------
+install
+add "WinRAR" installation dir to path
+--------------------------------------------------
