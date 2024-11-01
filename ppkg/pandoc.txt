@@ -16,6 +16,9 @@ pandoc in.docx -f docx -t html -s -o out.html
 txt -> html
 pandoc in.txt -s -o out.html
 
+md -> html
+pandoc in.md -f markdown -t html -o out.html
+
 
 https://pandoc.org/demos.html
 
