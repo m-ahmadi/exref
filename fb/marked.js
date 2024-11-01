@@ -37,4 +37,22 @@ marked.walkTokens(e,t)
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
+// basic
 marked.parse('# Marked in browser\n\nRendered by **marked**.'); // '<h1>Marked in browser</h1>\n<p>Rendered by <strong>marked</strong>.</p>\n'
+
+
+// get text and depth sequence of all headings
+// https://marked.js.org/using_pro#lexer
+s = `
+# h1
+
+## h2
+
+### h3
+
+# h11
+`;
+tokens = marked.lexer(s);
+headings = tokens.filter(i => i.type === 'heading');
+depths = headings.map(i => i.depth); // [1, 2, 3, 1]
+texts = headings.map(i => i.text);   // ['h1', 'h2', 'h3', 'h11']
