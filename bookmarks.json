@@ -11865,9 +11865,25 @@
               "type": "folder"
             },
             {
+              "children": [
+                {
+                  "name": "guide",
+                  "type": "url",
+                  "url": "https://www.markdownguide.org/basic-syntax/"
+                },
+                {
+                  "name": "specs - gfm",
+                  "type": "url",
+                  "url": "https://github.github.com/gfm/"
+                },
+                {
+                  "name": "specs - CommonMark",
+                  "type": "url",
+                  "url": "https://spec.commonmark.org/current"
+                }
+              ],
               "name": "md",
-              "type": "url",
-              "url": "https://www.markdownguide.org/basic-syntax/"
+              "type": "folder"
             },
             {
               "name": "toml",
