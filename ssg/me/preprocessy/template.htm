@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0" />
+	<title>mydocs</title>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.17/dist/themes/default/style.min.css" />
+	
+	<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jstree@3.3.17/dist/jstree.min.js"></script>
+	
+	<style>
+		tr,td,th{border: 1px solid grey;}
+	</style>
+</head>
+
+<body>
+
+<div style="position:relative;">
+	<div id="md" style="position:absolute; margin-left:300px; width:600px;">%markdown_content%</div>
+</div>
+<div id="_headingsTree" style="position:fixed; width:300px;"></div>
+
+<script>
+jstreeData = %jstree_data%;
+
+// init jstree
+$('#_headingsTree')
+	.on('changed.jstree', function (e, data) {
+		location.hash = '#'+data.selected[0];
+	})
+	.jstree({
+		core : {
+			data : jstreeData
+		}
+	});
+
+md.innerHTML += '<br>'.repeat(50);
+</script>
+</body>
+</html>
