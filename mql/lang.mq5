@@ -113,18 +113,18 @@ __FUNCTION__ // function currently in    "OnStart"
 // https://www.mql5.com/en/docs/constants/namedconstants/compilemacros
 
 // struct
-struct foo {
+struct Foo {
 	int  a;
 	bool b;
 	// any type except void
 };
-foo my_set = {7, false};
+Foo my_set = {7, false};
 my_set.a = 23;
 
-struct bar: foo {
+struct Bar: Foo {
 	string c;
 };
-bar my_set2 = {7, false, "hello"};
+Bar my_set2 = {7, false, "hello"};
 
 // class
 class Animal {
