@@ -82,7 +82,11 @@ int mat[3][3];        // multi-dimensional (matrix)
 // constant
 const int saturday = 0;
 const int sunday = 1;
-#define FOO "hi" // constant using preprocessor (placed at begining of file)
+
+// constant - using the preprocessor (placed at beginning of file)
+#define FOO "hi"
+#define BAR 123
+#define BAZ 1.0
 
 // NULL constant
 string x;
