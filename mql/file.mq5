@@ -7,3 +7,4 @@
 
 int file_handle = FileOpen("hello.txt", FILE_WRITE);
 FileWriteString(file_handle, "hello kitty"); // writes to %MQL_ROOT%\Files
+FileClose(file_handle);
