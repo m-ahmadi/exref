@@ -1,4 +1,4 @@
-COMPILER_PATH		"C:\Program Files\MetaTrader 5\MetaEditor64.exe"
+COMPILER_PATH	"C:\Program Files\MetaTrader 5\MetaEditor64.exe"
 
 TER_DIR		%APPDATA%\MetaQuotes\Terminal
 TER_COMMON	%TER_DIR%\Common
