@@ -9,3 +9,6 @@ for i in range(2):
 	x = 2 # ...
 while True:
 	x = 2 # ...
+
+# exit script
+exit() | quit()
