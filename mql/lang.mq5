@@ -129,14 +129,29 @@ Bar my_set2 = {7, false, "hello"};
 
 // class
 class Animal {
-	protected:
+	private:
 		int foo;
 		double bar[];
+	protected:
+		string baz;
 	public:
-		double Foo(int x=0);
-		void Bar();
-	MyMethod();
+		Animal(void) { // default constructor
+			theName = "animal with no name";
+		}
+		Animal(string name) { // parametric constructor
+			theName = name;
+		}
+		string theName;
+		double Method(int x=0) { return x * 0.25; };
+		void Method2() { theName = "hey"; };
 };
+Animal boz = new Animal("jeff");
+Animal who = new Animal();
+boz.theName // "jeff"
+who.theName // "animal with no name"
+boz.Method(12) // 3.0
+boz.Method2();
+boz.theName // "hey"
 
 // function
 void Foo() {}
