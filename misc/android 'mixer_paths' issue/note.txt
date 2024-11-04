@@ -1,0 +1,56 @@
+must place "mixer_paths.xml" in below paths:
+
+	ROOT/system/etc/
+	ROOT/system/vendor/etc/
+
+--------------------------------------------------------------------------------
+notes on "LineageOS 14.1"
+
+the file is named "mixer_paths_wdc9306.xml" in the original installation.
+so any other source file you want to test must be renamed like so.
+it won't work if the file is named "mixer_paths.xml".
+
+putting the file in second path ".../vendor/etc" did not seem to have any effect,
+but I did not test it thoroughly, so I can't be sure.
+
+below is a list of different "mixer_paths" files tested on the phone.
+the files are in ".\mixer_paths files.7z".
+each section contains data about each file.
+
+--------------------------------------------------
+1.xml
+
+note:		src file used in custom rom, downloaded from src repo
+orig filename:	mixer_paths_wcd9306.xml
+filesize:	54.9 KB
+result:		both sims work
+origin:		internet
+link:		https://github.com/LineageOS/android_device_xiaomi_ferrari/blob/cm-14.1/audio/mixer_paths_wcd9306.xml
+--------------------------------------------------
+2.xml
+
+note:		actual file after installation, screwed up by me
+orig filename:	mixer_paths_wcd9306.xml
+filesize:	54.9 KB
+result:		too loud during call
+origin:		actual installation on phone
+link:		n/a
+--------------------------------------------------
+3.xml
+
+note:		it's from internet, but don't know where
+orig filename:	mixer_paths_wcd9306.xml
+filesize:	41.7 KB
+result:		1 sim works (mci)
+origin:		internet
+link:		n/a
+--------------------------------------------------
+4.xml
+
+note:		downloaded from internet
+orig filename:	mixer_paths.xml		(must rename to "mixer_paths_wdc9306.xml")
+filesize:	61.3 KB
+result:		boths sims not working
+origin:		internet
+link:		https://android.googlesource.com/device/google/marlin/+/android-7.1.1_r6/mixer_paths.xml
+--------------------------------------------------------------------------------
