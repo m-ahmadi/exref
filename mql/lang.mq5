@@ -107,7 +107,8 @@ void DoSome() {
 }
 
 // macro                                 e.g.
-__FILE__     // name of file             "foo.mq5"
+__FILE__     // file name               "foo.mq5"
+__PATH__     // file abs path           ".../foo.mq5"
 __LINE__     // line number              6
 __FUNCTION__ // function currently in    "OnStart"
 // https://www.mql5.com/en/docs/constants/namedconstants/compilemacros
@@ -219,6 +220,11 @@ const int MY_CONSTANT;
 /*
 	block
 */
+
+// include (preprocessor replaces line with content of file)
+#include <foo/bar.mqh> // looks in stdlib dir:  %MQL_ROOT/Include%
+#include <foo\bar.mqh> // ...
+#include "mylib.mqh"   // looks in script dir
 
 // input variables (set from outside, read-only inside program, placed at beginning of file)
 input int foo = 10;
