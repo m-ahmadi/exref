@@ -4,6 +4,7 @@ General ->
 	Tab size:			2
 	List names after:		1
 	! Insert spaces
+	! Insert () and closing...
 	Highlight matching brackets
 	Highlight current line
 
