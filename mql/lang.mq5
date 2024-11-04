@@ -48,6 +48,12 @@ string foo = "";
 StringSubstr("hello", 0, 4); // "hell"
 StringLen("hello");          // 5
 
+// string - split
+string s = "a,b,c";
+string a[];
+StringSplit(s, ',', a);
+a // {"a", "b", "c"}
+
 // color (base type)
 color foo = 0xFF0000;   // hex number
 color foo = clrRed;     // predefined constant
