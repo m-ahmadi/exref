@@ -185,7 +185,7 @@ mt.__version__ # '5.0.4424'
 
 # connection
 if not mt.initialize():   # connect to "MetaTrader 5"
-	print('initialize() failed')
+	print('initialize() failed. error:', mt.last_error())
 	mt.shutdown()
 print(mt.terminal_info()) # connection status and parameters
 print(mt.version())       # get data on "MetaTrader 5" version
