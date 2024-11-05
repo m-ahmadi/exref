@@ -7,7 +7,21 @@ mt.initialize()
 mt.login(login, password, server, timeout)
 mt.shutdown()
 mt.version()
-mt.last_error()
+code, msg = mt.last_error()
+	1  'generic success'
+	-1 'generic fail'
+	-2 'invalid arguments/parameters'
+	-3 'no memory condition'
+	-4 'no history'
+	-5 'invalid version'
+	-6 'authorization failed'
+	-7 'unsupported method'
+	-8 'auto trading disabled'
+	-10000 'internal IPC general error'
+	-10001 'internal IPC send failed'
+	-10002 'internal IPC recv failed'
+	-10003 'internal IPC initialization failed' | 'internal IPC no ipc'
+	-10004 'internal timeout'
 mt.account_info()
 mt.terminal_info()
 
@@ -81,3 +95,7 @@ rates1 = mt.copy_rates_from(sym, tmf, start, 1000) # 1000 bars from datetime
 rates2 = mt.copy_rates_from_pos(sym, tmf, 0, 1000) # 1000 bars from index 0
 rates3 = mt.copy_rates_range(sym, tmf, start, end) # bars between two datetimes
 
+# error checking
+code, msg = mt.last_error() # (1, 'Success')
+if code != 1:
+	raise Exception(msg)
