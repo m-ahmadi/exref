@@ -39,3 +39,13 @@ iLow(...)
 iClose(...)
 iVolume(...)
 iBars(string symbol, int timeframe)
+
+// trading
+// https://www.mql5.com/en/docs/trading
+PositionsTotal() // num of open positions
+OrderCheck()     // checks if there's enough money for trade
+OrderSend()      // execute trade
+OrderSendAsync() // execute trade async (not wait for server response)
+OrdersTotal()    // num of current orders
+OrderSelect()    // select order to work with
+...

@@ -1,0 +1,370 @@
+﻿https://www.metatrader5.com/en/terminal/help/trading/general_concept
+
+conceptual (not actual structs)
+
+order	request action on instrument (buy/sell)
+	id:	unique id (called ticket in docs)
+	type:	market | pending
+		market:		direct execution
+		pending:	execution of previously sent order
+
+deal	n volume of instrument exchanged at a price (buy/sell)
+	order id:	id of order from which deal was made
+			many deals can have same order id
+			(execution of one order can result in many deals)
+	cause:		direct order execution | pending order triggering
+
+position
+	direction
+	volume
+	delete
+	stop-loss
+	take-profit
+--------------------------------------------------------------------------------
+other
+
+price data
+						PRICE_THEY_ARE	IMMEDIATE_EXECUTION_IF	COLOR
+	bid	highest price possible to sell	buying at	sell at bid		red
+	ask	lowest  price possible to buy	selling at	buy  at ask		blue
+	last	price of last deal executed	exchanged	n/a			grey
+	
+	note: either ask,bid concept in forex is reverse of stock, or I misunderstood them in stock
+
+swap
+	when position moved to next trading day, it's called swap
+	trading with leverage means borrowing money for forex positions
+	when a position is left open for more than a day, interest must be paid on that loan
+	swaps are interest rates for leveraged funds
+
+ui "one click trading"
+	panel on the chart
+	market watch window
+	depth of market window
+--------------------------------------------------------------------------------
+position accounting system
+
+hedging
+	many open positions for symbol (even opposite positions)
+	do not change current position, add new position to positions
+	
+	sl,tp inheritance rules:
+	
+	if position partially closed:
+		sl,tp are not changed by new order
+	if position fully closed:
+		sl,tp are deleted
+	
+	ui:
+	if position exists and placing order:
+		if using "one click trading":
+			sl,tp are not set
+
+
+netting
+	one position for symbol at the same time
+	
+	if deal executed and exists open position:
+	
+	  if deal is in same direction:
+	    increase volume of existing position
+	
+	  if deal is in opposite direction:
+	    decrease volume of existing position
+	      if deal volume = position volume:
+	        close position
+	      if deal volume > position volume:
+	        reverse position
+	
+	sl,tp inheritance rules:
+	
+	if position volume increased or position reversed:
+		update sl,tp base on last order (market or triggered pending)
+	if position partially closed:
+		sl,tp are not changed by new order
+	if position fully closed:
+		sl,tp are deleted (cuz linked to open position and cannot exist without it)
+	
+	if "otc markets" (forex, futures):
+		if position moved to next trading day (including swap through re-opening):
+			sl,tp are not changed
+	if "exchange market":
+		if position moved to (next trading day | another account) or during delivery:
+			sl,tp are reset
+	ui:
+	if position exists and placing order:
+		if using "order placing window"
+			current sl,tp of existing position are inserted into window
+		if using "one click trading":
+			current sl,tp are not changed
+
+impacts of selected system
+	sl tp inheritance rules change
+	to close position:
+		in hedging:	must explicitly close the position
+		in netting:	must perform opposite trading operation with same volume
+	in hedging:
+		position cannot be reversed, instead, current position is closed and a new one with remaining volume is opened
+		cannot reverse position, instead, must close current position open new position with remaining volume
+		a new condition for margin calculation is available called "Hedged Margin"
+
+--------------------------------------------------------------------------------
+order types
+
+
+market order
+	tell broker to buy/sell instrument
+	execution of this order results in execution of a deal
+	price at which deal is made depends on type of execution and symbol
+	(generally, bought at ask, sold at bid)
+
+pending order
+	tell broker to buy/sell instrument in future under predefined conditions
+
+take-profit & stop-loss
+	special types of orders, always linked to an (open position | pending order)
+	when activated & executed, entire position is closed completely
+	can only be requested together with a (market | pending) order
+	executes when certain price reaches order price
+	if error in execution, order will trigger again on next tick that satisfies order condition (if tick price touches order price)
+	an example of error in execution is "rejected by the exchange"
+	
+	"reference price"
+	they trigger when "reference price" touches order price
+	after order triggered, subsequent buy/sell happens base on ask/bid price
+	usually last price is used as "reference price" but it depends on exchange where symbol is traded
+	same note is mentioned in "pending order triggering", it's because sl & tp are orders of "pending" nature
+	
+	order price is checked against what for execution:
+		POSITION	ORDER_PRICE_CHECKED_AGAINST
+		long		bid
+		short		ask
+	how order price is set:
+		TYPE		POSITION	ORDER_PRICE_ALWAYS_SET_AT
+		take-profit	long		↑ bid
+		...		short		↓ ask
+		stop-loss	long		↑ bid
+		...		short		↓ ask
+
+--------------------------------------------------------------------------------
+pending order types
+
+A		B	C			D	E	F
+buy limit	buy	ask <= order price	>	↓ ↑	buy  when ask ↓ x
+buy stop	buy	ask >= order price	<	↑ ↑↑	buy  when ask ↑ x
+sell limit	sell	bid >= order price	<	↑ ↓	sell when bid ↑ x
+sell stop	sell	bid <= order price	>	↓ ↓↓	sell when bid ↓ x
+
+	A: type of order 
+	B: action performed on instrument
+	C: condition that if met, order executes 
+	D: where price is now compared to order price (when using this type of order makes sense)
+	E: future price movement steps that makes sense with this type of order
+	F: simple explanation
+
+buy stoplimit:
+	when ask price reaches (stoplimit)order price, place two other orders:
+		"buy limit" order
+			price = (StopLimit order).price
+		"buy stop" order
+			price = above current ask
+
+	StopLimit stlim = {price: x}
+	if ask >= stlim.price
+	  BuyLimit blim = {price: stlim.price}
+	  BuyStop bstp = {price: ask + 1}
+	  SendOrder(blim)
+	  SendOrder(bstp)
+
+sell stoplimit:
+	when bit price reaches (stoplimit)order price, place two other orders:
+		"sell limit" order:
+			price = (stoplimit order).price
+		"sell stop" order:
+			price = below current bid
+
+	StopLimit stlim = {price: x}
+	if bid >= stlim.price
+	  SellLimit slim = {price: stlim.price}
+	  SellStop sstp = {price: bid -1}
+	  SendOrder(slim)
+	  SendOrder(sstp)
+
+--------------------------------------------------------------------------------
+pending order triggering
+
+
+order triggers when "reference price" touches order price
+after order triggered, subsequent buy/sell happens base on ask/bid price
+
+usually last price is used as "reference price" (price of last transaction)
+but it depends on exchange where symbol is traded, below is the list of all exchanges
+	forex|forex no leverage|futures|exchange futures|exchange stocks|forts futures|collateral
+	https://www.metatrader5.com/en/terminal/help/trading_advanced/margin_forex
+
+note about "limit order" when "execution type" = "exchange"
+	in such case, order price is not verified and can only be:
+		↑ ask (for "buy limit" order)
+		↓ bid (for "sell limit" order)
+	when placing an order like this, it triggers almost immediately and turns into a market order
+	but unlike market orders where a trader agrees to perform a deal by a non-specified current market price,
+	this kind of order executes only if current price reaches order price
+
+note about error upon pending order triggering
+	if during pending order activation, market operation cannot be executed (e.g. not enough free margin on account),
+	pending order will be canceled and moved to history with "Rejected" status
+
+--------------------------------------------------------------------------------
+trailing stop
+
+	make stop-loss follow the price automatically
+	executed client-side, unlike sl,tp which execute on server
+	set by scarifying value of distance between stop-loss level and current price
+	always linked to (open position | pending order)
+	only 1 can be set for an (open position | pending order)
+
+	an example usage is when position becomes profitable, move sl to break-even level
+	useful when price keeps moving unidirectionally or when you can't monitor the market
+
+	ui: "Trading" tab -> rclick on (position | order) -> select "Trailing Stop"
+
+
+scheme of trailing stop operation
+	for one position, "trailing stop" cannot occur more than once every 10 seconds
+	it won't work if platform is off (any sl set previously, is still gonna execute)
+	
+	upon arrival of new quotes:
+	  if open position not exists:
+	    return
+	
+	  if position profit increased:
+	    if position profit >= "trailing stop" level:
+	      upsert stop-loss at specified distance from current price
+	      add entry to journal
+	  else:
+	    do nothing (if sl exists, it remains unchanged)
+
+	upon triggered pending order:
+	  if open position exists:
+	    its "trailing stop" is overwritten with order's "trailing stop"
+	
+	    if deal made AND
+	      order direction != position direction AND
+	      order volume <= position volume:
+	        "trailing stop" is not overwritten with order's "trailing stop"
+	
+	ui:
+	disable "trailing stop" for
+	one entr:				Trade -> rclick on entry -> Trailing Stop -> None
+	all open positions and pending orders:	Trade -> rclick on entry -> Trailing Stop -> Delete All
+	
+	
+	if exist many positions with "trailing stop"
+	  positions = [position, position, ...]
+	  positions = sort by time opened (oldest to newest)
+	
+	  upon new tick:
+	    prev_tick = tick
+	    idx = -1
+	    if tick.time - prev_tick.time < 10 seconds:
+	      idx -= 1
+	    process positions[idx].trailing_stop
+	
+	  note:
+	  positions[-1] process first
+	  positions[-2] needs 2 ticks, 2nd tick under 10secs of 1st
+	  positions[-3] needs 3 ticks, 2nd tick under 10secs of 1st, 3rd tick under 10secs of 2nd
+
+--------------------------------------------------------------------------------
+order state
+
+started			order correctness checked, but not yet accepted by broker
+placed			a dealer accepted the order
+partially filled	order is filled partially
+filled			entire order is filled
+canceled		order is canceled by the client
+rejected		order is rejected by a dealer
+expired			order is canceled due to its expiration
+--------------------------------------------------------------------------------
+execution mode
+https://www.metatrader5.com/en/terminal/help/trading/performing_deals
+broker defines the execution mode for a security
+
+instant
+	order.price = current price
+	send order
+	if broker accept price:
+	  order executes
+	else:
+	  broker sends back a "requote" (price at which order can execute)
+
+request
+	order.price = previously received price by broker
+	execute order
+	
+	note:
+	price for certain orders are requested from broker before order is sent,
+	after price received, order execution at that price can be confirmed/rejected
+	
+market
+	order.price = broker's decision (without any discussion with trader)
+	
+	note:
+	sending order in this mode means, consent to its execution at any price
+	
+exchange
+	I did not understand this, so for now, I leave the official explanation here:
+	
+	trade operations conducted in trading platform are sent to an external trading system (exchange)
+	trade operations are executed at the prices of current market offers
+
+--------------------------------------------------------------------------------
+fill policy
+
+
+fill or kill (FOK)
+	order can be filled only in specified volume
+	if order.volume not currently available:
+	  do not execute order
+	
+	order.volume can be filled by several offers at the moment
+
+immediate or cancel (IOC)
+	trader agrees to execute deal with whatever volume is available
+	trade server determines whether this policy is available
+	
+	if order.volume not fully available:
+	  fill whatever available and discard the rest of volume
+
+book or cancel (BOC)
+	only supported orders:	limit, stoplimit
+	place order in order book, but not execute it
+	if order can be filled immediately when placed, order is canceled
+	guarantees order.price will be worse than current price
+	used to implement passive trading
+	guarantees order not execute immediately when placed (so won't affect current liquidity)
+	(used heavily by market makers in stock exchanges)
+
+return
+	only used for orders:	market (buy,sell), limit, stoplimit
+	if order.volume filled partially:
+	  an order with remaining volume is not canceled and processed further
+	
+	order type	"execution mode"s used in
+	market		exchange
+	limit		market, exchange
+	stoplimit	market, exchange
+
+
+
+
+use of "fill policy" depending on "execution mode"
+
+execution	FOK	BOK	IOC	return
+==================================================
+instant		+	-	-	-
+request		+	-	-	-
+market		+	+	-	+
+exchange	+	+	+	+
+
+--------------------------------------------------------------------------------
