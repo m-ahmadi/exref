@@ -135,6 +135,7 @@ Bar my_set2 = {7, false, "hello"};
 
 // class
 class Animal {
+	int x; // private by default
 	private:
 		int foo;
 		double bar[];
@@ -158,6 +159,35 @@ who.theName // "animal with no name"
 boz.Method(12) // 3.0
 boz.Method2();
 boz.theName // "hey"
+
+// class - inheritance
+class Animal {
+	string secret;
+	protected:
+		string family_secret; 
+	public:
+		string name;
+		Animal(string _name) {
+			name = _name;
+			secret = "we hate humans too";
+			family_secret = "we hate cats";
+		};
+};
+class Dog : public Animal {// private by default
+	string secret;
+	public:
+		string breed;
+		Dog(string _name, string _breed): Animal(_name) {
+			breed = _breed;
+			this.secret = Animal::family_secret;
+		};
+		string Blab() { return secret; };
+};
+Dog dog("sparky", "husky");
+dog.name;   // "sparky"
+dog.breed;  // "husky"
+dog.Blab(); // "we hate cats"
+dog.secret; // err
 
 // function
 void Foo() {}
