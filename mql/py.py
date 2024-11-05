@@ -24,8 +24,10 @@ mt.market_book_release(symbol)
 mt.copy_rates_from(symbol, timeframe, date_from, count)
 mt.copy_rates_from_pos(symbol, timeframe, start_pos, count)
 mt.copy_rates_range(symbol, timeframe, date_from, date_to)
-mt.copy_ticks_from(symbol, date_from, count, flags)
-mt.copy_ticks_range(symbol, date_from, date_to, flags)
+
+COPY_TICKS = COPY_TICKS_ALL | COPY_TICKS_INFO | COPY_TICKS_TRADE
+mt.copy_ticks_from(symbol, date_from, count, flags=COPY_TICKS)
+mt.copy_ticks_range(symbol, date_from, date_to, flags=COPY_TICKS)
 
 mt.orders_total()
 mt.orders_get()
@@ -56,15 +58,26 @@ mt.history_deals_get(date_from, date_to, group)
 # examples
 
 import MetaTrader5 as mt
+from datetime import datetime
 
-if not mt.initialize(): # connect to "MetaTrader 5"
+# connection
+if not mt.initialize():   # connect to "MetaTrader 5"
 	print('initialize() failed')
 	mt.shutdown()
-
 print(mt.terminal_info()) # connection status and parameters
 print(mt.version())       # get data on "MetaTrader 5" version
- 
-# request 1000 ticks from EURAUD
-euraud_ticks = mt.copy_ticks_from('EURAUD', datetime(2020,1,28,13), 1000, mt.COPY_TICKS_ALL)
+mt.shutdown()             # shutdown connection
 
-mt.shutdown() # shutdown connection
+# get ticks
+sym = 'EURUSD'
+tmf = mt.TIMEFRAME_M1;
+ticks = mt.copy_ticks_from(sym, datetime(2020,1,28,13), 1000, mt.COPY_TICKS_ALL)
+
+# get bars
+sym = 'EURUSD'
+tmf = mt.TIMEFRAME_M1;
+start, end = datetime(2020,1,27,13), datetime(2020,1,28,13)
+rates1 = mt.copy_rates_from(sym, tmf, start, 1000) # 1000 bars from datetime
+rates2 = mt.copy_rates_from_pos(sym, tmf, 0, 1000) # 1000 bars from index 0
+rates3 = mt.copy_rates_range(sym, tmf, start, end) # bars between two datetimes
+
