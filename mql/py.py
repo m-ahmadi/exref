@@ -74,6 +74,10 @@ mt.history_deals_get(date_from, date_to, group)
 import MetaTrader5 as mt
 from datetime import datetime
 
+# pkg info
+mt.__author__  # 'MetaQuotes Ltd.'
+mt.__version__ # '5.0.4424'
+
 # connection
 if not mt.initialize():   # connect to "MetaTrader 5"
 	print('initialize() failed')
