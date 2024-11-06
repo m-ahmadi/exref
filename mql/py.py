@@ -205,7 +205,6 @@ if not syminfo.visible:
 
 # get ticks
 sym = 'EURUSD'
-tmf = mt.TIMEFRAME_M1;
 ticks = mt.copy_ticks_from(sym, datetime(2020,1,28,13), 1000, mt.COPY_TICKS_ALL)
 
 # get bars
