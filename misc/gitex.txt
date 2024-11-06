@@ -9,12 +9,12 @@ regsvr32 /u GitExtensionsShellEx64.dll
 --------------------------------------------------------------------------------
 custom command setup
 
-mklink %windir%\gitx "C:\Program Files (x86)\GitExtensions\GitExtensions.exe"
-echo @start "" "C:\Program Files (x86)\GitExtensions\GitExtensions.exe" %* > %windir%\gitx.cmd
+mklink %windir%\gitx "C:\Program Files\GitExtensions\GitExtensions.exe"
+echo @start "" "C:\Program Files\GitExtensions\GitExtensions.exe" %* > %windir%\gitx.cmd
 --------------------------------------------------------------------------------
 make shortcut command for `gitex openrepo .`
 
-echo @start "" "C:\Program Files (x86)\GitExtensions\GitExtensions.exe" openrepo %* > %windir%\gx.cmd
+echo @start "" "C:\Program Files\GitExtensions\GitExtensions.exe" openrepo %* > %windir%\gx.cmd
 --------------------------------------------------------------------------------
 config mergetool & difftool
 
@@ -25,5 +25,5 @@ Settings -> Git -> Config ->
 	Difftool		vscode
 	Path to difftool	/.../VSCode/Code.exe
 
-note: can't use `code`, must provide path to exe like `C:/.../Code.exe`
+note: can't use `code`, must provide abs path to .exe like `C:/.../Code.exe`
 --------------------------------------------------------------------------------
