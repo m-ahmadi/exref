@@ -2,7 +2,8 @@ commit message abbreviations and use cases
 
 add	add		any addition
 del	delete		any deletion
-fmt	format		any code formatting (even renaming or refactoring if logic stays unchanged)
+fmt	format		any code formatting (rename & refactor allowed if logic unchanged)
+ren	rename		only renaming (rename-only context, nothing else allowed)
 opt	optimize	any speed improvement
 btr	better		any improvement other than speed (e.g. readability, organization, etc)
 cmt	comment		anything related to comments
@@ -14,7 +15,7 @@ pkg	package		any package related thing
 cln	cleanup		EXPERIMENTAL: deleting unnecessary things (mix of del & fmt)
 conf	congig		EXPERIMENTAL: any project-wide operation (e.g. automation processes)
 rstc	re-structure	EXPERIMENTAL: when re-structuring the project (e.g. changing file structure)
-edit	-		generic term
+edit	-		generic edit (when nothing else fits)
 docs	-		anything related to documentation
 note	-		similar to `docs` if proj has note
 
