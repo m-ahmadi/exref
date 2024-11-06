@@ -208,6 +208,18 @@ sym = 'EURUSD'
 ticks = mt.copy_ticks_from(sym, datetime(2020,1,28,13), 1000, mt.COPY_TICKS_ALL)
 ticks2 = mt.copy_ticks_range(sym, datetime(2024,1,1), datetime(2024,1,3), mt.COPY_TICKS_ALL)
 
+# plot ticks
+import pandas as pd
+import matplotlib.pyplot as plt
+ticks = mt.copy_ticks_from('EURUSD', datetime(2020,1,28,13), 1000, mt.COPY_TICKS_ALL)
+df = pd.DataFrame(ticks)
+df['time'] = pd.to_datetime(df['time'], unit='s')
+plt.plot(df['time'], df['ask'], 'r-', label='ask')
+plt.plot(df['time'], df['bid'], 'b-', label='bid')
+plt.legend(loc='upper left')
+plt.title('ticks')
+plt.show()
+
 # get bars
 sym = 'EURUSD'
 tmf = mt.TIMEFRAME_M1;
