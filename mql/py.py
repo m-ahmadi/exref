@@ -211,7 +211,7 @@ ticks = mt.copy_ticks_from(sym, datetime(2020,1,28,13), 1000, mt.COPY_TICKS_ALL)
 sym = 'EURUSD'
 tmf = mt.TIMEFRAME_M1;
 start, end = datetime(2020,1,27,13), datetime(2020,1,28,13)
-rates1 = mt.copy_rates_from(sym, tmf, start, 1000) # 1000 bars from datetime
+rates = mt.copy_rates_from(sym, tmf, start, 1000)  # 1000 bars from datetime
 rates2 = mt.copy_rates_from_pos(sym, tmf, 0, 1000) # 1000 bars from index 0
 rates3 = mt.copy_rates_range(sym, tmf, start, end) # bars between two datetimes
 
