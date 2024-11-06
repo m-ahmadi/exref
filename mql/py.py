@@ -206,6 +206,7 @@ if not syminfo.visible:
 # get ticks
 sym = 'EURUSD'
 ticks = mt.copy_ticks_from(sym, datetime(2020,1,28,13), 1000, mt.COPY_TICKS_ALL)
+ticks2 = mt.copy_ticks_range(sym, datetime(2024,1,1), datetime(2024,1,3), mt.COPY_TICKS_ALL)
 
 # get bars
 sym = 'EURUSD'
