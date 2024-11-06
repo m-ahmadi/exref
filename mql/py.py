@@ -191,6 +191,18 @@ print(mt.terminal_info()) # connection status and parameters
 print(mt.version())       # get data on "MetaTrader 5" version
 mt.shutdown()             # shutdown connection
 
+# symbol conditions
+sym = 'EURUSD'
+# can be found?
+syminfo = mt.symbol_info(sym)
+if syminfo is None:
+	print('symbol not found')
+# if not in "market watch", add it
+if not syminfo.visible:
+	print('symbol is not visible, trying to select it...')
+	if not mt.symbol_select(sym, True):
+		print('could not select symbol')
+
 # get ticks
 sym = 'EURUSD'
 tmf = mt.TIMEFRAME_M1;
