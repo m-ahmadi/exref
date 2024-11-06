@@ -20595,6 +20595,36 @@
             {
               "children": [
                 {
+                  "name": "asus - M1605YA (35, 03/08)",
+                  "type": "url",
+                  "url": "https://www.digikala.com/product/dkp-13586694/%D9%84%D9%BE-%D8%AA%D8%A7%D9%BE-16-%D8%A7%DB%8C%D9%86%DA%86%DB%8C-%D8%A7%DB%8C%D8%B3%D9%88%D8%B3-%D9%85%D8%AF%D9%84-vivobook-16-m1605ya-mb345-r7-7730u-16gb-512ssd-%DA%A9%D8%A7%D8%B3%D8%AA%D9%88%D9%85-%D8%B4%D8%AF%D9%87/"
+                },
+                {
+                  "name": "asus - M1605YA (32, 03/08)",
+                  "type": "url",
+                  "url": "https://www.digikala.com/product/dkp-16233105/%D9%84%D9%BE-%D8%AA%D8%A7%D9%BE-16-%D8%A7%DB%8C%D9%86%DA%86%DB%8C-%D8%A7%DB%8C%D8%B3%D9%88%D8%B3-%D9%85%D8%AF%D9%84-vivobook-16-m1605ya-mb345-r7-7730u-8gb-ddr4-512ssd-ips/"
+                },
+                {
+                  "name": "acer - Aspire 3 A315-59-30Z5 (23, 03/08)",
+                  "type": "url",
+                  "url": "https://www.digikala.com/product/dkp-14314789/%D9%84%D9%BE-%D8%AA%D8%A7%D9%BE-156-%D8%A7%DB%8C%D9%86%DA%86%DB%8C-%D8%A7%DB%8C%D8%B3%D8%B1-%D9%85%D8%AF%D9%84-aspire-3-a315-59-30z5-i3-1215u-8gb-512ssd/"
+                },
+                {
+                  "name": "all - asus",
+                  "type": "url",
+                  "url": "https://www.asus.com/laptops/for-home/all-series/"
+                },
+                {
+                  "name": "all - lenovo",
+                  "type": "url",
+                  "url": "https://www.lenovo.com/us/en/laptops/"
+                },
+                {
+                  "name": "all - acer",
+                  "type": "url",
+                  "url": "https://www.acer.com/us-en/laptops"
+                },
+                {
                   "children": [
                     {
                       "name": "Samsung 860 EVO - 500GB",
