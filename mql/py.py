@@ -148,6 +148,139 @@ COPY_TICKS = COPY_TICKS_ALL | COPY_TICKS_INFO | COPY_TICKS_TRADE
 mt.copy_ticks_from(symbol, date_from, count, flags=COPY_TICKS)
 mt.copy_ticks_range(symbol, date_from, date_to, flags=COPY_TICKS)
 
+
+list_keys('TRADE_RETCODE') '''
+https://www.mql5.com/en/docs/constants/errorswarnings/enum_trade_return_codes
+TRADE_RETCODE_REQUOTE                 10004
+TRADE_RETCODE_REJECT                  10006
+TRADE_RETCODE_CANCEL                  10007
+TRADE_RETCODE_PLACED                  10008
+TRADE_RETCODE_DONE                    10009
+TRADE_RETCODE_DONE_PARTIAL            10010
+TRADE_RETCODE_ERROR                   10011
+TRADE_RETCODE_TIMEOUT                 10012
+TRADE_RETCODE_INVALID                 10013
+TRADE_RETCODE_INVALID_VOLUME          10014
+TRADE_RETCODE_INVALID_PRICE           10015
+TRADE_RETCODE_INVALID_STOPS           10016
+TRADE_RETCODE_TRADE_DISABLED          10017
+TRADE_RETCODE_MARKET_CLOSED           10018
+TRADE_RETCODE_NO_MONEY                10019
+TRADE_RETCODE_PRICE_CHANGED           10020
+TRADE_RETCODE_PRICE_OFF               10021
+TRADE_RETCODE_INVALID_EXPIRATION      10022
+TRADE_RETCODE_ORDER_CHANGED           10023
+TRADE_RETCODE_TOO_MANY_REQUESTS       10024
+TRADE_RETCODE_NO_CHANGES              10025
+TRADE_RETCODE_SERVER_DISABLES_AT      10026
+TRADE_RETCODE_CLIENT_DISABLES_AT      10027    "Meta Trader 5" -> Tools -> Options -> Expert Advisors -> Allow algorithmic trading
+TRADE_RETCODE_LOCKED                  10028
+TRADE_RETCODE_FROZEN                  10029
+TRADE_RETCODE_INVALID_FILL            10030
+TRADE_RETCODE_CONNECTION              10031
+TRADE_RETCODE_ONLY_REAL               10032
+TRADE_RETCODE_LIMIT_ORDERS            10033
+TRADE_RETCODE_LIMIT_VOLUME            10034
+TRADE_RETCODE_INVALID_ORDER           10035
+TRADE_RETCODE_POSITION_CLOSED         10036
+TRADE_RETCODE_INVALID_CLOSE_VOLUME    10038
+TRADE_RETCODE_CLOSE_ORDER_EXIST       10039
+TRADE_RETCODE_LIMIT_POSITIONS         10040
+TRADE_RETCODE_REJECT_CANCEL           10041
+TRADE_RETCODE_LONG_ONLY               10042
+TRADE_RETCODE_SHORT_ONLY              10043
+TRADE_RETCODE_CLOSE_ONLY              10044
+TRADE_RETCODE_FIFO_CLOSE              10045 '''
+
+list_keys('TRADE_ACTION') '''
+https://www.mql5.com/en/docs/constants/tradingconstants/enum_trade_request_actions
+TRADE_ACTION_DEAL        1
+TRADE_ACTION_PENDING     5
+TRADE_ACTION_SLTP        6
+TRADE_ACTION_MODIFY      7
+TRADE_ACTION_REMOVE      8
+TRADE_ACTION_CLOSE_BY    10 '''
+
+list_keys('ORDER_TYPE') '''
+https://www.mql5.com/en/docs/constants/tradingconstants/orderproperties#enum_order_type
+ORDER_TYPE_BUY                0
+ORDER_TYPE_SELL               1
+ORDER_TYPE_BUY_LIMIT          2
+ORDER_TYPE_SELL_LIMIT         3
+ORDER_TYPE_BUY_STOP           4
+ORDER_TYPE_SELL_STOP          5
+ORDER_TYPE_BUY_STOP_LIMIT     6
+ORDER_TYPE_SELL_STOP_LIMIT    7
+ORDER_TYPE_CLOSE_BY           8 '''
+
+list_keys('ORDER_TIME') '''
+https://www.mql5.com/en/docs/constants/tradingconstants/orderproperties#enum_order_type_time
+ORDER_TIME_GTC              0
+ORDER_TIME_DAY              1
+ORDER_TIME_SPECIFIED        2
+ORDER_TIME_SPECIFIED_DAY    3 '''
+
+list_keys('ORDER_FILLING') '''
+https://www.mql5.com/en/docs/constants/tradingconstants/orderproperties#enum_order_type_filling
+ORDER_FILLING_FOK       0
+ORDER_FILLING_IOC       1
+ORDER_FILLING_RETURN    2
+ORDER_FILLING_BOC       3 '''
+
+TradeRequest trade_request = {
+	# https://www.mql5.com/en/docs/constants/structures/mqltraderequest
+	'action':       mt.TRADE_ACTION_DEAL,
+	'symbol':       '',
+	'type':         mt.ORDER_TYPE_BUY,
+	'volume':       0.0,
+	'price':        0.0,
+	'sl':           0.0,
+	'tp':           0.0,
+	'stoplimit':    0.0,
+	'deviation':    0,
+	'magic':        0,
+	'order':        0,
+	'comment':      '',
+	'type_time':    mt.ORDER_TIME_DAY,
+	'type_filling': mt.ORDER_FILLING_RETURN,
+	'position':     0,
+	'position_by':  0,
+}
+TradeResult trade_result = {
+	# https://www.mql5.com/en/docs/constants/structures/mqltraderesult
+	'retcode':          mt.TRADE_RETCODE,
+	'deal':             0,
+	'order':            0,
+	'volume':           0.0,
+	'price':            0.0,
+	'bid':              0.0,
+	'ask':              0.0,
+	'comment':          '',
+	'request_id':       0,
+	'retcode_external': 0,
+	# extra
+	'request':          <TradeRequest>
+}
+trade_result._asdict()
+trade_result.request._asdict()
+
+TradeCheckResult trade_check_result = {
+	# https://www.mql5.com/en/docs/constants/structures/mqltradecheckresult
+	'retcode':      mt.TRADE_RETCODE,
+	'balance':      0.0,
+	'equity':       0.0,
+	'profit':       0.0,
+	'margin':       0.0,
+	'margin_free':  0.0,
+	'margin_level': 0.0,
+	'comment':      '',
+	# extra:
+	'request':      <TradeRequest>
+}
+trade_check_result._asdict()
+trade_check_result.request._asdict()
+
+
 mt.orders_total()
 mt.orders_get()
 		orders_get(symbol)
@@ -155,8 +288,8 @@ mt.orders_get()
 		orders_get(ticket)
 mt.order_calc_margin(action, symbol, volume, price)
 mt.order_calc_profit(action, symbol, volume, price_open, price_close)
-mt.order_check(request)
-mt.order_send(request)
+trade_check_result = mt.order_check(trade_request)
+trade_result = mt.order_send(trade_request)
 
 mt.positions_total()
 mt.positions_get()
@@ -173,6 +306,12 @@ mt.history_deals_get(date_from, date_to, group)
 		history_deals_get(ticket)
 		history_deals_get(position)
 
+
+def list_keys(startswith=''):
+	ks = [*filter(lambda i: i.startswith(startswith), [*mt.__dict__])]
+	vs = [str(mt.__dict__[i]) for i in ks]
+	maxk = max([len(i) for i in ks])
+	print('\n'.join([k+'    ' + (' '*(maxk-len(k))) + v for k,v in zip(ks,vs)]))
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
