@@ -317,6 +317,7 @@ def list_keys(startswith=''):
 
 import MetaTrader5 as mt
 from datetime import datetime
+import time
 
 # pkg info
 mt.__author__  # 'MetaQuotes Ltd.'
@@ -371,3 +372,46 @@ rates3 = mt.copy_rates_range(sym, tmf, start, end) # bars between two datetimes
 code, msg = mt.last_error() # (1, 'Success')
 if code != 1:
 	raise Exception(msg)
+
+# trading - buy something, then sell it 20 seconds later, then show profit
+def execute_trade(sym, lot, typ, posid):
+	info = mt.symbol_info(sym)
+	tick = mt.symbol_info_tick(sym)
+	req = {
+		'action': mt.TRADE_ACTION_DEAL,
+		'symbol': sym,
+		'volume': lot,
+		'type': mt.__dict__['ORDER_TYPE_'+typ],
+		'deviation': 20,
+		'magic': 234000,
+		'type_time': mt.ORDER_TIME_GTC,
+		'type_filling': mt.ORDER_FILLING_FOK,
+	}
+	if typ == 'BUY':
+		point = info.point
+		price = tick.ask
+		req['price'] = price
+		req['sl'] = price - 100 * point
+		req['tp'] = price + 100 * point
+	elif typ == 'SELL':
+		req['position'] = posid
+		req['price'] = tick.bid
+	res = mt.order_send(req)
+	return res
+sym, lot, wait = 'EURUSD', 0.01, 20
+buyres = execute_trade(sym, lot, 'BUY', None)
+if buyres.retcode != mt.TRADE_RETCODE_DONE:
+	print(f'buy did not execute:  {buyres.comment}')
+	exit()
+posid = buyres.order
+print(f'buy executed:  position opened: {posid}')
+print('\n', f'waiting for {wait} seconds before selling...', '\n')
+time.sleep(wait)
+sellres = execute_trade(sym, lot, 'SELL', posid)
+if sellres.retcode != mt.TRADE_RETCODE_DONE:
+	print(f'sell did not execute:  {sellres.comment}')
+	exit()
+print(f'sell executed:  position closed: {posid}')
+deals = mt.history_deals_get(position=posid)
+sold, *_ = filter(lambda deal: deal.type == mt.ORDER_TYPE_SELL, deals)
+print('profit:', sold.profit)
