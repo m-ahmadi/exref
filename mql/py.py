@@ -184,7 +184,7 @@ mt.__author__  # 'MetaQuotes Ltd.'
 mt.__version__ # '5.0.4424'
 
 # connection
-if not mt.initialize():   # connect to "MetaTrader 5"
+if not mt.initialize():   # connect to "MetaTrader 5" (starts windows app if not started)
 	print('initialize() failed. error:', mt.last_error())
 	mt.shutdown()
 print(mt.terminal_info()) # connection status and parameters
