@@ -18610,9 +18610,34 @@
                   "url": "https://www.metatrader5.com/en"
                 },
                 {
-                  "name": "Which one is the best among different trading platforms",
+                  "name": "TradingView",
+                  "type": "url",
+                  "url": "https://www.tradingview.com/chart/"
+                },
+                {
+                  "name": "cTrader",
+                  "type": "url",
+                  "url": "https://ctrader.com/download/"
+                },
+                {
+                  "name": "Lightspeed",
+                  "type": "url",
+                  "url": "https://lightspeed.com/"
+                },
+                {
+                  "name": "Webull",
+                  "type": "url",
+                  "url": "https://www.webull.com/trading-platforms/desktop-app"
+                },
+                {
+                  "name": "list 1",
                   "type": "url",
                   "url": "http://wintrader.in/one-best-among-charting-software/"
+                },
+                {
+                  "name": "list 2",
+                  "type": "url",
+                  "url": "https://claytrader.com/resources/"
                 }
               ],
               "name": "plat",
@@ -18818,7 +18843,7 @@
                   "url": "https://www.linkedin.com/pulse/problem-trend-lines-jack-schwager/"
                 }
               ],
-              "name": "tek",
+              "name": "ta",
               "type": "folder"
             },
             {
@@ -18921,17 +18946,27 @@
             {
               "children": [
                 {
-                  "name": "Resources - ClayTraders Tools of the Trade",
+                  "name": "alpari",
                   "type": "url",
-                  "url": "https://claytrader.com/resources/"
+                  "url": "https://alpari.com/en/"
                 },
                 {
-                  "name": "The difference between gross and net income — AccountingTools",
+                  "name": "list 1",
                   "type": "url",
-                  "url": "https://www.accountingtools.com/articles/what-is-the-difference-between-gross-and-net-income.html"
+                  "url": "https://irantopfxbrokers.com/forex-course-beginner/"
+                },
+                {
+                  "name": "list 2",
+                  "type": "url",
+                  "url": "https://irtrader.net/best-broker/"
+                },
+                {
+                  "name": "list 3",
+                  "type": "url",
+                  "url": "https://iranbroker.net/brokers/"
                 }
               ],
-              "name": "article",
+              "name": "forex",
               "type": "folder"
             }
           ],
