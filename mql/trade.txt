@@ -25,8 +25,8 @@ other
 
 price data
 						PRICE_THEY_ARE	IMMEDIATE_EXECUTION_IF	COLOR
-	bid	highest price possible to sell	buying at	sell at bid		red
 	ask	lowest  price possible to buy	selling at	buy  at ask		blue
+	bid	highest price possible to sell	buying at	sell at bid		red
 	last	price of last deal executed	exchanged	n/a			grey
 	
 	note: either ask,bid concept in forex is reverse of stock, or I misunderstood them in stock
