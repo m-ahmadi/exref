@@ -7,5 +7,5 @@ if (!AccountInfoInteger(ACCOUNT_TRADE_ALLOWED)) { // account lvl, client-side
 	// no connection to server
 	// account switched to read-only mode (sent to the archive)
 	// trading disabled from server
-	// connected to trading account in "Investor mode"
+	// connected to trading account in "investor mode"
 }

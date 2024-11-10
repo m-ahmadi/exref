@@ -177,7 +177,7 @@ buy stoplimit:
 	  SendOrder(bstp)
 
 sell stoplimit:
-	when bit price reaches (stoplimit)order price, place two other orders:
+	when bid price reaches (stoplimit)order price, place two other orders:
 		"sell limit" order:
 			price = (stoplimit order).price
 		"sell stop" order:
