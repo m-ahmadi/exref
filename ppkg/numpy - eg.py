@@ -168,6 +168,13 @@ a[a != None]     # [1,2,4]
 a[a is None]     # []                    bad
 a[a is not None] # [[[1, 2, None, 4]]    bad
 
+# filter - multi condition
+a = np.array([0,1,2,3,4,5,6,7,8,9])
+a[np.where((a>2) & (a<6))]                 # [3,4,5]
+a[np.where(np.logical_and(a>2, a<6))]      # ...
+a[np.where((a%4==0) | (a%5==0))]           # [0,4,5,8]
+a[np.where(np.logical_or(a%4==0, a%5==0))] # ...
+
 # flat
 a = np.array([ [[1],[2]], [[3],[4]] ])
 a.ravel()      # array([1,2,3,4])
