@@ -162,33 +162,16 @@ sell stop	sell	bid <= order price	>	↓ ↓↓	sell when bid ↓ x
 	E: future price movement steps that makes sense with this type of order
 	F: simple explanation
 
-buy stoplimit:
-	when ask price reaches (stoplimit)order price, place two other orders:
-		"buy limit" order
-			price = (StopLimit order).price
-		"buy stop" order
-			price = above current ask
-
-	StopLimit stlim = {price: x}
-	if ask >= stlim.price
-	  BuyLimit blim = {price: stlim.price}
-	  BuyStop bstp = {price: ask + 1}
-	  SendOrder(blim)
-	  SendOrder(bstp)
-
-sell stoplimit:
-	when bid price reaches (stoplimit)order price, place two other orders:
-		"sell limit" order:
-			price = (stoplimit order).price
-		"sell stop" order:
-			price = below current bid
-
-	StopLimit stlim = {price: x}
-	if bid >= stlim.price
-	  SellLimit slim = {price: stlim.price}
-	  SellStop sstp = {price: bid -1}
-	  SendOrder(slim)
-	  SendOrder(sstp)
+stoplimit:
+	a stop order that results in placement of a limit order (and not execution of a trade)
+	
+	buy  stoplimit:
+		if ask >= req.price:
+			place buy limit order at req.stoplimit
+	
+	sell stoplimit:
+		if bid <= req.price:
+			place sell limit order at req.stoplimit
 
 --------------------------------------------------------------------------------
 pending order triggering
