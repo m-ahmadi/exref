@@ -1,0 +1,19 @@
+LCD LED
+	VA
+	TN
+	IPS
+OLED
+
+
+note: TFT is a generic term used to refer to an LCD (usually of type TN)
+--------------------------------------------------------------------------------
+comparison
+
+panel type		VA	TN	IPS	OLED
+refresh rate		avg	great	avg	great
+response time		bad	great	bad	great
+color accuracy		bad	bad	great	great
+viewing angle		great	avg	great	great
+price			low	low	avg	high
+
+--------------------------------------------------------------------------------
