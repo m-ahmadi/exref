@@ -1,0 +1,5 @@
+H	high performance
+G1	low integrated graphics card
+G7	high integrated graphics card
+Y	ultra low power consumption
+U	low power consumption
