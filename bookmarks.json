@@ -1924,6 +1924,16 @@
                   "url": "https://getsharex.com/"
                 },
                 {
+                  "name": "OBS",
+                  "type": "url",
+                  "url": "https://obsproject.com/"
+                },
+                {
+                  "name": "Camtasia",
+                  "type": "url",
+                  "url": "https://soft98.ir/multi-media/screen-capture/680-camtasia-studio-abcd.html"
+                },
+                {
                   "name": "MediaInfo",
                   "type": "url",
                   "url": "https://mediaarea.net/en/MediaInfo/Download/Windows"
