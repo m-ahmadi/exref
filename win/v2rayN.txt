@@ -8,20 +8,25 @@ done.
 --------------------------------------------------------------------------------
 install "v2rayN"
 
-https://github.com/2dust/v2rayN/releases
-https://github.com/v2fly/v2ray-core/releases	extract in "v2rayN" dir (can skip if used "v2rayN-With-Core" above)
-https://github.com/XTLS/Xray-core/releases	extract in "v2rayN/bin/Xray" dir
+https://github.com/2dust/v2rayN/releases	get "v2rayN-windows-64.zip", extract & rename outdir to "v2rayN"
+https://github.com/v2fly/v2ray-core/releases	get "v2ray-windows-64.zip", extract in "v2rayN" dir (can skip if used "...With-Core.zip" above)
+https://github.com/XTLS/Xray-core/releases	get "Xray-windows-64.zip", extract in "v2rayN/bin/Xray" dir
 
+or
+https://github.com/2dust/v2rayN/releases	get "...SelfContained-With-Core.7z"
 
+--------------------------------------------------
 show installed versions
+
 set install_dir=C:\path\to\v2rayN\
 pushd %install_dir%
 v2rayN:		check ui
 v2ray-core:	v2ray.exe version
 Xray-core:	bin\Xray\xray.exe version
 
+--------------------------------------------------
+install latest versions with powershell
 
-install latest versions with powershell:
 function Get-Last-Ver() { (irm "https://api.github.com/repos/$($args[0])/releases/latest").tag_name }
 
 $i1 = '2dust/v2rayN';
@@ -40,10 +45,11 @@ $a += [pscustomobject]@{Repo = $i3; Version = $v3}
 $a | Format-Table
 
 
-iwr "https://github.com/$($i1)/releases/download/$($v1)/v2rayN.zip" -O x.zip;
+iwr "https://github.com/$($i1)/releases/download/$($v1)/v2rayN-windows-64.zip" -O x.zip;
 Expand-Archive x.zip -D .\;
 ri x.zip;
 
+rni v2rayN-windows-64 -NewName v2rayN;
 cd v2rayN;
 
 iwr "https://github.com/$($i2)/releases/download/$($v2)/v2ray-windows-64.zip" -O x.zip;
