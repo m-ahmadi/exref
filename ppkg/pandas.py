@@ -68,6 +68,7 @@ Series.shift(periods=1, freq=None, axis=0, fill_value=<no_default>, suffix=None)
 
 Index.duplicated(keep='first|last'|False)
 Index.union(other=Index|[], sort=None|bool)
+IndexSlice
 
 DatetimeIndex(data=None, freq, tz=None, normalize=False, closed=None, ambiguous='raise', dayfirst=False, yearfirst=False, dtype=None, copy=False, name=None)
 
@@ -577,6 +578,15 @@ df.reindex(idx2, method='nearest') # [1,1,    1,na,2,  2,2]      fill with neare
 idx1 = pd.Index([1,2,3,4])
 idx2 = pd.Index([3,4,5,6])
 idx1.union(idx2) # [1,2,3,4,5,6]
+
+# index - IndexSlice
+df = pd.DataFrame([[1,2],[3,4],[5,6],[7,8]], columns=['a','b'])
+idx = pd.IndexSlice
+df.a[ [0,3] ]        # [1,7]
+idx[df.a][ [0,3] ]   # ...
+
+df.loc[ [0,3] ]      # [ [1,2],[7,8] ]
+idx[df.loc][ [0,3] ] # ...
 
 # shift
 s = pd.Series([1,2,3,4])
