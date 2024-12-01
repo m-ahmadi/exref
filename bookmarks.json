@@ -18920,6 +18920,11 @@
             {
               "children": [
                 {
+                  "name": "litefinance",
+                  "type": "url",
+                  "url": "https://my.litefinance.org/fa"
+                },
+                {
                   "name": "alpari",
                   "type": "url",
                   "url": "https://my.alpariforexfa.org/fa/"
