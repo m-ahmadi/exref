@@ -1717,42 +1717,6 @@
             {
               "children": [
                 {
-                  "name": "nobitex",
-                  "type": "url",
-                  "url": "https://nobitex.ir/panel"
-                },
-                {
-                  "name": "binance",
-                  "type": "url",
-                  "url": "https://www.binance.com/en"
-                },
-                {
-                  "name": "coinbase",
-                  "type": "url",
-                  "url": "https://www.coinbase.com/"
-                },
-                {
-                  "name": "trustwallet",
-                  "type": "url",
-                  "url": "https://trustwallet.com/download"
-                },
-                {
-                  "name": "tonkeeper",
-                  "type": "url",
-                  "url": "https://tonkeeper.com/"
-                },
-                {
-                  "name": "tonkeeper - desktop",
-                  "type": "url",
-                  "url": "https://github.com/tonkeeper/tonkeeper-web/releases"
-                }
-              ],
-              "name": "crypto",
-              "type": "folder"
-            },
-            {
-              "children": [
-                {
                   "name": "translate",
                   "type": "url",
                   "url": "http://translate.google.com/"
@@ -18977,6 +18941,42 @@
                 }
               ],
               "name": "forex",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "name": "nobitex",
+                  "type": "url",
+                  "url": "https://nobitex.ir/panel"
+                },
+                {
+                  "name": "binance",
+                  "type": "url",
+                  "url": "https://www.binance.com/en"
+                },
+                {
+                  "name": "coinbase",
+                  "type": "url",
+                  "url": "https://www.coinbase.com/"
+                },
+                {
+                  "name": "trustwallet",
+                  "type": "url",
+                  "url": "https://trustwallet.com/download"
+                },
+                {
+                  "name": "tonkeeper",
+                  "type": "url",
+                  "url": "https://tonkeeper.com/"
+                },
+                {
+                  "name": "tonkeeper - desktop",
+                  "type": "url",
+                  "url": "https://github.com/tonkeeper/tonkeeper-web/releases"
+                }
+              ],
+              "name": "crypto",
               "type": "folder"
             }
           ],
