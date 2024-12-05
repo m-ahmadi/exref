@@ -4,7 +4,7 @@ from random import uniform
 # generate random dates with random minute|second intervals between them
 # extra1: set time of starting date to 09:00
 # extra2: once reached certain hour of day, move to next day and set time randomly between 09:00 and 12:00
-def gen_sequential_dates_With_random_intervals(start_date, n=0, delta_types=['minutes','seconds'], increase_bounds=[10,500]):
+def gen_sequential_dates_with_random_intervals(start_date, n=0, delta_types=['minutes','seconds'], increase_bounds=[10,500]):
 	if not start_date: raise TypeError('Must provide `start_date`.')
 	d = start_date
 	d = d.replace(hour=9) # extra1
@@ -24,7 +24,7 @@ def gen_sequential_dates_With_random_intervals(start_date, n=0, delta_types=['mi
 		dates.append(date)
 	return dates
 
-a = gen_sequential_dates_With_random_intervals(dt.datetime(2020,1,1), 10)
+a = gen_sequential_dates_with_random_intervals(dt.datetime(2020,1,1), 10)
 print([str(i) for i in a])
 [
 '2020-01-01 12:08:00',
