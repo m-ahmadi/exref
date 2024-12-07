@@ -1348,48 +1348,6 @@
           "url": "http://www.youtube.com/"
         },
         {
-          "children": [
-            {
-              "children": [
-                {
-                  "name": "LU",
-                  "type": "url",
-                  "url": "http://inv.bp.projectsegfau.lt/"
-                },
-                {
-                  "name": "US",
-                  "type": "url",
-                  "url": "http://inv.vern.cc/"
-                },
-                {
-                  "name": "DE",
-                  "type": "url",
-                  "url": "http://invidious.nerdvpn.de/"
-                }
-              ],
-              "name": "invidious",
-              "type": "folder"
-            },
-            {
-              "name": "Piped",
-              "type": "url",
-              "url": "https://piped.video/"
-            },
-            {
-              "name": "PokeTube",
-              "type": "url",
-              "url": "https://poketube.fun/"
-            },
-            {
-              "name": "more",
-              "type": "url",
-              "url": "https://github.com/mendel5/alternative-front-ends#youtube"
-            }
-          ],
-          "name": "y",
-          "type": "folder"
-        },
-        {
           "name": "tse",
           "type": "url",
           "url": "http://www.tsetmc.com/"
@@ -2395,6 +2353,48 @@
                 }
               ],
               "name": "dvl",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "name": "LU",
+                      "type": "url",
+                      "url": "http://inv.bp.projectsegfau.lt/"
+                    },
+                    {
+                      "name": "US",
+                      "type": "url",
+                      "url": "http://inv.vern.cc/"
+                    },
+                    {
+                      "name": "DE",
+                      "type": "url",
+                      "url": "http://invidious.nerdvpn.de/"
+                    }
+                  ],
+                  "name": "invidious",
+                  "type": "folder"
+                },
+                {
+                  "name": "Piped",
+                  "type": "url",
+                  "url": "https://piped.video/"
+                },
+                {
+                  "name": "PokeTube",
+                  "type": "url",
+                  "url": "https://poketube.fun/"
+                },
+                {
+                  "name": "more",
+                  "type": "url",
+                  "url": "https://github.com/mendel5/alternative-front-ends#youtube"
+                }
+              ],
+              "name": "yt-alt",
               "type": "folder"
             }
           ],
