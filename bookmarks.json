@@ -18925,6 +18925,11 @@
                   "url": "https://my.litefinance.org/fa"
                 },
                 {
+                  "name": "errante",
+                  "type": "url",
+                  "url": "https://myportal.errante.net/fa/"
+                },
+                {
                   "name": "alpari",
                   "type": "url",
                   "url": "https://my.alpariforexfa.org/fa/"
