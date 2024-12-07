@@ -1385,44 +1385,9 @@
               "url": "https://silver.samanbourse.ir/Login"
             },
             {
-              "name": "پیشرو",
-              "type": "url",
-              "url": "https://pishro.exirbroker.com/exir/login"
-            },
-            {
-              "name": "امیدپلاس",
-              "type": "url",
-              "url": "https://pishro.algo.ir/"
-            },
-            {
               "name": "panel.agah",
               "type": "url",
               "url": "https://panel.agah.com/Auth/Login"
-            },
-            {
-              "name": "م",
-              "type": "url",
-              "url": "https://www.mofidonline.com/"
-            },
-            {
-              "name": "ف",
-              "type": "url",
-              "url": "https://www.farabixo.com/"
-            },
-            {
-              "name": "کشاورزی",
-              "type": "url",
-              "url": "https://agribourse.exirbroker.com/login"
-            },
-            {
-              "name": "کیان",
-              "type": "url",
-              "url": "https://online.kian.trade/"
-            },
-            {
-              "name": "سینا",
-              "type": "url",
-              "url": "https://sinatrader.ir/"
             }
           ],
           "name": "t",
