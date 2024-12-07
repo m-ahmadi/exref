@@ -1584,11 +1584,6 @@
                   "url": "https://www.rarbg.to/torrents.php"
                 },
                 {
-                  "name": "libgen",
-                  "type": "url",
-                  "url": "https://libgen.is/"
-                },
-                {
                   "name": "1337x.to",
                   "type": "url",
                   "url": "http://1337x.to/"
@@ -1604,13 +1599,18 @@
                   "url": "https://yts.ag/"
                 },
                 {
-                  "name": "Best KickassTorrents Alternatives",
+                  "name": "The 21 Best Torrent Sites",
                   "type": "url",
-                  "url": "http://fossbytes.com/best-kickasstorrents-alternatives-top-10-torrent-websites-2016/"
+                  "url": "https://vpnoverview.com/privacy/downloading/best-torrent-sites/"
                 }
               ],
               "name": "torrent",
               "type": "folder"
+            },
+            {
+              "name": "libgen",
+              "type": "url",
+              "url": "https://libgen.is/"
             },
             {
               "name": "gmail",
