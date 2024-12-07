@@ -1355,6 +1355,26 @@
         {
           "children": [
             {
+              "name": "nob",
+              "type": "url",
+              "url": "https://nobitex.ir/panel"
+            },
+            {
+              "name": "lf",
+              "type": "url",
+              "url": "https://my.litefinance.org/fa"
+            },
+            {
+              "name": "er",
+              "type": "url",
+              "url": "https://myportal.errante.net/fa/"
+            },
+            {
+              "name": "alp",
+              "type": "url",
+              "url": "https://my.alpariforexfa.org/fa/"
+            },
+            {
               "name": "آ",
               "type": "url",
               "url": "https://online.agah.com/"
@@ -1405,7 +1425,7 @@
               "url": "https://sinatrader.ir/"
             }
           ],
-          "name": "ک",
+          "name": "t",
           "type": "folder"
         },
         {
