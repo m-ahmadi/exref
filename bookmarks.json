@@ -1348,11 +1348,6 @@
           "url": "http://www.youtube.com/"
         },
         {
-          "name": "tse",
-          "type": "url",
-          "url": "http://www.tsetmc.com/"
-        },
-        {
           "children": [
             {
               "name": "nob",
@@ -18628,6 +18623,11 @@
             },
             {
               "children": [
+                {
+                  "name": "tse",
+                  "type": "url",
+                  "url": "http://www.tsetmc.com/"
+                },
                 {
                   "name": "codal",
                   "type": "url",
