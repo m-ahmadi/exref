@@ -18383,6 +18383,57 @@
             {
               "children": [
                 {
+                  "name": "آگاه",
+                  "type": "url",
+                  "url": "https://online.agah.com/"
+                },
+                {
+                  "name": "سامان",
+                  "type": "url",
+                  "url": "https://silver.samanbourse.ir/Login"
+                },
+                {
+                  "name": "پیشرو",
+                  "type": "url",
+                  "url": "https://pishro.exirbroker.com/exir/login"
+                },
+                {
+                  "name": "امیدپلاس",
+                  "type": "url",
+                  "url": "https://pishro.algo.ir/"
+                },
+                {
+                  "name": "مفید",
+                  "type": "url",
+                  "url": "https://www.mofidonline.com/"
+                },
+                {
+                  "name": "فارابی",
+                  "type": "url",
+                  "url": "https://www.farabixo.com/"
+                },
+                {
+                  "name": "کشاورزی",
+                  "type": "url",
+                  "url": "https://agribourse.exirbroker.com/login"
+                },
+                {
+                  "name": "کیان",
+                  "type": "url",
+                  "url": "https://online.kian.trade/"
+                },
+                {
+                  "name": "سینا",
+                  "type": "url",
+                  "url": "https://sinatrader.ir/"
+                }
+              ],
+              "name": "broker",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
                   "name": "mofidtrader",
                   "type": "url",
                   "url": "https://emofid.com/trades/platforms/mofidtrader/"
