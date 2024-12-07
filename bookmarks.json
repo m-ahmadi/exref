@@ -1416,47 +1416,6 @@
         {
           "children": [
             {
-              "name": "lime",
-              "type": "url",
-              "url": "https://www.limetorrents.cc/"
-            },
-            {
-              "name": "RARBG",
-              "type": "url",
-              "url": "https://www.rarbg.to/torrents.php"
-            },
-            {
-              "name": "libgen",
-              "type": "url",
-              "url": "https://libgen.is/"
-            },
-            {
-              "name": "1337x.to",
-              "type": "url",
-              "url": "http://1337x.to/"
-            },
-            {
-              "name": "pirate bay",
-              "type": "url",
-              "url": "https://www.thepiratebay.org/"
-            },
-            {
-              "name": "YIFI",
-              "type": "url",
-              "url": "https://yts.ag/"
-            },
-            {
-              "name": "Best KickassTorrents Alternatives",
-              "type": "url",
-              "url": "http://fossbytes.com/best-kickasstorrents-alternatives-top-10-torrent-websites-2016/"
-            }
-          ],
-          "name": "t",
-          "type": "folder"
-        },
-        {
-          "children": [
-            {
               "name": "سامان",
               "type": "url",
               "url": "https://ib.sb24.ir/webbank/"
@@ -1625,6 +1584,47 @@
                 }
               ],
               "name": "dict-fa",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "name": "lime",
+                  "type": "url",
+                  "url": "https://www.limetorrents.cc/"
+                },
+                {
+                  "name": "RARBG",
+                  "type": "url",
+                  "url": "https://www.rarbg.to/torrents.php"
+                },
+                {
+                  "name": "libgen",
+                  "type": "url",
+                  "url": "https://libgen.is/"
+                },
+                {
+                  "name": "1337x.to",
+                  "type": "url",
+                  "url": "http://1337x.to/"
+                },
+                {
+                  "name": "pirate bay",
+                  "type": "url",
+                  "url": "https://www.thepiratebay.org/"
+                },
+                {
+                  "name": "YIFI",
+                  "type": "url",
+                  "url": "https://yts.ag/"
+                },
+                {
+                  "name": "Best KickassTorrents Alternatives",
+                  "type": "url",
+                  "url": "http://fossbytes.com/best-kickasstorrents-alternatives-top-10-torrent-websites-2016/"
+                }
+              ],
+              "name": "torrent",
               "type": "folder"
             },
             {
