@@ -18331,7 +18331,12 @@
                 {
                   "name": "tv",
                   "type": "url",
-                  "url": "https://uk.tradingview.com/screener/"
+                  "url": "https://tradingview.com/screener/"
+                },
+                {
+                  "name": "tv-forex",
+                  "type": "url",
+                  "url": "https://www.tradingview.com/forex-screener/"
                 },
                 {
                   "name": "ti",
