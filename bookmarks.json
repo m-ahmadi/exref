@@ -17989,14 +17989,14 @@
                   "url": "https://www.metatrader5.com/en"
                 },
                 {
-                  "name": "TradingView",
-                  "type": "url",
-                  "url": "https://www.tradingview.com/chart/"
-                },
-                {
                   "name": "cTrader",
                   "type": "url",
                   "url": "https://ctrader.com/download/"
+                },
+                {
+                  "name": "TradingView",
+                  "type": "url",
+                  "url": "https://www.tradingview.com/chart/"
                 },
                 {
                   "name": "JForex",
