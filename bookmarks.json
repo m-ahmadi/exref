@@ -15786,17 +15786,6 @@
             {
               "children": [
                 {
-                  "name": "docs",
-                  "type": "url",
-                  "url": "https://www.mql5.com/en/docs"
-                }
-              ],
-              "name": "mql",
-              "type": "folder"
-            },
-            {
-              "children": [
-                {
                   "children": [
                     {
                       "name": "CentOS",
@@ -17984,9 +17973,25 @@
             {
               "children": [
                 {
-                  "name": "MetaTrader 5",
-                  "type": "url",
-                  "url": "https://www.metatrader5.com/en"
+                  "children": [
+                    {
+                      "name": "MetaTrader 5",
+                      "type": "url",
+                      "url": "https://www.metatrader5.com/en"
+                    },
+                    {
+                      "name": "mql",
+                      "type": "url",
+                      "url": "https://www.mql5.com/en/docs"
+                    },
+                    {
+                      "name": "py",
+                      "type": "url",
+                      "url": "https://www.mql5.com/en/docs/python_metatrader5"
+                    }
+                  ],
+                  "name": "MetaTrader",
+                  "type": "folder"
                 },
                 {
                   "name": "cTrader",
