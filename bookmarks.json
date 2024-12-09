@@ -17994,9 +17994,30 @@
                   "type": "folder"
                 },
                 {
+                  "children": [
+                    {
+                      "name": "cTrader",
+                      "type": "url",
+                      "url": "https://ctrader.com/download/"
+                    },
+                    {
+                      "name": "api - openapi",
+                      "type": "url",
+                      "url": "https://help.ctrader.com/open-api/"
+                    },
+                    {
+                      "name": "api - fix",
+                      "type": "url",
+                      "url": "https://help.ctrader.com/fix/"
+                    },
+                    {
+                      "name": "api - automate",
+                      "type": "url",
+                      "url": "https://help.ctrader.com/ctrader-algo/how-tos-index/"
+                    }
+                  ],
                   "name": "cTrader",
-                  "type": "url",
-                  "url": "https://ctrader.com/download/"
+                  "type": "folder"
                 },
                 {
                   "name": "TradingView",
