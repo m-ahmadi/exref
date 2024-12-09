@@ -18081,6 +18081,37 @@
             {
               "children": [
                 {
+                  "name": "histdata",
+                  "type": "url",
+                  "url": "https://www.histdata.com/"
+                },
+                {
+                  "name": "forextester",
+                  "type": "url",
+                  "url": "https://forextester.com/data/datasources"
+                },
+                {
+                  "name": "forexrateapi",
+                  "type": "url",
+                  "url": "https://forexrateapi.com/"
+                },
+                {
+                  "name": "polygon",
+                  "type": "url",
+                  "url": "https://polygon.io/"
+                },
+                {
+                  "name": "fastforex",
+                  "type": "url",
+                  "url": "https://www.fastforex.io/"
+                }
+              ],
+              "name": "data",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
                   "name": "tt",
                   "type": "url",
                   "url": "https://www.tradingtechnologies.com/xtrader-help/x-study/technical-indicator-definitions/list-of-technical-indicators/"
