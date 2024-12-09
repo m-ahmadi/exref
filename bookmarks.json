@@ -17999,6 +17999,11 @@
                   "url": "https://ctrader.com/download/"
                 },
                 {
+                  "name": "JForex",
+                  "type": "url",
+                  "url": "https://www.dukascopy.com/swiss/english/forex/dealstation/#JForex"
+                },
+                {
                   "name": "Lightspeed",
                   "type": "url",
                   "url": "https://lightspeed.com/"
@@ -18007,6 +18012,11 @@
                   "name": "Webull",
                   "type": "url",
                   "url": "https://www.webull.com/trading-platforms/desktop-app"
+                },
+                {
+                  "name": "NinjaTrader",
+                  "type": "url",
+                  "url": "https://ninjatrader.com/"
                 },
                 {
                   "name": "list 1",
