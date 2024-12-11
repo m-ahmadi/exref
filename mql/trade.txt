@@ -43,10 +43,6 @@ ui "one click trading"
 	depth of market window
 
 account
-	deposit:		transferred amount 	= 1000
-	leverage:		broker feature		= 100
-	balance:		deposit * leverage 	= 100,000
-	margin:			20% (if balance < 20,000, freeze account)
 	investor mode:		not allowed to trade (read-only)
 	spread:			abs(bid - ask), less = better
 --------------------------------------------------------------------------------
