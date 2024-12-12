@@ -7,11 +7,23 @@ Advanced
 
 Proofing -> AutoCorrect Options... ->
 	AutoFormat As You Type
+		! "Straight quotes" with "smart quotes"
+		! Fractions (1/2) with fraction character ...
+		! Ordinals (1st) with superscript
+		! Hyphens (--) with dash ...
 		! Border lines
 	AutoCorrect
+		! Correct TWo INitial CApitals
 		! Capitalize first letter of sentences
 		! Capitalize first letter of table cells
 		! Capitalize names of days
+		! Correct accidental usage of cAPS LOCK key
+
+Proofing -> When correcting spelling and grammar in Word ->
+	! Check spelling as you type
+	! Make grammar errors as you type
+	! Frequently confused words
+	! Check grammar with spelling
 --------------------------------------------------------------------------------
 custom paper size for mobile
 
