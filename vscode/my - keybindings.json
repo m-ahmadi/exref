@@ -15,6 +15,7 @@
 	{ "key": "ctrl+d",           "command": "editor.action.copyLinesDownAction",           "when": "editorTextFocus && !editorReadonly" },
 	{ "key": "ctrl+u",           "command": "editor.action.transformToLowercase",          "when": "textInputFocus" },
 	{ "key": "ctrl+shift+u",     "command": "editor.action.transformToUppercase",          "when": "textInputFocus" },
+	{ "key": "alt+shift+u",      "command": "editor.action.transformToPascalcase",         "when": "textInputFocus" },
 	{ "key": "alt+`",            "command": "editor.action.toggleRenderWhitespace"},
 	{ "key": "ctrl+t",           "command": "editor.action.indentationToTabs"},
 	{ "key": "ctrl+shift+b",     "command": "workbench.action.toggleActivityBarVisibility"},
