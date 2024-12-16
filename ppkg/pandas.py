@@ -205,6 +205,21 @@ _sorted = df.sort_values(by='b', ascending=False)
 _sorted.iloc[0]  # {'a': 3, 'b': 5}  (         top item)
 _sorted.index[0] # 2                 (index of top item)
 
+# sort - check if is in sorted order
+pd.Series([1,2,3,4]).is_monotonic_increasing # True
+pd.Series([1,3,2,4]).is_monotonic_increasing # False
+pd.Series([1,2,2,4]).is_monotonic_increasing # True
+
+pd.Series([4,3,2,1]).is_monotonic_decreasing # True
+pd.Series([4,2,3,1]).is_monotonic_decreasing # False
+
+s = pd.Series([1,3,2,4])
+np.all(s.values == s.sort_values().values) # False
+
+s = pd.Series([1,3,2,4], index=[0,2,1,3])
+np.all(s.index == s.index.sort_values()) # False
+np.all(s.index == s.sort_index().index)  # ...
+
 # filter
 df = pd.DataFrame({'a':[1,2,3,4,5,6], 'b':[9,8,7,6,5,4]})
 df[df['a'] > 3]                              # {'a': [4,5,6], 'b': [6,5,4]}
