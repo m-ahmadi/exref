@@ -15420,6 +15420,27 @@
                 {
                   "children": [
                     {
+                      "name": "FastAPI",
+                      "type": "url",
+                      "url": "https://fastapi.tiangolo.com/tutorial/first-steps/"
+                    },
+                    {
+                      "name": "Uvicorn",
+                      "type": "url",
+                      "url": "https://www.uvicorn.org/"
+                    },
+                    {
+                      "name": "Twisted",
+                      "type": "url",
+                      "url": "https://twisted.org/"
+                    }
+                  ],
+                  "name": "web server",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
                       "name": "plotext",
                       "type": "url",
                       "url": "https://github.com/piccolomo/plotext"
@@ -15518,21 +15539,6 @@
                   "name": "textual",
                   "type": "url",
                   "url": "https://github.com/Textualize/textual"
-                },
-                {
-                  "name": "FastAPI",
-                  "type": "url",
-                  "url": "https://fastapi.tiangolo.com/tutorial/first-steps/"
-                },
-                {
-                  "name": "Uvicorn",
-                  "type": "url",
-                  "url": "https://www.uvicorn.org/"
-                },
-                {
-                  "name": "Twisted",
-                  "type": "url",
-                  "url": "https://twisted.org/"
                 },
                 {
                   "name": "Flask",
