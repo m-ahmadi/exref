@@ -15484,6 +15484,11 @@
                   "url": "https://tqdm.github.io/"
                 },
                 {
+                  "name": "Requests",
+                  "type": "url",
+                  "url": "https://requests.readthedocs.io/en/stable/"
+                },
+                {
                   "name": "dask",
                   "type": "url",
                   "url": "https://docs.dask.org/en/stable/api.html"
@@ -15512,6 +15517,11 @@
                   "name": "Uvicorn",
                   "type": "url",
                   "url": "https://www.uvicorn.org/"
+                },
+                {
+                  "name": "Twisted",
+                  "type": "url",
+                  "url": "https://twisted.org/"
                 },
                 {
                   "name": "Flask",
