@@ -35,7 +35,7 @@ hash(object)
 help(object)
 hex(x)
 id(object) # "identity" of object
-input(?prompt)
+input(?prompt) # ask user input (returns str)
 int(?x, ?base=10)
 isinstance(object, classinfo)
 issubclass(object, classinfo)
