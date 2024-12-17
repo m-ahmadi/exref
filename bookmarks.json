@@ -15547,9 +15547,15 @@
                   "url": "https://docs.dask.org/en/stable/api.html"
                 },
                 {
-                  "name": "Flask",
-                  "type": "url",
-                  "url": "https://flask.palletsprojects.com/en/2.0.x/quickstart/"
+                  "children": [
+                    {
+                      "name": "Flask",
+                      "type": "url",
+                      "url": "https://flask.palletsprojects.com/en/2.0.x/quickstart/"
+                    }
+                  ],
+                  "name": "framework",
+                  "type": "folder"
                 },
                 {
                   "children": [
