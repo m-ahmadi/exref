@@ -15521,24 +15521,30 @@
                   "url": "https://pandoc.org/MANUAL.html#using-pandoc"
                 },
                 {
+                  "children": [
+                    {
+                      "name": "PySimpleGUI",
+                      "type": "url",
+                      "url": "https://github.com/PySimpleGUI/PySimpleGUI"
+                    },
+                    {
+                      "name": "DearPyGui",
+                      "type": "url",
+                      "url": "https://github.com/hoffstadt/DearPyGui"
+                    },
+                    {
+                      "name": "textual",
+                      "type": "url",
+                      "url": "https://github.com/Textualize/textual"
+                    }
+                  ],
+                  "name": "gui",
+                  "type": "folder"
+                },
+                {
                   "name": "dask",
                   "type": "url",
                   "url": "https://docs.dask.org/en/stable/api.html"
-                },
-                {
-                  "name": "PySimpleGUI",
-                  "type": "url",
-                  "url": "https://github.com/PySimpleGUI/PySimpleGUI"
-                },
-                {
-                  "name": "DearPyGui",
-                  "type": "url",
-                  "url": "https://github.com/hoffstadt/DearPyGui"
-                },
-                {
-                  "name": "textual",
-                  "type": "url",
-                  "url": "https://github.com/Textualize/textual"
                 },
                 {
                   "name": "Flask",
