@@ -15394,6 +15394,32 @@
                 {
                   "children": [
                     {
+                      "name": "jdatetime",
+                      "type": "url",
+                      "url": "https://pypi.org/project/jdatetime/"
+                    },
+                    {
+                      "name": "tqdm",
+                      "type": "url",
+                      "url": "https://tqdm.github.io/"
+                    },
+                    {
+                      "name": "Requests",
+                      "type": "url",
+                      "url": "https://requests.readthedocs.io/en/stable/"
+                    },
+                    {
+                      "name": "deepdiff",
+                      "type": "url",
+                      "url": "https://zepworks.com/deepdiff/current/basics.html"
+                    }
+                  ],
+                  "name": "base",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
                       "name": "plotext",
                       "type": "url",
                       "url": "https://github.com/piccolomo/plotext"
@@ -15472,21 +15498,6 @@
                   "name": "Pandoc",
                   "type": "url",
                   "url": "https://pandoc.org/MANUAL.html#using-pandoc"
-                },
-                {
-                  "name": "jdatetime",
-                  "type": "url",
-                  "url": "https://pypi.org/project/jdatetime/"
-                },
-                {
-                  "name": "tqdm",
-                  "type": "url",
-                  "url": "https://tqdm.github.io/"
-                },
-                {
-                  "name": "Requests",
-                  "type": "url",
-                  "url": "https://requests.readthedocs.io/en/stable/"
                 },
                 {
                   "name": "dask",
@@ -15584,11 +15595,6 @@
                   "name": "numba",
                   "type": "url",
                   "url": "https://numba.readthedocs.io/en/stable/user/5minguide.html"
-                },
-                {
-                  "name": "deepdiff",
-                  "type": "url",
-                  "url": "https://zepworks.com/deepdiff/current/basics.html"
                 }
               ],
               "name": "pypi",
