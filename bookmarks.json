@@ -15361,6 +15361,16 @@
                   "url": "https://pandas.pydata.org/docs/reference/io.html"
                 },
                 {
+                  "name": "statsmodels",
+                  "type": "url",
+                  "url": "https://www.statsmodels.org/stable/api.html"
+                },
+                {
+                  "name": "scipy.stats",
+                  "type": "url",
+                  "url": "https://docs.scipy.org/doc/scipy/reference/stats.html"
+                },
+                {
                   "children": [
                     {
                       "name": "api",
@@ -15390,6 +15400,16 @@
                   "name": "seaborn",
                   "type": "url",
                   "url": "https://seaborn.pydata.org/api.html"
+                },
+                {
+                  "name": "python-graph-gallery",
+                  "type": "url",
+                  "url": "https://www.python-graph-gallery.com/"
+                },
+                {
+                  "name": "Jupyter",
+                  "type": "url",
+                  "url": "https://ipython.org/"
                 },
                 {
                   "children": [
@@ -15441,6 +15461,53 @@
                 {
                   "children": [
                     {
+                      "name": "sphinx",
+                      "type": "url",
+                      "url": "https://www.sphinx-doc.org/en/master/"
+                    },
+                    {
+                      "name": "mkdocs",
+                      "type": "url",
+                      "url": "https://www.mkdocs.org/getting-started/#getting-started-with-mkdocs"
+                    },
+                    {
+                      "name": "mkdocs-material",
+                      "type": "url",
+                      "url": "https://squidfunk.github.io/mkdocs-material/getting-started/"
+                    }
+                  ],
+                  "name": "docgen",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "python-excel",
+                      "type": "url",
+                      "url": "http://www.python-excel.org/"
+                    },
+                    {
+                      "name": "openpyxl",
+                      "type": "url",
+                      "url": "https://openpyxl.readthedocs.io/en/stable/py-modindex.html"
+                    },
+                    {
+                      "name": "xlsxwriter",
+                      "type": "url",
+                      "url": "https://xlsxwriter.readthedocs.io/contents.html"
+                    },
+                    {
+                      "name": "xlwings",
+                      "type": "url",
+                      "url": "https://docs.xlwings.org/en/stable/quickstart.html"
+                    }
+                  ],
+                  "name": "excel",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
                       "name": "plotext",
                       "type": "url",
                       "url": "https://github.com/piccolomo/plotext"
@@ -15477,79 +15544,6 @@
                 {
                   "children": [
                     {
-                      "name": "sphinx",
-                      "type": "url",
-                      "url": "https://www.sphinx-doc.org/en/master/"
-                    },
-                    {
-                      "name": "mkdocs",
-                      "type": "url",
-                      "url": "https://www.mkdocs.org/getting-started/#getting-started-with-mkdocs"
-                    },
-                    {
-                      "name": "mkdocs-material",
-                      "type": "url",
-                      "url": "https://squidfunk.github.io/mkdocs-material/getting-started/"
-                    }
-                  ],
-                  "name": "docgen",
-                  "type": "folder"
-                },
-                {
-                  "name": "python-graph-gallery",
-                  "type": "url",
-                  "url": "https://www.python-graph-gallery.com/"
-                },
-                {
-                  "name": "scipy.stats",
-                  "type": "url",
-                  "url": "https://docs.scipy.org/doc/scipy/reference/stats.html"
-                },
-                {
-                  "name": "statsmodels",
-                  "type": "url",
-                  "url": "https://www.statsmodels.org/stable/api.html"
-                },
-                {
-                  "name": "Jupyter",
-                  "type": "url",
-                  "url": "https://ipython.org/"
-                },
-                {
-                  "children": [
-                    {
-                      "name": "PySimpleGUI",
-                      "type": "url",
-                      "url": "https://github.com/PySimpleGUI/PySimpleGUI"
-                    },
-                    {
-                      "name": "DearPyGui",
-                      "type": "url",
-                      "url": "https://github.com/hoffstadt/DearPyGui"
-                    },
-                    {
-                      "name": "textual",
-                      "type": "url",
-                      "url": "https://github.com/Textualize/textual"
-                    }
-                  ],
-                  "name": "gui",
-                  "type": "folder"
-                },
-                {
-                  "children": [
-                    {
-                      "name": "Flask",
-                      "type": "url",
-                      "url": "https://flask.palletsprojects.com/en/2.0.x/quickstart/"
-                    }
-                  ],
-                  "name": "framework",
-                  "type": "folder"
-                },
-                {
-                  "children": [
-                    {
                       "name": "pyinstaller",
                       "type": "url",
                       "url": "https://pyinstaller.readthedocs.io/en/stable/installation.html#installing-in-windows"
@@ -15571,27 +15565,33 @@
                 {
                   "children": [
                     {
-                      "name": "python-excel",
+                      "name": "Flask",
                       "type": "url",
-                      "url": "http://www.python-excel.org/"
-                    },
-                    {
-                      "name": "openpyxl",
-                      "type": "url",
-                      "url": "https://openpyxl.readthedocs.io/en/stable/py-modindex.html"
-                    },
-                    {
-                      "name": "xlsxwriter",
-                      "type": "url",
-                      "url": "https://xlsxwriter.readthedocs.io/contents.html"
-                    },
-                    {
-                      "name": "xlwings",
-                      "type": "url",
-                      "url": "https://docs.xlwings.org/en/stable/quickstart.html"
+                      "url": "https://flask.palletsprojects.com/en/2.0.x/quickstart/"
                     }
                   ],
-                  "name": "excel",
+                  "name": "framework",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "PySimpleGUI",
+                      "type": "url",
+                      "url": "https://github.com/PySimpleGUI/PySimpleGUI"
+                    },
+                    {
+                      "name": "DearPyGui",
+                      "type": "url",
+                      "url": "https://github.com/hoffstadt/DearPyGui"
+                    },
+                    {
+                      "name": "textual",
+                      "type": "url",
+                      "url": "https://github.com/Textualize/textual"
+                    }
+                  ],
+                  "name": "gui",
                   "type": "folder"
                 },
                 {
