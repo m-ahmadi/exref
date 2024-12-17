@@ -15516,11 +15516,6 @@
                   "url": "https://ipython.org/"
                 },
                 {
-                  "name": "Pandoc",
-                  "type": "url",
-                  "url": "https://pandoc.org/MANUAL.html#using-pandoc"
-                },
-                {
                   "children": [
                     {
                       "name": "PySimpleGUI",
@@ -15540,11 +15535,6 @@
                   ],
                   "name": "gui",
                   "type": "folder"
-                },
-                {
-                  "name": "dask",
-                  "type": "url",
-                  "url": "https://docs.dask.org/en/stable/api.html"
                 },
                 {
                   "children": [
@@ -15605,14 +15595,30 @@
                   "type": "folder"
                 },
                 {
-                  "name": "pydantic",
-                  "type": "url",
-                  "url": "https://pydantic-docs.helpmanual.io/"
-                },
-                {
-                  "name": "numba",
-                  "type": "url",
-                  "url": "https://numba.readthedocs.io/en/stable/user/5minguide.html"
+                  "children": [
+                    {
+                      "name": "Pandoc",
+                      "type": "url",
+                      "url": "https://pandoc.org/MANUAL.html#using-pandoc"
+                    },
+                    {
+                      "name": "dask",
+                      "type": "url",
+                      "url": "https://docs.dask.org/en/stable/api.html"
+                    },
+                    {
+                      "name": "pydantic",
+                      "type": "url",
+                      "url": "https://pydantic-docs.helpmanual.io/"
+                    },
+                    {
+                      "name": "numba",
+                      "type": "url",
+                      "url": "https://numba.readthedocs.io/en/stable/user/5minguide.html"
+                    }
+                  ],
+                  "name": "misc",
+                  "type": "folder"
                 }
               ],
               "name": "pypi",
