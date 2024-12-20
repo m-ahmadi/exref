@@ -6,6 +6,13 @@ A1 = 2603.88
 --------------------------------------------------
 how many digits after decimal
 
-=LEN(MID(TEXT(A1-TRUNC(A1),"General"),3,999))
+=LEN(MID(A1, LEN(""&TRUNC(A1))+2, 999))
+	12.3456		4
+	12.3420		4
+	note: A1 cell must be of type "Text" (rclick -> Format Cells...)
+
+=LEN(MID(TEXT(A1-TRUNC(A1),"General"), 3, 999))
+	12.3456		4
+	12.3420		3
 
 --------------------------------------------------
