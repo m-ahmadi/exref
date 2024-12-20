@@ -1,0 +1,9 @@
+=TRUNC(12.34)
+=TRUNC(12.34)
+
+=TEXT(12, "General")		"12"
+
+=MID("Hello", 2, 2)		"el"
+=MID("Hello", 2, 999)		"ello"
+
+=LEN("Hello")			5
