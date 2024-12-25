@@ -233,15 +233,21 @@ headers.delete('X-Custom-Header')
 headers.get('X-Custom-Header') // []
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // blob
-fetch('https://file-examples-com.github.io/uploads/2017/10/file_example_JPG_100kB.jpg')
-	.then(async r => {
-		var img = document.createElement('img');
-		img.src = URL.createObjectURL( await r.blob() );
-		document.body.append(img);
-	})
-	.catch(error => {
-		console.error('failed request', error);
-	});
+var resp = await fetch('https://picsum.photos/1920/1080');
+var blob = await resp.blob();
+var fileUrl = URL.createObjectURL(blob);
+
+// download file
+var a = document.createElement('a');
+a.href = fileUrl;
+a.download = 'pic.jpg';
+document.body.append(a);
+a.click();
+
+// add as <img/> to page
+var img = document.createElement('img');
+img.src = fileUrl;
+document.body.append(img);
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // AbortController
 
