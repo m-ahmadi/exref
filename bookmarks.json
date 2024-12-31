@@ -18152,6 +18152,11 @@
                   "url": "https://www.histdata.com/"
                 },
                 {
+                  "name": "tickstory",
+                  "type": "url",
+                  "url": "https://tickstory.com/"
+                },
+                {
                   "name": "forextester",
                   "type": "url",
                   "url": "https://forextester.com/data/datasources"
