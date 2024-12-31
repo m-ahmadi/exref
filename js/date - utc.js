@@ -1,11 +1,17 @@
 Date.UTC(year, ?month=0-11, ?day=1-31, ?hour=0-23, ?minute=0-59, ?second=0-59, ?millisecond=0-999) // es7
 Date.UTC(year, month, ?day, ?hour, ?minute, ?second, ?millisecond)                                 // before es7 (month required)
 // accepts parameters similar to the Date constructor, but treats them as UTC.
-// returns timestamp of milliseconds
+// returns timestamp of milliseconds (and not Date object)
+
+/* note:
+utc does not follow daylight-savings time
+during daylight-savings time, midnight local time is the same as 11pm */
 
 Date.UTC()                  // NaN
 Date.UTC(96, 1, 2, 3, 4, 5) // timestamp: 823230245000
 Date.UTC(2019, 10, 24)      // timestamp: 1574553600000
+Date.UTC(2019)              // when passed a single number, interprets it as year (and not timestamp)
+Date.UTC(1574553600000)     // ↑... NaN
 
 var date = new Date()
 date.getUTCFullYear()       // year (4 digits for 4-digit years). 2016
@@ -17,11 +23,10 @@ date.getUTCMinutes()        // minutes (0-59)
 date.getUTCSeconds()        // seconds (0-59)
 date.getUTCMilliseconds()   // milliseconds (0-999)
 
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-// why getDay() and getUTCDay() have different results
+new Date(2019,10,7).getUTCDay() // 3
+new Date(2019,10,7').getDay()   // 4
 
-new Date('2019-10-7').getUTCDay() // 0
-new Date('2019-10-7').getDay()    // 1
-// because UTC does not follow daylight savings time
-// during daylight savings time, midnight local time is the same as 11pm
-//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// get utc timestamp
+Date.UTC(2024,0,1)                     // 1704067200000
+new Date(Date.UTC(2024,0,1)).getTime() // 1704067200000  timestamp returned by <Date>.getTime() depends on how <Date> was created
+new Date(2024,0,1).getTime()           // 1704054600000  not utc
