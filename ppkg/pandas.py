@@ -97,6 +97,20 @@ df = pd.DataFrame(0, index=range(6), columns=range(6)) # 5x5 matrix init to 0
 s = pd.Series([1,2,3,4])
 s = pd.Series([1,2,3], index=['a','b','c'])
 
+# dtype - creation
+df = pd.DataFrame([ [1,3.], [2,4.] ], columns=['A','B'])
+df.dtypes  # A: int64  B: float64
+df4 = pd.DataFrame([ [1,3.], [2,4.] ], columns=['A','B'], dtype='int')
+df4.dtypes # A: int32  B: int32
+
+# dtype - convert                                      df.dtypes:
+df = pd.DataFrame({'a':[1,2,3.]})                    # float64
+df['a'] = df['a'].astype('int')                      # int32
+df2=df.copy(); df2=df2.convert_dtypes()              # Int64
+df['a'] = pd.to_numeric(df['a'], downcast='integer') # int8
+pd.to_numeric(['1','2','3'])   # [1,2,3]
+pd.to_numeric(['1.0','2','3']) # [1., 2., 3.]
+
 # add column
 df = pd.DataFrame({'A':[1,2],'C':[5,6]})
 df.insert(1, 'B', [3,4])           # add before last col
