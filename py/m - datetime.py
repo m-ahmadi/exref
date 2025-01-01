@@ -6,6 +6,10 @@ d = dt.datetime(2021,1,1)
 d.timestamp() # 1609446600.0
 d.year, d.month, d.day, d.hour, d.minute, d.second # (2021, 1, 1, 0, 0, 0)
 
+d = dt.datetime(2021,1,1, tzinfo=dt.timezone.utc)
+d = dt.datetime(2021,1,1, tzinfo=dt.UTC) # v3.11+
+d.timestamp() # 1609459200.0
+
 # date or timestamp of now
 dt.datetime.now()   # <datetime>
 dt.datetime.today() # ...
