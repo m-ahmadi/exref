@@ -4,6 +4,7 @@ pd.read_csv(filepath_or_buffer, header='infer'|0|[0,..]|None, names=['',..], nro
 pd.read_json(path_or_buf, orient=None|'split|records|index|columns|values|table', typ='frame|series', dtype=None|bool|{}, convert_axes=None|bool, convert_dates=True|['',..], precise_float=False, encoding='utf-8', ...)
 pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
 pd.date_range(start=None|''|datetime, end=None|''|datetime, periods=None|0, freq='D'|DateOffset, tz=None|''|tzinfo, normalize=False, name=None|'', inclusive=None, **kwargs)
+pd.to_datetime(arg=0|0.|''|datetime|[]|{}, utc=False, format=None|'', unit=None|'D|s|ms|us|ns', ...)
 
 DataFrame(data=None|ndarray|[]|{}|DataFrame, index=None|[], columns=None|[], dtype=None, copy=None|bool)
 DataFrame.columns
@@ -683,6 +684,11 @@ s.value_counts() / s.value_counts().sum() # ...
 pd.date_range(start='2022/1/1', periods=4)      # ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04']
 pd.date_range(start='2022/1/1', end='2022/1/4') # ...
 pd.date_range(end='2022/1/4', periods=4)        # ...
+
+# misc - timestamp to datetime
+import datetime as dt
+a = [dt.datetime(2024,1,i,tzinfo=dt.UTC).timestamp() for i in [1,2,3]]
+pd.to_datetime(a, unit='s') # ['2024-01-01', '2024-01-02', '2024-01-03']
 
 # misc - apply
 df = pd.DataFrame([ [4,9],
