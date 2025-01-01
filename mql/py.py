@@ -140,14 +140,31 @@ mt.market_book_add(symbol)
 mt.market_book_get(symbol)
 mt.market_book_release(symbol)
 
-mt.copy_rates_from(symbol, timeframe, date_from, count)
-mt.copy_rates_from_pos(symbol, timeframe, start_pos, count)
-mt.copy_rates_range(symbol, timeframe, date_from, date_to)
+rates = mt.copy_rates_from(symbol, timeframe, date_from, count)
+rates = mt.copy_rates_from_pos(symbol, timeframe, start_pos, count)
+rates = mt.copy_rates_range(symbol, timeframe, date_from, date_to)
+rates = [
+	['time',  'open',    'high',    'low',     'close',   'tick_volume', 'spread', 'real_volume']
+#	['int64', 'float64', 'float64', 'float64', 'float64', 'uint64',      'int32',  'uint64']
+]
 
-COPY_TICKS = COPY_TICKS_ALL | COPY_TICKS_INFO | COPY_TICKS_TRADE
-mt.copy_ticks_from(symbol, date_from, count, flags=COPY_TICKS)
-mt.copy_ticks_range(symbol, date_from, date_to, flags=COPY_TICKS)
-
+list_keys('TICK_FLAG') '''
+TICK_FLAG_BID       2     bid       price changed
+TICK_FLAG_ASK       4     ask       price changed
+TICK_FLAG_LAST      8     last      price changed
+TICK_FLAG_VOLUME    16    volume          changed
+TICK_FLAG_BUY       32    last buy  price changed
+TICK_FLAG_SELL      64    last sell price changed '''
+COPY_TICKS =
+	COPY_TICKS_ALL |
+	COPY_TICKS_INFO | # (TICK_FLAG_BID || TICK_FLAG_ASK)
+	COPY_TICKS_TRADE  # (TICK_FLAG_LAST && TICK_FLAG_LAST)
+ticks = mt.copy_ticks_from(symbol, date_from, count, flags=COPY_TICKS)
+ticks = mt.copy_ticks_range(symbol, date_from, date_to, flags=COPY_TICKS)
+ticks = [
+	['time',  'bid',     'ask',     'last',    'volume', 'time_msc', 'flags',  'volume_real'],
+#	['int64', 'float64', 'float64', 'float64', 'uint64', 'int64',    'uint32', 'float64']
+]
 
 list_keys('TRADE_RETCODE') '''
 https://www.mql5.com/en/docs/constants/errorswarnings/enum_trade_return_codes
@@ -312,6 +329,13 @@ def list_keys(startswith=''):
 	vs = [str(mt.__dict__[i]) for i in ks]
 	maxk = max([len(i) for i in ks])
 	print('\n'.join([k+'    ' + (' '*(maxk-len(k))) + v for k,v in zip(ks,vs)]))
+
+def list_dtypes(ndarr, shorthands=False):
+	return (
+		[ndarr.dtype[i].str for i in ndarr.dtype.names]
+		if shorthands else
+		[repr(ndarr.dtype[i]).split("('")[1][:-2] for i in ndarr.dtype.names]
+	)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
