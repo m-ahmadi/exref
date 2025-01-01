@@ -4,7 +4,9 @@
 'a,b,c'.split()             # ['a', 'b', 'c']
 list('abc')                 # ...
 'AA\nBB\nCC\n'.splitlines() # ['AA', 'BB', 'CC']
-', '.join(['a','b','c'])    # 'a, b, c'
+','.join(['a','b','c'])     # 'a,b,c'
+','.join([1,2,3])           # err
+','.join(map(str,[1,2,3]))  # '1,2,3'
 ' foo '.strip()             # 'foo'
 'Foo'.lower()               # 'foo'
 'foo'.upper()               # 'FOO'
