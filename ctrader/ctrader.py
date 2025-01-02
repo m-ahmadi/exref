@@ -64,7 +64,7 @@ def onSymsList(result):
 def onAccAuth(result):
 	print('account authenticated')
 	req = ProtoOASymbolsListReq()
-	req.ctidTraderAccountId = credentials['AccountID']
+	req.ctidTraderAccountId = credentials['accountId']
 	req.includeArchivedSymbols = False
 	deferred = client.send(req)
 	deferred.addCallbacks(onSymsList, onError)
@@ -72,8 +72,8 @@ def onAccAuth(result):
 def onAppAuth(result):
 	print('app authenticated')
 	req = ProtoOAAccountAuthReq()
-	req.ctidTraderAccountId = credentials['AccountID']
-	req.accessToken = credentials['AccessToken']
+	req.ctidTraderAccountId = credentials['accountId']
+	req.accessToken = credentials['accessToken']
 	deferred = client.send(req)
 	deferred.addCallbacks(onAccAuth, onError)
 
@@ -83,8 +83,8 @@ def onError(failure):
 def connected(client):
 	print('connected')
 	req = ProtoOAApplicationAuthReq()
-	req.clientId = credentials['ClientID']
-	req.clientSecret = credentials['ClientSecret']
+	req.clientId = credentials['clientId']
+	req.clientSecret = credentials['clientSecret']
 	deferred = client.send(req, responseTimeoutInSeconds=20) # err if no response under 20 secs
 	deferred.addCallbacks(onAppAuth, onError)
 
