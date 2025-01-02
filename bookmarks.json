@@ -18041,9 +18041,14 @@
                       "url": "https://ctrader.com/download/"
                     },
                     {
-                      "name": "api - openapi",
+                      "name": "api - openapi - docs",
                       "type": "url",
                       "url": "https://help.ctrader.com/open-api/"
+                    },
+                    {
+                      "name": "api - openapi - repo",
+                      "type": "url",
+                      "url": "https://github.com/spotware/OpenApiPy"
                     },
                     {
                       "name": "api - fix",
