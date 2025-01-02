@@ -9,6 +9,13 @@ env\Scripts\activate.bat		activate it
 
 env\Scripts\deactivate.bat		deactivate it
 
+
+or on linux:
+sudo apt install python3.10-venv	install venv module
+python3 -m venv env			...
+source env/bin/activate			... (activating is different)
+deactivate				... (os is deactivating)
+
 --------------------------------------------------------------------------------
 check
 
