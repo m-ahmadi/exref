@@ -47,28 +47,24 @@ deferred.addCallbacks(responseCallback, errorCallback)
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
-# connect, auth app, auth account, then get symbols list
+# needed imports
 from ctrader_open_api import Client, Protobuf, TcpProtocol, EndPoints
-from ctrader_open_api.messages.OpenApiMessages_pb2 import ProtoOAApplicationAuthReq, ProtoOAAccountAuthReq, ProtoOASymbolsListReq
+from ctrader_open_api.messages.OpenApiCommonMessages_pb2 import *
+from ctrader_open_api.messages.OpenApiMessages_pb2 import *
+from ctrader_open_api.messages.OpenApiModelMessages_pb2 import *
 from twisted.internet import reactor
-import json
 
+
+# connection, authentication and program lifecycle
+import json
 credentials = json.load(open('credentials.json'))
 client = Client(EndPoints.PROTOBUF_DEMO_HOST, EndPoints.PROTOBUF_PORT, TcpProtocol)
-
-def onSymsList(result):
-	print('symbols received')
-	syms = Protobuf.extract(result)
-	print(syms)
-
+def main():
+	print('ready to do something')
+	reactor.stop()
 def onAccAuth(result):
 	print('account authenticated')
-	req = ProtoOASymbolsListReq()
-	req.ctidTraderAccountId = credentials['accountId']
-	req.includeArchivedSymbols = False
-	deferred = client.send(req)
-	deferred.addCallbacks(onSymsList, onError)
-
+	main()
 def onAppAuth(result):
 	print('app authenticated')
 	req = ProtoOAAccountAuthReq()
@@ -76,10 +72,8 @@ def onAppAuth(result):
 	req.accessToken = credentials['accessToken']
 	deferred = client.send(req)
 	deferred.addCallbacks(onAccAuth, onError)
-
 def onError(failure):
-	print('err: ', failure)
-
+	print('err: ', repr(failure.value))
 def connected(client):
 	print('connected')
 	req = ProtoOAApplicationAuthReq()
@@ -87,13 +81,10 @@ def connected(client):
 	req.clientSecret = credentials['clientSecret']
 	deferred = client.send(req, responseTimeoutInSeconds=20) # err if no response under 20 secs
 	deferred.addCallbacks(onAppAuth, onError)
-
 def disconnected(client, reason):
 	print('disconnected: ', reason)
-
 def onMsg(client, message):
-	print('message received: \n', Protobuf.extract(message))
-
+	print('message received')
 client.setConnectedCallback(connected)
 client.setDisconnectedCallback(disconnected)
 client.setMessageReceivedCallback(onMsg)
@@ -101,9 +92,7 @@ client.startService()
 reactor.run()
 
 
-
-
-# authentication
+# getting credentials programmatically
 # https://spotware.github.io/OpenApiPy/authentication/
 from ctrader_open_api import Auth, EndPoints
 from os import system
