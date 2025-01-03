@@ -245,6 +245,9 @@ def connected(client):
 def disconnected(client, reason):
 	print('disconnected: ', reason)
 def onMsg(client, message):
+	ignores = [i.payloadType for i in [ProtoHeartbeatEvent(), ProtoOAAccountAuthRes(), ProtoOAApplicationAuthRes()]]
+	if message.payloadType in ignores:
+		return
 	print('message received')
 client.setConnectedCallback(connected)
 client.setDisconnectedCallback(disconnected)
