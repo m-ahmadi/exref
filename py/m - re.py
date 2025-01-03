@@ -1,6 +1,6 @@
 import re
 
-# https://docs.python.org/3/library/re.html#re.search
+# https://docs.python.org/3/library/re.html
 
 re.A | ASCII
 re.DEBUG
