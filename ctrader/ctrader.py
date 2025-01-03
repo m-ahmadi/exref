@@ -89,6 +89,21 @@ client.startService()
 reactor.run()
 
 
+# get symbol list
+def onSymList(result):
+	res = Protobuf.extract(result)
+	sym, *_ = [*filter(lambda i: i.symbolName == 'XAUUSD', res.symbol)]
+	sym.symbolName  # 'XAUUSD'
+	sym.description # 'Gold vs US Dollar'
+	# https://help.ctrader.com/open-api/model-messages/#protooalightsymbol
+def main():
+	req = ProtoOASymbolsListReq()
+	req.ctidTraderAccountId = credentials['accountId']
+	req.includeArchivedSymbols = False
+	deferred = client.send(req)
+	deferred.addCallbacks(onSymList, onError)
+
+
 # getting credentials programmatically
 # https://spotware.github.io/OpenApiPy/authentication/
 from ctrader_open_api import Auth, EndPoints
