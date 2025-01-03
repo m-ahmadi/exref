@@ -20,6 +20,9 @@ re.findall(r'the', 'the lord of the rings') # ['the', 'the']
 
 
 re.search(pattern, string, flags=0)
+match = re.search(r'\d$', 'hi2')
+match.group(0)    # '2'
+match.groups()[0] # ...
 
 
 re.fullmatch(pattern, string, flags=0)
@@ -29,3 +32,5 @@ re.split(pattern, string, maxsplit=0, flags=0)
 
 
 re.match(pattern, string, flags=0)
+match = re.match(r'.*(\d)$', 'hi2')
+match.group(1) # '2'
