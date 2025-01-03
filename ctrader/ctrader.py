@@ -1,7 +1,4 @@
-# https://github.com/spotware/OpenApiPy
-# pip install ctrader-open-api
-# pip install service-identity
-import ctrader-open-api as ct
+import ctrader-open-api as ct # pip install ctrader-open-api service-identity
 import twisted as tw
 
 # https://github.com/spotware/OpenApiPy/blob/main/ctrader_open_api/client.py
