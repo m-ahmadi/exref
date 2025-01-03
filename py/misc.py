@@ -29,3 +29,8 @@ sys.version_info # array:   (major=3, minor=8, micro=10, ...)
 import locale
 locale.setlocale(locale.LC_ALL, 'Persian' | 'fa_FA.UTF-8')
 locale.setlocale(locale.LC_ALL, '')
+
+# list keys of object
+import datetime as dt
+dir(dt)        # ['date','datetime','time','timedelta', ...]
+[*dt.__dict__] # ... (not always the same depending on the object)
