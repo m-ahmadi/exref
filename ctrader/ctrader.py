@@ -41,6 +41,170 @@ ct.TcpProtocol.stringReceived(data)
 deferred = twisted.internet.defer.Deferred()
 deferred.addCallbacks(responseCallback, errorCallback)
 
+# messages
+# https://help.ctrader.com/open-api/messages/
+import ctrader_open_api.messages.OpenApiMessages_pb2 as OA
+import ctrader_open_api.messages.OpenApiModelMessages_pb2 as OAModel
+import ctrader_open_api.messages.OpenApiCommonMessages_pb2 as OACommon
+import ctrader_open_api.messages.OpenApiCommonModelMessages_pb2 as OAModelCommon
+
+list_ProtoOA(OA) '''
+AccountAuth                    ><
+AccountDisconnectEvent         —
+AccountLogout                  ><
+AccountsTokenInvalidatedEvent  —
+AmendOrder                     >
+AmendPositionSLTP              >
+ApplicationAuth                ><
+AssetClassList                 ><
+AssetList                      ><
+CancelOrder                    >
+CashFlowHistoryList            ><
+ClientDisconnectEvent          —
+ClosePosition                  >
+DealList                       ><
+DealListByPositionId           ><
+DealOffsetList                 ><
+DepthEvent                     —
+Error                          <
+ExecutionEvent                 —
+ExpectedMargin                 ><
+GetAccountListByAccessToken    ><
+GetCtidProfileByToken          ><
+GetDynamicLeverageByID         ><
+GetPositionUnrealizedPnL       ><
+GetTickData                    ><
+GetTrendbars                   ><
+MarginCallList                 ><
+MarginCallTriggerEvent         —
+MarginCallUpdate               ><
+MarginCallUpdateEvent          —
+MarginChangedEvent             —
+NewOrder                       >
+OrderDetails                   ><
+OrderErrorEvent                —
+OrderList                      ><
+OrderListByPositionId          ><
+Reconcile                      ><
+RefreshToken                   ><
+SpotEvent                      —
+SubscribeDepthQuotes           ><
+SubscribeLiveTrendbar          ><
+SubscribeSpots                 ><
+SymbolById                     ><
+SymbolCategoryList             ><
+SymbolChangedEvent             —
+SymbolsForConversion           ><
+SymbolsList                    ><
+Trader                         ><
+TraderUpdatedEvent             —
+TrailingSLChangedEvent         —
+UnsubscribeDepthQuotes         ><
+UnsubscribeLiveTrendbar        ><
+UnsubscribeSpots               ><
+Version                        >< '''
+
+list_ProtoOA(OAModel, fillblanks=False) '''
+AccessRights                          
+AccountType                           
+ArchivedSymbol                        
+Asset                                 
+AssetClass                            
+BonusDepositWithdraw                  
+ChangeBalanceType                     
+ChangeBonusType                       
+ClientPermissionScope                 
+ClosePositionDetail                   
+CommissionType                        
+CtidProfile                           
+CtidTraderAccount                     
+DayOfWeek                             
+Deal                                  
+DealOffset                            
+DealStatus                            
+DepositWithdraw                       
+DepthQuote                            
+DynamicLeverage                       
+DynamicLeverageTier                   
+ErrorCode                             
+ExecutionType                         
+ExpectedMargin                        
+Holiday                               
+Interval                              
+LightSymbol                           
+LimitedRiskMarginCalculationStrategy  
+MarginCall                            
+MinCommissionType                     
+NotificationType                      
+Order                                 
+OrderStatus                           
+OrderTriggerMethod                    
+OrderType                             
+PayloadType                           
+Position                              
+PositionStatus                        
+PositionUnrealizedPnL                 
+QuoteType                             
+SwapCalculationType                   
+Symbol                                
+SymbolCategory                        
+SymbolDistanceType                    
+TickData                              
+TimeInForce                           
+TotalMarginCalculationType            
+TradeData                             
+TradeSide                             
+Trader                                
+TradingMode                           
+Trendbar                              
+TrendbarPeriod '''
+
+list_nonProtoOA(OACommon) '''
+ProtoErrorRes
+ProtoHeartbeatEvent
+ProtoMessage '''
+
+list_nonProtoOA(OAModelCommon) '''
+ProtoErrorCode
+ProtoPayloadType '''
+
+
+def list_ProtoOA(obj, fillblanks=True):
+	names = set()
+	marks = {}
+	for i in dir(obj):
+		prefix = 'ProtoOA'
+		if not i.startswith(prefix): continue
+		fullname = i.split(prefix)[1]
+		end = fullname[-3:]
+		if end not in ['Req', 'Res']:
+			names.add(fullname)
+			marks[fullname] = []
+			continue
+		name, type = fullname[:-3], fullname[-3:]
+		if name not in marks: marks[name] = []
+		if type == 'Req': marks[name].append('>')
+		if type == 'Res': marks[name].append('<')
+		names.add(name)
+	maxchr = max([len(i) for i in names])
+	r = []
+	for name in names:
+		mark = marks[name]
+		if fillblanks and not len(mark): mark = ['—']
+		pad = '  ' + ' '*(maxchr - len(name))
+		sfmt = name + pad + ''.join(mark)
+		r.append(sfmt)
+	print('\n'.join(sorted(r, key=str)))
+
+def list_nonProtoOA(obj, startswith='', flagonly=False):
+	notallowed = ['ProtoOA', '_', '__', 'DESCRIPTOR']
+	base_criteria = lambda s: not sum([int(s.startswith(i)) for i in notallowed]) and not s.endswith('__pb2') and s.startswith(startswith)
+	if flagonly:
+		criteria = lambda s: base_criteria(s) and s.isupper()
+	else:
+		criteria = lambda s: base_criteria(s) and not s.isupper()
+	r = filter(criteria, dir(obj))
+	print('\n'.join(r))
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
