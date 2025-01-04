@@ -387,11 +387,16 @@ df.iat[2,0] # 4
 
 # label location
 df = pd.DataFrame([ [1,2], [4,5], [7,8] ], columns=['a','b'], index=['foo','bar','baz'])
-df.loc['foo'] # [1,2]
-# ... single value
-df.at['foo','a'] # 1
-df.at['bar','a'] # 4
-df.at['baz','a'] # 7
+df.loc['foo']      # [1,2]
+df.loc['baz']      # [7,8]
+# ... single-value
+df.loc['foo','a']  # 1
+df.loc['foo'].a    # ...
+df.loc['foo']['a'] # ...
+# ... single-value only
+df.at['foo','a']   # 1
+df.at['foo']       # err
+df.at['foo'].a     # err
 # ... another thing
 df = pd.DataFrame(columns=['a','b'])
 df.loc[0] = [1,2]
