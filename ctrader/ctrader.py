@@ -259,12 +259,21 @@ reactor.run()
 # get symbol list
 def onSymList(result):
 	res = Protobuf.extract(result)
+	
 	sym, *_ = [*filter(lambda i: i.symbolName == 'XAUUSD', res.symbol)]
-	sym_keys = [i[0].name for i in sym.ListFields()]
-	sym_vals = [getattr(sym, i[0].name) for i in sym.ListFields()]
-	sym_dict = {i[0].name: getattr(sym, i[0].name) for i in sym.ListFields()}
-	sym_keys # ['symbolId','symbolName','enabled','baseAssetId','quoteAssetId','symbolCategoryId','description']
-	sym_vals # [41, 'XAUUSD', True, 17, 15, 2, 'Gold vs US Dollar']
+	sym_fields = sym.ListFields()
+	sym_keys = [i[0].name for i in sym_fields]
+	
+	sym_vals = [i[1] for i in sym_fields]
+	sym_vals2 = [getattr(sym, i[0].name) for i in sym_fields]
+	sym_vals == sym_vals2 # True
+	
+	sym_dict = {i[0].name: i[1] for i in sym_fields}
+	sym_dict2 = {i[0].name: getattr(sym, i[0].name) for i in sym_fields}
+	sym_dict == sym_dict2 # True
+	
+	sym_keys  # ['symbolId','symbolName','enabled','baseAssetId','quoteAssetId','symbolCategoryId','description']
+	sym_vals  # [41, 'XAUUSD', True, 17, 15, 2, 'Gold vs US Dollar']
 def main():
 	req = ProtoOASymbolsListReq()
 	req.ctidTraderAccountId = credentials['accountId']
