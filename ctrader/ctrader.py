@@ -260,9 +260,11 @@ reactor.run()
 def onSymList(result):
 	res = Protobuf.extract(result)
 	sym, *_ = [*filter(lambda i: i.symbolName == 'XAUUSD', res.symbol)]
-	sym.symbolName  # 'XAUUSD'
-	sym.description # 'Gold vs US Dollar'
-	# https://help.ctrader.com/open-api/model-messages/#protooalightsymbol
+	sym_keys = [i[0].name for i in sym.ListFields()]
+	sym_vals = [getattr(sym, i[0].name) for i in sym.ListFields()]
+	sym_dict = {i[0].name: getattr(sym, i[0].name) for i in sym.ListFields()}
+	sym_keys # ['symbolId','symbolName','enabled','baseAssetId','quoteAssetId','symbolCategoryId','description']
+	sym_vals # [41, 'XAUUSD', True, 17, 15, 2, 'Gold vs US Dollar']
 def main():
 	req = ProtoOASymbolsListReq()
 	req.ctidTraderAccountId = credentials['accountId']
