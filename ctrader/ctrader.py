@@ -257,6 +257,7 @@ reactor.run()
 
 
 # get symbol list
+import pandas as pd
 def onSymList(result):
 	res = Protobuf.extract(result)
 	
@@ -274,6 +275,14 @@ def onSymList(result):
 	
 	sym_keys  # ['symbolId','symbolName','enabled','baseAssetId','quoteAssetId','symbolCategoryId','description']
 	sym_vals  # [41, 'XAUUSD', True, 17, 15, 2, 'Gold vs US Dollar']
+	
+	syms = []
+	for sym in res.symbol:
+		sym_dict = {i[0].name: i[1] for i in sym.ListFields()}
+		syms.append(sym_dict)
+	pd.DataFrame(syms).to_csv('syms.csv', index=False)
+	syms_df = pd.read_csv('syms.csv', index_col='symbolName')
+
 def main():
 	req = ProtoOASymbolsListReq()
 	req.ctidTraderAccountId = credentials['accountId']
