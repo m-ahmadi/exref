@@ -273,6 +273,30 @@ def main():
 	deferred.addCallbacks(onSymList, onError)
 
 
+# get timeseries data
+import datetime as dt
+def onTrendbar(result):
+	res = Protobuf.extract(result)
+	bars = []
+	for bar in res.trendbar:
+		time = dt.datetime.fromtimestamp(bar.utcTimestampInMinutes * 60, dt.UTC)
+		open = (bar.low + bar.deltaOpen) / 100000.0
+		high = (bar.low + bar.deltaHigh) / 100000.0
+		low = bar.low / 100000.0
+		close = (bar.low + bar.deltaClose) / 100000.0
+		bars.append([time, open, high, low, close, bar.volume])
+	do_something(bars)
+def main():
+	req = ProtoOAGetTrendbarsReq()
+	req.symbolId = 41 # 'XAUUSD'
+	req.ctidTraderAccountId = credentials['accountId']
+	req.period = ProtoOATrendbarPeriod.D1
+	req.fromTimestamp = int(dt.datetime(2024,12,1, tzinfo=dt.UTC).timestamp()) * 1000
+	req.toTimestamp = int(dt.datetime(2024,12,31, tzinfo=dt.UTC).timestamp()) * 1000
+	deferred = client.send(req)
+	deferred.addCallbacks(onTrendbar, onError)
+
+
 # getting credentials programmatically
 # https://spotware.github.io/OpenApiPy/authentication/
 from ctrader_open_api import Auth, EndPoints
