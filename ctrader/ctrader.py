@@ -210,9 +210,10 @@ def list_nonProtoOA(obj, startswith='', flagonly=False):
 
 # needed imports
 from ctrader_open_api import Client, Protobuf, TcpProtocol, EndPoints
-from ctrader_open_api.messages.OpenApiCommonMessages_pb2 import *
-from ctrader_open_api.messages.OpenApiMessages_pb2 import *
-from ctrader_open_api.messages.OpenApiModelMessages_pb2 import *
+import ctrader_open_api.messages.OpenApiMessages_pb2 as OA
+import ctrader_open_api.messages.OpenApiModelMessages_pb2 as OAModel
+import ctrader_open_api.messages.OpenApiCommonMessages_pb2 as OACommon
+import ctrader_open_api.messages.OpenApiCommonModelMessages_pb2 as OAModelCommon
 from twisted.internet import reactor
 
 
@@ -228,7 +229,7 @@ def onAccAuth(result):
 	main()
 def onAppAuth(result):
 	print('app authenticated')
-	req = ProtoOAAccountAuthReq()
+	req = OA.ProtoOAAccountAuthReq()
 	req.ctidTraderAccountId = credentials['accountId']
 	req.accessToken = credentials['accessToken']
 	deferred = client.send(req)
@@ -237,7 +238,7 @@ def onError(failure):
 	print('err: ', repr(failure.value))
 def connected(client):
 	print('connected')
-	req = ProtoOAApplicationAuthReq()
+	req = OA.ProtoOAApplicationAuthReq()
 	req.clientId = credentials['clientId']
 	req.clientSecret = credentials['clientSecret']
 	deferred = client.send(req, responseTimeoutInSeconds=20) # err if no response under 20 secs
@@ -245,7 +246,7 @@ def connected(client):
 def disconnected(client, reason):
 	print('disconnected: ', reason)
 def onMsg(client, message):
-	ignores = [i.payloadType for i in [ProtoHeartbeatEvent(), ProtoOAAccountAuthRes(), ProtoOAApplicationAuthRes()]]
+	ignores = [i.payloadType for i in [OACommon.ProtoHeartbeatEvent(), OA.ProtoOAAccountAuthRes(), OA.ProtoOAApplicationAuthRes()]]
 	if message.payloadType in ignores:
 		return
 	print('message received')
@@ -284,7 +285,7 @@ def onSymList(result):
 	syms_df = pd.read_csv('syms.csv', index_col='symbolName')
 
 def main():
-	req = ProtoOASymbolsListReq()
+	req = OA.ProtoOASymbolsListReq()
 	req.ctidTraderAccountId = credentials['accountId']
 	req.includeArchivedSymbols = False
 	deferred = client.send(req)
@@ -305,10 +306,10 @@ def onTrendbar(result):
 		bars.append([time, open, high, low, close, bar.volume])
 	do_something(bars)
 def main():
-	req = ProtoOAGetTrendbarsReq()
+	req = OA.ProtoOAGetTrendbarsReq()
 	req.symbolId = 41 # 'XAUUSD'
 	req.ctidTraderAccountId = credentials['accountId']
-	req.period = ProtoOATrendbarPeriod.D1
+	req.period = OAModel.ProtoOATrendbarPeriod.D1
 	req.fromTimestamp = int(dt.datetime(2024,12,1, tzinfo=dt.UTC).timestamp()) * 1000
 	req.toTimestamp = int(dt.datetime(2024,12,31, tzinfo=dt.UTC).timestamp()) * 1000
 	deferred = client.send(req)
