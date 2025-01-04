@@ -47,3 +47,10 @@ student.__dict__ # ...
 
 # keys of own & inherited members
 dir(student) # [..., 'age', 'is_old', 'major', 'name']
+
+# call method with string
+student['name']              # err
+getattr(student, 'name')     # 'John'
+getattr(student, 'is_old')() # False
+student.__dict__['name']     # 'John'
+student.__dict__['is_old']() # err (does not contain methods)
