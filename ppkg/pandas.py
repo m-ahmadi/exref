@@ -67,7 +67,7 @@ Series.value_counts(normalize=False, sort=True, ascending=False, bins=None|0, dr
 Series.count(level=None|0|'')
 Series.shift(periods=1, freq=None, axis=0, fill_value=<no_default>, suffix=None)
 
-Index.duplicated(keep='first|last'|False)
+Index.duplicated(subset=None|''|['',..], keep='first|last'|False)
 Index.union(other=Index|[], sort=None|bool)
 IndexSlice
 
@@ -536,6 +536,14 @@ df = pd.DataFrame([ [1,  2],
 										[na, 6] ], columns=['a','b'])
 df.dropna(subset=['a']) # [ [1,2], [3,na] ]
 df.dropna(subset=['b']) # [ [1,2], [na,6] ]
+
+# show duplicate rows
+df = pd.DataFrame([ [1,2,3],
+										[4,5,3],
+										[4,8,9] ], columns=['a','b','c'])
+df[df.duplicated(['a'], keep=False)] # [ [4,5,3], [4,8,9] ]
+df[df.duplicated(['b'], keep=False)] # []
+df[df.duplicated(['c'], keep=False)] # [ [1,2,3], [4,5,3] ]
 
 # searchsorted (index of where to insert each num so serie remains sorted)
 s = pd.Series([1,2,3])
