@@ -316,6 +316,47 @@ def main():
 	deferred.addCallbacks(onTrendbar, onError)
 
 
+# get tick data
+import datetime as dt
+import pandas as pd
+ticks = pd.DataFrame(columns=['timestamp','bid','ask'])
+done = {'bid': False, 'ask': False}
+def onTickData(result, bid_or_ask):
+	res = Protobuf.extract(result)
+	if res.hasMore:
+		print('time range specified contains more ticks than allowed per request')
+	tickData = res.tickData
+	prev_timestamp = tickData[0].timestamp
+	prev_tick = tickData[0].tick
+	for i, v in enumerate(tickData):
+		timestamp = prev_timestamp + v.timestamp if i > 0 else v.timestamp
+		tick = prev_tick + v.tick if i > 0 else v.tick
+		tick_normalized = tick / 100_000
+		ticks.loc[i, 'timestamp'] = timestamp
+		ticks.loc[i, bid_or_ask] = tick_normalized
+		prev_timestamp, prev_tick = timestamp, tick
+	done[bid_or_ask] = True
+	all_done = sum([int(i) for i in done.values()]) == len(done)
+	if all_done:
+		ticks.sort_values(by='timestamp', ascending=True).to_csv('ticks.csv', index=False)
+def reqTicks(sym_id, frm, to, type):
+	req = OA.ProtoOAGetTickDataReq()
+	req.symbolId = sym_id
+	req.ctidTraderAccountId = credentials['accountId']
+	req.type = type
+	req.fromTimestamp = frm
+	req.toTimestamp = to
+	deferred = client.send(req, responseTimeoutInSeconds=20)
+	type_name = {OAModel.ProtoOAQuoteType.BID: 'bid', OAModel.ProtoOAQuoteType.ASK: 'ask'}[type]
+	deferred.addCallbacks(onTickData, onError, [type_name])
+def main():
+	sym_id = 41 # 'XAUUSD'
+	frm = int(dt.datetime(2025,1,2,18,30, tzinfo=dt.UTC).timestamp()) * 1000
+	to = int(dt.datetime(2025,1,2,18,45, tzinfo=dt.UTC).timestamp()) * 1000
+	reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.BID)
+	reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.ASK)
+
+
 # getting credentials programmatically
 # https://spotware.github.io/OpenApiPy/authentication/
 from ctrader_open_api import Auth, EndPoints
