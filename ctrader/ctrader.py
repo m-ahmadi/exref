@@ -339,20 +339,22 @@ def onTickData(result, bid_or_ask):
 	all_done = sum([int(i) for i in done.values()]) == len(done)
 	if all_done:
 		ticks.sort_values(by='timestamp', ascending=True).to_csv('ticks.csv', index=False)
-def reqTicks(sym_id, frm, to, type):
+def reqTicks(sym_id, _from, _to, type):
+	frm, to = [dt.datetime(*i, tzinfo=dt.UTC).timestamp() for i in [_from, _to]]
+	if to - frm > dt.timedelta(weeks=1).total_seconds():
+		raise ValueError('cannot request tick data for a period larger than one week!')
 	req = OA.ProtoOAGetTickDataReq()
 	req.symbolId = sym_id
 	req.ctidTraderAccountId = credentials['accountId']
 	req.type = type
-	req.fromTimestamp = frm
-	req.toTimestamp = to
+	req.fromTimestamp = int(frm * 1000)
+	req.toTimestamp = int(to * 1000)
 	deferred = client.send(req, responseTimeoutInSeconds=20)
 	type_name = {OAModel.ProtoOAQuoteType.BID: 'bid', OAModel.ProtoOAQuoteType.ASK: 'ask'}[type]
 	deferred.addCallbacks(onTickData, onError, [type_name])
 def main():
 	sym_id = 41 # 'XAUUSD'
-	frm = int(dt.datetime(2025,1,2,18,30, tzinfo=dt.UTC).timestamp()) * 1000
-	to = int(dt.datetime(2025,1,2,18,45, tzinfo=dt.UTC).timestamp()) * 1000
+	frm, to = (2025,1,2,18,30), (2025,1,2,18,45)
 	reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.BID)
 	reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.ASK)
 
