@@ -294,17 +294,20 @@ def main():
 
 # get timeseries data
 import datetime as dt
+import pandas as pd
 def onTrendbar(result):
 	res = Protobuf.extract(result)
 	bars = []
 	for bar in res.trendbar:
-		time = dt.datetime.fromtimestamp(bar.utcTimestampInMinutes * 60, dt.UTC)
+		timestamp = bar.utcTimestampInMinutes * 60 # seconds
 		open = (bar.low + bar.deltaOpen) / 100000.0
 		high = (bar.low + bar.deltaHigh) / 100000.0
 		low = bar.low / 100000.0
 		close = (bar.low + bar.deltaClose) / 100000.0
-		bars.append([time, open, high, low, close, bar.volume])
-	do_something(bars)
+		bars.append([timestamp, open, high, low, close, bar.volume])
+	pd.DataFrame(bars, columns=['timestamp','open','high','low','close','volume']).to_csv('bars.csv', index=False)
+	bars_df = pd.read_csv('bars.csv', index_col='timestamp')
+	bars_df.index = pd.to_datetime(bars_df.index, unit='s', utc=True) # optional
 def main():
 	req = OA.ProtoOAGetTrendbarsReq()
 	req.symbolId = 41 # 'XAUUSD'
