@@ -684,6 +684,16 @@ from decimal import Decimal
 df = pd.read_csv(StringIO(s), converters={'A':Decimal})
 df.dtypes # A: object
 
+# read_csv - parse timestamps as datetime
+from io import StringIO
+s = '''timestamp,value
+1735826400,43
+1735830000,47
+1735833600,54
+'''
+df = pd.read_csv(StringIO(s), index_col='timestamp')
+df.index = pd.to_datetime(df.index, unit='s', utc=True)
+
 # read_json
 from io import StringIO                       # idxs    cols    vals
 pd.read_json('[1,2]')                         # 0 1     0       [[1],[2]]
