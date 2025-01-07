@@ -224,10 +224,10 @@ client = Client(EndPoints.PROTOBUF_DEMO_HOST, EndPoints.PROTOBUF_PORT, TcpProtoc
 def main():
 	print('ready to do something')
 	reactor.stop()
-def onAccAuth(result):
+def onAccAuth(message):
 	print('account authenticated')
 	main()
-def onAppAuth(result):
+def onAppAuth(message):
 	print('app authenticated')
 	req = OA.ProtoOAAccountAuthReq()
 	req.ctidTraderAccountId = credentials['accountId']
@@ -259,10 +259,10 @@ reactor.run()
 
 # get symbol list
 import pandas as pd
-def onSymList(result):
-	res = Protobuf.extract(result)
+def onSymList(message):
+	response = Protobuf.extract(message)
 	
-	sym, *_ = [*filter(lambda i: i.symbolName == 'XAUUSD', res.symbol)]
+	sym, *_ = [*filter(lambda i: i.symbolName == 'XAUUSD', response.symbol)]
 	sym_fields = sym.ListFields()
 	sym_keys = [i[0].name for i in sym_fields]
 	
@@ -278,7 +278,7 @@ def onSymList(result):
 	sym_vals  # [41, 'XAUUSD', True, 17, 15, 2, 'Gold vs US Dollar']
 	
 	syms = []
-	for sym in res.symbol:
+	for sym in response.symbol:
 		sym_dict = {i[0].name: i[1] for i in sym.ListFields()}
 		syms.append(sym_dict)
 	pd.DataFrame(syms).to_csv('syms.csv', index=False)
@@ -295,10 +295,10 @@ def main():
 # get timeseries data
 import datetime as dt
 import pandas as pd
-def onTrendbar(result):
-	res = Protobuf.extract(result)
+def onTrendbar(message):
+	response = Protobuf.extract(message)
 	bars = []
-	for bar in res.trendbar:
+	for bar in response.trendbar:
 		timestamp = bar.utcTimestampInMinutes * 60 # seconds
 		open = (bar.low + bar.deltaOpen) / 100000.0
 		high = (bar.low + bar.deltaHigh) / 100000.0
@@ -324,11 +324,11 @@ import datetime as dt
 import pandas as pd
 ticks = pd.DataFrame(columns=['timestamp','bid','ask'])
 done = {'bid': False, 'ask': False}
-def onTickData(result, bid_or_ask):
-	res = Protobuf.extract(result)
-	if res.hasMore:
+def onTickData(message, bid_or_ask):
+	response = Protobuf.extract(message)
+	if response.hasMore:
 		print('time range specified contains more ticks than allowed per request')
-	tickData = res.tickData
+	tickData = response.tickData
 	prev_timestamp = tickData[0].timestamp
 	prev_tick = tickData[0].tick
 	for i, v in enumerate(tickData):
