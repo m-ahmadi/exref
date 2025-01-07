@@ -325,6 +325,8 @@ import pandas as pd
 ticks = pd.DataFrame(columns=['timestamp','bid','ask'])
 done = {'bid': False, 'ask': False}
 def onTickData(message, bid_or_ask):
+	if message.payloadType == OA.ProtoOAErrorRes().payloadType:
+		print('server sent error')
 	response = Protobuf.extract(message)
 	if response.hasMore:
 		print('time range specified contains more ticks than allowed per request')
@@ -342,8 +344,7 @@ def onTickData(message, bid_or_ask):
 	all_done = sum([int(i) for i in done.values()]) == len(done)
 	if all_done:
 		ticks.sort_values(by='timestamp', ascending=True).to_csv('ticks.csv', index=False)
-def reqTicks(sym_id, _from, _to, type):
-	frm, to = [dt.datetime(*i, tzinfo=dt.UTC).timestamp() for i in [_from, _to]]
+def reqTicks(sym_id, frm, to, type):
 	if to - frm > dt.timedelta(weeks=1).total_seconds():
 		raise ValueError('cannot request tick data for a period larger than one week!')
 	req = OA.ProtoOAGetTickDataReq()
@@ -357,10 +358,17 @@ def reqTicks(sym_id, _from, _to, type):
 	deferred.addCallbacks(onTickData, onError, [type_name])
 def main():
 	sym_id = 41 # 'XAUUSD'
-	frm, to = (2025,1,2,18,30), (2025,1,2,18,45)
+	# single request
+	datetime_range = [(2025,1,2,18,30), (2025,1,2,18,45)]
+	frm, to = [dt.datetime(*i, tzinfo=dt.UTC).timestamp() for i in datetime_range]
 	reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.BID)
 	reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.ASK)
-
+	# multiple requests (must increase `responseTimeoutInSeconds` if requesting large span)
+	for from_date in pd.date_range('2025/1/2 18:30', '2025/1/2 18:45', freq='1min', tz=dt.UTC):
+		to_date = from_date + dt.timedelta(hours=1)
+		frm, to = from_date.timestamp(), to_date.timestamp()
+		reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.BID)
+		reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.ASK)
 
 # getting credentials programmatically
 # https://spotware.github.io/OpenApiPy/authentication/
