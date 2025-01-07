@@ -4,6 +4,7 @@ pd.read_csv(filepath_or_buffer, header='infer'|0|[0,..]|None, names=['',..], nro
 pd.read_json(path_or_buf, orient=None|'split|records|index|columns|values|table', typ='frame|series', dtype=None|bool|{}, convert_axes=None|bool, convert_dates=True|['',..], precise_float=False, encoding='utf-8', ...)
 pd.concat([df1, df2], ignore_index=False, sort=False, copy=True, ...)
 pd.date_range(start=None|''|datetime, end=None|''|datetime, periods=None|0, freq='D'|DateOffset, tz=None|''|tzinfo, normalize=False, name=None|'', inclusive=None, **kwargs)
+pd.timedelta_range(start=''|<timedelta_like>, end=''|<timedelta_like>, periods=None|0, freq='D'|Timedelta|dt.timedelta|DateOffset, name=None|'', closed=None|'left|right', *, unit=None|'')
 pd.to_datetime(arg=0|0.|''|datetime|[]|{}, utc=False, format=None|'', unit=None|'D|s|ms|us|ns', ...)
 
 DataFrame(data=None|ndarray|[]|{}|DataFrame, index=None|[], columns=None|[], dtype=None, copy=None|bool)
@@ -725,6 +726,14 @@ pd.date_range(end='2022/1/4', periods=4)        # ...
 pd.date_range('2025/1/2 14:30', '2025/1/2 16:30', freq='1h')      # ['2025-01-02 14:30:00', '2025-01-02 15:30:00', '2025-01-02 16:30:00']
 pd.date_range('2025/1/2 12', '2025/1/2 16', freq='2h')            # ['2025-01-02 12:00:00', '2025-01-02 14:00:00', '2025-01-02 16:00:00']
 pd.date_range('2025/1/2 12', '2025/1/2 14', freq='2h', tz=dt.UTC) # ['2025-01-02 12:00:00+00:00', '2025-01-02 14:00:00+00:00']
+
+# misc - timedelta range
+pd.timedelta_range(start='1 day', periods=4)                     # ['1 days', '2 days', '3 days', '4 days']
+pd.timedelta_range(start='1 day', periods=4, closed='right')     # ['2 days', '3 days', '4 days']
+pd.timedelta_range(start='1 day', end='2 days', freq='8h')       # ['1 days 00:00:00', '1 days 08:00:00', '1 days 16:00:00', '2 days 00:00:00']
+pd.timedelta_range(start='1 day', end='5 days', periods=4)       # ['1 days 00:00:00', '2 days 08:00:00', '3 days 16:00:00', '5 days 00:00:00']
+pd.timedelta_range(start='1 day', end='5 days', periods=3)       # ['1 days', '3 days', '5 days']
+pd.timedelta_range('1 Day', periods=3, freq='100000D', unit='s') # ['1 days', '100001 days', '200001 days']
 
 # misc - timestamp to datetime
 import datetime as dt
