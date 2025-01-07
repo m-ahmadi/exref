@@ -718,9 +718,13 @@ s.value_counts(normalize=True)            # [.3, .6] relative frequency (count o
 s.value_counts() / s.value_counts().sum() # ...
 
 # misc - date range
+import datetime as dt
 pd.date_range(start='2022/1/1', periods=4)      # ['2022-01-01', '2022-01-02', '2022-01-03', '2022-01-04']
 pd.date_range(start='2022/1/1', end='2022/1/4') # ...
 pd.date_range(end='2022/1/4', periods=4)        # ...
+pd.date_range('2025/1/2 14:30', '2025/1/2 16:30', freq='1h')      # ['2025-01-02 14:30:00', '2025-01-02 15:30:00', '2025-01-02 16:30:00']
+pd.date_range('2025/1/2 12', '2025/1/2 16', freq='2h')            # ['2025-01-02 12:00:00', '2025-01-02 14:00:00', '2025-01-02 16:00:00']
+pd.date_range('2025/1/2 12', '2025/1/2 14', freq='2h', tz=dt.UTC) # ['2025-01-02 12:00:00+00:00', '2025-01-02 14:00:00+00:00']
 
 # misc - timestamp to datetime
 import datetime as dt
