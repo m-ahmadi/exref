@@ -1,3 +1,12 @@
+text highlight
+
+<normal url>#:~:text=text in page to be highlighted		single arg
+<normal url>#:~:text=from this text,to this text		double args (text range)
+
+https://en.wikipedia.org/wiki/Atom#:~:text=Atoms are the basic particles
+https://en.wikipedia.org/wiki/Atom#:~:text=any atom that,29 protons is copper
+
+--------------------------------------------------
 maps
 
 https://www.google.com/maps/...?
