@@ -1,2 +1,0 @@
-open:	monday	 02:30		(sunday night)
-close:	saturday 00:30		(friday night)
