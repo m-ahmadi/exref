@@ -8,6 +8,19 @@ leverage:
 	feature of broker's trading account
 	determines value of each pip
 
+lot:
+	lot is a unit of base currency used for measuring trade volume
+	it is set by the broker
+	example:
+	let's say there are 3 brokers and you are trading EUR/USD
+	broker A sets 1 lot equal to 100,000 EUR
+	broker B sets 1 lot equal to  10,000 EUR
+	broker C sets 1 lot equal to   1,000 EUR
+	now `lot = 0.01` will equal to:
+	1,000 EUR in broker A
+	  100 EUR in broker B
+	   10 EUR in broker C
+
 margin call:
 	a % level of account's balance
 	if reached, broker asks for additional deposit to keep position opened
@@ -21,6 +34,22 @@ stop out:
 	closely relates to amount of leverage set for the account
 	enforced by broker
 	actual % depends on broker and type of trading account
+
+pip:
+	pip just means smallest decimal place of price
+	most symbols have 4 decimal places i.e. 0.0000
+	so if EURUSD goes from 1.0000 to 1.0001 it has moved up 1 pip
+	only exception is "japanese yen" which has 2 decimal places
+
+pipette:
+	tenth of a pip
+	1 pipette = pip / 10
+	some brokers quote currency pairs beyound standard 4 and 2 decimal places to 5 and 3
+	in other word, they are quoting "fractional pips", aka "points" or "pipettes"
+
+market hours:
+	open:	monday	 02:30		(sunday night)
+	close:	saturday 00:30		(friday night)
 
 --------------------------------------------------------------------------------
 most important thing about leverage
