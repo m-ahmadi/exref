@@ -1,16 +1,45 @@
-deposit:
-	amount of money transferred into broker's trading account
+forex market:
+	world's largest and most liquid financial market
+	highly decentralized and fragmented
+	trading is done through a network of banks, financial institutions, and online platforms, not a centralized exchange
+	lacks a centralized source of trading data and pricing information (nature of otc markets)
+	two trading venues can have differet data for prices, trading volumes, market depth data and historical data.
 
-balance:
-	total amount of money in broker's trading account
+broker:		company providing the platform to buy and sell things
+account:	broker's trading account
+deposit:	money transferred into broker's trading account
+margin:		real money in account, gained either through deposit or profit made in deals
+balance:	margin in account. updates only at specific points in time: deposit, withdrawal, after closing all positions
+equity:		balance + unrealised net profit & loss (amount of margin if close all positions now)
+used margin:	margin involved in positions
+free margin:	equity - used margin, remaining margin, after taking into account state of positions
+margin level:	used margin / equity, determines the level that "margin call" and "stop out" are compared to
+currency pair:	quotation of two currencies, one against the other, first one is "base currency", second one is "quote currency"
+
+	terms
+	position:			means an opened position (cuz "closed position" is called deal or trade)
+	unrealised net profit & loss:	sum of profit/loss of all still open positions
+	realised net profit & loss:	sum of profit/loss of all closed positions (or deals)
 
 leverage:
 	feature of broker's trading account
-	determines value of each pip
+	pretend borrowed money that is not allowed to partake in positions's loss
+	makes it possible to trade forex contracts with fraction of real money needed
+	has no effect on position loss/gain
+	only affects how much real money is needed to enter position
+	example:
+	leverage	real money needed to buy 0.01 lot of XAU/USD at 2651.64
+	1:1		2651.64 $
+	1:10		265.164 $
+	1:100		26.5164 $
+	1:1000		2.65164 $
+	https://leverage.trading/losses/#:~:text=When%20you%20lose%20money%20with,associated%20with%20leverage%20trading
 
 lot:
-	lot is a unit of base currency used for measuring trade volume
-	it is set by the broker
+	unit of base currency used for measuring trade volume (how much base currency equals to 1 lot)
+	depenging on the broker and the market, 1 lot might equal different quantity of things
+	when opening a position, amount of volume for position is expressed in lot (actual $ value depends on currency pair)
+	lot used in position, has effects on pip value and "margin level" (tolerable loss for position)
 	example:
 	let's say there are 3 brokers and you are trading EUR/USD
 	broker A sets 1 lot equal to 100,000 EUR
@@ -18,28 +47,24 @@ lot:
 	broker C sets 1 lot equal to   1,000 EUR
 	now `lot = 0.01` will equal to:
 	1,000 EUR in broker A
-	  100 EUR in broker B
-	   10 EUR in broker C
+	100 EUR in broker B
+	10 EUR in broker C
 
 margin call:
-	a % level of account's balance
-	if reached, broker asks for additional deposit to keep position opened
-	closely relates to amount of leverage set for the account
+	a threshold level for the "margin level" of account
+	if "margin level" of account falls to this level, broker asks to deposit more margin into account to keep position open
 	enforced by broker
-	actual % depends on broker and type of trading account
+	actual number of the threshold level depends on broker and type of trading account
+	sometimes it is referred to inversely, so 20% is referred to as 80%
 
 stop out:
-	a % level of account's balance
-	if reached, all positions are closed automatically by broker
-	closely relates to amount of leverage set for the account
-	enforced by broker
-	actual % depends on broker and type of trading account
+	same as "margin call", except at this level, all positions are closed automatically
 
 pip:
-	pip just means smallest decimal place of price
+	smallest decimal place of price
 	most symbols have 4 decimal places i.e. 0.0000
 	so if EURUSD goes from 1.0000 to 1.0001 it has moved up 1 pip
-	only exception is "japanese yen" which has 2 decimal places
+	an exception is "japanese yen" which has 2 decimal places, or XAU/USD which is the same
 
 pipette:
 	tenth of a pip
@@ -47,23 +72,14 @@ pipette:
 	some brokers quote currency pairs beyound standard 4 and 2 decimal places to 5 and 3
 	in other word, they are quoting "fractional pips", aka "points" or "pipettes"
 
+pip value:
+	USD as quote currency:
+		pip value = value traded * quote currency pip
+		e.g. for EUR/USD:	10,000 * 0.0001 = 1
+	USD as base currency:
+		pip value = traded value * (pip size / exchange rate)
+		e.g. for USD/CAD:	100,000 * (0.0001 / 1.4377) = 6.9556
+
 market hours:
 	open:	monday	 02:30		(sunday night)
 	close:	saturday 00:30		(friday night)
-
---------------------------------------------------------------------------------
-most important thing about leverage
-leverage determines how much negative % a position can tolerate before triggering "stop out"
-
-balance:	100$
-margin call:	70%
-stop out:	80% (usually referred to inversely i.e. 20% for this example)
-lot:		1 (entered position with 1 lot)
-
-leverage:					1:1	1:10	1:100	1:1000
-value of +1% price chg:				1$	10$	100$	1000$
-max % price can fall before "margin call":	-70%	-7%	-0.7%	-0.07%
-max % price can fall before "stop out":		-80%	-8%	-0.8%	-0.08%
-% price must rise to profit 50$:		50%	5%	0.5%	0.05%
-
---------------------------------------------------------------------------------
