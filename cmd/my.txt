@@ -38,7 +38,7 @@ ctrl alt
 	`		conemu
 ctrl `			deskpins
 ctrl shift `		everything
-ctrl shift d		babylon (mouse: shift midclick)
+ctrl shift d		babylon (mouse: alt midclick)
 ctrl shift a		ncpa.cpl
 ctrl alt `		conemu
 ctrl alt shift `	dngrep
