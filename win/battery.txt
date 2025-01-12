@@ -2,21 +2,42 @@ show battery indicator
 
 ms-settings:taskbar -> Turn system icons on or off -> Power
 
+note:
+if disabled, a "driver refresh" or "driver reinstall" can help
+(for me on win1809 a "driver reinstall" did fix it)
+
 --------------------------------------------------
 battery health report
 
 powercfg /batteryreport
 --------------------------------------------------
-refresh driver
+driver refresh
 
 devmgmt.msc -> Batteries -> rclick on driver ->
 	Disable device, then, Enable device
 restart
 --------------------------------------------------
+driver reinstall
+
+1. devmgmt.msc -> Batteries -> rclick on driver -> Uninstall device
+
+2. must wait for windows to auto-install them again. things that can help:
+	unplug cable and restart
+	check windows update
+--------------------------------------------------
 enable battery indicator (haven't tried, wasn't disabled in win1809)
 
 set k=HKLM\SYSTEM\CurrentControlSet\Control\Power
+
+one approach:
+
 reg delete %k% /v UserBatteryDischargeEstimator /f
 reg delete %k% /v EnergyEstimationDisabled /f
 reg add %k%  /v EnergyEstimationEnabled /t REG_DWORD /d 1
+
+another approach:
+
+reg add %k% /v EnergyEstimationDisabled /t REG_DWORD /d 0
+reg delete %k%\ EnergyEstimationEnabled /f
+reg delete %k%\ UserBatteryDischargeEstimator /f
 --------------------------------------------------
