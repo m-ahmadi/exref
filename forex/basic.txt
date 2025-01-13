@@ -21,6 +21,22 @@ currency pair:	quotation of two currencies, one against the other, first one is 
 	unrealised net profit & loss:	sum of profit/loss of all still open positions
 	realised net profit & loss:	sum of profit/loss of all closed positions (or deals)
 
+contract:
+	an important concept in forex (and other markets too)
+	a framework for trading the assets in the market
+	common types of contracts: futures, options, forward, CFD (common in forex)
+	a contract is a standardized quantity of something that is traded for something else in return
+	a contract consists of 3 things:
+		base asset		what is being given at what price
+		quote asset		what is being taken in its place at what price
+		contract size		amount of base asset that one contract represents
+	who and what defines what the asset is depends on market, broker, and account type
+	common assets are: currency, commodity, financial instrument
+	in forex, a contract consists of:
+		base currency		a currency at specific price, trader,
+		quote currency		for another currency at its specific price
+		contract size		how much base currency equals 1 contract (1 contract =  1 lot)
+
 leverage:
 	feature of broker's trading account
 	pretend borrowed money that is not allowed to partake in positions's loss
@@ -36,19 +52,24 @@ leverage:
 	https://leverage.trading/losses/#:~:text=When%20you%20lose%20money%20with,associated%20with%20leverage%20trading
 
 lot:
-	unit of base currency used for measuring trade volume (how much base currency equals to 1 lot)
-	depenging on the broker and the market, 1 lot might equal different quantity of things
+	aka "contract size"
+	how trade volume is expressed and measured in forex (and other markets)
+	essential in understanding leverage
+	volume in forex is not called volume, it's called "contract size" (1 lot = 1 contract)
+	lot size defines how much base currency equals to 1 lot
+	lot size can vary depending on market, broker, or account type
+		LOT_TYPE	LOT_SIZE
+		standard	100,000
+		mini		 10,000
+		micro		  1,000
+		nano		    100
 	when opening a position, amount of volume for position is expressed in lot (actual $ value depends on currency pair)
 	lot used in position, has effects on pip value and "margin level" (tolerable loss for position)
-	example:
-	let's say there are 3 brokers and you are trading EUR/USD
-	broker A sets 1 lot equal to 100,000 EUR
-	broker B sets 1 lot equal to  10,000 EUR
-	broker C sets 1 lot equal to   1,000 EUR
-	now `lot = 0.01` will equal to:
-	1,000 EUR in broker A
-	100 EUR in broker B
-	10 EUR in broker C
+	
+	example:			trade value for 0.01 lot of EUR/USD
+	in broker with lot standard:	1000 €
+	in broker with lot mini:	100 €
+	in broker with lot micro:	10 €
 
 margin call:
 	a threshold level for the "margin level" of account
