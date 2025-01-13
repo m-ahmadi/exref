@@ -18807,6 +18807,22 @@
                   "name": "list 3",
                   "type": "url",
                   "url": "https://iranbroker.net/brokers/"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "market structure 1",
+                      "type": "url",
+                      "url": "https://www.babypips.com/learn/forex/where-retail-forex-traders-trade"
+                    },
+                    {
+                      "name": "market structure 2",
+                      "type": "url",
+                      "url": "https://www.babypips.com/learn/forex/how-forex-brokers-manage-risk-make-money"
+                    }
+                  ],
+                  "name": "article",
+                  "type": "folder"
                 }
               ],
               "name": "forex",
