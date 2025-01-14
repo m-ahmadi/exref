@@ -314,7 +314,8 @@ def main():
 	req.ctidTraderAccountId = credentials['accountId']
 	req.period = OAModel.ProtoOATrendbarPeriod.D1
 	req.fromTimestamp = int(dt.datetime(2024,12,1, tzinfo=dt.UTC).timestamp()) * 1000
-	req.toTimestamp = int(dt.datetime(2024,12,31, tzinfo=dt.UTC).timestamp()) * 1000 # or `req.count = <uint32>`
+	req.toTimestamp = int(dt.datetime(2024,12,31, tzinfo=dt.UTC).timestamp()) * 1000
+	# req.count = <uint32> # limit returned bars (does not work without `req.toTimestamp`)
 	deferred = client.send(req)
 	deferred.addCallbacks(onTrendbar, onError)
 
