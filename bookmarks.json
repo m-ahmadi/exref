@@ -18863,6 +18863,87 @@
               ],
               "name": "crypto",
               "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "name": "schwab",
+                  "type": "url",
+                  "url": "https://www.schwab.com/"
+                },
+                {
+                  "name": "vanguard",
+                  "type": "url",
+                  "url": "https://investor.vanguard.com/"
+                },
+                {
+                  "name": "fidelity",
+                  "type": "url",
+                  "url": "https://www.fidelity.com/"
+                },
+                {
+                  "name": "jpmorgan",
+                  "type": "url",
+                  "url": "https://privatebank.jpmorgan.com/nam/en/services/investing"
+                },
+                {
+                  "name": "——————————",
+                  "type": "url",
+                  "url": "http://foo.com/"
+                },
+                {
+                  "name": "lightspeed",
+                  "type": "url",
+                  "url": "https://lightspeed.com/"
+                },
+                {
+                  "name": "interactivebrokers",
+                  "type": "url",
+                  "url": "https://www.interactivebrokers.com/"
+                },
+                {
+                  "name": "webull",
+                  "type": "url",
+                  "url": "https://www.webull.com/"
+                },
+                {
+                  "name": "firstrade",
+                  "type": "url",
+                  "url": "https://www.firstrade.com/"
+                },
+                {
+                  "name": "m1",
+                  "type": "url",
+                  "url": "https://m1.com/"
+                },
+                {
+                  "name": "——————————",
+                  "type": "url",
+                  "url": "http://foo.com/"
+                },
+                {
+                  "name": "list 1",
+                  "type": "url",
+                  "url": "https://www.investopedia.com/best-online-brokers-4587872"
+                },
+                {
+                  "name": "list 2",
+                  "type": "url",
+                  "url": "https://brokerchooser.com/best-brokers/best-nasdaq-brokers"
+                },
+                {
+                  "name": "list 3",
+                  "type": "url",
+                  "url": "https://www.nerdwallet.com/best/investing/online-brokers-for-stock-trading"
+                },
+                {
+                  "name": "list 4",
+                  "type": "url",
+                  "url": "https://www.investopedia.com/articles/professionals/110415/biggest-stock-brokerage-firms-us.asp"
+                }
+              ],
+              "name": "nyse",
+              "type": "folder"
             }
           ],
           "name": "trade",
