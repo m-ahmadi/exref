@@ -1,3 +1,7 @@
 compress one file
 
 gzip --help
+
+gzip file.csv		compress.   changes file.csv    to file.csv.gz
+
+gzip -d file.csv.gz	uncompress. changes file.csv.gz to file.csv

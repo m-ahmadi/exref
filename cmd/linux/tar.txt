@@ -2,4 +2,9 @@ put multiple files together (no compression)
 
 tar --help
 
-tar czf archive.gz mydir		gzip folder
+tar czf archive.tgz file.csv		gzip file
+
+tar czf archive.tgz mydir		gzip folder
+tar czf archive.tgz mydir/*		...
+
+tar xzf archive.tgz			extract
