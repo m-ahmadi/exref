@@ -1,0 +1,5 @@
+xz --help
+
+xz file.csv		compress.   changes file.csv    to file.csv.xz
+
+xz -d file.csv.xz	uncompress. changes file.csv.xz to file.csv
