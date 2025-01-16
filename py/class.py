@@ -8,9 +8,10 @@ class Student:
 		return self.age > 100
 
 student = Student('John', 88, None)
-student.name  # 'John'
-student.age   # 88
-type(student) # <class '__main__.Student'>
+student.name     # 'John'
+student.age      # 88
+student.is_old() # False
+type(student)    # <class '__main__.Student'>
 
 # inheritence
 class Person():
@@ -41,17 +42,16 @@ foo = Foo(32)
 foo.x # 32
 foo() # 64
 
-# list keys of object
-import datetime as dt
-dir(dt)        # ['date','datetime','time','timedelta', ...]
-[*dt.__dict__] # ... (not always the same depending on the object)
-
-# iterate through own props
-vars(student)    # {'name': 'John', 'age': 88, 'major': None}
-student.__dict__ # ...
+# iterate through own props (not methods)
+vars(student)       # {'name': 'John', 'age': 88, 'major': None}
+student.__dict__    # ...
+[*student.__dict__] # keys only:  ['name', 'age', 'major']
 
 # keys of own & inherited members
-dir(student) # [..., 'age', 'is_old', 'major', 'name']
+dir(student)   # [..., 'age', 'is_old', 'major', 'name']
+import datetime as dt
+dir(dt)        # ['date', 'datetime', 'time', 'timedelta', ...]
+[*dt.__dict__] # ↑... (not always, depends on object)
 
 # call method with string
 student['name']              # err
