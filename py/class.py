@@ -59,3 +59,8 @@ getattr(student, 'name')     # 'John'
 getattr(student, 'is_old')() # False
 student.__dict__['name']     # 'John'
 student.__dict__['is_old']() # err (does not contain methods)
+
+# check if object has member
+hasattr(student, 'name')   # True
+hasattr(student, 'gender') # False
+hasattr(student, 'is_old') # True
