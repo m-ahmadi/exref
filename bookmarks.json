@@ -18041,6 +18041,11 @@
                       "url": "https://ctrader.com/download/"
                     },
                     {
+                      "name": "custom indicators",
+                      "type": "url",
+                      "url": "https://ctrader.com/indicators"
+                    },
+                    {
                       "name": "api - openapi - docs",
                       "type": "url",
                       "url": "https://help.ctrader.com/open-api/"
