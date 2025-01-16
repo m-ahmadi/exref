@@ -41,6 +41,11 @@ foo = Foo(32)
 foo.x # 32
 foo() # 64
 
+# list keys of object
+import datetime as dt
+dir(dt)        # ['date','datetime','time','timedelta', ...]
+[*dt.__dict__] # ... (not always the same depending on the object)
+
 # iterate through own props
 vars(student)    # {'name': 'John', 'age': 88, 'major': None}
 student.__dict__ # ...
