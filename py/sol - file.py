@@ -49,6 +49,7 @@ os.path.join()
 os.path.dirname()
 os.path.basename()
 os.path.abspath()
+os.path.getsize(path) # in bytes
 
 import shutil
 shutil.rmtree('mydir') # almost equal to `rm -rf mydir`
