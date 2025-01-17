@@ -27,6 +27,7 @@ ws.onopen = function (e) {
 ws.onmessage = function (e) {
 	var serverMsg = JSON.parse(e.data);
 	if (serverMsg.payloadType === payloadTypes.PROTO_OA_APPLICATION_AUTH_RES) {
+		console.log('app auth done');
 		var clientMsg = {
 			clientMsgId: uid(),
 			payloadType: payloadTypes.PROTO_OA_ACCOUNT_AUTH_REQ,
@@ -36,11 +37,12 @@ ws.onmessage = function (e) {
 		return;
 	}
 	if (serverMsg.payloadType === payloadTypes.PROTO_OA_ACCOUNT_AUTH_RES) {
+		console.log('account auth done');
 		main();
 		return;
 	}
 	if (serverMsg.payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
-		console.log('server sent error message');
+		console.log('server sent error message', serverMsg.payload);
 		return;
 	}
 	if (serverMsg.payloadType === PROTO_HEARTBEAT_EVENT_PAYLOADTYPE) {
@@ -67,7 +69,7 @@ function main() {
 	var clientMsg = {
 		clientMsgId: uid(),
 		payloadType: payloadTypes.PROTO_OA_SYMBOLS_LIST_REQ,
-		payload: {ctidTraderAccountId, accessToken,
+		payload: { ctidTraderAccountId, accessToken,
 			includeArchivedSymbols: false,
 		}
 	};
