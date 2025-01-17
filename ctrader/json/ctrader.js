@@ -80,6 +80,36 @@ function main() {
 }
 
 
+// get timeseries data
+function onResp(message) {
+	if (message.payloadType !== payloadTypes.PROTO_OA_GET_TRENDBARS_RES) return;
+	var headers = ['timestamp','open','high','low','close','volume'];
+	var bars = message.payload.trendbar.map(bar => {
+		var timestamp = bar.utcTimestampInMinutes * 60; // seconds
+		var open = (bar.low + bar.deltaOpen) / 100_000;
+		var high = (bar.low + bar.deltaHigh) / 100_000;
+		var low = bar.low / 100_000;
+		var close = (bar.low + bar.deltaClose) / 100_000;
+		return [timestamp, open, high, low, close, bar.volume];
+	});
+	var out = [headers, ...bars];
+	fs.writeFileSync('bars.json', JSON.stringify(out,null,2));
+}
+function main() {
+	var clientMsg = {
+		clientMsgId: uid(),
+		payloadType: payloadTypes.PROTO_OA_GET_TRENDBARS_REQ,
+		payload: { ctidTraderAccountId, accessToken,
+			symbolId: 41, // XAUUSD
+			period: OAModel.ProtoOATrendbarPeriod.D1,
+			fromTimestamp: Date.UTC(2025,0,1),
+			toTimestamp: Date.UTC(2025,0,15),
+		}
+	};
+	ws.send(JSON.stringify(clientMsg));
+}
+
+
 // place order
 function onResp(message) {
 	if (message.payloadType !== payloadTypes.PROTO_OA_EXECUTION_EVENT) return;
