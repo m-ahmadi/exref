@@ -340,8 +340,9 @@ def main():
 		with open(statefile) as f:
 			last_saved_fromTimestamp = f.read()
 		last_fromDatetime = dt.datetime.fromtimestamp(int(last_saved_fromTimestamp)/1000)
-		start = last_fromDatetime # redundant on purpose (repeats last fetched range)
-		end = last_fromDatetime + dt.timedelta(**CHUNK_SIZE)
+		# date range must not be redundant between runs (otherwise creates duplicates in outfile)
+		start = last_fromDatetime - dt.timedelta(**CHUNK_SIZE)
+		end = last_fromDatetime
 	else:
 		now = dt.datetime.now(tz=dt.UTC)
 		today_midnight = now.replace(hour=0, minute=0, second=0, microsecond=0)
