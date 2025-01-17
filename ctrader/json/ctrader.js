@@ -1,5 +1,6 @@
 var credentials = require('../credentials.json');
-var payloadTypes = require('./OAModel.json').ProtoOAPayloadType;
+var OAModel = require('./OAModel.json');
+var payloadTypes = OAModel.ProtoOAPayloadType;
 PROTO_HEARTBEAT_EVENT_PAYLOADTYPE = 51;
 uid = (i => () => 'cm_id_' + i++)(1);
 
@@ -73,6 +74,30 @@ function main() {
 		payloadType: payloadTypes.PROTO_OA_SYMBOLS_LIST_REQ,
 		payload: { ctidTraderAccountId, accessToken,
 			includeArchivedSymbols: false,
+		}
+	};
+	ws.send(JSON.stringify(clientMsg));
+}
+
+
+// place order
+function onResp(message) {
+	if (message.payloadType !== payloadTypes.PROTO_OA_EXECUTION_EVENT) return;
+	console.log('order successfully placed');
+	console.log('order id:', message.payload.order.orderId);
+}
+function main() {
+	var clientMsg = {
+		clientMsgId: uid(),
+		payloadType: payloadTypes.PROTO_OA_NEW_ORDER_REQ,
+		payload: { ctidTraderAccountId, accessToken,
+			orderType: OAModel.ProtoOAOrderType.LIMIT,
+			tradeSide: OAModel.ProtoOATradeSide.BUY,
+			symbolId: 41, // XAUUSD
+			limitPrice: 2700.34,
+			volume: 100, // equals 0.01 lot
+			stopLoss: 2600.34,
+			takeProfit: 2750.34,
 		}
 	};
 	ws.send(JSON.stringify(clientMsg));
