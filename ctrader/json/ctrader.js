@@ -26,7 +26,8 @@ ws.onopen = function (e) {
 };
 ws.onmessage = function (e) {
 	var serverMsg = JSON.parse(e.data);
-	if (serverMsg.payloadType === payloadTypes.PROTO_OA_APPLICATION_AUTH_RES) {
+	var { payloadType } = serverMsg;
+	if (payloadType === payloadTypes.PROTO_OA_APPLICATION_AUTH_RES) {
 		console.log('app auth done');
 		var clientMsg = {
 			clientMsgId: uid(),
@@ -36,16 +37,16 @@ ws.onmessage = function (e) {
 		ws.send(JSON.stringify(clientMsg));
 		return;
 	}
-	if (serverMsg.payloadType === payloadTypes.PROTO_OA_ACCOUNT_AUTH_RES) {
+	if (payloadType === payloadTypes.PROTO_OA_ACCOUNT_AUTH_RES) {
 		console.log('account auth done');
 		main();
 		return;
 	}
-	if (serverMsg.payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
+	if (payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
 		console.log('server sent error message', serverMsg.payload);
 		return;
 	}
-	if (serverMsg.payloadType === PROTO_HEARTBEAT_EVENT_PAYLOADTYPE) {
+	if (payloadType === PROTO_HEARTBEAT_EVENT_PAYLOADTYPE) {
 		console.log('heartbeat event');
 		return;
 	}
@@ -62,6 +63,7 @@ ws.onclose = function (e) {
 // get symbol list
 var fs = require('fs');
 function onResp(message) {
+	if (message.payloadType !== payloadTypes.PROTO_OA_SYMBOLS_LIST_RES) return;
 	var syms = message.payload.symbol;
 	fs.writeFileSync('syms.json', JSON.stringify(syms,null,2));
 }
