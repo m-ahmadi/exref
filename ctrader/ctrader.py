@@ -420,28 +420,28 @@ def onTrendbar(message, begin, end):
 # get tick data
 import datetime as dt
 import pandas as pd
-ticks = pd.DataFrame(columns=['timestamp','bid','ask'])
-done = {'bid': False, 'ask': False}
 def onTickData(message, bid_or_ask):
+	response = Protobuf.extract(message)
 	if message.payloadType == OA.ProtoOAErrorRes().payloadType:
 		print('server sent error')
-	response = Protobuf.extract(message)
+		print(response)
+		return
 	if response.hasMore:
 		print('time range specified contains more ticks than allowed per request')
 	tickData = response.tickData
+	if not len(tickData): return
+	chunk_ticks = []
 	prev_timestamp = tickData[0].timestamp
 	prev_tick = tickData[0].tick
 	for i, v in enumerate(tickData):
 		timestamp = prev_timestamp + v.timestamp if i > 0 else v.timestamp
 		tick = prev_tick + v.tick if i > 0 else v.tick
 		tick_normalized = tick / 100_000
-		ticks.loc[i, 'timestamp'] = timestamp
-		ticks.loc[i, bid_or_ask] = tick_normalized
+		chunk_ticks.append(map(str, [timestamp, tick_normalized]))
 		prev_timestamp, prev_tick = timestamp, tick
-	done[bid_or_ask] = True
-	all_done = sum([int(i) for i in done.values()]) == len(done)
-	if all_done:
-		ticks.sort_values(by='timestamp', ascending=True).to_csv('ticks.csv', index=False)
+	chunk_str = '\n'.join([','.join(i) for i in chunk_ticks]) + '\n'
+	outfile = f'ticks.{bid_or_ask}.csv'
+	with open(outfile, 'a', newline='') as f:f.write(chunk_str)
 def reqTicks(sym_id, frm, to, type):
 	if to - frm > dt.timedelta(weeks=1).total_seconds():
 		raise ValueError('cannot request tick data for a period larger than one week!')
@@ -455,6 +455,8 @@ def reqTicks(sym_id, frm, to, type):
 	type_name = {OAModel.ProtoOAQuoteType.BID: 'bid', OAModel.ProtoOAQuoteType.ASK: 'ask'}[type]
 	deferred.addCallbacks(onTickData, onError, [type_name])
 def main():
+	for file in ['ticks.bid.csv', 'ticks.ask.csv']:
+		if os.path.exists(file): os.remove(file)
 	sym_id = 41 # 'XAUUSD'
 	# single request
 	datetime_range = [(2025,1,2,18,30), (2025,1,2,18,45)]
@@ -463,7 +465,7 @@ def main():
 	reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.ASK)
 	# multiple requests (must increase `responseTimeoutInSeconds` if requesting large span)
 	for from_date in pd.date_range('2025/1/2 18:30', '2025/1/2 18:45', freq='1min', tz=dt.UTC):
-		to_date = from_date + dt.timedelta(hours=1)
+		to_date = from_date + dt.timedelta(minutes=1)
 		frm, to = from_date.timestamp(), to_date.timestamp()
 		reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.BID)
 		reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.ASK)
