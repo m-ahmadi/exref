@@ -221,13 +221,22 @@ from twisted.internet import reactor
 import json
 credentials = json.load(open('credentials.json'))
 client = Client(EndPoints.PROTOBUF_DEMO_HOST, EndPoints.PROTOBUF_PORT, TcpProtocol)
+PROTO_OA_ERROR_RES_PAYLOAD_TYPE = OA.ProtoOAErrorRes().payloadType
 def main():
 	print('ready to do something')
 	reactor.stop()
 def onAccAuth(message):
+	if message.payloadType == PROTO_OA_ERROR_RES_PAYLOAD_TYPE:
+		print('account authentication failed', '\n')
+		print(Protobuf.extract(message), '\n')
+		return
 	print('account authenticated')
 	main()
 def onAppAuth(message):
+	if message.payloadType == PROTO_OA_ERROR_RES_PAYLOAD_TYPE:
+		print('app authentication failed', '\n')
+		print(Protobuf.extract(message), '\n')
+		return
 	print('app authenticated')
 	req = OA.ProtoOAAccountAuthReq()
 	req.ctidTraderAccountId = credentials['accountId']
