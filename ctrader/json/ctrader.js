@@ -1,7 +1,9 @@
 var credentials = require('../credentials.json');
 var OAModel = require('./OAModel.json');
 var payloadTypes = OAModel.ProtoOAPayloadType;
-PROTO_HEARTBEAT_EVENT_PAYLOADTYPE = 51;
+PROTO_PAYLOADTYPE_PROTO_MESSAGE = 5;
+PROTO_PAYLOADTYPE_ERROR_RES = 50;
+PROTO_PAYLOADTYPE_HEARTBEAT_EVENT = 51;
 uid = (i => () => 'cm_id_' + i++)(1);
 
 // connection, authentication and program lifecycle
@@ -47,7 +49,7 @@ ws.onmessage = function (e) {
 		console.log('server sent error message', serverMsg.payload);
 		return;
 	}
-	if (payloadType === PROTO_HEARTBEAT_EVENT_PAYLOADTYPE) {
+	if (payloadType === PROTO_PAYLOADTYPE_HEARTBEAT_EVENT) {
 		console.log('heartbeat event');
 		return;
 	}
