@@ -301,6 +301,28 @@ def main():
 	deferred.addCallbacks(onSymList, onError)
 
 
+# place order
+def onNewOrderRes(message):
+	if message.payloadType != OA.ProtoOAExecutionEvent().payloadType:
+		print('order not placed')
+		return
+	response = Protobuf.extract(message)
+	print('order successfully placed');
+	print('order id:', response.order.orderId)
+def main():
+	req = OA.ProtoOANewOrderReq()
+	req.ctidTraderAccountId = credentials['accountId']
+	req.orderType = OAModel.ProtoOAOrderType.LIMIT
+	req.tradeSide = OAModel.ProtoOATradeSide.BUY
+	req.symbolId = 41 # XAUUSD
+	req.limitPrice = 2700.34
+	req.volume = 100 # equals 0.01 lot
+	req.stopLoss = 2600.34
+	req.takeProfit = 2750.34
+	deferred = client.send(req)
+	deferred.addCallbacks(onNewOrderRes, onError)
+
+
 # get timeseries data
 import datetime as dt
 import pandas as pd
@@ -469,6 +491,7 @@ def main():
 		frm, to = from_date.timestamp(), to_date.timestamp()
 		reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.BID)
 		reqTicks(sym_id, frm, to, OAModel.ProtoOAQuoteType.ASK)
+
 
 # getting credentials programmatically
 # https://spotware.github.io/OpenApiPy/authentication/
