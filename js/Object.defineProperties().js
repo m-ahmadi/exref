@@ -1,8 +1,23 @@
-Object.defineProperties(obj, props)
+var obj = Object.defineProperties(obj, props={[prop]: Descriptor, ...})
 
-var obj = {};
+Descriptor = DataDescriptor | AccessorDescriptor
 
-Object.defineProperties(obj, {
+DataDescriptor = {
+	value:        undefined,
+	writable:     false,
+	configurable: false,
+	enumerable:   false,
+}
+
+AccessorDescriptor = {
+	get: function () {},
+	set: function (v) {},
+}
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// examples
+
+var obj = Object.defineProperties({}, {
 	'property1': {
 		value: true,
 		writable: true,
