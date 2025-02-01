@@ -30,3 +30,17 @@ new Date(2019,10,7').getDay()   // 4
 Date.UTC(2024,0,1)                     // 1704067200000
 new Date(Date.UTC(2024,0,1)).getTime() // 1704067200000  timestamp returned by <Date>.getTime() depends on how <Date> was created
 new Date(2024,0,1).getTime()           // 1704054600000  not utc
+
+// conversion pitfalls
+kk = ['FullYear','Month','Date','Hours','Minutes'];
+z = [2025,0,27,3,10];
+a = Date.UTC(...z); // 1737947400000  utc
+b = new Date(...z); // 1737934800000  local
+a === +b            // false
+// utc from local
+Date.UTC(...kk.map(k => b['get'+k]() ))      // 1737947400000  correct way
+Date.UTC(...kk.map(k => b['getUTC'+k]() ))   // 1737934800000  incorrect way
+// local from utc
+aa = new Date(a);
++new Date(...kk.map(k => aa['getUTC'+k]() )) // 1737934800000  correct way
++new Date(...kk.map(k => aa['get'+k]() ))    // 1737947400000  incorrect way
