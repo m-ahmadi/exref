@@ -1,0 +1,17 @@
+months by seasons
+
+
+better way to remember:
+
+jan feb mar	winter
+apr may jun	spring
+jul aug sep	summer
+oct nov dec	fall
+
+
+actual alignment:
+
+dec jan feb	winter
+mar apr may	spring
+jun jul aug	summer
+sep oct nov	fall
