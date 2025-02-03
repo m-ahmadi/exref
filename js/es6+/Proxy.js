@@ -1,18 +1,39 @@
-const target = {
-	message1: 'hello',
-	message2: 'everyone'
-};
-const handler1 = {};
-const proxy1 = new Proxy(target, handler1);
-proxy1.message1 // hello
-proxy1.message2 // everyone
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/Proxy
 
+var proxy = new Proxy(target={}, handler={
+	construct(target, argumentsList, newTarget) {},
+	apply(target, thisArg, argumentsList) {},
+	defineProperty(target, property, descriptor) {},
+	deleteProperty(target, property) {},
+	get(target, property, receiver) {},
+	getOwnPropertyDescriptor(target, property) {},
+	getPrototypeOf(target) {},
+	has(target, property) {},
+	isExtensible(target) {},
+	ownKeys(target) {},
+	preventExtensions(target) {},
+	set(target, property, value, receiver) {},
+	setPrototypeOf(target, prototype) {},
+})
 
-const handler2 = {
-	get: function (target, prop, receiver) {
-		return 'world';
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// examples
+
+var a = new Proxy({}, {
+	get: function (target, prop) {
+		console.log('the property', prop, 'been read');
+		return target[prop];
 	}
-};
-const proxy2 = new Proxy(target, handler2);
-proxy2.message1 // world
-proxy2.message2 // world
+});
+a.foo = 32;
+a.foo // 32    log: 'prop foo been read'
+
+
+var b = new Proxy({}, {
+	set: function (target, prop, val) {
+		target[prop] = val;
+		console.log('prop', prop, 'been set');
+	}
+});
+b.foo = 24; // log: 'prop foo been set'
+b.foo       // 24
