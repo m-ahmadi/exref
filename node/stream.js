@@ -192,7 +192,6 @@ var writeStream = fs.createWriteStream('b.txt');
 var rd = readline.createInterface({
 	input: fs.createReadStream('a.txt'),
 	output: process.stdout,
-	console: false,
 });
 rd.on('line', line => writeStream.write(line + (line.includes('77')?'\t###':'') + '\n'));
 rd.on('close', () => console.log('all done'));
