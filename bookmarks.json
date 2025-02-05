@@ -18070,9 +18070,20 @@
                   "type": "folder"
                 },
                 {
+                  "children": [
+                    {
+                      "name": "TradingView",
+                      "type": "url",
+                      "url": "https://www.tradingview.com/chart/"
+                    },
+                    {
+                      "name": "Pine Script",
+                      "type": "url",
+                      "url": "https://www.tradingview.com/pine-script-docs/primer/first-indicator/"
+                    }
+                  ],
                   "name": "TradingView",
-                  "type": "url",
-                  "url": "https://www.tradingview.com/chart/"
+                  "type": "folder"
                 },
                 {
                   "name": "JForex",
