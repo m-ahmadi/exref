@@ -1,0 +1,16 @@
+﻿                 return - risk-free return
+sharpe ratio = —————————————————————————————
+                         risk
+
+return           = portfolio return or investment ruturn in general
+risk-free return = e.g. 10% anual interest paid by banks or goverment
+risk             = risk involved with the "return". standard deviation of "return"
+
+
+example
+                0.12 - 0.05
+sharpe ratio = ————————————— = 0.7
+                    0.1
+	0.12	portfolio with expected return of 12%
+	0.1	standard deviation of portfolio's expected return
+	0.05	interest rate
