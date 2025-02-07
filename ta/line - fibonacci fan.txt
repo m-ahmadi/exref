@@ -1,1 +1,5 @@
 uses Fibonacci ratios to predict support and resistance levels.
+
+requires 2 points
+	point 1:	start of move
+	point 2:	end of move

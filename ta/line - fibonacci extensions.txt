@@ -1,4 +1,16 @@
-fibonacci extensions are used to determine profit targets. (eg: after a correction)
-extension levels:
+fibonacci extensions (aka projection, expansion) are used to
+	estimate how much price may go up again after a correction
+	determine profit targets
+
+extension levels are
 	possible areas where price may reverse.
 	based on fibonacci ratios.
+
+requires 3 points
+	point 1:	start of a move
+	point 2:	end of a move
+	point 3:	end of retracement (against the move)
+
+fibonacci extensions vs retracements
+	extensions	show where price will go following a retracement (measure of impulse waves in direction of trend)
+	retracements	indicate how deep a retracement could be         (measure of pullbacks within a trend)
