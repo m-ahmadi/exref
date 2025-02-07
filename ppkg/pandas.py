@@ -820,4 +820,4 @@ a.tolist() == b.tolist() == c.tolist() # True
 s.ewm(halflife=1.70951129129999999).mean() # almost equal to above
 
 # stats - moving average
-pd.Series([1,2,3,4,5,6,7,8]).rolling(5).mean() # [nan, nan, nan, nan, 3.0, 4.0, 5.0, 6.0]
+pd.Series([1,2,3,4,5,6,7,8]).rolling(window=5).mean() # [nan, nan, nan, nan, 3.0, 4.0, 5.0, 6.0]
