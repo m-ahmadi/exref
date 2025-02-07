@@ -86,6 +86,14 @@ np.linspace(1, 2, 5)             # [1, 1.25, 1.5, 1.75, 2]
 np.zeros(4)                      # [0., 0., 0., 0.]
 np.zeros_like([1,2,3,4])         # [0, 0, 0, 0]
 
+# where
+a = np.array([1,2,3,4,5,6])
+np.where(a<5, a, a*10)     # [1,2,3,4,50,60]
+np.where(a<5, a, -1)       # [1,2,3,4,-1,-1]
+np.where(a<5, a, False)    # [1,2,3,4,0,0]
+np.where(a<5, a, None)     # [1,2,3,4,None,None]
+np.where(a<5, True, False) # [True,True,True,True,False,False]
+
 # indexOf | findIndex | arr.filter().map(arr.indexOf.bind(arr))
 a = np.array([1,2,3,4])
 np.where(a == 3)[0]    # [2]
