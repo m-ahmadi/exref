@@ -18284,11 +18284,6 @@
                   "url": "https://github.com/newproplus/talib-web"
                 },
                 {
-                  "name": "py - ta",
-                  "type": "url",
-                  "url": "https://github.com/bukosabino/ta"
-                },
-                {
                   "name": "py - ta-lib",
                   "type": "url",
                   "url": "https://github.com/mrjbq7/ta-lib"
@@ -18297,6 +18292,11 @@
                   "name": "py - pandas-ta",
                   "type": "url",
                   "url": "https://github.com/twopirllc/pandas-ta"
+                },
+                {
+                  "name": "py - ta",
+                  "type": "url",
+                  "url": "https://github.com/bukosabino/ta"
                 },
                 {
                   "name": "py - stockstats",
@@ -18311,7 +18311,7 @@
                 {
                   "name": "ta-lib",
                   "type": "url",
-                  "url": "https://ta-lib.org/function.html"
+                  "url": "https://ta-lib.org/functions/"
                 },
                 {
                   "name": "mat",
