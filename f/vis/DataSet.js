@@ -25,8 +25,8 @@ nodes.get(1);
 nodes.get([1, 3, 4]);
 
 // get all
-nodes.get();						// returns an array
-nodes.get({returnType: "Object"});  // returns an object
+nodes.get();                       // returns an array
+nodes.get({returnType: "Object"}); // returns an object
 
 // Filtering:
 nodes.get({
