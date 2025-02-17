@@ -469,6 +469,32 @@ pd.concat([df1, df2], ignore_index=True) '''
 3  4  8
 '''
 
+# concat - df - y axis
+df1 = pd.DataFrame({'a':[1,2,3]})
+df2 = pd.DataFrame({'b':[4,5]})
+pd.concat([df1, df2], axis=1) '''
+   a    b
+0  1  4.0
+1  2  5.0
+2  3  NaN
+'''
+
+# concat - df - merge like
+# make index from union of indexes, then place all cols, or place na if col has no val at an index
+df1 = pd.DataFrame({'a':[1,2,3,4]}, index=[0,1,2,3])
+df2 = pd.DataFrame({'b':[6,5,4,3]}, index=[2,3,4,5])
+unique_idx = list(set([*df1.index, *df2.index]))
+df = pd.DataFrame(index=unique_idx)
+pd.concat([df, df1, df2], axis=1) '''
+     a    b
+0  1.0  NaN
+1  2.0  NaN
+2  3.0  6.0
+3  4.0  5.0
+4  NaN  4.0
+5  NaN  3.0
+'''
+
 # concat - series
 pd.concat({'a':pd.Series([1,2]), 'b':pd.Series([3,4])}) '''
 i    v
