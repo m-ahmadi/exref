@@ -451,17 +451,23 @@ df2 = pd.DataFrame([ [1],[2] ], columns=['a'])
 df1.to_dict('records') # [ {'a':1}, {'a':2} ]
 df2.to_dict('records') # ...
 
-# concat two dfs
-df1 = pd.DataFrame([ ['a','b'], [1,2], [3,4] ])
-df2 = pd.DataFrame([ ['a','b'], [5,6], [7,8] ])
-cat = pd.concat([df1, df2])
-cat # [ ['a','b'], [1,2], [3,4], ['a','b'], [5,6], [7,8] ]
-cat = pd.concat([df1, df2], ignore_index=True)
-
-df1 = pd.DataFrame({'a':[1,3],'b':[2,4]})
-df2 = pd.DataFrame({'a':[5,7],'b':[6,8]})
-cat = pd.concat([df1, df2], ignore_index=True)
-cat # { 'a':[1,3,5,7], 'b':[2,4,6,8] }
+# concat - df
+df1 = pd.DataFrame({'a':[1,2],'b':[5,6]})
+df2 = pd.DataFrame({'a':[3,4],'b':[7,8]})
+pd.concat([df1, df2]) '''
+   a  b
+0  1  5
+1  2  6
+0  3  7
+1  4  8
+'''
+pd.concat([df1, df2], ignore_index=True) '''
+   a  b
+0  1  5
+1  2  6
+2  3  7
+3  4  8
+'''
 
 # concat - series
 pd.concat({'a':pd.Series([1,2]), 'b':pd.Series([3,4])}) '''
