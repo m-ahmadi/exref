@@ -608,6 +608,11 @@ df2 = df.reindex([2,0,1,3])
 df  # {'a':[4,5,3]}
 df2 # {'a':[3,4,5,nan], 'index':[2,0,1,3]}
 
+# index - set_index
+df = pd.DataFrame({'a':[1,2,3],'b':[4,5,6]})
+df.set_index('b', inplace=True)
+df.equals(pd.DataFrame({'a':[1,2,3]}, index=[4,5,6])) # True
+
 # index - reindex - method of how to fill holes in new index (holes in orig index are untouched)
 idx1 = pd.date_range(start='2022/1/4', end='2022/1/6')
 idx2 = pd.date_range(start='2022/1/2', end='2022/1/8')
