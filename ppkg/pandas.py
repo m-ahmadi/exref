@@ -597,6 +597,21 @@ df1.join(df2, how='right') # { 'a':[1,2],     'b':[4,5]     }    other
 df2.join(df1)              # { 'b':[4,5],     'a':[1,2]     }    caller
 df2.join(df1, how='right') # { 'b':[4,5,NaN], 'a':[1,2,3]   }    other
 
+# join - join two dfs on combination of their indexes (with duplicates)
+# take both indexes and combine them, then put col value at each index (or na)
+df1 = pd.DataFrame({'a':[1,2]})
+df2 = pd.DataFrame({'b':[10,20,3,4]})
+df = pd.DataFrame(index=pd.Index([*df1.index, *df2.index]))
+df = df.join(df2).join(df3) '''
+     a   b
+0  1.0  10
+0  1.0  10
+1  2.0  20
+1  2.0  20
+2  NaN   3
+3  NaN   4
+'''
+
 # compare two dfs
 df1 = pd.DataFrame([[1,3,5],[2,4,6]])
 df2 = pd.DataFrame([[1,3,5],[2,7,8]])
