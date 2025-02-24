@@ -125,3 +125,24 @@ fs.writeFileSync('file.txt', 'Hello', 'utf8')
 fs.writeFileSync('file.txt', 'Hello', 'ascii')
 fs.writeFileSync('file.txt', 'Hello')                         // defaults to 'utf8'
 fs.writeFileSync('utf8bom.txt', '\ufeff'+'hello bom', 'utf8') // utf8 bom (prepend \ufeff to the string)
+
+
+
+// read part of file
+var {Buffer} = require('buffer');
+fs.writeFileSync('file.txt', 'hello world');
+var fd = fs.openSync('file.txt');
+var buf = Buffer.alloc(5);
+var fileSizeInBytes = fs.statSync('file.txt').size;
+var totalBytesRead = 0;
+var str = '';
+while (totalBytesRead < fileSizeInBytes) {
+	var bytesRead = fs.readSync(fd, buf);
+	totalBytesRead += bytesRead;
+	if (totalBytesRead === fileSizeInBytes) {
+		str += buf.toString('utf8', 0, bytesRead);
+	} else {
+		str += buf.toString();
+	}
+}
+str // 'hello world'

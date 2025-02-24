@@ -49,12 +49,13 @@ fs.mkdir(path=p1, ?options=int|{}, callback=c1)
 fs.mkdtemp(prefix='', ?options=''|{}, callback=(err,directory)=>)
 fs.open(path=p1, ?flags='r'|0, ?mode=''|int, callback=(err,fd=int)=>)
 fs.opendir(path=p1, ?options={}, callback=(err,dir)=>)
-fs.read(fd=int, buffer=Buffer|TypedArray|DataView, offset=int, length=int, position=int|bigint, callback=(err,bytesRead=int,buffer)=>)
-fs.read(fd=int, ?options={}, callback=(err,bytesRead=int,buffer)=>)
+fs.read(fd=int, buffer=Buffer|TypedArray|DataView, offset=int, length=int, position=null|int|bigint, callback=(err,bytesRead=int,buffer)=>)
+fs.read(fd=int, ?options={buffer,offset,length,position}, callback)
+fs.read(fd, ?buffer, ?options, callback)
 fs.readdir(path=p1, ?options=''|{}, callback=(err,files)=>)
 fs.readFile(path=p2, ?options='utf8'|{encoding:null|'', flag:'r', signal:AbortSignal}, callback=(err,data=''|Buffer)=>)
 fs.readlink(path=p1, ?options''|{}, callback=(err,linkString=''|Buffer)=>)
-fs.readv(fd=int, buffers=[ArrayBufferView,...], ?position=int, callback=(err,bytesRead=int,buffers)=>)
+fs.readv(fd=int, buffers=[ArrayBufferView,...], ?position=null|int, callback=(err,bytesRead=int,buffers)=>)
 fs.realpath(path=p1, ?options=''|{}, callback=(err,resolvedPath)=>)
 fs.realpath.native(path=p1, ?options=''|{}, callback=(err,resolvedPath)=>)
 fs.rename(oldPath=p1, newPath=p1, callback=c1)
@@ -77,12 +78,20 @@ fs.watchFile(filename=p1, ?options={
 	persistent: true,
 	interval:   5007
 }, listener=(current=Stats,previous=Stats)=>): fs.StatWatcher
-fs.write(fd=int, buffer=Buffer|TypedArray|DataView|''|{}, ?offset=int, ?length=int, ?position=int, callback=(err,bytesWritten=int,buffer)=>)
-fs.write(fd=int, string=''|{}, ?position=int, ?encoding='utf8', callback=(err,written=int,string='')=>)
+fs.write(fd=int, buffer=Buffer|TypedArray|DataView|''|{}, ?offset=int, ?length=int, ?position=null|int, callback=(err,bytesWritten=int,buffer)=>)
+fs.write(fd=int, string=''|{}, ?position=null|int, ?encoding='utf8', callback=(err,written=int,string='')=>)
 fs.writeFile(file=p2, data=''|Buffer|TypedArray|DataView|{}, ?options=''|{}, callback=c1)
-fs.writev(fd=int, buffers=[ArrayBufferView,...], ?position=int, callback=(err,bytesWritten=int,buffers)=>)
+fs.writev(fd=int, buffers=[ArrayBufferView,...], ?position=null|int, callback=(err,bytesWritten=int,buffers)=>)
 
 
 
 
 fs.readFileSync(path, ?options='utf8'|{encoding,flag}): ''|Buffer
+
+
+
+
+res = {bytesRead:int, buffer}
+fs.promises.read(buffer=Buffer|TypedArray|DataView, offset=int, length=int, position=null|int|bigint): res
+fs.promises.read(?options={buffer,offset,length,position}): res
+fs.promises.read(buffer, ?options): res
