@@ -62,10 +62,11 @@ s[0] = 'x'; // won't throw, but string won't change
 s // 'abcd'
 
 // max string length
-v8       = (Math.pow(2,29) - 24) / 1e6  // 536.870888  MB
-v8_32bit = (Math.pow(2,28) - 16) / 1e6  // 268.43544   MB
-firefox  = (Math.pow(2,30) - 2) / 1e6   // 1073.741822 MB
-safari   = (Math.pow(2,31) - 1) / 1e6   // 2147.483647 MB
+v8       = (Math.pow(2,29) - 24) / 1e6              // 536.870888  MB
+require('buffer').constants.MAX_STRING_LENGTH / 1e6 // ... (in node)
+v8_32bit = (Math.pow(2,28) - 16) / 1e6              // 268.43544   MB
+firefox  = (Math.pow(2,30) - 2) / 1e6               // 1073.741822 MB
+safari   = (Math.pow(2,31) - 1) / 1e6               // 2147.483647 MB
 var s = '1'.repeat(5.36870888e8) // ok
 var s = '1'.repeat(5.36870889e8) // Uncaught RangeError: Invalid string length
 

@@ -95,3 +95,27 @@ process.resourceUsage()
 	voluntaryContextSwitches: int,   // N/A in windows
 	involuntaryContextSwitches: int, // N/A in windows
 }
+
+
+
+// v8 heap size
+var v8 = require('v8');
+v8.getHeapStatistics()
+// https://nodejs.org/api/v8.html#v8getheapstatistics
+{
+  total_heap_size:             7352320,
+  total_heap_size_executable:  524288,
+  total_physical_size:         7352320,
+  total_available_size:        2192954248,
+  used_heap_size:              5753544,
+  heap_size_limit:             2197815296,
+  malloced_memory:             278576,
+  peak_malloced_memory:        587136,
+  does_zap_garbage:            0,
+  number_of_native_contexts:   1,
+  number_of_detached_contexts: 0,
+  total_global_handles_size:   8192,
+  used_global_handles_size:    4672,
+  external_memory:             2354646
+}
+v8.getHeapStatistics().heap_size_limit / (1024*1024) // 2096 MB
