@@ -5,6 +5,11 @@ Array.isArray([])   // true
 
 [] instanceof Array // true
 
+// max array size
+// 2^32-1 = 4_294_967_295 = 4.29 billion elements
+var maxLen = 2 ** 32 - 1;
+Array(4_294_967_295).fill('')
+
 //================================================
 // mutating
 var arr = [1,2,3];

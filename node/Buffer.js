@@ -101,6 +101,6 @@ Buffer.allocUnsafe(MAX_LENGTH + 1) // ERR_INVALID_OPT_VALUE
 var buffer = require('buffer');
 buffer.constants // not on the Buffer global or a Buffer instance.
 { 
-	MAX_LENGTH: 2147483647,
-	MAX_STRING_LENGTH: 268435440
+	MAX_LENGTH: 9007199254740991,
+	MAX_STRING_LENGTH: 536870888,
 }

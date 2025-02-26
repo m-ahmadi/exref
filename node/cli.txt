@@ -6,6 +6,9 @@ node -p "2+3"				run js string and print result
 node -p "console.log(path.sep)"		...
 node . -r fs -r path			preload module(s)
 node . --expose-gc			can call `gc()` in script
+
+set NODE_OPTIONS="--inspect-brk"	another way of passing options to node (which will persist in shell session)
+
 --------------------------------------------------------------------------------
 debugging
 
@@ -34,6 +37,13 @@ flags
 -c, --check			syntax check script without executing
 -i, --interactive		always enter the REPL even if stdin does not appear to be a terminal
 -r, --require			module to preload (option can be repeated)
+--huge-max-old-generation-size	increase default maximum heap size on machines with 16GB memory or more
+
+v8 flags
+
+--max-semi-space-size		max size of a semi-space in MB, the new space consists of two semi-spaces
+--max-old-space-size		max size of the old space in MB
+--max-heap-size			max size of the heap in MB. both `max_semi_space_size` and `max_old_space_size` take precedence. musn't set all 3 together
 --------------------------------------------------------------------------------
 version managers
 
