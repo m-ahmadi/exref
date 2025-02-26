@@ -1,24 +1,25 @@
-Object.assign(target, ...sources)           : target
-Object.create(proto, ?propertiesObject)     : obj
-Object.defineProperties(obj, props)         : obj
-Object.defineProperty(obj, prop, descriptor): obj
-Object.entries(obj)                         : Array<[key,val]> // own enumerable props
-Object.freeze(obj)                          : obj
-Object.fromEntries(iterable)                : obj              // reverse of Object.entries()
-Object.getOwnPropertyDescriptor(obj, prop)  : descriptor|undefined
-Object.getOwnPropertyDescriptors(obj)       : obj
-Object.getOwnPropertyNames(obj)             : ['','',...]
-Object.getOwnPropertySymbols(obj)           : [Symbol,Symbol,...]
-Object.getPrototypeOf(obj)                  : obj
-Object.is(value1, value2)                   : boolean
-Object.isExtensible(obj)                    : boolean
-Object.isFrozen(obj)                        : boolean
-Object.isSealed(obj)                        : boolean
-Object.keys(obj)                            : ['','',...]
-Object.preventExtensions(obj)               : obj
-Object.seal(obj)                            : obj
-Object.setPrototypeOf(obj, prototype)       : obj
-Object.values(obj)                          : [val,val...]
+Object.assign(target, ...sources)                : target
+Object.create(proto, ?propertiesObject)          : obj
+Object.defineProperties(obj, props)              : obj
+Object.defineProperty(obj, prop, descriptor)     : obj
+Object.entries(obj)                              : Array<[key,val]> // own enumerable props
+Object.freeze(obj)                               : obj
+Object.fromEntries(iterable)                     : obj              // reverse of Object.entries()
+Object.getOwnPropertyDescriptor(obj, prop)       : descriptor|undefined
+Object.getOwnPropertyDescriptors(obj)            : obj
+Object.getOwnPropertyNames(obj)                  : ['','',...]
+Object.getOwnPropertySymbols(obj)                : [Symbol,Symbol,...]
+Object.getPrototypeOf(obj)                       : obj
+Object.groupBy(iterable, callbackFn=(elem,idx)=>): obj
+Object.is(value1, value2)                        : boolean
+Object.isExtensible(obj)                         : boolean
+Object.isFrozen(obj)                             : boolean
+Object.isSealed(obj)                             : boolean
+Object.keys(obj)                                 : ['','',...]
+Object.preventExtensions(obj)                    : obj
+Object.seal(obj)                                 : obj
+Object.setPrototypeOf(obj, prototype)            : obj
+Object.values(obj)                               : [val,val...]
 
 
 Object.keys({a:'foo', b:7, c:true})   // ['a', 'b', 'c']
@@ -47,4 +48,3 @@ Object.is(NaN, NaN) // true
 Object.is(+0, -0)   // false
 NaN === NaN // false
 +0 === -0   // true
-
