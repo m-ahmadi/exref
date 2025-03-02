@@ -7,8 +7,8 @@ Array.isArray([])   // true
 
 // max array size
 // 2^32-1 = 4_294_967_295 = 4.29 billion elements
-var maxLen = 2 ** 32 - 1;
-Array(4_294_967_295).fill('')
+Array(2**32-1) // ok
+Array(2**32)   // RangeError: Invalid array length
 
 //================================================
 // mutating
