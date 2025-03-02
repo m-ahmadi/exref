@@ -27,6 +27,15 @@ obj = {'shotormorgh': 10}
 String.prototype.ourMethod = String.prototype.ourMethod || function() {};
 if (typeof String.prototype.ourMethod !== 'function') String.prototype.ourMethod = function(){};
 
+// max obj size
+Object.fromEntries(Array(112_813_858).entries()) // ok
+Object.fromEntries(Array(112_813_859).entries()) // RangeError: Invalid array length
+
+var o = {};
+for (let k=0; k<112_813_858; k++) o[k] = undefined; // ok
+var o = {};
+for (let k=0; k<112_813_859; k++) o[k] = undefined; // RangeError: Invalid array length
+
 
 // char limit of keys
 /* 
