@@ -15544,6 +15544,82 @@
                 {
                   "children": [
                     {
+                      "name": "modin",
+                      "type": "url",
+                      "url": "https://modin.readthedocs.io/en/stable/"
+                    },
+                    {
+                      "name": "dask",
+                      "type": "url",
+                      "url": "https://docs.dask.org/en/stable/api.html"
+                    },
+                    {
+                      "name": "numba",
+                      "type": "url",
+                      "url": "https://numba.readthedocs.io/en/stable/user/5minguide.html"
+                    },
+                    {
+                      "name": "bodo",
+                      "type": "url",
+                      "url": "https://docs.bodo.ai/latest/quick_start/quickstart_local_python/"
+                    },
+                    {
+                      "name": "ray",
+                      "type": "url",
+                      "url": "https://docs.ray.io/en/latest/"
+                    },
+                    {
+                      "name": "cython",
+                      "type": "url",
+                      "url": "https://docs.cython.org/en/stable/src/quickstart/cythonize.html"
+                    },
+                    {
+                      "name": "pyspark",
+                      "type": "url",
+                      "url": "https://spark.apache.org/docs/latest/api/python/getting_started/quickstart_df.html"
+                    },
+                    {
+                      "name": "koalas",
+                      "type": "url",
+                      "url": "https://koalas.readthedocs.io/en/latest/getting_started/10min.html"
+                    },
+                    {
+                      "name": "vaex",
+                      "type": "url",
+                      "url": "https://vaex.io/docs/"
+                    },
+                    {
+                      "name": "cylon",
+                      "type": "url",
+                      "url": "https://cylondata.org/docs/python"
+                    },
+                    {
+                      "name": "ibis",
+                      "type": "url",
+                      "url": "https://ibis-project.org/tutorials/ibis-for-pandas-users"
+                    },
+                    {
+                      "name": "pandarallel",
+                      "type": "url",
+                      "url": "https://nalepae.github.io/pandarallel/"
+                    },
+                    {
+                      "name": "swifter",
+                      "type": "url",
+                      "url": "https://github.com/jmcarpenter2/swifter"
+                    },
+                    {
+                      "name": "mapply",
+                      "type": "url",
+                      "url": "https://pypi.org/project/mapply/"
+                    }
+                  ],
+                  "name": "opt",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
                       "name": "pyinstaller",
                       "type": "url",
                       "url": "https://pyinstaller.readthedocs.io/en/stable/installation.html#installing-in-windows"
@@ -15602,19 +15678,9 @@
                       "url": "https://pandoc.org/MANUAL.html#using-pandoc"
                     },
                     {
-                      "name": "dask",
-                      "type": "url",
-                      "url": "https://docs.dask.org/en/stable/api.html"
-                    },
-                    {
                       "name": "pydantic",
                       "type": "url",
                       "url": "https://pydantic-docs.helpmanual.io/"
-                    },
-                    {
-                      "name": "numba",
-                      "type": "url",
-                      "url": "https://numba.readthedocs.io/en/stable/user/5minguide.html"
                     }
                   ],
                   "name": "misc",
