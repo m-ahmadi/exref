@@ -41,3 +41,7 @@ a.difference(b)             // {1} (node v22+)
 b.difference(a)             // {4} ...
 [...a].filter(i=>!b.has(i)) // [1]
 [...b].filter(i=>!a.has(i)) // [4]
+
+// set max size
+new Set(Array(2**24).keys())   // ok
+new Set(Array(2**24+1).keys()) // RangeError: Set maximum size exceeded
