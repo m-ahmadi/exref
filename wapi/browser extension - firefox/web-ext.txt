@@ -1,0 +1,3 @@
+npm i web-ext -g			install the cli
+
+cd folder && web-ext build		package extension into zip file (auto excludes uneeded files)

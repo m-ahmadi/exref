@@ -1,0 +1,14 @@
+https://extensionworkshop.com/documentation/publish/package-your-extension/
+https://extensionworkshop.com/documentation/publish/submitting-an-add-on/
+
+1. cd folder && web-ext build
+
+2. https://addons.mozilla.org/
+	2.1. sign-in (or sign-up)
+
+3. https://addons.mozilla.org/developers/
+	3.1. Submit Your First Add-on
+	3.2. On this site | On your own
+	3.3. Select a file...
+	3.4. Continue (2x)
+	3.5. Submit Version

@@ -6984,6 +6984,16 @@
                       "name": "manifest.json",
                       "type": "url",
                       "url": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json#list_of_manifest.json_keys"
+                    },
+                    {
+                      "name": "web-ext",
+                      "type": "url",
+                      "url": "https://github.com/mozilla/web-ext"
+                    },
+                    {
+                      "name": "web-ext - command reference",
+                      "type": "url",
+                      "url": "https://extensionworkshop.com/documentation/develop/web-ext-command-reference/"
                     }
                   ],
                   "name": "extension - firefox",
