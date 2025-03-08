@@ -29,7 +29,10 @@ new Date(2019,10,7').getDay()   // 4
 // get utc timestamp
 Date.UTC(2024,0,1)                     // 1704067200000
 new Date(Date.UTC(2024,0,1)).getTime() // 1704067200000  timestamp returned by <Date>.getTime() depends on how <Date> was created
-new Date(2024,0,1).getTime()           // 1704054600000  not utc
+new Date(2024,0,1).getTime()           // 1704054600000  not utc (local)
+
+var d = new Date(2024,0,1);
++d - d.getTimezoneOffset()*60*1000     // 1704067200000  utc (bad method cuz whether to add or subtract depends on timezone)
 
 // conversion pitfalls
 kk = ['FullYear','Month','Date','Hours','Minutes'];
