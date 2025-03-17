@@ -18132,6 +18132,16 @@
                       "url": "https://github.com/spotware/OpenApiPy"
                     },
                     {
+                      "name": "api - openapi - 3rd - node 1",
+                      "type": "url",
+                      "url": "https://github.com/amircp/cTrader-Layer"
+                    },
+                    {
+                      "name": "api - openapi - 3rd - node 2",
+                      "type": "url",
+                      "url": "https://www.npmjs.com/package/@reiryoku/ctrader-layer"
+                    },
+                    {
                       "name": "api - fix",
                       "type": "url",
                       "url": "https://help.ctrader.com/fix/"
