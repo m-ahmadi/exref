@@ -62,7 +62,7 @@ http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceDailyListCSV/:InsCode/:Pre
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceHistory/:InsCode/:DEven				ClosingPrice history (old ClosingPriceData)
 http://cdn.tsetmc.com/api/ClosingPrice/GetClosingPriceInfo/:InsCode					ClosingPriceInfo of today
 http://cdn.tsetmc.com/api/ClosingPrice/GetIndexCompany/							-
-http://cdn.tsetmc.com/api/ClosingPrice/GetInstrmentsHistoryInDay/					-
+http://cdn.tsetmc.com/api/ClosingPrice/GetInstrmentsHistoryInDay/:DEeven				price info of all instruments at specific day
 http://cdn.tsetmc.com/api/ClosingPrice/GetInstrumentCalendar/:InsCode					instrument calender
 http://cdn.tsetmc.com/api/ClosingPrice/GetMarketCap/							-
 http://cdn.tsetmc.com/api/ClosingPrice/GetMarketMap							-
@@ -103,8 +103,8 @@ http://cdn.tsetmc.com/api/Instrument/GetInstrumentInfo/:InsCode						InstrumentI
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentOptionByInstrumentID/					-
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentOptionMarketWatch					-
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentSearch/						-
-http://cdn.tsetmc.com/api/Instrument/GetInstrumentShareChange/						-
-http://cdn.tsetmc.com/api/Instrument/GetInstrumentShareChangeByFlow/					-
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentShareChange/:InsCode					share changes of one instrument
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentShareChangeByFlow/:Flow<int>/:Top<int>		share changes of all instruments of a market (:Top is mandatory but its value has no effect)
 
 http://cdn.tsetmc.com/api/Learning/GetLearningTopics							-
 
