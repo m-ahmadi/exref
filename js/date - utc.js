@@ -13,7 +13,7 @@ Date.UTC(2019, 10, 24)      // timestamp: 1574553600000
 Date.UTC(2019)              // when passed a single number, interprets it as year (and not timestamp)
 Date.UTC(1574553600000)     // ↑... NaN
 
-var date = new Date()
+var date = new Date();
 date.getUTCFullYear()       // year (4 digits for 4-digit years). 2016
 date.getUTCMonth()          // month index (0-11)
 date.getUTCDate()           // day of the month
@@ -23,8 +23,12 @@ date.getUTCMinutes()        // minutes (0-59)
 date.getUTCSeconds()        // seconds (0-59)
 date.getUTCMilliseconds()   // milliseconds (0-999)
 
-new Date(2019,10,7).getUTCDay() // 3
-new Date(2019,10,7').getDay()   // 4
+new Date(2019,10,7).getUTCDate() // 6
+new Date(2019,10,7').getDate()   // 7
+
+var d = new Date(2025,2,14,3,30);
+d.toLocaleString()                   // '14/03/2025, 03:30:00'
+d.toLocaleString(0,{timeZone:'utc'}) // '14/03/2025, 00:00:00'
 
 // get utc timestamp
 Date.UTC(2024,0,1)                     // 1704067200000
