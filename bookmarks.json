@@ -18132,14 +18132,29 @@
                       "url": "https://github.com/spotware/OpenApiPy"
                     },
                     {
-                      "name": "api - openapi - 3rd - node 1",
+                      "name": "api - openapi - 3rd - node a1",
+                      "type": "url",
+                      "url": "https://github.com/IridioCapital/cTrader-Layer"
+                    },
+                    {
+                      "name": "api - openapi - 3rd - node a2",
                       "type": "url",
                       "url": "https://github.com/amircp/cTrader-Layer"
                     },
                     {
-                      "name": "api - openapi - 3rd - node 2",
+                      "name": "api - openapi - 3rd - node a3",
                       "type": "url",
                       "url": "https://www.npmjs.com/package/@reiryoku/ctrader-layer"
+                    },
+                    {
+                      "name": "api - openapi - 3rd - node b1",
+                      "type": "url",
+                      "url": "https://github.com/IridioCapital/Mida"
+                    },
+                    {
+                      "name": "api - openapi - 3rd - node b2",
+                      "type": "url",
+                      "url": "https://github.com/venomdev/Mida"
                     },
                     {
                       "name": "api - fix",
