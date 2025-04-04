@@ -13,6 +13,13 @@ navigator.languages // ['en-US', 'en', ...]
 
 
 
+// exit script tag early
+throw 0;
+window.onerror=()=>(window.onerror=undefined,true); throw 0; // prevent showing the throw
+
+
+
+
 // detect when user refreshing or leaving
 window.addEventListener('beforeunload', function () {
 	return null|undefined // prompts the user
