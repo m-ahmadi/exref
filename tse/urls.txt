@@ -98,7 +98,7 @@ http://cdn.tsetmc.com/api/Index/GetInstEffect/								-
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentChartSymbolSearch/					-
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentFutureByCIsin/					-
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentHistory/:InsCode/:DEven				InstrumentHistory of specific day (old InstSimpleData)
-http://cdn.tsetmc.com/api/Instrument/GetInstrumentIdentity/						-
+http://cdn.tsetmc.com/api/Instrument/GetInstrumentIdentity/:InsCode					InstrumentIdentity
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentInfo/:InsCode						InstrumentInfo
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentOptionByInstrumentID/					-
 http://cdn.tsetmc.com/api/Instrument/GetInstrumentOptionMarketWatch					-
