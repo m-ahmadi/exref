@@ -127,7 +127,7 @@ function main() {
 			tradeSide: OAModel.ProtoOATradeSide.BUY,
 			symbolId: 41, // XAUUSD
 			limitPrice: 2700.34,
-			volume: 100, // equals 0.01 lot
+			volume: 100, // equals 0.01 lot (note: for EURUSD 100_000 equals 0.01 lot)
 			stopLoss: 2600.34,
 			takeProfit: 2750.34,
 		}
