@@ -134,3 +134,36 @@ function main() {
 	};
 	ws.send(JSON.stringify(clientMsg));
 }
+
+
+// place order - relative sl,tp
+function calcRelativePriceUnit(price, pipDistance) {
+	const decimalCount = price.toString().split('.').at(-1).length;
+	const pip = +('0.' + '1'.padStart(decimalCount, '0'));
+	const pipDelta = pipDistance * pip;
+	const targetPrice = price - pipDelta;
+	const priceDelta = price - targetPrice;
+	const relativeUnit = Math.floor(priceDelta * 100_000);
+	return relativeUnit;
+}
+function onResp(message) {
+	if (message.payloadType !== payloadTypes.PROTO_OA_EXECUTION_EVENT) return;
+	console.log(message.payload);
+}
+function main() {
+	var order = {
+		orderType: OAModel.ProtoOAOrderType.LIMIT,
+		tradeSide: OAModel.ProtoOATradeSide.BUY,
+		symbolId: 41, // XAUUSD
+		limitPrice: 3327.45,
+		volume: 100,
+	};
+	order.relativeStopLoss = calcRelativePriceUnit(order.limitPrice, 200);
+	order.relativeTakeProfit = calcRelativePriceUnit(order.limitPrice, 350);
+	var clientMsg = {
+		clientMsgId: uid(),
+		payloadType: payloadTypes.PROTO_OA_NEW_ORDER_REQ,
+		payload: {ctidTraderAccountId, accessToken, ...order}
+	};
+	ws.send(JSON.stringify(clientMsg));
+}
