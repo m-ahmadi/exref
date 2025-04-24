@@ -18297,6 +18297,11 @@
                   "name": "fastforex",
                   "type": "url",
                   "url": "https://www.fastforex.io/"
+                },
+                {
+                  "name": "kibot",
+                  "type": "url",
+                  "url": "https://www.kibot.com/"
                 }
               ],
               "name": "data",
