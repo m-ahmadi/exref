@@ -17,3 +17,8 @@ viewing angle		great	avg	great	great
 price			low	low	avg	high
 
 --------------------------------------------------------------------------------
+in phones
+
+best to worst:		AMOLED, IPS, TFT
+
+--------------------------------------------------------------------------------
