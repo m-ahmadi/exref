@@ -56,6 +56,11 @@ for lineage os 16
 post:	https://theupgradeguide.com/install-android-9-0-on-xiaomi-mi-4i-lineageos-16-how-to-guide/
 files:	https://sourceforge.net/projects/rfdforce/files/ferrari/
 ==============================
+for resurrection remix 5.8.3
+post:	https://xdaforums.com/t/rom-official-7-1-2-ferrari-resurrectionremix-5-8-x.3517378/
+files:	https://androidfilehost.com/?fid=529152257862727477		firmware-lp-6.6.10.0.zip
+	https://androidfilehost.com/?fid=457095661767154245		RR-N-v5.8.3-20170416-ferrari.zip
+==============================
 
 --------------------------------------------------------------------------------
 4.2. get flashable files - gapps
@@ -86,6 +91,11 @@ adb push open_gapps-arm64-8.0-pico-20220215.zip /sdcard
 ==============================
 for lineage os 16
 adb push lineage-16.0-20190330-UNOFFICIAL-ferrari.zip /sdcard
+adb push open_gapps-arm64-9.0-pico-20220215.zip /sdcard
+==============================
+for resurrection remix 5.8.3
+adb push firmware-lp-6.6.10.0 /sdcard
+adb push RR-N-v5.8.3-20170416-ferrari /sdcard
 adb push open_gapps-arm64-9.0-pico-20220215.zip /sdcard
 ==============================
 
