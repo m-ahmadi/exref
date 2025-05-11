@@ -1,9 +1,9 @@
-forex market:
+﻿forex market:
 	world's largest and most liquid financial market
 	highly decentralized and fragmented
 	trading is done through a network of banks, financial institutions, and online platforms, not a centralized exchange
 	lacks a centralized source of trading data and pricing information (nature of otc markets)
-	two trading venues can have differet data for prices, trading volumes, market depth data and historical data.
+	two trading venues can have different data for prices, trading volumes, market depth data and historical data.
 
 broker:		company providing the platform to buy and sell things
 account:	broker's trading account
@@ -90,7 +90,7 @@ pip:
 pipette:
 	tenth of a pip
 	1 pipette = pip / 10
-	some brokers quote currency pairs beyound standard 4 and 2 decimal places to 5 and 3
+	some brokers quote currency pairs beyond standard 4 and 2 decimal places to 5 and 3
 	in other word, they are quoting "fractional pips", aka "points" or "pipettes"
 
 pip value:
