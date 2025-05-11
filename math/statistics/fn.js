@@ -868,9 +868,7 @@ function ewmstd(x=[], period=2) {/*formal init values*/
 	
 	return emsd;
 }
-
-// exponentially weighted standard deviation (from stdlib)
-function increwstdev(alpha) {
+function ewmstdIncr(alpha) {/*formal init values - alt code (from stdlib)*/
 	if (alpha < 0 || alpha > 1) throw new Error('alpha must be nonnegative number in [0,1] range');
 	
 	let incr;
@@ -890,17 +888,19 @@ function increwstdev(alpha) {
 			r = x - m;
 			incr = alpha * r;
 			m += incr;
-			s2 = c * ( s2 + (r*incr) );
+			s2 = c * (s2 + (r*incr));
 		}
 		
 		s = Math.sqrt(s2);
 		
 		return s;
 	};
+	/* usage:
+	var alpha = 2 / (5 + 1); // smoothing factor
+	var accumulator = ewmstdIncr(alpha);
+	[...Array(9).keys()].slice(1).map(accumulator);
+	*/
 }
-/* var alpha = 2 / (5 + 1); // smoothing factor
-var accumulator = increwstdev(alpha);
-[...Array(9).keys()].slice(1).map(accumulator); */
 
 function rsi(prices=[], period=14, decimals=2) {
 	if (prices.length - 1 < period) return [];
