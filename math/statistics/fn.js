@@ -210,6 +210,57 @@ function percentile(_nums=[], n=0, exclusive=false) {
 function stdv(nums=[]) {
 	return Math.sqrt( variance(nums) );
 }
+function stdvIncr(mean) {/*from stdlib*/
+	let delta;
+	let mu;
+	let M2;
+	let N;
+	
+	M2 = 0;
+	N = 0;
+	if (arguments.length) {
+		if (typeof mean !== 'number') {
+			throw new TypeError('invalid argument. Must provide a number. Value: `%s`.', mean);
+		}
+		mu = mean;
+		return accumulator2;
+	}
+	mu = 0;
+	return accumulator1;
+	
+	function accumulator1(x) {
+		if (arguments.length === 0) {
+			if (N === 0) return undefined;
+			if (N === 1) return Number.isNaN(M2) ? NaN : 0;
+			return Math.sqrt(M2 / (N-1));
+		}
+		N += 1;
+		delta = x - mu;
+		mu += delta / N;
+		M2 += delta * (x - mu);
+		if (N < 2) return Number.isNaN(M2) ? NaN : 0;
+		return Math.sqrt(M2 / (N-1));
+	}
+	
+	function accumulator2(x) {
+		if (arguments.length === 0) {
+			if (N === 0) return undefined;
+			return Math.sqrt(M2 / N);
+		}
+		N += 1;
+		delta = x - mu;
+		M2 += delta * delta;
+		return Math.sqrt(M2 / N);
+	}
+	/*
+	accumulator()     returns updated corrected sample standard deviation
+	accumulator(n)    returns current corrected sample standard deviation
+	usage:
+	var x = [1,2,3,4,5,6,7,8,9]
+	var f = stdvIncr();
+	stdv(x) === x.map(f).at(-1); // true
+	*/
+}
 
 function variance(x=[]) {
 	let u = mean(x);
