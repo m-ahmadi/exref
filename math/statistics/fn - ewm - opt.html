@@ -1,0 +1,362 @@
+<h1>Look at Console</h1>
+<script src="./fn.js"></script>
+<script>
+log = console.log;
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// equality evaluation
+equal = (a,b) => a.every((v,i) => v.every((y,j) => [y,b[i][j]].every(Number.isNaN) ? true : y === b[i][j]));
+runChecks = (...a) => {
+	log('ewm_naive() == ewmOpt4()', equal(ewm_naive(...a), ewmOpt4(...a)));
+	log('ewmOpt4()   == ewmOpt3()', equal(ewmOpt4(...a), ewmOpt3(...a)));
+	log('ewmOpt3()   == ewmOpt2()', equal(ewmOpt3(...a), ewmOpt2(...a)));
+	log('ewmOpt2()   == ewmOpt1()', equal(ewmOpt2(...a), ewmOpt1(...a)));
+};
+
+x = [...Array(1000)].map(randn);
+log('equality evaluation');
+log('');
+
+adj = false;
+log(`equality - adj=${adj}`);
+runChecks(x,5,adj);
+
+log('');
+
+adj = true;
+log(`equality - adj=${adj}`);
+runChecks(x,5,adj);
+
+log('');
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// performance evaluation
+perf = (nRuns,fn,...args) => +(mean(
+	[...Array(nRuns)].map(t => (t=performance.now(), fn(...args), performance.now()-t))
+)/1e3).toFixed(2);
+
+[p,adj] = [100,true];
+log(`performance evualuation (times are in seconds), period=${p} adj=${true}`);
+log('');
+
+[nItems, nr] = [2_000, 2];
+x = [...Array(nItems)].map(randn);
+a = [x,p,adj];
+log(`${nItems.toLocaleString()} items, runs=${nr})
+ewm_naive    ${ perf(nr, ewm_naive, ...a) }
+ewmOpt4      ${ perf(nr, ewmOpt4, ...a) }
+ewmOpt3      ${ perf(nr, ewmOpt3, ...a) }
+ewmOpt2      ${ perf(nr, ewmOpt2, ...a) }
+ewmOpt1      ${ perf(nr, ewmOpt1, ...a) }
+`);
+
+log('');
+
+[nItems, nr] = [10_000, 1];
+x = [...Array(nItems)].map(randn);
+a = [x,p,adj];
+log(`${nItems.toLocaleString()} items, runs=${nr})
+ewm_naive    ${ perf(nr, ewm_naive, ...a) }
+ewmOpt4      ${ perf(nr, ewmOpt4, ...a) }
+ewmOpt3      ${ perf(nr, ewmOpt3, ...a) }
+ewmOpt2      ${ perf(nr, ewmOpt2, ...a) }
+ewmOpt1      ${ perf(nr, ewmOpt1, ...a) }
+`);
+
+log('');
+
+if (confirm('Run perf with large number of items?')) {
+	[nItems, nr] = [100_000, 1];
+	x = [...Array(nItems)];
+	a = [x,p,adj];
+	log(`${nItems.toLocaleString()} items, runs=${nr}`);
+	log(`ewm_naive    not included`);
+	log(`ewmOpt4      not included`);
+	log(`ewmOpt3      ${ perf(nr, ewmOpt3, ...a) }`); // 117
+	log(`ewmOpt2      ${ perf(nr, ewmOpt2, ...a) }`); // 107
+	log(`ewmOpt1      ${ perf(nr, ewmOpt1, ...a) }`); // 32
+}
+
+throw 0; // exit script early
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// opt study
+x = cumsum([...Array(100)].map(randn)).map(i=>+i.toFixed(4));
+ws = getWeights(x);
+
+// proof that at least adjust=true can be optimized
+ws.map((_,j) => new Set(ws.map(a=>a.at(-(j+1))).filter(i=>i!==undefined)) ).every(i=>i.size===1); // true
+
+// dynamic weights
+// proof that cannot opt beyond ewmOpt1() (at least with this formula)
+// sum(weights) at same position is different at each index
+ws.map(a => sum(a.slice(0,2))).slice(0,4); // [1, 1.6666666666666667, 1.1111111111111112, 0.7407407407407409]
+
+function getWeights(nums=[], span=5, adjust=true) {
+	const r = [];
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	for (let i=0,len=nums.length; i<len; i++) {
+		const ws = [];
+		let wSum = 0;
+		for (let j=i; j>-1; j--) {
+			let w;
+			if (adjust) {
+				w = ar**j;
+			} else {
+				w = j<i ? a*ar**j : ar**j;
+			}
+			wSum += w;
+			ws.push(w);
+		}
+		r.push(ws);
+	}
+	return r;
+}
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// opt dev
+
+function ewmOpt1(nums=[], span=2, adjust=true) {
+	const means = [];
+	const vars = [];
+	const stds = [];
+	
+	const a = 2 / (span + 1); // alpha
+	const ar = 1 - a; // reciprocal of alpha
+	const len = nums.length;
+	
+	const wInv = []; // weights inversed
+	
+	for (let i=0; i<len; i++) {
+		wInv.push(adjust ? ar**i : a*ar**i);
+		
+		let wSum = 0;
+		let sumVecMul = 0;
+		let wSqrdSum = 0;
+		for (let j=0; j<=i; j++) {
+			let weight = wInv[i-j];
+			if (!adjust && j===0) weight = ar ** i;
+			wSum += weight;
+			sumVecMul += weight * nums[j];
+			wSqrdSum += weight ** 2;
+		}
+		
+		const wSumSqr = wSum ** 2;
+		const ewma = sumVecMul / wSum; // exponentially weighted mean
+		const bias = wSumSqr / (wSumSqr - wSqrdSum); // bias
+		
+		let sumVecMul2 = 0;
+		for (let j=0; j<=i; j++) {
+			let weight = wInv[i-j];
+			if (!adjust && j===0) weight = ar ** i;
+			sumVecMul2 += weight * ((nums[j] - ewma) ** 2) / wSum;
+		}
+		
+		const ewmvar = bias * sumVecMul2; // exponentially weighted variance
+		const ewmstd = Math.sqrt(ewmvar); // exponentially weighted standard deviation
+		
+		means.push(ewma);
+		vars.push(ewmvar);
+		stds.push(ewmstd);
+	}
+	
+	return [means, vars, stds];
+}
+
+function ewmOpt2(nums=[], span=2, adjust=true) {
+	const means = [];
+	const vars = [];
+	const stds = [];
+	
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	const len = nums.length;
+	const len1 = len -1 ;
+	
+	const w = [];
+	if (adjust) {
+		for (let i=len1; i>=0; i--) w.push(ar ** i);
+	} else {
+		for (let i=len1; i>=0; i--) w.push(a * ar ** i);
+	}
+	
+	for (let i=0; i<len; i++) {
+		const weights = [];
+		for (let j=len1-i; j<=len1; j++) weights.push(w[j]);
+		
+		if (!adjust) weights[0] = ar ** i;
+		
+		let wSum = 0;
+		let sumVecMul = 0;
+		let wSqrdSum = 0;
+		for (let j=0; j<=i; j++) {
+			wSum += weights[j];
+			sumVecMul += weights[j] * nums[j];
+			wSqrdSum += weights[j] ** 2;
+		}
+		
+		const wSumSqr = wSum ** 2;
+		const ewma = sumVecMul / wSum;
+		const bias = wSumSqr / (wSumSqr - wSqrdSum);
+		
+		let sumVecMul2 = 0;
+		for (let j=0; j<=i; j++) sumVecMul2 += weights[j] * ((nums[j] - ewma) ** 2) / wSum;
+		
+		const ewmvar = bias * sumVecMul2;
+		const ewmstd = Math.sqrt(ewmvar);
+		
+		means.push(ewma);
+		vars.push(ewmvar);
+		stds.push(ewmstd);
+	}
+	
+	return [means, vars, stds];
+}
+
+function ewmOpt3(nums=[], span=2, adjust=true) {
+	const means = [];
+	const vars = [];
+	const stds = [];
+	
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	const len = nums.length;
+	const len1 = len -1 ;
+	
+	const w = [];
+	if (adjust) {
+		for (let i=len1; i>=0; i--) w.push(ar ** i);
+	//for (let i=0; i<len; i++) w.push(ar ** (len1-i)); // same thing
+	} else {
+		for (let i=len1; i>=0; i--) w.push(a * ar ** i);
+	//for (let i=0; i<len; i++) w.push(a * ar ** (len1-i)); // same thing
+	}
+	
+	for (let i=0; i<len; i++) {
+		
+		const weights = [];
+		for (let j=len1-i; j<=len1; j++) weights.push(w[j]);
+		
+		if (!adjust) weights[0] = ar ** i;
+		
+		let wSum = 0;
+		for (let j=0; j<=i; j++) wSum += weights[j];
+		const wSumSqr = wSum ** 2;
+		
+		let sumVecMul = 0;
+		for (let j=0; j<=i; j++) sumVecMul += weights[j] * nums[j];
+		const ewma = sumVecMul / wSum;
+		
+		let wSqrdSum = 0;
+		for (let j=0; j<=i; j++) wSqrdSum += weights[j] ** 2;
+		const bias = wSumSqr / (wSumSqr - wSqrdSum);
+		
+		sumVecMul = 0;
+		for (let j=0; j<=i; j++) sumVecMul += weights[j] * ((nums[j] - ewma) ** 2) / wSum;
+		
+		const ewmvar = bias * sumVecMul;
+		const ewmstd = Math.sqrt(ewmvar);
+		
+		means.push(ewma);
+		vars.push(ewmvar);
+		stds.push(ewmstd);
+	}
+	
+	return [means, vars, stds];
+}
+
+function ewmOpt4(nums=[], span=2, adjust=true) {
+	const means = [];
+	const vars = [];
+	const stds = [];
+	
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	
+	for (let i=0,len=nums.length; i<len; i++) {
+		const z = nums.slice(0, i+1);
+		const n = z.length;
+		
+		const w = [];
+		let wSum = 0;
+		
+		if (adjust) {
+			for (let i=n-1; i>-1; i--) {
+				const wi = ar ** i;
+				wSum += wi;
+				w.push(wi);
+			}
+		} else {
+			for (let j=n-1; j>-1; j--) {
+				const wi = j<i ? a*ar**j : ar**j;
+				wSum += wi;
+				w.push(wi);
+			}
+		}
+		
+		const wSumSqr = wSum ** 2;
+		
+		let sumVecMul = 0;
+		for (let i=0,len=w.length; i<len; i++) sumVecMul += w[i] * z[i];
+		const ewma = sumVecMul / wSum;
+		
+		let wSqrdSum = 0;
+		for (let i=0,len=w.length; i<len; i++) wSqrdSum += w[i] ** 2;
+		const bias = wSumSqr / (wSumSqr - wSqrdSum);
+		
+		sumVecMul = 0;
+		for (let i=0,len=w.length; i<len; i++) sumVecMul += w[i] * ((z[i] - ewma) ** 2) / wSum;
+		
+		const ewmvar = bias * sumVecMul;
+		const ewmstd = Math.sqrt(ewmvar);
+		
+		means.push(ewma);
+		vars.push(ewmvar);
+		stds.push(ewmstd);
+	}
+	
+	return [means, vars, stds];
+}
+
+function ewm_naive(nums=[], span=2, adjust=true) {
+	let means = [];
+	let vars = [];
+	let stds = [];
+	
+	let a = 2 / (span + 1);
+	
+	nums.forEach((num, j) => {
+		let z = nums.slice(0, j+1);
+		let n = z.length;
+		
+		let w = [];
+		if (adjust) {
+			for (let i=n-1; i>-1; i--) w.push((1-a) ** i);
+		} else {
+			for (let i=n-1; i>-1; i--) w.push(i<j ? a*(1-a)**i : (1-a)**i);
+		}
+		
+		let wSum = sum(w);
+		let wSumsqr = wSum ** 2;
+		
+		// exponentially weighted mean
+		let ewma = sum(vecMul(w,z)) / wSum;
+		
+		// bias
+		let bias = wSumsqr / ( wSumsqr - sum(w.map(sqr)) );
+		
+		// exponentially weighted variance
+		let ewmvar = bias * sum(  vecMul(w, z.map(i=> (i-ewma)**2)).map(i=> i/wSum)  );
+		
+		// exponentially weighted standard deviation
+		let ewmstd = Math.sqrt(ewmvar);
+		
+		means.push(ewma);
+		vars.push(ewmvar);
+		stds.push(ewmstd);
+	});
+	
+	return [means, vars, stds];
+}
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+</script>

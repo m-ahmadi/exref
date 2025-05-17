@@ -812,44 +812,48 @@ function ema_formal(nums=[], alpha=1) {/*alt init*/
 	return S;
 }
 function ewm(nums=[], span=2, adjust=true) {/*pandas*/
-	let means = [];
-	let vars = [];
-	let stds = [];
+	const r = {mean: [], var: [], std: []};
 	
-	let a = 2 / (span + 1);
+	const a = 2 / (span + 1); // alpha
+	const ar = 1 - a; // reciprocal of alpha
+	const len = nums.length;
 	
-	nums.forEach((num, j) => {
-		let z = nums.slice(0, j+1);
-		let n = z.length;
+	const wInv = []; // weights inversed
+	
+	for (let i=0; i<len; i++) {
+		wInv.push(adjust ? ar**i : a*ar**i);
 		
-		let w = [];
-		if (adjust) {
-			for (let i=n-1; i>-1; i--) w.push((1-a) ** i);
-		} else {
-			for (let i=n-1; i>-1; i--) w.push(i<j ? a*(1-a)**i : (1-a)**i);
+		let wSum = 0;
+		let sumVecMul = 0;
+		let wSqrdSum = 0;
+		for (let j=0; j<=i; j++) {
+			let weight = wInv[i-j];
+			if (!adjust && j===0) weight = ar ** i;
+			wSum += weight;
+			sumVecMul += weight * nums[j];
+			wSqrdSum += weight ** 2;
 		}
 		
-		let wSum = sum(w);
-		let wSumsqr = wSum ** 2;
+		const wSumSqr = wSum ** 2;
+		const ewma = sumVecMul / wSum; // exponentially weighted mean
+		const bias = wSumSqr / (wSumSqr - wSqrdSum); // bias
 		
-		// exponentially weighted mean
-		let ewma = sum(vecMul(w,z)) / wSum;
+		let sumVecMul2 = 0;
+		for (let j=0; j<=i; j++) {
+			let weight = wInv[i-j];
+			if (!adjust && j===0) weight = ar ** i;
+			sumVecMul2 += weight * ((nums[j] - ewma) ** 2) / wSum;
+		}
 		
-		// bias
-		let bias = wSumsqr / ( wSumsqr - sum(w.map(sqr)) );
+		const ewmvar = bias * sumVecMul2; // exponentially weighted variance
+		const ewmstd = Math.sqrt(ewmvar); // exponentially weighted standard deviation
 		
-		// exponentially weighted variance
-		let ewmvar = bias * sum(  vecMul(w, z.map(i=> (i-ewma)**2)).map(i=> i/wSum)  );
-		
-		// exponentially weighted standard deviation
-		let ewmstd = Math.sqrt(ewmvar);
-		
-		means.push(ewma);
-		vars.push(ewmvar);
-		stds.push(ewmstd);
-	});
+		r.mean.push(ewma);
+		r.var.push(ewmvar);
+		r.std.push(ewmstd);
+	}
 	
-	return [means, vars, stds];
+	return r;
 }
 function ewmstd(x=[], period=2) {/*formal init values*/
 	let ema   = [ x[0] ];

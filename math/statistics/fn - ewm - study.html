@@ -1,0 +1,49 @@
+<h1>Look at Console</h1>
+<script src="./fn.js"></script>
+<script>
+log = console.log;
+sumErr = (a,b) => sum(a.map((v,i)=>Math.abs(v-b[i])) );
+perf = (fn,t) => (t=performance.now(), fn(), Math.round(performance.now()-t));
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// equality
+
+nItems = 10_000;
+period = 5;
+log(`equality - ${nItems.toLocaleString()} items, period=${period}`);
+
+x = cumsum([...Array(nItems)].map(randn));
+period = 5;
+a = ewm(x,period,false).std.filter(Number.isFinite);
+b = ewmstd(x,period).filter(Number.isFinite);
+cf = ewmstd_incr(2/(period+1));
+c = x.map(cf).slice(1);
+
+log('sumErr(ewm,ewmstd)', sumErr(a,b));        // 119.19239104464184
+log('sumErr(ewmstd,ewmstd_incr)',sumErr(b,c)); // 2.403632848313464e-14
+
+log('');
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// perf
+
+nItems = 20_000;
+period = 100;
+log(`perf (time in milliseconds) - ${nItems.toLocaleString()} items, period=${period}`);
+
+x = cumsum([...Array(nItems)].map(randn));
+f = ewmstd_incr(2/(period+1));
+log('perf(ewmstd)', perf(()=>ewmstd(x,period))); // 1
+log('perf(ewmstd_incr)', perf(()=>x.map(f)));    // 4
+log('perf(ewm)', perf(()=>ewm(x,period)));       // 1598
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+/* conclusion
+
+faster      slower
+ewmstd() == ewmstd_incr()
+
+slowest
+ewm() does something different
+
+*/
+</script>
