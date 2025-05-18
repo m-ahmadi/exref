@@ -210,6 +210,70 @@ function percentile(_nums=[], n=0, exclusive=false) {
 function stdv(nums=[]) {
 	return Math.sqrt( variance(nums) );
 }
+function stdvIncrPartial(state={}) {
+	let { delta, mu=0, M2=0, N=0 } = state;
+	
+	return function (n, getState) {
+		if (n === undefined) {
+			if (N === 0) return undefined;
+			if (N === 1) return Number.isNaN(M2) ? NaN : 0;
+			if (getState === true) return {delta, mu, M2, N};
+			return Math.sqrt(M2 / N);
+		}
+		N += 1;
+		delta = n - mu;
+		mu += delta / N;
+		M2 += delta * (n - mu);
+		if (N < 2) return Number.isNaN(M2) ? NaN : 0;
+		return Math.sqrt(M2 / N);
+	};
+	/* usage:
+	var x = [1,2,3,4,5,6,7,8,9];
+	var f = stdvIncrPartial();
+	x.map(f).at(-1) === stdv(x); // true
+	
+	var x = [...Array(1_000)].map(randn);
+	var f = stdvIncrPartial();
+	Math.abs(x.map(f).at(-1) - stdv(x)); // 2.220446049250313e-16
+	
+	usage with state:
+	var nItems = 100;
+	var xAll = [...Array(nItems)].map(randn);
+	var x1 = xAll.slice(0,nItems*0.8);
+	var x2 = xAll.slice(-(nItems*0.2));
+	dequal([...x1, ...x2], xAll); // true
+	var f;
+	f = stdvIncrPartial();
+	var p1 = x1.map(f);
+	var state = f(undefined,true);
+	f = stdvIncrPartial(state);
+	var p2 = x2.map(f);
+	f = stdvIncrPartial();
+	var all = xAll.map(f);
+	var all2 = [...p1, ...p2];
+	dequal(all2, all); // true
+	
+	partial vs normal perf:
+	var nItems = 1_000_000;
+	var xAll = [...Array(nItems)].map(randn);
+	var x1 = xAll.slice(0,nItems*0.8);
+	var x2 = xAll.slice(-(nItems*0.2));
+	console.time('partial');
+	var f;
+	f = stdvIncrPartial();
+	var p1 = x1.map(f).at(-1);
+	var state = f(undefined,true);
+	f = stdvIncrPartial(state);
+	var p2 = x2.map(f).at(-1);
+	console.timeEnd('partial');
+	console.time('normal');
+	var r1 = stdv(x1);
+	var r2 = stdv(xAll);
+	console.timeEnd('normal');
+	partial:  89 ms
+	normal:  196 ms
+	*/
+}
 
 function variance(x=[]) {
 	let u = mean(x);
