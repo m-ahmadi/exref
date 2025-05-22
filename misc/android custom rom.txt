@@ -61,6 +61,16 @@ post:	https://xdaforums.com/t/rom-official-7-1-2-ferrari-resurrectionremix-5-8-x
 files:	https://androidfilehost.com/?fid=529152257862727477		firmware-lp-6.6.10.0.zip
 	https://androidfilehost.com/?fid=457095661767154245		RR-N-v5.8.3-20170416-ferrari.zip
 ==============================
+for stock android
+src:	https://xiaomirom.com/en/rom/mi-4i-ferrari-global-fastboot-recovery-rom/	note: to flash using twrp, get "recovery" roms, not "fastboot"
+files:	miui_MI4iGlobal_V9.2.3.0.LXIMIEK_10478f16c8_5.0.zip		stable		worked - 5star
+	miui_MI4iGlobal_V7.5.2.0.LXIMIDE_e0545b6fba_5.0.zip		stable		worked - 4star
+	miui_MI4iGlobal_V6.6.6.0.LXIMICF_5418130c06_5.0.zip		stable		worked - NA
+	miui_FERRARIGlobal_V6.5.3.0.LXIMICD_68100d2f21_5.0.zip		stable		worked - 1star
+	miui_MI4iGlobal_5.6.25_a26ac11a64_5.0.zip			weekly/beta	worked - 5star
+	miui_MI4iGlobal_5.7.3_535b5eb3a6_5.0.zip			weekly/beta	worked - NA
+	ferrari_global_images_7.11.6_20171106.0000.00_5.0_global_79520a79f0.tgz		did not work: twrp won't recognize .tgz files
+==============================
 
 --------------------------------------------------------------------------------
 4.2. get flashable files - gapps
@@ -97,6 +107,9 @@ for resurrection remix 5.8.3
 adb push firmware-lp-6.6.10.0 /sdcard
 adb push RR-N-v5.8.3-20170416-ferrari /sdcard
 adb push open_gapps-arm64-9.0-pico-20220215.zip /sdcard
+==============================
+for stock rom
+adb push miui_MI4iGlobal_V9.2.3.0.LXIMIEK_10478f16c8_5.0.zip /sdcard
 ==============================
 
 --------------------------------------------------------------------------------
