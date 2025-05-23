@@ -1,0 +1,118 @@
+0. enable usb debugging on phone
+	Settings -> About -> Build number (x7)
+	Settings -> Developer options -> USB Debugging
+
+1. getting oem unlock code
+	1. dial *#*#2846579#*#* on phone
+		1.1  ProjectMenu -> "1. Background Settings" -> USB Port Settings -> Manufacturer Mode
+	2. https://hcu-client.com
+		2.1 buy 4 credits (costs 4.92 euros) from https://www.dc-unlocker.com/buy
+		2.2 install
+		2.3 Account -> Check account
+		2.4 Unlock -> Read Bootloader code
+		2.5 wait till code is read
+	3. disconnect and reconnect phone to pc (so that "USB Port Settings" goes back to "Hisuite Mode")
+	4. do the unlocking
+		4.1 `adb devices` 				must show status of device as "device"
+		4.2 `adb reboot bootloader`			phone screen must show "UNLOCKED"
+		4.3 `fastboot oem unlock 8283619653951687`	actual unlocking
+		4.4 `fastboot oem get-bootinfo` 		just a double check
+		4.5 `fastboot reboot`				to boot to os
+	src:
+	https://xdaforums.com/t/guide-how-to-bootloader-unlock-your-honor-5x-official-and-unofficial-methods.3328600/
+
+2. install twrp for honor5x
+	https://twrp.me/huawei/huaweihonor5x.html
+	https://xdaforums.com/t/guide-how-to-flash-twrp-to-huawei-honor-5x-erecovery.3952201/
+	
+	adb devices
+	adb reboot bootloader
+	fastboot devices
+	fastboot flash recovery twrp-3.4.0-0-kiwi.img
+	fastboot boot twrp-3.4.0-0-kiwi.img
+	
+	do the "Swipe to Allow Modifications"
+		https://xdaforums.com/t/unmodified-system-partition.4373379/
+	
+	from now on you can boot to twrp:
+		hold "power + volup"
+		hold till phone is restarted twice (logo appears, restarted, logo appears again)
+		if hold till once restart, it will boot to "Huawei eRecovery"
+		after booting to twrp, running `adb devices` must show status of "recovery"
+
+3. backup current rom with twrp so restore is possible
+	TWRP -> Backup -> Boot,Data,System
+	
+	https://www.mobile.ir/users/account/profile.aspx?id=306564
+
+
+3. move flashable files into phone
+	adb push lineage-14.1-20181224-nightly-kiwi-signed.zip /sdcard
+	adb push open_gapps-arm64-7.1-pico-20220215.zip /sdcard
+
+4. wipe and flash
+	1. wipe system,data,cache,dalvik-cache
+	2. flash rom
+	3. flash gapps
+	4. "Wipe Cache/Dalvik"
+	5. "Reboot system"
+
+
+TODOS
+1. compile and build lineageos ourselves
+2. keep finding roms and try installing them
+note: if we build lineageos and we still got the error7,
+that means we have to flash a stock first (for some reason)
+3. flash firmware before rom (like mi4i)
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+getting rom files
+
+lineageos
+	https://www.reddit.com/r/LineageOS/comments/5qhen0/error_7_and_its_variations/
+	
+	https://web.archive.org/web/20170715000000*/https://download.lineageos.org/kiwi
+	
+	
+	lineage-14.1-20170524-nightly-kiwi-signed.zip	no where to download
+	lineage-14.1-20170816-nightly-kiwi-signed.zip	no where to download
+	
+	lineage-14.1-20180214-nightly-kiwi-signed.zip	error 7
+	https://archive.org/download/LineageosAllBuilds20180212To20180217/lineage-14.1-20180214-nightly-kiwi-signed.zip
+	
+	lineage-14.1-20181224-nightly-kiwi-signed.zip	error 7
+	https://archive.org/download/lineageos-kiwi
+	https://androidfilehost.com/?fid=17248734326145717638		seems intended for "Huawei Honor 5X (KIW-L24)"
+	
+	no luck:
+	https://wiki.lineageos.org/devices/kiwi/install/
+	https://xdaforums.com/t/closed-rom-10-0-lineageos-17-1-official-for-honor-5x.4215933/
+	https://xdaforums.com/t/closed-rom-10-0-lineageos-17-1-unofficial-for-honor-5x.4212671/
+	
+
+stock roms
+	https://www.iranmobile.org/kiw-l21/
+	
+	https://dl17.iranmobile.org/Rom/Huawei/Honor-5X/KIW-L21/KIW-L21_C185B310-CUSTC185D006.zip
+	https://ava5.androidfilehost.com/dl/ut9I_zmbhnKpeoDQiRVaUg/1745006112/385026487222272541/Huawei+5X+KIW-L21_+Android+6.0.1+C185B310.7z?
+
+
+resurrectionremix
+	https://xdaforums.com/t/official-resurrectionremix-7-1-x-for-huawei-honor-5x-2017-01-15.3528677/
+	
+	RR-N-v5.8.3-20170519-kiwi-Official.zip		error 7
+	https://sourceforge.net/projects/resurrectionremix/files/kiwi/
+	
+	ResurrectionRemix-M-v5.7.3-20160821-kiwi.zip	error 7
+	https://www.androidfilehost.com/?fid=24588232905722976		from honor5x depot
+	
+
+honor5x depot
+	https://xdaforums.com/t/repository-the-honor-5x-file-depot.3328288/
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+misc
+
+possible pitfalls
+https://xdaforums.com/t/properly-installing-lineageos-14-1-on-honor-5x-kiw-l21.3658735/
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
