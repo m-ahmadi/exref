@@ -45,6 +45,8 @@
 		// "editor.background": "#fbfbfb",                   // whole editor background
 		"editor.selectionBackground": "#75D975",             // selection itself
 		"editor.selectionHighlightBackground": "#9BFF9B",    // selection matches
+		"editor.findMatchBackground": "#75D975",             // findmatch current item
+		"editor.findMatchHighlightBackground": "#9BFF9B",    // findmatch all items
 		"editor.wordHighlightBackground": "#00000010",       // auto-detect word matches
 		"editor.wordHighlightStrongBackground": "#00000010", // ↑... but during write-access
 		"editorBracketMatch.background": "#ff00007F",
