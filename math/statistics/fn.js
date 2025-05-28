@@ -931,6 +931,102 @@ function ewm(nums=[], span=2, adjust=true) {/*pandas*/
 	
 	return r;
 }
+function ewmIncrPartial(span=2, _adjust=true, singleRes='', state={}) {
+	if (singleRes && !['mean','var','std'].includes(singleRes)) throw Error('`singleRes` param can only be "mean" | "var" | "std"');
+	
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	
+	let { i=0 } = state;
+	const { nums=[], wInv=[], adjust=_adjust } = state;
+	
+	const getWeight = adjust
+		? (i,j) => wInv[i-j]
+		: (i,j) => j === 0 ? ar**i : wInv[i-j];
+	
+	return function (n, getState=false) {
+		if (getState === true) return {i, nums, wInv, adjust};
+		
+		nums.push(n);
+		wInv.push(adjust ? ar**i : a*ar**i);
+		
+		let wSum = 0;
+		let sumVecMul = 0;
+		let wSqrdSum = 0;
+		for (let j=0; j<=i; j++) {
+			const weight = getWeight(i,j);
+			wSum += weight;
+			sumVecMul += weight * nums[j];
+			wSqrdSum += weight ** 2;
+		}
+		
+		const ewma = sumVecMul / wSum;
+		const wSumSqr = wSum ** 2;
+		const bias = wSumSqr / (wSumSqr - wSqrdSum);
+		
+		let sumVecMul2 = 0;
+		for (let j=0; j<=i; j++) {
+			const weight = getWeight(i,j);
+			sumVecMul2 += weight * ((nums[j] - ewma) ** 2) / wSum;
+		}
+		
+		const ewmvar = bias * sumVecMul2;
+		const ewmstd = Math.sqrt(ewmvar);
+		
+		i++;
+		
+		if (singleRes) {
+			return ({mean:ewma, var:ewmvar, std:ewmstd})[singleRes];
+		} else {
+			return [ewma, ewmvar, ewmstd];
+		}
+	};
+	
+	/* usage:
+	var x = [...Array(1000)].map(randn);
+	var a = ewm(x,5).std;
+	var f = ewmIncrPartial(5,true,'std');
+	var b = x.map(f);
+	dequal(a,b); // true
+	
+	usage with state:
+	var nItems = 20_000;
+	var xAll = [...Array(nItems)].map(randn);
+	var x1 = xAll.slice(0,nItems*0.8);
+	var x2 = xAll.slice(-(nItems*0.2));
+	dequal([...x1, ...x2], xAll); // true
+	var f;
+	f = ewmIncrPartial(5,true,'std');
+	var p1 = x1.map(f);
+	var aState = f(undefined,true);
+	f = ewmIncrPartial(5,true,'std',aState);
+	var p2 = x2.map(f);
+	f = ewmIncrPartial(5,true,'std');
+	var all = xAll.map(f);
+	var all2 = [...p1, ...p2];
+	dequal(all2, all);
+	
+	partial vs normal perf:
+	var nItems = 20_000;
+	var xAll = [...Array(nItems)].map(randn);
+	var x1 = xAll.slice(0,nItems*0.8);
+	var x2 = xAll.slice(-(nItems*0.2));
+	console.time('partial');
+	var f;
+	f = ewmIncrPartial(5,true,'std');
+	var p1 = x1.map(f);
+	var aState = f(undefined,true);
+	f = ewmIncrPartial(5,true,'std',aState);
+	var p2 = x2.map(f);
+	console.timeEnd('partial');
+	console.time('normal');
+	var r1 = ewm(x1,5,true).std;
+	var r2 = ewm(xAll,5,true).std;
+	console.timeEnd('normal');
+	partial: 2387 ms
+	normal:  2800 ms
+	*/
+}
 function ewmstd(x=[], period=2) {/*formal init values*/
 	let ema   = [ x[0] ];
 	let emvar = [ 0 ];
