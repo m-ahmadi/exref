@@ -718,6 +718,18 @@ function cumsum(nums=[]) {
 	let sum = 0;
 	return nums.map(i => sum += i);
 }
+function cumsumPartial(nums=[], sum=0) {
+	return {r: nums.map(i => sum += i), sum};
+	/* usage:
+	var nItems = 10_000;
+	var xAll = [...Array(nItems)].map(randn);
+	var x1 = xAll.slice(0,nItems*0.8);
+	var x2 = xAll.slice(-(nItems*0.2));
+	var {r:p1,sum} = cumsumPartial(x1);
+	var {r:p2} = cumsumPartial(x2, sum);
+	dequal([...p1, ...p2], cumsum(xAll)); // true
+	*/
+}
 
 function cusum(x=[], _h=0) {
 	let res = [];
