@@ -12,3 +12,17 @@ function test() {
 }
 
 test();
+
+
+// another example
+let x = 10;
+
+function test() {
+	console.log(x);
+	
+	if (false) {
+		var x = 5;
+	}
+}
+
+test();
