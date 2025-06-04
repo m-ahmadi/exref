@@ -61,6 +61,10 @@ post:	https://xdaforums.com/t/rom-official-7-1-2-ferrari-resurrectionremix-5-8-x
 files:	https://androidfilehost.com/?fid=529152257862727477		firmware-lp-6.6.10.0.zip
 	https://androidfilehost.com/?fid=457095661767154245		RR-N-v5.8.3-20170416-ferrari.zip
 ==============================
+for slim 7.1.2
+post:	https://xdaforums.com/t/rom-unofficial-7-1-1-ferrari-slim7.3517720/
+files:	https://androidfilehost.com/?fid=961840155545578531		Slim-ferrari-7.1.2.build.1.0-UNOFFICIAL-20170629-1237.zip
+==============================
 for stock android
 src:	https://xiaomirom.com/en/rom/mi-4i-ferrari-global-fastboot-recovery-rom/	note: to flash using twrp, get "recovery" roms, not "fastboot"
 files:	miui_MI4iGlobal_V9.2.3.0.LXIMIEK_10478f16c8_5.0.zip		stable		worked - 5star
@@ -107,6 +111,10 @@ for resurrection remix 5.8.3
 adb push firmware-lp-6.6.10.0 /sdcard
 adb push RR-N-v5.8.3-20170416-ferrari /sdcard
 adb push open_gapps-arm64-9.0-pico-20220215.zip /sdcard
+==============================
+for slim 7.1.2
+adb push Slim-ferrari-7.1.2.build.1.0-UNOFFICIAL-20170629-1237.zip /sdcard
+adb push open_gapps-arm64-7.1-pico-20220215.zip /sdcard
 ==============================
 for stock rom
 adb push miui_MI4iGlobal_V9.2.3.0.LXIMIEK_10478f16c8_5.0.zip /sdcard
