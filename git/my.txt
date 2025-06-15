@@ -13,7 +13,7 @@ fxbg	fix bug		when a bug is fixed
 fxms	fix mistake	when a mistake is fixed (mistake means a non-fatal wrong thing)
 pkg	package		any package related thing
 cln	cleanup		EXPERIMENTAL: deleting unnecessary things (mix of del & fmt)
-conf	congig		EXPERIMENTAL: any project-wide operation (e.g. automation processes)
+conf	config		EXPERIMENTAL: any project-wide operation (e.g. automation processes)
 rstc	re-structure	EXPERIMENTAL: when re-structuring the project (e.g. changing file structure)
 edit	-		generic edit (when nothing else fits)
 docs	-		anything related to documentation
