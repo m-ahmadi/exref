@@ -211,10 +211,21 @@ np.concatenate([a, b], axis=1) # ...
 np.r_[[1,2], [3,4], 5,6] # [1,2,3,4,5,6]
 
 # infer shape (from array length and remaining dimensions)
-np.arange(20).reshape((4,5))
-np.arange(20).reshape((-1,5)) # 4x5
-np.arange(20).reshape((-1,4)) # 5x4
-np.arange(20).reshape((-1,2)) # 2x10
+a = np.array([1,2,3,4,5,6,7,8,9,10])
+
+a.reshape(-1,1)  # [ [1], [2], [3], [4], [5], [6], [7], [8], [9], [10] ]
+a.reshape(-1,2)  # [ [1,2], [3,4], [5,6], [7,8], [9,10] ]
+a.reshape(-1,3)  # err
+a.reshape(-1,4)  # err
+a.reshape(-1,5)  # [ [1,2,3,4,5], [6,7,8,9,10] ]
+a.reshape(-1,10) # [ [1,2,3,4,5,6,7,8,9,10] ]
+
+a.reshape(1,-1)  # [ [1,2,3,4,5,6,7,8,9,10] ]
+a.reshape(2,-1)  # [ [1,2,3,4,5], [6,7,8,9,10] ]
+a.reshape(3,-1)  # err
+a.reshape(4,-1)  # err
+a.reshape(5,-1)  # [ [1,2], [3,4], [5,6], [7,8], [9,10] ]
+a.reshape(10,-1) # [ [1], [2], [3], [4], [5], [6], [7], [8], [9], [10] ]
 
 # 2d arr slicing
 a = np.array([ [1,2], [3,4] ])
