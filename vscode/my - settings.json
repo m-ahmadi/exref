@@ -49,8 +49,8 @@
 		"editor.findMatchHighlightBackground": "#9BFF9B",    // findmatch all items     dark: ffff426b
 		"editor.wordHighlightBackground": "#00000010",       // auto-detect word matches
 		"editor.wordHighlightStrongBackground": "#00000010", // ↑... but during write-access
-		"editorBracketMatch.background": "#ff00007F",
-		"editorBracketMatch.border": "#ff0000",
+		"editorBracketMatch.background": "#ff00007F",        // bracket highlight bg    dark: none
+		"editorBracketMatch.border": "#ff0000",              // ↑... border             dark: b20000
 	},
 	
 	/* debugging */
