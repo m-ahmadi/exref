@@ -1,5 +1,5 @@
 gfr --invert-paths --path file.txt		remove file from history
-gfr --invert-paths --path-glob my*.txt		... files that math pattern
+gfr --invert-paths --path-glob my*.txt		... files that match the pattern
 gfr --replace-message expressions.txt		rewrite commit messages (based on rules defined in a file)
 
 gfr --help
