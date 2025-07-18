@@ -1,0 +1,46 @@
+﻿binary
+
+	c1	c2
+c1	1:1 √	2:1 x
+c2	2:1 x	2:2 √
+
+if we call
+	c1 = positive
+	c2 = negative
+therefore
+	TP  FP
+	FN  TN
+
+--------------------------------------------------
+multiclass
+
+	C1	C2	C3
+
+C1	1:1 √	2:1 x	3:1 x
+C2	1:2 x	2:2 √	3:2 x
+C3	1:3 x	2:3 x	3:3 √
+	
+	read : like "predicted as"
+	read √ as true
+	read x as false
+
+
+in multiclass, the terms "positive" and "negative" lose their meaning,
+but the terms "true" and "false" keep their meaning, therefore:
+	T  F  F		* - -
+	F  T  F   or	- * -
+	F  F  T		- - *
+	
+	True  C1	False C2	False C3
+	False C1	True  C2	False C3
+	False C1	False C2	True  C3
+	
+	took    C1 as C1	mistook C1 as C2	mistook C1 as C3
+	mistook C1 as C2	took    C2 as C2	mistook C2 as C3
+	mistook C1 as C3	mistook C3 as C2	took    C3 as C3
+
+in multiclass, when a class is predicted incorrectly,
+it means another class been mistook for it,
+so the wrong class could be any other classes
+
+--------------------------------------------------
