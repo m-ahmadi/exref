@@ -20,6 +20,7 @@
 	{ "key": "ctrl+t",           "command": "editor.action.indentationToTabs"},
 	{ "key": "ctrl+shift+b",     "command": "workbench.action.toggleActivityBarVisibility"},
 	{ "key": "ctrl+l",           "command": "workbench.debug.panel.action.clearReplAction" },
+	{ "key": "alt+l",            "command": "workbench.action.terminal.clear" },
 	{ "key": "f8",               "command": "workbench.action.debug.continue",             "when": "debugState == 'stopped'" },
 	{ "key": "f5",               "command": "workbench.action.debug.restart",              "when": "inDebugMode" },
 	{ "key": "alt+shift+`",      "command": "workbench.action.terminal.toggleTerminal",    "when": "terminal.active" },
