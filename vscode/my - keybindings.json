@@ -18,6 +18,7 @@
 	{ "key": "alt+u",            "command": "editor.action.transformToTitlecase",          "when": "textInputFocus" },
 	{ "key": "alt+`",            "command": "editor.action.toggleRenderWhitespace"},
 	{ "key": "ctrl+t",           "command": "editor.action.indentationToTabs"},
+	{ "key": "ctrl+alt+t",       "command": "editor.action.indentationToSpaces"},
 	{ "key": "ctrl+shift+b",     "command": "workbench.action.toggleActivityBarVisibility"},
 	{ "key": "ctrl+l",           "command": "workbench.debug.panel.action.clearReplAction" },
 	{ "key": "alt+l",            "command": "workbench.action.terminal.clear" },
