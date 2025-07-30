@@ -1,0 +1,84 @@
+https://wiki.lineageos.org/devices/kiwi/build/
+--------------------------------------------------
+cd ~
+nano .profile
+
+# add Android SDK platform tools to path
+if [ -d "$HOME/platform-tools" ] ; then
+    PATH="$HOME/platform-tools:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+source ~/.profile
+--------------------------------------------------
+mkdir -p ~/bin
+mkdir -p ~/android/lineage
+wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+unzip platform-tools-latest-linux.zip -d ~
+--------------------------------------------------
+sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick protobuf-compiler python3-protobuf lib32readline-dev lib32z1-dev libdw-dev libelf-dev lz4 libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
+sudo apt install lib32ncurses5-dev libncurses5 libncurses5-dev
+--------------------------------------------------
+sudo apt-get install python-is-python3
+--------------------------------------------------
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+sudo chmod a+x ~/bin/repo
+--------------------------------------------------
+git config --global user.email "ahmdee18@gmail.com"
+git config --global user.name "Mohammad Ahmadi"
+--------------------------------------------------
+git lfs install
+--------------------------------------------------
+git config --global trailer.changeid.key "Change-Id"
+
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
+
+ccache -M 50G
+ccache -o compression=true
+--------------------------------------------------
+cd ~/android/lineage
+repo init -u https://github.com/LineageOS/android.git -b lineage-17.1 --git-lfs --no-clone-bundle
+repo sync
+	repo sync -j1 --fail-fast
+cd ~/android/lineage
+source build/envsetup.sh
+croot
+breakfast kiwi
+--------------------------------------------------
+Extracting proprietary blobs from payload-based OTAs
+Block-based OTA
+https://wiki.lineageos.org/extracting_blobs_from_zips#extracting-proprietary-blobs-from-block-based-otas
+
+
+mkdir ~/android/system_dump/
+cd ~/android/system_dump/
+
+unzip lineage-16.0-20210107-nightly-kiwi-signed.zip system.transfer.list system.new.dat*
+
+sudo apt install brotli
+brotli --decompress --output=system.new.dat system.new.dat.br
+
+git clone https://github.com/xpirt/sdat2img
+python sdat2img/sdat2img.py system.transfer.list system.new.dat system.img
+
+mkdir system/
+sudo mount system.img system/
+
+cd ~/android/lineage/device/huawei/kiwi
+./extract-files.sh ~/android/system_dump/
+
+sudo umount ~/android/system_dump/system/vendor
+sudo umount ~/android/system_dump/system
+rm -rf ~/android/system_dump/
+--------------------------------------------------
+croot
+brunch kiwi
+cd $OUT
+	lineage-17.1-20250729-UNOFFICIAL-kiwi.zip
+	recovery.img
+--------------------------------------------------
