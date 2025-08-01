@@ -1,3 +1,5 @@
+https://learn.microsoft.com/en-us/windows/wsl/install
+
 needs windows 10 build 18900+
 
 control appwiz.cpl,,2
@@ -5,3 +7,42 @@ control appwiz.cpl,,2
 
 or powershell:
 	Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
+--------------------------------------------------------------------------------
+install on windows versions below 19041
+https://learn.microsoft.com/en-us/windows/wsl/install-manual
+
+1. "Windows Subsystem for Linux"
+
+2. restart
+
+3. win+r -> powershell -> ctrl+shift+enter
+
+4. dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+5. install wsl 2 (if build >= 18362.1049)
+	dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+	download and install:
+		https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+	wsl --set-default-version 2
+
+6. download https://aka.ms/wslubuntu2004
+	CanonicalGroupLimited.UbuntuonWindows_2004.2021.825.0.zip
+
+7. extract downloaded zip file into a folder named "extracted" (for abbreviation purpose only)
+
+8. Add-AppxPackage extracted\app_name.appx
+	not sure if necessary
+
+9. rename extracted\Ubuntu*x64.appx to Ubuntu_20.04.zip
+
+10. extract extracted\Ubuntu_20.04.zip to C:\wsl\Ubuntu_20.04
+
+11. run C:\wsl\Ubuntu_20.04\ubuntu.exe		(installs and set ups ubuntu on first run)
+
+12. add C:\wsl\Ubuntu_20.04 to path
+
+13. ubuntu
+
+--------------------------------------------------------------------------------
+
