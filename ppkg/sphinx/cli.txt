@@ -1,0 +1,27 @@
+pip install sphinx			install
+pip install sphinx-autobuild		install watch & hot-reload capability
+pip install sphinx-book-theme		install book theme
+pip install myst-parser			install markdown parser (for when not using rst)
+
+sphinx-quickstart			scaffold utility
+sphinx-apidoc --help			auto doc gen
+sphinx-autogen --help			auto doc gen from `autosummary` listings
+
+sphinx-build --help			show help
+py -m sphinx --help			...
+py -m sphinx source build -j auto	build docs
+
+sphinx-autobuild -a source build	build & watch for changes (has issues in windows)
+
+https://www.sphinx-doc.org/en/master/man/index.html
+
+--------------------------------------------------
+watching alternative
+
+npm i -g nodemon livereload
+
+nodemon -x sphinx-build -a -j=auto source build -w ./source -e rst,py
+livereload ./source -e rst,py -w 5000 -d
+
+now activate "livereload" chrome extension
+--------------------------------------------------
