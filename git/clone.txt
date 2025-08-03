@@ -31,3 +31,10 @@ git submodule update --init --recursive
 git submodule init 
 git submodule update
 --------------------------------------------------------------------------------
+clone a subdirectory only
+
+git clone git@github.com:user/repo.git -n --depth=1 --filter=tree:0
+cd repo
+git sparse-checkout set --no-cone /folderA /folderB
+git checkout
+--------------------------------------------------------------------------------
