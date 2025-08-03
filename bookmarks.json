@@ -15455,27 +15455,27 @@
                 {
                   "children": [
                     {
-                      "name": "FastAPI",
+                      "name": "fastapi",
                       "type": "url",
                       "url": "https://fastapi.tiangolo.com/tutorial/first-steps/"
                     },
                     {
-                      "name": "Uvicorn",
+                      "name": "uvicorn",
                       "type": "url",
                       "url": "https://www.uvicorn.org/"
                     },
                     {
-                      "name": "Hypercorn",
+                      "name": "hypercorn",
                       "type": "url",
                       "url": "https://hypercorn.readthedocs.io/en/latest/"
                     },
                     {
-                      "name": "Starlette",
+                      "name": "starlette",
                       "type": "url",
                       "url": "https://www.starlette.io/"
                     },
                     {
-                      "name": "Twisted",
+                      "name": "twisted",
                       "type": "url",
                       "url": "https://twisted.org/"
                     }
