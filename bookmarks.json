@@ -15460,6 +15460,11 @@
                       "url": "https://fastapi.tiangolo.com/tutorial/first-steps/"
                     },
                     {
+                      "name": "aiohttp",
+                      "type": "url",
+                      "url": "https://docs.aiohttp.org/en/stable/"
+                    },
+                    {
                       "name": "uvicorn",
                       "type": "url",
                       "url": "https://www.uvicorn.org/"
@@ -15481,6 +15486,32 @@
                     }
                   ],
                   "name": "web server",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "aiohttp",
+                      "type": "url",
+                      "url": "https://docs.aiohttp.org/en/stable/"
+                    },
+                    {
+                      "name": "websockets",
+                      "type": "url",
+                      "url": "https://websockets.readthedocs.io/en/stable/"
+                    },
+                    {
+                      "name": "websocket-client",
+                      "type": "url",
+                      "url": "https://github.com/websocket-client/websocket-client"
+                    },
+                    {
+                      "name": "ws4py",
+                      "type": "url",
+                      "url": "https://github.com/Lawouach/WebSocket-for-Python"
+                    }
+                  ],
+                  "name": "websocket",
                   "type": "folder"
                 },
                 {
