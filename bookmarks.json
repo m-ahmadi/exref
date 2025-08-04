@@ -5209,6 +5209,11 @@
                           "url": "https://million.dev/"
                         },
                         {
+                          "name": "MDX",
+                          "type": "url",
+                          "url": "https://mdxjs.com/"
+                        },
+                        {
                           "name": "React Developer Tools",
                           "type": "url",
                           "url": "https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en"
