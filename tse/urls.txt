@@ -123,11 +123,11 @@ http://cdn.tsetmc.com/api/MarketData/GetStaticThreshold/:InsCode/:DEven					(old
 http://cdn.tsetmc.com/api/Msg/GetMsgByFlow/:Flow/:Top							supervisor messages (if :Flow == 0, msgs of all flows)
 http://cdn.tsetmc.com/api/Msg/GetMsgByInsCode/:InsCode							-
 
-http://cdn.tsetmc.com/api/Shareholder/:InsCode/:DEven							(old ShareHolderData)
-http://cdn.tsetmc.com/api/Shareholder/GetInstrumentShareHolderLast/					-
-http://cdn.tsetmc.com/api/Shareholder/GetShareHolderChanges/						-
-http://cdn.tsetmc.com/api/Shareholder/GetShareHolderCompanyList/					-
-http://cdn.tsetmc.com/api/Shareholder/GetShareHolderHistory/						-
+http://cdn.tsetmc.com/api/Shareholder/:InsCode/:DEven							all ShareHolder changes at specific day (old ShareHolderData)
+http://cdn.tsetmc.com/api/Shareholder/GetInstrumentShareHolderLast/:InsCode				get latest ShareHolders of an instrument
+http://cdn.tsetmc.com/api/Shareholder/GetShareHolderChanges/:InExcelFormat<bool>			all ShareHolder changes in the last 5 days
+http://cdn.tsetmc.com/api/Shareholder/GetShareHolderCompanyList/:ShareHolderShareID			other holdings of a ShareHolder (not sure)
+http://cdn.tsetmc.com/api/Shareholder/GetShareHolderHistory/:InsCode/:DEven/:Top<int>			ShareHolder changes of an instrument at specific day
 
 http://cdn.tsetmc.com/api/StaticData/GetStaticContent/							-
 http://cdn.tsetmc.com/api/StaticData/GetStaticData							<CSecVal|YVal|...> descriptions or names
