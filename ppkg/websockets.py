@@ -15,7 +15,7 @@ async def main():
 aio.run(main())
 
 
-# client - async - never-breaking process (infinte loop)
+# client - async - never-breaking process (infinite loop)
 from websockets.asyncio.client import connect
 async def main():
 	async with connect('wss://echo.websocket.org') as ws:
@@ -26,7 +26,7 @@ async def main():
 				server_msg = await ws.recv()
 				print('server sent:', server_msg)
 			except websockets.exceptions.ConnectionClosed:
-					break
+				break
 aio.run(main())
 
 
