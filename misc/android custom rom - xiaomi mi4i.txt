@@ -147,7 +147,7 @@ done.
 misc
 
 fix accidentally wiping "internal storage"
-	twrp -> Wipw -> Advance Wipe -> select Data -> Repair or Change File System -> Repair File System
+	twrp -> Wipe -> Advance Wipe -> select Data -> Repair or Change File System -> Repair File System
 
 how to use usb-otg to transfer files
 	plug usb -> twrp -> Reboot -> Recovery

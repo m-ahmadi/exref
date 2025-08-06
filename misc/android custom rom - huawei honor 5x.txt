@@ -137,4 +137,13 @@ misc
 possible pitfalls
 https://xdaforums.com/t/properly-installing-lineageos-14-1-on-honor-5x-kiw-l21.3658735/
 
+how to use usg-otg
+plug usb -> TWRP -> Mount -> Select Storage -> USB OTG (... MB) -> OK
+TWRP -> Advanced -> File Manager -> usb-otg
+
+fix "failed to mount /cache (no such device)" (worked)
+https://xdaforums.com/t/e-cant-mount-cache-in-cwm-twrp.2860551/
+TWRP -> Wipe -> Advanced Wipe -> select Cache -> Repair or Change File System -> Change File System -> EXT4 -> reboot (TWRP -> Reboot -> System)
+TWRP -> Wipe -> Advanced Wipe -> select Cache -> Swap to Wipe
+
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
