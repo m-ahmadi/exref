@@ -127,7 +127,12 @@ resurrectionremix
 	
 	ResurrectionRemix-M-v5.7.3-20160821-kiwi.zip	error 7
 	https://www.androidfilehost.com/?fid=24588232905722976		from honor5x depot
-	
+
+
+slimrom
+	Slim-kiwi-6.0.1.build.1.15-UNOFFICIAL-20161212-1555.zip		?
+	https://xdaforums.com/t/rom-6-0-1-unofficial-slimrom-for-honor-5x-kiwi-2016-11-17.3371339/
+
 
 honor5x depot
 	https://xdaforums.com/t/repository-the-honor-5x-file-depot.3328288/
