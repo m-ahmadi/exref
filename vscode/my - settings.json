@@ -16,6 +16,7 @@
 			"numbers": "#ff0000"
 		}
 	},
+	"editor.rulers": [80],
 	"git.inputValidation": true,
 	"git.openRepositoryInParentFolders": "never",
 	"security.workspace.trust.untrustedFiles": "open",
