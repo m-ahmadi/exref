@@ -2,6 +2,13 @@
 import websockets # pip install websockets
 # websockets --version
 
+# https://websockets.readthedocs.io/en/stable/reference/sansio/common.html#websockets.protocol.State
+websockets.State.
+	CONNECTING
+	OPEN
+	CLOSING
+	CLOSED
+
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
@@ -21,11 +28,22 @@ async def main():
 	async with connect('wss://echo.websocket.org') as ws:
 		while True:
 			try:
+				await aio.sleep(0) # required
 				await ws.send('hi')
 				await aio.sleep(2)
 				server_msg = await ws.recv()
 				print('server sent:', server_msg)
 			except websockets.exceptions.ConnectionClosed:
+				break
+aio.run(main())
+
+from websockets.asyncio.client import connect
+async def main():
+	async with connect('wss://echo.websocket.org') as ws:
+		while True:
+			await aio.sleep(0)
+			if ws.state == websockets.State.CLOSED:
+				print('connection closed')
 				break
 aio.run(main())
 
