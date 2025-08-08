@@ -1,0 +1,5 @@
+read --help			help
+read				read user input and echo it to screen
+read foo			read user input into $foo variable
+read -p "what? " answer		... with prompt
+echo $answer			read variable filled with user input
