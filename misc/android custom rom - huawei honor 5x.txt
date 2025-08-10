@@ -80,6 +80,7 @@ installing stock rom
 getting rom files
 
 lineageos
+	lineage-17.1-20250729-UNOFFICIAL-kiwi.zip	worked (my build, took "proprietary blobs" from below item)
 	lineage-17.1-20220210-nightly-kiwi-signed.zip	worked
 	lineage-17.1-20220203-nightly-kiwi-signed.zip	?
 	lineage-17.1-20220127-nightly-kiwi-signed.zip	?
@@ -87,8 +88,8 @@ lineageos
 	lineage-16.0-20210107-nightly-kiwi-signed.zip	?
 	lineage-16.0-20201231-nightly-kiwi-signed.zip	?
 	lineage-16.0-20201224-nightly-kiwi-signed.zip	?
-	lineage-15.1-20190622-nightly-kiwi-signed.zip	?
-	lineage-14.1-20181224-nightly-kiwi-signed.zip	?
+	lineage-15.1-20190622-nightly-kiwi-signed.zip	error 7
+	lineage-14.1-20181224-nightly-kiwi-signed.zip	error 7
 	lineage-14.1-20180221-nightly-kiwi-signed.zip	error 7
 	https://lineage-archive.timschumi.net/
 	
@@ -130,7 +131,7 @@ resurrectionremix
 
 
 slimrom
-	Slim-kiwi-6.0.1.build.1.15-UNOFFICIAL-20161212-1555.zip		?
+	Slim-kiwi-6.0.1.build.1.15-UNOFFICIAL-20161212-1555.zip		error 7
 	https://xdaforums.com/t/rom-6-0-1-unofficial-slimrom-for-honor-5x-kiwi-2016-11-17.3371339/
 
 
