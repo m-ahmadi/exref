@@ -115,6 +115,18 @@
 		"editor.defaultFormatter": "MikeBovenlander.formate"
 	},
 	
+	/** md|mdx */
+	"[mdx]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode" // .prettierrc -> "proseWrap": "always"
+	},
+	
+	/** md|mdx - wordwrap (only affects how text is viewed, not the actual text) */
+	// "[mdx]": {
+	// 	"editor.wordWrap": "wordWrapColumn",
+	// 	"editor.wrappingIndent": "same",
+	// 	"editor.wordWrapColumn": 80
+	// },
+	
 	/** py */
 	"python.showStartPage": false,
 	"python.defaultInterpreterPath": "C:\\python312\\python.exe",
