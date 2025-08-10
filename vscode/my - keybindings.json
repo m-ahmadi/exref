@@ -26,5 +26,10 @@
 	{ "key": "f5",               "command": "workbench.action.debug.restart",              "when": "inDebugMode" },
 	{ "key": "alt+shift+`",      "command": "workbench.action.terminal.toggleTerminal",    "when": "terminal.active" },
 	{ "key": "ctrl+shift+l",     "command": "workbench.action.editor.changeLanguageMode",  "when": "!notebookEditorFocused" },
-	{ "key": "ctrl+e",           "command": "workbench.action.toggleMaximizeEditorGroup",  "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups"},
+	{ "key": "ctrl+e",           "command": "workbench.action.toggleMaximizeEditorGroup",  "when": "editorPartMaximizedEditorGroup || editorPartMultipleEditorGroups" },
+	
+	// undo "mdx" extension shortcuts
+	{ "key": "shift+alt+5", "command": "-mdx.toggleDelete",   "when": "editorTextFocus && !editorReadonly && editorLangId == 'mdx'" },
+	{ "key": "ctrl+i",      "command": "-mdx.toggleEmphasis", "when": "editorTextFocus && !editorReadonly && editorLangId == 'mdx'" },
+	{ "key": "ctrl+b",      "command": "-mdx.toggleStrong",   "when": "editorTextFocus && !editorReadonly && editorLangId == 'mdx'" },
 ]
