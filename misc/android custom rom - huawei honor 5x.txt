@@ -85,9 +85,9 @@ lineageos
 	lineage-17.1-20220203-nightly-kiwi-signed.zip			?
 	lineage-17.1-20220127-nightly-kiwi-signed.zip			?
 	lineage-17.1-20220120-nightly-kiwi-signed.zip			?
-	lineage-16.0-20210107-nightly-kiwi-signed.zip			?
-	lineage-16.0-20201231-nightly-kiwi-signed.zip			?
-	lineage-16.0-20201224-nightly-kiwi-signed.zip			?
+	lineage-16.0-20210107-nightly-kiwi-signed.zip			error 7
+	lineage-16.0-20201231-nightly-kiwi-signed.zip			error 7
+	lineage-16.0-20201224-nightly-kiwi-signed.zip			error 7
 	lineage-15.1-20190622-nightly-kiwi-signed.zip			error 7
 	lineage-14.1-20181224-nightly-kiwi-signed.zip			error 7
 	lineage-14.1-20180221-nightly-kiwi-signed.zip			error 7
@@ -132,8 +132,8 @@ resurrectionremix
 
 slimrom
 	Slim-kiwi-6.0.1.build.1.15-UNOFFICIAL-20161212-1555.zip		error 7
-	Slim-kiwi-6.0.1.build.1.11-UNOFFICIAL-20161118-0512.zip		?
-	Slim-kiwi-6.0.1.build.1.11-UNOFFICIAL-20161116-2135.zip		?
+	Slim-kiwi-6.0.1.build.1.11-UNOFFICIAL-20161118-0512.zip		error 7
+	Slim-kiwi-6.0.1.build.1.11-UNOFFICIAL-20161116-2135.zip		error 7
 	https://xdaforums.com/t/rom-6-0-1-unofficial-slimrom-for-honor-5x-kiwi-2016-11-17.3371339/
 
 
