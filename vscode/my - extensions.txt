@@ -11,3 +11,5 @@ ionutvmi.reg
 Keno.uikit-3-snippets
 octref.vetur
 Leopotam.csharpfixformat
+
+unifiedjs.vscode-mdx
