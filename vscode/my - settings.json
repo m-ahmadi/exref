@@ -35,6 +35,10 @@
 	// "editor.suggestOnTriggerCharacters": false, // when on .
 	// "editor.hover.enabled": false,              // popups
 	
+	/** disable auto-update */
+	// "update.enableWindowsBackgroundUpdates": false,
+	// "update.mode": "manual",
+	
 	/** misc */
 	"editor.renderWhitespace": "none",          // show whitespace & tab (all|none)
 	"diffEditor.ignoreTrimWhitespace": true,    // ignore whitespace char diffs
