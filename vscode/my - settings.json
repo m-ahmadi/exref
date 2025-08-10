@@ -60,6 +60,13 @@
 	"debug.terminal.clearBeforeReusing": true,
 	"debug.console.historySuggestions": false,
 	
+	/** remote ssh */
+	// "explorer.confirmDragAndDrop": false,
+	// "explorer.confirmDelete": false,
+	// "remote.SSH.remotePlatform": {
+	// 	"255.255.255.255": "linux"
+	// },
+	
 	/** treat hbs as html */
 	"files.associations": {
 		"*.hbs": "html",
