@@ -132,6 +132,8 @@ resurrectionremix
 
 slimrom
 	Slim-kiwi-6.0.1.build.1.15-UNOFFICIAL-20161212-1555.zip		error 7
+	Slim-kiwi-6.0.1.build.1.11-UNOFFICIAL-20161118-0512.zip		?
+	Slim-kiwi-6.0.1.build.1.11-UNOFFICIAL-20161116-2135.zip		?
 	https://xdaforums.com/t/rom-6-0-1-unofficial-slimrom-for-honor-5x-kiwi-2016-11-17.3371339/
 
 
