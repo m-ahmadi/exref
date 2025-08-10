@@ -54,7 +54,7 @@
 		"editorBracketMatch.border": "#ff0000",              // ↑... border             dark: b20000
 	},
 	
-	/* debugging */
+	/** debugging */
 	"debug.openDebug": "neverOpen",
 	"debug.inlineValues": "on",
 	"debug.terminal.clearBeforeReusing": true,
