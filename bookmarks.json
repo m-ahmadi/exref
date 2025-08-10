@@ -1056,6 +1056,11 @@
         {
           "children": [
             {
+              "name": "walx",
+              "type": "url",
+              "url": "https://wallex.ir/app"
+            },
+            {
               "name": "nob",
               "type": "url",
               "url": "https://nobitex.ir/panel"
