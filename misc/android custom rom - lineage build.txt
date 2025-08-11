@@ -22,6 +22,11 @@ unzip platform-tools-latest-linux.zip -d ~
 --------------------------------------------------
 sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick protobuf-compiler python3-protobuf lib32readline-dev lib32z1-dev libdw-dev libelf-dev lz4 libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev
 sudo apt install lib32ncurses5-dev libncurses5 libncurses5-dev
+for lineageos 14.1-15.1
+	sudo apt-get install openjdk-8-jdk
+	nano /etc/java-8-openjdk/security/java.security
+		jdk.tls.disabledAlgorithms=
+		remove TLSv1, TLSv1.1
 
 extra - setup vpn
 	chmod +x v2rayN-linux-64.AppImage
@@ -33,6 +38,8 @@ extra - manually install git-lfs
 	sudo apt install ./git-lfs_2.9.2-1_amd64.deb
 --------------------------------------------------
 sudo apt-get install python-is-python3
+for lineageos 14.1-15.1
+	sudo apt-get install python-is-python2
 --------------------------------------------------
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 sudo chmod a+x ~/bin/repo
@@ -47,11 +54,13 @@ git config --global trailer.changeid.key "Change-Id"
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 
-ccache -M 50G
+ccache -M 100G
 ccache -o compression=true
 --------------------------------------------------
 cd ~/android/lineage
 repo init -u https://github.com/LineageOS/android.git -b lineage-17.1 --git-lfs --no-clone-bundle
+for lineageos 14.1-15.1
+	repo init -u https://github.com/LineageOS/android.git -b cm-14.1 --git-lfs --no-clone-bundle
 repo sync
 	repo sync -j1 --fail-fast
 cd ~/android/lineage
@@ -59,7 +68,7 @@ source build/envsetup.sh
 croot
 breakfast kiwi
 --------------------------------------------------
-Extracting proprietary blobs from payload-based OTAs
+Extracting proprietary blobs
 Block-based OTA
 https://wiki.lineageos.org/extracting_blobs_from_zips#extracting-proprietary-blobs-from-block-based-otas
 
@@ -67,10 +76,14 @@ https://wiki.lineageos.org/extracting_blobs_from_zips#extracting-proprietary-blo
 mkdir ~/android/system_dump/
 cd ~/android/system_dump/
 
-unzip lineage-16.0-20210107-nightly-kiwi-signed.zip system.transfer.list system.new.dat*
+unzip ~/lineage-17.1-20220210-nightly-kiwi-signed.zip system.transfer.list system.new.dat*
+for lineageos 14.1-15.1
+	unzip ~/lineage-14.1-20181224-nightly-kiwi-signed.zip system.transfer.list system.new.dat*
 
 sudo apt install brotli
 brotli --decompress --output=system.new.dat system.new.dat.br
+for lineageos 14.1-15.1
+	skip above step
 
 git clone https://github.com/xpirt/sdat2img
 python sdat2img/sdat2img.py system.transfer.list system.new.dat system.img
@@ -78,10 +91,12 @@ python sdat2img/sdat2img.py system.transfer.list system.new.dat system.img
 mkdir system/
 sudo mount system.img system/
 
+cd ~/android/lineage
+source build/envsetup.sh
+
 cd ~/android/lineage/device/huawei/kiwi
 ./extract-files.sh ~/android/system_dump/
 
-sudo umount ~/android/system_dump/system/vendor
 sudo umount ~/android/system_dump/system
 rm -rf ~/android/system_dump/
 --------------------------------------------------
