@@ -1,6 +1,6 @@
 ﻿{
 	"workbench.iconTheme": "vscode-icons",
-	"workbench.colorTheme": "Visual Studio Light",
+	"workbench.colorTheme": "Visual Studio Dark",
 	"editor.fontSize": 15,
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingQuotes": "never",
@@ -48,14 +48,14 @@
 	// "workbench.editor.enablePreview": false, // open files on single click (if true: 1-click=preview, 2-click=open)
 	"workbench.colorCustomizations": {
 		// "editor.background": "#fbfbfb",                   // whole editor background
-		"editor.selectionBackground": "#75D975",             // selection itself        dark: 00ff007f
-		"editor.selectionHighlightBackground": "#9BFF9B",    // selection matches       dark: a6ff5860
-		"editor.findMatchBackground": "#75D975",             // findmatch current item  dark: ffff00a4
-		"editor.findMatchHighlightBackground": "#9BFF9B",    // findmatch all items     dark: ffff426b
+		"editor.selectionBackground": "#00ff007f",           // selection itself        light: 75D975
+		"editor.selectionHighlightBackground": "#a6ff5860",  // selection matches       light: 9BFF9B
+		"editor.findMatchBackground": "#ffff00a4",           // findmatch current item  light: 75D975
+		"editor.findMatchHighlightBackground": "#ffff426b",  // findmatch all items     light: 9BFF9B
 		"editor.wordHighlightBackground": "#00000010",       // auto-detect word matches
 		"editor.wordHighlightStrongBackground": "#00000010", // ↑... but during write-access
-		"editorBracketMatch.background": "#ff00007F",        // bracket highlight bg    dark: none
-		"editorBracketMatch.border": "#ff0000",              // ↑... border             dark: b20000
+		"editorBracketMatch.background": "default",          // bracket highlight bg    light: ff00007F
+		"editorBracketMatch.border": "#b20000",              // ↑... border             light: ff0000
 	},
 	
 	/** debugging */
