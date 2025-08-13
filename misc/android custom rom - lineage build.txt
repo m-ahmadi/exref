@@ -61,6 +61,7 @@ cd ~/android/lineage
 repo init -u https://github.com/LineageOS/android.git -b lineage-17.1 --git-lfs --no-clone-bundle
 for lineageos 14.1-15.1
 	repo init -u https://github.com/LineageOS/android.git -b cm-14.1 --git-lfs --no-clone-bundle
+	repo init -u https://github.com/LineageOS/android.git -b lineage-15.1 --git-lfs --no-clone-bundle
 repo sync
 	repo sync -j1 --fail-fast
 cd ~/android/lineage
@@ -79,10 +80,11 @@ cd ~/android/system_dump/
 unzip ~/lineage-17.1-20220210-nightly-kiwi-signed.zip system.transfer.list system.new.dat*
 for lineageos 14.1-15.1
 	unzip ~/lineage-14.1-20181224-nightly-kiwi-signed.zip system.transfer.list system.new.dat*
+	unzip ~/lineage-15.1-20190622-nightly-kiwi-signed.zip system.transfer.list system.new.dat*
 
 sudo apt install brotli
 brotli --decompress --output=system.new.dat system.new.dat.br
-for lineageos 14.1-15.1
+for lineageos 14.1
 	skip above step
 
 git clone https://github.com/xpirt/sdat2img
