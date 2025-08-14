@@ -1,0 +1,5 @@
+protoc --help
+protoc --version
+
+protoc --proto_path=./ --python_out=./ file1.proto file2.proto
+
