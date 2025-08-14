@@ -80,7 +80,18 @@ socket.setNoDelay(?noDelay)
 socket.setTimeout(timeout, ?callback)
 socket.unref()
 socket.write(data=''|Buffer|Uint8Array, ?encoding='utf8', ?callback)
-'close|connect|data|drain|end|error|lookup|ready|timeout'
+socket.on('close', (hadError=false)=>)
+socket.on('connect', ()=>)
+socket.on('connectionAttempt', (ip, port, family)=>)
+socket.on('connectionAttemptFailed', (ip, port, family, error)=>)
+socket.on('connectionAttemptTimeout', (ip, port, family)=>)
+socket.on('data', (data=Buffer|'')=>)
+socket.on('drain', ()=>)
+socket.on('end', ()=>)
+socket.on('error', (error={code,errno,message})=>)
+socket.on('lookup', (err, address, family, host)=>)
+socket.on('ready', ()=>)
+socket.on('timeout', ()=>)
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // example
 

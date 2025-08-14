@@ -1,8 +1,10 @@
+// https://nodejs.org/api/buffer.html
+
 /*
 a buffer is:
-	a chunk of memory.
-	similar to an array of integers but corresponds to a raw memory allocation outside the v8 heap.
-	a temporary holding spot for data being moved from one place to another.
+	a chunk of memory
+	similar to an array of integers but corresponds to a raw memory allocation outside the v8 heap
+	a temporary holding spot for data being moved from one place to another
 */
 
 Buffer.concat(list=Buffer[] | Uint8Array[], ?totalLength=int): Buffer
@@ -67,6 +69,8 @@ Buffer.from('buffer')         // utf-8 bytes of the string 'buffer'
 
 var buf1 = Buffer.from('this is a tést');
 var buf2 = Buffer.from('7468697320697320612074c3a97374', 'hex');
+var buf3 = Buffer.from('SGVsbG8sIHdvcmxk', 'base64');           // base64-encoded string
+Uint8Array.from(atob('SGVsbG8sIHdvcmxk'), c => c.charCodeAt(0)) // ↑ ... deprecated way
 //------------------------------------------------
 // from array
 Buffer.from([1, 2, 3])        // [1, 2, 3]
