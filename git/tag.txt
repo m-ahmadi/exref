@@ -1,8 +1,11 @@
 ﻿git tag						list existing tags in repo
-git tag -l "v1.8.5"				list tags that match a particular pattern
+git tag -l "v1.8.*"				list tags that match a particular pattern
+git tag -l -n5					show 5 lines from annotation of tag
+git tag -l --format="%(contents:body)"		https://git-scm.com/docs/git-for-each-ref#_field_names
+git tag -l --format="%(refname)"		...
+git show v1.4					show tag data with the commit that was tagged
 
 git tag -a v1.4 -m "my version 1.4"		create annotated tag (needs a message) for current commit
-git show v1.4					show tag data with the commit that was tagged
 git tag -a v1.2 <commit> -m "1.2"		create annotated tag for specific commit (later after you moved past a commit)
 git tag v1.4-lw					create lightweight tag (no tag info on git show)
 git tag -d v1.4-lw				delete tag on local repo
