@@ -1,0 +1,10 @@
+apt-get --help				show help
+
+apt-get install -y pkg			install pkg (no extra confirm)
+apt-get install -y pkg==2.5.1		install specific version of pkg
+apt-get install -y -t=2.5.1 pkg 	...
+apt-get upgrade -y			update all pkgs
+
+apt-cache policy pkg			check available versions of pkg
+
+note: `apt-get` is predecessor of newer `apt` command
