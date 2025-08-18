@@ -1,0 +1,25 @@
+export PATH="$PATH:$HOME/foo"		temporary
+
+permanent
+nano .profile
+	export PATH="$PATH:$HOME/foo"
+source .profile
+
+--------------------------------------------------
+shell config files
+
+/bin/bash		bash executable
+/etc/profile		systemwide initialization file, executed for login shells
+~/.bash_profile		personal initialization file, executed for login shells (sources ~/.bashrc)
+~/.profile		equivalent of .bash_profile for root (sourced by various shells)
+~/.bashrc		individual per-interactive-shell startup file
+~/.bash_logout		individual login shell cleanup file, executed when a login shell exits
+~/.inputrc		individual readline initialization file
+--------------------------------------------------
+with or without `export`
+
+export PATH="$PATH:$HOME/foo"	get passed on to child processes
+PATH="$PATH:$HOME/foo"		do not ...
+
+note: should export variables, if to use them in subshells
+--------------------------------------------------

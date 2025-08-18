@@ -4,6 +4,8 @@ chmod =rwx file.txt	set
 chmod +rwx file.txt	add
 chmod -rwx file.txt	remove
 
+chmod a+x file.txt	make file executable (edits perms, no change to other perms)
+
 r	read		4
 w	write		2
 x	execute		1
