@@ -12,6 +12,9 @@
 ═	box horizontal double	205		2550		
 ┌ ┐	box up corners		218 191		250C 2510
 └ ┘	box down corners	192 217		2414 2518
+├ ┤	box cross single horz	195 180		251C 2524
+┬ ┴	box cross single vert	194 193		252C 2534
+┼	box cross double	197		253C
 
 
 suP
