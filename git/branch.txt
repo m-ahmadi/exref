@@ -1,6 +1,8 @@
 git branch				show all branches (and currently selected)
 git branch -a				... show remote ones
 git branch -vv				... show upstream ("git status" also shows upstream)
+git branch -M master main		rename "master" branch to "main"
+git branch -M main			rename current branch to "main"
 
 git branch dev				create new branch (from last     commit of currently selected branch)
 git branch dev <commit>			...               (...  specific commit ...)
