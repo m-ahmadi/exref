@@ -15790,6 +15790,47 @@
             {
               "children": [
                 {
+                  "name": "protoc",
+                  "type": "url",
+                  "url": "https://github.com/protocolbuffers/protobuf/releases/tag/v31.1"
+                },
+                {
+                  "name": "protoc - py",
+                  "type": "url",
+                  "url": "https://protobuf.dev/reference/python/python-generated/"
+                },
+                {
+                  "name": "protoc - py - api",
+                  "type": "url",
+                  "url": "https://googleapis.dev/python/protobuf/latest/"
+                },
+                {
+                  "name": "protobufjs",
+                  "type": "url",
+                  "url": "https://www.npmjs.com/package/protobufjs"
+                },
+                {
+                  "name": "protobufjs - cli",
+                  "type": "url",
+                  "url": "https://github.com/protobufjs/protobuf.js/tree/master/cli"
+                },
+                {
+                  "name": "protobufjs - api",
+                  "type": "url",
+                  "url": "https://protobufjs.github.io/protobuf.js/"
+                },
+                {
+                  "name": "google-protobuf",
+                  "type": "url",
+                  "url": "https://www.npmjs.com/package/google-protobuf"
+                }
+              ],
+              "name": "protobuf",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
                   "name": "docs - cli",
                   "type": "url",
                   "url": "https://docs.docker.com/engine/reference/run/"
