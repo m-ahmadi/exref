@@ -1,0 +1,75 @@
+openssl version		show version
+openssl version -a	... all
+
+terms
+	ca	certificate authority
+	csr	certificate signing request, public key portion of private key + information about company
+	crt	certificate
+formats:
+	pem	main format used (.pem ext)
+	pkcs12	archival file that stores both certificate and private key (.pfx|.p12 ext)
+	der	similar to pkcs12, but uses asn.1 encoding (uses same file exts: .key, .crt, .csr)
+notes:
+	when generating keys, 3 things matter: key algo, key size, passphrase or not
+	private key file contains both private and public key
+	public key can be extracted from private key file
+
+https://knowledge.digicert.com/general-information/openssl-quick-reference-guide
+
+--------------------------------------------------------------------------------
+generating keys using rsa algo
+
+openssl genrsa -out mydomain.key 2048					generate private key using rsa algo
+openssl rsa -text -in mydomain.key -noout				decode private key and view its contents
+
+openssl rsa -in mydomain.key -pubout -out mydomain_public.key		extract public key from private key file
+
+openssl req -new -key mydomain.key -out mydomain.csr			create csr using private key (subsequent prompts)
+openssl req -new -key mydomain.key -out mydomain.csr ^			... provide info all at once
+ -subj "/C=US/ST=Utah/L=Lehi/O=My Company, Inc./OU=IT/CN=mydomain.com"
+
+openssl req -new -newkey rsa:2048 -nodes -keyout mydomain.key ^		generate private key and create csr in one step
+ -out mydomain.csr ^
+ -subj "/C=US/ST=Utah/L=Lehi/O=My Company, Inc./OU=IT/CN=mydomain.com"
+
+openssl req -text -in mydomain.csr -noout -verify			verify csr information
+
+openssl x509 -text -in mydomain.crt -noout				view contents of a certificate
+
+verify that public and private keys match:
+extract public key, generate hash for it, they must be equal, do this for 3 things
+openssl pkey -pubout -in private.key | openssl sha256
+openssl req -pubkey -in request.csr -noout | openssl sha256
+openssl x509 -pubkey -in certificate.crt -noout | openssl sha256
+
+pkcs to pem
+openssl pkcs12 -in mydomain.pfx -nocerts -out mydomain.key -nodes
+openssl pkcs12 -in mydomain.pfx -nokeys -clcerts -out mydomain.crt
+
+pem to der
+openssl x509 -inform PEM -in mydomain.crt -outform DER -out mydomain.der
+openssl rsa -inform PEM -in mydomain.key -outform DER -out mydomain_key.der
+
+der to pem
+openssl x509 -inform DER -in mydomain.der -outform PEM -out mydomain.crt
+openssl rsa -inform DER -in mydomain_key.der -outform PEM -out mydomain.key
+
+--------------------------------------------------------------------------------
+other examples
+
+openssl genrsa -out my-key.pem 2048				generate a 2048-bit rsa private key
+openssl req -new -sha256 -key my-key.pem -out my-csr.pem	generate a csr for a private key
+
+openssl x509 -req -in my-csr.pem -signkey my-key.pem ^		create self-signed certificate
+ -out my-cert.pem
+
+openssl pkcs12 -export -in my-cert.pem -inkey my-key.pem ^	generate .pfx|.p12 from certificate
+ -certfile ca-cert.pem -out my.pfx				note: cat ca1-cert.pem ca2-cert.pem > ca-cert.pem
+
+openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj ^	generate certificate and key 
+ /CN=localhost -keyout key.pem -out cert.pem
+
+openssl pkcs12 -certpbe AES-256-CBC -export ^			generate server-cert.pem certificate
+ -out cert.pem -inkey key.pem -in cert.pem
+
+--------------------------------------------------------------------------------

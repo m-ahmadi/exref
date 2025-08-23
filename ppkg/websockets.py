@@ -1,5 +1,7 @@
-# https://websockets.readthedocs.io/en/stable
 import websockets # pip install websockets
+# https://websockets.readthedocs.io/en/stable
+
+# cli
 # websockets --version
 
 # https://websockets.readthedocs.io/en/stable/reference/sansio/common.html#websockets.protocol.State
@@ -9,7 +11,7 @@ websockets.State.
 	CLOSING
 	CLOSED
 
-#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 
 # client - async
@@ -20,6 +22,7 @@ async def main():
 		server_msg = await ws.recv()
 		print('server sent:', server_msg)
 aio.run(main())
+
 
 
 # client - async - never-breaking process (infinite loop)
@@ -42,10 +45,11 @@ async def main():
 	async with connect('wss://echo.websocket.org') as ws:
 		while True:
 			await aio.sleep(0)
-			if ws.state == websockets.State.CLOSED:
+			if ws.state != websockets.State.OPEN:
 				print('connection closed')
 				break
 aio.run(main())
+
 
 
 # client - sync
@@ -56,6 +60,7 @@ def main():
 		server_msg = ws.recv()
 		print('server sent:', server_msg)
 main()
+
 
 
 # client - reconnect automatically on errors
@@ -70,6 +75,27 @@ async def main():
 		except websockets.exceptions.ConnectionClosed:
 			continue
 aio.run(main())
+
+
+
+# client - error handling
+from websockets.asyncio.client import connect
+from websockets.exceptions import ConnectionClosedOK, ConnectionClosedError
+async def main():
+	async with connect('wss://echo.websocket.org') as ws:
+		while True:
+			try:
+				await aio.sleep(0)
+				pass
+			except ConnectionClosedOK as e:
+				print('connection closed ok', e.code, e.reason)
+			except ConnectionClosedError as e:
+				print('connection closed err', e.code, e.reason)
+			finally:
+				break
+
+aio.run(main())
+
 
 
 # server - listen forever, print msg sent by client, echo back to client
