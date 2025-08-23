@@ -1,0 +1,12 @@
+https://github.com/protobufjs/protobuf.js/tree/master/cli
+
+npm i protobufjs-cli -g		install
+pbjs				help
+
+pbjs file.proto -o file.json			convert .proto to .json
+pbjs file.proto -t json -o file.json		...
+pbjs file.proto -t proto3 -o out.proto		... specify different target
+pbjs -t json f1.proto f2.proto -o bundle.json	... multiple .proto files into one .json bundle
+
+pbjs file.proto -t static-module -w closure -o out.js			add to protobuf.roots
+pbjs file.proto -t static-module -w closure --no-comment -o out.js	... no comment
