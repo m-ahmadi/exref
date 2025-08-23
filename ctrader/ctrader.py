@@ -172,8 +172,8 @@ ProtoPayloadType '''
 def list_ProtoOA(obj, fillblanks=True):
 	names = set()
 	marks = {}
+	prefix = 'ProtoOA'
 	for i in dir(obj):
-		prefix = 'ProtoOA'
 		if not i.startswith(prefix): continue
 		fullname = i.split(prefix)[1]
 		end = fullname[-3:]
