@@ -5,6 +5,8 @@ pip install <pkg> <requirements>	install package
 	-q, --quiet			print nothing
 	-r requirements.txt		from file
 	-e .				install local project (from `setup.py`)
+	--report file.json		save report of installed pkgs to file
+	--dry-run			don't actually install anything
 
 python -m pip install -U pip		update pip itself
 
@@ -20,6 +22,11 @@ delete all packages
 
 install pkg and save it in requirements.txt
 	pip install foo && pip freeze | findstr foo >> requirements.txt
+
+get info about to be installed pkgs
+	pip install pkg --report f.json			save report of what happened
+	pip install pkg --dry-run --report f.json	... without installing
+	pip install pkg --dry-run -I --report f.json	... ignore installed pkgs
 
 --------------------------------------------------------------------------------
 <requirements>
