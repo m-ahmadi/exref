@@ -30,6 +30,11 @@ j = '{"foo": "a", "bar": ["b", "c", 4]}'
 o = json.loads(j)
 o['foo'] # 'a'
 
+# read - from file
 with open('file.json') as f:
-  o = json.load(f)
+	o = json.load(f)
 o['foo'] # 'a'
+
+# read - from file - utf8-bom encoded file
+with open('file.json', encoding='utf-8-sig') as f:
+	o = json.load(f)

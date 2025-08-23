@@ -4,7 +4,7 @@ f = open('file.txt')
 _str = f.read()
 f.close()
 
-# read bom (ignore bom char)
+# read - utf8-bom encoded file (ignore bom char)
 f = open('file.txt', encoding='utf-8-sig')
 _str = f.read()
 
