@@ -47,3 +47,12 @@ async def main():
 		task1 = tg.create_task(say_after(1, 'hello'))
 		task2 = tg.create_task(say_after(2, 'world'))
 aio.run(main())
+# run concurrently
+async def main():
+	L = await aio.gather(
+		say_after(1, 'A'),
+		say_after(1, 'B'),
+		say_after(1, 'C'),
+	)
+	print(L)
+aio.run(main())

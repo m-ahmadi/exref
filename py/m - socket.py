@@ -1,45 +1,37 @@
+import socket
+# https://docs.python.org/3/library/socket.html
+
+# SOCK_STREAM means a tcp socket
 # messages cannot be larger than 1 GB
 
-# server.py
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# examples
+
+# echo program - server
 import socket
-
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # SOCK_STREAM means a tcp socket
-server.bind(('localhost', 8080))
-server.listen(5) # max 5 connections
-print('server listening...')
-connection, address = server.accept()
-while True:
-	buf = connection.recv(64) # best to be power of 2 (max 1,048,576 ???)
-	msg = str(buf,'utf8')
-	print(msg)
-	if msg == 'exit':
-		print('server exiting...')
-		server.close()
-		break
-
-# or
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
-	server.bind(('localhost', 8080))
-	server.listen()
+HOST = 'localhost' # symbolic name meaning all available interfaces
+PORT = 8080        # arbitrary non-privileged port
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+	sock.bind((HOST, PORT))
+	sock.listen(5) # max 5 connections
 	print('server listening...')
-	connection, address = server.accept()
-	with connection:
-		print('client connected:', address)
+	conn, addr = sock.accept()
+	with conn:
+		print('connected by', addr)
 		while True:
-			buf = connection.recv(1024)
-			msg = str(buf,'utf8')
-			print('client said:', msg)
-			connection.sendall( bytes('server said: '+msg.upper(), 'utf8') )
-			if msg == 'exit':
-				print('server exiting...')
-				server.close()
+			data = conn.recv(1024) # best to be power of 2 (max 1,048,576 ???)
+			print('received from client:', str(data,'utf8'))
+			if not data:
+				sock.close()
 				break
+			conn.sendall(data)
 
 
 
-# client.py
-import socket
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('localhost', 8080))
-client.send(bytes('hello','utf8'))
+# echo program - client
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+	sock.connect(('localhost', 8080))
+	sock.send(bytes('hello','utf8'))
+	sock.sendall(b'Hello, world')
+	data = sock.recv(1024)
+print('Received', repr(data))
