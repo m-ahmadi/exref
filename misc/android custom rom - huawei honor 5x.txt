@@ -88,6 +88,7 @@ lineageos
 	lineage-16.0-20210107-nightly-kiwi-signed.zip			error 7
 	lineage-16.0-20201231-nightly-kiwi-signed.zip			error 7
 	lineage-16.0-20201224-nightly-kiwi-signed.zip			error 7
+	lineage-15.1-20250813-UNOFFICIAL-kiwi.zip			error 7 (my build, took "proprietary blobs" from below item)
 	lineage-15.1-20190622-nightly-kiwi-signed.zip			error 7
 	lineage-14.1-20181224-nightly-kiwi-signed.zip			error 7
 	lineage-14.1-20180221-nightly-kiwi-signed.zip			error 7
