@@ -1,0 +1,6 @@
+ver
+systeminfo | findstr /b/c:"OS Name" /b/c:"OS Version"
+wmic os get Caption,Version /value
+
+winver
+msinfo32
