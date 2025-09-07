@@ -1,21 +1,86 @@
-<dialog id="d">
+<!--
+https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog
+
+<dialog closedby="none|closerequest|any" open autofocus>
+  <form method="dialog">
+		<input type="text" required />
+		<input type="submit" formnovalidate />
+	</form>
+	or
+	<form>
+		<button formmethod="dialog">Close</button>
+	</form>
+</dialog>
+-->
+
+
+<!-- styling the overlay -->
+<style>
+::backdrop {
+  background-image: linear-gradient(45deg,magenta,rebeccapurple,dodgerblue,green);
+  opacity: 0.55;
+}
+</style>
+
+
+<!-- close dialog by form - form tag with method=dialog -->
+<dialog id="a">
 	<p>Greetings, one and all!</p>
 	<form method="dialog">
 		<button>OK</button>
 	</form>
 </dialog>
-<button onclick="d.showModal()">showModal()</button>
-
+<button onclick="a.showModal()">a.showModal()</button>
 
 
 <br><br><hr><br><br>
 
 
+<!-- close dialog by form - no <form method=dialog>, but inner <button formmethod=dialog> -->
+<dialog id="b">
+	<p>Greetings, one and all!</p>
+	<form>
+		<button formmethod="dialog">OK</button>
+	</form>
+</dialog>
+<button onclick="b.showModal()">b.showModal()</button>
 
-<dialog id="_dialog" onclose="_res.value = this.returnValue">
-	
+
+<br><br><hr><br><br>
+
+
+<!-- validational form - cancel button -->
+<dialog id="c">
+  <form method="dialog">
+    <input type="text" required />
+		<button type="button" onclick="c.close(null)">Cancel</button> <!-- same with <input type=submit> -->
+		<button onclick="c.close(null)">Cancel(bad)</button> <!-- err: An invalid form control with name='' is not focusable. -->
+    <input type="submit" /> <!-- same with <button type=submit> -->
+  </form>
+</dialog>
+<button onclick="c.showModal()">c.showModal()</button>
+
+
+<br><br><hr><br><br>
+
+
+<!-- validational form - skip validation -->
+<dialog id="d">
+  <form method="dialog">
+    <input type="text" required />
+    <input type="submit" formnovalidate />
+  </form>
+</dialog>
+<button onclick="d.showModal()">d.showModal()</button>
+
+
+<br><br><hr><br><br>
+
+
+<!-- returnValue - non-validational form -->
+<!-- upon submit, `form.returnValue` is set to value of button clicked -->
+<dialog id="e" onclose="_eRes.value = this.returnValue">
 	<form method="dialog">
-	
 		<label>Favorite animal:
 			<select onchange="_btn.value = this.selectedOptions[0].value">
 				<option></option>
@@ -24,18 +89,28 @@
 				<option>Spider monkey</option>
 			</select>
 		</label>
-		
 		<menu>
 			<button value="cancel">Cancel</button>
 			<button id="_btn" value="default">Confirm</button>
 		</menu>
-		
 	</form>
-	
 </dialog>
+<button onclick="e.showModal()">e.showModal()</button>
+<output id="_eRes" aria-live="polite"></output>
 
-<menu>
-	<button onclick="_dialog.showModal()">Update details</button>
-</menu>
 
-<output id="_res" aria-live="polite"></output>
+<br><br><hr><br><br>
+
+
+<!-- returnValue - validational form -->
+<dialog id="f" onclose="_fRes.value = this.returnValue">
+	<form method="dialog">
+		<input type="text" onchange="_btn.value = this.value" required />
+		<menu>
+			<button type="button" onclick="f.close(null)">Cancel</button>
+			<button id="_btn">Confirm</button>
+		</menu>
+	</form>
+</dialog>
+<button onclick="f.showModal()">f.showModal()</button>
+<output id="_fRes" aria-live="polite"></output>
