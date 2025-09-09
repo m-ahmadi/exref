@@ -89,15 +89,16 @@
 	"highlight-matching-tag.noDefaultEmptyElements": true,
 	"highlight-matching-tag.highlightSelfClosing": true,
 	"highlight-matching-tag.styles": {
+		/* light: #BF8DFF */
 		"opening": {
-			"name": {"highlight": "#BF8DFF"},
-			"left": {"highlight": "#BF8DFF"},
-			"right": {"highlight": "#BF8DFF"},
+			"name": {"highlight": "#ba85ff66"},
+			"left": {"highlight": "#ba85ff66"},
+			"right": {"highlight": "#ba85ff66"},
 		},
 		"closing": {
-			"name": {"highlight": "#BF8DFF"},
-			"left": {"highlight": "#BF8DFF"},
-			"right": {"highlight": "#BF8DFF"},
+			"name": {"highlight": "#ba85ff66"},
+			"left": {"highlight": "#ba85ff66"},
+			"right": {"highlight": "#ba85ff66"},
 		}
 	},
 	
