@@ -9,16 +9,37 @@
 </head>
 
 <!-- toolbar -->
-<pre data-label="Foo"><code class="language-javascript">var x = 2;</code></pre>
+<pre data-label="Foo"><code class="language-javascript">var x = 1;</code></pre>
 
 <!-- toolbar - alt -->
 <pre data-label="bar"><code class="language-javascript">var x = 2;</code></pre>
 <template id="bar"><button onclick="alert('hi')">Do Me</button></template>
 
 <!-- copy to clipboard (requires toolbar plugin) -->
-<pre data-prismjs-copy="Copy it bro!"><code class="language-javascript">var x = 2;</code></pre>
+<pre data-prismjs-copy="Copy it bro!"><code class="language-javascript">var x = 3;</code></pre>
+<pre
+	data-prismjs-copy="📋Copy"
+	data-prismjs-copy-error="❌Copy"
+	data-prismjs-copy-success="📝Copied!"
+	data-prismjs-copy-timeout="500"
+><code class="language-javascript">var x = 4;</code></pre>
+
+<!-- custom button (rquires toolbar plugin only) -->
+<pre data-label="clrbtn"><code class="language-javascript" id="codeElem">var x = 5;</code></pre>
+<template id="clrbtn">
+	<button type="button" style="margin-right: 10px;" onclick="
+		codeElem.innerHTML = '';
+		this.innerText = '🧼Cleared!';
+		setTimeout(() => this.innerText = '🧽Clear', 500);
+	">🧽Clear</button>
+</template>
 
 <!-- download button (requires toolbar plugin) -->
 <!-- (must serve ./ folder with webserver to work correctly, do: `python -m http.server 8080`) -->
 <pre data-src="api.js" data-download-link></pre>
 <pre data-src="api.js" data-download-link data-download-link-label="Download it bro!"></pre>
+
+<script>
+// add button to all code blocks
+// Prism.plugins.toolbar.registerButton('jojo', {text:'jojo',onClick:env=>alert(env.code)});
+</script>
