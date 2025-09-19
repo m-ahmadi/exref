@@ -118,8 +118,11 @@
 	
 	/** md|mdx */
 	"[mdx]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode" // .prettierrc -> "proseWrap": "always"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	
+	/** prettier global config (or use local .prettierrc) */
+	"prettier.proseWrap": "always",
 	
 	/** md|mdx - wordwrap (only affects how text is viewed, not the actual text) */
 	// "[mdx]": {
