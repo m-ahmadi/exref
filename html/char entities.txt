@@ -1,31 +1,36 @@
-﻿<	&lt;	&#60;
->	&gt;	&#62;
-&	&amp;	&#38;
-"	&quot;	&#34;
-'	&apos;	&#39;
-¢	&cent;	&#162;
-£	&pound;	&#163;
-¥	&yen;	&#165;
-€	&euro;	&#8364;
-©	&copy;	&#169;
-®	&reg;	&#174;
-	&nbsp;	&#160;	- non-breaking single space
-	&thinsp;	- thin space
-	&ensp;  	- en space (half the point size of font)
-	&emsp;  	- em space (point size of font)
-	&zwnj;	&#8204;	- zero-width non-joiner
-↔	&harr;	&#8596;
-↕	&varr;	&#8597;
+﻿chr	named		numbered	unicody		description
+<	&lt;		&#60;
+>	&gt;		&#62;
+&	&amp;		&#38;
+"	&quot;		&#34;
+'	&apos;		&#39;
+¢	&cent;		&#162;
+£	&pound;		&#163;
+¥	&yen;		&#165;
+€	&euro;		&#8364;
+©	&copy;		&#169;
+®	&reg;		&#174;
+	&nbsp;		&#160;				non-breaking space
+			&#8239;		&#x202F;	narrow non-breaking space
+	&numsp;		&#x2007;			figure space
+	&nonreak;	&#x2060;			word joiner
+	&thinsp;					thin space
+	&ensp;  					en space (half the point size of font)
+	&emsp;  					em space (point size of font)
+	&zwnj;		&#8204;				zero-width non-joiner
+	&zwnbsp;					zero-width no-break space
+↔	&harr;		&#8596;
+↕	&varr;		&#8597;
 
-✥		&#10021; &#x2725;
-✔		&#10004;
-❌		&#10060;
-▲		&#9650;
-▼		&#9660;
-↓		&#9660;  &#x2193;
+✥			&#10021;	&#x2725;
+✔			&#10004;
+❌			&#10060;
+▲			&#9650;
+▼			&#9660;
+↓			&#9660;		&#x2193;
 
 letter accents (eg: O&#771;)
-&#768;
-&#769;
-&#770;
-&#771;
+			&#768;
+			&#769;
+			&#770;
+			&#771;
