@@ -24,7 +24,7 @@ date.getUTCSeconds()        // seconds (0-59)
 date.getUTCMilliseconds()   // milliseconds (0-999)
 
 new Date(2019,10,7).getUTCDate() // 6
-new Date(2019,10,7').getDate()   // 7
+new Date(2019,10,7).getDate()    // 7
 
 var d = new Date(2025,2,14,3,30);
 d.toLocaleString()                   // '14/03/2025, 03:30:00'
