@@ -51,3 +51,12 @@ Date.UTC(...kk.map(k => b['getUTC'+k]() ))   // 1737934800000  incorrect way
 aa = new Date(a);
 +new Date(...kk.map(k => aa['getUTC'+k]() )) // 1737934800000  correct way
 +new Date(...kk.map(k => aa['get'+k]() ))    // 1737947400000  incorrect way
+
+// timezone date (aka convert time to different timezone)
+tzDate([2025,8,25,6,45,30], -4).toUTCString() // 'Wed, 24 Sep 2025 23:15:30 GMT'
+function tzDate(dateTuple, utcOffset) {
+	const currentTimezoneOffsetFromUtc = new Date().getTimezoneOffset()/60;
+	const msInOneHour = 60*60*1000;
+	const msDifference = (currentTimezoneOffsetFromUtc + utcOffset) * msInOneHour;
+	return new Date(Date.UTC(...dateTuple) + msDifference)
+}
