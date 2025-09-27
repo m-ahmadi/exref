@@ -1,10 +1,12 @@
 /*
-detect daylight savings time
+detect daylight saving time
 
 in new york timezone:
-start: 2nd sunday of march    at 02:00 am (clocks move 1 hour forward to 03:00, making a 23-hour day)
-end:   1st sunday of november at 02:00 am (clocks move 1 hour back    to 01:00, making a 25-hour day)
+start: 2nd sunday of march    at 02:00 am est (clocks move 1 hour forward to 03:00 edt, making a 23-hour day)
+end:   1st sunday of november at 02:00 am edt (clocks move 1 hour back    to 01:00 est, making a 25-hour day)
 
+est: eastern standard time = utc-5 (east cost of us)
+edt: eastern daylight time = utc-4
 
 notes:
 pre-2007, dst started in april
@@ -14,22 +16,34 @@ a future us law could change things
 
 // get new york dst dates
 function getNewYorkDstDates(year) {
-  const nthSunday = (month, n) => {
-    const date = new Date(Date.UTC(year, month-1, 1)); // start at 1st day of month
-    const day = date.getUTCDay(); // 0=sunday,1=monday,...
-    const delta = (7 - day) % 7; // days until first sunday
-    const firstSunday = 1 + delta;
-    return new Date(Date.UTC(year, month-1, firstSunday + 7 * (n - 1))); // nth Sunday
-  }
-  const dstStart = nthSunday(3, 2);
-  const dstEnd = nthSunday(11, 1);
+	const nthSunday = (month, n) => {
+		const date = new Date(Date.UTC(year, month-1, 1)); // start at 1st day of month
+		const day = date.getUTCDay(); // 0=sunday,1=monday,...
+		const delta = (7 - day) % 7; // days until first sunday
+		const firstSunday = 1 + delta;
+		return new Date(Date.UTC(year, month-1, firstSunday + 7 * (n - 1))); // nth Sunday
+	}
+	const dstStart = nthSunday(3, 2);
+	const dstEnd = nthSunday(11, 1);
 	dstStart.setUTCHours(7); // 02:00 am ny local = 07:00 utc
 	dstEnd.setUTCHours(6);   // 02:00 am ny local = 06:00 utc
-  return {dstStart, dstEnd};
+	return {dstStart, dstEnd};
 }
 const {dstStart, dstEnd} = getNewYorkDstDates(2025);
 dstStart.toUTCString() // 'Sun, 09 Mar 2025 07:00:00 GMT'
 dstEnd.toUTCString()   // 'Sun, 02 Nov 2025 06:00:00 GMT'
+
+
+
+// using Intl, detect if date is in/out of ny dst
+dtFmt = new Intl.DateTimeFormat('en-US', {
+	timeZone: 'America/New_York',
+	timeZoneName: 'short',
+	year:'numeric',month:'2-digit',day:'2-digit',
+	hour:'2-digit',minute:'2-digit',second:'2-digit',
+});
+dtFmt.format(new Date(2009,2,8,10,29,59)) // '03/08/2009, 01:59:59 AM EST'
+dtFmt.format(new Date(2009,2,8,10,30))    // '03/08/2009, 03:00:00 AM EDT'
 
 
 
