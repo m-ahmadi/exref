@@ -93,10 +93,11 @@ nyDateDST([2009,2,8,10,30]).toLocaleString('en-US',{timeZone:'America/New_York'}
 function nyDateDST(dateTuple) {
 	const localDate = new Date(...dateTuple);
 	const options = {timeZone: 'America/New_York', timeZoneName: 'short'};
-	const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(localDate);
+	const parts = new Intl.DateTimeFormat('en-US', options).formatToParts(localDate); // cachable
 	const {timeZoneName} = Object.fromEntries(parts.map(i => [i.type, i.value]));
 	const nyOffsetMs = ({'EST':5,'EDT':4})[timeZoneName] * (60*60*1000);
-	return new Date(localDate.getTime() - nyOffsetMs);
+	const opr = new Date().getTimezoneOffset() < 0 ? ((a,b)=>a-b) : ((a,b)=>a+b); // cachable
+	return new Date(opr(+localDate, nyOffsetMs)); // why opr? to work in any local tz
 }
 
 
