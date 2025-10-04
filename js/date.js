@@ -4,7 +4,8 @@ new Date(?value=int timestamp|string date|Date date|int year, ?monthIndex=int, ?
 /* NOTE:
 don't parse date strings. (whether with constructor or parse() method)
 use numbers instead.
-why: because of browser differences and inconsistencies. */
+why: because of browser differences and inconsistencies.
+(only possible exception is "iso string format".) */
 
 Date()                  // returns string (not Date object)
 new Date()              // current time
@@ -38,6 +39,18 @@ date.getMinutes()       // minutes (0-59)
 date.getSeconds()       // seconds (0-59)
 date.getMilliseconds()  // milliseconds (0-999)
 
+// to string methods
+date.toISOString()        // '2025-10-04T19:09:11.835Z'
+date.toJSON()             // ...
+date.toUTCString()        // 'Sat, 04 Oct 2025 19:09:11 GMT'
+
+date.toDateString()       // 'Sat Oct 04 2025'
+date.toTimeString()       // '22:39:11 GMT+0330 (Iran Standard Time)'
+
+date.toLocaleString()     // '10/4/2025, 10:39:11 PM'
+date.toLocaleDateString() // '10/4/2025'
+date.toLocaleTimeString() // '10:39:11 PM'
+
 // pass-by-reference
 var date = new Date(2010,0,1);
 var tmp = date;
@@ -48,3 +61,14 @@ var date = new Date(2010,0,1);
 var tmp = new Date(date);
 date.setFullYear(2014);
 tmp.getFullYear()       // 2010
+
+// parse from iso string
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date#date_time_string_format
+new Date('2025-10-04T00:00:00.000Z')      // Sat Oct 04 2025 03:30:00 GMT+0330
+new Date('2025-10-04T00:00:00.000+03:30') // Sat Oct 04 2025 00:00:00 GMT+0330
+// partial forms
+new Date('2011-10-10')          // date
+new Date('2011-10-10T14:30:00') // date-time
+// if no tz offset:
+new Date('2025-10-04')              // date-only forms are interpreted as a utc time
+new Date('2025-10-04T22:15:00.000') // date-time forms are interpreted as a local time
