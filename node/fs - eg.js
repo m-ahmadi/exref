@@ -102,6 +102,21 @@ for (let i of [...Array(100).keys()]) process.stdout.write('\r'+(i+1)+'/'+100), 
 
 
 
+// print progress (write to stdout) - clear screen first
+var a = [1,2,3,4,5,6];
+for (let i of [...Array(10).keys()]) {
+	var s = a.map(i => [i, (Math.random()*i).toFixed(4)].join('\t')).join('\n');
+	process.stdout.write('\x1Bc');
+	process.stdout.write('\r'+s);
+	await new Promise(r=>setTimeout(r,500));
+}
+// ways of clearing the screen
+process.stdout.write('\x1Bc'); // best
+console.clear();
+console.log('\033[2J'); // https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797
+
+
+
 // read contents of directory
 var files = await fs.promises.readdir('mydir') // array of filenames  '.' and '..'
 var files = await fs.promises.readdir('mydir', {withFileTypes: true})
