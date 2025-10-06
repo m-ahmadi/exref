@@ -1,4 +1,4 @@
-function printTable(rows=[[]]) {
+function printTable(rows=[[]], sepChar='\t', eolChar='\n') {
 	let cols = [];
 	
 	rows.forEach(row => row.map((col,j) => {
@@ -18,10 +18,10 @@ function printTable(rows=[[]]) {
 			let charLen = col.length;
 			let delta = ' '.repeat(colMax - charLen);
 			let notLast = colIdx < lastIdx;
-			s += col + (notLast ? delta : '') + '\t';
+			s += col + (notLast ? delta : '') + sepChar;
 		}
 		s = s.slice(0, -1);
-		s += '\n'
+		s += eolChar;
 	}
 	
 	return s;
