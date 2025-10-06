@@ -1,4 +1,4 @@
-def print_table(rows=[[]]):
+def print_table(rows=[[]], sep_char='\t', eol_char='\n'):
 	cols = {}
 	for row in rows:
 		for j, col in enumerate(row):
@@ -15,9 +15,9 @@ def print_table(rows=[[]]):
 			char_len = len(col)
 			delta = ' ' * (col_max - char_len)
 			not_last = col_idx < last_idx
-			s += col + (delta if not_last else '') + '\t'
+			s += col + (delta if not_last else '') + sep_char
 		s = s[:-1]
-		s += '\n'
+		s += eol_char
 	return s
 
 
