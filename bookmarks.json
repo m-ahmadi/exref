@@ -18399,6 +18399,11 @@
                   "name": "kibot",
                   "type": "url",
                   "url": "https://www.kibot.com/"
+                },
+                {
+                  "name": "alphavantage",
+                  "type": "url",
+                  "url": "https://www.alphavantage.co/"
                 }
               ],
               "name": "data",
