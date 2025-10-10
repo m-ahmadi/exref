@@ -18186,6 +18186,42 @@
             {
               "children": [
                 {
+                  "name": "fxstreet",
+                  "type": "url",
+                  "url": "https://www.fxstreet.com/"
+                },
+                {
+                  "name": "kitco",
+                  "type": "url",
+                  "url": "https://www.kitco.com/"
+                },
+                {
+                  "name": "investing",
+                  "type": "url",
+                  "url": "https://www.investing.com/"
+                },
+                {
+                  "name": "actionforex",
+                  "type": "url",
+                  "url": "https://www.actionforex.com/"
+                },
+                {
+                  "name": "fxempire",
+                  "type": "url",
+                  "url": "https://www.fxempire.com/forecasts"
+                },
+                {
+                  "name": "litefinance",
+                  "type": "url",
+                  "url": "https://www.litefinance.org/blog/analysts-opinions/"
+                }
+              ],
+              "name": "anls",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
                   "children": [
                     {
                       "name": "MetaTrader 5",
