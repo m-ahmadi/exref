@@ -1,12 +1,15 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
 
+locales = 'en|en-US|en-GB|fa|...'|['',..]
+numberingSystem = 'arab|arabext|bali|beng|deva|fullwide|gujr|guru|hanidec|khmr|knda|laoo|latn|limb|mlym|mong|mymr|orya|tamldec|telu|thai|tibt'
+
 Intl.Collator()
-Intl.DateTimeFormat(locales='en|en-US|en-GB|fa|...'|['',..], ?options={
+Intl.DateTimeFormat(locales=locales, ?options={
 	dateStyle:       'full|long|medium|short',
 	timeStyle:       'full|long|medium|short',
 	calendar:        'buddhist|chinese|coptic|dangi|ethioaa|ethiopic|gregory|hebrew|indian|islamic|islamic-umalqura|islamic-tbla|islamic-civil|islamic-rgsa|iso8601|japanese|persian|roc|islamicc',
 	dayPeriod:       'narrow|short|long',
-	numberingSystem: 'arab|arabext|bali|beng|deva|fullwide|gujr|guru|hanidec|khmr|knda|laoo|latn|limb|mlym|mong|mymr|orya|tamldec|telu|thai|tibt',
+	numberingSystem: numberingSystem,
 	localeMatcher:   'best fit|lookup',
 	timeZone:        <RUNTIME_DEFAULT_TIMEZONE> | 'UTC|Asia/Shanghai|America/New_York|...',
 	hour12:          boolean,
@@ -26,7 +29,30 @@ Intl.DateTimeFormat(locales='en|en-US|en-GB|fa|...'|['',..], ?options={
 Intl.DisplayNames()
 Intl.ListFormat()
 Intl.Locale()
-Intl.NumberFormat()
+Intl.NumberFormat(?locales=locales, ?options={
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#parameters
+	localeMatcher:            'best fit|lookup',
+	numberingSystem:          numberingSystem,
+	style:                    'decimal|currency|percent|unit',
+	currency:                 '|USD|EUR|CNY|...',
+	currencyDisplay:          'symbol|code|narrowSymbol|name',
+	currencySign:             'standard|accounting',
+	unit:                     '|acre|bit|byte|...', // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_unit_identifiers
+	unitDisplay:              'short|narrow|long',
+	minimumIntegerDigits:     1,
+	minimumFractionDigits:    2,
+	maximumFractionDigits:    3,
+	minimumSignificantDigits: 1,
+	maximumSignificantDigits: 21,
+	roundingPriority:         'auto|morePrecision|lessPrecision',
+	roundingIncrement:        1|2|5|10|20|25|50|100|200|250|500|1000|2000|2500|5000,
+	roundingMode:             'ceil|floor|expand|trunc|halfCeil|halfFloor|halfExpand|halfTrunc|halfEven',
+	trailingZeroDisplay:      'auto|stripIfInteger',
+	notation:                 'standard|scientific|engineering|compact',
+	compactDisplay:           'short|long',
+	useGrouping:              'always|auto|min2'|true|false,
+	signDisplay:              'auto|always|exceptZero|negative|never',
+})
 Intl.PluralRules()
 Intl.RelativeTimeFormat()
 Intl.Segmenter()
