@@ -1,9 +1,6 @@
-var credentials = require('../credentials.json');
-var OAModel = require('./OAModel.json');
-var payloadTypes = OAModel.ProtoOAPayloadType;
-PROTO_PAYLOADTYPE_PROTO_MESSAGE = 5;
-PROTO_PAYLOADTYPE_ERROR_RES = 50;
-PROTO_PAYLOADTYPE_HEARTBEAT_EVENT = 51;
+var credentials = require('./credentials.json');
+var oa = require('./OAModel.json');
+var pt = require('./payloadTypes.json');
 uid = (i => () => 'cm_id_' + i++)(1);
 
 // connection, authentication and program lifecycle
@@ -19,7 +16,7 @@ ws.onopen = function (e) {
 	console.log('connected', e);
 	var clientMsg = {
 		clientMsgId: uid(),
-		payloadType: payloadTypes.PROTO_OA_APPLICATION_AUTH_REQ,
+		payloadType: pt.req.ApplicationAuth,
 		payload: {
 			clientId: credentials.clientId,
 			clientSecret: credentials.clientSecret
@@ -30,26 +27,26 @@ ws.onopen = function (e) {
 ws.onmessage = function (e) {
 	var serverMsg = JSON.parse(e.data);
 	var { payloadType } = serverMsg;
-	if (payloadType === payloadTypes.PROTO_OA_APPLICATION_AUTH_RES) {
+	if (payloadType === pt.res.ApplicationAuth) {
 		console.log('app auth done');
 		var clientMsg = {
 			clientMsgId: uid(),
-			payloadType: payloadTypes.PROTO_OA_ACCOUNT_AUTH_REQ,
+			payloadType: pt.req.AccountAuth,
 			payload: {ctidTraderAccountId, accessToken},
 		};
 		ws.send(JSON.stringify(clientMsg));
 		return;
 	}
-	if (payloadType === payloadTypes.PROTO_OA_ACCOUNT_AUTH_RES) {
+	if (payloadType === pt.res.AccountAuth) {
 		console.log('account auth done');
 		main();
 		return;
 	}
-	if (payloadType === payloadTypes.PROTO_OA_ERROR_RES) {
+	if (payloadType === pt.res.Error) {
 		console.log('server sent error message', serverMsg.payload);
 		return;
 	}
-	if (payloadType === PROTO_PAYLOADTYPE_HEARTBEAT_EVENT) {
+	if (payloadType === pt.common.Heartbeat) {
 		console.log('heartbeat event');
 		return;
 	}
@@ -66,14 +63,14 @@ ws.onclose = function (e) {
 // get symbol list
 var fs = require('fs');
 function onResp(message) {
-	if (message.payloadType !== payloadTypes.PROTO_OA_SYMBOLS_LIST_RES) return;
+	if (message.payloadType !== pt.res.SymbolsList) return;
 	var syms = message.payload.symbol;
 	fs.writeFileSync('syms.json', JSON.stringify(syms,null,2));
 }
 function main() {
 	var clientMsg = {
 		clientMsgId: uid(),
-		payloadType: payloadTypes.PROTO_OA_SYMBOLS_LIST_REQ,
+		payloadType: pt.req.SymbolsList,
 		payload: { ctidTraderAccountId, accessToken,
 			includeArchivedSymbols: false,
 		}
@@ -83,8 +80,9 @@ function main() {
 
 
 // get timeseries data
+var fs = require('fs');
 function onResp(message) {
-	if (message.payloadType !== payloadTypes.PROTO_OA_GET_TRENDBARS_RES) return;
+	if (message.payloadType !== pt.res.GetTrendbars) return;
 	var headers = ['timestamp','open','high','low','close','volume'];
 	var bars = message.payload.trendbar.map(bar => {
 		var timestamp = bar.utcTimestampInMinutes * 60; // seconds
@@ -100,7 +98,7 @@ function onResp(message) {
 function main() {
 	var clientMsg = {
 		clientMsgId: uid(),
-		payloadType: payloadTypes.PROTO_OA_GET_TRENDBARS_REQ,
+		payloadType: pt.req.GetTrendbars,
 		payload: { ctidTraderAccountId, accessToken,
 			symbolId: 41, // XAUUSD
 			period: OAModel.ProtoOATrendbarPeriod.D1,
@@ -114,17 +112,17 @@ function main() {
 
 // place order
 function onResp(message) {
-	if (message.payloadType !== payloadTypes.PROTO_OA_EXECUTION_EVENT) return;
+	if (message.payloadType !== pt.event.Execution) return;
 	console.log('order successfully placed');
 	console.log('order id:', message.payload.order.orderId);
 }
 function main() {
 	var clientMsg = {
 		clientMsgId: uid(),
-		payloadType: payloadTypes.PROTO_OA_NEW_ORDER_REQ,
+		payloadType: pt.req.NewOrder,
 		payload: { ctidTraderAccountId, accessToken,
-			orderType: OAModel.ProtoOAOrderType.LIMIT,
-			tradeSide: OAModel.ProtoOATradeSide.BUY,
+			orderType: oa.OrderType.LIMIT,
+			tradeSide: oa.TradeSide.BUY,
 			symbolId: 41, // XAUUSD
 			limitPrice: 2700.34,
 			volume: 100, // equals 0.01 lot (note: for EURUSD 100_000 equals 0.01 lot)
@@ -146,13 +144,13 @@ function calcRelativeByPip(pip, pipDistance) {
 	return Math.round(pipDistance * pip * 100_000);
 }
 function onResp(message) {
-	if (message.payloadType !== payloadTypes.PROTO_OA_EXECUTION_EVENT) return;
+	if (message.payloadType !== pt.event.Execution) return;
 	console.log(message.payload);
 }
 function main() {
 	var order = {
-		orderType: OAModel.ProtoOAOrderType.LIMIT,
-		tradeSide: OAModel.ProtoOATradeSide.BUY,
+		orderType: oa.OrderType.LIMIT,
+		tradeSide: oa.TradeSide.BUY,
 		symbolId: 41, // XAUUSD
 		limitPrice: 3327.45,
 		volume: 100,
@@ -164,7 +162,7 @@ function main() {
 	order.relativeTakeProfit = calcRelativeByPip(0.01, 350);
 	var clientMsg = {
 		clientMsgId: uid(),
-		payloadType: payloadTypes.PROTO_OA_NEW_ORDER_REQ,
+		payloadType: pt.req.NewOrder,
 		payload: {ctidTraderAccountId, accessToken, ...order}
 	};
 	ws.send(JSON.stringify(clientMsg));
