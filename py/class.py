@@ -64,3 +64,36 @@ student.__dict__['is_old']() # err (does not contain methods)
 hasattr(student, 'name')   # True
 hasattr(student, 'gender') # False
 hasattr(student, 'is_old') # True
+
+# convert dict to object - flat
+class DictToObj:
+	def __init__(self, **entries):
+		self.__dict__.update(entries)
+data = {'a': 1, 'b': 'abc'}
+x = DictToObj(**data)
+x.a        # 1
+x.b        # 'abc'
+data = {"a": 1, "b": {"foo": "hi", "bar": 123}}
+y = DictToObj(**data)
+y.b.foo    # err
+y.b['foo'] # 'hi'
+
+# convert dict to object - deep
+class DeepDictToObj:
+	@staticmethod
+	def map_entry(entry):
+		if isinstance(entry, dict):
+			return DeepDictToObj(**entry)
+		return entry
+	def __init__(self, **kwargs):
+		for key, val in kwargs.items():
+			if type(val) == dict:
+				setattr(self, key, DeepDictToObj(**val))
+			elif type(val) == list:
+				setattr(self, key, list(map(self.map_entry, val)))
+			else:
+				setattr(self, key, val)
+data = {"a": 1, "b": {"foo": "hi", "bar": 123}}
+y = DeepDictToObj(**data)
+y.b.foo    # err
+y.b['foo'] # 'hi'

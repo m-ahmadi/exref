@@ -30,11 +30,30 @@ j = '{"foo": "a", "bar": ["b", "c", 4]}'
 o = json.loads(j)
 o['foo'] # 'a'
 
+
 # read - from file
 with open('file.json') as f:
 	o = json.load(f)
 o['foo'] # 'a'
 
+
 # read - from file - utf8-bom encoded file
 with open('file.json', encoding='utf-8-sig') as f:
 	o = json.load(f)
+
+
+# convert dict to object
+from types import SimpleNamespace
+data = '{"a": 1, "b": {"foo": "hi", "bar": 123}}'
+x = json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
+# json.loads(data, object_hook=SimpleNamespace) # python v3.13+
+x.a     # 1
+x.b.foo # 'hi'
+x.b.bar # 123
+
+
+# convert object to json
+data = '{"a": 1, "b": {"foo": "hi", "bar": 123}}'
+x = json.loads(data, object_hook=lambda d: SimpleNamespace(**d))
+s = json.dumps(x, default=lambda o: o.__dict__)
+s # '{"a": 1, "b": {"foo": "hi", "bar": 123}}'
