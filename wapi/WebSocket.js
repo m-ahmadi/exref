@@ -44,7 +44,7 @@ mp.close()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
-var endpoint = 'echo.websocket.org/echo';
+var endpoint = 'echo.websocket.org';
 
 //var ws = new WebSocket('ws://'+endpoint);  // without ssl
 var ws = new WebSocket('wss://'+endpoint);   // with ssl
