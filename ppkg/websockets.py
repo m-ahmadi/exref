@@ -13,6 +13,8 @@ websockets.State.
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
+import asyncio as aio
+
 
 # client - async
 from websockets.asyncio.client import connect
@@ -99,7 +101,6 @@ aio.run(main())
 
 
 # server - listen forever, print msg sent by client, echo back to client
-import asyncio as aio
 from websockets.asyncio.server import serve
 async def handler(ws):
 	while True:

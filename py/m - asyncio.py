@@ -1,9 +1,43 @@
 import asyncio as aio
-# https://docs.python.org/3/library/asyncio.html
+# https://docs.python.org/3/library/asyncio-api-index.html
+# https://docs.python.org/3/library/asyncio-llapi-index.html
 
-aio.create_task()
-aio.sleep()
-aio.run()
+
+# https://docs.python.org/3/library/asyncio-task.html
+aio.create_task(coro, *, name=None, context=None, eager_start=None, **kwargs)
+aio.eager_task_factory(loop, coro, *, name=None, context=None)
+aio.create_eager_task_factory(custom_task_constructor)
+aio.timeout(delay)   # async context manager
+aio.timeout_at(when) # async context manager
+aio.as_completed(aws, *, timeout=None)
+aio.run_coroutine_threadsafe(coro, loop)
+aio.current_task(loop=None)
+aio.all_tasks(loop=None)
+aio.iscoroutine(obj)
+
+awaitable aio.sleep(delay, result=None)
+awaitable aio.wait_for(aw, timeout)
+awaitable aio.wait(aws, *, timeout=None, return_when=ALL_COMPLETED)
+awaitable aio.to_thread(func, /, *args, **kwargs)
+awaitable aio.gather(*aws, return_exceptions=False)
+awaitable aio.shield(aw)
+
+class aio.TaskGroup # async context manager
+class aio.Timeout(when)
+class aio.Task(coro, *, loop=None, name=None, context=None, eager_start=False)
+
+# https://docs.python.org/3/library/asyncio-runner.html
+aio.run(coro, *, debug=None, loop_factory=None)
+
+# https://docs.python.org/3/library/asyncio-eventloop.html
+aio.get_running_loop()
+aio.get_event_loop()
+aio.set_event_loop(loop)
+aio.new_event_loop()
+
+
+# text extraction
+# console.log([...document.querySelectorAll('.py.function,.py.class')].map(i=>i.innerText.split('\n')[0].replace('asyncio','aio')).join('\n'))
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
