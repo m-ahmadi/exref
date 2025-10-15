@@ -6,4 +6,10 @@ powercfg /export file.pow GUID	export plan (get guid from /L)
 powercfg /import file.pow	import plan
 powercfg /s GUID		activate plan
 
+powercfg /q SCHEME_BALANCED		view balanced power scheme
+powercfg /x monitor-timeout-ac 5	modify current power scheme ("Turn off display after:" 5 min, ac=powered, dc=battery)
+powercfg /x standby-timeout-ac 5	... "Sleep after:"
+powercfg /x disk-timeout-ac 5		... "Turn off hard disk after:"
+
+
 note: hiberfil.sys is used for optimize battery life on laptops. (uncheck "Hide protected operating system files" to see it)
