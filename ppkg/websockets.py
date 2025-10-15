@@ -30,7 +30,22 @@ aio.run(main())
 
 
 
+# client - async - detect init error
+async def main():
+	try:
+		async with connect('wss://echo.websocket.org') as ws:
+			await ws.send('hello')
+			server_msg = await ws.recv()
+			print('server sent:', server_msg)
+	except Exception as e:
+		print('error:', e)
+aio.run(main())
+
+
+
 # client - async - never-breaking process (infinite loop)
+
+# while loop (specific closed connection detection)
 async def main():
 	async with connect('wss://echo.websocket.org') as ws:
 		while True:
@@ -44,6 +59,7 @@ async def main():
 				break
 aio.run(main())
 
+# while loop alt (generic closed connection detection)
 async def main():
 	async with connect('wss://echo.websocket.org') as ws:
 		while True:
@@ -51,6 +67,15 @@ async def main():
 			if ws.state != websockets.State.OPEN:
 				print('connection closed')
 				break
+aio.run(main())
+
+# infinite async iterator
+async def main():
+	async with connect('wss://echo.websocket.org') as ws:
+		async for msg in ws:
+			print('server:', msg)
+			await aio.sleep(1)
+			await ws.send('hi')
 aio.run(main())
 
 
