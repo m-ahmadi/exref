@@ -14,10 +14,13 @@ websockets.State.
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # examples
 import asyncio as aio
+from websockets.asyncio.client import connect
+from websockets.sync.client import connect as connect_sync
+from websockets.exceptions import ConnectionClosedOK, ConnectionClosedError
+from websockets.asyncio.server import serve
 
 
 # client - async
-from websockets.asyncio.client import connect
 async def main():
 	async with connect('wss://echo.websocket.org') as ws:
 		await ws.send('hello')
@@ -28,7 +31,6 @@ aio.run(main())
 
 
 # client - async - never-breaking process (infinite loop)
-from websockets.asyncio.client import connect
 async def main():
 	async with connect('wss://echo.websocket.org') as ws:
 		while True:
@@ -42,7 +44,6 @@ async def main():
 				break
 aio.run(main())
 
-from websockets.asyncio.client import connect
 async def main():
 	async with connect('wss://echo.websocket.org') as ws:
 		while True:
@@ -55,9 +56,8 @@ aio.run(main())
 
 
 # client - sync
-from websockets.sync.client import connect
 def main():
-	with connect('wss://echo.websocket.org') as ws:
+	with connect_sync('wss://echo.websocket.org') as ws:
 		ws.send('hello')
 		server_msg = ws.recv()
 		print('server sent:', server_msg)
@@ -66,7 +66,6 @@ main()
 
 
 # client - reconnect automatically on errors
-from websockets.asyncio.client import connect
 async def main():
 	async for ws in connect('wss://echo.websocket.org'):
 		# infinite async iterator
@@ -81,8 +80,6 @@ aio.run(main())
 
 
 # client - error handling
-from websockets.asyncio.client import connect
-from websockets.exceptions import ConnectionClosedOK, ConnectionClosedError
 async def main():
 	async with connect('wss://echo.websocket.org') as ws:
 		while True:
@@ -95,13 +92,11 @@ async def main():
 				print('connection closed err', e.code, e.reason)
 			finally:
 				break
-
 aio.run(main())
 
 
 
 # server - listen forever, print msg sent by client, echo back to client
-from websockets.asyncio.server import serve
 async def handler(ws):
 	while True:
 		message = await ws.recv()
