@@ -90,3 +90,17 @@ async def main():
 	)
 	print(L)
 aio.run(main())
+
+
+
+# await for something but with max timeout
+async def coro():
+	aio.sleep(1)
+	return 'hi'
+async def main():
+	try:
+		res = await aio.wait_for(coro(), timeout=2)
+	except aio.exceptions.TimeoutError:
+		res = ''
+	print(res)
+aio.run(main())
