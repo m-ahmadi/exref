@@ -1,5 +1,5 @@
 import asyncio
-import websockets
+from websockets.asyncio.client import connect
 
 class WebSocket:
 	CONNECTING = 0
@@ -20,7 +20,7 @@ class WebSocket:
 	
 	async def _connect(self):
 		try:
-			async with websockets.connect(self.url) as ws:
+			async with connect(self.url) as ws:
 				self._ws = ws
 				self.readyState = WebSocket.OPEN
 				if callable(self.onopen):
