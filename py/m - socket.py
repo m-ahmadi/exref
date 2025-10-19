@@ -35,3 +35,53 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
 	sock.sendall(b'Hello, world')
 	data = sock.recv(1024)
 print('Received', repr(data))
+
+
+
+# async
+import asyncio, socket
+async def tcp_echo_raw():
+	loop = asyncio.get_running_loop()
+	sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	sock.setblocking(False)
+	await loop.sock_connect(sock, ('127.0.0.1', 8888))
+	await loop.sock_sendall(sock, b'Hello raw socket!')
+	data = await loop.sock_recv(sock, 1024)
+	print(f"Received: {data.decode()}")
+	sock.close()
+asyncio.run(tcp_echo_raw())
+
+# async - echo program - client
+import asyncio
+async def tcp_client():
+	reader, writer = await asyncio.open_connection('127.0.0.1', 8888)
+	message = 'Hello, server!'
+	print(f'Send: {message}')
+	writer.write(message.encode())
+	await writer.drain()
+	data = await reader.read(100)
+	print(f'Received: {data.decode()}')
+	print('Closing connection...')
+	writer.close()
+	await writer.wait_closed()
+asyncio.run(tcp_client())
+# async - echo program - server
+import asyncio
+async def handle_client(reader, writer):
+	addr = writer.get_extra_info('peername')
+	print(f'Connection from {addr}')
+	while data := await reader.read(100):
+		message = data.decode()
+		print(f'Received {message!r} from {addr}')
+		writer.write(data)
+		await writer.drain()
+	print(f'Closing {addr}')
+	writer.close()
+	await writer.wait_closed()
+async def main():
+	server = await asyncio.start_server(handle_client, '127.0.0.1', 8888)
+	addr = server.sockets[0].getsockname()
+	print(f'Serving on {addr}')
+	async with server:
+		await server.serve_forever()
+asyncio.run(main())
