@@ -14,7 +14,7 @@ screenshot quick access & start shortcuts
 
 npm ls -g --depth 0 > npkgs.txt
 pip list > ppkgs.txt
-py -V -> pyversion.txt
+py -0 > pyinstalls.txt
 copy %userprofile%\.gitconfig   .\
 copy %userprofile%\.npmrc       .\
 copy %userprofile%\noiz.cmd     .\
@@ -79,6 +79,13 @@ copy /b c:\windows\regjump.exe     .\c\Windows
 copy /b c:\windows\youtube-dl.exe  .\c\Windows
 copy /b c:\windows\jq.exe          .\c\Windows
 copy /b c:\windows\gdrive.exe      .\c\Windows
+copy /b c:\windows\qsv.exe         .\c\Windows
+copy /b c:\windows\wget.exe        .\c\Windows
+
+copy c:\windows\gx.cmd             .\c\Windows
+
+copy /b c:\windows\gfr             .\c\Windows
+copy c:\windows\gfr.cmd            .\c\Windows
 
 copy /b c:\windows\nircmd.exe      .\c\Windows
 copy /b c:\windows\nircmdc.exe     .\c\Windows
@@ -92,7 +99,8 @@ copy c:\windows\npp.cmd            .\c\Windows
 
 copy /L c:\windows\code            .\c\Windows
 
-copy /L c:\windows\30nama          .\c\Windows
+copy /L c:\windows\pot             .\c\Windows
+copy c:\windows\pot.cmd            .\c\Windows
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 new install
