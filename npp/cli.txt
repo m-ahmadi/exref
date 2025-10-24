@@ -30,7 +30,7 @@ ghost typing
 --------------------------------------------------------------------------------
 command setup
 
-mklink %windir%\npp "D:\Program Files\Notepad++\notepad++.exe"				for win+r
+mklink %windir%\npp "D:\Program Files\Notepad++\notepad++.exe"				for win+r (not sure if needed in 21h2+)
 echo @start "" "D:\Program Files\Notepad++\notepad++.exe" %* > %windir%\npp.cmd		for within cmd
 
 done.

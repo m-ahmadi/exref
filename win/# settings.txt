@@ -5,9 +5,12 @@ desk.cpl ,5
 
 UserAccountControlSettings -> Never notify
 
-control folders -> View
-	Show hidden files, folders and drives
-	! Hide extensions for known file types
+control folders
+	General
+		Open File Explorer to: This PC
+	View
+		Show hidden files, folders and drives
+		! Hide extensions for known file types
 	(or `reg import folders.reg`)
 
 powercfg.cpl ,0

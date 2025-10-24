@@ -129,3 +129,7 @@ robocopy .\tse-cache %userprofile%\tse-cache /e /r:0
 everything deskpins volmouse clickmonitor 7+taskbartweaker powertoys kidkeylock keyboardlocker paint.net sharex
 
 apply "C:\r\cmd\my.txt"
+
+change owner if needed (e.g. folders of git repos)
+folder -> rclick -> Properties -> Security -> Advanced -> Owner: ... Change -> Enter ...: NYC -> Check Names -> OK
+	check "Replace owner on subcontainers and objects" -> OK

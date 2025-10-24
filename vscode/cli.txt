@@ -11,7 +11,7 @@ code . --user-data-dir %appdata%		specify where to store user data
 						opens new instance of vscode if no content exists in path
 
 --------------------------------------------------------------------------------
-win+r command setup
+win+r command setup (not sure if needed in 21h2+)
 
 mklink %windir%\code "D:\Program Files\VSCode\Code.exe"
 --------------------------------------------------------------------------------

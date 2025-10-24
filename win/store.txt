@@ -1,7 +1,14 @@
-solution for 1809 17763 (worked)
+solution for 21H2 19044
+	https://github.com/megakarlach/LTSC-Add-MicrosoftStore-2021	(worked)
+	https://github.com/R-YaTian/LTSC-Add-MicrosoftStore-2021_2024
+	https://github.com/QuangVNMC/LTSC-Add-Microsoft-Store
+	https://github.com/Liub0myr/MS-Store-for-LTSC-21H2
 
-1. https://github.com/kkkgo/LTSC-Add-MicrosoftStore/releases
-2. reboot
+solution for 1809 17763 (worked)
+	https://github.com/kkkgo/LTSC-Add-MicrosoftStore/releases
+
+
+note: reboot may be needed
 --------------------------------------------------------------------------------
 solutions:
 
