@@ -5,7 +5,7 @@ Get-Alias -D Get-Alias             # gal
 gal -d Get-Command                 # gcm
 gal -d Get-Help                    # does not exist
 
-# alias					cmdlet  
+# alias					cmdlet
 help						Get-Help # not rly
 gps ps					Get-Process
 gal							Get-Alias
