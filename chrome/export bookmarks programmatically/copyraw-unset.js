@@ -13,7 +13,8 @@ if (args.length === 2) {
 
 const bookmarks = JSON.parse(fs.readFileSync(srcpath));
 
-delete bookmarks['checksum'];
+bookmarks['checksum'] = '';
+bookmarks['checksum_sha256'] = '';
 
 deleteThings(bookmarks.roots['bookmark_bar']);
 deleteThings(bookmarks.roots['other']);
