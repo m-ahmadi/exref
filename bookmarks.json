@@ -13163,6 +13163,11 @@
                 {
                   "children": [
                     {
+                      "name": "Windows Terminal",
+                      "type": "url",
+                      "url": "https://github.com/microsoft/terminal"
+                    },
+                    {
                       "name": "ConEmu",
                       "type": "url",
                       "url": "https://conemu.github.io/"
