@@ -9,4 +9,3 @@ install "KDE Connect" on windows and android
 	can send sms
 	can't make phone calls
 	paired using wifi
-

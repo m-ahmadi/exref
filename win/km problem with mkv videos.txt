@@ -25,4 +25,3 @@ What worked for me:
 	Option 2
 	step 7
 	select System Default (instead of Gabest MKV Splitter)
-	
