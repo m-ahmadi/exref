@@ -1,0 +1,5 @@
+close word
+del %appdata%\Microsoft\Templates\Normal.dotm
+open word
+
+done
