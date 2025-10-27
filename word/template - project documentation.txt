@@ -1,15 +1,19 @@
 font:			Bahij Nazanin			Home -> Font
 font size:		18				...
-paper size:		Screen				Layout -> Size
-margins:		.5 .2 .1 .1 (TBLR)		Layout -> Margins -> Custom Margins ...
+paper size:		Letter (prev: Screen)		Layout -> Size
+margins:		.2 .1 .1 .1 (TBLR) (prev: 5211)	Layout -> Margins -> Custom Margins ...
 orientation:		Portrait			Layout -> Orientation
 paragraph spacing:	No Paragraph Space		Design -> Paragraph Spacing
 
-styles:			font				Home -> Styles -> rclick on style -> Modify|Remove...
-	Normal:		18
-	Heading 1:	38 bold
-	Heading 2:	30 bold
-	Heading 3:	24 bold
+styles:			font		(prev)		Home -> Styles -> rclick on style -> Modify|Remove...
+	Normal:		12		18
+	Heading 1:	24 bold		38 bold
+	Heading 2:	19 bold		30 bold
+	Heading 3:	16 bold		24 bold
 	remove rest
 
-File -> Save As -> "Project Documentation.dotx"
+File -> Save As ->
+	File name:	Project Documentation.dotx
+	Save as type:	Word Template (*.docx)
+	
+	note: saved in %userprofile%\Documents\Custom Office Templates\
