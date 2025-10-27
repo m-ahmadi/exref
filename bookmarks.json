@@ -14618,6 +14618,11 @@
                   "name": "natural",
                   "type": "url",
                   "url": "https://github.com/NaturalNode/natural"
+                },
+                {
+                  "name": "transformers",
+                  "type": "url",
+                  "url": "https://huggingface.co/docs/transformers/quicktour"
                 }
               ],
               "name": "nlp",
