@@ -91,6 +91,10 @@ volumouse options
 --------------------------------------------------------------------------------
 "7+ taskbar tweaker" settings
 
+Grouping and combining ->
+	Don't group
+	When not grouping, place new items next to the existing ones
+
 Other taskbar options ->
 	Middle click on empty space:	Task Manager
 --------------------------------------------------------------------------------
