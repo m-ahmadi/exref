@@ -9,7 +9,7 @@ styles:			font		(prev)		Home -> Styles -> rclick on style -> Modify|Remove...
 	Normal:		12		18
 	Heading 1:	24 bold		38 bold
 	Heading 2:	19 bold		30 bold
-	Heading 3:	16 bold		24 bold
+	Heading 3:	15 bold		24 bold
 	remove rest
 
 File -> Save As ->
