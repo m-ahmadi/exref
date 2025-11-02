@@ -1,6 +1,5 @@
 {
   "checksum": "",
-  "checksum_sha256": "",
   "roots": {
     "bookmark_bar": {
       "children": [
@@ -21633,5 +21632,6 @@
       "type": "folder"
     }
   },
-  "version": 1
+  "version": 1,
+  "checksum_sha256": ""
 }
