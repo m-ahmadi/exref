@@ -13458,6 +13458,27 @@
                       "name": "Omni",
                       "type": "url",
                       "url": "https://chrome.google.com/webstore/detail/omni-bookmark-history-tab/mapjgeachilmcbbokkgcbgpbakaaeehi?hl=en"
+                    }
+                  ],
+                  "name": "chrome extension",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "Dark Reader",
+                      "type": "url",
+                      "url": "https://addons.mozilla.org/en-US/firefox/addon/darkreader"
+                    },
+                    {
+                      "name": "TWP - Translate Web Pages",
+                      "type": "url",
+                      "url": "https://addons.mozilla.org/en-US/firefox/addon/traduzir-paginas-web"
+                    },
+                    {
+                      "name": "RTLify",
+                      "type": "url",
+                      "url": "https://addons.mozilla.org/en-US/firefox/addon/rtlify"
                     },
                     {
                       "name": "Web Developer",
@@ -13485,7 +13506,7 @@
                       "url": "https://addons.mozilla.org/en-US/firefox/addon/sidebery/"
                     }
                   ],
-                  "name": "browser extension",
+                  "name": "firefox extension",
                   "type": "folder"
                 },
                 {
