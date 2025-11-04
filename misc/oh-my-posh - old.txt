@@ -1,0 +1,58 @@
+powershell module
+
+Install-Module oh-my-posh -Scope CurrentUser		install
+Uninstall-Module oh-my-posh				uninstall
+Update-Module oh-my-posh				update
+
+Get-PoshThemes						view all themes
+Get-PoshThemes -list					... names
+Set-PoshPrompt -Theme jandedobbeleer			set prompt to a theme
+
+Export-PoshTheme -FilePath ~/my.omp.json -Format json	write current theme
+--------------------------------------------------------------------------------
+custom theme
+
+%userprofile%\Documents\WindowsPowerShell\Modules\oh-my-posh\6.2.5\themes\
+	powerlevel10k_rainbow.omp.json
+		console_title: false
+	.mytheme.omp.json
+$PROFILE:
+	Set-PoshPrompt -Theme .mytheme
+--------------------------------------------------------------------------------
+setup powershell
+
+Install-Module oh-my-posh -Scope CurrentUser
+add "Set-PoshPrompt -Theme powerlevel10k_rainbow" to $PROFILE
+	
+
+https://github.com/ryanoasis/nerd-fonts/releases
+	install "Meslo LG M Regular Nerd Font Complete Mono Windows Compatible.ttf"
+	reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont" /v 01 /d "MesloLGM NF" /f
+
+powershell window "Properties" (not "Defaults")
+	colors: text=204 204 204  bg=12 12 12
+	font=17
+	width  height  left  top
+	117    28      957   528
+
+uninstall
+	Uninstall-Module oh-my-posh
+	remove $PROFILE entry
+	set powershell window "Properties" to defaults (use "PowerShell (x86)" window for values)
+--------------------------------------------------------------------------------
+setup bash
+
+https://github.com/JanDeDobbeleer/oh-my-posh/releases
+	download "posh-windows-amd64.exe" and place in c:\windows\posh.exe
+	download "themes.zip" and extract to ~/.poshthemes
+	~/.bash_profile:
+		eval "$(posh --init --shell bash --config ~/.poshthemes/powerlevel10k_rainbow.omp.json)"
+
+https://github.com/ryanoasis/nerd-fonts/releases
+	download Meslo.zip
+	install "Meslo LG M Regular Nerd Font Complete Windows Compatible.ttf"
+	ConEmu -> Settings -> General -> Fonts -> Main console font: "MesloLGM NF", Size: 12
+
+view all themes (in cmd)
+forfiles /p %userprofile%\.poshthemes /m *.omp.json /c "cmd /c echo @file & posh --config @file --shell universal & echo. & echo."
+--------------------------------------------------------------------------------

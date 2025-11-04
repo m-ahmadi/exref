@@ -1,58 +1,50 @@
-powershell module
+install
 
-Install-Module oh-my-posh -Scope CurrentUser		install
-Uninstall-Module oh-my-posh				uninstall
-Update-Module oh-my-posh				update
+1. install oh-my-posh
+	winget install JanDeDobbeleer.OhMyPosh --source winget --scope user --force
+	or update:
+	winget upgrade JanDeDobbeleer.OhMyPosh --source winget --scope user --force
 
-Get-PoshThemes						view all themes
-Get-PoshThemes -list					... names
-Set-PoshPrompt -Theme jandedobbeleer			set prompt to a theme
-
-Export-PoshTheme -FilePath ~/my.omp.json -Format json	write current theme
---------------------------------------------------------------------------------
-custom theme
-
-%userprofile%\Documents\WindowsPowerShell\Modules\oh-my-posh\6.2.5\themes\
-	powerlevel10k_rainbow.omp.json
-		console_title: false
-	.mytheme.omp.json
-$PROFILE:
-	Set-PoshPrompt -Theme .mytheme
---------------------------------------------------------------------------------
-setup powershell
-
-Install-Module oh-my-posh -Scope CurrentUser
-add "Set-PoshPrompt -Theme powerlevel10k_rainbow" to $PROFILE
+2. install font
+	oh-my-posh font install meslo		directly select	
+	oh-my-posh font install			or interactively select
 	
 
-https://github.com/ryanoasis/nerd-fonts/releases
-	install "Meslo LG M Regular Nerd Font Complete Mono Windows Compatible.ttf"
-	reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont" /v 01 /d "MesloLGM NF" /f
+3. open windows terminal app -> press ctrl+shift+, to open settings.json
+	"defaults": {
+	    "font": {"face": "MesloLGM Nerd Font"}
+	},
 
-powershell window "Properties" (not "Defaults")
-	colors: text=204 204 204  bg=12 12 12
-	font=17
-	width  height  left  top
-	117    28      957   528
+4. edit powershell profile
+	code $PROFILE
+		if not exists:
+			New-Item -Path $PROFILE -Type File -Force
+	put below in file:
+		oh-my-posh init pwsh | Invoke-Expression
+	or if on system with limited execution policy:
+		oh-my-posh init pwsh --eval | Invoke-Expression
 
-uninstall
-	Uninstall-Module oh-my-posh
-	remove $PROFILE entry
-	set powershell window "Properties" to defaults (use "PowerShell (x86)" window for values)
+5. reload powershell profile
+	. $PROFILE
+
+done
+
 --------------------------------------------------------------------------------
-setup bash
+windows terminal settings
 
-https://github.com/JanDeDobbeleer/oh-my-posh/releases
-	download "posh-windows-amd64.exe" and place in c:\windows\posh.exe
-	download "themes.zip" and extract to ~/.poshthemes
-	~/.bash_profile:
-		eval "$(posh --init --shell bash --config ~/.poshthemes/powerlevel10k_rainbow.omp.json)"
+settings.json
+	"initialCols": 115,
+	"initialPosition": "964,528",
+	"initialRows": 25,
+	"defaults": {
+	    "font": {"face": "MesloLGM Nerd Font", size: 10}
+	},
+--------------------------------------------------------------------------------
+customize oh-my-posh theme
 
-https://github.com/ryanoasis/nerd-fonts/releases
-	download Meslo.zip
-	install "Meslo LG M Regular Nerd Font Complete Windows Compatible.ttf"
-	ConEmu -> Settings -> General -> Fonts -> Main console font: "MesloLGM NF", Size: 12
+code $PROFILE
+	oh-my-posh init pwsh --config 'jandedobbeleer' | Invoke-Expression
 
-view all themes (in cmd)
-forfiles /p %userprofile%\.poshthemes /m *.omp.json /c "cmd /c echo @file & posh --config @file --shell universal & echo. & echo."
+https://ohmyposh.dev/docs/installation/customize
+
 --------------------------------------------------------------------------------
