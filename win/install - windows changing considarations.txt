@@ -91,9 +91,6 @@ copy /b c:\windows\nircmd.exe      .\c\Windows
 copy /b c:\windows\nircmdc.exe     .\c\Windows
 copy /b c:\windows\NirCmd.chm      .\c\Windows
 
-copy /b c:\windows\posh.exe        .\c\Windows
-copy c:\windows\posh.json          .\c\Windows
-
 copy /L c:\windows\npp             .\c\Windows
 copy c:\windows\npp.cmd            .\c\Windows
 
