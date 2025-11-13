@@ -1,16 +1,23 @@
 settings
 
-Playback -> Playback settings
+Playback
 	Default window size:	"Do not use" | "Maximize (to Desktop)"
 
-Playback -> Jump (to) -> Time Jump Settings
+Playback -> Time Jump
 	left/right:		3
 	ctrl left/right:	5
 
-Subtitles -> Font
-	Default:	Cambria
-	Alternative:	Courier New
-	Size:		14
+Subtitles -> Font Style
+	Font
+		Default:	Arial (Regular)		prev: Cambria
+		Alternative:	Courier New
+		Size:		14
+	Colors & Transparency & Outline & Shadow
+		Text:		white, slider all the way left
+		Outline:	2
+		2nd Outline:	0
+		Shadow:		3
+	Opaque box		Enable, black, slider at 20% from left
 
 General ->
 	Auto check for updates:		Never
