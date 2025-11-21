@@ -1,0 +1,7 @@
+"UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure."
+
+cause:	python has been installed without "tcl/tk and IDLE"
+
+solution:
+	install python with "tcl/tk and IDLE"
+	use `plt.savefig('f.png')` instead of `plt.show()`

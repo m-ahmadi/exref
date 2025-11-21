@@ -4,6 +4,7 @@ python -m pip install -U pip		run library module
 python					enter shell
 	exit()				exit shell (or ctrl z)
 	import this			summary of principles
+python -m tkinter			see if `tkinter` is properly installed
 --------------------------------------------------------------------------------
 lang pkgs
 

@@ -1,7 +1,7 @@
 pymanager help			show help
 pymanager -V			run default runtime
 pymanager -V:3.9		run specific runtime
-pymanager -3.9			...
+pymanager -3.9			... (below 3.14 won't incldue "tcl/tk and IDLE")
 pymanager list			show installed runtimes
 pymanager install 3.14		install runtime
 pymanager uninstall 3.14	uninstall runtime
