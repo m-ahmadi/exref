@@ -1,0 +1,111 @@
+# https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+
+[build-system]
+requires = [""]
+build-backend = ""
+
+[project]
+name = "" # required
+version = "" # required
+dynamic = [""]
+
+# https://packaging.python.org/en/latest/specifications/dependency-specifiers/#dependency-specifiers
+dependencies = ["",""]
+
+requires-python = ">= 3.8"
+authors = [ {name = "", email = ""}, {name = ""}, ... ]
+maintainers = ↑ ...
+description = ""
+readme = "" | {file = "", content-type = ""}
+license = ""
+license-files = ["", ...]
+keywords = ["", ...]
+classifiers = ["", ...]
+
+[project.optional-dependencies]
+gui = [""]
+cli = [""]
+
+[project.urls]
+Homepage = ""
+Documentation = ""
+Repository = ""
+Issues = ""
+Changelog = ""
+
+[project.scripts]
+FOO-cli = "s"
+
+[project.gui-scripts]
+FOO-gui = ""
+
+[project.entry-points."spam.magical"]
+foo = ""
+
+# setuptools-specific configs
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# examples
+
+
+# essential
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "foo"
+version = "0.0.1"
+requires-python = ">=3.9"
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# setuptools-specific example
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "foo"
+version = "0.0.1"
+requires-python = ">=3.9"
+
+[tool.setuptools.packages.find]
+where = ["src"]                 # list of folders that contain the packages (["."] by default)
+include = ["my_package*"]       # package names should match these glob patterns (["*"] by default)
+exclude = ["my_package.tests*"] # exclude packages matching these glob patterns (empty by default)
+namespaces = false              # to disable scanning PEP 420 namespaces (true by default)
+# or
+[tool.setuptools]
+packages = ["my_package"]
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# another generic example
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "example_package_YOUR_USERNAME_HERE"
+version = "0.0.1"
+authors = [
+  { name="Example Author", email="author@example.com" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
+
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
