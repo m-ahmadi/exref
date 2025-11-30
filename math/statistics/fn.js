@@ -1211,7 +1211,7 @@ function range(...a) {
 	}
 	return r;
 }
-function arraySplit(arr=[], size=0) {
+function arraySplit(arr=[], size=0) {/*np.array_split()*/
 	let a = [...arr];
 	let r = [];
 	for (let i=0; i<size; i++) {
