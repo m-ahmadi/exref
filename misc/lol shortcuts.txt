@@ -5,17 +5,17 @@ Shift	1 2 3
 --------------------------------------------------
 pings
 
-Caution		C1
+Quick Caution	C1
 Retreat		C3
 
 On My Way	S1
-Assist Me	A2
-Push		A3
-All In		S3
+Assist Me	S2
+Push		CS2
+All In		CS1
 
-Alert		A1
+Quick Alert	A1
 Enemy Vision	C2
-Need Vision	S2
+Need Vision	A2
 
-Enemy Missing	CS1
+Enemy Missing	S3
 --------------------------------------------------
