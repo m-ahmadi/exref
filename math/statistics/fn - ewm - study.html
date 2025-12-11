@@ -5,6 +5,7 @@ log = console.log;
 sumErr = (a,b) => sum(a.map((v,i)=>Math.abs(v-b[i])) );
 perf = (fn,t) => (t=performance.now(), fn(), Math.round(performance.now()-t));
 
+ewmstd_incr = ewmstdIncr;
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // equality
 
