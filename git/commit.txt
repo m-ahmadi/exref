@@ -20,7 +20,7 @@ git commit --amend --date=now		...
 
 git commit -m "1" --date <timestamp>	override AuthorDate
 
-git commit --allow-empty -n -m "init"	empty commit (good for `git reset HEAD~` to 2nd first commit)
+git commit -m "init" --allow-empty -n	empty commit (good for `git reset HEAD~` to 2nd first commit)
 
 --------------------------------------------------------------------------------
 delete commit and do again
