@@ -10366,6 +10366,11 @@
                   "url": "https://github.com/vaticle/typedb"
                 },
                 {
+                  "name": "lmdb-js",
+                  "type": "url",
+                  "url": "https://github.com/kriszyp/lmdb-js"
+                },
+                {
                   "children": [
                     {
                       "name": "SQL Dialects Reference",
