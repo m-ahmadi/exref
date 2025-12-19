@@ -2,6 +2,10 @@
 x = 2
 x = y = z = 'foo'
 
+# assignment expression (python v3.8+)
+if (n := len([1,2])) < 5:
+	print(n, 'items are not enough')
+
 # delete variable
 del x
 del y,z
