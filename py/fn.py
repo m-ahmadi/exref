@@ -38,6 +38,13 @@ f(a=1)     # {'a': 1}
 f(a=1,b=3) # {'a': 1, 'b': 3}
 f(1)       # err (takes 0 positional arguments)
 
+# positional-only args
+def f(a, b, /, c, d, *, e, f): print(a, b, c, d, e, f)
+# a,b = pos-only    c,d = pos|kw    e,f = kw-only
+f(1, 2, 3, d=4, e=5, f=6)     # ok
+f(1, b=2, c=3, d=4, e=5, f=6) # err (b can't be keyword arg)
+f(1, 2, 3, 4, 5, f=6)         # err (e must  be keyword arg)
+
 # unpack tuple/list into args (spread)
 def f(a,b,c): print(a,b,c)
 p = (2,7,4)
