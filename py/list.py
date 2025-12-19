@@ -129,6 +129,12 @@ list(a) # []
 list( map(lambda i: i[0], enumerate([4,5,6])) )    # [0,1,2]
 list( map(lambda i: i[0], enumerate([4,5,6], 7)) ) # [7,8,9]
 
+# map - over index & value - workaround for unpacking a tuple param of lambda
+list( map(lambda i: (x:=i[0], y:=i[1], x+y)[-1], enumerate([1,2,3])) ) # [1,3,5]
+from collections import namedtuple
+tup = namedtuple('tup', 'x,y')
+list( map(lambda i: (t:=tup(*i), t.x+t.y)[-1], enumerate([1,2,3])) ) # [1,3,5]
+
 # filter
 list(filter(lambda i: i>2, [1,2,3,4])) # [3,4]
 
