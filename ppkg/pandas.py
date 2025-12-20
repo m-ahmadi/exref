@@ -218,8 +218,10 @@ df = pd.DataFrame([d])          # ok
 # sort
 df = pd.DataFrame([ {'a':1,'b':4}, {'a':2,'b':4}, {'a':3,'b':5} ])
 _sorted = df.sort_values(by='b', ascending=False)
-_sorted.iloc[0]  # {'a': 3, 'b': 5}  (         top item)
-_sorted.index[0] # 2                 (index of top item)
+_sorted.iloc[0]    # {'a': 3, 'b': 5}  (         top item)
+_sorted.index[0]   # 2                 (index of top item)
+_sorted.a.idxmax() # ...
+_sorted.idxmax()   # {'a': 2, 'b': 2}
 
 # sort - check if is in sorted order
 pd.Series([1,2,3,4]).is_monotonic_increasing # True
