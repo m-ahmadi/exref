@@ -185,14 +185,17 @@ a[np.where(np.logical_or(a%4==0, a%5==0))] # ...
 
 # flat
 a = np.array([ [[1],[2]], [[3],[4]] ])
-a.ravel()      # array([1,2,3,4])
-a.flatten()    # ...
-a.reshape(-1)  # ... 
-[*a.flat]      # [1,2,3,4]
+a.flatten()    # [1,2,3,4]    returns copy
+[*a.flat]      # ...          returns copy
+a.ravel()      # ...          returns view if possible otherwise copy
+a.reshape(-1)  # ...          returns view if possible otherwise copy
+
+a.squeeze()    # ...          only flattens 1-length items (returns copy)
+np.array([[1],[2,3]]).squeeze() # [[1],[2,3]]
 
 # flat - method differences
-#                flatten    ravel    reshape
-# return copy    yes        no       no
+#                flatten    ravel    reshape    squeeze
+# return copy    yes        no       no         yes
 
 # transpose
 a = np.array([ [1,2], [3,4] ])
