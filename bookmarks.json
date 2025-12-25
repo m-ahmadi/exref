@@ -14554,6 +14554,21 @@
             {
               "children": [
                 {
+                  "name": "gymnasium",
+                  "type": "url",
+                  "url": "https://gymnasium.farama.org/"
+                },
+                {
+                  "name": "stable-baselines3",
+                  "type": "url",
+                  "url": "https://stable-baselines3.readthedocs.io/en/master/"
+                },
+                {
+                  "name": "—————",
+                  "type": "url",
+                  "url": "http://foo.com/"
+                },
+                {
                   "name": "gym",
                   "type": "url",
                   "url": "https://gym.openai.com/docs/"
@@ -14562,6 +14577,11 @@
                   "name": "stable-baselines",
                   "type": "url",
                   "url": "https://stable-baselines.readthedocs.io/en/master/"
+                },
+                {
+                  "name": "—————",
+                  "type": "url",
+                  "url": "http://foo.com/"
                 },
                 {
                   "name": "baselines",
