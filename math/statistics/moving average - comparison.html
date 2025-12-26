@@ -13,8 +13,8 @@ for (let i=1; i<20; i++) {
 }
 
 var _ewm = ewm(data, 5);
-_ewm.map(a=> a.forEach((v,i,aa)=> Number.isNaN(v) && (aa[i] = undefined)) );
-var [ewma, ewmv, ewms] = _ewm;
+Object.keys(_ewm).map(k=> _ewm[k].forEach((v,i,aa)=> Number.isNaN(v) && (aa[i] = undefined)) );
+var {mean:ewma, var:ewmv, std:ewms} = _ewm;
 
 var _ewmstd = ewmstd(data, 5);
 
