@@ -98,3 +98,9 @@ tot = 20
 for i in range(tot):
 	sys.stdout.write(f'\r{i+1}/{tot}')
 	time.sleep(0.1)
+
+# pass arg to script
+import sys
+args = [int(i) for i in sys.argv[1:]]
+from types import SimpleNamespace
+arg = SimpleNamespace({i.split('=')[0]: int(i.split('=')[1]) for i in sys.argv[1:]})
