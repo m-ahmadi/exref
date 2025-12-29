@@ -73,20 +73,51 @@ spawn(command='', ?args=['',...], ?options={
 	killSignal:    'SIGTERM' | int,
 })
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// eg - sol
+
+//------------------------------------------------
 // spawning .bat .cmd files
-const { spawn, execSync } = require('child_process');
+var {spawn, execSync} = require('child_process');
 
 // all equal:
-const child = spawn('cmd.exe', ['/c', 'my.bat']);
-const child = spawn('my', {shell:true});
+var child = spawn('cmd.exe', ['/c', 'my.bat']);
+var child = spawn('my', {shell:true});
 execSync('my.bat');
+
+//------------------------------------------------
+// set shell variable between two scripts
+process.env.ASS = 'white';
+execSync('echo %ASS%', {stdio:'inherit'});
+
+execSync('echo %ASS%', {stdio:'inherit', env:{...process.env, ASS:'white'}});
+
+//------------------------------------------------
+// call python inside venv
+var {execSync} = require('child_process');
+
+// simplest
+execSync('.venv\\Scripts\\python.exe f.py');
+
+// not ideal (activation disappears after command exits)
+execSync('cmd /c .venv\\Scripts\\activate.bat && py f.py');
+
+// or
+var {spawn} = require('child_process');
+var path = require('path');
+var venvScripts = path.join(__dirname, '.venv', 'Scripts');
+var child = spawn('py', ['f.py'], {
+  env: {...process.env, PATH: `${venvScripts};${process.env.PATH}`},
+  shell: true,
+});
+child.stdout.on('data', d => console.log(d.toString()));
+child.stderr.on('data', d => console.error(d.toString()));
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // exec
 child_process.execSync('node --version').toString() // v10.16.3
 
-const exec =  require('util').promisify(child_process.exec);
+var exec = require('util').promisify(child_process.exec);
 (async function () {
-	const { stdout, stderr } = await exec('node', ['--version']);
+	var { stdout, stderr } = await exec('node', ['--version']);
 	console.log(stdout, stderr);
 })()
 
@@ -105,17 +136,17 @@ child_process.exec('ls -la', (error, stdout, stderr) => {
 // execFile
 child_process.execFileSync('node', ['--version']).toString() // v10.16.3
 
-const execFile = require('util').promisify(child_process.execFile);
+var execFile = require('util').promisify(child_process.execFile);
 (async function () {
-	const result = await execFile('node', ['--version']);
+	var result = await execFile('node', ['--version']);
 	console.log(result) // { stdout: 'v10.16.3\r\n', stderr: '' }
 	console.log(stdout);
 })()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // spawn
-const child = spawn('ls', ['-a', '-l']);
-const child = spawn('sass style.scss:style.css', {stdio: 'inherit'}); // preserve colors
-const child = spawn('python', ['script.py']);
+var child = spawn('ls', ['-a', '-l']);
+var child = spawn('sass style.scss:style.css', {stdio: 'inherit'}); // preserve colors
+var child = spawn('python', ['script.py']);
 
 child.stdout.on('data', (data) => {
 	console.log('stdout:', data+'');
@@ -151,10 +182,10 @@ child.on('disconnect', () => {
 'exit'  // process ended
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // fork
-const { fork } = child_process;
+var { fork } = child_process;
 
 // main.js
-const child = fork('./child.js');
+var child = fork('./child.js');
 child.on('message', function (m) {
 	console.log('received: ' + m); // receive results from child process
 });
