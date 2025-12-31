@@ -5,6 +5,7 @@ log = console.log;
 sumErr = (a,b) => sum(a.map((v,i)=>Math.abs(v-b[i])) );
 perf = (fn,t) => (t=performance.now(), fn(), Math.round(performance.now()-t));
 
+ewm = ewm_pandas_conceptual;
 ewmstd_incr = ewmstdIncr;
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // equality
@@ -20,7 +21,7 @@ b = ewmstd(x,period).filter(Number.isFinite);
 cf = ewmstd_incr(2/(period+1));
 c = x.map(cf).slice(1);
 
-log('sumErr(ewm,ewmstd)', sumErr(a,b));        // 119.19239104464184
+log('sumErr(ewm,ewmstd)', sumErr(a,b));        // 1189
 log('sumErr(ewmstd,ewmstd_incr)',sumErr(b,c)); // 2.403632848313464e-14
 
 log('');

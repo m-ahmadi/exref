@@ -887,7 +887,131 @@ function ema_formal(nums=[], alpha=1) {/*alt init*/
 	
 	return S;
 }
-function ewm(nums=[], span=2, adjust=true) {/*pandas*/
+function ewm(nums=[], span=2, adjust=true) {/*ewm_pandas_conceptual() optimized*/
+	const n = nums.length;
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	
+	const mean = new Array(n);
+	const variance = new Array(n);
+	const std = new Array(n);
+	
+	// sufficient statistics
+	let W = 1;                 // sum w
+	let S = nums[0];           // sum w*x
+	let Q = nums[0] * nums[0]; // sum w*x^2
+	let R = 1;                 // sum w^2
+	
+	mean[0] = nums[0];
+	variance[0] = 0;
+	std[0] = 0;
+	
+	for (let i=1; i<n; i++) {
+		const x = nums[i];
+		
+		if (adjust) {
+			// weights: w_j = ar^(i-j)
+			W = ar * W + 1;
+			S = ar * S + x;
+			Q = ar * Q + x * x;
+			R = ar * ar * R + 1;
+		} else {
+			// weights:
+			// j=0: ar^i
+			// j>=1: a * ar^(i-j)
+			W = ar * W + a;
+			S = ar * S + a * x;
+			Q = ar * Q + a * x * x;
+			R = ar * ar * R + a * a;
+		}
+		
+		const m = S / W;
+		const bias = (W * W) / (W * W - R);
+		const v = bias * (Q / W - m * m);
+		
+		mean[i] = m;
+		variance[i] = v;
+		std[i] = Math.sqrt(v);
+	}
+
+	return {mean, var: variance, std};
+	
+	/* vs orig
+	if adjust=true is all you need, ewmAdj() output is closer to orig
+	
+	// equality test
+	var s = cumsum([...Array(100_000)].map(randn));
+	var sumErr = (a,b) => sum(a.map((v,i) => Math.abs(v-b[i])).slice(1));
+	function test(adjust) {
+		var a = ewm_pandas_conceptual(s, 100, adjust);
+		var b = ewm(s, 100, adjust);
+		return Object.keys(a).map(k => sumErr(a[k], b[k]));
+	}
+	test(true)  // [2.2156114701590846e-8, 0.0000034532865886283126, 4.0956911839806764e-7]
+	test(false) // [1.7079510876774617e-8, 0.0000021375455018235456, 2.4482874061426685e-7]
+	*/
+}
+function ewmAdj(nums=[], span=2) {/*ewm_pandas_conceptual(..., adjust=true) optimized*/
+	const n = nums.length;
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	
+	const mean = new Array(n);
+	const variance = new Array(n);
+	const std = new Array(n);
+	
+	let m = nums[0];
+	let v = 0;
+	
+	let w = 1;  // cumulative weight
+	let w2 = 1; // cumulative squared weight
+	
+	mean[0] = m;
+	variance[0] = 0;
+	std[0] = 0;
+	
+	for (let i=1; i<n; i++) {
+		const x = nums[i];
+		
+		w = w * ar + 1;
+		w2 = w2 * ar * ar + 1;
+		
+		const delta = x - m;
+		m += delta / w;
+		v = (ar * v) + (delta * delta) * (w - 1) / w;
+		
+		const bias = (w * w) / (w * w - w2);
+		variance[i] = bias * v / w;
+		
+		mean[i] = m;
+		std[i] = Math.sqrt(variance[i]);
+	}
+
+	return {mean, var: variance, std};
+	
+	/* vs orig
+	
+	// equality test
+	var s = cumsum([...Array(100_000)].map(randn));
+	var a = ewm_pandas_conceptual(s, 100, true);
+	var b = ewmAdj(s, 100);
+	var sumErr = (a,b) => sum(a.map((v,i) => Math.abs(v-b[i])).slice(1));
+	Object.keys(a).map(k => sumErr(a[k], b[k]));
+	// [2.7886955519871963e-9, 8.449641611396608e-9, 8.129117934352337e-10]
+	
+	// perf test
+	var s = cumsum([...Array(100_000)].map(randn));
+	console.time('orig');
+	ewm_pandas_conceptual(s, 100, true);
+	console.timeEnd('orig');
+	console.time('opt');
+	ewmAdj(s, 100);
+	console.timeEnd('opt');
+	// orig  45359 ms
+	// opt:  22    ms  (2000x faster)
+	*/
+}
+function ewm_pandas_conceptual(nums=[], span=2, adjust=true) {/*pandas*/
 	const r = {mean: [], var: [], std: []};
 	
 	const a = 2 / (span + 1); // alpha
@@ -931,7 +1055,93 @@ function ewm(nums=[], span=2, adjust=true) {/*pandas*/
 	
 	return r;
 }
-function ewmIncrPartial(span=2, _adjust=true, singleRes='', state={}) {
+function ewmAdjIncrPartial(span=2, singleRes='', state) {/*ewmAdj() incremental-style with state*/
+	if (singleRes && !['mean','var','std'].includes(singleRes)) throw Error('`singleRes` param can only be "mean" | "var" | "std"');
+	
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	
+	let {m=0, v=0, w=1, w2=1} = state || {};
+	
+	let [mean, variance, std] = [m, 0, 0];
+	
+	let i = state ? 1 : 0;
+	
+	const ret = () => singleRes
+		? ({mean, var:variance, std})[singleRes]
+		: [mean, variance, std];
+	
+	return function (x, getState=false) {
+		if (getState === true) return {m, v, w, w2};
+		if (i === 0) { i++; m=x; return ret(); }
+		
+		w = w * ar + 1;
+		w2 = w2 * ar * ar + 1;
+		
+		const delta = x - m;
+		m += delta / w;
+		v = (ar * v) + (delta * delta) * (w - 1) / w;
+		
+		const bias = (w * w) / (w * w - w2);
+		variance = bias * v / w;
+		
+		mean = m;
+		std = Math.sqrt(variance);
+		
+		return ret();
+	};
+	
+	/*
+	this function serves more as a solution for some use cases rather than for perf purposes
+	pro:  small state, perfect for saving state between calls
+	con:  perf is around half the normal ewmAdj()
+	
+	// usage:
+	var x = [...Array(400_000)].map(randn);
+	var a = ewmAdj(x,100).std;
+	var f = ewmAdjIncrPartial(100,'std');
+	var b = x.map(f);
+	dequal(a,b); // true
+	
+	// usage with state:
+	var nItems = 400_000;
+	var xAll = [...Array(nItems)].map(randn);
+	var x1 = xAll.slice(0,nItems*0.8);
+	var x2 = xAll.slice(-(nItems*0.2));
+	dequal([...x1, ...x2], xAll); // true
+	var f;
+	f = ewmAdjIncrPartial(100,'std');
+	var p1 = x1.map(f);
+	var aState = f(undefined,true);
+	f = ewmAdjIncrPartial(100,'std',aState);
+	var p2 = x2.map(f);
+	f = ewmAdjIncrPartial(100,'std');
+	var all = xAll.map(f);
+	var all2 = [...p1, ...p2];
+	dequal(all2, all);
+	
+	// partial vs normal perf:
+	var nItems = 20_000_000;
+	var xAll = [...Array(nItems)].map(randn);
+	var x1 = xAll.slice(0,nItems*0.6);
+	var x2 = xAll.slice(-(nItems*0.4));
+	console.time('partial');
+	var f;
+	f = ewmAdjIncrPartial(100,'std');
+	var p1 = x1.map(f);
+	var aState = f(undefined,true);
+	f = ewmAdjIncrPartial(100,'std',aState);
+	var p2 = x2.map(f);
+	console.timeEnd('partial');
+	console.time('normal');
+	var r1 = ewmAdj(x1,100).std;
+	var r2 = ewmAdj(xAll,100).std;
+	console.timeEnd('normal');
+	// partial: 3.39 s
+	// normal:  1.56 s
+	*/
+}
+function ewmIncrPartial(span=2, _adjust=true, singleRes='', state={}) {/*ewm_pandas_conceptual() incremental-style with state*/
 	if (singleRes && !['mean','var','std'].includes(singleRes)) throw Error('`singleRes` param can only be "mean" | "var" | "std"');
 	
 	const a = 2 / (span + 1);
@@ -984,12 +1194,12 @@ function ewmIncrPartial(span=2, _adjust=true, singleRes='', state={}) {
 	
 	/* usage:
 	var x = [...Array(1000)].map(randn);
-	var a = ewm(x,5).std;
+	var a = ewm_pandas_conceptual(x,5).std;
 	var f = ewmIncrPartial(5,true,'std');
 	var b = x.map(f);
 	dequal(a,b); // true
 	
-	usage with state:
+	// usage with state:
 	var nItems = 20_000;
 	var xAll = [...Array(nItems)].map(randn);
 	var x1 = xAll.slice(0,nItems*0.8);
@@ -1006,7 +1216,7 @@ function ewmIncrPartial(span=2, _adjust=true, singleRes='', state={}) {
 	var all2 = [...p1, ...p2];
 	dequal(all2, all);
 	
-	partial vs normal perf:
+	// partial vs normal perf:
 	var nItems = 20_000;
 	var xAll = [...Array(nItems)].map(randn);
 	var x1 = xAll.slice(0,nItems*0.8);
@@ -1020,11 +1230,11 @@ function ewmIncrPartial(span=2, _adjust=true, singleRes='', state={}) {
 	var p2 = x2.map(f);
 	console.timeEnd('partial');
 	console.time('normal');
-	var r1 = ewm(x1,5,true).std;
-	var r2 = ewm(xAll,5,true).std;
+	var r1 = ewm_pandas_conceptual(x1,5,true).std;
+	var r2 = ewm_pandas_conceptual(xAll,5,true).std;
 	console.timeEnd('normal');
-	partial: 2387 ms
-	normal:  2800 ms
+	// partial: 2387 ms
+	// normal:  2800 ms
 	*/
 }
 function ewmstd(x=[], period=2) {/*formal init values*/
