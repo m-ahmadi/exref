@@ -17,6 +17,7 @@
 		}
 	},
 	"editor.rulers": [80],
+	"editor.lightbulb.enabled": "off",
 	"git.inputValidation": true,
 	"git.openRepositoryInParentFolders": "never",
 	"security.workspace.trust.untrustedFiles": "open",
@@ -113,7 +114,7 @@
 		"editor.defaultFormatter": "vscode.json-language-features"
 	},
 	"[css]": {
-		"editor.defaultFormatter": "MikeBovenlander.formate"
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	
 	/** md|mdx */
@@ -133,7 +134,7 @@
 	
 	/** py */
 	"python.showStartPage": false,
-	"python.defaultInterpreterPath": "C:\\python312\\python.exe",
+	"python.defaultInterpreterPath": "c:\\Users\\NYC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
 	"editor.snippetSuggestions": "top", // show prev history at bottom
 	
 	/** yapf formatter opts */
