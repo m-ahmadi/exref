@@ -62,7 +62,7 @@ new uPlot({width:600, height:400, series:[{label:'x'},{stroke:'blue'},{stroke:'r
 	[65,60,55,70,75,60],
 ], charts);
 
-data2 = [[+new Date(2022,01,01), +new Date(2022,01,02), +new Date(2022,01,08), +new Date(2022,01,09), +new Date(2022,01,10)], [40,20,70,50,80]];
+data2 = [[+new Date(2022,1,1), +new Date(2022,1,2), +new Date(2022,1,8), +new Date(2022,1,9), +new Date(2022,1,10)], [40,20,70,50,80]];
 new uPlot({width:600, height:400, series:[{},{stroke:'deeppink',width:4}], cursor:{sync:{key:'a'}}, title:'gaps in time axis - default'}, data2, charts);
 new uPlot({width:600, height:400, series:[{},{stroke:'deeppink',width:4}], cursor:{sync:{key:'a'}}, scales:{x:{distr:2}}, title:'gaps in time axis - removed'}, data2, charts);
 
