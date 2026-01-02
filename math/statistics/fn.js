@@ -887,7 +887,8 @@ function ema_formal(nums=[], alpha=1) {/*alt init*/
 	
 	return S;
 }
-function ewm(nums=[], span=2, adjust=true) {/*ewm_pandas_conceptual() optimized*/
+
+function ewmNoNa(nums=[], span=2, adjust=true) {/*ewm_pandas_conceptual() optimized, no NA handling*/
 	const n = nums.length;
 	const a = 2 / (span + 1);
 	const ar = 1 - a;
@@ -937,21 +938,278 @@ function ewm(nums=[], span=2, adjust=true) {/*ewm_pandas_conceptual() optimized*
 	return {mean, var: variance, std};
 	
 	/* vs orig
-	if adjust=true is all you need, ewmAdj() output is closer to orig
+	if adjust=true is all you need, ewmAdjNoNa() output is closer to orig
 	
 	// equality test
 	var s = cumsum([...Array(100_000)].map(randn));
 	var sumErr = (a,b) => sum(a.map((v,i) => Math.abs(v-b[i])).slice(1));
 	function test(adjust) {
 		var a = ewm_pandas_conceptual(s, 100, adjust);
-		var b = ewm(s, 100, adjust);
+		var b = ewmNoNa(s, 100, adjust);
 		return Object.keys(a).map(k => sumErr(a[k], b[k]));
 	}
 	test(true)  // [2.2156114701590846e-8, 0.0000034532865886283126, 4.0956911839806764e-7]
 	test(false) // [1.7079510876774617e-8, 0.0000021375455018235456, 2.4482874061426685e-7]
 	*/
 }
-function ewmAdj(nums=[], span=2) {/*ewm_pandas_conceptual(..., adjust=true) optimized*/
+function ewmAdj(nums=[], span=2, ignoreNa=false) {/*ewmAdjNoNa() with full NA handling*/
+	/*
+	ignoreNa =true
+		NAs are completely invisible
+		time does not advance
+		never enter gap-safe logic
+		use fast recursion only
+	ignoreNa=false
+		NAs advance time
+		first NA breaks fast recursion
+		from that point on, must use gap-safe (W,S,Q,R)
+	*/
+	const n = nums.length;
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	
+	const mean = new Array(n);
+	const variance = new Array(n);
+	const std = new Array(n);
+	
+	//=========================
+	// CASE 1: ignoreNa=true
+	//========================
+	if (ignoreNa) {
+		let m = nums[0];
+		let v = 0;
+		let w = 1;
+		let w2 = 1;
+		
+		mean[0] = m;
+		variance[0] = 0;
+		std[0] = 0;
+		
+		for (let i = 1; i < n; i++) {
+			const x = nums[i];
+			const isNa = !Number.isFinite(x);
+			
+			if (isNa) {
+				mean[i] = m;
+				variance[i] = variance[i - 1];
+				std[i] = std[i - 1];
+				continue;
+			}
+			
+			w  = w  * ar + 1;
+			w2 = w2 * ar * ar + 1;
+			
+			const delta = x - m;
+			m += delta / w;
+			v = ar * v + (delta * delta) * (w - 1) / w;
+			
+			const bias = (w * w) / (w * w - w2);
+			const var_ = bias * v / w;
+			
+			mean[i] = m;
+			variance[i] = var_;
+			std[i] = Math.sqrt(var_);
+		}
+		
+		return { mean, var: variance, std };
+	}
+	
+	//=========================
+	// CASE 2: ignoreNa = false
+	//=========================
+	
+	// fast state
+	let m = nums[0];
+	let v = 0;
+	let w = 1;
+	let w2 = 1;
+	
+	// gap-safe state
+	let W = 1;
+	let S = nums[0];
+	let Q = nums[0] * nums[0];
+	let R = 1;
+	
+	let gapSafe = false;
+	
+	mean[0] = m;
+	variance[0] = 0;
+	std[0] = 0;
+	
+	for (let i = 1; i < n; i++) {
+		const x = nums[i];
+		const isNa = !Number.isFinite(x);
+		
+		/* ---- GAP-SAFE MODE ---- */
+		if (gapSafe) {
+			if (isNa) {
+				W = ar * W;
+				S = ar * S;
+				Q = ar * Q;
+				R = ar * ar * R;
+
+				mean[i] = mean[i - 1];
+				variance[i] = variance[i - 1];
+				std[i] = std[i - 1];
+				continue;
+			}
+			
+			W = ar * W + 1;
+			S = ar * S + x;
+			Q = ar * Q + x * x;
+			R = ar * ar * R + 1;
+			
+			const mu = S / W;
+			const bias = (W * W) / (W * W - R);
+			const var_ = bias * (Q / W - mu * mu);
+			
+			mean[i] = mu;
+			variance[i] = var_;
+			std[i] = Math.sqrt(var_);
+			continue;
+		}
+		
+		/* ---- FAST MODE ---- */
+		if (isNa) {
+			// decay time
+			w  = w  * ar;
+			w2 = w2 * ar * ar;
+			
+			// switch permanently to gap-safe
+			gapSafe = true;
+			
+			W = w;
+			S = m * W;
+			R = w2;
+			
+			const prevVar = variance[i - 1];
+			const bias = (W * W) / (W * W - R);
+			Q = (prevVar / bias + m * m) * W;
+			
+			mean[i] = m;
+			variance[i] = variance[i - 1];
+			std[i] = std[i - 1];
+			continue;
+		}
+		
+		// normal fast update
+		w  = w  * ar + 1;
+		w2 = w2 * ar * ar + 1;
+		
+		const delta = x - m;
+		m += delta / w;
+		v = (ar * v) + (delta * delta) * (w - 1) / w;
+		
+		const bias = (w * w) / (w * w - w2);
+		const var_ = bias * v / w;
+		
+		mean[i] = m;
+		variance[i] = var_;
+		std[i] = Math.sqrt(var_);
+	}
+	
+	return {mean, var: variance, std};
+}
+function ewmAdjIgnoreNaFalse(nums=[], span=2) {/*ewmAdjNoNa() with ignore_na=False handling*/
+	const n = nums.length;
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
+	
+	const mean = new Array(n);
+	const variance = new Array(n);
+	const std = new Array(n);
+	
+	let m = nums[0];
+	let v = 0;
+	
+	let w = 1;  // sum of weights
+	let w2 = 1; // sum of squared weights
+	
+	mean[0] = m;
+	variance[0] = 0;
+	std[0] = 0;
+	
+	for (let i=1; i<n; i++) {
+		const x = nums[i];
+		
+		// weights always decay
+		w  = w  * ar;
+		w2 = w2 * ar * ar;
+		v  = v  * ar;
+		
+		if (Number.isFinite(x)) {
+			// only real observations add mass
+			w  += 1;
+			w2 += 1;
+			
+			const delta = x - m;
+			m += delta / w;
+			
+			// variance update only here
+			v += delta * delta * (w - 1) / w;
+		}
+		
+		const bias = (w * w) / (w * w - w2);
+		const var_ = bias * v / w;
+		
+		variance[i] = var_;
+		mean[i] = m;
+		std[i] = Math.sqrt(var_);
+	}
+	
+	return {mean, var: variance, std};
+}
+function ewmAdjIgnoreNaTrue(nums=[], span=2) {/*ewmAdjNoNa() with ignore_na=True handling*/
+	const n = nums.length;
+	const ar = 1 - 2 / (span + 1);
+	
+	const mean = new Array(n);
+	const variance = new Array(n);
+	const std = new Array(n);
+	
+	let m = nums[0];
+	let v = 0;
+	
+	let w = 1;
+	let w2 = 1;
+	
+	mean[0] = m;
+	variance[0] = 0;
+	std[0] = 0;
+	
+	for (let i=1; i<n; i++) {
+		const x = nums[i];
+		
+		if (!Number.isFinite(x)) {
+			// ignore_na=True so do nothing
+			mean[i] = m;
+			variance[i] = variance[i - 1];
+			std[i] = std[i - 1];
+			continue;
+		}
+		
+		// advance time only on real observations
+		w  = w  * ar + 1;
+		w2 = w2 * ar * ar + 1;
+		
+		const delta = x - m;
+		m += delta / w;
+		v = (ar * v) + delta * delta * (w - 1) / w;
+		
+		const bias = (w * w) / (w * w - w2);
+		const var_ = bias * v / w;
+		
+		mean[i] = m;
+		variance[i] = var_;
+		std[i] = Math.sqrt(var_);
+	}
+	
+	return {mean, var: variance, std};
+}
+function ewmAdjNoNa(nums=[], span=2) {/*ewm_pandas_conceptual(..., adjust=true) optimized, no NA handling*/
+	// This function assumes no NA values in the series
+	// null will be interpreted as 0
+	// NaN will break all output items after where it's at
 	const n = nums.length;
 	const a = 2 / (span + 1);
 	const ar = 1 - a;
@@ -981,12 +1239,13 @@ function ewmAdj(nums=[], span=2) {/*ewm_pandas_conceptual(..., adjust=true) opti
 		v = (ar * v) + (delta * delta) * (w - 1) / w;
 		
 		const bias = (w * w) / (w * w - w2);
-		variance[i] = bias * v / w;
+		const var_ = bias * v / w;
 		
 		mean[i] = m;
-		std[i] = Math.sqrt(variance[i]);
+		variance[i] = var_;
+		std[i] = Math.sqrt(var_);
 	}
-
+	
 	return {mean, var: variance, std};
 	
 	/* vs orig
@@ -994,7 +1253,7 @@ function ewmAdj(nums=[], span=2) {/*ewm_pandas_conceptual(..., adjust=true) opti
 	// equality test
 	var s = cumsum([...Array(100_000)].map(randn));
 	var a = ewm_pandas_conceptual(s, 100, true);
-	var b = ewmAdj(s, 100);
+	var b = ewmAdjNoNa(s, 100);
 	var sumErr = (a,b) => sum(a.map((v,i) => Math.abs(v-b[i])).slice(1));
 	Object.keys(a).map(k => sumErr(a[k], b[k]));
 	// [2.7886955519871963e-9, 8.449641611396608e-9, 8.129117934352337e-10]
@@ -1005,7 +1264,7 @@ function ewmAdj(nums=[], span=2) {/*ewm_pandas_conceptual(..., adjust=true) opti
 	ewm_pandas_conceptual(s, 100, true);
 	console.timeEnd('orig');
 	console.time('opt');
-	ewmAdj(s, 100);
+	ewmAdjNoNa(s, 100);
 	console.timeEnd('opt');
 	// orig  45359 ms
 	// opt:  22    ms  (2000x faster)
@@ -1055,7 +1314,73 @@ function ewm_pandas_conceptual(nums=[], span=2, adjust=true) {/*pandas*/
 	
 	return r;
 }
-function ewmAdjIncrPartial(span=2, singleRes='', state) {/*ewmAdj() incremental-style with state*/
+function ewmAdjIgnoreNaFalseIncrPartial(span=2, singleRes='std', state) {/*ewmAdjIgnoreNaFalse() incremental-style with state like ewmAdjNoNaIncrPartial()*/
+	if (singleRes && !['mean','var','std'].includes(singleRes)) throw Error('`singleRes` must be "mean" | "var" | "std"');
+
+	const a  = 2 / (span + 1);
+	const ar = 1 - a;
+	
+	let {m=0, v=0, w=1, w2=1} = state || {};
+	
+	let [mean, variance, std] = [m, 0, 0];
+	
+	let i = state ? 1 : 0;
+	
+	const ret = () => singleRes
+		? ({mean, var: variance, std})[singleRes]
+		: [mean, variance, std];
+	
+	return function (x, getState=false) {
+		if (getState === true) return {m, v, w, w2};
+		if (i === 0) { i++; m=x; return ret(); }
+		
+		w  = w  * ar;
+		w2 = w2 * ar * ar;
+		v  = v  * ar;
+		
+		if (Number.isFinite(x)) {
+			w  += 1;
+			w2 += 1;
+			const delta = x - m;
+			m += delta / w;
+			v += delta * delta * (w - 1) / w;
+		}
+		
+		const bias = (w * w) / (w * w - w2);
+		variance = bias * v / w;
+		
+		mean = m;
+		std = Math.sqrt(variance);
+		
+		return ret();
+	};
+	/*
+	// usage:
+	var x = [...Array(400_000)].map(randn);
+	var a = ewmAdjIgnoreNaFalse(x,100).std;
+	var f = ewmAdjIgnoreNaFalseIncrPartial(100,'std');
+	var b = x.map(f);
+	dequal(a,b); // true
+	
+	// usage with state:
+	var nItems = 400_000;
+	var xAll = [...Array(nItems)].map(randn);
+	var x1 = xAll.slice(0,nItems*0.8);
+	var x2 = xAll.slice(-(nItems*0.2));
+	dequal([...x1, ...x2], xAll); // true
+	var f;
+	f = ewmAdjIgnoreNaFalseIncrPartial(100,'std');
+	var p1 = x1.map(f);
+	var aState = f(undefined,true);
+	f = ewmAdjIgnoreNaFalseIncrPartial(100,'std',aState);
+	var p2 = x2.map(f);
+	f = ewmAdjIgnoreNaFalseIncrPartial(100,'std');
+	var all = xAll.map(f);
+	var all2 = [...p1, ...p2];
+	dequal(all2, all); // true
+	*/
+}
+function ewmAdjNoNaIncrPartial(span=2, singleRes='', state) {/*ewmAdjNoNa() incremental-style with state*/
 	if (singleRes && !['mean','var','std'].includes(singleRes)) throw Error('`singleRes` param can only be "mean" | "var" | "std"');
 	
 	const a = 2 / (span + 1);
@@ -1094,12 +1419,12 @@ function ewmAdjIncrPartial(span=2, singleRes='', state) {/*ewmAdj() incremental-
 	/*
 	this function serves more as a solution for some use cases rather than for perf purposes
 	pro:  small state, perfect for saving state between calls
-	con:  perf is around half the normal ewmAdj()
+	con:  perf is around half the normal ewmAdjNoNa()
 	
 	// usage:
 	var x = [...Array(400_000)].map(randn);
-	var a = ewmAdj(x,100).std;
-	var f = ewmAdjIncrPartial(100,'std');
+	var a = ewmAdjNoNa(x,100).std;
+	var f = ewmAdjNoNaIncrPartial(100,'std');
 	var b = x.map(f);
 	dequal(a,b); // true
 	
@@ -1110,15 +1435,15 @@ function ewmAdjIncrPartial(span=2, singleRes='', state) {/*ewmAdj() incremental-
 	var x2 = xAll.slice(-(nItems*0.2));
 	dequal([...x1, ...x2], xAll); // true
 	var f;
-	f = ewmAdjIncrPartial(100,'std');
+	f = ewmAdjNoNaIncrPartial(100,'std');
 	var p1 = x1.map(f);
 	var aState = f(undefined,true);
-	f = ewmAdjIncrPartial(100,'std',aState);
+	f = ewmAdjNoNaIncrPartial(100,'std',aState);
 	var p2 = x2.map(f);
-	f = ewmAdjIncrPartial(100,'std');
+	f = ewmAdjNoNaIncrPartial(100,'std');
 	var all = xAll.map(f);
 	var all2 = [...p1, ...p2];
-	dequal(all2, all);
+	dequal(all2, all); // true
 	
 	// partial vs normal perf:
 	var nItems = 20_000_000;
@@ -1127,15 +1452,15 @@ function ewmAdjIncrPartial(span=2, singleRes='', state) {/*ewmAdj() incremental-
 	var x2 = xAll.slice(-(nItems*0.4));
 	console.time('partial');
 	var f;
-	f = ewmAdjIncrPartial(100,'std');
+	f = ewmAdjNoNaIncrPartial(100,'std');
 	var p1 = x1.map(f);
 	var aState = f(undefined,true);
-	f = ewmAdjIncrPartial(100,'std',aState);
+	f = ewmAdjNoNaIncrPartial(100,'std',aState);
 	var p2 = x2.map(f);
 	console.timeEnd('partial');
 	console.time('normal');
-	var r1 = ewmAdj(x1,100).std;
-	var r2 = ewmAdj(xAll,100).std;
+	var r1 = ewmAdjNoNa(x1,100).std;
+	var r2 = ewmAdjNoNa(xAll,100).std;
 	console.timeEnd('normal');
 	// partial: 3.39 s
 	// normal:  1.56 s
@@ -1237,6 +1562,7 @@ function ewmIncrPartial(span=2, _adjust=true, singleRes='', state={}) {/*ewm_pan
 	// normal:  2800 ms
 	*/
 }
+
 function ewmstd(x=[], period=2) {/*formal init values*/
 	let ema   = [ x[0] ];
 	let emvar = [ 0 ];
