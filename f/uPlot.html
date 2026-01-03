@@ -165,7 +165,6 @@ new uPlot({width:600, height:400,
 ], charts);
 function tri({ctx,series,data,valToPos},i,i0,i1) {
 	let {scale, _stroke} = series[i];
-	let j = i0;
 	ctx.fillStyle = _stroke;
 	for (let j=i0; j<=i1; j++) {
 		let val = data[i][j];
@@ -173,6 +172,7 @@ function tri({ctx,series,data,valToPos},i,i0,i1) {
 		if (val === null) continue;
 		
 		let x = Math.round(valToPos(data[0][j], 'x', true));
+		// let x = Math.round(valToPos(j, 'x', true)); // if  scales:{x:{distr:2}}
 		let y = Math.round(valToPos(val, scale, true));
 		let [w,h] = [10,20];
 		y = _stroke === 'green' ? y-h-5 : y+h-(h-5);
@@ -220,7 +220,6 @@ new uPlot({width:600, height:400,
 ], charts);
 function txt({ctx,series,data,valToPos},i,i0,i1) {
 	let {scale, _stroke} = series[i];
-	let j = i0;
 	ctx.fillStyle = _stroke;
 	for (let j=i0; j<=i1; j++) {
 		let val = data[i][j];
@@ -301,6 +300,43 @@ new uPlot({width:600,height:400, title:'draw bars, stepped & smoothed lines',
 
 new uPlot({width:600,height:400, series:[{}, {stroke:'deeppink', width:8, paths:(...r)=>uPlot.paths.stepped({align:1})(...r)}], title:'stepAfter'}, [ts(6), [2,4,8,2,3,4]], charts);
 new uPlot({width:600,height:400, series:[{}, {stroke:'deeppink', width:8, paths:(...r)=>uPlot.paths.stepped({align:-1})(...r)}], title:'stepBefore'}, [ts(6), [2,4,8,2,3,4]], charts);
+
+new uPlot({width:600,height:400, series:[{}, {stroke:'cyan', width:8, paths:(...r)=>uPlot.paths.bars({align:0})(...r)}], title:'bars align 0'}, [ts(6), [2,4,8,2,3,4]], charts);
+new uPlot({width:600,height:400, series:[{}, {stroke:'cyan', width:8, paths:(...r)=>uPlot.paths.bars({align:1})(...r)}], title:'bars align 1'}, [ts(6), [2,4,8,2,3,4]], charts);
+new uPlot({width:600,height:400, series:[{}, {stroke:'cyan', width:8, paths:(...r)=>uPlot.paths.bars({align:-1})(...r)}], title:'bars align -1'}, [ts(6), [2,4,8,2,3,4]], charts);
+
+new uPlot({width:600,height:400, series:[{}, {stroke:'yellow', width:8, paths:(...r)=>uPlot.paths.bars()(...r), fill:'yellow'}], title:'bars, fill'}, [ts(6), [2,4,8,2,3,4]], charts);
+new uPlot({width:600,height:400, series:[{}, {stroke:'yellow', width:8, paths:(...r)=>uPlot.paths.bars()(...r), fill:'yellow',points:{show:false}}], title:'bars, fill, no point'}, [ts(6), [2,4,8,2,3,4]], charts);
+
+new uPlot({width:600,height:400, series:[{}, {stroke:'darkorchid', width:8, paths:(...r)=>uPlot.paths.bars({size:[0.4,100]})(...r), fill:'darkorchid',points:{show:false}}], title:'bars, size: factor=0.4, max=100'}, [ts(6), [2,4,8,2,3,4]], charts);
+new uPlot({width:600,height:400, series:[{}, {stroke:'darkorchid', width:8, paths:(...r)=>uPlot.paths.bars({size:[0.8,100]})(...r), fill:'darkorchid',points:{show:false}}], title:'bars, size: factor=0.8, max=100'}, [ts(6), [2,4,8,2,3,4]], charts);
+
+new uPlot({width:600,height:400, series:[{}, {stroke:'sandybrown', width:8, paths:(...r)=>uPlot.paths.bars({align:0})(...r), fill:'sandybrown',points:{show:false}}, {stroke:'lime',width:4}], title:'bar and line'}, [ts(6), [1,3,-2,4,-5,-3], [2,4,8,2,3,4]], charts);
+
+function barPaths(u, seriesIdx) {
+	const y0 = u.valToPos(0, 'y', true);
+	if (!isFinite(y0)) return null;
+	const ctx = u.ctx;
+	const data = u.data[seriesIdx];
+	const [xVals, yVals] = [u.data[0], data];
+	const barWidthFactor = 1.2; // controls bar width: larger == less width
+	const barWidth = u.bbox.width / (xVals.length * barWidthFactor);
+	ctx.save();
+	for (let i=0; i<xVals.length; i++) {
+		const [x, y] = [xVals[i], yVals[i]];
+		if (y === null) continue;
+		const cx = u.valToPos(x, 'x', true);
+		const y1 = u.valToPos(y, 'y', true);
+		if (!isFinite(cx) || !isFinite(y1)) continue;
+		ctx.fillStyle = y<0 ? 'crimson' : y>0 ? 'green' : 'yellow';
+		ctx.fillRect(cx-barWidth/2, Math.min(y0,y1), barWidth, Math.abs(y1-y0));
+	}
+	ctx.restore();
+	return null; // prevent default drawing
+}
+s1 = [1,0,5,2,0,1,3,0,1,7,0,8,1,2,3,4,8,0,1,4];
+s2 = s1.map((v,i,a) => i>0 ? v-a[i-1] : 0);
+new uPlot({width:600,height:400, series:[{}, {stroke:'orange',width:3}, {paths: barPaths, points:{show:false}} ], title:'bars, color base on value'}, [ts(s1.length), s1, s2], charts);
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 

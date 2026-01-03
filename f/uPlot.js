@@ -42,7 +42,7 @@ const opts = {
 			points:   {show:true|(u,seriesIdx,idx0,idx1)=>false, size:0, space:size*2, width:0, stroke:↓.., dash:↓.., cap:↓.., fill:↓..},
 			width:    1,       // ctx.lineWidth (css pixels)
 			stroke:   CanvasRenderingContext2D.strokeStyle=''    | (u, seriesIdx=0)=> CanvasRenderingContext2D.strokeStyle,
-			fill:     CanvasRenderingContext2D.fillStyle='black' | (u, seriesIdx=0)=> CanvasRenderingContext2D.fillStyle,,
+			fill:     CanvasRenderingContext2D.fillStyle='black' | (u, seriesIdx=0)=> CanvasRenderingContext2D.fillStyle,
 			fillTo:   0 | (u, seriesIdx=0, dataMin=0, dataMax=0)=> 0,
 			dash:     [0,..],  // ctx.setLineDash()
 			cap:      CanvasRenderingContext2D.lineCap,
