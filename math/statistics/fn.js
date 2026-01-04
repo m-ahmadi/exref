@@ -993,7 +993,7 @@ function ewmAdj(nums=[], span=2, ignoreNa=false) {/*ewmAdjNoNa() with full NA ha
 		// ==============
 		if (!initialized) {
 			if (isNa) {
-				[mean[i], variance[i], std[i]] = [0, 0, 0]; // or NaN (mathematically should be NA, so 0 is only for convenience)
+				[mean[i], variance[i], std[i]] = [NaN, NaN, NaN]; // mathematically should be NA (could be 0 for convenience)
 				continue;
 			}
 			
@@ -1155,7 +1155,7 @@ function ewmAdjIgnoreNaFalse(nums=[], span=2) {/*ewmAdjNoNa() with ignore_na=Fal
 		}
 		
 		if (!initialized) {
-			[mean[i], variance[i], std[i]] = [0, 0, 0];
+			[mean[i], variance[i], std[i]] = [NaN, NaN, NaN]; // mathematically should be NA (could be 0 for convenience)
 			continue;
 		}
 		
@@ -1208,7 +1208,7 @@ function ewmAdjIgnoreNaTrue(nums=[], span=2) {/*ewmAdjNoNa() with ignore_na=True
 		}
 		
 		if (!initialized) {
-			[mean[i], variance[i], std[i]] = [0, 0, 0];
+			[mean[i], variance[i], std[i]] = [NaN, NaN, NaN]; // mathematically should be NA (could be 0 for convenience)
 			continue;
 		}
 		
@@ -1360,7 +1360,9 @@ function ewmAdjIgnoreNaFalseIncrPartial(span=2, singleRes='std', state) {/*ewmAd
 		// first finite observation initializes state
 		if (!initialized) {
 			if (!isNa) [m, v, w, w2, initialized] = [x, 0, 1, 1, true];
-			[mean, variance, std] = [initialized?m:0, 0, 0];
+			[mean, variance, std] = initialized
+				? [m, 0, 0]
+				: [NaN, NaN, NaN]; // mathematically should be NA (could be 0 for convenience)
 			return ret();
 		}
 		
