@@ -888,7 +888,7 @@ function ema_formal(nums=[], alpha=1) {/*alt init*/
 	return S;
 }
 
-function ewmNoNa(nums=[], span=2, adjust=true) {/*ewm_pandas_conceptual() optimized, no NA handling*/
+function ewmNoNa(nums=[], span=2, adjust=true) {/*ewm_pandas_conceptual() optimized, no NA handling (input mustn't have NA)*/
 	const n = nums.length;
 	const a = 2 / (span + 1);
 	const ar = 1 - a;
@@ -972,23 +972,47 @@ function ewmAdj(nums=[], span=2, ignoreNa=false) {/*ewmAdjNoNa() with full NA ha
 	const variance = new Array(n);
 	const std = new Array(n);
 	
-	//=========================
-	// CASE 1: ignoreNa=true
-	//========================
-	if (ignoreNa) {
-		let m = nums[0];
-		let v = 0;
-		let w = 1;
-		let w2 = 1;
+	//====================
+	// UNINITIALIZED STATE
+	//====================
+	let initialized = false;
+	
+	// fast state
+	let m, v, w, w2;
+	
+	// gap-safe state
+	let W, S, Q, R;
+	let gapSafe = false;
+	
+	for (let i=0; i<n; i++) {
+		const x = nums[i];
+		const isNa = !Number.isFinite(x);
 		
-		mean[0] = m;
-		variance[0] = 0;
-		std[0] = 0;
-		
-		for (let i = 1; i < n; i++) {
-			const x = nums[i];
-			const isNa = !Number.isFinite(x);
+		// ==============
+		// PRE-INIT PHASE
+		// ==============
+		if (!initialized) {
+			if (isNa) {
+				[mean[i], variance[i], std[i]] = [0, 0, 0]; // or NaN (mathematically should be NA, so 0 is only for convenience)
+				continue;
+			}
 			
+			// first finite observation initializes everything
+			initialized = true;
+			
+			[m, v, w, w2] = [x, 0, 1, 1];
+			[W, S, Q, R] = [1, x, x*x, 1];
+			
+			gapSafe = false;
+			
+			[mean[i], variance[i], std[i]] = [m, 0, 0];
+			continue;
+		}
+		
+		// ===============
+		// ignoreNa = true
+		// ===============
+		if (ignoreNa) {
 			if (isNa) {
 				mean[i] = m;
 				variance[i] = variance[i - 1];
@@ -1009,36 +1033,12 @@ function ewmAdj(nums=[], span=2, ignoreNa=false) {/*ewmAdjNoNa() with full NA ha
 			mean[i] = m;
 			variance[i] = var_;
 			std[i] = Math.sqrt(var_);
+			continue;
 		}
 		
-		return { mean, var: variance, std };
-	}
-	
-	//=========================
-	// CASE 2: ignoreNa = false
-	//=========================
-	
-	// fast state
-	let m = nums[0];
-	let v = 0;
-	let w = 1;
-	let w2 = 1;
-	
-	// gap-safe state
-	let W = 1;
-	let S = nums[0];
-	let Q = nums[0] * nums[0];
-	let R = 1;
-	
-	let gapSafe = false;
-	
-	mean[0] = m;
-	variance[0] = 0;
-	std[0] = 0;
-	
-	for (let i = 1; i < n; i++) {
-		const x = nums[i];
-		const isNa = !Number.isFinite(x);
+		//=========================
+		// CASE 2: ignoreNa = false
+		//=========================
 		
 		/* ---- GAP-SAFE MODE ---- */
 		if (gapSafe) {
@@ -1062,7 +1062,7 @@ function ewmAdj(nums=[], span=2, ignoreNa=false) {/*ewmAdjNoNa() with full NA ha
 			const mu = S / W;
 			const bias = (W * W) / (W * W - R);
 			const var_ = bias * (Q / W - mu * mu);
-			
+
 			mean[i] = mu;
 			variance[i] = var_;
 			std[i] = Math.sqrt(var_);
@@ -1071,11 +1071,11 @@ function ewmAdj(nums=[], span=2, ignoreNa=false) {/*ewmAdjNoNa() with full NA ha
 		
 		/* ---- FAST MODE ---- */
 		if (isNa) {
-			// decay time
+			// decay fast state
 			w  = w  * ar;
 			w2 = w2 * ar * ar;
 			
-			// switch permanently to gap-safe
+			// switch to gap-safe
 			gapSafe = true;
 			
 			W = w;
@@ -1119,41 +1119,51 @@ function ewmAdjIgnoreNaFalse(nums=[], span=2) {/*ewmAdjNoNa() with ignore_na=Fal
 	const variance = new Array(n);
 	const std = new Array(n);
 	
-	let m = nums[0];
+	let m = 0;
 	let v = 0;
+	let w = 0;  // sum of weights
+	let w2 = 0; // sum of squared weights
 	
-	let w = 1;  // sum of weights
-	let w2 = 1; // sum of squared weights
+	let initialized = false;
 	
-	mean[0] = m;
-	variance[0] = 0;
-	std[0] = 0;
-	
-	for (let i=1; i<n; i++) {
+	for (let i=0; i<n; i++) {
 		const x = nums[i];
 		
-		// weights always decay
-		w  = w  * ar;
-		w2 = w2 * ar * ar;
-		v  = v  * ar;
+		// weights always decay once initialized
+		if (initialized) {
+			w  = w  * ar;
+			w2 = w2 * ar * ar;
+			v  = v  * ar;
+		}
 		
 		if (Number.isFinite(x)) {
-			// only real observations add mass
+			// first finite observation initializes state
+			if (!initialized) {
+				[m, v, w, w2] = [x, 0, 1, 1];
+				initialized = true;
+				[mean[i], variance[i], std[i]] = [m, 0, 0];
+				continue;
+			}
+			
+			// normal update
 			w  += 1;
 			w2 += 1;
 			
 			const delta = x - m;
 			m += delta / w;
-			
-			// variance update only here
 			v += delta * delta * (w - 1) / w;
+		}
+		
+		if (!initialized) {
+			[mean[i], variance[i], std[i]] = [0, 0, 0];
+			continue;
 		}
 		
 		const bias = (w * w) / (w * w - w2);
 		const var_ = bias * v / w;
 		
-		variance[i] = var_;
 		mean[i] = m;
+		variance[i] = var_;
 		std[i] = Math.sqrt(var_);
 	}
 	
@@ -1161,41 +1171,48 @@ function ewmAdjIgnoreNaFalse(nums=[], span=2) {/*ewmAdjNoNa() with ignore_na=Fal
 }
 function ewmAdjIgnoreNaTrue(nums=[], span=2) {/*ewmAdjNoNa() with ignore_na=True handling*/
 	const n = nums.length;
-	const ar = 1 - 2 / (span + 1);
+	const a = 2 / (span + 1);
+	const ar = 1 - a;
 	
 	const mean = new Array(n);
 	const variance = new Array(n);
 	const std = new Array(n);
 	
-	let m = nums[0];
+	let m = 0;
 	let v = 0;
+	let w = 0;
+	let w2 = 0;
 	
-	let w = 1;
-	let w2 = 1;
+	let initialized = false;
 	
-	mean[0] = m;
-	variance[0] = 0;
-	std[0] = 0;
-	
-	for (let i=1; i<n; i++) {
+	for (let i=0; i<n; i++) {
 		const x = nums[i];
 		
-		if (!Number.isFinite(x)) {
-			// ignore_na=True so do nothing
-			mean[i] = m;
-			variance[i] = variance[i - 1];
-			std[i] = std[i - 1];
+		if (Number.isFinite(x)) {
+			// first finite observation initializes state
+			if (!initialized) {
+				[m, v, w, w2] = [x, 0, 1, 1];
+				initialized = true;
+				[mean[i], variance[i], std[i]] = [m, 0, 0];
+				continue;
+			}
+			
+			// decay only when real observation arrives
+			w  = w  * ar + 1;
+			w2 = w2 * ar * ar + 1;
+			v  = v  * ar;
+			
+			const delta = x - m;
+			m += delta / w;
+			v += delta * delta * (w - 1) / w;
+		}
+		
+		if (!initialized) {
+			[mean[i], variance[i], std[i]] = [0, 0, 0];
 			continue;
 		}
 		
-		// advance time only on real observations
-		w  = w  * ar + 1;
-		w2 = w2 * ar * ar + 1;
-		
-		const delta = x - m;
-		m += delta / w;
-		v = (ar * v) + delta * delta * (w - 1) / w;
-		
+		// NAs do nothing once initialized
 		const bias = (w * w) / (w * w - w2);
 		const var_ = bias * v / w;
 		
@@ -1316,29 +1333,39 @@ function ewm_pandas_conceptual(nums=[], span=2, adjust=true) {/*pandas*/
 }
 function ewmAdjIgnoreNaFalseIncrPartial(span=2, singleRes='std', state) {/*ewmAdjIgnoreNaFalse() incremental-style with state like ewmAdjNoNaIncrPartial()*/
 	if (singleRes && !['mean','var','std'].includes(singleRes)) throw Error('`singleRes` must be "mean" | "var" | "std"');
-
+	
 	const a  = 2 / (span + 1);
 	const ar = 1 - a;
 	
-	let {m=0, v=0, w=1, w2=1} = state || {};
+	let {m=0, v=0, w=0, w2=0, initialized=false} = state || {};
 	
-	let [mean, variance, std] = [m, 0, 0];
-	
-	let i = state ? 1 : 0;
+	let [mean, variance, std] = [0, 0, 0];
 	
 	const ret = () => singleRes
 		? ({mean, var: variance, std})[singleRes]
 		: [mean, variance, std];
 	
 	return function (x, getState=false) {
-		if (getState === true) return {m, v, w, w2};
-		if (i === 0) { i++; m=x; return ret(); }
+		if (getState === true) return {m, v, w, w2, initialized};
 		
-		w  = w  * ar;
-		w2 = w2 * ar * ar;
-		v  = v  * ar;
+		const isNa = !Number.isFinite(x);
 		
-		if (Number.isFinite(x)) {
+		// time always advances
+		if (initialized) {
+			w  = w  * ar;
+			w2 = w2 * ar * ar;
+			v  = v  * ar;
+		}
+		
+		// first finite observation initializes state
+		if (!initialized) {
+			if (!isNa) [m, v, w, w2, initialized] = [x, 0, 1, 1, true];
+			[mean, variance, std] = [initialized?m:0, 0, 0];
+			return ret();
+		}
+		
+		// normal ignoreNa=false update
+		if (!isNa) {
 			w  += 1;
 			w2 += 1;
 			const delta = x - m;
