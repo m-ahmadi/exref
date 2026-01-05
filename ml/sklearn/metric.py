@@ -118,7 +118,7 @@ plt.show()
 
 # `thresholds`: increasing numbers used to compute `precision` and `recall`
 precision, recall, thresholds = roc_curve(y_true, y_pred, pos_label=2)
-n_thresholds === len(np.unique(y_pred)) # True
+n_thresholds == len(np.unique(y_pred)) # True
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 from sklearn.metrics import auc
 
@@ -141,4 +141,10 @@ target_names = ['class 0', 'class 1', 'class 2']
 print(classification_report(y_true, y_pred, target_names=target_names))
 
 print(classification_report([1,1,1,1, 0,0,0,0], [1,1,1,1, 0,0,0,1]))
+#@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+from sklearn.metrics import log_loss
+
+log_loss([0,0,1,1], [.4, .4, .6, .6]) # 0.5108256237659907
+log_loss([0,0,1,1], [.4, .4, .6, .8]) # 0.43890510565304547
+log_loss([0,0,1,1], [.1, .1, .9, .9]) # 0.10536051565782628
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
