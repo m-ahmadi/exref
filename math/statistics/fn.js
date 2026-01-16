@@ -804,6 +804,72 @@ function rocCurve(yTrue=[], yPred=[], thresholds=10, posLabel=1) {
 	return [fprs, tprs, thresholds];
 }
 
+function rolling(nums=[], windowSize=2, method='mean', fillValue=NaN) {/*pandas.(DataFrame|Series).rolling()*/
+	const res = [];
+	const N = nums.length;
+	
+	const _variance = (arr) => {
+		const n = arr.length;
+		if (n < 2) return 0; // variance requires at least 2 data points
+		const mean = arr.reduce((r,i) => r+i, 0) / n;
+		const sumSquaredDiffs = arr.reduce((r,i) => r + Math.pow(i-mean, 2), 0);
+		return sumSquaredDiffs / (n-1); // use (n-1) for sample variance (ddof=1 in pandas)
+	};
+	
+	// handle initial partial window (like min_periods=windowSize in pandas)
+	for (let i=0; i<windowSize-1; i++) res.push(fillValue);
+	
+	for (let i=windowSize-1; i<N; i++) {
+		const window = nums.slice(i-windowSize+1, i+1);
+		
+		let val;
+		switch (method) {
+			case 'sum':
+				val = window.reduce((r,i) => r+i, 0);
+				break;
+			case 'min':
+				val = Math.min(...window);
+				break;
+			case 'max':
+				val = Math.max(...window);
+				break;
+			case 'var':
+				val = _variance(window);
+				break;
+			case 'std':
+				val = Math.sqrt(_variance(window));
+				break;
+			case 'mean':
+			default:
+				val = window.reduce((r,i) => r+i, 0) / windowSize;
+				break;
+		}
+		res.push(val);
+	}
+	
+	return res;
+	
+	/* equality test with pandas output
+	var x = [2,3,-4,1,6,1,20,6,90,40];
+	var windowSize = 2;
+	var results = [
+		rolling(x, windowSize, 'mean'),
+		rolling(x, windowSize, 'std'),
+		rolling(x, windowSize, 'var'),
+		rolling(x, windowSize, 'max'),
+		rolling(x, windowSize, 'sum'),
+	];
+	var pandasResults = [
+		[NaN, 2.5, -0.5, -1.5, 3.5, 3.5, 10.5, 13, 48, 65],
+		[NaN, 0.7071067811865476, 4.949747468305833, 3.5355339059327378, 3.5355339059327378,
+			3.5355339059327378, 13.435028842544403, 9.899494936611665, 59.39696961966999, 35.35533905932738],
+		[NaN, 0.5, 24.5, 12.5, 12.5, 12.5, 180.5, 98, 3528, 1250],
+		[NaN, 3, 3, 1, 6, 6, 20, 20, 90, 90],
+		[NaN, 5, -1, -3, 7, 7, 21, 26, 96, 130],
+	];
+	dequal(results, pandasResults); // true
+	*/
+}
 function sma(nums=[], period=2, fill) {
 	let pi = period > 0 ? period - 1 : 0;
 	let res = Array(pi).fill(fill);
