@@ -5,7 +5,7 @@ dependent variable
 	it depends on the values of other variables (by some law or rule)
 
 independent variable
-	does not depend any other variabes (in the scope of the study)
+	does not depend on any other variabes (in the scope of the study)
 	some common independent variables are time, space, density, mass, fluid flow rate
 
 
