@@ -1766,6 +1766,20 @@ function ad(prices={high: [], low: [], close: [], volume: []}, decimals=4) {
 	return result
 }
 
+function bollingerBands(x=[], period=20, multp=2) {
+	const fini = Number.isFinite;
+	const mid = rolling(x, period, 'mean');
+	const std = rolling(x, period, 'std');
+	const up = mid.map((v,i) => fini(v) ? v+(std[i]*multp) : NaN);
+	const lo = mid.map((v,i) => fini(v) ? v-(std[i]*multp) : NaN);
+	return {mid, up, lo};
+	/* usage
+	var x = cumsum(range(100).map(randn));
+	var bb = bollingerBands(x, 20, 2);
+	x.map((v,i) => [v, bb.mid[i], bb.up[i], bb.lo[i]]);
+	*/
+}
+
 // random
 function rand(min=0, max=1, decimal=false, inclusiveMax=true) {/*random from uniform distribution*/
 	if (decimal) {
