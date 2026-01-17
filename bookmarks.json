@@ -1315,6 +1315,84 @@
               "type": "folder"
             },
             {
+              "children": [
+                {
+                  "name": "iran.ir",
+                  "type": "url",
+                  "url": "https://iran.ir/#Index"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "zarebin",
+                      "type": "url",
+                      "url": "https://zarebin.ir/"
+                    },
+                    {
+                      "name": "gerdoo",
+                      "type": "url",
+                      "url": "https://gerdoo.me/"
+                    },
+                    {
+                      "name": "parsgard",
+                      "type": "url",
+                      "url": "https://parsgard.ir/"
+                    },
+                    {
+                      "name": "rismoon",
+                      "type": "url",
+                      "url": "https://www.rismoon.com/"
+                    },
+                    {
+                      "name": "jasjoo",
+                      "type": "url",
+                      "url": "https://jasjoo.com/"
+                    },
+                    {
+                      "name": "parseek",
+                      "type": "url",
+                      "url": "http://parseek.ir/"
+                    }
+                  ],
+                  "name": "search",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "boofai",
+                      "type": "url",
+                      "url": "https://chat.boofai.com/"
+                    },
+                    {
+                      "name": "ivira",
+                      "type": "url",
+                      "url": "https://web.ivira.ai/"
+                    },
+                    {
+                      "name": "okian",
+                      "type": "url",
+                      "url": "https://okian.ai/"
+                    },
+                    {
+                      "name": "hooshzy",
+                      "type": "url",
+                      "url": "https://chat.hooshzy.ir/"
+                    },
+                    {
+                      "name": "targoman",
+                      "type": "url",
+                      "url": "https://demo-llm.targoman.ir/"
+                    }
+                  ],
+                  "name": "ai",
+                  "type": "folder"
+                }
+              ],
+              "name": "net-ir",
+              "type": "folder"
+            },
+            {
               "name": "libgen",
               "type": "url",
               "url": "https://libgen.is/"
