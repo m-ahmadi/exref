@@ -1797,6 +1797,13 @@ function randn() {/*random from gaussian distribution*/
 	return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 }
 
+function randomNormal(mean=0, std=1, size) {
+	if (!Number.isFinite(size)) return mean + std * randn();
+	const r = new Array(size);
+	for (let i=0; i<size; i++) r[i] = mean + std * randn();
+	return r;
+}
+
 function randomChoice(events=[], size=0, p=[], epsMultp=1) {/*numpy.random.choice()*/
 	let [N, M] = [events.length, p.length];
 	let EPS = Number.EPSILON * epsMultp;
