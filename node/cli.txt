@@ -41,8 +41,9 @@ flags
 
 v8 flags
 
---max-semi-space-size		max size of a semi-space in MB, the new space consists of two semi-spaces
+--max-old-space-size-percentage	max old space size as % of available memory (takes precedence over --max-old-space-size)
 --max-old-space-size		max size of the old space in MB
+--max-semi-space-size		max size of a semi-space in MB, the new space consists of two semi-spaces
 --max-heap-size			max size of the heap in MB. both `max_semi_space_size` and `max_old_space_size` take precedence. musn't set all 3 together
 --------------------------------------------------------------------------------
 version managers
