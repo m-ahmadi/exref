@@ -19349,6 +19349,27 @@
               ],
               "name": "nyse",
               "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "name": "fundednext",
+                  "type": "url",
+                  "url": "https://fundednext.com/"
+                },
+                {
+                  "name": "list 1",
+                  "type": "url",
+                  "url": "https://iranprop.net/best-prop-firms/"
+                },
+                {
+                  "name": "list 2",
+                  "type": "url",
+                  "url": "https://iranbroker.net/props/"
+                }
+              ],
+              "name": "prop",
+              "type": "folder"
             }
           ],
           "name": "trade",
