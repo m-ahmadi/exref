@@ -57,9 +57,10 @@ bar"""
 
 # bytes
 b = b'abc'
-type(b)          # <class 'bytes'>
-b.decode('utf8') # 'abc'
-b.decode('utf8', 'replace') # fix UnicodeDecodeError: "invalid start byte"
+b'abc' == 'abc'.encode('utf-8') # True
+type(b)                         # <class 'bytes'>
+b.decode('utf8')                # 'abc'
+b.decode('utf8', 'replace')     # fix UnicodeDecodeError: "invalid start byte"
 
 # raw string
 r'\\' # '\\\\'
