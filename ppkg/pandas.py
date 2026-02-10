@@ -366,6 +366,11 @@ pd.Series([1,2,3]).to_json('out.json', orient='values')     # [1,2,3]
 pd.Series([1,2,3]).to_json('out.json', orient='index')      # {"0":1,"1":2,"2":3}
 pd.DataFrame([1,2,3]).to_json('out.json', orient='columns') # {"0":{"0":1,"1":2,"2":3}}
 
+df = pd.DataFrame([{'a':1},{'a':2}])
+df.to_json(orient='records')                        # [{"a":1},{"a":2}]
+df.reset_index().to_json(orient='records')          # [{"index":0,"a":1},{"index":1,"a":2}]
+df.reset_index(names='t').to_json(orient='records') # [{"t":0,"a":1},{"t":1,"a":2}]
+
 # count of csv rows
 df = pd.DataFrame([ [1,2], [3,4], [5,6] ])
 df.shape[0]   # 3
