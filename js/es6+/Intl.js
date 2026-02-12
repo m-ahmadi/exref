@@ -66,16 +66,31 @@ Intl.supportedValuesOf()
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // examples
 
-var d = new Date(2022,2,21);
+var d = new Date(2022,2,21,18,10,24);
 
-new Intl.DateTimeFormat().format(d)                         // depends on default locale (which may differ, e.g. on pc is 'en-GB', on laptop is 'en-US')
-new Intl.DateTimeFormat('en').format(d)                     // '21/03/2022'
-new Intl.DateTimeFormat('en-GB').format(d)                  // '3/21/2022'
-Intl.DateTimeFormat('en-GB').format(d)                      // ...
-Intl.DateTimeFormat('en-GB',{timeStyle:'medium'}).format(d) // '00:00:00'
+new Intl.DateTimeFormat().format(d)     // depends on default locale (which may differ, e.g. on pc is 'en-GB', on laptop is 'en-US')
+new Intl.DateTimeFormat('en').format(d) // '21/03/2022'
+Intl.DateTimeFormat('en').format(d)     // ...
 
+Intl.DateTimeFormat('en-CA').format(d)                                                     // '2022-03-21'
+Intl.DateTimeFormat('en-CA',{dateStyle:'short',timeStyle:'medium'}).format(d)              // '2022-03-21, 6:10:24 p.m.'
+Intl.DateTimeFormat('en-CA',{dateStyle:'short',timeStyle:'medium',hour12:false}).format(d) // '2022-03-21, 18:10:24'
+Intl.DateTimeFormat('en-CA',{dateStyle:'short',timeStyle:'short',hour12:false}).format(d)  // '2022-03-21, 18:10'
+
+Intl.DateTimeFormat('en-GB').format(d)                                                     // '21/03/2022'
+Intl.DateTimeFormat('en-GB',{dateStyle:'short'}).format(d)                                 // ...
+Intl.DateTimeFormat('en-GB',{timeStyle:'medium'}).format(d)                                // '18:10:24'
+
+Intl.DateTimeFormat('en-US').format(d)                                                     // '3/21/2022' (same things with 'en')
+Intl.DateTimeFormat('en-US',{dateStyle:'short'}).format(d)                                 // '3/21/22'
+Intl.DateTimeFormat('en-US',{year:'numeric',month:'2-digit',day:'2-digit'}).format(d)      // '03/21/2022'
+Intl.DateTimeFormat('en-US',{timeStyle:'medium'}).format(d)                                // '6:10:24 PM'
+
+Intl.DateTimeFormat('en-GB').format(d).split('/').reverse().join('')                       // '20140101'
 var [date,time] = Intl.DateTimeFormat('en-GB',{dateStyle:'short',timeStyle:'medium'}).format(d).split(', ');
-date.split('/').reverse().join('') +'-'+ time.replaceAll(':','') // '20220321-000000'
+date.split('/').reverse().join('') +'-'+ time.replaceAll(':','')                           // '20220321-000000'
+
+
 
 Intl.DateTimeFormat('fa-IR').format(d)                                                   // ۱۴۰۱/۱/۱
 Intl.DateTimeFormat('fa-IR',{numberingSystem:'latn'}).format(d)                          // 1401/1/1
@@ -85,5 +100,3 @@ Intl.DateTimeFormat('en-US-u-ca-persian', {dateStyle:'full',timeStyle:'long'}).f
 Intl.DateTimeFormat('en-US-u-ca-persian', {year:'numeric'}).format(d)                    // 1401 AP
 Intl.DateTimeFormat('en-US-u-ca-persian', {month:'short'}).format(d)                     // Farvardin
 Intl.DateTimeFormat('en-US-u-ca-persian', {day:'numeric'}).format(d)                     // 1
-Intl.DateTimeFormat('en-US',{year:'numeric',month:'2-digit',day:'2-digit'}).format(d)    // 03/21/2022
-Intl.DateTimeFormat('en-GB',{year:'numeric',month:'2-digit',day:'2-digit'}).format(d)    // 21/03/2022
