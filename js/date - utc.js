@@ -42,6 +42,14 @@ var d = new Date(2024,0,1);
 
 
 
+// get utc timestamp - now
+var nowUTC = +new Date(new Date().toISOString());
+
+var d = new Date();
+var nowUTC = Date.UTC(...['FullYear','Month','Date','Hours','Minutes','Seconds','Milliseconds'].map(k=> d['getUTC'+k]() ));
+
+
+
 // conversion pitfalls
 kk = ['FullYear','Month','Date','Hours','Minutes'];
 z = [2025,0,27,3,10];
