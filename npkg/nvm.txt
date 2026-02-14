@@ -12,3 +12,11 @@ nvm install lts 32	... 32 arch
 nvm on			enable nvm
 nvm off			disable nvm
 nvm --version		show nvm version
+
+--------------------------------------------------
+install - linux
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+\. "$HOME/.nvm/nvm.sh" # or restart shell
+nvm -v # 0.40.3
+--------------------------------------------------
