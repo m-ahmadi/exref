@@ -6,6 +6,12 @@ sudo apt-get install -y nodejs
 curl --silent --location https://rpm.nodesource.com/setup_7.x | bash -
 yum install -y nodejs
 --------------------------------------------------
+using nvm
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+\. "$HOME/.nvm/nvm.sh" # or restart shell
+nvm install 24
+--------------------------------------------------
 download binary manually and add env variable
 
 sudo tar -xJvf node-v14.16.0-linux-x64.tar.xz
