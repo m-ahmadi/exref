@@ -15,6 +15,6 @@ check log
 --------------------------------------------------------------------------------
 check device support ("your pc or mobile device doesn't support miracast")
 
-dxdiax -> Save All Information... -> file.txt
+dxdiag -> Save All Information... -> file.txt
 in file.txt search for "Miracast"
 --------------------------------------------------------------------------------
