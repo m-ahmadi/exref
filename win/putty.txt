@@ -5,3 +5,11 @@ Session
 
 Connection -> SSH -> Auth -> Credentials
 	Private key file for authentication: ...
+
+--------------------------------------------------
+save font settings
+
+Window -> Appearance -> Font settings -> Change...
+Session -> Saved Sessions -> Default Settings -> Save
+
+--------------------------------------------------
