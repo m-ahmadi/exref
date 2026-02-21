@@ -2,7 +2,7 @@
 # https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html
 
 --------------------------------------------------
-# example - simplest
+# example - simplest (user)
 
 [Unit]
 Description=My App
@@ -13,9 +13,9 @@ ExecStart=/home/foo/myapp/app.js
 WorkingDirectory=/home/foo/myapp
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
 --------------------------------------------------
-# example - simple binary
+# example - simple binary (system)
 
 [Unit]
 Description=My Script
@@ -30,7 +30,7 @@ RestartSteps=60
 RestartMaxDelaySec=600
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
 --------------------------------------------------
 # example - express.js server
 # did not work (but works if `Group=` and `User=` lines are removed)
@@ -49,6 +49,20 @@ Group=nogroup
 
 [Install]
 WantedBy=multi-user.target
+--------------------------------------------------
+# log control
+
+# journal + custom files (systemd v249+)
+StandardOutput=journal+append:/home/myuser/myapp/out.log
+StandardError=journal+append:/home/myuser/myapp/error.log
+
+# custom files only
+StandardOutput=append:/home/myuser/myapp/out.log
+StandardError=append:/home/myuser/myapp/error.log
+
+# notes:
+# the log directory must exist
+# the user running the service must have write permission
 --------------------------------------------------
 
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
