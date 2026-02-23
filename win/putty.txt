@@ -7,6 +7,11 @@ Connection -> SSH -> Auth -> Credentials
 	Private key file for authentication: ...
 
 --------------------------------------------------
+convert private key to putty format (ppk)
+
+<putty_install_dir>\puttygen.exe -> Load -> ~/.ssh/id_rsa -> Save private key
+
+--------------------------------------------------
 save font settings
 
 Window -> Appearance -> Font settings -> Change...
