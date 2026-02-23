@@ -14044,42 +14044,6 @@
             {
               "children": [
                 {
-                  "name": "iranserver",
-                  "type": "url",
-                  "url": "https://www.iranserver.com/"
-                },
-                {
-                  "name": "itpiran",
-                  "type": "url",
-                  "url": "https://www.itpiran.com/"
-                },
-                {
-                  "name": "hostiran",
-                  "type": "url",
-                  "url": "https://hostiran.net/"
-                },
-                {
-                  "name": "arvancloud",
-                  "type": "url",
-                  "url": "https://www.arvancloud.ir/fa"
-                },
-                {
-                  "name": "doris",
-                  "type": "url",
-                  "url": "https://www.doris.host/"
-                },
-                {
-                  "name": "novinvps",
-                  "type": "url",
-                  "url": "https://novinvps.com/"
-                }
-              ],
-              "name": "hosting",
-              "type": "folder"
-            },
-            {
-              "children": [
-                {
                   "name": "jsDelivr",
                   "type": "url",
                   "url": "https://www.jsdelivr.com/"
@@ -14749,37 +14713,6 @@
                 }
               ],
               "name": "nlp",
-              "type": "folder"
-            },
-            {
-              "children": [
-                {
-                  "name": "turin",
-                  "type": "url",
-                  "url": "https://turin.ipm.ir/gpu.html#price"
-                },
-                {
-                  "name": "gpurun",
-                  "type": "url",
-                  "url": "http://gpurun.com/#pricing"
-                },
-                {
-                  "name": "irangpu",
-                  "type": "url",
-                  "url": "https://irangpu.com/"
-                },
-                {
-                  "name": "itpiran gpu",
-                  "type": "url",
-                  "url": "https://client.itpiran.net/store/iran-daily-gpu-vps"
-                },
-                {
-                  "name": "itpiran cpu",
-                  "type": "url",
-                  "url": "https://client.itpiran.net/store/iran-daily-computing-vps"
-                }
-              ],
-              "name": "cloud",
               "type": "folder"
             }
           ],
@@ -15977,6 +15910,92 @@
                 }
               ],
               "name": "docker",
+              "type": "folder"
+            },
+            {
+              "children": [
+                {
+                  "name": "hetzner",
+                  "type": "url",
+                  "url": "https://console.hetzner.com/"
+                },
+                {
+                  "name": "ovhcloud",
+                  "type": "url",
+                  "url": "https://manager.ca.ovhcloud.com/"
+                },
+                {
+                  "name": "arvancloud",
+                  "type": "url",
+                  "url": "https://panel.arvancloud.ir/"
+                },
+                {
+                  "name": "—————",
+                  "type": "url",
+                  "url": "http://foo.com/"
+                },
+                {
+                  "name": "iranserver",
+                  "type": "url",
+                  "url": "https://www.iranserver.com/"
+                },
+                {
+                  "name": "itpiran",
+                  "type": "url",
+                  "url": "https://www.itpiran.com/"
+                },
+                {
+                  "name": "hostiran",
+                  "type": "url",
+                  "url": "https://hostiran.net/"
+                },
+                {
+                  "name": "doris",
+                  "type": "url",
+                  "url": "https://www.doris.host/"
+                },
+                {
+                  "name": "novinvps",
+                  "type": "url",
+                  "url": "https://novinvps.com/"
+                },
+                {
+                  "name": "—————",
+                  "type": "url",
+                  "url": "http://foo.com/"
+                },
+                {
+                  "name": "turin",
+                  "type": "url",
+                  "url": "https://turin.ipm.ir/gpu.html#price"
+                },
+                {
+                  "name": "gpurun",
+                  "type": "url",
+                  "url": "http://gpurun.com/#pricing"
+                },
+                {
+                  "name": "irangpu",
+                  "type": "url",
+                  "url": "https://irangpu.com/"
+                },
+                {
+                  "name": "itpiran gpu",
+                  "type": "url",
+                  "url": "https://client.itpiran.net/store/iran-daily-gpu-vps"
+                },
+                {
+                  "name": "itpiran cpu",
+                  "type": "url",
+                  "url": "https://client.itpiran.net/store/iran-daily-computing-vps"
+                },
+                {
+                  "name": "—————",
+                  "type": "url",
+                  "url": "http://foo.com/"
+                }
+              ],
+              "name": "cloud",
               "type": "folder"
             },
             {
