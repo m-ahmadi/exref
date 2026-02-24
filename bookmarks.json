@@ -19260,6 +19260,16 @@
                   "url": "https://wallex.ir/app"
                 },
                 {
+                  "name": "coinex",
+                  "type": "url",
+                  "url": "https://www.coinex.com/en/"
+                },
+                {
+                  "name": "lbank",
+                  "type": "url",
+                  "url": "https://www.lbank.com/"
+                },
+                {
                   "name": "binance",
                   "type": "url",
                   "url": "https://www.binance.com/en"
