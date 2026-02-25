@@ -1,3 +1,7 @@
 whereis --help
+whereis python
 
-whereis google-chrome
+
+searches standard system directories for binaries, source files, man pages
+does not care about your $PATH
+can show multiple locations

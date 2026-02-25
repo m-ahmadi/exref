@@ -1,0 +1,7 @@
+which node
+which python
+
+
+returns the executable that would actually be executed
+searches only in your $PATH
+respects shell behavior (like aliases in some shells)

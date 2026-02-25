@@ -1,4 +1,6 @@
+systemctl --version		show version (e.g. systemd 245 on ubuntu 20.04)
 systemctl --type=service	list all services
+systemctl list-units		show services
 
 systemctl status httpd		service status
 service httpd status		...
@@ -6,6 +8,10 @@ service httpd status		...
 service httpd start		start   service
 service httpd stop		stop    ...
 service httpd restart		restart ...
+
+systemctl start foo		start   service
+systemctl stop foo		stop    ...
+systemctl restart foo		restart ...
 
 systemctl enable		set service to auto-start on boot
 systemctl enable --now		.. and start it
@@ -17,3 +23,26 @@ systemctl reload foo		reload unit
 systemctl kill foo		send signal to processes of a unit
 
 systemctl daemon-reload		soft reload (e.g. needed after changing `systemd/system/foo.service`)
+
+
+
+
+journalctl -u foo				see full logs of system service
+journalctl --user -u foo			...              user   service
+journalctl -u foo -f				see live logs
+journalctl -u autop -f --since "5 minutes ago"	... from 5mins ago till now
+journalctl -u autop -f --since "1 hour ago"	... from 1hour ago till now
+journalctl --user --vacuum-time=1h		clear user   logs older than 1 hour
+sudo journalctl --vacuum-time=1h		clear system logs ...
+
+--------------------------------------------------
+log control
+
+nano /etc/systemd/journald.conf
+	SystemMaxUse=200M
+	SystemMaxFileSize=50M
+	SystemMaxFiles=5
+	MaxRetentionSec=1month
+
+sudo systemctl restart systemd-journald
+--------------------------------------------------

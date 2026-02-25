@@ -49,13 +49,37 @@ after modifying the `myapp.service` file, must run:
 	sudo systemctl daemon-reload
 	sudo systemctl start myapp
 --------------------------------------------------
-user service
+system vs user service
 
-~/myapp/app.js				script must be somewhere under ~/
-~/.config/systemd/user/myapp.service
-systemctl --user daemon-reload
-systemctl --user enable myapp
-systemctl --user start myapp
-systemctl --user status myapp
-journalctl --user -u myapp
+system service:
+	config:	/etc/systemd/system/myapp.service
+		WantedBy=multi-user.target
+	script:	/usr/local/bin/app.js
+	cmds:	no --user after command, with sudo for systemctl
+		sudo systemctl ... myapp
+		jouranlctrl -u myapp ...
+user service:
+	config:	~/.config/systemd/user/myapp.service
+		WantedBy=default.target
+	script:	~/myapp/app.js (must be somewhere under ~/)
+	cmds:	--user after command, no sudo
+		systemctl --user ... myapp
+		journalctl --user -u myapp ...
+	
+	note:	user services only run when user session is active
+		run at boot (without login):
+			loginctl enable-linger $USER
+		undo:
+			loginctl disable-linger $USER
+		check:
+			loginctl show-user $USER | grep Linger
+--------------------------------------------------
+delete service
+
+systemctl stop myapp				stop the service (if running)
+systemctl disable myapp				disable the service (removes from auto-start)
+rm -f /etc/systemd/system/myapp.service		delete service config
+systemctl daemon-reload				reload systemd
+
+systemctl list-unit-files | grep autop	check: must show nothing
 --------------------------------------------------

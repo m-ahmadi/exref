@@ -1,0 +1,49 @@
+# we are logged in as root
+
+# 1. create normal user
+adduser ubuntu # type password (needed later, e.g. for `sudo ...` commands)
+
+
+# 2. give it sudo privileges
+usermod -aG sudo ubuntu
+
+
+# 3. copy your ssh key
+mkdir -p /home/ubuntu/.ssh
+cp /root/.ssh/authorized_keys /home/ubuntu/.ssh/
+chown -R ubuntu:ubuntu /home/ubuntu/.ssh
+chmod 700 /home/ubuntu/.ssh
+chmod 600 /home/ubuntu/.ssh/authorized_keys
+
+# done
+# note: ssh auth tries keys first, falls back on passwords if "PasswordAuthentication yes"
+
+
+
+
+# extra - disable ssh login with password (keys only ssh login)
+nano /etc/ssh/sshd_config
+	PasswordAuthentication no
+systemctl restart ssh
+
+
+# extra - disable root ssh login
+nano /etc/ssh/sshd_config
+	PermitRootLogin no
+systemctl restart ssh
+
+
+# extra - test the new user (good check before disabling root)
+su - ubuntu # switch to new user
+sudo whoami # should return "root" (confirms sudo works)
+exit        # back to root
+
+
+# extra - lock password (big no, user can't sudo anymore)
+passwd -l ubuntu # disable password
+passwd -u ubuntu # undo
+
+
+# extra - misc
+sudo -i # become root (almost exactly as if logged in directly as root)
+sudo -l # list user's sudo permissions 
