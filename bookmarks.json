@@ -1121,6 +1121,11 @@
               "name": "ملت",
               "type": "url",
               "url": "https://ebanking.bankmellat.ir/ebanking/"
+            },
+            {
+              "name": "تجارت",
+              "type": "url",
+              "url": "https://ib.tejaratbank.ir/web/ns/login?execution=e1s1"
             }
           ],
           "name": "ب",
