@@ -21,7 +21,7 @@ new uPlot({
 	y.map((v,i,a)=> i>0 && v > a[i-1]   ? y[i]+1 : null),
 	y.map((v,i,a)=> i>0 && v < a[i-1]   ? y[i]-1 : null),
 	y.map((v,i,a)=> i>0 && v === a[i-1] ? y[i]   : null),
-], document.body)
+], document.body);
 
 
 function randomBars(len=100, seed=100) {
