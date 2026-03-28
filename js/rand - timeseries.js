@@ -17,26 +17,70 @@ function randomSerie(len=400, seed=100) {
 	return r;
 }
 
-function randCandles(len=100, {open=70,high=120,low=80,close=100}={}) {
+function randCandles(len=100, {open=90,high=110,low=80,close=100}={}) {
 	let r = [{open,high,low,close}];
 	let randInt = (n,x) => (n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n);
-	let f = (n,p) => n*p+n; 
+	let fmt = Intl.DateTimeFormat('en-ca').format;
+	let p = (n,p) => n*p+n;
+	let d = new Date();
+	d.setDate(d.getDate()-len);
 	for (let i=0; i<len; i++) {
-		let d = new Date();
-		d.setDate(d.getDate()-len+i);
-		let time = [d.getFullYear(), d.getMonth()+1, d.getDate()].map(i=>(i=''+i, i.length>1?i:'0'+i)).join('-');
+		let time = fmt(d.setDate(d.getDate()+1));
 		if (i===0) { r[i].time=time; continue; }
-		let prev = r[i-1].close;
-		let [min, max] = [f(prev,-.05), f(prev,.05)];
+		let prev = r[i-1];
+		let vlt = randInt(3,7) * 0.01;
+		let [min, max] = [p(prev.close,-vlt), p(prev.close,vlt)];
 		let [n, k] = [randInt(min, max), 2];
-		while (n===prev) { n=randInt(min,max+k); k*=2; }
-		r.push({
-			time,
-			open:  randInt(f(n,-.1), f(n,.1)),
-			high:  randInt(f(n,-.01), f(n,.1)),
-			low:   randInt(f(n,-.1), f(n,-.01)),
-			close: n,
-		});
+		while (n===prev.close) { n=randInt(min,max+k); k*=2; }
+		let open = randInt(p(prev.close,-.001), p(prev.close,.001));
+		let high = randInt(p(n,-.01), p(n,.1));
+		let low  = randInt(p(n,-.1),  p(n,-.01));
+		let close = n;
+		r.push({time, open, high, low, close});
 	}
 	return r;
+}
+
+function randCandles_(numCandles, initialPrice=100, volatility=0.01, minPrice=1) {/*ai generated*/
+	const candles = [];
+	
+	let price = initialPrice;
+	
+	const round = n => +n.toFixed(4);
+	const fmt = Intl.DateTimeFormat('en-ca').format;
+	const d = new Date();
+	d.setDate(d.getDate() - numCandles);
+	
+	for (let i=0; i<numCandles; i++) {
+		// open price is close of previous candle (or initial price for first candle)
+		const open = price;
+		
+		// random price movement: simulate volatility
+		const move = (Math.random() - 0.5) * volatility * open;
+		const high = open + Math.abs(move) * (Math.random() * 2 + 1); // high is above open
+		const low = open - Math.abs(move) * (Math.random() * 2 + 1);  // low  is below open
+		
+		// ensure high and low are valid (low < high)
+		const actualHigh = Math.max(high, low);
+		const actualLow = Math.min(high, low);
+		
+		// close is somewhere between low and high
+		const close = actualLow + Math.random() * (actualHigh - actualLow);
+		
+		// update price for next candle
+		price = close;
+		
+		// ensure price doesn't go below minimum
+		if (price < minPrice) price = minPrice;
+		
+		candles.push({
+			time: fmt(d.setDate(d.getDate()+1)),
+			open: round(open),
+			high: round(actualHigh),
+			low: round(actualLow),
+			close: round(close),
+		});
+	}
+	
+	return candles;
 }
