@@ -1365,6 +1365,11 @@
                 {
                   "children": [
                     {
+                      "name": "okian",
+                      "type": "url",
+                      "url": "https://okian.ai/"
+                    },
+                    {
                       "name": "boofai",
                       "type": "url",
                       "url": "https://chat.boofai.com/"
@@ -1373,11 +1378,6 @@
                       "name": "ivira",
                       "type": "url",
                       "url": "https://web.ivira.ai/"
-                    },
-                    {
-                      "name": "okian",
-                      "type": "url",
-                      "url": "https://okian.ai/"
                     },
                     {
                       "name": "hooshzy",
@@ -1391,6 +1391,22 @@
                     }
                   ],
                   "name": "ai",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "mirror 1",
+                      "type": "url",
+                      "url": "https://repo.ito.gov.ir/"
+                    },
+                    {
+                      "name": "mirror 2",
+                      "type": "url",
+                      "url": "https://runflare.com/mirrors/npm-mirror/"
+                    }
+                  ],
+                  "name": "dev",
                   "type": "folder"
                 }
               ],
