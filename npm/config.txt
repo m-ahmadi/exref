@@ -17,7 +17,11 @@ npm config set loglevel="warn"				...
 npm config set ignore-scripts true			disable running postinstall/preinstall/etc scripts
 
 npm config set proxy http://127.0.0.1:10811		set http proxy
-npm config set https-proxy <URL>			... https
+npm config set https-proxy <url>			... https
+
+npm config set registry <url>				change default npm registry
+npm config delete registry				set npm registry to default
+npm config set registry ""				...
 
 
 reference:

@@ -10,6 +10,7 @@ npm i <pkg> -g				install globally
 npm i <pkg> -D				add to devDependencies
 npm i					install from "package.json" in current dir
 npm i <pkg> --loglevel silent		modify loglevel
+npm i <pkg> --registry=<url>		install from specified registry
 
 npm i -g --prefix ./mydir		install to a custom location. installs in: ./mydir/node_modules/
 
