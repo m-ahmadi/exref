@@ -1365,6 +1365,11 @@
                 {
                   "children": [
                     {
+                      "name": "gapgpt",
+                      "type": "url",
+                      "url": "https://gapgpt.app/"
+                    },
+                    {
                       "name": "okian",
                       "type": "url",
                       "url": "https://okian.ai/"
@@ -1380,14 +1385,34 @@
                       "url": "https://web.ivira.ai/"
                     },
                     {
+                      "name": "targoman",
+                      "type": "url",
+                      "url": "https://demo-llm.targoman.ir/"
+                    },
+                    {
+                      "name": "yarai",
+                      "type": "url",
+                      "url": "https://chat.yarai.ir/"
+                    },
+                    {
                       "name": "hooshzy",
                       "type": "url",
                       "url": "https://chat.hooshzy.ir/"
                     },
                     {
-                      "name": "targoman",
+                      "name": "houshyar24",
                       "type": "url",
-                      "url": "https://demo-llm.targoman.ir/"
+                      "url": "https://app.houshyar24.ir/dashboard/chat"
+                    },
+                    {
+                      "name": "zigap",
+                      "type": "url",
+                      "url": "https://app.zigap.ir/app"
+                    },
+                    {
+                      "name": "roboo",
+                      "type": "url",
+                      "url": "https://panel.roboo.ir/"
                     }
                   ],
                   "name": "ai",
