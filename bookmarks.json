@@ -1428,7 +1428,7 @@
                     {
                       "name": "mirror 2",
                       "type": "url",
-                      "url": "https://runflare.com/mirrors/npm-mirror/"
+                      "url": "https://runflare.com/mirrors/"
                     }
                   ],
                   "name": "dev",
