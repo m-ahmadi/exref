@@ -11,3 +11,25 @@ pymanager exec 3.12		run specific runtime (install first if not exists)
 https://docs.python.org/3/using/windows.html#python-install-manager
 
 note: at first when no runtime is installed yet, py command equals pymanager
+
+--------------------------------------------------------------------------------
+how to install from old .exe installers without conflict with pymanager
+
+run the .exe file e.g. python-3.12.10-amd64.exe
+
+must not install two things: (uncheck them)
+	pip		(cuz it installs global pip)
+	py launcher	(cuz it messes with py command)
+
+now python is installed but we have no pip, so run:
+	c:\python312\python.exe -m ensurepip --upgrade
+
+done, now we have pip in non-global manner
+	c:\python312\python.exe -m pip -V
+
+p.s.
+our installed python is also recognized by pymanager, check with:
+	py -0
+so we can also run like:
+	py -3.12 -V
+--------------------------------------------------------------------------------
