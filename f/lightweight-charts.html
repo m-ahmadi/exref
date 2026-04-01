@@ -376,27 +376,32 @@ function randVolumes(n, red=c[10], green=c[11]) {
 			return {time, value, color};
 	});
 }
-function randCandles(len=100, {open=70,high=120,low=80,close=100}={}) {
-	let r = [{open,high,low,close}];
-	let f = (n,p) => n*p+n; 
-	for (let i=0; i<len; i++) {
-		let d = new Date();
-		d.setDate(d.getDate()-len+i);
-		let time = [d.getFullYear(), d.getMonth()+1, d.getDate()].map(i=>(i=''+i, i.length>1?i:'0'+i)).join('-');
-		if (i===0) { r[i].time=time; continue; }
-		let prev = r[i-1].close;
-		let [min, max] = [f(prev,-.03), f(prev,.03)];
-		let [n, k] = [randInt(min, max), 2];
-		while (n===prev) { n=randInt(min,max+k); k*=2; }
-		r.push({
-			time,
-			open:  randInt(f(n,-.1), f(n,.1)),
-			high:  randInt(f(n,-.01), f(n,.1)),
-			low:   randInt(f(n,-.1), f(n,-.01)),
-			close: n,
-		});
+function randCandles(size=0, seed=100, dp=2, strtime=true) {
+	const res = [];
+	const d = new Date();
+	d.setDate(d.getDate() - size);
+	const round = n => +n.toFixed(dp);
+	const rn = (a,b) => Math.floor(Math.random()*(b-a+1))+a;
+	const p = (n, p) => n * (1 + p);
+	const fmt = strtime ? Intl.DateTimeFormat('en-CA').format : n=>n;
+	let pClose = seed;
+	let pVlt = rn(3,6) / 100;
+	for (let i=0; i<size; i++) {
+		const time = fmt(d.setDate(d.getDate() + 1));
+		let vlt = pVlt * .7 + (rn(2,7)/100) * .3;
+		pVlt = vlt;
+		let close = rn(p(pClose, -vlt), p(pClose,  vlt));
+		if (close === pClose) close += rn(-2,2) || 1;
+		let open = rn(p(pClose,-.001), p(pClose,.001));
+		let high = rn(p(open,-.01), p(open, .05));
+		let low  = rn(p(open,-.05), p(open,-.01));
+		high = Math.max(high, open, close);
+		low  = Math.min(low,  open, close);
+		[open,high,low,close] = [open,high,low,close].map(round);
+		res.push({time, open, high, low, close});
+		pClose = close;
 	}
-	return r;
+	return res;
 }
 function randInt(n,x) { return n=Math.ceil(n), x=Math.floor(x), Math.floor(Math.random()*(x-n))+n }
 /* p.s. replace node snippet
