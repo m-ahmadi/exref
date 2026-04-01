@@ -1780,6 +1780,49 @@ function bollingerBands(x=[], period=20, multp=2) {
 	*/
 }
 
+function linebreakBars(candles=[], period=3, classical) {/*tradingview's line break chart*/
+	const bars = [];
+	
+	for (const candle of candles) {
+		const {time, close} = candle;
+		
+		// create first bar
+		if (bars.length === 0) {
+			bars.push({time, open: close, close, dir: 0});
+			continue;
+		}
+		
+		// compute breakout levels from last N bars
+		const last = bars.at(-1);
+		
+		const recent = bars.slice(-period);
+		const recentBounds = classical
+			? recent.flatMap(i => [i.open, i.close]) // classical way, using bar body, not just close
+			: recent.map(i => i.close);              // tradingview like
+		const highest = Math.max(...recentBounds);
+		const lowest  = Math.min(...recentBounds);
+		
+		// breakout conditions
+		if (close > last.close) {// continuation up
+			const bar = {time, open: last.close, close, dir: 1};
+			if (last.dir >= 0) {
+				bars.push(bar);
+			} else if (close > highest) {// reversal
+				bars.push(bar);
+			}
+		} else if (close < last.close) {// continuation down
+			const bar = {time, open: last.close, close, dir: -1};
+			if (last.dir <= 0) {
+				bars.push(bar);
+			} else if (close < lowest) {// reversal
+				bars.push(bar);
+			}
+		}
+	}
+	
+	return bars;
+}
+
 // random
 function rand(min=0, max=1, decimal=false, inclusiveMax=true) {/*random from uniform distribution*/
 	if (decimal) {
