@@ -1780,6 +1780,61 @@ function bollingerBands(x=[], period=20, multp=2) {
 	*/
 }
 
+function atr(candles, period=14) {
+	if (candles.length < period + 1) {
+		console.warn(`Not enough data:  need at least ${period}, got ${candles.length}`);
+		return;
+	}
+	
+	const trueRanges = [];
+	
+	for (let i=1, len=candles.length; i<len; i++) {
+		const {high, low} = candles[i];
+		const prevClose = candles[i-1].close;
+		
+		const range1 = high - low;
+		const range2 = Math.abs(high - prevClose);
+		const range3 = Math.abs(low - prevClose);
+		const tr = Math.max(range1, range2, range3);
+		
+		trueRanges.push(tr);
+	}
+	
+	const atr = [];
+	
+	// first atr (simple average of first period true ranges)
+	let firstATR = 0;
+	for (let i=0; i<period; i++) firstATR += trueRanges[i];
+	firstATR /= period;
+	atr.push(firstATR);
+	
+	// "wilder" smoothing
+	for (let i=period, len=trueRanges.length; i<len; i++) {
+		const prevATR = atr.at(-1);
+		const newATR = (prevATR * (period - 1) + trueRanges[i]) / period;
+		atr.push(newATR);
+	}
+	
+	return atr;
+	
+	/* test - node.js
+	var ta = require('technicalindicators'); // npm i technicalindicators
+	var data = [[4,3,2,3],[3,2,1,2],[2,10,9,10],[10,12,11,12],[12,11,10,11],
+		[11,10,9,10],[10,9,8,9],[9,8,7,8],[8,7,6,7],[7,6,5,6],[6,7,6,7],[7,9,8,9],
+		[9,10,9,10],[10,12,11,12],[12,11,10,11],[11,10,9,10],[10,12,11,12],
+		[12,13,12,13],[13,15,14,15],[15,17,15,17]];
+	
+	var candles = data.map(([open,high,low,close],i) => ({high,low,close}));
+	var res_a = atr(candles, 14);
+	
+	var [high,low,close] = ['high','low','close'].map(k => candles.map(i=>i[k]));
+	var res_b = ta.atr({period: 14, high, low, close});
+	
+	var sumErr = (a,b) => sum(a.map((v,i) => Math.abs(v-b[i])));
+	sumErr(res_a, res_b); // 2.220446049250313e-15
+	*/
+}
+
 function linebreakBars(candles=[], period=3, classical) {/*tradingview's line break chart*/
 	const bars = [];
 	
