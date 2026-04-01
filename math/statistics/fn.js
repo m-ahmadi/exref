@@ -1835,6 +1835,235 @@ function atr(candles, period=14) {
 	*/
 }
 
+function supertrend(candles=[{open:0,high:0,low:0,close:0}], period=10, multiplier=3) {
+	const n = candles.length;
+	const result = Array(n).fill(null);
+	
+	const tr = Array(n);
+	const atr = Array(n).fill(null);
+	const upper = Array(n).fill(null);
+	const lower = Array(n).fill(null);
+	const st = Array(n).fill(null);
+	
+	// true range
+	for (let i=0; i<n; i++) {
+		const { high, low } = candles[i];
+		
+		if (i === 0) {
+			tr[i] = high - low;
+		} else {
+			const pc = candles[i - 1].close;
+			tr[i] = Math.max(high - low, Math.abs(high - pc), Math.abs(low - pc));
+		}
+	}
+	
+	// atr ("wilder" rma)
+	let sum = 0;
+	for (let i=0; i<period; i++) sum += tr[i];
+	
+	atr[period-1] = sum / period;
+	
+	for (let i=period; i<n; i++) {
+		atr[i] = (atr[i-1] * (period-1) + tr[i]) / period;
+	}
+	
+	// supertrend
+	for (let i=period-1; i<n; i++) {
+		const {high, low, close} = candles[i];
+		const hl2 = (high + low) / 2;
+		
+		const bu = hl2 + multiplier * atr[i];
+		const bl = hl2 - multiplier * atr[i];
+		
+		if (i === period - 1) {
+			upper[i] = bu;
+			lower[i] = bl;
+			st[i] = bl;
+		} else {
+			const prevClose = candles[i - 1].close;
+			upper[i] = bu < upper[i-1] || prevClose > upper[i-1] ? bu : upper[i-1];
+			lower[i] = bl > lower[i-1] || prevClose < lower[i-1] ? bl : lower[i-1];
+			
+			if (st[i - 1] === upper[i - 1]) {
+				st[i] = close > upper[i] ? lower[i] : upper[i];
+			} else {
+				st[i] = close < lower[i] ? upper[i] : lower[i];
+			}
+		}
+		
+		const bullish = st[i] === lower[i];
+		
+		result[i] = {
+			supertrend: st[i],
+			direction: i === period - 1 ? null : bullish ? 1 : -1,
+			upperBand: bullish ? null : upper[i], // pandas-ta short band
+			lowerBand: bullish ? lower[i] : null, // pandas-ta long band
+		};
+	}
+	
+	return result;
+	
+	/* test
+	var data = [[4,3,2,3],[3,2,1,2],[2,10,9,10],[10,12,11,12],[12,11,10,11],
+		[11,10,9,10],[10,9,8,9],[9,8,7,8],[8,7,6,7],[7,6,5,6],[6,7,6,7],[7,9,8,9],
+		[9,10,9,10],[10,12,11,12],[12,11,10,11],[11,10,9,10],[10,12,11,12],
+		[12,13,12,13],[13,15,14,15],[15,17,15,17]];
+	
+	// truth comes from python's pandas-ta
+	`
+	import pandas as pd
+	import pandas_ta as ta
+	data = [↑...]
+	df = pd.DataFrame(data, columns=['open','high','low','close'])
+	st = df.ta.supertrend(length=10, multiplier=3)
+	st.to_json(orient='values')
+	`
+	var truth = [[null,null,null,null],[null,null,null,null],[null,null,null,null],
+		[null,null,null,null],[null,null,null,null],[null,null,null,null],
+		[null,null,null,null],[null,null,null,null],[null,null,null,null],
+		[-2.0,null,-2.0,null],[-0.55,1.0,-0.55,null],[1.555,1.0,1.555,null],
+		[2.9495,1.0,2.9495,null],[5.00455,1.0,5.00455,null],[5.00455,1.0,5.00455,null],
+		[5.00455,1.0,5.00455,null],[5.13881695,1.0,5.13881695,null],
+		[6.474935255,1.0,6.474935255,null],[8.4774417295,1.0,8.4774417295,null],
+		[9.9796975565,1.0,9.9796975565,null]];
+	var truthCols = ['Supertrend line', 'Direction', 'long band', 'short band'];
+	var axis = truthCols.map((_,i)=>i);
+	
+	// util
+	var resCols = ['supertrend', 'direction', 'lowerBand', 'upperBand'];
+	var shapeRes = r => r.map(i => i===null ? [null,null,null,null] : resCols.map(k=>i[k]));
+	var sumErr = (a,b) => a.map((v,i) => Math.abs(v-b[i])).reduce((r,i)=>r+=i);
+	var ax = a => j => a.map(i => i[j]);
+	var axSumErr = (axA,axB,axis) => axis.map(i => sumErr(axA(i), axB(i)) );
+	
+	var candles = data.map(([open,high,low,close]) => ({open,high,low,close}));
+	var r1 = shapeRes(supertrend(candles, 10, 3));
+	var st = new Supertrend(10, 3);
+	var r2 = shapeRes(candles.map(candle => st.update(candle)));
+	
+	var e1 = axSumErr(ax(truth), ax(r1), axis); // [5.00137709025239e-11, 0, 5.00137709025239e-11, 0]
+	var e2 = axSumErr(ax(truth), ax(r2), axis); // ...
+	e1.join() === e2.join(); // true
+	*/
+}
+
+class Supertrend {
+	constructor(period=10, multiplier=3) {
+		this.period = period;
+		this.multiplier = multiplier;
+		
+		this.count = 0;
+		
+		this.prevClose = null;
+		
+		this.trSum = 0;
+		this.atr = null;
+		
+		this.upper = null;
+		this.lower = null;
+		this.st = null;
+		
+		this.prevUpper = null;
+		this.prevLower = null;
+		this.prevSt = null;
+	}
+	
+	update(candle) {
+		const {high, low, close} = candle;
+		
+		// true range
+		let tr;
+		if (this.prevClose === null) {
+			tr = high - low;
+		} else {
+			tr = Math.max(
+				high - low,
+				Math.abs(high - this.prevClose),
+				Math.abs(low - this.prevClose),
+			);
+		}
+		
+		this.count++;
+		
+		// atr seeding
+		if (this.count < this.period) {
+			this.trSum += tr;
+			this.prevClose = close;
+			return null; // alt: {supertrend: null, direction: null, upperBand: null, lowerBand: null}
+		}
+		
+		// when count == period: last seeding candle
+		if (this.count === this.period) {
+			this.trSum += tr;
+			this.atr = this.trSum / this.period;
+			
+			const hl2 = (high + low) / 2;
+			const bu = hl2 + this.multiplier * this.atr;
+			const bl = hl2 - this.multiplier * this.atr;
+			
+			this.upper = bu;
+			this.lower = bl;
+			this.st = bl;
+			
+			const result = {
+				supertrend: this.st,
+				direction: null, // pandas-ta behavior
+				upperBand: null, // lower band carries first ST
+				lowerBand: this.lower,
+			};
+			
+			this.prevUpper = this.upper;
+			this.prevLower = this.lower;
+			this.prevSt = this.st;
+			this.prevClose = close;
+			
+			return result;
+		}
+		
+		// true atr ("wilder") after seed
+		this.atr = (this.atr * (this.period - 1) + tr) / this.period;
+		
+		const hl2 = (high + low) / 2;
+		const bu = hl2 + this.multiplier * this.atr;
+		const bl = hl2 - this.multiplier * this.atr;
+		
+		// band sticking
+		this.upper =
+			bu < this.prevUpper || this.prevClose > this.prevUpper
+				? bu
+				: this.prevUpper;
+		
+		this.lower =
+			bl > this.prevLower || this.prevClose < this.prevLower
+				? bl
+				: this.prevLower;
+		
+		// trend logic
+		if (this.prevSt === this.prevUpper) {
+			this.st = close > this.upper ? this.lower : this.upper;
+		} else {
+			this.st = close < this.lower ? this.upper : this.lower;
+		}
+		
+		const bullish = this.st === this.lower;
+		
+		const result = {
+			supertrend: this.st,
+			direction: bullish ? 1 : -1,
+			upperBand: bullish ? null : this.upper,
+			lowerBand: bullish ? this.lower : null,
+		};
+		
+		// store
+		this.prevUpper = this.upper;
+		this.prevLower = this.lower;
+		this.prevSt = this.st;
+		this.prevClose = close;
+		
+		return result;
+	}
+}
+
 function linebreakBars(candles=[], period=3, classical) {/*tradingview's line break chart*/
 	const bars = [];
 	
