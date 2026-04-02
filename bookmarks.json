@@ -1433,6 +1433,22 @@
                   ],
                   "name": "dev",
                   "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "subkade",
+                      "type": "url",
+                      "url": "https://subkade.ir/"
+                    },
+                    {
+                      "name": "subzone",
+                      "type": "url",
+                      "url": "https://subzone.ir/"
+                    }
+                  ],
+                  "name": "subtitle",
+                  "type": "folder"
                 }
               ],
               "name": "net-ir",
