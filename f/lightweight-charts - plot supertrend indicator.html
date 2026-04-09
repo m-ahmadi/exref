@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.3/dist/lightweight-charts.standalone.production.js"></script>
+	<script src="../math/statistics/fn.js"></script>
+</head>
+<body>
+
+<div id="charts"></div>
+
+<script>
+width=1200, height=400;
+
+// data
+size = 1000;
+var candles = randCandles(size);
+var st = supertrend(candles, 10, 3);
+
+// chart
+var chart = LightweightCharts.createChart(charts, {width,height,
+	crosshair: {mode: LightweightCharts.CrosshairMode.Normal},
+	timeScale: {timeVisible: true, secondsVisible: false},
+	localization: {dateFormat: 'yyyy-MM-dd'},
+});
+
+// candlesticks
+chart.addCandlestickSeries().setData(candles);
+
+// supertrend rendering
+let segment = [];
+let currentDir = null;
+let lastPoint = null;
+
+function flushSegment() {
+	if (segment.length < 2) return;
+	
+	const series = chart.addLineSeries({
+		color: currentDir === 1 ? 'limegreen' : 'red',
+		lineWidth: 2,
+		lastValueVisible: false,
+		priceLineVisible: false,
+	});
+	
+	series.setData(segment);
+}
+
+for (let i=0; i<candles.length; i++) {
+	const s = st[i];
+	if (!s || s.supertrend === null || s.direction === null) continue;
+	
+	const point = {time: candles[i].time, value: s.supertrend};
+	
+	if (currentDir === null) {
+		currentDir = s.direction;
+		segment.push(point);
+		lastPoint = point;
+		continue;
+	}
+	
+	if (s.direction !== currentDir) {
+		flushSegment();
+		
+		segment = [];
+		if (lastPoint) segment.push(lastPoint); // bridge the segments
+		
+		currentDir = s.direction;
+	}
+
+	segment.push(point);
+	lastPoint = point;
+}
+
+flushSegment();
+
+</script>
+</body>
+</html>
