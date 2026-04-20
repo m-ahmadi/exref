@@ -6,6 +6,8 @@ dir /s			all subdirs (recursive)
 dir /a:d		only files with specified attributes. d: dir, h: hidden, r: readonly, s: system
 dir /a:-d 		only files
 dir /a:d /b		only dirs
+dir /o:d		sort results by date (n,e,g,s,d)
+dir /o:-d		... reverse order
 dir ..\ /p		pause on screen end
 dir /a /s		everything. any sys,hidden,... file in all dirs
 dir file.txt /s		search for file.txt everywhere under current path
