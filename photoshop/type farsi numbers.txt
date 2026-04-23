@@ -1,0 +1,8 @@
+Preferences -> Type -> Choose Text Engine Options
+	World-Ready Layout
+
+Type -> Language Options ->
+	Middle Eastern Features
+
+Window -> Character ->
+	Digits:	Farsi (1, 2, 3, 4, 5...)
