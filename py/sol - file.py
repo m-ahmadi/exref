@@ -38,6 +38,7 @@ import os # https://docs.python.org/3/library/os.html
 os.system('cls') # clear console
 os.listdir()
 os.mkdir()
+os.makedirs(path, exist_ok=True)
 os.rmdir()
 os.unlink() | remove()
 os.getcwd()
