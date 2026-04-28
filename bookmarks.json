@@ -1370,6 +1370,11 @@
                       "url": "https://gapgpt.app/"
                     },
                     {
+                      "name": "megagpt",
+                      "type": "url",
+                      "url": "https://megagpt.io/"
+                    },
+                    {
                       "name": "okian",
                       "type": "url",
                       "url": "https://okian.ai/"
