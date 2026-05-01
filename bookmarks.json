@@ -1434,6 +1434,11 @@
                       "name": "mirror 2",
                       "type": "url",
                       "url": "https://runflare.com/mirrors/"
+                    },
+                    {
+                      "name": "mirror 3",
+                      "type": "url",
+                      "url": "https://wecan-co.ir/mirrors/"
                     }
                   ],
                   "name": "dev",
