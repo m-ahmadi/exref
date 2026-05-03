@@ -1,0 +1,14 @@
+powercfg.cpl ,0 -> Sleep -> Allow wake timers -> Disable
+
+devmgmt.msc -> Mice | Keyboard | USB Root HUB | Network adapters -> Power Management ->
+	! "Allow this device to wake the computer"
+
+taskschd.msc -> Task Scheduler Library -> Conditions
+	look for tasks with "Wake the computer to run this task"
+
+powercfg /waketimers			"There are no active wake timers in the system."
+
+powercfg /lastwake
+	"Wake Source Count - 0"		windows doesn't know what woke the pc
+					wake came from hardware level
+					e.g. usb device electrical noise
