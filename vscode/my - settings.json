@@ -1,7 +1,7 @@
 ﻿{
 	"workbench.iconTheme": "vscode-icons",
 	"workbench.colorTheme": "Visual Studio Dark",
-	"editor.fontSize": 15,
+	"editor.fontSize": 12,
 	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingQuotes": "never",
 	"editor.autoSurround": "never",

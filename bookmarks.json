@@ -1763,6 +1763,11 @@
                   "url": "https://github.com/Genymobile/scrcpy"
                 },
                 {
+                  "name": "Bulk-Crap-Uninstaller",
+                  "type": "url",
+                  "url": "https://github.com/Klocman/Bulk-Crap-Uninstaller"
+                },
+                {
                   "children": [
                     {
                       "name": "SmartTube",
@@ -1843,6 +1848,22 @@
                     }
                   ],
                   "name": "androidemul",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
+                      "name": "httrack",
+                      "type": "url",
+                      "url": "https://www.httrack.com/"
+                    },
+                    {
+                      "name": "webcopy",
+                      "type": "url",
+                      "url": "https://www.cyotek.com/cyotek-webcopy"
+                    }
+                  ],
+                  "name": "sitedl",
                   "type": "folder"
                 },
                 {
@@ -19299,6 +19320,11 @@
                   "name": "alpari",
                   "type": "url",
                   "url": "https://alpariforexfa.org/en/"
+                },
+                {
+                  "name": "stptrading",
+                  "type": "url",
+                  "url": "https://www.stptrading.io/"
                 },
                 {
                   "name": "list 1",

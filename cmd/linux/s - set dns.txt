@@ -1,0 +1,19 @@
+ls /etc/netplan/
+
+sudo nano /etc/netplan/50-cloud-init.yaml
+
+network:
+  ...
+  ethernets:
+  eth0:
+    ...
+    nameservers:
+      addresses: [8.8.8.8, 1.1.1.1]
+
+sudo netplan apply
+
+
+resolvectl status
+resolvectl statistics eth0
+
+nslookup google.com

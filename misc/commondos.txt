@@ -9,17 +9,17 @@ A	B				C			D		E
 4	Restore Pride			YDNCQ RFF1J		-		An Eye For An Eye
 5	Blind Justice			4U5TL K4TCG		4JJXB		-
 6	Menace of the Leopold		IIR4M MIR4M		5LIMV		Leopold's Menace
-7	Chase of the Wolves		SNYWX			-		Hunting Wolves
-8	Pyrotechnics			K99XC			7QVJV		Fireworks
-9	A Courtesy Call			AAAX1			-		-
-10	Operation Icarus		JSGPW			-		Icare Operation
+7	Chase of the Wolves		SNYWX A3YWX		-		Hunting Wolves
+8	Pyrotechnics			K99XC 299XC		7QVJV		Fireworks
+9	A Courtesy Call			AAAX1 GAAX1		-		-
+10	Operation Icarus		JSGPW 3JCMY		-		Icare Operation
 11	In the Soup			CMODD			-		-
 12	Up on the Roof			JGHD3			-		On the Roof
 13	David and Goliath		PUUWW			-		-
-14	D-Day Kick Off			WT348			-		-
-15	End of the Butcher		139P0			-		-
-16	Stop Wildfire			L9IPV			-		Fire Halt
-17	Before Dawn			4JJXB			-		-
+14	D-Day Kick Off			WT348 XI8D1		-		-
+15	End of the Butcher		139P0 W39P0		-		-
+16	Stop Wildfire			L9IPV W9IPV		-		Fire Halt
+17	Before Dawn			4JJXB 1A4PM		-		-
 18	The Force of Circumstance	YJOJG			-		The Strength of Hazard
 19	Frustrate Retaliation		YFCWJ			-		Frustated Revenge
 20	Operation Valhalla		GDKWT			-		-
