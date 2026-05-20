@@ -14158,6 +14158,31 @@
             {
               "children": [
                 {
+                  "name": "sms",
+                  "type": "url",
+                  "url": "https://sms.ir/"
+                },
+                {
+                  "name": "kavenegar",
+                  "type": "url",
+                  "url": "https://kavenegar.com/"
+                },
+                {
+                  "name": "melipayamak",
+                  "type": "url",
+                  "url": "https://www.melipayamak.com/"
+                },
+                {
+                  "name": "farazsms",
+                  "type": "url",
+                  "url": "https://farazsms.com/"
+                },
+                {
+                  "name": "ghasedaksms",
+                  "type": "url",
+                  "url": "https://ghasedaksms.com/"
+                },
+                {
                   "name": "payam-resan",
                   "type": "url",
                   "url": "https://www.payam-resan.com/default.aspx"
