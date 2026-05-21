@@ -14186,6 +14186,26 @@
                   "name": "payam-resan",
                   "type": "url",
                   "url": "https://www.payam-resan.com/default.aspx"
+                },
+                {
+                  "name": "—————",
+                  "type": "url",
+                  "url": "http://foo.com/"
+                },
+                {
+                  "name": "twilio",
+                  "type": "url",
+                  "url": "https://www.twilio.com/en-us"
+                },
+                {
+                  "name": "plivo",
+                  "type": "url",
+                  "url": "https://www.plivo.com/"
+                },
+                {
+                  "name": "—————",
+                  "type": "url",
+                  "url": "http://foo.com/"
                 }
               ],
               "name": "sms",
@@ -16062,6 +16082,11 @@
                   "name": "liara",
                   "type": "url",
                   "url": "https://liara.ir/"
+                },
+                {
+                  "name": "parspack",
+                  "type": "url",
+                  "url": "https://my.parspack.com/"
                 },
                 {
                   "name": "—————",
