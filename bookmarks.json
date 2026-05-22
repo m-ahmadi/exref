@@ -9269,6 +9269,17 @@
                 {
                   "children": [
                     {
+                      "name": "nodemailer",
+                      "type": "url",
+                      "url": "https://nodemailer.com/"
+                    }
+                  ],
+                  "name": "email",
+                  "type": "folder"
+                },
+                {
+                  "children": [
+                    {
                       "name": "livereload",
                       "type": "url",
                       "url": "https://www.npmjs.com/package/livereload"
