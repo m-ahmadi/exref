@@ -1082,6 +1082,21 @@
               "url": "https://my.alpariforexfa.org/fa/"
             },
             {
+              "name": "ftmo",
+              "type": "url",
+              "url": "https://trader.ftmo.com/"
+            },
+            {
+              "name": "fndnxt",
+              "type": "url",
+              "url": "https://app.fundednext.com/"
+            },
+            {
+              "name": "tpchg",
+              "type": "url",
+              "url": "https://my.topchnge.net/"
+            },
+            {
               "name": "آ",
               "type": "url",
               "url": "https://online.agah.com/"
@@ -18769,6 +18784,11 @@
                   "name": "tickdata",
                   "type": "url",
                   "url": "https://www.tickdata.com/"
+                },
+                {
+                  "name": "databento",
+                  "type": "url",
+                  "url": "https://databento.com/"
                 }
               ],
               "name": "data",
@@ -19403,6 +19423,11 @@
                   "url": "https://iranbroker.net/brokers/"
                 },
                 {
+                  "name": "topchnge",
+                  "type": "url",
+                  "url": "https://www.topchange.net/"
+                },
+                {
                   "children": [
                     {
                       "name": "market structure 1",
@@ -19561,6 +19586,11 @@
             },
             {
               "children": [
+                {
+                  "name": "ftmo",
+                  "type": "url",
+                  "url": "https://ftmo.com/en/"
+                },
                 {
                   "name": "fundednext",
                   "type": "url",
