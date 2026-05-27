@@ -1,3 +1,16 @@
-mv  -v ~/folder ~/anotherfolder			move folder
-mv  -v ~/folder/file.txt ~/Videos/		move file
-mv  -v ~/Downloads/* ~/Videos/			move all files & folders from Downloads to Videos
+mv file.txt other/		move file
+mv file.txt file2.txt		rename file
+
+mv folder another/folder	move folder
+mv folder folder2		rename folder
+
+mv * other/			move all files & folders
+mv *.csv other/			... csv files only
+
+--------------------------------------------------
+mv --help
+
+-i	interactive, ask before overwrite
+-f	force, do not ask before overwriting
+-v	verbose
+--------------------------------------------------

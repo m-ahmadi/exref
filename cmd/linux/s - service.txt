@@ -30,10 +30,20 @@ systemctl daemon-reload		soft reload (e.g. needed after changing `systemd/system
 journalctl -u foo				see full logs of system service
 journalctl --user -u foo			...              user   service
 journalctl -u foo -f				see live logs
-journalctl -u autop -f --since "5 minutes ago"	... from 5mins ago till now
-journalctl -u autop -f --since "1 hour ago"	... from 1hour ago till now
+journalctl -u foo -f --since "5 minutes ago"	... from 5mins ago till now
+journalctl -u foo -f --since "1 hour ago"	... from 1hour ago till now
+
+journalctl -u foo -g "look for me"		search in logs
+journalctl -u foo -g "look for me" -i		... case-insensitive
+journalctl -u foo -g "error|failed"		... regex pattern
+journalctl -u foo -g "look for me" -b		... from the current boot only
+
 journalctl --user --vacuum-time=1h		clear user   logs older than 1 hour
 sudo journalctl --vacuum-time=1h		clear system logs ...
+
+search within specific timeframe
+journalctl -u foo --since "2026-05-26" --until "2026-05-27"
+journalctl -u foo --since "2026-05-26 14:20:00" --until "2026-05-26 14:50:00"
 
 --------------------------------------------------
 log control
