@@ -31,6 +31,9 @@ cut part & re-encode
 ffmpeg -ss 00:01:00 -to 00:02:00 -i i.mkv -c:v libx265 -c:a aac o.mp4	same as if cut first, then convert
 ffmpeg -ss 00:01:00 -to 00:02:00 -i i.mkv -c:v libx265 -c:a copy o.mp4	re-encode video but not audio (audio slightly out of sync)
 
+extract embedded subtitle into separate .srt file
+ffmpeg -i i.mkv -map 0:s:0 o.srt
+
 show metadata
 ffprobe -show_data -hide_banner i.mp4
 --------------------------------------------------------------------------------
