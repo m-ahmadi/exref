@@ -16,7 +16,7 @@ list('abc')                 # ...
 'foo'.replace('oo', 'ar')   # 'far'
 len('foo')                  # 5
 'foo' in 'football'         # containment: True
-# https://docs.python.org/3/library/stdtypes.html#string-methods
+# https://docs.python.org/3/library/stdtypes.html#text-and-binary-sequence-type-methods-summary
 
 # split
 '1,,2'.split(',')     # ['1', '',  '2']  consecutives are separated
@@ -97,3 +97,20 @@ f'foo {"\n"} bar' # err
 # sol - number grouping
 f'{1234567:,}'         # '1,234,567'
 '{:,}'.format(1234567) # ...
+
+
+# sol - string classification
+'Letters and spaces'.isalpha() # False
+'LettersOnly'.isalpha()        # True
+
+'0123456789'.isdigit() # True
+'0a'.isdigit()         # False
+''.isdecimal()         # ...
+''.isnumeric()         # ...
+
+'abc123'.isalnum()    # True
+'abc 123'.isalnum()   # False
+'abc123!@#'.isalnum() # False
+
+' '.isspace() # True
+' a'.isspace() # False
