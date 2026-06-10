@@ -67,3 +67,18 @@ str(d2) # '2024-06-22 00:00:00'
 d = dt.datetime(2020,1,1,9,18)
 d2 = d.replace(hour=11, minute=36)
 str(d2) # '2020-01-01 11:36:00'
+
+# iso
+d = dt.datetime(2021,1,1)
+d.isoformat()                        # '2021-01-01T00:00:00'
+d.isoformat(sep=' ')                 # '2021-01-01 00:00:00'
+d.isoformat(timespec='milliseconds') # '2021-01-01T00:00:00.000'
+d.isoformat(timespec='minutes')      # '2021-01-01T00:00'
+
+f = dt.datetime.fromisoformat
+f('2011-11-04')                # dt.datetime(2011, 11, 4, 0, 0)
+f('2011-11-04T00:05:23')       # dt.datetime(2011, 11, 4, 0, 5, 23)
+f('2011-11-04T00:05:23.283')   # dt.datetime(2011, 1, 4, 0, 5, 23, 283000)
+f('2011-11-04T00:05:23Z')      # dt.datetime(2011, 11, 4, 0, 5, 23, tzinfo=dt.timezone.utc)
+f('2011-11-04 00:05:23+00:00') # ...
+f('2011-11-04T00:05:23+04:00') # dt.datetime(2011, 11, 4, 0, 5, 23, tzinfo=dt.timezone(dt.timedelta(seconds=14400)))
