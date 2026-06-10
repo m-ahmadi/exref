@@ -1,4 +1,8 @@
-<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.0.1/dist/lightweight-charts.standalone.production.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.7/dist/lightweight-charts.standalone.production.js"></script>
+<!-- note:
+	versions:  4.1.7, 4.2.0|1|2|3, 5.0.0
+	from 4.2.0+, to hide logo, must do `.createChart(, {layout:{attributionLogo:false}})`
+-->
 
 <a href="https://www.tradingview.com/lightweight-charts/" target="_blank">demos</a>
 <div id="charts" style="display: grid; grid-template-columns: auto auto auto; row-gap: .5rem; column-gap: .5rem;"></div>
@@ -348,7 +352,7 @@ addTitle(chartEl(), 'markers');
 
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // utils
-function addTitle(chartContainer, title='', color='black', letterWeight=5) {
+function addTitle(chartContainer, title='', color='deeppink', letterWeight=5) {
 	chartContainer.style.position = 'relative';
 	let h4 = document.createElement('h4');
 	h4.innerText = title;

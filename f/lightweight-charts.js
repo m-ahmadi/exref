@@ -1,5 +1,5 @@
-// https://tradingview.github.io/lightweight-charts/docs/api
-// https://cdn.jsdelivr.net/npm/lightweight-charts/
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api
+// https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.7/
 
 // https://tradingview.github.io/lightweight-charts/docs/migrations/from-v3-to-v4
 
@@ -10,7 +10,7 @@ LightweightCharts.
 	...
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api#type-aliases
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api#type-aliases
 Time = UTCTimestamp | BusinessDay | ''
 	UTCTimestamp = 0
 	BusinessDay  = 'YYYY-MM-DD' | {year:0, month:0, day:0}
@@ -24,7 +24,7 @@ SeriesMarkerPosition = 'aboveBar|belowBar|inBar'
 SeriesMarkerShape = 'circle|square|arrowUp|arrowDown'
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api#enumerations
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api#enumerations
 enum ColorType {Solid='solid', VerticalGradient='gradient'}
 enum                   | -1          | 0           | 1            | 2            | 3            | 4
 CrosshairMode          |             | Normal      | Magnet       |              |              |
@@ -38,18 +38,18 @@ TickMarkType           |             | Year        | Month        | DayOfMonth  
 TrackingModeExitMode   |             | OnTouchEnd  | OnNextTap    |              |              |
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api#functions
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api#functions
 LightweightCharts.isBusinessDay(t)
 LightweightCharts.isUTCTimestamp(t)
 LightweightCharts.version()
 
 var chart = LightweightCharts.createChart(container=''|HTMLElement, ?options={
-	// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/ChartOptions
+	// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/ChartOptions
 	width:    0,
 	height:   0,
 	autoSize: true,
 	timeScale: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/TimeScaleOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/TimeScaleOptions
 		rightOffset:                  0,
 		barSpacing:                   6,
 		minBarSpacing:                0.5,
@@ -66,7 +66,7 @@ var chart = LightweightCharts.createChart(container=''|HTMLElement, ?options={
 		tickMarkFormatter:            (time, tickMarkType, locale)=>'' | undefined,
 	},
 	['left|right|overlay'+'PriceScale']: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/PriceScaleOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/PriceScaleOptions
 		autoScale:      true,
 		mode:           PriceScaleMode.Normal,
 		invertScale:    false,
@@ -80,9 +80,9 @@ var chart = LightweightCharts.createChart(container=''|HTMLElement, ?options={
 		ticksVisible:   false, // v4 renamed from `drawTicks`
 	},
   crosshair: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/CrosshairOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/CrosshairOptions
 		['vertLine|horzLine']: {
-			// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/CrosshairLineOptions
+			// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/CrosshairLineOptions
 			mode:                 CrosshairMode.Magnet,
 			
 			color:                '#758696',
@@ -94,16 +94,16 @@ var chart = LightweightCharts.createChart(container=''|HTMLElement, ?options={
 		},
   },
 	grid: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/GridOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/GridOptions
 		['vertLines|horzLines']: {
-			// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/GridLineOptions
+			// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/GridLineOptions
 			color:   '#D6DCDE',
 			style:   LineStyle.Solid,
 			visible: true,
 		}
 	},
 	localization: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/LocalizationOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/LocalizationOptions
 		locale:         navigator.language | 'en-US|...',
 		priceFormatter: undefined | (price=0)=>'',
 		timeFormatter:  undefined | (time=Time)=>'',
@@ -116,38 +116,38 @@ var chart = LightweightCharts.createChart(container=''|HTMLElement, ?options={
 			'dd'   // day of  month: 15  (with leading zero if needed)
 	},
 	layout: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/LayoutOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/LayoutOptions
 		background: {type:ColorType.Solid, color:'#FFFFFF'},
 		textColor:  '#191919',
 		fontSize:   11,
 		fontFamily: "-apple-system, BlinkMacSystemFont, 'Trebuchet MS', Roboto, Ubuntu, sans-serif",
 	},
 	handleScroll: true | {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/HandleScrollOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/HandleScrollOptions
 		mouseWheel:       true,
 		pressedMouseMove: true,
 		horzTouchDrag:    true,
 		vertTouchDrag:    true,
 	},
 	handleScale: true | {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/HandleScaleOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/HandleScaleOptions
 		mouseWheel:           true,
 		pinch:                true,
 		axisPressedMouseMove: true | {time:true, price:true},
 		axisDoubleClickReset: true | {time:true, price:true},
 	},
 	kineticScroll: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/KineticScrollOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/KineticScrollOptions
 		touch: true,
 		touch: false,
 	},
 	trackingMode: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/TrackingModeOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/TrackingModeOptions
 		exitMode: TrackingModeExitMode.OnNextTap,
 		
 	},
 	watermark: {
-		// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/WatermarkOptions
+		// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/WatermarkOptions
 		color:      'rgba(0, 0, 0, 0)',
 		visible:    false,
 		text:       '',
@@ -162,7 +162,7 @@ var chart = LightweightCharts.createChart(container=''|HTMLElement, ?options={
 chart.Nm.cv = container<HTMLElement>
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/IChartApi
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/IChartApi
 chart.addAreaSeries()
 chart.addBarSeries()
 chart.addBaselineSeries()
@@ -184,7 +184,7 @@ chart.unsubscribeClick(...subscribe*)
 chart.unsubscribeCrosshairMove(...subscribe*)
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/ISeriesApi
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/ISeriesApi
 series = chart['add'+'Area|Bar|Baseline|Candlestick|Histogram|Line'+'Series']()
 series.priceFormatter()
 series.priceToCoordinate(price=0)
@@ -203,7 +203,7 @@ series.removePriceLine(line)
 series.seriesType()
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/SeriesDataItemTypeMap
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/SeriesDataItemTypeMap
 SingleValueData = {time:Time, value:0}
 OhlcData = {
 	time:  Time,
@@ -258,7 +258,7 @@ seriesDataItem = BarData | CandlestickData | AreaData | BaselineData | LineData 
 seriesData = [ seriesDataItem, ... ]
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/ITimeScaleApi
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/ITimeScaleApi
 var timeScale = chart.timeScale()
 timeScale.applyOptions(options={})
 timeScale.coordinateToLogical(coordinate=0)
@@ -286,7 +286,7 @@ timeScale.unsubscribeVisibleTimeRangeChange(callback)
 timeScale.width()
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/SeriesOptionsCommon
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/SeriesOptionsCommon
 SeriesOptionsCommon = {
 	lastValueVisible:      true,
 	title:                 '',
@@ -307,7 +307,7 @@ SeriesOptionsCommon = {
 };
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/LineStyleOptions
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/LineStyleOptions
 var lineSeries = chart.addLineSeries({
 	color:                          '#2196f3',
 	lineStyle:                      LineStyle.Solid,
@@ -324,7 +324,7 @@ var lineSeries = chart.addLineSeries({
 lineSeries.setData([{time:Time, value:0}, ...])
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/AreaStyleOptions
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/AreaStyleOptions
 var areaSeries = chart.addAreaSeries({
 	topColor:                       'rgba(46, 220, 135, 0.4)',
 	bottomColor:                    'rgba(40, 221, 100, 0)',
@@ -344,7 +344,7 @@ var areaSeries = chart.addAreaSeries({
 areaSeries.setData([{time:Time, value:0}, ...])
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/BarStyleOptions
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/BarStyleOptions
 var barSeries = chart.addBarSeries({
 	upColor:     '#26a69a',
 	downColor:   '#ef5350',
@@ -355,7 +355,7 @@ var barSeries = chart.addBarSeries({
 barSeries.setData([{time:Time, open:0, high:0, low:0, close:0,}, ...])
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/CandlestickStyleOptions
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/CandlestickStyleOptions
 var candlestickSeries = chart.addCandlestickSeries({
 	upColor:         '#26a69a',
 	downColor:       '#ef5350',
@@ -372,7 +372,7 @@ var candlestickSeries = chart.addCandlestickSeries({
 candlestickSeries.setData([{time:Time, open:0, high:0, low:0, close:0,}, ...])
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/HistogramStyleOptions
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/HistogramStyleOptions
 var histSeries = chart.addHistogramSeries({
 	color: '#26a69a',
 	base:  0,
@@ -381,7 +381,7 @@ var histSeries = chart.addHistogramSeries({
 histSeries.setData([{time:Time, value:0, color:''}, ...])
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/BaselineStyleOptions
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/BaselineStyleOptions
 var baselineSeries = chart.addBaselineSeries({
 	baseValue:                      {type:'price', price:0},
 	topFillColor1:                  'rgba(38, 166, 154, 0.28)',
@@ -403,7 +403,7 @@ var baselineSeries = chart.addBaselineSeries({
 });
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/MouseEventParams
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/MouseEventParams
 MouseEventParams {
 	?time:            Time,
 	?logical:         Logical,
@@ -415,7 +415,7 @@ MouseEventParams {
 }
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/PriceLineOptions
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/PriceLineOptions
 PriceLineOptions {
 	?id:                 '',
 	price:               0,
@@ -430,7 +430,7 @@ PriceLineOptions {
 }
 
 
-// https://tradingview.github.io/lightweight-charts/docs/api/interfaces/SeriesMarker
+// https://tradingview.github.io/lightweight-charts/docs/4.1/api/interfaces/SeriesMarker
 SeriesMarker {
 	time:     Time,
 	position: SeriesMarkerPosition,
