@@ -430,3 +430,7 @@ np.unique(a)         # [0,1,2,3,4]
 np.unique(a, axis=0) # [ [1,0,0], [2,3,4] ]
 
 np.sign([-2, 0, 2]) # [-1, 0, 1]
+
+np.allclose([0.0000001], [0.0000002])   # False
+np.allclose([0.00000001], [0.00000002]) # True
+np.allclose([0.00000001], [0.00000003]) # False
