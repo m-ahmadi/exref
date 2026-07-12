@@ -8580,6 +8580,52 @@
                       "type": "folder"
                     },
                     {
+                      "children": [
+                        {
+                          "name": "cli-table3",
+                          "type": "url",
+                          "url": "https://www.npmjs.com/package/cli-table3"
+                        },
+                        {
+                          "name": "cli-table",
+                          "type": "url",
+                          "url": "https://www.npmjs.com/package/cli-table"
+                        },
+                        {
+                          "name": "console.table",
+                          "type": "url",
+                          "url": "https://www.npmjs.com/package/console.table"
+                        },
+                        {
+                          "name": "columnify",
+                          "type": "url",
+                          "url": "https://www.npmjs.com/package/columnify"
+                        },
+                        {
+                          "name": "log-update",
+                          "type": "url",
+                          "url": "https://www.npmjs.com/package/log-update"
+                        },
+                        {
+                          "name": "listr2",
+                          "type": "url",
+                          "url": "https://www.npmjs.com/package/listr2"
+                        },
+                        {
+                          "name": "yocto-spinner",
+                          "type": "url",
+                          "url": "https://www.npmjs.com/package/yocto-spinner"
+                        },
+                        {
+                          "name": "ora",
+                          "type": "url",
+                          "url": "https://www.npmjs.com/package/ora"
+                        }
+                      ],
+                      "name": "log",
+                      "type": "folder"
+                    },
+                    {
                       "name": "progress",
                       "type": "url",
                       "url": "https://www.npmjs.com/package/progress"
@@ -8628,26 +8674,6 @@
                       "name": "nopt",
                       "type": "url",
                       "url": "https://www.npmjs.com/package/nopt"
-                    },
-                    {
-                      "name": "cli-table3",
-                      "type": "url",
-                      "url": "https://www.npmjs.com/package/cli-table3"
-                    },
-                    {
-                      "name": "cli-table",
-                      "type": "url",
-                      "url": "https://www.npmjs.com/package/cli-table"
-                    },
-                    {
-                      "name": "console.table",
-                      "type": "url",
-                      "url": "https://www.npmjs.com/package/console.table"
-                    },
-                    {
-                      "name": "columnify",
-                      "type": "url",
-                      "url": "https://www.npmjs.com/package/columnify"
                     },
                     {
                       "name": "zx",
@@ -9387,7 +9413,7 @@
                     {
                       "name": "NPMGraph",
                       "type": "url",
-                      "url": "http://npm.broofa.com/"
+                      "url": "https://npmgraph.js.org/"
                     },
                     {
                       "name": "npm-stat",
@@ -9447,6 +9473,11 @@
                   "name": "bun",
                   "type": "url",
                   "url": "https://bun.sh/"
+                },
+                {
+                  "name": "ant",
+                  "type": "url",
+                  "url": "https://github.com/theMackabu/ant"
                 }
               ],
               "name": "node.js",
