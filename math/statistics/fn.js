@@ -207,8 +207,8 @@ function percentile(_nums=[], n=0, exclusive=false) {
 	}
 }
 
-function stdv(nums=[]) {
-	return Math.sqrt( variance(nums) );
+function stdv(nums=[], sample=false) {
+	return Math.sqrt( variance(nums, sample) );
 }
 function stdvIncrPartial(state={}) {
 	let { delta, mu=0, M2=0, N=0 } = state;
@@ -275,10 +275,10 @@ function stdvIncrPartial(state={}) {
 	*/
 }
 
-function variance(x=[]) {
+function variance(x=[], sample=false) {
 	let u = mean(x);
 	let sqrDiffs = x.map(i=> sqr(i-u));
-	return mean(sqrDiffs);
+	return mean(sqrDiffs, 0, sample);
 }
 
 function meandv(nums=[]) {
