@@ -1,0 +1,34 @@
+https://linuxize.com/post/how-to-use-nano-text-editor/
+
+^ = ctrl
+M = alt
+
+alt u		undo
+alt e		redo
+alt \		go to beginning of file
+alt /		go to end       of file
+alt w		search next match
+alt a		select text		(ctrl 6)
+alt 6		copy
+
+ctrl k		cut
+ctrl u		paste
+ctrl _		go to line/colum
+ctrl o		save file	
+ctrl x		exit	
+ctrl w		search text
+ctrl \		replace text
+ctrl g		show help
+
+
+select text
+alt a -> move cursor
+
+select all text
+alt \ -> ctrl a -> alt /
+
+search for a text
+ctrl w -> type text -> enter -> alt w (next match)
+
+search and replace
+ctrl \ -> search term -> replace term -> y/n/a
