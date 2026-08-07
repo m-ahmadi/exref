@@ -2,6 +2,8 @@ touch file.txt			create file
 mkdir foo			create dir
 mkdir -p foo/bar		... create parent dirs if not exists
 cp src dest			copy file
+cp -a .a/!(file1|file2) .b/	copy all except some (must enable bash extended globbing first: `shopt -s extglob dotglob`)
+rsync -a --exclude='file' a b	...
 mv src dest			move file
 mv old.txt new.txt		rename file
 mv old_dir new_dir		rename dir
