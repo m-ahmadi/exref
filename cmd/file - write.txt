@@ -1,6 +1,8 @@
-echo salam >  test.txt			write to file (overwrite)
-echo salam >> test.txt			write to file (append)
+echo salam >  file.txt			write to file (overwrite)
+echo salam >> file.txt			write to file (append)
 call > file.txt				empty file with no trailing newline
+<nul set /p="salam" > file.txt		write to file with no trailing newline
+echo|set /p="salam" > file.txt		...
 
 type file1.txt file2.txt > out.txt	cat multiple files
 type *.txt > out.txt			...
