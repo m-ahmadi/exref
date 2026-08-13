@@ -9,6 +9,9 @@ mv old.txt new.txt		rename file
 mv old_dir new_dir		rename dir
 rename 's\.jpeg/\.jpg/' *	rename all .jpeg to .jpg (not in all distros)
 cat file.txt			print content of file
+head -n 10 file			print first 10 lines of file
+sed -n '10,15p' file		print lines 10 through 15 of file
+awk 'NR>=10 && NR<=15' file	...
 echo "foo" >> file.txt		append to file
 du -bsh *			show file sizes
 
