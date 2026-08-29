@@ -207,7 +207,11 @@ function percentile(_nums=[], n=0, exclusive=false) {
 	}
 }
 
-function stdv(nums=[], sample=false) {
+function stdv(nums=[], sample=false, trim=0) {
+	if (trim && trim > 0) {
+		if (trim < 1) trim = Math.round(nums.length * trim);
+		nums = [...nums].sort((a,b)=> a-b).slice(+trim, -trim);
+	}
 	return Math.sqrt( variance(nums, sample) );
 }
 function stdvIncrPartial(state={}) {
