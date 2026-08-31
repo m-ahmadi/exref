@@ -13,3 +13,4 @@ octref.vetur
 Leopotam.csharpfixformat
 
 unifiedjs.vscode-mdx
+xyc.vscode-mdx-preview
