@@ -1,0 +1,19 @@
+/human
+	Put it before your prompt and ChatGPT will give you a humanised answer
+	that sounds naturally written and can even pass AI detectors.
+
+/EL10
+	Add it before your prompt and ChatGPT will explain any complex topic in
+	the simplest way possible, as if you are 10 years old.
+
+/X10THINK
+	Put it at the end of your prompt and ChatGPT will think 10x deeper
+	before answering, giving you a much smarter and more analytical response.
+
+/KILLCRITIC
+	Add it after your prompt and ChatGPT will stop agreeing with everything
+	you say and start telling you the honest truth instead.
+
+/ALT3
+	Put it at the end of your prompt and ChatGPT will give you 3 completely
+	different alternatives to your answer so you always have options to choose from.
