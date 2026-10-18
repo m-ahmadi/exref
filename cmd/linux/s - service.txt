@@ -1,6 +1,10 @@
 systemctl --version		show version (e.g. systemd 245 on ubuntu 20.04)
-systemctl --type=service	list all services
-systemctl list-units		show services
+
+systemctl --type=service					list all services
+systemctl list-units						show services
+systemctl --user list-units --type=service --state=running	show all currently running user services
+systemctl --user list-units --type=service --all		show all loaded user services, including inactive ones
+systemctl --user list-unit-files --type=service			list all installed user servics, including not currently loaded or running
 
 systemctl status httpd		service status
 service httpd status		...
