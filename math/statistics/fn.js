@@ -153,7 +153,8 @@ function areaUnderCurve(x=[], y=[]) {
 function mean(nums=[], trim=0, sample=false) {
 	if (trim && trim > 0) {
 		if (trim < 1) trim = Math.round(nums.length * trim);
-		nums = [...nums].sort((a,b)=> a-b).slice(+trim, -trim);
+		if (trim > 0) nums = [...nums].sort((a,b)=> a-b).slice(+trim, -trim);
+		// no trimming occurs if calculated trim count is zero
 	}
 	return sum(nums) / (nums.length - (sample?1:0));
 }
