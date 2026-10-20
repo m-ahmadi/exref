@@ -152,11 +152,16 @@ function areaUnderCurve(x=[], y=[]) {
 
 function mean(nums=[], trim=0, sample=false) {
 	if (trim && trim > 0) {
-		if (trim < 1) trim = Math.round(nums.length * trim);
+		if (trim < 1) trim = Math.floor(nums.length * trim);
 		if (trim > 0) nums = [...nums].sort((a,b)=> a-b).slice(+trim, -trim);
 		// no trimming occurs if calculated trim count is zero
 	}
 	return sum(nums) / (nums.length - (sample?1:0));
+	/* floor vs round
+	round(5 * 0.1) is 1, so removes 1 item from each tail (20% per tail)
+	floor with 5 nums removes 0, with 10 nums, removes 1 from each tail (10% per tail)
+	floor better approximates a conventional 10% trimmed mean for small nums
+	*/
 }
 
 function meanWeighted(x=[], w=[]) {
