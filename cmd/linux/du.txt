@@ -1,3 +1,5 @@
 du --help
 
 du -s -h node_modules		get folder size
+du -sh foo			...
+du -s -h *			all dirs
