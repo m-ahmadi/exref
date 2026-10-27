@@ -50,7 +50,10 @@ journalctl -u foo --since "2026-05-26" --until "2026-05-27"
 journalctl -u foo --since "2026-05-26 14:20:00" --until "2026-05-26 14:50:00"
 
 show all logs at once (without interactive scrolling)
-journalctl -u lstm --no-pager -o cat
+journalctl -u foo --no-pager -o cat
+
+see if service has ever been killed due to lack of system memory
+journalctl -u foo | grep -i "oom"
 
 --------------------------------------------------
 log control

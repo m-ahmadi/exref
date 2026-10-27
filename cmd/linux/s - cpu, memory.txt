@@ -1,0 +1,1 @@
+free -h			show memory usage stats at the moment
