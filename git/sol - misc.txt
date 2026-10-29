@@ -1,0 +1,1 @@
+git check-ignore -v proj/a/foo		see which .gitignore rule is causing this file to be ignored
