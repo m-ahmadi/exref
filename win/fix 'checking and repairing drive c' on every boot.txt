@@ -1,0 +1,94 @@
+caused by two different things joining forces
+
+power-out while pc is sleep
+which sometimes mess things up
+and windows schedules a disk check
+that is normal
+
+here is when 2nd force comes into play
+and that is "riot vanguard"
+because it blocks access to some things (or has a bug, idk)
+it prevents windows from running the scheduled disk check
+therefore the cycle repeats
+so uninstall vanguard, then restart pc, and scheduled disk check will run properly
+thus, you won't see it on subsequent restarts
+
+--------------------------------------------------------------------------------
+useful commands
+
+fsutil dirty query C:			check whether windows considers C: dirty
+chkntfs C:				check whether a disk check is scheduled
+chkdsk C: /scan				check the filesystem for actual errors
+
+look for latest available CHKDSK report
+	Get-WinEvent -FilterHashtable @{LogName='Application'} |
+	Where-Object {$_.ProviderName -match 'Chkdsk|Wininit'} |
+	Select-Object -First 5 TimeCreated, ProviderName, Id, Message |
+	Format-List
+
+steps to establish "denied access" in elavated command prompt is not due to something else
+	whoami /groups				check the actual security token
+	whoami /priv				...
+	
+	fltmc					lists filesystem filter drivers, which can include antivirus, encryption, backup, etc
+	manage-bde -status C:			check BitLocker status
+	
+	chkdsk D:				if d has same issue, it shows broader problem
+	chkntfs D:				...
+
+--------------------------------------------------------------------------------
+check drive health
+
+identify the ssd first
+```
+Get-CimInstance Win32_DiskDrive |
+Select-Object Model, FirmwareRevision, Status, Size
+```
+
+
+see event ids can help identify disk i/o errors, filesystem corruption, storage timeouts, and device resets
+```
+Get-WinEvent -FilterHashtable @{
+    LogName = 'System'
+    Id = 7, 51, 55, 98, 129, 153, 157
+} -MaxEvents 30 |
+Select-Object TimeCreated, ProviderName, Id, Message |
+Format-List
+```
+
+
+identify the physical disk containing C:
+```
+$p = Get-Partition -DriveLetter C
+
+$p | Format-List DiskNumber,PartitionNumber,DriveLetter,Size
+
+Get-Disk -Number $p.DiskNumber |
+Format-List Number,FriendlyName,SerialNumber,BusType,HealthStatus,OperationalStatus,Size
+```
+
+
+filter system log by provider as well as event id to reduce unrelated events
+```
+Get-WinEvent -FilterHashtable @{
+    LogName = 'System'
+    StartTime = (Get-Date).AddDays(-30)
+} |
+Where-Object {
+    $_.ProviderName -match 'disk|stor|ntfs|volmgr' -and
+    $_.Id -in 7,11,15,51,55,98,129,153,157
+} |
+Select-Object -First 30 TimeCreated,ProviderName,Id,Message |
+Format-List
+```
+
+
+query the nvme reliability counters
+```
+$pd = Get-PhysicalDisk |
+    Where-Object FriendlyName -eq 'Samsung SSD 970 EVO Plus 250GB'
+
+$pd | Get-StorageReliabilityCounter | Format-List *
+```
+
+--------------------------------------------------------------------------------
