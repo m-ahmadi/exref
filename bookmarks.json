@@ -1939,6 +1939,11 @@
                       "url": "http://www.extensoft.com/?p=free_task_manager"
                     },
                     {
+                      "name": "Deskland",
+                      "type": "url",
+                      "url": "https://github.com/BLEZZ0102/Deskland"
+                    },
+                    {
                       "name": "Taskbar Shuffle (XP)",
                       "type": "url",
                       "url": "http://nerdcave.webs.com/"
