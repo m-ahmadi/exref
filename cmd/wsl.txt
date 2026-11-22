@@ -1,13 +1,37 @@
+wsl --status			some general info (default distro & its type, kernel version, etc)
+wsl --list --verbose		list installed distros
+wsl --list --online		list available distros to install
+wsl --install -d Ubuntu		install a distro
+wsl --set-default SomeDistro	set default distro
+
+wsl ~				start wsl in user home directory
+wsl --cd /mnt/d/xampp/htdocs	... in other path
+
+wsl --shutdown			terminate all running distros
+wsl --terminate SomeDistro	terminate specific distro
+
+
+https://learn.microsoft.com/en-us/windows/wsl/basic-commands
+
+--------------------------------------------------------------------------------
+create desktop shortcut
+
+desktop -> rclick -> w s -> wsl --cd /mnt/d/xampp/htdocs -> ubuntu
+--------------------------------------------------------------------------------
+enable wsl windows feature
+
 https://learn.microsoft.com/en-us/windows/wsl/install
 
 needs windows 10 build 18900+
 
 control appwiz.cpl,,2
 	"Windows Subsystem for Linux"
+	"Virtual Machine Platform"
 
 or powershell:
 	Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
+restart
 --------------------------------------------------------------------------------
 install on windows versions below 19041
 https://learn.microsoft.com/en-us/windows/wsl/install-manual
@@ -45,4 +69,3 @@ https://learn.microsoft.com/en-us/windows/wsl/install-manual
 13. ubuntu
 
 --------------------------------------------------------------------------------
-

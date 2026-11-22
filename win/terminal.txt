@@ -1,0 +1,4 @@
+
+make normal shortcut on desktop
+
+win+r -> shell:AppsFolder -> Terminal -> rclick -> Create shortcut -> Yes
