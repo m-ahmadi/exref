@@ -1,0 +1,34 @@
+what is hybrid sleep?
+
+short:
+	upon sleep, windows keeps session in ram while also saving a hibernation image to disk,
+	so when ram content is gone upon power out during sleep, hibernation image survives and session can be restored
+
+long:
+	when putting pc to sleep, windows saves current session to hiberfil.sys on disk
+	then enters nromal sleep (s3), keeping the session in ram as well
+	upon power loss, ram content is destroyed, but saved session on disk remains intact
+	at next power on, windows detects saved hibernation image and restores previous session
+
+hybrid sleep combines normal sleep with a hibernation backup so a power loss won't destroy the session
+without it, power loos during sleep, destroys active sleep session
+
+--------------------------------------------------------------------------------
+what caused my issue
+
+enabling "Virtual Machine Platform" windows feature
+	win+r -> optionalfeatures -> "Virtual Machine Platform" -> enable -> restart
+
+when enabled
+	powercfg /a	# available:	Standby (S3), Hibernate, Fast Startup		(unavailable: Hybrid Sleep)
+
+when disabled
+	powercfg /a	# available:	Standby (S3), Hibernate, Hybrid Sleep, Fast Startup
+
+--------------------------------------------------------------------------------
+cmds
+
+powercfg /a							check available sleep states	(which sleep states windows currently supports)
+powercfg /query SCHEME_CURRENT SUB_SLEEP HYBRIDSLEEP		check hybrid sleep config 	(whether hybrid sleep is enabled in current power plan)
+
+--------------------------------------------------------------------------------

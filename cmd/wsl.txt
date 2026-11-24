@@ -1,8 +1,11 @@
-wsl --status			some general info (default distro & its type, kernel version, etc)
-wsl --list --verbose		list installed distros
+wsl --status			some general info (default distro & its wsl arch version, kernel version, etc)
+wsl --version			version of wsl package (not supported in older built-in windows wsl)
+wsl --list --verbose		list installed distros (and their wsl arch version)
+wsl -l -v			...
 wsl --list --online		list available distros to install
 wsl --install -d Ubuntu		install a distro
 wsl --set-default SomeDistro	set default distro
+wsl --set-default-version 1	change default arch version for new distro installs (makes sense with "Virtual Machine Platform" off, but not necessary)
 
 wsl ~				start wsl in user home directory
 wsl --cd /mnt/d/xampp/htdocs	... in other path
@@ -26,12 +29,20 @@ needs windows 10 build 18900+
 
 control appwiz.cpl,,2
 	"Windows Subsystem for Linux"
-	"Virtual Machine Platform"
+	"Virtual Machine Platform"		only needed for wsl v2 (if off, new distro installs default to wsl 1 arch)
 
 or powershell:
 	Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
 restart
+--------------------------------------------------------------------------------
+wsl 1 vs 2
+
+v1	linux applications run through a compatibility layer that translates linux system calls into windows operations.
+	no "Virtual Machine Platform" is needed.
+
+v2	runs a real linux kernel inside a lightweight virtual machine managed by windows.
+	requires "Virtual Machine Platform".
 --------------------------------------------------------------------------------
 install on windows versions below 19041
 https://learn.microsoft.com/en-us/windows/wsl/install-manual
