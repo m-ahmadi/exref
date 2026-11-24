@@ -1788,6 +1788,11 @@
                   "url": "https://misterdownloadmanager.com/"
                 },
                 {
+                  "name": "Handy",
+                  "type": "url",
+                  "url": "https://github.com/cjpais/Handy"
+                },
+                {
                   "children": [
                     {
                       "name": "SmartTube",
